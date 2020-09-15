@@ -1,5 +1,5 @@
 ### :pushpin: References
-* **Issue:** [HUB-XXX](https://gesundheitscloud.atlassian.net/browse/HUB-XXX)
+* **Issue:** [PHDC-XXX](https://gesundheitscloud.atlassian.net/browse/PHDC-XXX)
 * **Related pull-requests:** _list of related pull-requests (comma-separated): #1, #2 or **delete** this line_
 
 ### :tophat: What is the goal?
