@@ -49,14 +49,26 @@
   description: Not ready yet!
   color: e56992
 
-# platforms
+# library
 - name: android
-  description: Android-specific Sample App changes
+  description: Android changes
   color: 008672
 - name: ios
-  description: iOS-specific Sample App changes
+  description: iOS changes
   color: 008672
 - name: library
-  description: Library-specific changes
+  description: Library changes
   color: 008672
+
+- name: FHIR
+  description: FHIR changes
+  color: d67d02
+
+# sample
+- name: sample-android
+  description: SampleApp Android
+  color: 4514b7
+- name: sample-ios
+  description: SampleApp iOS
+  color: 4514b7
 

@@ -15,8 +15,9 @@ documentation:
 library:
   - library/**/*
 
-android:
+# Sample
+sample-android:
   - sample-android/**/*
 
-ios:
+sample-ios:
   - sample-ios/**/*
