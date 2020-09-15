@@ -6,13 +6,7 @@ plugins {
 
     // Android
     id("com.android.library")
-
-    // iOS
-    id("co.touchlab.native.cocoapods")
     id("kotlin-android-extensions")
-
-    // DB
-    id("com.squareup.sqldelight")
 }
 
 version = LibraryConfig.version
@@ -25,20 +19,13 @@ kotlin {
     }
     jvm("jvm")
 
-    // Add a platform switching to have an IDE support. Revert to just ios() when gradle plugin can properly resolve it
-    val buildForDevice = project.findProperty("kotlin.native.cocoapods.target") == "ios_arm"
-    if (buildForDevice) {
-        iosArm64("ios") {
-            binaries {
-                framework { }
+    ios {
+        binaries {
+            framework {
+                baseName = LibraryConfig.name
             }
         }
-    } else {
-        iosX64("ios")
     }
-
-    targets.getByName<KotlinNativeTarget>("ios").compilations["main"].kotlinOptions.freeCompilerArgs +=
-        listOf("-Xobjc-generics", "-Xg0")
 
     sourceSets {
         all {
@@ -118,16 +105,7 @@ kotlin {
                 implementation(Dependencies.multiplatform.sqlDelight.driverIos)
             }
         }
-    }
-
-    cocoapodsext {
-        summary = "Kotlin multiplatforn library template"
-        homepage = "https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template"
-
-        framework {
-            isStatic = false
-            baseName = "Library"
-        }
+        val iosTest by getting
     }
 }
 
@@ -170,9 +148,63 @@ android {
     }
 }
 
-sqldelight {
-    database("LibraryDatabase") {
-        packageName = "care.data4life.library"
-        schemaOutputDirectory = file("src/commonMain/sqldelight")
+val xcodeMode = System.getenv("CONFIGURATION") ?: "DEBUG"
+val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
+val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
+val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(xcodeMode)
+val frameworkFile = framework.outputFile
+
+val xcodeFrameworksDirectory: File? = run {
+    val xcodeTargetBuildDir = System.getenv("TARGET_BUILD_DIR") ?: return@run null
+    val xcodeFrameworksFolderPath = System.getenv("FRAMEWORKS_FOLDER_PATH") ?: return@run null
+    file("$xcodeTargetBuildDir/$xcodeFrameworksFolderPath")
+}
+
+val frameworksDirectory = File(buildDir, "xcode-frameworks")
+
+val packForXcode by tasks.creating(Sync::class) {
+    group = "build"
+    dependsOn(framework.linkTask)
+
+    inputs.property("mode", xcodeMode)
+
+    from({ framework.outputDirectory })
+    into(frameworksDirectory)
+}
+tasks.getByName("build").dependsOn(packForXcode)
+
+
+val embedAndSignForXcode by tasks.creating(Sync::class) {
+    group = "build"
+    dependsOn(packForXcode)
+
+    if (xcodeFrameworksDirectory == null) {
+        enabled = false
+        return@creating
+    }
+
+    destinationDir = xcodeFrameworksDirectory.resolve(frameworkFile.name)
+    from(frameworksDirectory.resolve(frameworkFile.name))
+
+    // Sign the framework.
+    val codeSignIdentity = System.getenv("EXPANDED_CODE_SIGN_IDENTITY")
+    inputs.property("codeSignIdentity", codeSignIdentity)
+
+    doLast {
+        if (codeSignIdentity.isNullOrEmpty()) {
+            return@doLast
+        }
+
+        project.exec {
+            commandLine(
+                "codesign",
+                "--force",
+                "--sign", codeSignIdentity,
+                "--",
+                xcodeFrameworksDirectory
+                    .resolve(frameworkFile.name)
+                    .resolve(frameworkFile.nameWithoutExtension)
+            )
+        }
     }
 }

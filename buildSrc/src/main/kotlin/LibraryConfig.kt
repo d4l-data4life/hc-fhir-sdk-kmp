@@ -15,7 +15,7 @@
  */
 
 object LibraryConfig {
-    const val name = "Library"
+    const val name = "FHIR"
     const val version = "0.0.1"
     const val group = "care.data4life.library"
     const val versionCode = 1

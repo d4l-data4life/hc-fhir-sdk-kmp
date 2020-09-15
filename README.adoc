@@ -82,8 +82,7 @@ Guide to setup the template project locally.
 * link:https://developer.android.com/studio#downloads[Android Studio 4.0.1]
 * link:https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
 * link:https://kotlinlang.org/[Kotlin 1.4.10]
-* Xcode 11.5
-* link:https://guides.cocoapods.org/using/getting-started.html[Cocoapods]
+* Xcode 11.7
 
 === Installation
 
@@ -129,19 +128,7 @@ For better interop you could install the link:https://plugins.jetbrains.com/plug
 
 == Usage
 
-=== iOS First Time Use
 
-Steps to enable the project for first time use:
-
-. `./gradlew :library:build`
-. `cd sample-ios`
-. `pod repo update`
-. `pod install`
-. open the project in XCode and build (build will fail, but triggers framework sync)
-. `pod install` (properly installs common Framework)
-. open the project in XCode and build -> develop
-
-Voilá
 
 == Roadmap
 
