@@ -32,11 +32,6 @@ object Versions {
         const val dependencyUpdates = "0.33.0"
     }
 
-    // IOS
-    // https://github.com/touchlab/KotlinCocoapods/
-    const val cocoapodsext = "0.11"
-
-
     // Kotlin
     // https://github.com/JetBrains/kotlin
     const val kotlin = "1.4.10"
@@ -82,20 +77,6 @@ object Versions {
      * [Koin](https://github.com/InsertKoinIO/koin)
      */
     const val koin = "3.0.0-alpha-9"
-
-    // Network
-    /**
-     * [Ktor](https://ktor.io/)
-     */
-    const val ktor = "1.4.0"
-
-
-    // Database
-    /**
-     * [SQldelight](https://github.com/cashapp/sqldelight)
-     */
-    const val sqlDelight = "1.4.3"
-
 
     // Junit Test
     const val testJUnit = "4.13"

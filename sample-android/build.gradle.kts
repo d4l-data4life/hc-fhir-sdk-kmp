@@ -84,8 +84,6 @@ dependencies {
     implementation(Dependencies.android.androidX.appCompat)
     implementation(Dependencies.android.androidX.constraintLayout)
 
-    implementation(Dependencies.multiplatform.ktor.androidCore)
-
     testImplementation(Dependencies.test.junit)
     androidTestImplementation(Dependencies.androidTest.junit)
     androidTestImplementation(Dependencies.androidTest.espressoCore)

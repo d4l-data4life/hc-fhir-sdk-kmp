@@ -7,9 +7,6 @@ buildscript {
     dependencies {
         classpath(GradlePlugins.kotlin)
         classpath(GradlePlugins.android)
-
-        classpath(Dependencies.GradlePlugin.sqlDelight)
-        classpath(Dependencies.kotlin.serialization)
     }
 }
 

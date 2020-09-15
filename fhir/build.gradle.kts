@@ -39,12 +39,6 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.stdlibCommon)
 
                 implementation(Dependencies.multiplatform.coroutines.common)
-
-                implementation(Dependencies.multiplatform.ktor.commonCore)
-                implementation(Dependencies.multiplatform.ktor.commonJson)
-                implementation(Dependencies.multiplatform.ktor.commonSerialization)
-
-                implementation(Dependencies.multiplatform.sqlDelight.runtime)
             }
         }
         val commonTest by getting {
@@ -62,8 +56,6 @@ kotlin {
                 //Kotlin
                 implementation(Dependencies.multiplatform.kotlin.stdlibAndroid)
                 implementation(Dependencies.multiplatform.coroutines.android)
-                implementation(Dependencies.multiplatform.ktor.androidSerialization)
-                implementation(Dependencies.multiplatform.sqlDelight.driverAndroid)
 
                 implementation(Dependencies.android.material)
             }
@@ -98,11 +90,6 @@ kotlin {
                         strictly(Versions.kotlinCoroutines)
                     }
                 }
-
-                implementation(Dependencies.multiplatform.ktor.ios)
-                implementation(Dependencies.multiplatform.ktor.io)
-
-                implementation(Dependencies.multiplatform.sqlDelight.driverIos)
             }
         }
         val iosTest by getting
