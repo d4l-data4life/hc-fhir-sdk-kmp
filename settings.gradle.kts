@@ -1,11 +1,11 @@
-rootProject.name = "d4l-kotlin-mpp-library-template"
+rootProject.name = "hc-fhir-sdk-kmp"
 
 enableFeaturePreview("GRADLE_METADATA")
 
 include(
     ":sample-android",
 
-    ":library",
+    ":fhir",
 
     ":docs"
 )

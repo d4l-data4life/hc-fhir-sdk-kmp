@@ -75,7 +75,7 @@ android {
 dependencies {
     coreLibraryDesugaring(Dependencies.android.desugar)
 
-    implementation(project(":library"))
+    implementation(project(":fhir"))
 
     implementation(Dependencies.android.kotlinStdLib)
     implementation(Dependencies.android.kotlinCoroutinesCore)
