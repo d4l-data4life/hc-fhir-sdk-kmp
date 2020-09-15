@@ -1,0 +1,22 @@
+build:
+  - .github/**/*
+
+dependencies:
+  - buildSrc/**/*
+
+documentation:
+  - docs/**/*
+  - README.adoc
+  - LICENSE.adoc
+  - CHANGELOG.adoc
+  - CONTRIBUTION.adoc
+
+# Platform
+library:
+  - library/**/*
+
+android:
+  - sample-android/**/*
+
+ios:
+  - sample-ios/**/*

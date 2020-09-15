@@ -1,0 +1,161 @@
+:library_version: 0.0.1
+:toc: macro
+:toclevels: 2
+:toc-title:
+ifdef::env-github[]
+:imagesdir: https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/assets/images/
+:link-license: https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/LICENSE
+:link-contribution: https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/CONTRIBUTION.adoc
+:warning-caption: :warning:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+endif::[]
+ifndef::env-github[]
+:icons: font
+:imagesdir: ./assets/images
+:link-license: ./LICENCE
+:link-contribution: ./CONTRIBUTION.adoc
+endif::[]
+
+++++
+<div align="center">
+    <!-- PROJECT LOGO -->
+    <p>
+        <a><img src="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/assets/images/d4l-logo.svg" width="150"/></a>
+    </p>
+    <!-- PROJECT HEADER -->
+    <h1>Kotlin Multiplatform Library Template</h1>
+    <p><!-- PROJECT DESCRIPTION -->
+        A template to quickly start Kotlin multiplatform library projects @ Data4Life.
+    </p>
+    <p><!-- PROJECT DOCUMENTATION -->
+        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template"><strong>Explore the docs »</strong></a>
+    </p>
+    <p><!-- PROJECT ISSUES/FEATURES -->
+        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/issues">Report Bug</a>
+        ·
+        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/issues">Request Feature</a>
+    </p>
+    <p><!-- PROJECT BADGES -->
+        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/actions">
+            <img src="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/workflows/D4L%20CI%20KMP/badge.svg" alt="Build Status"/>
+        </a>
+        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/LICENSE">
+            <img src="https://img.shields.io/badge/license-PRIVATE-blue.svg"/>
+        </a>
+    </p>
+</div>
+++++
+
+[discrete]
+=== Table Of Contents
+toc::[]
+
+
+== About The Project
+
+Starting a new *Kotlin Multiplatform* project is a long and tiresome process. Even if there are some IDE templates available, the project structure needs a lot of tweaking and additional setup.
+
+There are some great Kotlin Multiplatform starter projects available on GitHub, however, they don't really suit our needs. They are too focused on other use cases and setup details.
+
+That's why we created this template:
+
+* Apply best practises and learnings
+* Quickly start on solving tasks and implementing functionality
+* You shouldn't be doing the same task over and over again to setup a multiplatform project from scratch
+* Follow DRY - don't repeat yourself
+
+This is a living template as we learn more and requirements change over time.
+
+=== Built With
+
+* link:https://kotlinlang.org/docs/reference/mpp-intro.html[Kotlin Multiplatform]
+
+== Getting Started
+
+Guide to setup the template project locally.
+
+=== Prerequisites
+
+* link:https://developer.android.com/studio#downloads[Android Studio 4.0.1]
+* link:https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
+* link:https://kotlinlang.org/[Kotlin 1.4.10]
+* Xcode 11.5
+* link:https://guides.cocoapods.org/using/getting-started.html[Cocoapods]
+
+=== Installation
+
+==== Install Java & Kotlin
+
+The easiest way to install Java and Kotlin is to use link:https://sdkman.io/[SDK MAN]
+
+Just open your terminal and enter:
+
+[source,bash]
+----
+curl -s "https://get.sdkman.io" | bash
+----
+
+Follow the setup instructions and verify that your installation works:
+
+[source,bash]
+----
+sdk version
+----
+
+If it shows you something like `SDKMAN 5.9.0+555` then your good to continue.
+
+Just install the mentioned dependencies:
+
+[source,bash]
+----
+sdk install java 8.0.265-amzn
+sdk install kotlin 1.4.10
+----
+
+Check your installation by:
+
+[source,bash]
+----
+java -version
+kotlin -version
+----
+
+==== Android Studio
+
+For better interop you could install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[KMM plugin for Android Studio]]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
+
+== Usage
+
+=== iOS First Time Use
+
+Steps to enable the project for first time use:
+
+. `./gradlew :library:build`
+. `cd sample-ios`
+. `pod repo update`
+. `pod install`
+. open the project in XCode and build (build will fail, but triggers framework sync)
+. `pod install` (properly installs common Framework)
+. open the project in XCode and build -> develop
+
+Voilá
+
+== Roadmap
+
+This repository is work in progress. We are working on adding more functionality, guidelines and other improvements.
+
+== Contributing
+
+Please refer to our link:{link-contribution}[Contribution Guide] for further details.
+
+== License
+
+Copyright (c) 2020 D4L data4life gGmbH / All rights reserved. Please refer to our link:{link-license}[License] for further details.
+
+== Related Links
+
+* link:https://kotlinlang.org/lp/mobile/[Kotlin Multiplatform Mobile Developer Portal]
+* link:https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction[Kotlin Multiplatform Hands-on: Networking and Data Storage]

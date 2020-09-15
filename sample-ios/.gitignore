@@ -1,0 +1,22 @@
+# This gitignore is inspired by https://github.com/github/gitignore/blob/master/Swift.gitignore
+codegen/generated
+codegen/gyb.pyc
+
+# User settings
+xcuserdata/
+
+## Obj-C/Swift specific
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+build/
+
+# Builds
+DerivedData/
+
+# CocoaPods
+Pods/

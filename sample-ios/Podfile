@@ -1,0 +1,21 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'git@github.com:gesundheitscloud/cocoapods-specs.git'
+
+platform :ios, '11.0'
+
+target 'SampleApp' do
+    use_frameworks!
+
+    # Library code
+    pod 'library', :path => '../library'
+
+
+    target 'SampleAppTests' do
+
+    end
+
+    target 'SampleAppUITests' do
+
+    end
+
+end

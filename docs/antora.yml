@@ -1,0 +1,6 @@
+name: d4l-kotlin-mpp-library-template
+title: Kotlin Multiplatform Library Template
+version: master
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc

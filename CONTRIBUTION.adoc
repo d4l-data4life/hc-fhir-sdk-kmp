@@ -1,0 +1,66 @@
+= Contribution Guide
+:toc: macro
+:toclevels: 2
+:toc-title:
+
+Description of our development process.
+
+[discrete]
+==== Table Of Contents
+toc::[]
+
+== Branch
+
+Every change has to branch of from `main` and use this branch naming convention: `{github-username}/{type_of_change}-{short_description}`
+
+`main` must be always in releasable state.
+
+=== Type Of Change
+
+- *add* for new features or functionality
+- *change* for changes in existing features or functionality
+- *remove* | for removed features or functionality
+- *fix* for any bug fixes
+- *bump* for dependency updates
+- *security* in case of vulnerabilities
+
+Examples:
+
+- `{github-username}/add-awesome-hashing-algorithm`
+- `{github-username}/remove-not-so-awesome-algorithm`
+- `{github-username}/fix-algorithm-corner-case`
+- `{github-username}/bump-algorithm-lib-to-1.3.0`
+
+== Pull Request
+
+ Title pattern: {type_of_change} {short_description}
+ Example: Add awesome hashing algorithm
+
+*Important*: Work in progress PR have to start with [WIP] in their name to inform others and the CI about the progress
+
+Pull requests must follow the provided template's structure.
+Where every paragraph has been filled accordingly, put NA when cannot be filled.
+
+*Tags* should be used (enhancement,bugfix, help wanted etc...) and always have to be up to date.
+
+== Code Review
+
+* Min. 1 reviewer of the link:https://github.com/orgs/gesundheitscloud/teams/native-app-core[Native App Core Team]
+* Definition of done followed
+
+== Definition Of Done
+
+* [ ] Code style and naming conventions met
+* [ ] Test written and passing
+* [ ] Continuous Integration build passing
+* [ ] Cross platform testing done on Android and iOS
+* [ ] Code peer-reviewed
+* [ ] Documentation updated
+* [ ] Changelog updated
+* [ ] Acceptance criteria met
+
+== Release
+
+This project is a rolling release. The latest state of `main` is the latest release.
+
+NOTE: Once a new projects started based on this template there is no further update possible.

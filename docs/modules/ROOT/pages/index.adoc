@@ -1,0 +1,5 @@
+= Kotlin Multiplatform Library Template @ Data4life
+
+Template version: {project-version}
+
+A template to quickly start off Kotlin multiplatform library projects at Data4Life.
