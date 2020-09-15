@@ -14,24 +14,14 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library.sample
+package care.data4life.fhir
 
-import android.os.Bundle
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import care.data4life.library.Sample
+import kotlin.test.Test
+import kotlin.test.assertTrue
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val view = findViewById<TextView>(R.id.second_text)
-        val hello = findViewById<TextView>(R.id.hello_text)
-
-        view.text = "The Answer is " + Sample(2).checkMe().toString()
-        hello.text = care.data4life.library.hello()
+class SampleTests {
+    @Test
+    fun testMe() {
+        assertTrue(Sample(1).checkMe() > 0)
     }
-
 }

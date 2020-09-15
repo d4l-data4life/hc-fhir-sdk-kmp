@@ -14,14 +14,20 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library
+package care.data4life.fhir.sample
 
-import kotlin.test.Test
-import kotlin.test.assertTrue
+import care.data4life.fhir.Sample
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-class SampleTestsJVM {
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+class ExampleUnitTest {
     @Test
-    fun testHello() {
-        assertTrue("JVM" in hello())
+    fun sampleTest() {
+        assertEquals(Sample(2).checkMe(), 42)
     }
 }

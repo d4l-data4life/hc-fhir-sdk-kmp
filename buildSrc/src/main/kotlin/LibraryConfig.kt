@@ -17,7 +17,7 @@
 object LibraryConfig {
     const val name = "FHIR"
     const val version = "0.0.1"
-    const val group = "care.data4life.library"
+    const val group = "care.data4life.fhir"
     const val versionCode = 1
 
 
@@ -31,6 +31,6 @@ object LibraryConfig {
         const val versionCode = LibraryConfig.versionCode
         const val versionName = LibraryConfig.version
 
-        const val resourcePrefix = "d4l_library_"
+        const val resourcePrefix = "hc_fhir_"
     }
 }

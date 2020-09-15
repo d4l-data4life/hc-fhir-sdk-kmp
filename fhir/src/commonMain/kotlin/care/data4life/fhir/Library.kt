@@ -14,13 +14,14 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library.sample
+package care.data4life.fhir
 
-import android.app.Application
-
-class Application : Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-    }
+expect class Sample(number: Int) {
+    fun checkMe(): Int
 }
+
+expect object Platform {
+    val name: String
+}
+
+fun hello(): String = "Hello from ${Platform.name}"

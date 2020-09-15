@@ -14,12 +14,14 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library
+package care.data4life.fhir
 
-actual class Sample actual constructor(number: Int) {
-    actual fun checkMe() = 42
-}
+import kotlin.test.Test
+import kotlin.test.assertTrue
 
-actual object Platform {
-    actual val name: String = "JVM"
+class SampleTestsAndroid {
+    @Test
+    fun testHello() {
+        assertTrue("Android" in hello())
+    }
 }

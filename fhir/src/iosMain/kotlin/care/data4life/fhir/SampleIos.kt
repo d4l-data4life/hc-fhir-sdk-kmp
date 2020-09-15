@@ -14,14 +14,12 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library
+package care.data4life.fhir
 
-expect class Sample(number: Int) {
-    fun checkMe(): Int
+actual class Sample actual constructor(number: Int) {
+    actual fun checkMe() = 42
 }
 
-expect object Platform {
-    val name: String
+actual object Platform {
+    actual val name: String = "IOS"
 }
-
-fun hello(): String = "Hello from ${Platform.name}"

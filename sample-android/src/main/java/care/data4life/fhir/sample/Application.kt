@@ -14,7 +14,13 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library
+package care.data4life.fhir.sample
 
-class SampleClient(max: Int) {
+import android.app.Application
+
+class Application : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+    }
 }

@@ -14,20 +14,12 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library.sample
+package care.data4life.fhir
 
-import care.data4life.library.Sample
-import org.junit.Assert.assertEquals
-import org.junit.Test
+actual class Sample actual constructor(number: Int) {
+    actual fun checkMe() = 42
+}
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-class ExampleUnitTest {
-    @Test
-    fun sampleTest() {
-        assertEquals(Sample(2).checkMe(), 42)
-    }
+actual object Platform {
+    actual val name: String = "Android"
 }

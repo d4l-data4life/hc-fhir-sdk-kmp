@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BAFAD59D24F5621C008C0394 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAFAD59D24F5621C008C0394 /* FHIR SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FHIR SampleApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFAD5A024F5621C008C0394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAFAD5A224F5621C008C0394 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BAFAD5A424F5621C008C0394 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		BAFAD59E24F5621C008C0394 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BAFAD59D24F5621C008C0394 /* SampleApp.app */,
+				BAFAD59D24F5621C008C0394 /* FHIR SampleApp.app */,
 				BAFAD5B324F5621F008C0394 /* SampleAppTests.xctest */,
 				BAFAD5BE24F5621F008C0394 /* SampleAppUITests.xctest */,
 			);
@@ -156,7 +156,7 @@
 			);
 			name = SampleApp;
 			productName = SampleApp;
-			productReference = BAFAD59D24F5621C008C0394 /* SampleApp.app */;
+			productReference = BAFAD59D24F5621C008C0394 /* FHIR SampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BAFAD5B224F5621F008C0394 /* SampleAppTests */ = {
@@ -508,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -567,7 +567,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
@@ -596,12 +596,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					FHIR,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = care.data4life.library.sample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = care.data4life.fhir.sample;
+				PRODUCT_NAME = "FHIR SampleApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -622,12 +623,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					FHIR,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = care.data4life.library.sample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = care.data4life.fhir.sample;
+				PRODUCT_NAME = "FHIR SampleApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -651,7 +653,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FHIR SampleApp.app/FHIR SampleApp";
 			};
 			name = Debug;
 		};
@@ -673,7 +675,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FHIR SampleApp.app/FHIR SampleApp";
 			};
 			name = Release;
 		};

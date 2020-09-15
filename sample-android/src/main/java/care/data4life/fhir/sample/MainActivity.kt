@@ -14,25 +14,24 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library.sample
+package care.data4life.fhir.sample
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry
-import org.junit.Assert.assertEquals
-import org.junit.Test
-import org.junit.runner.RunWith
+import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import care.data4life.fhir.Sample
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
-    @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("care.data4life.library.sample", appContext.packageName)
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val view = findViewById<TextView>(R.id.second_text)
+        val hello = findViewById<TextView>(R.id.hello_text)
+
+        view.text = "The Answer is " + Sample(2).checkMe().toString()
+        hello.text = care.data4life.fhir.hello()
     }
+
 }

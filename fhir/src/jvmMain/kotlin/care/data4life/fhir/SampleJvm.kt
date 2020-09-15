@@ -14,12 +14,12 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library
+package care.data4life.fhir
 
 actual class Sample actual constructor(number: Int) {
     actual fun checkMe() = 42
 }
 
 actual object Platform {
-    actual val name: String = "IOS"
+    actual val name: String = "JVM"
 }

@@ -14,14 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.library
+package care.data4life.fhir
 
-import kotlin.test.Test
-import kotlin.test.assertTrue
-
-class SampleTests {
-    @Test
-    fun testMe() {
-        assertTrue(Sample(1).checkMe() > 0)
-    }
+class SampleClient(max: Int) {
 }
