@@ -1,7 +1,7 @@
 site:
-  title: The Kotlin Multiplatform Library Template @ data4life
-  url: https://library.d4l.io
-  start_page: d4l-kotlin-mpp-library-template::index
+  title: D4L FHIR Kotlin Multiplatform Library
+  url: https://fhir.d4l.io
+  start_page: hc-fhir-sdk-kmp::index
 
 content:
   sources:
