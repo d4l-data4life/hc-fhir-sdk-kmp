@@ -5,20 +5,17 @@
 ### :tophat: What is the goal?
 <!-- Provide a description of the overall goal (you can usually copy the one from the issue) -->
 
-### :see_no_evil: Parts covered
-<!-- Mark none for utility changes (eq: CI) -->
-- [ ] Android
-- [ ] Common
-- [ ] iOS
-- [ ] Documentation
-
 ### :unicorn: How is it being implemented?
 <!-- Provide a description of the implementation -->
 
 ### :thinking: DOD Checklist
-- [ ] I have added tests to cover my changes.
-- [ ] All new and existing tests passed.
-- [ ] Documentation reflects all changes/additions made
 
-### :iphone: UI Changes:
-<!--- Attach screenshots or videos showing the UI changes related to this PR -->
+- [ ] Code style and naming conventions met
+- [ ] Test written and passing
+- [ ] Continuous Integration build passing
+- [ ] Cross platform testing done on Android and iOS
+- [ ] Code peer-reviewed
+- [ ] Documentation updated
+- [ ] Changelog updated
+- [ ] Acceptance criteria met
+
