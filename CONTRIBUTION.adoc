@@ -11,9 +11,45 @@ toc::[]
 
 == Branch
 
-Every change has to branch of from `main` and use this branch naming convention: `{github-username}/{type_of_change}-{short_description}`
+
+|===
+| *Type* | *Branch* | *Description*
+
+|Development
+|main
+|Column 3, row 1
+
+|Production
+|release/{version: major.minor}
+|Column 3, row 2
+
+|Features/Issues
+|feature/{type_of_change}-{short_description}
+|Use for all new features and bug fixes
+
+|Hotfix
+|hotfix/{type_of_change}-{short_description}
+|Column 3, row 3
+|===
+
+
+Every change has to branch of from `main` and use this branch naming convention: `{feature/hotfix}/{type_of_change}-{short_description}`
 
 `main` must be always in releasable state.
+
+[mermaid, "a"]
+----
+gantt
+dateFormat  YYYY-MM-DD
+title Adding GANTT diagram to mermaid
+excludes weekdays 2014-01-10
+
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task               :         des3, after des2, 5d
+Future task2               :         des4, after des3, 5d
+----
 
 === Type Of Change
 
@@ -26,10 +62,10 @@ Every change has to branch of from `main` and use this branch naming convention:
 
 Examples:
 
-- `{github-username}/add-awesome-hashing-algorithm`
-- `{github-username}/remove-not-so-awesome-algorithm`
-- `{github-username}/fix-algorithm-corner-case`
-- `{github-username}/bump-algorithm-lib-to-1.3.0`
+- `feature/add-awesome-hashing-algorithm`
+- `feature/remove-not-so-awesome-algorithm`
+- `feature/fix-algorithm-corner-case`
+- `feature/bump-algorithm-lib-to-1.3.0`
 
 == Pull Request
 
@@ -45,7 +81,7 @@ Where every paragraph has been filled accordingly, put NA when cannot be filled.
 
 == Code Review
 
-* Min. 1 reviewer of the link:https://github.com/orgs/gesundheitscloud/teams/native-app-core[Native App Core Team]
+* Min. 1 reviewer of the link:https://github.com/orgs/d4l-data4life/teams/phdc-core[PHDC Core Team]
 * Definition of done followed
 
 == Definition Of Done
