@@ -1,0 +1,3 @@
+[submodule "fhir-spec-parser"]
+	path = fhir-spec-parser
+	url = git@github.com:gesundheitscloud/fhir-parser.git
