@@ -79,6 +79,7 @@ This is a living template as we learn more and requirements change over time.
 === Built With
 
 * link:https://kotlinlang.org/docs/reference/mpp-intro.html[Kotlin Multiplatform]
+* link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator]
 
 == Getting Started
 
@@ -178,6 +179,6 @@ Copyright (c) 2020 D4L data4life gGmbH / All rights reserved. Please refer to ou
 == Related Links
 
 * link:http://hl7.org/fhir/index.html[FHIR current]
-* link:http://hl7.org/fhir/STU3/index.html[FHIR 3]
+* link:http://hl7.org/fhir/STU3/index.html[FHIR 3 Overview] - link:http://hl7.org/fhir/STU3-3.0.1.zip[STU3-3.0.1.zip]
 * link:http://hl7.org/fhir/R4/index.html[FHIR 4]
 * link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator]
