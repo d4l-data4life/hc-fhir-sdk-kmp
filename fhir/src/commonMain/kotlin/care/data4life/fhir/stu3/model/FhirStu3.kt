@@ -14,25 +14,16 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir
+package care.data4life.fhir.stu3.model
 
-import care.data4life.fhir.stu3.FhirStu3Parser
-import org.junit.Assert.assertTrue
-import org.junit.Before
-import org.junit.Test
+import care.data4life.fhir.FhirVersion
 
-internal class FhirParserFactoryTest {
+/**
+ * Marker interface for FHIR STU3 models
+ */
+interface FhirStu3 : FhirVersion {
+    val resourceType: kotlin.String
 
-    // SUT
-    private lateinit var fhir: FhirParserFactory
-
-    @Before
-    fun setup() {
-        fhir = FhirParserFactory()
-    }
-
-    @Test
-    fun `createStu3Parser() SHOULD return instance of FhirStu3Parser`() {
-        assertTrue(fhir.createStu3Parser() is FhirStu3Parser)
-    }
+    override val fhirVersion: kotlin.String
+        get() = "3.0.1"
 }

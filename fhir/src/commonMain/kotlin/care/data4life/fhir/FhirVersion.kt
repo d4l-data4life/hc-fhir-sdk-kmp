@@ -20,5 +20,9 @@ package care.data4life.fhir
  * Marker interface for FHIR Version
  */
 interface FhirVersion {
+
+    /**
+     * FHIR version
+     */
     val fhirVersion: String
 }

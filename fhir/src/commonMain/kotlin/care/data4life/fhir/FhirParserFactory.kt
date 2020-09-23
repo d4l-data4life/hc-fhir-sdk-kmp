@@ -17,11 +17,22 @@
 package care.data4life.fhir
 
 import care.data4life.fhir.parser.FhirParser
+import care.data4life.fhir.parser.json.FhirJsonParser
+import care.data4life.fhir.stu3.FhirStu3Parser
+import care.data4life.fhir.stu3.model.FhirStu3
+import kotlin.reflect.KClass
 
 class FhirParserFactory {
 
     fun createStu3Parser(): FhirParser<*> {
-        TODO()
-    }
+        return FhirStu3Parser(object: FhirJsonParser<FhirStu3>{
+            override fun <T : FhirStu3> fromJson(fhirType: KClass<T>, fhirJson: String): T {
+                TODO("Not yet implemented")
+            }
 
+            override fun <T : FhirStu3> toJson(fhirObject: T): String {
+                TODO("Not yet implemented")
+            }
+        })
+    }
 }

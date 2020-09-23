@@ -14,25 +14,22 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir
+package care.data4life.fhir.stu3
 
-import care.data4life.fhir.stu3.FhirStu3Parser
-import org.junit.Assert.assertTrue
-import org.junit.Before
-import org.junit.Test
+import care.data4life.fhir.parser.FhirParser
+import care.data4life.fhir.parser.json.FhirJsonParser
+import care.data4life.fhir.stu3.model.FhirStu3
+import kotlin.reflect.KClass
 
-internal class FhirParserFactoryTest {
+class FhirStu3Parser(
+        private val jsonParser: FhirJsonParser<FhirStu3>
+) : FhirParser<FhirStu3> {
 
-    // SUT
-    private lateinit var fhir: FhirParserFactory
-
-    @Before
-    fun setup() {
-        fhir = FhirParserFactory()
+    override fun <T : FhirStu3> toFhir(fhirType: KClass<T>, fhirData: String): T {
+        return jsonParser.fromJson(fhirType, fhirData)
     }
 
-    @Test
-    fun `createStu3Parser() SHOULD return instance of FhirStu3Parser`() {
-        assertTrue(fhir.createStu3Parser() is FhirStu3Parser)
+    override fun <T : FhirStu3> fromFhir(fhirObject: T): String {
+        return jsonParser.toJson(fhirObject)
     }
 }
