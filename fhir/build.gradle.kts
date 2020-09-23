@@ -61,7 +61,7 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.testJvm)
                 implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
 
-                implementation(Dependencies.multiplatform.mockk.android)
+                implementation(Dependencies.multiplatform.mockk.junit)
                 implementation(Dependencies.multiplatform.hamkrest.android)
             }
         }
@@ -75,6 +75,8 @@ kotlin {
             dependencies {
                 implementation(Dependencies.multiplatform.kotlin.testJvm)
                 implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
+
+                implementation(Dependencies.multiplatform.mockk.junit)
             }
         }
 

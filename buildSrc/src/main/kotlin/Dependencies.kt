@@ -95,8 +95,8 @@ object Dependencies {
 
         object Mockk {
             const val common = "io.mockk:mockk-common:${Versions.testMockk}"
-            const val android = "io.mockk:mockk:${Versions.testMockk}"
-            const val androidInstrumentation = "io.mockk:mockk-android:${Versions.testMockk}"
+            const val junit = "io.mockk:mockk:${Versions.testMockk}"
+            const val androidTestInstrumentation = "io.mockk:mockk-android:${Versions.testMockk}"
         }
 
         val hamkrest = Hamkrest
