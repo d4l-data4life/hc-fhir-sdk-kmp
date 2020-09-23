@@ -1,11 +1,11 @@
-:library_version: 0.0.1
+:fhir-sdk-version: 0.1.0
 :toc: macro
 :toclevels: 2
 :toc-title:
 ifdef::env-github[]
-:imagesdir: https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/assets/images/
-:link-license: https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/LICENSE
-:link-contribution: https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/CONTRIBUTION.adoc
+:imagesdir: https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/assets/images/
+:link-license: https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/LICENSE
+:link-contribution: https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/CONTRIBUTION.adoc
 :warning-caption: :warning:
 :caution-caption: :fire:
 :important-caption: :exclamation:
@@ -23,27 +23,34 @@ endif::[]
 <div align="center">
     <!-- PROJECT LOGO -->
     <p>
-        <a><img src="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/assets/images/d4l-logo.svg" width="150"/></a>
+        <a><img src="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/assets/images/d4l-logo.svg" width="150"/></a>
     </p>
     <!-- PROJECT HEADER -->
-    <h1>Kotlin Multiplatform Library Template</h1>
+    <h1>Data4Life FHIR SDK</h1>
     <p><!-- PROJECT DESCRIPTION -->
-        A template to quickly start Kotlin multiplatform library projects @ Data4Life.
+        HL7 FHIR Models as Kotlin Multiplatform library
     </p>
     <p><!-- PROJECT DOCUMENTATION -->
-        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template"><strong>Explore the docs »</strong></a>
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp"><strong>Explore the docs »</strong></a>
     </p>
     <p><!-- PROJECT ISSUES/FEATURES -->
-        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/issues">Report Bug</a>
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/issues">Report Bug</a>
         ·
-        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/issues">Request Feature</a>
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/issues">Request Feature</a>
     </p>
     <p><!-- PROJECT BADGES -->
-        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/actions">
-            <img src="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/workflows/D4L%20CI%20KMP/badge.svg" alt="Build Status"/>
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/releases">
+            <img src="https://img.shields.io/badge/Latest-0.1.0-blueviolet.svg" alt="0.1.0"/>
         </a>
-        <a href="https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/blob/main/LICENSE">
-            <img src="https://img.shields.io/badge/license-PRIVATE-blue.svg"/>
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/actions">
+            <img src="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/workflows/D4L%20CI%20KMP/badge.svg" alt="Build Status"/>
+        </a>
+        <a href="http://hl7.org/fhir/index.html">
+            <img src="https://img.shields.io/badge/%F0%9F%94%A5_FHIR-STU3_-orange.svg" alt="FHIR"/>
+        </a>
+        <img src="https://img.shields.io/badge/Platform-Android_•%20JVM_•%20iOS-blue.svg" alt="Platform"/>
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/LICENSE">
+            <img src="https://img.shields.io/badge/license-PRIVATE-lightgrey.svg" alt="License"/>
         </a>
     </p>
 </div>
@@ -82,8 +89,7 @@ Guide to setup the template project locally.
 * link:https://developer.android.com/studio#downloads[Android Studio 4.0.1]
 * link:https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
 * link:https://kotlinlang.org/[Kotlin 1.4.10]
-* Xcode 11.5
-* link:https://guides.cocoapods.org/using/getting-started.html[Cocoapods]
+* Xcode 11.7
 
 === Installation
 
@@ -129,19 +135,7 @@ For better interop you could install the link:https://plugins.jetbrains.com/plug
 
 == Usage
 
-=== iOS First Time Use
 
-Steps to enable the project for first time use:
-
-. `./gradlew :library:build`
-. `cd sample-ios`
-. `pod repo update`
-. `pod install`
-. open the project in XCode and build (build will fail, but triggers framework sync)
-. `pod install` (properly installs common Framework)
-. open the project in XCode and build -> develop
-
-Voilá
 
 == Roadmap
 
@@ -157,5 +151,8 @@ Copyright (c) 2020 D4L data4life gGmbH / All rights reserved. Please refer to ou
 
 == Related Links
 
+* link:http://hl7.org/fhir/index.html[FHIR current]
+* link:http://hl7.org/fhir/R4/index.html[FHIR 4]
+* link:http://hl7.org/fhir/STU3/index.html[FHIR 3]
 * link:https://kotlinlang.org/lp/mobile/[Kotlin Multiplatform Mobile Developer Portal]
 * link:https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction[Kotlin Multiplatform Hands-on: Networking and Data Storage]

@@ -19,10 +19,7 @@ object Dependencies {
     object GradlePlugin {
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val kotlinAllOpen = "org.jetbrains.kotlin:kotlin-allopen:${Versions.kotlin}"
-        const val cocoapodsext = "co.touchlab:kotlinnativecocoapods:${Versions.cocoapodsext}"
         const val kotlinSerialization = "org.jetbrains.kotlin.plugin.serialization:${Versions.kotlin}"
-
-        const val sqlDelight = "com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelight}"
     }
 
     val kotlin = Kotlin
@@ -72,44 +69,11 @@ object Dependencies {
                 "org.jetbrains.kotlinx:kotlinx-coroutines-io-native:${Versions.kotlinCoroutinesIO}"
         }
 
-        val ktor = Ktor
-
-        object Ktor {
-            // https://ktor.io/
-            const val commonCore = "io.ktor:ktor-client-core:${Versions.ktor}"
-            const val commonJson = "io.ktor:ktor-client-json:${Versions.ktor}"
-            const val jvmCore = "io.ktor:ktor-client-core-jvm:${Versions.ktor}"
-            const val androidCore = "io.ktor:ktor-client-okhttp:${Versions.ktor}"
-            const val jvmJson = "io.ktor:ktor-client-json-jvm:${Versions.ktor}"
-            const val ios = "io.ktor:ktor-client-ios:${Versions.ktor}"
-            const val iosCore = "io.ktor:ktor-client-core-native:${Versions.ktor}"
-            const val iosJson = "io.ktor:ktor-client-json-native:${Versions.ktor}"
-            const val commonSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
-            const val androidSerialization = "io.ktor:ktor-client-serialization-jvm:${Versions.ktor}"
-
-            const val io = "io.ktor:ktor-io:${Versions.ktor}"
-        }
-
         val serialization = Serialization
 
         object Serialization {
             // https://github.com/Kotlin/kotlinx.serialization
             const val common = "org.jetbrains.kotlinx:kotlinx-serialization-runtime-core:${Versions.kotlinSerialization}"
-        }
-
-        val sqlDelight = SqlDelight
-
-        object SqlDelight {
-            // https://github.com/cashapp/sqldelight
-            const val runtime = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
-
-            const val driverJdk = "com.squareup.sqldelight:sqlite-driver:${Versions.sqlDelight}"
-            const val driverJs = "com.squareup.sqldelight:sqljs-driver:${Versions.sqlDelight}"
-            const val driverNative = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
-            const val driverAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
-            const val driverIos = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
-
-            const val coroutines = "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
         }
 
         val koin = Koin

@@ -75,7 +75,7 @@ android {
 dependencies {
     coreLibraryDesugaring(Dependencies.android.desugar)
 
-    implementation(project(":library"))
+    implementation(project(":fhir"))
 
     implementation(Dependencies.android.kotlinStdLib)
     implementation(Dependencies.android.kotlinCoroutinesCore)
@@ -83,8 +83,6 @@ dependencies {
     implementation(Dependencies.android.androidX.ktx)
     implementation(Dependencies.android.androidX.appCompat)
     implementation(Dependencies.android.androidX.constraintLayout)
-
-    implementation(Dependencies.multiplatform.ktor.androidCore)
 
     testImplementation(Dependencies.test.junit)
     androidTestImplementation(Dependencies.androidTest.junit)

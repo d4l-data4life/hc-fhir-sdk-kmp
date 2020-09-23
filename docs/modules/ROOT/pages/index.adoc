@@ -1,4 +1,4 @@
-= Kotlin Multiplatform Library Template @ Data4life
+= D4L FHIR Kotlin Multiplatform Library
 
 Template version: {project-version}
 

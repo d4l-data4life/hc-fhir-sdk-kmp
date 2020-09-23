@@ -5,7 +5,7 @@
 //
 
 import SwiftUI
-import Library
+import FHIR
 
 let text = Sample(number: 2).checkMe()
 

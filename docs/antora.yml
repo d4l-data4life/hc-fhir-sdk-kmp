@@ -1,5 +1,5 @@
-name: d4l-kotlin-mpp-library-template
-title: Kotlin Multiplatform Library Template
+name: hc-fhir-sdk-kmp
+title: D4L FHIR Kotlin Multiplatform Library
 version: master
 start_page: ROOT:index.adoc
 nav:

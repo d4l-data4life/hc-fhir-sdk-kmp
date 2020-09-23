@@ -1,15 +1,15 @@
 {
   "private": true,
-  "name": "d4l-kotlin-mpp-library-docs",
-  "description": "Documentation of D4L Kotlin MPP Library",
+  "name": "hc-fhir-sdk-kmp-docs",
+  "description": "Documentation of HL7 FHIR Kotlin Multiplatform Library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template"
+    "url": "git+https://github.com/d4l-data4life/hc-fhir-sdk-kmp"
   },
   "bugs": {
-    "url": "https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template/issues"
+    "url": "https://github.com/d4l-data4life/hc-fhir-sdk-kmp/issues"
   },
-  "homepage": "https://github.com/gesundheitscloud/d4l-kotlin-mpp-library-template",
+  "homepage": "https://github.com/d4l-data4life/hc-fhir-sdk-kmp",
   "scripts": {
     "build": "yarn run antora --html-url-extension-style=indexify site.yml",
     "serve": "yarn run live-server build/public --ignore=_"
