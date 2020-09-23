@@ -24,7 +24,7 @@ import kotlin.reflect.KClass
  *
  * Parses FHIR data in String representation to FHIR models and vice versa.
  */
-interface FhirParser<FHIR : FhirVersion> {
+interface FhirParser<in FHIR : FhirVersion> {
 
     /**
      * Convert FHIR data (string representation) into FHIR models

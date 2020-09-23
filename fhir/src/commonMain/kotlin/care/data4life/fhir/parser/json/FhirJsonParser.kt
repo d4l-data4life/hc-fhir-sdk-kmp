@@ -19,7 +19,7 @@ package care.data4life.fhir.parser.json
 import care.data4life.fhir.FhirVersion
 import kotlin.reflect.KClass
 
-interface FhirJsonParser<FHIR: FhirVersion> {
+interface FhirJsonParser<in FHIR: FhirVersion> {
 
     fun <T : FHIR> fromJson(fhirType: KClass<T>, fhirJson: String): T
 

@@ -16,13 +16,13 @@
 
 package care.data4life.fhir.stu3.model
 
+import care.data4life.fhir.FhirResourceType
 import care.data4life.fhir.FhirVersion
 
 /**
  * Marker interface for FHIR STU3 models
  */
-interface FhirStu3 : FhirVersion {
-    val resourceType: kotlin.String
+interface FhirStu3 : FhirVersion, FhirResourceType {
 
     override val fhirVersion: kotlin.String
         get() = "3.0.1"

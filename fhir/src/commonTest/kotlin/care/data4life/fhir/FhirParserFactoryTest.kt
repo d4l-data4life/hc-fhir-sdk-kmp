@@ -17,16 +17,17 @@
 package care.data4life.fhir
 
 import care.data4life.fhir.stu3.FhirStu3Parser
-import org.junit.Assert.assertTrue
-import org.junit.Before
-import org.junit.Test
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertTrue
+
 
 internal class FhirParserFactoryTest {
 
     // SUT
     private lateinit var fhir: FhirParserFactory
 
-    @Before
+    @BeforeTest
     fun setup() {
         fhir = FhirParserFactory()
     }

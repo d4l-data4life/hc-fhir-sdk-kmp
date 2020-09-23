@@ -16,12 +16,9 @@
 
 package care.data4life.fhir
 
-import care.data4life.fhir.parser.FhirParser
-import care.data4life.fhir.stu3.FhirStu3Parser
-
-class FhirParserFactory {
-
-    fun createStu3Parser(): FhirParser<*> {
-        return FhirStu3Parser()
-    }
+/**
+ * FHIR Resource Type
+ */
+interface FhirResourceType {
+    val resourceType: kotlin.String
 }

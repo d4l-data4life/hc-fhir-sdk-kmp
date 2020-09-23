@@ -18,11 +18,12 @@ package care.data4life.fhir.stu3
 
 import care.data4life.fhir.parser.FhirParser
 import care.data4life.fhir.parser.json.FhirJsonParser
+import care.data4life.fhir.stu3.json.FhirStu3JsonParser
 import care.data4life.fhir.stu3.model.FhirStu3
 import kotlin.reflect.KClass
 
 class FhirStu3Parser(
-        private val jsonParser: FhirJsonParser<FhirStu3>
+        private val jsonParser: FhirStu3JsonParser = defaultJsonParser()
 ) : FhirParser<FhirStu3> {
 
     override fun <T : FhirStu3> toFhir(fhirType: KClass<T>, fhirData: String): T {
@@ -31,5 +32,9 @@ class FhirStu3Parser(
 
     override fun <T : FhirStu3> fromFhir(fhirObject: T): String {
         return jsonParser.toJson(fhirObject)
+    }
+
+    companion object {
+        fun defaultJsonParser() = FhirStu3JsonParser()
     }
 }
