@@ -24,19 +24,27 @@ object GradlePlugins {
 
 fun PluginDependenciesSpec.kotlinMultiplatform(apply: Boolean = true): PluginDependencySpec =
     id("org.jetbrains.kotlin.multiplatform").version(Versions.kotlinGradlePlugin).apply(apply)
+fun PluginDependenciesSpec.kotlinMultiplatform(): PluginDependencySpec = id("org.jetbrains.kotlin.multiplatform")
 
-fun PluginDependenciesSpec.androidApp(): PluginDependencySpec =
-    id("com.android.application")
 
-fun PluginDependenciesSpec.kotlinAndroid(): PluginDependencySpec =
-    id("kotlin-android")
 
-fun PluginDependenciesSpec.kotlinAndroidExtensions(): PluginDependencySpec =
-    id("kotlin-android-extensions")
 
 
 fun PluginDependenciesSpec.kotlinSerialization(apply: Boolean = true): PluginDependencySpec =
     id("org.jetbrains.kotlin.plugin.serialization").version(Versions.kotlinGradlePlugin).apply(apply)
+fun PluginDependenciesSpec.kotlinSerialization(): PluginDependencySpec =
+    id("org.jetbrains.kotlin.plugin.serialization")
+
+
+fun PluginDependenciesSpec.androidApp(): PluginDependencySpec =
+    id("com.android.application")
+fun PluginDependenciesSpec.androidLibrary(): PluginDependencySpec =
+    id("com.android.library")
+fun PluginDependenciesSpec.androidKotlin(): PluginDependencySpec =
+    id("kotlin-android")
+fun PluginDependenciesSpec.androidKotlinExtensions(): PluginDependencySpec =
+    id("kotlin-android-extensions")
+
 
 fun PluginDependenciesSpec.dependencyUpdates(): PluginDependencySpec =
     id("com.github.ben-manes.versions").version(Versions.GradlePlugins.dependencyUpdates)

@@ -73,7 +73,7 @@ object Dependencies {
 
         object Serialization {
             // https://github.com/Kotlin/kotlinx.serialization
-            const val common = "org.jetbrains.kotlinx:kotlinx-serialization-runtime-core:${Versions.kotlinSerialization}"
+            const val json = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
         }
 
         val koin = Koin
