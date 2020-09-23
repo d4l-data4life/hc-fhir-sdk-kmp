@@ -7,16 +7,10 @@
 import SwiftUI
 import FHIR
 
-let text = Sample(number: 2).checkMe()
-
-let hello = LibraryKt.hello()
-
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Hello, World!")
-            Text("The answer is  \(text)")
-            Text(hello)
+            Text("The Sample is not implemented yet")
         }
     }
 }
