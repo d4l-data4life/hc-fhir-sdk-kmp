@@ -24,7 +24,7 @@ import kotlin.jvm.JvmStatic
 @Serializable
 @SerialName("testobject")
 data class FhirTestObject(
-    val value: String = "value"
+    val value: String
 ) : FhirStu3 {
 
     override val resourceType: String
@@ -34,6 +34,8 @@ data class FhirTestObject(
         @JvmStatic
         fun resourceType(): kotlin.String = "resourceType"
 
-        val jsonData = """{"resourceType":"testobject"}"""
+        val jsonData = """{"resourceType":"testobject","value":"value"}"""
+
+        val testData = FhirTestObject("value")
     }
 }

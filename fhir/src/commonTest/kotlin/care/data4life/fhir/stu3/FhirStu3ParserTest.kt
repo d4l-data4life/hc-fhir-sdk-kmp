@@ -58,7 +58,7 @@ class FhirStu3ParserTest {
     @Test
     fun `fromFhir() SHOULD call on jsonParser toJson()`() {
         // Given
-        val data = FhirTestObject()
+        val data = FhirTestObject.testData
 
         // When
         parser.fromFhir(data)

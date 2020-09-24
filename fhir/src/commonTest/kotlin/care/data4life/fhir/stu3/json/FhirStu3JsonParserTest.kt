@@ -56,7 +56,7 @@ class FhirStu3JsonParserTest {
         // Given
         val fhirType = FhirTestObject::class
         val fhirJson = FhirTestObject.jsonData
-        val expected = FhirTestObject()
+        val expected = FhirTestObject.testData
 
         // When
         val result = parser.fromJson(fhirType, fhirJson)
@@ -68,7 +68,7 @@ class FhirStu3JsonParserTest {
     @Test
     fun `toJson() SHOULD format WHEN Fhir type known`() {
         // Given
-        val input = FhirTestObject()
+        val input = FhirTestObject.testData
         val expected = FhirTestObject.jsonData
 
         // When
