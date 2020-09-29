@@ -150,7 +150,7 @@ pyenv install
 
 ==== Android Studio
 
-For better interop with iOS you could install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[KMM plugin for Android Studio]]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
+For better interop with iOS you may install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[KMM plugin for Android Studio]]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
 
 == Usage
 
