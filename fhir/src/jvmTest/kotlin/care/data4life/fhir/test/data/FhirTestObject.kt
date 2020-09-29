@@ -34,7 +34,7 @@ data class FhirTestObject(
         @JvmStatic
         fun resourceType(): kotlin.String = "resourceType"
 
-        val jsonData = """{"resourceType":"testobject","value":"value"}"""
+        const val jsonData = """{"resourceType":"testobject","value":"value"}"""
 
         val testData = FhirTestObject("value")
     }

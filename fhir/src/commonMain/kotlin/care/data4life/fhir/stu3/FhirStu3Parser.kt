@@ -17,7 +17,6 @@
 package care.data4life.fhir.stu3
 
 import care.data4life.fhir.parser.FhirParser
-import care.data4life.fhir.parser.json.FhirJsonParser
 import care.data4life.fhir.stu3.json.FhirStu3JsonParser
 import care.data4life.fhir.stu3.model.FhirStu3
 import kotlin.reflect.KClass
