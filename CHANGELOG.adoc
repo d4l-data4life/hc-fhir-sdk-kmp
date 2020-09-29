@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 === Added
 
+* Add link:https://github.com/gesundheitscloud/fhir-parser[FHIR specification parser] a fork of link:https://github.com/smart-on-fhir/fhir-parser[SMART on FHIR - Python FHIR Parser] as Git subproject pointing to `hc-fhir` branch
+
 === Changed
 
 * Change template project to prepare for FHIR SDK implementation
