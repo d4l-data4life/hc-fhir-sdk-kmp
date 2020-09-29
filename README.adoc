@@ -156,7 +156,7 @@ For better interop with iOS you may install the link:https://plugins.jetbrains.c
 
 === First time
 
-As the project includes a Git submodule, this needs to be initialised on first use
+As the project includes a Git submodule, this must be initialised on first use
 
 [source,bash]
 ----
