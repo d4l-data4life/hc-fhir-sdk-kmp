@@ -17,8 +17,7 @@ jobs:
       - name: Display runner context
         run: hostname -s
       - uses: actions/checkout@v2
-#      Disabled check as MockK doesn't support JS and Native
-#      - name: Run checks
-#        run: ./gradlew check
+      - name: Run checks
+        run: ./gradlew check
       - name: Run JVM checks
         run: ./gradlew fhir:jvmTest

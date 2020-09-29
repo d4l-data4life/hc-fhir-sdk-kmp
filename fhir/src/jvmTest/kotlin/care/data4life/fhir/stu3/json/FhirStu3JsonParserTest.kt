@@ -45,14 +45,14 @@ class FhirStu3JsonParserTest {
     }
 
     @Test
-    fun `fromJson() SHOULD throw Exception WHEN Json malformed`() {
+    fun `fromJson() SHOULD throw Exception WHEN Json is malformed`() {
         assertFails {
             parser.fromJson(FhirTestObject::class, "malformed")
         }
     }
 
     @Test
-    fun `fromJson() SHOULD parse WHEN Fhir type known`() {
+    fun `fromJson() SHOULD parse WHEN Fhir type is known`() {
         // Given
         val fhirType = FhirTestObject::class
         val fhirJson = FhirTestObject.jsonData
@@ -66,7 +66,7 @@ class FhirStu3JsonParserTest {
     }
 
     @Test
-    fun `toJson() SHOULD format WHEN Fhir type known`() {
+    fun `toJson() SHOULD format WHEN Fhir type is known`() {
         // Given
         val input = FhirTestObject.testData
         val expected = FhirTestObject.jsonData
