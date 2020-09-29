@@ -40,7 +40,7 @@ class FhirStu3ParserTest {
     }
 
     @Test
-    fun `toFhir() SHOULD call on jsonParser fromJson()`() {
+    fun `toFhir() SHOULD call jsonParser_fromJson()`() {
         // Given
         val clazz = FhirTestObject::class
         val data = "fhirData"
@@ -56,7 +56,7 @@ class FhirStu3ParserTest {
 
 
     @Test
-    fun `fromFhir() SHOULD call on jsonParser toJson()`() {
+    fun `fromFhir() SHOULD call jsonParser_toJson()`() {
         // Given
         val data = FhirTestObject.testData
 
