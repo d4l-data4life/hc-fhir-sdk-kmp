@@ -32,24 +32,4 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="Hello World!" />
 
-    <TextView
-        android:id="@+id/second_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_text"
-        tools:text="Second!" />
-
-    <TextView
-        android:id="@+id/hello_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second_text"
-        tools:text="Second!" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

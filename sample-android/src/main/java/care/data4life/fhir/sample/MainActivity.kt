@@ -19,7 +19,6 @@ package care.data4life.fhir.sample
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import care.data4life.fhir.Sample
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,11 +26,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val view = findViewById<TextView>(R.id.second_text)
-        val hello = findViewById<TextView>(R.id.hello_text)
+        val mainText = findViewById<TextView>(R.id.main_text)
 
-        view.text = "The Answer is " + Sample(2).checkMe().toString()
-        hello.text = care.data4life.fhir.hello()
+        mainText.text = "The Sample is not implemented yet"
     }
 
 }
