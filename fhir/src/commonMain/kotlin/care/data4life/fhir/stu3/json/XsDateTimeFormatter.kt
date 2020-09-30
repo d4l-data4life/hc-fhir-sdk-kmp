@@ -33,29 +33,29 @@ object XsDateTimeFormatter {
     fun formatDate(date: XsDate): kotlin.String {
         return if (date.month != null && date.day != null) {
             doFormat(
-                    DATE_FORMAT_FULL,
-                    date.year,
-                    date.month,
-                    date.day,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                DATE_FORMAT_FULL,
+                date.year,
+                date.month,
+                date.day,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
             )
         } else if (date.month != null) {
             doFormat(
-                    DATE_FORMAT_YEAR_MONTH,
-                    date.year,
-                    date.month,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                DATE_FORMAT_YEAR_MONTH,
+                date.year,
+                date.month,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
             )
         } else {
             doFormat(DATE_FORMAT_YEAR, date.year, null, null, null, null, null, null, null, null)
@@ -65,16 +65,16 @@ object XsDateTimeFormatter {
     fun formatDateTime(dateTime: XsDateTime): String {
         return if (dateTime.time != null) {
             doFormat(
-                    DATE_TIME_FORMAT,
-                    dateTime.date.year,
-                    dateTime.date.month,
-                    dateTime.date.day,
-                    dateTime.time.hour,
-                    dateTime.time.minute,
-                    dateTime.time.second,
-                    dateTime.time.fractionOfSecond,
-                    dateTime.time.fractionPadding,
-                    dateTime.timeZone
+                DATE_TIME_FORMAT,
+                dateTime.date.year,
+                dateTime.date.month,
+                dateTime.date.day,
+                dateTime.time.hour,
+                dateTime.time.minute,
+                dateTime.time.second,
+                dateTime.time.fractionOfSecond,
+                dateTime.time.fractionPadding,
+                dateTime.timeZone
             )
         } else {
             formatDate(dateTime.date)
@@ -83,30 +83,30 @@ object XsDateTimeFormatter {
 
     fun formatTime(time: XsTime): String {
         return doFormat(
-                TIME_FORMAT,
-                null,
-                null,
-                null,
-                time.hour,
-                time.minute,
-                time.second,
-                time.fractionOfSecond,
-                time.fractionPadding,
-                null
+            TIME_FORMAT,
+            null,
+            null,
+            null,
+            time.hour,
+            time.minute,
+            time.second,
+            time.fractionOfSecond,
+            time.fractionPadding,
+            null
         )
     }
 
     private fun doFormat(
-            format: String,
-            year: Int?,
-            month: Int?,
-            day: Int?,
-            hour: Int?,
-            minute: Int?,
-            second: Int?,
-            fractionOfSecond: Int?,
-            fractionPadding: Int?,
-            timeZone: XsTimeZone?
+        format: String,
+        year: Int?,
+        month: Int?,
+        day: Int?,
+        hour: Int?,
+        minute: Int?,
+        second: Int?,
+        fractionOfSecond: Int?,
+        fractionPadding: Int?,
+        timeZone: XsTimeZone?
     ): String {
 
         var fidx = 0
@@ -197,16 +197,16 @@ object XsDateTimeFormatter {
     }
 
     private fun formatSecond(
-            second: Int?,
-            fractionOfSecond: Int?,
-            fractionPadding: Int?,
-            buffer: StringBuilder
+        second: Int?,
+        fractionOfSecond: Int?,
+        fractionPadding: Int?,
+        buffer: StringBuilder
     ) {
         formatTwoDigits(second, buffer)
         if (fractionOfSecond != null && fractionOfSecond > 0) {
             buffer.append('.')
-            if (fractionPadding != null && fractionPadding != 0 ) {
-                for(i in 1..fractionPadding){
+            if (fractionPadding != null && fractionPadding != 0) {
+                for (i in 1..fractionPadding) {
                     buffer.append("0")
                 }
             }
@@ -219,21 +219,7 @@ object XsDateTimeFormatter {
      */
     private fun formatTimeZone(timeZone: XsTimeZone?, buffer: StringBuilder) {
         if (timeZone == null) return
-
-        if (timeZone.hourOffset == 0 && timeZone.minuteOffset == 0 && !timeZone.zeroOffsetGMT) {
-            buffer.append('Z')
-            return
-        }
-
-        if (timeZone.positiveOffset)
-            buffer.append('+')
-        else {
-            buffer.append('-')
-        }
-
-        formatTwoDigits(timeZone.hourOffset, buffer)
-        buffer.append(':')
-        formatTwoDigits(timeZone.minuteOffset, buffer)
+        else buffer.append(XsTimeZoneParser.format(timeZone))
     }
 
     /**
