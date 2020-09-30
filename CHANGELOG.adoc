@@ -14,7 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Add datetime classes and parsers to serialize FHIR date primitives
 * Add link:https://fastlane.tools[Fastlane] and a fastlane action `fhir-kotlin` to generate Kotlin models using the `fhir-spec-parser`
 * Add FHIR generation config
-* Add generated FHIR Code Systems
+* Add generated FHIR code systems
+* Add generated FHIR base models
 
 === Changed
 
