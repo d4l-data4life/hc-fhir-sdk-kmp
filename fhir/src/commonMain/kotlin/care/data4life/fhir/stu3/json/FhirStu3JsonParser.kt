@@ -17,6 +17,7 @@
 package care.data4life.fhir.stu3.json
 
 import care.data4life.fhir.parser.json.FhirJsonParser
+import care.data4life.fhir.stu3.model.FhirSerializationModule
 import care.data4life.fhir.stu3.model.FhirStu3
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.PolymorphicSerializer
@@ -42,7 +43,7 @@ class FhirStu3JsonParser(
 
     companion object {
         private val fhirStu3SerializersModule = SerializersModule {
-            polymorphic(FhirStu3::class)
+            FhirSerializationModule.module()
         }
 
         fun defaultJsonReader(module: SerializersModule = fhirStu3SerializersModule): Json {

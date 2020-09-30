@@ -22,11 +22,9 @@ import javax.annotation.Generated
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
 
+import care.data4life.fhir.stu3.codesystem.*
 import care.data4life.fhir.stu3.FhirStu3Parser
 import care.data4life.fhir.test.util.FileHelper.loadAsString
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
-import kotlinx.serialization.modules.SerializersModule
 
 import kotlin.test.assertEquals
 
@@ -80,7 +78,7 @@ class {{ class.name }}Test {
 		{%- endif %}
 		{%- endif %})
 		{%- else %}{% if "String" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, String("{{ test.value|replace('"', '\\"') }}"))
+		assertEquals(data.{{ test.path }}, "{{ test.value|replace('"', '\\"') }}")
 		{%- else %}{% if "Decimal" == test.klass.name %}
 		assertEquals(data.{{ test.path }}.toString(), "{{ test.value }}")
 		{%- else %}{% if "Double" == test.klass.name %}
@@ -106,7 +104,7 @@ class {{ class.name }}Test {
 		{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
 		{%- endfor %}
 
-		val json = parser.fromFhir({{ class.name }}::class, data)
+		val json = parser.fromFhir(data)
 
 		JSONAssert.assertEquals(sourceJson, json, false)
 	}

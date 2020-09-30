@@ -74,6 +74,7 @@ kotlin {
             }
         }
         val jvmTest by getting {
+            kotlin.srcDir("src-gen/jvmTest/kotlin")
             resources.srcDir("src-gen/jvmTest/resources")
 
             dependencies {
@@ -81,6 +82,8 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
 
                 implementation(Dependencies.multiplatform.mockk.junit)
+
+                implementation(Dependencies.test.jsonAssert)
             }
         }
 
