@@ -23,8 +23,33 @@ import kotlinx.serialization.modules.subclass
 object FhirSerializationModule {
 
 	{%- set resource_list = [
+			"Address",
+			"Age",
+			"Annotation",
+			"Attachment",
+			"CodeableConcept",
+			"Coding",
+			"ContactPoint",
+			"Count",
+			"Distance",
+			"Dosage",
+			"Duration",
 			"Element",
 			"Extension",
+			"HumanName",
+			"Identifier",
+			"Meta",
+			"Money",
+			"Narrative",
+			"Period",
+			"Quantity",
+			"Range",
+			"Ratio",
+			"Reference",
+			"Resource",
+			"SampledData",
+			"Signature",
+			"Timing",
 	] %}
 
 	fun module(): SerializersModule {
@@ -39,16 +64,3 @@ object FhirSerializationModule {
 		}
 	}
 }
-
-//{
-//	{%- for resource in resources %}
-//	"{{ resource.name }}": {
-//	"dependencies": [
-//	{%- for klass in resource.imports %}"{{ klass.module }}"{% if not loop.last %},{% endif %}{% endfor -%}
-//	]{% if resource.references %},
-//	"references": [
-//	{%- for reference in resource.references %}"{{ reference }}"{% if not loop.last %},{% endif %}{% endfor -%}
-//	]{% endif %}
-//}{% if not loop.last %},{% endif %}
-//	{%- endfor %}
-//}

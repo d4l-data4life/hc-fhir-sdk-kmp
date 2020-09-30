@@ -60,20 +60,23 @@ module Fastlane
           file_type = ".kt"
 
           modelSource = "#{fhir_parser}/models/*"
+          codeSystemSource = "#{fhir_parser}/codesystems/*"
           testSource = "#{fhir_parser}/tests/*"
 
           modelTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/fhir/stu3/model"
+          codeSystemTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/fhir/stu3/codesystem"
           testTarget = "./fhir/src-gen/jvmTest/kotlin/care/data4life/fhir/stu3/model"
           testJsonTarget = "./fhir/src-gen/jvmTest/resources/"
 
 
           # Define filenames to include
-          base = ["FhirElementFactory","FhirSerializationModule"]
-          complex = ["Ratio", "Period", "Range", "Attachment", "Identifier", "HumanName", "Annotation", "Address", "ContactPoint", "SampledData", "Money", "Count", "Duration", "Quantity", "Distance", "Age", "CodeableConcept", "Signature", "Coding", "Timing", "Element"]
-          special = ["Reference", "Narrative", "Extension", "Resource", "Meta"]
+          base = ["Element", "Resource", "FhirElementFactory","FhirSerializationModule"]
+          complex = ["Ratio", "Period", "Range", "Attachment", "Identifier", "HumanName", "Annotation", "Address", "ContactPoint", "SampledData", "Money", "Count", "Duration", "Quantity", "Distance", "Age", "CodeableConcept", "Signature", "Coding", "Timing"]
+          special = ["Reference", "Narrative", "Extension", "Meta", "Dosage"]
           enum = ["CodeSystems"]
           model = [
               "BackboneElement",
+              "CodeSystem",
               "DocumentReference",
               "DomainResource",
               "Observation",
@@ -90,7 +93,6 @@ module Fastlane
               "Patient",
               "Medication",
               "MedicationRequest",
-              "Dosage",
               "CareTeam",
               "Goal",
               "Questionnaire",
@@ -116,21 +118,21 @@ module Fastlane
 
 
           # Move models
-          movefiles(modelSource, "#{modelTarget}", base, file_type)
-          movefiles(modelSource, "#{modelTarget}", complex, file_type)
-          movefiles(modelSource, "#{modelTarget}", special, file_type)
-          movefiles(modelSource, "#{modelTarget}", enum, file_type)
-          movefiles(modelSource, "#{modelTarget}", model, file_type)
+          # movefiles(modelSource, "#{modelTarget}", base, file_type)
+          # movefiles(modelSource, "#{modelTarget}", complex, file_type)
+          # movefiles(modelSource, "#{modelTarget}", special, file_type)
+          # moveCodeSystems(codeSystemSource, "#{codeSystemTarget}")
+          # movefiles(modelSource, "#{modelTarget}", model, file_type)
 
           # Move tests
-          movefiles(testSource, "#{testTarget}", complexTest, file_type)
-          movefiles(testSource, "#{testTarget}", specialTest, file_type)
-          movefiles(testSource, "#{testTarget}", enumTest, file_type)
-          movefiles(testSource, "#{testTarget}", modelTest, file_type)
+          # movefiles(testSource, "#{testTarget}", complexTest, file_type)
+          # movefiles(testSource, "#{testTarget}", specialTest, file_type)
+          # movefiles(testSource, "#{testTarget}", enumTest, file_type)
+          # movefiles(testSource, "#{testTarget}", modelTest, file_type)
 
           # Move test example jsons
-          FileUtils.mkdir_p(testJsonTarget)
-          sh "find #{fhir_parser}/downloads -name '*example*' -exec cp {} #{testJsonTarget} \\;"
+          # FileUtils.mkdir_p(testJsonTarget)
+          # sh "find #{fhir_parser}/downloads -name '*example*' -exec cp {} #{testJsonTarget} \\;"
 
           UI.success "Done integrating generated models ✅"
       end
@@ -157,6 +159,21 @@ module Fastlane
             end
           end
       end
+
+      def self.moveCodeSystems (source, target)
+          # Ui.message("Moving files into " + target + " folder")
+          FileUtils.mkdir_p(target)
+
+          file_type = ".kt"
+
+          Dir.glob(source) do |item|
+            if item.include? file_type
+              classname = File.basename(item, file_type)
+              UI.message "#{classname}"
+              FileUtils.mv(item, target, force: true)
+            end
+          end
+       end
 
       def self.fetch_group(main_group, group)
           return main_group.find_subpath(group, true) || main_group.new_group(group)

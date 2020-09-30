@@ -18,7 +18,8 @@ tpl_resource_source = 'template-resource.kt'                # the template to us
 tpl_resource_target = 'models'                              # target directory to write the generated class files to
 tpl_resource_target_ptrn = '{}.kt'                          # where to write the generated class files to, with one "{}" placeholder for the class name
 tpl_codesystems_source = 'template-codesystems.kt'          # the template to use as source when writing enums for CodeSystems; can be `None`
-tpl_codesystems_target_name = 'CodeSystems.kt'              # the filename to use for the generated code systems and value sets (in `tpl_resource_target`)
+tpl_codesystems_target = 'codesystems'                      # target directory to write the generated code system files to
+tpl_codesystems_target_ptrn = '{}.kt'                       # the filename to use for the generated code systems and value sets (in `tpl_resource_target`)
 
 # Whether and where to put the factory methods
 write_factory = False

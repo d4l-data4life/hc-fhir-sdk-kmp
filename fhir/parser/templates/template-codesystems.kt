@@ -14,15 +14,12 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.model
+package care.data4life.fhir.stu3.codesystem
 
 import kotlinx.serialization.*
 import kotlin.jvm.JvmStatic
 
-/**
- * CodeSystems.kt
- */
-{% for system in systems %}{% if system.generate_enum %}
+{% if system.generate_enum %}
 
 /**
  * {{ system.definition.description }}
@@ -58,7 +55,7 @@ enum class {{ system.name }} {
     {%- if code.code == "*" %}
     MAX,
     {%- else %}
-    {{ code.code.upper()|replace('-', '_') }},
+    {{ code.code.upper()|replace('-', '_') }}{% if not loop.last %},{% endif %}
     {%- endif %}
     {%- endif %}
     {%- endif %}
@@ -66,23 +63,5 @@ enum class {{ system.name }} {
     {%- endif %}
     {%- endif %}
     {%- endfor %}
-    ;
-    /*@Serializer(forClass = {{ system.name }}::class)
-    companion object {{ system.name }}Serializer : KSerializer<{{ system.name }}> {
-
-        @JvmStatic
-        fun resourceType(): kotlin.String = "{{ system.name }}Serializer"
-
-        override fun deserialize(decoder: Decoder): {{ system.name }} {
-            return valueOf(decoder.decodeString().toUpperCase().replace("-","_"))
-        }
-        override fun serialize(encoder: Encoder, obj: {{ system.name }}) {
-            encoder.encodeString(obj.name.toLowerCase().replace("_","-"))
-        }
-    }*/
-
-    override fun toString(): kotlin.String {
-        return name.replace("_","-")
-    }
 }
-{% endif %}{% endfor %}
+{% endif %}

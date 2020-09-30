@@ -5,13 +5,12 @@
 classmap = {
     'Any': 'Resource',
     'Practitioner.role': 'PractRole',   # to avoid Practinioner.role and PractitionerRole generating the same class
-    # 'Protocol': 'ProtocolFHIR',
 
-    'boolean': 'Boolean',
-    'decimal': 'Decimal',
-    'integer': 'Integer',
-    'positiveInt': 'Integer',
-    'unsignedInt': 'Integer',
+    'boolean': 'String', # 'Boolean',
+    'decimal': 'String', # 'Decimal',
+    'integer': 'String', # 'Integer',
+    'positiveInt': 'String', # 'Integer',
+    'unsignedInt': 'String', # 'Integer',
 
     'string': 'String',
     'code': 'String',  # we're not generating enums for all codes
@@ -19,16 +18,16 @@ classmap = {
     'xhtml': 'String',
 
     'id': 'String',
-    'oid': 'String',  # 'oid': 'URL',
+    'oid': 'String',  # 'URL',
     'uuid': 'String',
-    'uri': 'String',  # 'uri': 'URL',
+    'uri': 'String',  # 'URL',
 
     'base64Binary': 'String',
 
-    'date': 'Date',
-    'time': 'Time',
-    'dateTime': 'DateTime',
-    'instant': 'Instant',
+    'date': 'String', # 'Date',
+    'time': 'String', # 'Time',
+    'dateTime': 'String', # 'DateTime',
+    'instant': 'String', # 'Instant',
 }
 
 # Classes of properties to be replaced with different ones at resource rendering time
