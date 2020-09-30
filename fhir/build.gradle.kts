@@ -1,12 +1,11 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlin("multiplatform")
-    id("kotlinx-serialization")
+    kotlinMultiplatform()
+    kotlinSerialization()
 
     // Android
-    id("com.android.library")
-    id("kotlin-android-extensions")
+    androidLibrary()
 }
 
 version = LibraryConfig.version
@@ -17,7 +16,7 @@ kotlin {
     android("android") {
         publishLibraryVariants("release")
     }
-    jvm("jvm")
+    jvm()
 
     ios {
         binaries {
@@ -38,7 +37,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.multiplatform.kotlin.stdlibCommon)
 
-                implementation(Dependencies.multiplatform.coroutines.common)
+                implementation(Dependencies.multiplatform.serialization.json)
             }
         }
         val commonTest by getting {
@@ -55,9 +54,6 @@ kotlin {
             dependencies {
                 //Kotlin
                 implementation(Dependencies.multiplatform.kotlin.stdlibAndroid)
-                implementation(Dependencies.multiplatform.coroutines.android)
-
-                implementation(Dependencies.android.material)
             }
         }
         val androidTest by getting {
@@ -65,8 +61,7 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.testJvm)
                 implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
 
-                implementation(Dependencies.multiplatform.coroutines.test)
-                implementation(Dependencies.multiplatform.mockk.android)
+                implementation(Dependencies.multiplatform.mockk.junit)
                 implementation(Dependencies.multiplatform.hamkrest.android)
             }
         }
@@ -80,16 +75,13 @@ kotlin {
             dependencies {
                 implementation(Dependencies.multiplatform.kotlin.testJvm)
                 implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
+
+                implementation(Dependencies.multiplatform.mockk.junit)
             }
         }
 
         val iosMain by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.coroutines.common) {
-                    version {
-                        strictly(Versions.kotlinCoroutines)
-                    }
-                }
             }
         }
         val iosTest by getting

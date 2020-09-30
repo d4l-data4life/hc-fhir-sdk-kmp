@@ -79,6 +79,7 @@ This is a living template as we learn more and requirements change over time.
 === Built With
 
 * link:https://kotlinlang.org/docs/reference/mpp-intro.html[Kotlin Multiplatform]
+* link:https://github.com/Kotlin/kotlinx.serialization[Kotlin Serialization]
 * link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator]
 
 == Getting Started

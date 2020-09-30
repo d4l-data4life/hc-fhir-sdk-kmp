@@ -1,7 +1,7 @@
 plugins {
     androidApp()
-    kotlinAndroid()
-    kotlinAndroidExtensions()
+    androidKotlin()
+    androidKotlinExtensions()
 }
 
 version = AppConfig.version
