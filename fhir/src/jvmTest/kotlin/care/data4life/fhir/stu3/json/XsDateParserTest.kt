@@ -17,10 +17,9 @@
 package care.data4life.fhir.stu3.json
 
 import care.data4life.fhir.stu3.datetime.XsDate
-import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
+import kotlin.test.assertFails
 
 class XsDateParserTest {
 
@@ -71,23 +70,23 @@ class XsDateParserTest {
 
 
     @Test
-    fun `parse() SHOULD throw IllegalArgumentException WHEN invalid input data`() {
-        assertTrue(verifyExceptionThrown(""))
-        assertTrue(verifyExceptionThrown(" "))
-        assertTrue(verifyExceptionThrown("abc"))
+    fun `parse() SHOULD throw exception WHEN invalid input data`() {
+        assertFails { XsDateParser.parse("") }
+        assertFails { XsDateParser.parse(" ") }
+        assertFails { XsDateParser.parse("abc") }
 
-        assertTrue(verifyExceptionThrown("999"))
-        assertTrue(verifyExceptionThrown("-999"))
-        assertTrue(verifyExceptionThrown("10000"))
-        assertTrue(verifyExceptionThrown("-10000"))
+        assertFails { XsDateParser.parse("999") }
+        assertFails { XsDateParser.parse("-999") }
+        assertFails { XsDateParser.parse("10000") }
+        assertFails { XsDateParser.parse("-10000") }
 
-        assertTrue(verifyExceptionThrown("2017-13"))
-        assertTrue(verifyExceptionThrown("2017-00"))
+        assertFails { XsDateParser.parse("2017-13") }
+        assertFails { XsDateParser.parse("2017-00") }
 
-        assertTrue(verifyExceptionThrown("2017-11-00"))
-        assertTrue(verifyExceptionThrown("2017-11-32"))
-        assertTrue(verifyExceptionThrown("2017-00-12"))
-        assertTrue(verifyExceptionThrown("2017-11-00"))
+        assertFails { XsDateParser.parse("2017-11-00") }
+        assertFails { XsDateParser.parse("2017-11-32") }
+        assertFails { XsDateParser.parse("2017-00-12") }
+        assertFails { XsDateParser.parse("2017-11-00") }
     }
 
     @Test
@@ -141,15 +140,5 @@ class XsDateParserTest {
             "-2015-11-25",
             XsDateParser.format(XsDate(-2015, 11, 25))
         )
-    }
-
-
-    private fun verifyExceptionThrown(date: kotlin.String): kotlin.Boolean {
-        try {
-            XsDateParser.parse(date)
-        } catch (error: IllegalArgumentException) {
-            return true
-        }
-        return false
     }
 }
