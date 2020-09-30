@@ -74,6 +74,8 @@ kotlin {
             }
         }
         val jvmTest by getting {
+            resources.srcDir("src-gen/jvmTest/resources")
+
             dependencies {
                 implementation(Dependencies.multiplatform.kotlin.testJvm)
                 implementation(Dependencies.multiplatform.kotlin.testJvmJunit)

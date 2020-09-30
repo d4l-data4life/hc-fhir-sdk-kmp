@@ -131,8 +131,8 @@ module Fastlane
           # movefiles(testSource, "#{testTarget}", modelTest, file_type)
 
           # Move test example jsons
-          # FileUtils.mkdir_p(testJsonTarget)
-          # sh "find #{fhir_parser}/downloads -name '*example*' -exec cp {} #{testJsonTarget} \\;"
+          FileUtils.mkdir_p(testJsonTarget)
+          sh "find #{fhir_parser}/downloads -name '*example*' -exec cp {} #{testJsonTarget} \\;"
 
           UI.success "Done integrating generated models ✅"
       end
