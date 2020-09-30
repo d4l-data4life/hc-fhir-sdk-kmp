@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Add link:https://github.com/gesundheitscloud/fhir-parser[FHIR specification parser] a fork of link:https://github.com/smart-on-fhir/fhir-parser[SMART on FHIR - Python FHIR Parser] as Git subproject pointing to `hc-fhir` branch
 * Add link:http://hl7.org/fhir/STU3-3.0.1.zip[FHIR specification 3.0.1] from link:http://hl7.org/fhir/directory.html[FHIR Publication History]
 * Add FHIR STU3 Json parser based on link:https://github.com/Kotlin/kotlinx.serialization[Kotlin Serialization]
+* Add datetime classes and parsers to serialize FHIR date primitives
 
 === Changed
 
