@@ -30,7 +30,7 @@ import kotlinx.serialization.Serializable
  *
  * FHIR representation: union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear
  *
- * @see <a href="http://hl7.org/fhir/datatypes.html#datetime">DateTime</a>
+ * @see <a href="http://hl7.org/fhir/STU3/datatypes.html#datetime">DateTime</a>
  *
  * Constructor
  *

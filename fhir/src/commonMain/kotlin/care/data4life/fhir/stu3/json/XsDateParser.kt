@@ -22,19 +22,19 @@ import care.data4life.fhir.stu3.datetime.XsDate
 /**
  * XsDateParser
  *
- * Parses XsDate according the FHIR spec derived from Date
+ * Parses XsDate according the FHIR specification derived from Date
  *
  * @see [Date]](http://hl7.org/fhir/STU3/datatypes.html#date)
  */
 object XsDateParser : StringParser<XsDate> {
 
-    private val DATE_FORMAT_REGEX = "-?([0-9]{4})(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?".toRegex()
+    private val DATE_FORMAT = "-?([0-9]{4})(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?".toRegex()
 
     override fun parse(input: String): XsDate {
-        require(DATE_FORMAT_REGEX.matches(input))
+        require(DATE_FORMAT.matches(input))
 
         val beforeZero = input.startsWith("-")
-        val match = DATE_FORMAT_REGEX.matchEntire(input)
+        val match = DATE_FORMAT.matchEntire(input)
         val (year, _, month, _, day) = match!!.destructured
 
         return XsDate(
