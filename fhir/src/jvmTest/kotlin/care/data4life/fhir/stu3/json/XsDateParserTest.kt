@@ -79,6 +79,7 @@ class XsDateParserTest {
         assertFails { XsDateParser.parse("-999") }
         assertFails { XsDateParser.parse("10000") }
         assertFails { XsDateParser.parse("-10000") }
+        assertFails { XsDateParser.parse("-1") }
 
         assertFails { XsDateParser.parse("2017-13") }
         assertFails { XsDateParser.parse("2017-00") }
