@@ -122,7 +122,7 @@ module Fastlane
           movefiles(modelSource, "#{modelTarget}", complex, file_type)
           movefiles(modelSource, "#{modelTarget}", special, file_type)
           moveCodeSystems(codeSystemSource, "#{codeSystemTarget}")
-          # movefiles(modelSource, "#{modelTarget}", model, file_type)
+          movefiles(modelSource, "#{modelTarget}", model, file_type)
 
           # Move tests
           # movefiles(testSource, "#{testTarget}", complexTest, file_type)
