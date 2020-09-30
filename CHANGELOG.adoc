@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Add FHIR primitives: Bool, Decimal, Integer, PositiveInteger, UnsignedInteger
 * Add FHIR primitives: Date, DateTime, Time, Instant
 * Add Kotlin KMP datetime SDK 0.1.1
+* Add generated FHIR JUnit tests
 
 === Changed
 

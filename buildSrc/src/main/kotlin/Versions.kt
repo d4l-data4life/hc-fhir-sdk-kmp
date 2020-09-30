@@ -84,6 +84,8 @@ object Versions {
     // Junit Test
     const val testJUnit = "4.13"
 
+    const val jsonAssert = "1.5.0"
+
     /**
      * [mockk](http://mockk.io)
      */

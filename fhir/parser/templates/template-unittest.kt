@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -26,9 +26,6 @@ import care.data4life.hl7.fhir.stu3.codesystem.*
 import care.data4life.hl7.fhir.stu3.primitive.*
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
-import kotlinx.serialization.modules.SerializersModule
 
 import kotlin.test.assertEquals
 
@@ -82,15 +79,15 @@ class {{ class.name }}Test {
 		{%- endif %}
 		{%- endif %})
 		{%- else %}{% if "String" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, String("{{ test.value|replace('"', '\\"') }}"))
+		assertEquals(data.{{ test.path }}, "{{ test.value|replace('"', '\\"') }}")
 		{%- else %}{% if "Decimal" == test.klass.name %}
 		assertEquals(data.{{ test.path }}.toString(), "{{ test.value }}")
 		{%- else %}{% if "Double" == test.klass.name %}
 		assertEquals(data.{{ test.path }}{{ test.value }}d)
 		{%- else %}{% if "Integer" == test.klass.name %}
 		assertEquals(data.{{ test.path }}, Integer({{ test.value }}), "{{ test.value }}")
-		{%- else %}{% if "Boolean" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, Boolean({% if test.value %}true{% else %}false{% endif %}))
+		{%- else %}{% if "Bool" == test.klass.name %}
+		assertEquals(data.{{ test.path }}, Bool({% if test.value %}true{% else %}false{% endif %}))
 		{%- else %}{% if "Date" == test.klass.name %}
 		assertEquals(data.{{ test.path }}{% if not test.array_item %}?{% endif %}.toString(), "{{ test.value }}")
 		{%- else %}{% if "DateTime" == test.klass.name %}
@@ -108,7 +105,7 @@ class {{ class.name }}Test {
 		{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
 		{%- endfor %}
 
-		val json = parser.fromFhir({{ class.name }}::class, data)
+		val json = parser.fromFhir(data)
 
 		JSONAssert.assertEquals(sourceJson, json, false)
 	}
