@@ -19,7 +19,7 @@ package care.data4life.fhir.stu3.datetime
 import kotlinx.serialization.Serializable
 
 /**
- * TimeZone
+ * XsTimeZone
  *
  * Represented as an offset from UTC as defined in ISO 8601.
  *
@@ -43,5 +43,11 @@ data class XsTimeZone(
 
         require(minuteOffset >= 0) { "minute should be >= 0" }
         require(minuteOffset <= 59) { "minute should be <= 59" }
+
+        if (!zeroOffsetGMT) {
+            require(hourOffset == 0) { "if zeroOffsetGMT is provided, hourOffset must to be 0" }
+            require(minuteOffset == 0) { "if zeroOffsetGMT is provided, minuteOffset must to be 0" }
+            require(positiveOffset) { "if zeroOffsetGMT is false, positiveOffset must to be true" }
+        }
     }
 }

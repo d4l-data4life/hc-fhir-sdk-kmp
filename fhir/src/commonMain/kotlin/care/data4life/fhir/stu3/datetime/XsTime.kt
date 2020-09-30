@@ -56,5 +56,14 @@ data class XsTime(
             require(second >= 0) { "second should be >= 0" }
             require(second <= 59) { "second should be <= 59" }
         }
+
+        if (fractionOfSecond != null) {
+            require(fractionOfSecond >= 0) { "fractionOfSecond should be >=0" }
+        }
+
+        if (fractionPadding != null) {
+            requireNotNull(fractionOfSecond) { "if fractionPadding is provided, fractionOfSecond is needed too"}
+            require(fractionPadding >= 0) { "fractionPadding should be >=0" }
+        }
     }
 }

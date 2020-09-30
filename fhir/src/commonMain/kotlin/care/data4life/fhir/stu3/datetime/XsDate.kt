@@ -16,7 +16,7 @@
 
 package care.data4life.fhir.stu3.datetime
 
-import kotlinx.serialization.*
+import kotlinx.serialization.Serializable
 
 /**
  * XsDate
@@ -52,7 +52,7 @@ data class XsDate(
 
         if (day != null) {
             require(day >= 1) { "day should be >= 1" }
-            require(day <= 31) { "day should be <= 32" }
+            require(day <= 31) { "day should be <= 31" }
         }
     }
 }

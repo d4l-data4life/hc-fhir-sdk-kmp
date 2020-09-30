@@ -19,7 +19,6 @@ package care.data4life.fhir.test.data
 import care.data4life.fhir.stu3.model.FhirStu3
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 @Serializable
 @SerialName("testobject")
