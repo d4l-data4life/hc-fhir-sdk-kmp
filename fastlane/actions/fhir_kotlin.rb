@@ -68,7 +68,7 @@ module Fastlane
 
 
           # Define filenames to include
-          base = ["FhirElementFactory"]
+          base = ["FhirElementFactory","FhirSerializationModule"]
           complex = ["Ratio", "Period", "Range", "Attachment", "Identifier", "HumanName", "Annotation", "Address", "ContactPoint", "SampledData", "Money", "Count", "Duration", "Quantity", "Distance", "Age", "CodeableConcept", "Signature", "Coding", "Timing", "Element"]
           special = ["Reference", "Narrative", "Extension", "Resource", "Meta"]
           enum = ["CodeSystems"]
