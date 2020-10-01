@@ -34,6 +34,8 @@ kotlin {
         }
 
         val commonMain by getting {
+            kotlin.srcDir("src-gen/commonMain/kotlin")
+
             dependencies {
                 implementation(Dependencies.multiplatform.kotlin.stdlibCommon)
 

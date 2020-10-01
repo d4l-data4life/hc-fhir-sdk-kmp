@@ -22,11 +22,11 @@
 
 -keepattributes *Annotation*, InnerClasses
 -dontnote kotlinx.serialization.SerializationKt
--keep,includedescriptorclasses class care.data4life.fhir.stu3.model.**$$serializer { *; } # <-- change package name to your app's
--keepclassmembers class care.data4life.fhir.stu3.model.** { # <-- change package name to your app's
+-keep,includedescriptorclasses class care.data4life.fhir.stu3.model.**$$serializer { *; }
+-keepclassmembers class care.data4life.fhir.stu3.model.** {
     *** Companion;
 }
 
--keepclasseswithmembers class care.data4life.fhir.stu3.model.** { # <-- change package name to your app's
+-keepclasseswithmembers class care.data4life.fhir.stu3.model.** {
     kotlinx.serialization.KSerializer serializer(...);
 }

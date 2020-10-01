@@ -92,6 +92,7 @@ Guide to setup the template project locally.
 * link:https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
 * link:https://kotlinlang.org/[Kotlin 1.4.10]
 * link:https://www.python.org/downloads/[Python 3.7.8]
+* link:https://fastlane.tools[Fastlane]
 * Xcode 11.7
 
 === Installation
@@ -150,6 +151,10 @@ Make sure you are in the project root and install the correct Python version whi
 pyenv install
 ----
 
+==== Install Fastlane
+
+Have a look at link:fastlane/Readme.md[Readme]
+
 ==== Android Studio
 
 For better interop with iOS you may install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[KMM plugin for Android Studio]]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
@@ -179,7 +184,7 @@ Copyright (c) 2020 D4L data4life gGmbH / All rights reserved. Please refer to ou
 
 == Related Links
 
-* link:http://hl7.org/fhir/index.html[FHIR current]
-* link:http://hl7.org/fhir/STU3/index.html[FHIR 3 Overview] - link:http://hl7.org/fhir/STU3-3.0.1.zip[STU3-3.0.1.zip]
-* link:http://hl7.org/fhir/R4/index.html[FHIR 4]
-* link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator]
+- link:http://hl7.org/fhir/index.html[FHIR current]
+- link:http://hl7.org/fhir/STU3/index.html[FHIR 3 Overview] - link:http://hl7.org/fhir/STU3-3.0.1.zip[STU3-3.0.1.zip]
+- link:http://hl7.org/fhir/R4/index.html[FHIR 4]
+- link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator]
