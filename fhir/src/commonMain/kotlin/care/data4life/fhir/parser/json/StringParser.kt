@@ -14,27 +14,11 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.test.data
+package care.data4life.fhir.parser.json
 
-import care.data4life.fhir.stu3.model.FhirStu3
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+interface StringParser<TARGET> {
 
-@Serializable
-@SerialName("testobject")
-data class FhirTestObject(
-    val value: String
-) : FhirStu3 {
+    fun parse(input: String): TARGET
 
-    override val resourceType: String
-        get() = resourceType()
-
-    companion object {
-        @JvmStatic
-        fun resourceType(): kotlin.String = "resourceType"
-
-        const val jsonData = """{"resourceType":"testobject","value":"value"}"""
-
-        val testData = FhirTestObject("value")
-    }
+    fun format(input: TARGET): String
 }

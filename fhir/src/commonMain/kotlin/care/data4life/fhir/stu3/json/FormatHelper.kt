@@ -14,27 +14,17 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.test.data
+package care.data4life.fhir.stu3.json
 
-import care.data4life.fhir.stu3.model.FhirStu3
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-
-@Serializable
-@SerialName("testobject")
-data class FhirTestObject(
-    val value: String
-) : FhirStu3 {
-
-    override val resourceType: String
-        get() = resourceType()
-
-    companion object {
-        @JvmStatic
-        fun resourceType(): kotlin.String = "resourceType"
-
-        const val jsonData = """{"resourceType":"testobject","value":"value"}"""
-
-        val testData = FhirTestObject("value")
-    }
-}
+/**
+ * Returns a String representation prepended with zeros until given [length]
+ *
+ * Example:
+ *
+ * length = 2 and values 0,1,11 -> 00, 01, 11
+ * length = 3 and values 0,1,11 -> 000, 001, 011
+ * length = 3 and values 0,1,11 -> 0000, 0001, 0011
+ *
+ * @param length the desired length
+ */
+fun Int.padStartZero(length: Int): String = toString().padStart(length, '0')
