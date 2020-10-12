@@ -43,7 +43,7 @@ class FhirStu3JsonParser(
 
     companion object {
         private val fhirStu3SerializersModule = SerializersModule {
-            FhirSerializationModule.module()
+            FhirSerializationModule.module().dumpTo(this)
         }
 
         fun defaultJsonReader(module: SerializersModule = fhirStu3SerializersModule): Json {
