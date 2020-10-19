@@ -16,6 +16,7 @@
 
 package care.data4life.fhir.stu3.model
 
+import care.data4life.fhir.stu3.primitives.*
 import care.data4life.fhir.stu3.codesystem.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

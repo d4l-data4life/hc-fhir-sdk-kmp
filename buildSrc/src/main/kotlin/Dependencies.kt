@@ -106,6 +106,8 @@ object Dependencies {
             const val common = "com.github.npryce.hamkrest:hamkrest-metadata:${Versions.testHamkrest}"
             const val android = "com.github.npryce.hamkrest:hamkrest-jvm:${Versions.testHamkrest}"
         }
+
+        const val bignum = "com.ionspin.kotlin:bignum:${Versions.bignum}"
     }
 
 

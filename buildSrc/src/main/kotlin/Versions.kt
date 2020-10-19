@@ -44,6 +44,8 @@ object Versions {
     // https://github.com/Kotlin/kotlinx.serialization
     const val kotlinSerialization = "1.0.0-RC2"
 
+    // https://github.com/ionspin/kotlin-multiplatform-bignum
+    const val bignum = "0.2.2"
 
     // Android
     // https://developer.android.com/studio/write/java8-support

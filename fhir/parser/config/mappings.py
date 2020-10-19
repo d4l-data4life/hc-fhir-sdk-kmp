@@ -6,11 +6,11 @@ classmap = {
     'Any': 'Resource',
     'Practitioner.role': 'PractRole',   # to avoid Practinioner.role and PractitionerRole generating the same class
 
-    'boolean': 'String', # 'Boolean',
-    'decimal': 'String', # 'Decimal',
-    'integer': 'String', # 'Integer',
-    'positiveInt': 'String', # 'Integer',
-    'unsignedInt': 'String', # 'Integer',
+    'boolean': 'FBoolean',
+    'decimal': 'Decimal',
+    'integer': 'Integer',
+    'positiveInt': 'PInteger',
+    'unsignedInt': 'UInteger',
 
     'string': 'String',
     'code': 'String',  # we're not generating enums for all codes

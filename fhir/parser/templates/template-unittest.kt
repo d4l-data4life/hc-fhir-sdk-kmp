@@ -23,6 +23,7 @@ import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
 
 import care.data4life.fhir.stu3.codesystem.*
+import care.data4life.fhir.stu3.primitives.*
 import care.data4life.fhir.stu3.FhirStu3Parser
 import care.data4life.fhir.test.util.FileHelper.loadAsString
 

@@ -40,6 +40,7 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.stdlibCommon)
 
                 implementation(Dependencies.multiplatform.serialization.json)
+                implementation(Dependencies.multiplatform.bignum)
             }
         }
         val commonTest by getting {

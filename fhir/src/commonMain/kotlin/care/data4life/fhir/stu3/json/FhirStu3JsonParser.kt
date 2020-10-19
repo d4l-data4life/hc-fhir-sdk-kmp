@@ -49,7 +49,7 @@ class FhirStu3JsonParser(
         fun defaultJsonReader(module: SerializersModule = fhirStu3SerializersModule): Json {
             return Json {
                 encodeDefaults = false
-                isLenient = false
+                isLenient = true
                 ignoreUnknownKeys = true
                 allowSpecialFloatingPointValues = false
                 allowStructuredMapKeys = true
