@@ -122,7 +122,7 @@ module Fastlane
           movefiles(modelSource, "#{modelTarget}", complex, file_type)
           movefiles(modelSource, "#{modelTarget}", special, file_type)
           moveCodeSystems(codeSystemSource, "#{codeSystemTarget}")
-          # movefiles(modelSource, "#{modelTarget}", model, file_type)
+          movefiles(modelSource, "#{modelTarget}", model, file_type)
 
           # Move tests
           # movefiles(testSource, "#{testTarget}", complexTest, file_type)
@@ -131,8 +131,8 @@ module Fastlane
           # movefiles(testSource, "#{testTarget}", modelTest, file_type)
 
           # Move test example jsons
-          # FileUtils.mkdir_p(testJsonTarget)
-          # sh "find #{fhir_parser}/downloads -name '*example*' -exec cp {} #{testJsonTarget} \\;"
+          FileUtils.mkdir_p(testJsonTarget)
+          sh "find #{fhir_parser}/downloads -name '*example*' -exec cp {} #{testJsonTarget} \\;"
 
           UI.success "Done integrating generated models ✅"
       end

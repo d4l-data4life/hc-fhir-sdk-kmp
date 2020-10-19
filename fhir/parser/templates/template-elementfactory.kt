@@ -31,7 +31,7 @@ object FhirElementFactory {
             "CarePlan",
             "CareTeam",
             "CodeableConcept",
-            "CodeSystems",
+            "CodeSystem",
             "Coding",
             "Condition",
             "ContactDetail",

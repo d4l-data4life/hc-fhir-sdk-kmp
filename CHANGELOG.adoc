@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Add FHIR generation config
 * Add generated FHIR code systems
 * Add generated FHIR base models
+* Add test FHIR json examples
+* Add generated FHIR models
 
 === Changed
 
