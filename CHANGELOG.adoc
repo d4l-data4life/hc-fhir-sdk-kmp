@@ -22,10 +22,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 === Changed
 
 * Change template project to prepare for FHIR SDK implementation
-* Change AndroidStudio to 4.1
 
 === Removed
 
 === Fixed
+
+=== Bumped
+
+* Bump AndroidStudio 4.0.1 to 4.1
+* Bump Gradle 6.6.1 -> 6.7
 
 === Migration
