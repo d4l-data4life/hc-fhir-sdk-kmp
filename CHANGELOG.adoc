@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Add test FHIR json examples
 * Add generated FHIR models
 * Add generated FHIR JUnit tests
+* Add contained resource parsing
 
 === Changed
 
