@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -14,22 +14,3 @@
  * contact D4L by email to help@data4life.care.
  */
 
-object AppConfig {
-
-    const val group = LibraryConfig.group + ".sample"
-
-
-    val android = AndroidConfig
-
-    object AndroidConfig {
-        const val minSdkVersion = LibraryConfig.android.minSdkVersion
-        const val compileSdkVersion = LibraryConfig.android.compileSdkVersion
-        const val targetSdkVersion = LibraryConfig.android.targetSdkVersion
-
-        const val versionCode = 1
-        const val versionName = "0.1.0"
-
-        const val applicationId = group
-    }
-
-}

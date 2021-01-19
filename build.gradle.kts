@@ -3,6 +3,7 @@ buildscript {
         mavenCentral()
         google()
         jcenter()
+        maven("https://dl.bintray.com/data4life/maven")
     }
     dependencies {
         classpath(GradlePlugins.kotlin)
@@ -15,6 +16,9 @@ plugins {
     kotlinSerialization(false)
 
     dependencyUpdates()
+
+    id("scripts.versioning")
+    id("scripts.publishing")
 }
 
 allprojects {
