@@ -29,7 +29,7 @@ object AppConfig {
         const val versionCode = 1
         const val versionName = "0.1.0"
 
-        const val applicationId = group
+        const val applicationId = group + LibraryConfig.name
     }
 
 }

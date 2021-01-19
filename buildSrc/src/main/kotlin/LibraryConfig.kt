@@ -15,7 +15,7 @@
  */
 
 object LibraryConfig {
-    const val group = "care.data4life.fhir"
+    const val group = "care.data4life"
     const val name = "hc-fhir-sdk-kmp"
 
     const val githubOwner = "d4l-data4life"
