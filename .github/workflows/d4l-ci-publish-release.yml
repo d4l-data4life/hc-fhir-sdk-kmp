@@ -10,6 +10,10 @@ jobs:
 
     runs-on: [self-hosted, macos]
 
+    env:
+      PACKAGE_REGISTRY_USERNAME: ${{ secrets.PACKAGE_REGISTRY_USERNAME }}
+      PACKAGE_REGISTRY_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
+
     steps:
       - name: Display runner context
         run: hostname -s
