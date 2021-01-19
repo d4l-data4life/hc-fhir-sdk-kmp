@@ -1,0 +1,28 @@
+name: D4L CI - Publish Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish-release:
+
+    runs-on: [self-hosted, macos]
+
+    steps:
+      - name: Display runner context
+        run: hostname -s
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Cleanup
+        run: ./gradlew clean
+      - name: Version
+        run: ./gradlew versionInfo
+      - name: Build project
+        run: ./gradlew build
+      - name: Publish to GitHub Packages
+        run: ./gradlew publishAllPublicationToGitHubPackagesRepository
+      - name: Publish Release to Maven Repo
+        run: ./gradlew publishRelease
