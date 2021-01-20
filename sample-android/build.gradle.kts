@@ -4,7 +4,6 @@ plugins {
     androidKotlinExtensions()
 }
 
-version = AppConfig.version
 group = AppConfig.group
 
 android {

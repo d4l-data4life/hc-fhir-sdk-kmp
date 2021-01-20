@@ -6,17 +6,19 @@ plugins {
 
     // Android
     androidLibrary()
+
+    // Publish
+    id("scripts.publishing-config")
 }
 
-version = LibraryConfig.version
 group = LibraryConfig.group
 
 
 kotlin {
-    android("android") {
+    android {
         publishLibraryVariants("release")
     }
-    jvm()
+    jvm { }
 
     ios {
         binaries {
@@ -99,8 +101,8 @@ android {
         minSdkVersion(LibraryConfig.android.minSdkVersion)
         targetSdkVersion(LibraryConfig.android.targetSdkVersion)
 
-        versionCode = LibraryConfig.android.versionCode
-        versionName = LibraryConfig.android.versionName
+        versionCode = 1
+        versionName = "${project.version}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments(

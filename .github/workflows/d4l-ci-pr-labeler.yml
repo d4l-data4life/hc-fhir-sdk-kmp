@@ -1,5 +1,5 @@
 # Workflow to associate labels automatically
-name: labeler
+name: D4L CI - PR Labeler
 
 on:
   - pull_request

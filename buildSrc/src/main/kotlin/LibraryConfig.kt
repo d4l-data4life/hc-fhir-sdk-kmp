@@ -15,21 +15,50 @@
  */
 
 object LibraryConfig {
-    const val name = "FHIR"
-    const val version = "0.0.1"
-    const val group = "care.data4life.fhir"
-    const val versionCode = 1
+    const val group = "care.data4life"
+    const val name = "hc-fhir-sdk-kmp"
 
+    const val githubOwner = "d4l-data4life"
+    const val githubRepository = "hc-fhir-sdk-kmp"
+
+
+    val publish = PublishConfig
+
+    object PublishConfig {
+        const val name = LibraryConfig.name
+        const val groupId = "${LibraryConfig.group}.${LibraryConfig.name}"
+
+        const val description = "Provides builder and extension to create and interact with FHIR objects "
+        const val year = "2021"
+
+        // URL
+        const val host = "github.com"
+        const val path = "$githubOwner/$githubRepository"
+
+        const val url = "https://$host/$path"
+
+        // DEVELOPER
+        const val developerId = "d4l-data4life"
+        const val developerName = "D4L data4life gGmbH"
+        const val developerEmail = "mobile@data4life.care"
+
+        // LICENSE
+        const val licenseName = "Private"
+        const val licenseUrl = "$url/blob/main/LICENSE"
+        const val licenseDistribution = "repo"
+
+        // SCM
+        const val scmUrl = "git://$host/$path.git"
+        const val scmConnection = "scm:$scmUrl"
+        const val scmDeveloperConnection = scmConnection
+    }
 
     val android = AndroidLibraryConfig
 
     object AndroidLibraryConfig {
-        const val minSdkVersion = 21
-        const val compileSdkVersion = 29
-        const val targetSdkVersion = 29
-
-        const val versionCode = LibraryConfig.versionCode
-        const val versionName = LibraryConfig.version
+        const val minSdkVersion = 23
+        const val compileSdkVersion = 30
+        const val targetSdkVersion = 30
 
         const val resourcePrefix = "hc_fhir_"
     }
