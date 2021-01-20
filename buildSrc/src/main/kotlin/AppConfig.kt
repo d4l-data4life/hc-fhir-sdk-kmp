@@ -16,8 +16,7 @@
 
 object AppConfig {
 
-    const val group = LibraryConfig.group + ".sample"
-
+    const val group = LibraryConfig.group
 
     val android = AndroidConfig
 
@@ -29,7 +28,7 @@ object AppConfig {
         const val versionCode = 1
         const val versionName = "0.1.0"
 
-        const val applicationId = group + LibraryConfig.name
+        const val applicationId = "$group.fhir.sample"
     }
 
 }
