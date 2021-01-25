@@ -17,17 +17,18 @@
 package care.data4life.fhir.stu3.json
 
 import care.data4life.fhir.parser.json.FhirJsonParser
+import care.data4life.fhir.stu3.model.FhirSerializationModule
 import care.data4life.fhir.stu3.model.FhirStu3
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.PolymorphicSerializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.serializer
 import kotlin.reflect.KClass
 
 @OptIn(InternalSerializationApi::class)
-class FhirStu3JsonParser(
+class FhirStu3JsonParser @OptIn(ExperimentalSerializationApi::class) constructor(
     private val reader: Json = defaultJsonReader()
 ) : FhirJsonParser<FhirStu3> {
 
@@ -41,10 +42,13 @@ class FhirStu3JsonParser(
 
 
     companion object {
+
+        @ExperimentalSerializationApi
         private val fhirStu3SerializersModule = SerializersModule {
-            polymorphic(FhirStu3::class)
+            FhirSerializationModule.module().dumpTo(this)
         }
 
+        @ExperimentalSerializationApi
         fun defaultJsonReader(module: SerializersModule = fhirStu3SerializersModule): Json {
             return Json {
                 encodeDefaults = false
