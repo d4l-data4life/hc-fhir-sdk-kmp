@@ -42,7 +42,7 @@ object Versions {
     const val kotlinCoroutinesIO = "0.1.16"
 
     // https://github.com/Kotlin/kotlinx.serialization
-    const val kotlinSerialization = "1.0.0-RC2"
+    const val kotlinSerialization = "1.0.1"
 
 
     // Android
