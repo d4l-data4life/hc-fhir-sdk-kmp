@@ -49,7 +49,7 @@ class XsTimeZoneTest(
         assertEquals(zeroOffsetGMT, timeZone.zeroOffsetGMT)
     }
 
-    private companion object {
+    companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{index}: hourOffset: \"{0}\" minuteOffset: \"{1}\" positiveOffset: \"{2}\" zeroOffsetGMT: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {

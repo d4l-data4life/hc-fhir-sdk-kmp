@@ -47,7 +47,7 @@ class XsDateTimeTest(
         assertEquals(timeZone, dateTime.timeZone)
     }
 
-    private companion object {
+    companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{index}: date: \"{0}\" time: \"{1}\" timeZone: \"{2}\"")
         fun data(): Iterable<Array<Any?>> {

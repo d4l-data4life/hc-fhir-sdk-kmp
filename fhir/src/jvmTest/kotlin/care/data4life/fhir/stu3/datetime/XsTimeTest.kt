@@ -52,7 +52,7 @@ class XsTimeTest(
         assertEquals(fractionPadding, time.fractionPadding)
     }
 
-    private companion object {
+    companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{index}: hour: \"{0}\" minute: \"{1}\" second: \"{2}\" fractionOfSecond: \"{3}\"  fractionPadding: \"{4}\"")
         fun data(): Iterable<Array<Any?>> {

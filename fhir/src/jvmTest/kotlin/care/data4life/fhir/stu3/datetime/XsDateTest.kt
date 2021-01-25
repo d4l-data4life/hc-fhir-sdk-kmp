@@ -47,7 +47,7 @@ class XsDateTest(
         assertEquals(day, date.day)
     }
 
-    private companion object {
+    companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{index}: year: \"{0}\" month: \"{1}\" day: \"{2}\"")
         fun data(): Iterable<Array<Any?>> {
