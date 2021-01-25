@@ -17,7 +17,7 @@
 package care.data4life.fhir.stu3
 
 import care.data4life.fhir.stu3.json.FhirStu3JsonParser
-import care.data4life.fhir.test.data.FhirTestObject
+import care.data4life.fhir.test.data.FhirSimpleTestObject
 import io.mockk.confirmVerified
 import io.mockk.mockk
 import io.mockk.verify
@@ -42,7 +42,7 @@ class FhirStu3ParserTest {
     @Test
     fun `toFhir() SHOULD call jsonParser_fromJson()`() {
         // Given
-        val clazz = FhirTestObject::class
+        val clazz = FhirSimpleTestObject::class
         val data = "fhirData"
 
         // When
@@ -58,7 +58,7 @@ class FhirStu3ParserTest {
     @Test
     fun `fromFhir() SHOULD call jsonParser_toJson()`() {
         // Given
-        val data = FhirTestObject.testData
+        val data = FhirSimpleTestObject.testData
 
         // When
         parser.fromFhir(data)
