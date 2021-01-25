@@ -46,7 +46,6 @@ object FhirSerializationModule {
 			"Element",
 			"Extension",
 			"FamilyMemberHistory",
-			"FhirElementFact",
 			"Goal",
 			"HumanName",
 			"Identifier",
@@ -80,11 +79,46 @@ object FhirSerializationModule {
 			"ValueSet"
 	] %}
 
+	{%- set fhir_resource_list = [
+			"CarePlan",
+			"CareTeam",
+			"CodeSystem",
+			"Condition",
+			"DiagnosticReport",
+			"DocumentReference",
+			"DomainResource",
+			"FamilyMemberHistory",
+			"Goal",
+			"Medication",
+			"MedicationRequest",
+			"Observation",
+			"Organization",
+			"Patient",
+			"Practitioner",
+			"Procedure",
+			"ProcedureRequest",
+			"Provenance",
+			"Questionnaire",
+			"QuestionnaireResponse",
+			"ReferralRequest",
+			"Resource",
+			"Specimen",
+			"Substance",
+			"ValueSet",
+	] %}
+
 	fun module(): SerializersModule {
 		return SerializersModule {
 			polymorphic(FhirStu3::class) {
 				{%- for resource in resources %}
 				{%- if resource.name in resource_list %}
+				subclass({{ resource.name }}::class)
+				{%- endif %}
+				{%- endfor %}
+			}
+			polymorphic(FhirResource::class) {
+				{%- for resource in resources %}
+				{%- if resource.name in fhir_resource_list %}
 				subclass({{ resource.name }}::class)
 				{%- endif %}
 				{%- endfor %}
