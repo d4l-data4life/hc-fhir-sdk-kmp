@@ -38,6 +38,7 @@ class IntegerTest(
             assertFails {
                 Integer(value, extension, id)
             }
+            return
         }
 
         val result = Integer(value, extension, id)
@@ -64,8 +65,8 @@ class IntegerTest(
                 arrayOf(-2147483648, null, null, true),
 
                 // fail will fail on system level
-                //arrayOf(2147483648, null, null, false),
-                //arrayOf(-2147483649, null, null, false),
+                // arrayOf(2147483648, null, null, false),
+                // arrayOf(-2147483649, null, null, false),
             )
         }
     }

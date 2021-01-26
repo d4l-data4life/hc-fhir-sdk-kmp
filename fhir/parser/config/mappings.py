@@ -7,10 +7,10 @@ classmap = {
     'Practitioner.role': 'PractRole',   # to avoid Practinioner.role and PractitionerRole generating the same class
 
     'decimal': 'String', # 'Decimal',
-    'positiveInt': 'String', # 'Integer',
     'unsignedInt': 'String', # 'Integer',
     'boolean': 'Boolean',
     'integer': 'Integer',
+    'positiveInt': 'PositiveInteger',
 
     'string': 'String',
     'code': 'String',  # we're not generating enums for all codes

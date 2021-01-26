@@ -24,8 +24,8 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
-class BooleanTest(
-    private var value: kotlin.Boolean,
+class PositiveIntegerTest(
+    private var value: kotlin.Int,
     private var extension: List<Extension>?,
     private var id: String?,
 
@@ -36,12 +36,12 @@ class BooleanTest(
     fun testParameterized() {
         if (!isCorrect) {
             assertFails {
-                Boolean(value, extension, id)
+                PositiveInteger(value, extension, id)
             }
             return
         }
 
-        val result = Boolean(value, extension, id)
+        val result = PositiveInteger(value, extension, id)
 
         assertEquals(value, result.value)
         assertEquals(extension, result.extension)
@@ -53,9 +53,22 @@ class BooleanTest(
         @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
-                // just value
-                arrayOf(true, null, null, true),
-                arrayOf(false, null, null, true),
+                // positive
+                arrayOf(1, null, null, true),
+                arrayOf(2147483647, null, null, true),
+
+
+                // error cases
+                // zero
+                arrayOf(0, null, null, false),
+
+                // negative
+                arrayOf(-1, null, null, false),
+                arrayOf(-2147483648, null, null, false),
+
+                // fail will fail on system level
+                // arrayOf(2147483648, null, null, false),
+                // arrayOf(-2147483649, null, null, false),
             )
         }
     }
