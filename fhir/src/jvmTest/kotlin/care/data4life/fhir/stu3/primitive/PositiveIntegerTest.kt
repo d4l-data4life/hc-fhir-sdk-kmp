@@ -29,12 +29,12 @@ class PositiveIntegerTest(
     private var extension: List<Extension>?,
     private var id: String?,
 
-    private var isCorrect: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean,
 ) {
 
     @Test
-    fun testParameterized() {
-        if (!isCorrect) {
+    fun `Given, input should`() {
+        if (shouldFail) {
             assertFails {
                 PositiveInteger(value, extension, id)
             }
@@ -54,21 +54,21 @@ class PositiveIntegerTest(
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // positive
-                arrayOf(1, null, null, true),
-                arrayOf(2147483647, null, null, true),
+                arrayOf(1, null, null, false),
+                arrayOf(2147483647, null, null, false),
 
 
                 // error cases
                 // zero
-                arrayOf(0, null, null, false),
+                arrayOf(0, null, null, true),
 
                 // negative
-                arrayOf(-1, null, null, false),
-                arrayOf(-2147483648, null, null, false),
+                arrayOf(-1, null, null, true),
+                arrayOf(-2147483648, null, null, true),
 
                 // fail will fail on system level
-                // arrayOf(2147483648, null, null, false),
-                // arrayOf(-2147483649, null, null, false),
+                // arrayOf(2147483648, null, null, true),
+                // arrayOf(-2147483649, null, null, true),
             )
         }
     }

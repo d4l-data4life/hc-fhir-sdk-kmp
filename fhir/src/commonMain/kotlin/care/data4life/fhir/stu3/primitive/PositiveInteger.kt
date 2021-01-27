@@ -36,6 +36,8 @@ interface FhirPositiveInteger : FhirElement {
  *
  * Any positive 32-bit integer (e.g. >= 1)
  *
+ * Due to use of kotlin.Int the max value is limited to 2_147_483_647
+ *
  * Regex: +?[1-9][0-9]*
  *
  *
@@ -55,7 +57,7 @@ data class PositiveInteger(
     // Additional Content defined by implementations.
     override val extension: List<Extension>? = null,
     // xml:id (or equivalent in JSON).
-    override val id: String? = null
+    override val id: kotlin.String? = null
 ) : FhirPositiveInteger {
 
     init {
@@ -74,7 +76,6 @@ data class PositiveInteger(
 
         override fun deserialize(decoder: Decoder): PositiveInteger {
             val value = decoder.decodeInt()
-
 
             //TODO deserialize extensions and id
 
