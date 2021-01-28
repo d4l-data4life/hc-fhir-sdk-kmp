@@ -88,12 +88,12 @@ Guide to setup the template project locally.
 
 === Prerequisites
 
-* link:https://developer.android.com/studio#downloads[Android Studio 4.1.0]
+* link:https://developer.android.com/studio#downloads[Android Studio 4.1.2]
 * link:https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
-* link:https://kotlinlang.org/[Kotlin 1.4.10]
+* link:https://kotlinlang.org/[Kotlin 1.4.21]
 * link:https://www.python.org/downloads/[Python 3.7.8]
 * link:https://fastlane.tools[Fastlane]
-* Xcode 11.7
+* Xcode 12.3
 
 === Installation
 

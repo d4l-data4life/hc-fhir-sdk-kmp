@@ -80,6 +80,33 @@ object FhirSerializationModule {
                 subclass(UsageContext::class)
                 subclass(ValueSet::class)
             }
+            polymorphic(FhirResource::class) {
+                subclass(CarePlan::class)
+                subclass(CareTeam::class)
+                subclass(CodeSystem::class)
+                subclass(Condition::class)
+                subclass(DiagnosticReport::class)
+                subclass(DocumentReference::class)
+                subclass(DomainResource::class)
+                subclass(FamilyMemberHistory::class)
+                subclass(Goal::class)
+                subclass(Medication::class)
+                subclass(MedicationRequest::class)
+                subclass(Observation::class)
+                subclass(Organization::class)
+                subclass(Patient::class)
+                subclass(Practitioner::class)
+                subclass(Procedure::class)
+                subclass(ProcedureRequest::class)
+                subclass(Provenance::class)
+                subclass(Questionnaire::class)
+                subclass(QuestionnaireResponse::class)
+                subclass(ReferralRequest::class)
+                subclass(Resource::class)
+                subclass(Specimen::class)
+                subclass(Substance::class)
+                subclass(ValueSet::class)
+            }
         }
     }
 }

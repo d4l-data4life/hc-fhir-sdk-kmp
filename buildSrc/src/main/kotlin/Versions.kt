@@ -19,7 +19,7 @@ object Versions {
     // Gradle Plugin
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.1.0"
+        const val android = "4.1.2"
 
         /**
          * [Dexcount](https://github.com/KeepSafe/dexcount-gradle-plugin)
@@ -34,7 +34,7 @@ object Versions {
 
     // Kotlin
     // https://github.com/JetBrains/kotlin
-    const val kotlin = "1.4.10"
+    const val kotlin = "1.4.21"
     const val kotlinGradlePlugin = kotlin
 
     // https://github.com/Kotlin/kotlinx.coroutines
@@ -42,7 +42,7 @@ object Versions {
     const val kotlinCoroutinesIO = "0.1.16"
 
     // https://github.com/Kotlin/kotlinx.serialization
-    const val kotlinSerialization = "1.0.0-RC2"
+    const val kotlinSerialization = "1.0.1"
 
 
     // Android
