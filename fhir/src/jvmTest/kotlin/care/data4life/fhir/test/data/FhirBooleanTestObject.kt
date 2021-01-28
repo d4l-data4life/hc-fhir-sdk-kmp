@@ -18,14 +18,14 @@ package care.data4life.fhir.test.data
 
 import care.data4life.fhir.stu3.model.FhirResource
 import care.data4life.fhir.stu3.model.Meta
-import care.data4life.fhir.stu3.primitive.Integer
+import care.data4life.fhir.stu3.primitive.Boolean
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirIntegerTestObject")
-data class FhirIntegerTestObject(
-    val value: Integer,
+@SerialName("FhirBooleanTestObject")
+data class FhirBooleanTestObject(
+    val value: Boolean,
 
     // FhirResource
     override val id: String? = null,
@@ -39,10 +39,10 @@ data class FhirIntegerTestObject(
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirIntegerTestObject"
+        fun resourceType(): String = "FhirBooleanTestObject"
 
         fun jsonData(
-            value: Integer
+            value: Boolean
         ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
             resourceType(),
             { "${value.value}" },
@@ -50,8 +50,8 @@ data class FhirIntegerTestObject(
             value.id
         )
 
-        fun testData(value: Integer): FhirIntegerTestObject {
-            return FhirIntegerTestObject(value)
+        fun testData(value: Boolean): FhirBooleanTestObject {
+            return FhirBooleanTestObject(value)
         }
     }
 }

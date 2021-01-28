@@ -45,7 +45,7 @@ data class FhirPositiveIntegerTestObject(
             value: PositiveInteger
         ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
             resourceType(),
-            { "value.value" },
+            { "${value.value}" },
             value.extension,
             value.id
         )
