@@ -27,16 +27,16 @@ import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
 
 interface FhirUnsignedInteger : FhirElement {
-    val value: kotlin.Int
+    val value: kotlin.Long
 }
 
 /**
  * UnsignedInteger
  *
  *
- * Any unsinged 32-bit integer (e.g. >= 0)
+ * Any unsinged integer (e.g. >= 0)
  *
- * Due to use of kotlin.Int the max value is limited to 2_147_483_647
+ * WARNING: Due to use of kotlin.Long the max value is limited to 9_223_372_036_854_775_807
  *
  * Regex: +?[1-9][0-9]*
  *
@@ -52,7 +52,7 @@ interface FhirUnsignedInteger : FhirElement {
 @SerialName("UnsignedInt")
 data class UnsignedInteger(
     // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28)
-    override val value: kotlin.Int,
+    override val value: kotlin.Long,
 
     // # Element
     // Additional Content defined by implementations.
@@ -76,7 +76,7 @@ data class UnsignedInteger(
         fun resourceType(): kotlin.String = "UnsignedInt"
 
         override fun deserialize(decoder: Decoder): UnsignedInteger {
-            val value = decoder.decodeInt()
+            val value = decoder.decodeLong()
 
             //TODO deserialize extensions and id
 
@@ -84,7 +84,7 @@ data class UnsignedInteger(
         }
 
         override fun serialize(encoder: Encoder, value: UnsignedInteger) {
-            encoder.encodeInt(value.value)
+            encoder.encodeLong(value.value)
 
             //TODO serialize extensions and id
         }

@@ -27,16 +27,16 @@ import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
 
 interface FhirPositiveInteger : FhirElement {
-    val value: Int
+    val value: kotlin.Long
 }
 
 /**
  * PositiveInteger
  *
  *
- * Any positive 32-bit integer (e.g. >= 1)
+ * Any positive integer (e.g. >= 1)
  *
- * Due to use of kotlin.Int the max value is limited to 2_147_483_647
+ * WARNING: Due to use of kotlin.Long the max value is limited to 9_223_372_036_854_775_807
  *
  * Regex: +?[1-9][0-9]*
  *
@@ -52,7 +52,7 @@ interface FhirPositiveInteger : FhirElement {
 @SerialName("PositiveInt")
 data class PositiveInteger(
     // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28
-    override val value: kotlin.Int,
+    override val value: kotlin.Long,
 
     // # Element
     // Additional Content defined by implementations.
@@ -76,7 +76,7 @@ data class PositiveInteger(
         fun resourceType(): kotlin.String = "PositiveInt"
 
         override fun deserialize(decoder: Decoder): PositiveInteger {
-            val value = decoder.decodeInt()
+            val value = decoder.decodeLong()
 
             //TODO deserialize extensions and id
 
@@ -84,7 +84,7 @@ data class PositiveInteger(
         }
 
         override fun serialize(encoder: Encoder, value: PositiveInteger) {
-            encoder.encodeInt(value.value)
+            encoder.encodeLong(value.value)
 
             //TODO serialize extensions and id
         }

@@ -39,7 +39,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Test
     fun `Given, fromJson() is called with value only, it returns a FhirPrimitiveObject`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val input = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value))
         val expected = PositiveInteger(value = value)
 
@@ -54,7 +54,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, fromJson() is called with value and sibling object with id, it returns a PositiveInteger`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val id = "12979787a32339"
         val input = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value, id = id))
         val expected = PositiveInteger(value = value, id = id)
@@ -70,7 +70,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, fromJson() is called with value and sibling object with extension, it returns a PositiveInteger`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val input = FhirPositiveIntegerTestObject.jsonData(
             PositiveInteger(
@@ -91,7 +91,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a PositiveInteger`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
         val input = FhirPositiveIntegerTestObject.jsonData(
@@ -114,7 +114,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Test
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val input = FhirPositiveIntegerTestObject.testData(PositiveInteger(value = value))
         val expected = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value))
 
@@ -129,7 +129,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with value and id, it returns a JSON with the value as property and the id in a sibling property object`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val id = "12979787a32339"
         val input = FhirPositiveIntegerTestObject.testData(PositiveInteger(value = value, id = id))
         val expected = FhirPositiveIntegerTestObject.jsonData(
@@ -147,7 +147,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with value and extension, it returns a JSON with the value as property and the extension in a sibling property object`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val input = FhirPositiveIntegerTestObject.testData(
             PositiveInteger(
@@ -173,7 +173,7 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with all properties set, it returns a JSON with the value as property and the extension and id in a sibling property object`() {
         // Given
-        val value = 1
+        val value = 9223372036854775807L
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
         val input = FhirPositiveIntegerTestObject.testData(

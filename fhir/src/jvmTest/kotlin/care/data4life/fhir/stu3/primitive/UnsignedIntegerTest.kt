@@ -25,16 +25,16 @@ import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class UnsignedIntegerTest(
-    private var value: kotlin.Int,
+    private var value: kotlin.Long,
     private var extension: List<Extension>?,
     private var id: String?,
 
-    private var isCorrect: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean,
 ) {
 
     @Test
     fun testParameterized() {
-        if (!isCorrect) {
+        if (shouldFail) {
             assertFails {
                 UnsignedInteger(value, extension, id)
             }
@@ -54,21 +54,22 @@ class UnsignedIntegerTest(
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // zero
-                arrayOf(0, null, null, true),
+                arrayOf(0, null, null, false),
 
                 // positive
-                arrayOf(1, null, null, true),
-                arrayOf(2147483647, null, null, true),
+                arrayOf(1, null, null, false),
+                arrayOf(2147483647, null, null, false),
+                arrayOf(9223372036854775807, null, null, false),
 
                 // error cases
 
                 // negative
-                arrayOf(-1, null, null, false),
-                arrayOf(-2147483648, null, null, false),
+                arrayOf(-1, null, null, true),
+                arrayOf(-2147483648, null, null, true),
 
                 // fail will fail on system level
-                // arrayOf(2147483648, null, null, false),
-                // arrayOf(-2147483649, null, null, false),
+                // arrayOf(2147483648, null, null, true),
+                // arrayOf(-2147483649, null, null, true),
             )
         }
     }

@@ -25,7 +25,7 @@ import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class PositiveIntegerTest(
-    private var value: kotlin.Int,
+    private var value: kotlin.Long,
     private var extension: List<Extension>?,
     private var id: String?,
 
@@ -56,7 +56,7 @@ class PositiveIntegerTest(
                 // positive
                 arrayOf(1, null, null, false),
                 arrayOf(2147483647, null, null, false),
-
+                arrayOf(9223372036854775807, null, null, false),
 
                 // error cases
                 // zero
@@ -67,8 +67,7 @@ class PositiveIntegerTest(
                 arrayOf(-2147483648, null, null, true),
 
                 // fail will fail on system level
-                // arrayOf(2147483648, null, null, true),
-                // arrayOf(-2147483649, null, null, true),
+                // arrayOf(9223372036854775808, null, null, true),
             )
         }
     }
