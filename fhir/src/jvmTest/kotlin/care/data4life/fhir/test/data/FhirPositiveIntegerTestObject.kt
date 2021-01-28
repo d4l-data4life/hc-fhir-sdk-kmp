@@ -16,8 +16,8 @@
 
 package care.data4life.fhir.test.data
 
-import care.data4life.fhir.stu3.model.Extension
-import care.data4life.fhir.stu3.model.FhirStu3
+import care.data4life.fhir.stu3.model.FhirResource
+import care.data4life.fhir.stu3.model.Meta
 import care.data4life.fhir.stu3.primitive.PositiveInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -25,28 +25,30 @@ import kotlinx.serialization.Serializable
 @Serializable
 @SerialName("FhirPositiveIntegerTestObject")
 data class FhirPositiveIntegerTestObject(
-    val value: PositiveInteger
-) : FhirStu3 {
+    val value: PositiveInteger,
+
+    // FhirResource
+    override val id: String? = null,
+    override val meta: Meta? = null,
+    override val implicitRules: String? = null,
+    override val language: String? = null
+) : FhirResource {
 
     override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirTestObject"
+        fun resourceType(): String = "FhirPositiveIntegerTestObject"
 
         fun jsonData(
             value: PositiveInteger
-        ): kotlin.String {
-            return """{"resourceType":"FhirPositiveIntegerTestObject","value":1${if (value.extension != null || value.id != null) siblingProperty(value.extension, value.id) else "" }}""".trimMargin()
-        }
-
-        private fun siblingProperty(
-            extension: List<Extension>? = null,
-            id: kotlin.String? = null
-        ): String {
-            return ""","value_": {${if (extension == null) "" else "$extension"}${if(extension !=null && id != null) "," else ""}${if (id == null) "" else """"id":"$id""""}}""".trimIndent()
-        }
+        ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
+            resourceType(),
+            { "value.value" },
+            value.extension,
+            value.id
+        )
 
         fun testData(value: PositiveInteger): FhirPositiveIntegerTestObject {
             return FhirPositiveIntegerTestObject(value)

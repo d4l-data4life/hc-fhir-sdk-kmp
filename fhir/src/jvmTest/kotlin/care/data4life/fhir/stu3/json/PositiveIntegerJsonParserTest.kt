@@ -17,59 +17,34 @@
 package care.data4life.fhir.stu3.json
 
 import care.data4life.fhir.stu3.model.Extension
-import care.data4life.fhir.stu3.model.FhirSerializationModule
 import care.data4life.fhir.stu3.model.FhirStu3
 import care.data4life.fhir.stu3.primitive.PositiveInteger
 import care.data4life.fhir.test.data.FhirPositiveIntegerTestObject
-import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.polymorphic
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore
 import org.junit.Test
-import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
 
-class PositiveIntegerJsonParserTest {
-
-    private lateinit var parser: FhirStu3JsonParser
-
-    @BeforeTest
-    fun setup() {
-        val fhirTestSerializersModule = SerializersModule {
-            polymorphic(FhirStu3::class) {
-                subclass(FhirPositiveIntegerTestObject::class)
-            }
-        }
-
-        val joinedSerializersModule = SerializersModule {
-            FhirSerializationModule.module().dumpTo(this)
-            fhirTestSerializersModule.dumpTo(this)
-        }
-
-        val reader = FhirStu3JsonParser.defaultJsonReader(joinedSerializersModule)
-
-        parser = FhirStu3JsonParser(reader)
-    }
-
+class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     fun `Given, fromJson() is called with malformed JSON, it throws exception`() {
         assertFails {
-            parser.fromJson(PositiveInteger::class, "malformed")
+            parser.fromJson(fhirResourceType, "malformed")
         }
     }
 
-
     @Test
-    fun `Given, fromJson() is called with value only, it returns a PositiveInteger`() {
+    fun `Given, fromJson() is called with value only, it returns a FhirPrimitiveObject`() {
         // Given
         val value = 1
         val input = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value))
         val expected = PositiveInteger(value = value)
 
         // When
-        val result = parser.fromJson(fhirType, input)
+        val result = parser.fromJson(fhirResourceType, input)
 
         // Then
         assertEquals(expected, result.value)
@@ -85,7 +60,7 @@ class PositiveIntegerJsonParserTest {
         val expected = PositiveInteger(value = value, id = id)
 
         // When
-        val result = parser.fromJson(fhirType, input)
+        val result = parser.fromJson(fhirResourceType, input)
 
         // Then
         assertEquals(expected, result.value)
@@ -97,11 +72,16 @@ class PositiveIntegerJsonParserTest {
         // Given
         val value = 1
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
-        val input = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value, extension = extension))
+        val input = FhirPositiveIntegerTestObject.jsonData(
+            PositiveInteger(
+                value = value,
+                extension = extension
+            )
+        )
         val expected = PositiveInteger(value = value, extension = extension)
 
         // When
-        val result = parser.fromJson(fhirType, input)
+        val result = parser.fromJson(fhirResourceType, input)
 
         // Then
         assertEquals(expected, result.value)
@@ -114,11 +94,17 @@ class PositiveIntegerJsonParserTest {
         val value = 1
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value, extension = extension, id = id))
+        val input = FhirPositiveIntegerTestObject.jsonData(
+            PositiveInteger(
+                value = value,
+                extension = extension,
+                id = id
+            )
+        )
         val expected = PositiveInteger(value = value, extension = extension, id = id)
 
         // When
-        val result = parser.fromJson(fhirType, input)
+        val result = parser.fromJson(fhirResourceType, input)
 
         // Then
         assertEquals(expected, result.value)
@@ -212,8 +198,11 @@ class PositiveIntegerJsonParserTest {
         assertEquals(expected, result)
     }
 
+    override fun PolymorphicModuleBuilder<FhirStu3>.addTestSubclass() {
+        subclass(fhirResourceType)
+    }
 
     companion object {
-        val fhirType = FhirPositiveIntegerTestObject::class
+        val fhirResourceType = FhirPositiveIntegerTestObject::class
     }
 }
