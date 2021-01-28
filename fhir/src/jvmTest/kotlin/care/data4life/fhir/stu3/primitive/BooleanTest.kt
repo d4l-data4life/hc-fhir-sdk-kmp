@@ -29,12 +29,12 @@ class BooleanTest(
     private var extension: List<Extension>?,
     private var id: String?,
 
-    private var isCorrect: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean,
 ) {
 
     @Test
     fun testParameterized() {
-        if (!isCorrect) {
+        if (shouldFail) {
             assertFails {
                 Boolean(value, extension, id)
             }
@@ -54,8 +54,8 @@ class BooleanTest(
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // just value
-                arrayOf(true, null, null, true),
-                arrayOf(false, null, null, true),
+                arrayOf(true, null, null, false),
+                arrayOf(false, null, null, false),
             )
         }
     }

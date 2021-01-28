@@ -29,12 +29,12 @@ class IntegerTest(
     private var extension: List<Extension>?,
     private var id: String?,
 
-    private var isCorrect: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean,
 ) {
 
     @Test
     fun testParameterized() {
-        if (!isCorrect) {
+        if (shouldFail) {
             assertFails {
                 Integer(value, extension, id)
             }
@@ -54,19 +54,19 @@ class IntegerTest(
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // zero
-                arrayOf(0, null, null, true),
+                arrayOf(0, null, null, false),
 
                 // positive
-                arrayOf(1, null, null, true),
-                arrayOf(2147483647, null, null, true),
+                arrayOf(1, null, null, false),
+                arrayOf(2147483647, null, null, false),
 
                 // negative
-                arrayOf(-1, null, null, true),
-                arrayOf(-2147483648, null, null, true),
+                arrayOf(-1, null, null, false),
+                arrayOf(-2147483648, null, null, false),
 
                 // fail will fail on system level
-                // arrayOf(2147483648, null, null, false),
-                // arrayOf(-2147483649, null, null, false),
+                // arrayOf(2147483648, null, null, true),
+                // arrayOf(-2147483649, null, null, true),
             )
         }
     }

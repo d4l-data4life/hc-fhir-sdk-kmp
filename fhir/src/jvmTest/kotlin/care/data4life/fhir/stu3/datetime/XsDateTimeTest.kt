@@ -28,12 +28,12 @@ class XsDateTimeTest(
     private var time: XsTime?,
     private var timeZone: XsTimeZone?,
 
-    private var isCorrect: Boolean
+    private var shouldFail: Boolean
 ) {
 
     @Test
     fun test() {
-        if (!isCorrect) {
+        if (shouldFail) {
             assertFails {
                 XsDateTime(date, time, timeZone)
             }
@@ -53,14 +53,14 @@ class XsDateTimeTest(
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // date
-                arrayOf(XsDate(2018,5,12), null, null, true),
+                arrayOf(XsDate(2018,5,12), null, null, false),
 
                 // time & timeZone
                 arrayOf(
                     XsDate(2018,5,12),
                     XsTime(11,14, null, null, null),
                     XsTimeZone(0, 0),
-                    true
+                    false
                 ),
 
 
@@ -70,7 +70,7 @@ class XsDateTimeTest(
                     XsDate(2018,5,12),
                     null,
                     XsTimeZone(0, 0),
-                    false
+                    true
                 ),
 
                 // timeZone missing
@@ -78,7 +78,7 @@ class XsDateTimeTest(
                     XsDate(2018,5,12),
                     XsTime(11,14, null, null, null),
                     null,
-                    false
+                    true
                 ),
             )
         }
