@@ -6,8 +6,8 @@ classmap = {
     'Any': 'Resource',
     'Practitioner.role': 'PractRole',   # to avoid Practinioner.role and PractitionerRole generating the same class
 
-    'decimal': 'String', # 'Decimal',
     'boolean': 'Boolean',
+    'decimal': 'Decimal',
     'integer': 'Integer',
     'positiveInt': 'PositiveInteger',
     'unsignedInt': 'UnsignedInteger',
