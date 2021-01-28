@@ -26,22 +26,22 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
 
-interface FhirPositiveInteger : FhirElement {
-    val value: Int
+interface FhirUnsignedInteger : FhirElement {
+    val value: kotlin.Int
 }
 
 /**
- * PositiveInteger
+ * UnsignedInteger
  *
  *
- * Any positive 32-bit integer (e.g. >= 1)
+ * Any unsinged 32-bit integer (e.g. >= 0)
  *
  * Due to use of kotlin.Int the max value is limited to 2_147_483_647
  *
  * Regex: +?[1-9][0-9]*
  *
  *
- * @see [positiveInt](http://hl7.org/fhir/STU3/datatypes.html#positiveInt)
+ * @see [unsignedInt](http://hl7.org/fhir/STU3/datatypes.html#unsignedInt)
  *
  *
  * Constructor
@@ -49,41 +49,41 @@ interface FhirPositiveInteger : FhirElement {
  * @param value Int
  */
 @Serializable
-@SerialName("PositiveInt")
-data class PositiveInteger(
-    // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28
+@SerialName("UnsignedInt")
+data class UnsignedInteger(
+    // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28)
     override val value: kotlin.Int,
 
     // # Element
     // Additional Content defined by implementations.
     override val extension: List<Extension>? = null,
     // xml:id (or equivalent in JSON).
-    override val id: kotlin.String? = null
-) : FhirPositiveInteger {
+    override val id: String? = null
+) : FhirUnsignedInteger {
 
     init {
-        require(value >= 1) { "not a positive integer >= 1" }
+        require(value >= 0) { "not an unsigned integer >= 0" }
     }
 
     override val resourceType: kotlin.String
         get() = resourceType()
 
 
-    @Serializer(forClass = PositiveInteger::class)
-    companion object : KSerializer<PositiveInteger> {
+    @Serializer(forClass = UnsignedInteger::class)
+    companion object : KSerializer<UnsignedInteger> {
 
         @JvmStatic
-        fun resourceType(): kotlin.String = "PositiveInt"
+        fun resourceType(): kotlin.String = "UnsignedInt"
 
-        override fun deserialize(decoder: Decoder): PositiveInteger {
+        override fun deserialize(decoder: Decoder): UnsignedInteger {
             val value = decoder.decodeInt()
 
             //TODO deserialize extensions and id
 
-            return PositiveInteger(value)
+            return UnsignedInteger(value)
         }
 
-        override fun serialize(encoder: Encoder, value: PositiveInteger) {
+        override fun serialize(encoder: Encoder, value: UnsignedInteger) {
             encoder.encodeInt(value.value)
 
             //TODO serialize extensions and id
