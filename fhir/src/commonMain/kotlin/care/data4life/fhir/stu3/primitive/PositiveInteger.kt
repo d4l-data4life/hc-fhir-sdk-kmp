@@ -51,7 +51,7 @@ interface FhirPositiveInteger : FhirElement {
 @Serializable
 @SerialName("PositiveInt")
 data class PositiveInteger(
-    // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28
+    // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28)
     override val value: kotlin.Long,
 
     // # Element
