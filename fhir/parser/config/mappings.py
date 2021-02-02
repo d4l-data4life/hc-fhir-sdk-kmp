@@ -6,7 +6,7 @@ classmap = {
     'Any': 'Resource',
     'Practitioner.role': 'PractRole',   # to avoid Practinioner.role and PractitionerRole generating the same class
 
-    'boolean': 'Boolean',
+    'boolean': 'Bool',
     'decimal': 'Decimal',
     'integer': 'Integer',
     'positiveInt': 'PositiveInteger',

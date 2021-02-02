@@ -18,8 +18,8 @@ package care.data4life.fhir.stu3.json
 
 import care.data4life.fhir.stu3.model.Extension
 import care.data4life.fhir.stu3.model.FhirStu3
-import care.data4life.fhir.stu3.primitive.Boolean
-import care.data4life.fhir.test.data.FhirBooleanTestObject
+import care.data4life.fhir.stu3.primitive.Bool
+import care.data4life.fhir.test.data.FhirBoolTestObject
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore
@@ -27,23 +27,23 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
 
-class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
+class BoolJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
 
     @Test
     fun `Given, fromJson() is called with malformed JSON, it throws exception`() {
         assertFails {
-            parser.fromJson(Boolean::class, "malformed")
+            parser.fromJson(Bool::class, "malformed")
         }
     }
 
 
     @Test
-    fun `Given, fromJson() is called with value only, it returns a Boolean`() {
+    fun `Given, fromJson() is called with value only, it returns a Bool`() {
         // Given
         val value = true
-        val input = FhirBooleanTestObject.jsonData(Boolean(value = value))
-        val expected = Boolean(value = value)
+        val input = FhirBoolTestObject.jsonData(Bool(value = value))
+        val expected = Bool(value = value)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -54,12 +54,12 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with id, it returns a Boolean`() {
+    fun `Given, fromJson() is called with value and sibling object with id, it returns a Bool`() {
         // Given
         val value = false
         val id = "12979787a32339"
-        val input = FhirBooleanTestObject.jsonData(Boolean(value = value, id = id))
-        val expected = Boolean(value = value, id = id)
+        val input = FhirBoolTestObject.jsonData(Bool(value = value, id = id))
+        val expected = Bool(value = value, id = id)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -70,12 +70,12 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with extension, it returns a Boolean`() {
+    fun `Given, fromJson() is called with value and sibling object with extension, it returns a Bool`() {
         // Given
         val value = true
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
-        val input = FhirBooleanTestObject.jsonData(Boolean(value = value, extension = extension))
-        val expected = Boolean(value = value, extension = extension)
+        val input = FhirBoolTestObject.jsonData(Bool(value = value, extension = extension))
+        val expected = Bool(value = value, extension = extension)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -86,13 +86,13 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a Boolean`() {
+    fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a Bool`() {
         // Given
         val value = false
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input = FhirBooleanTestObject.jsonData(Boolean(value = value, extension = extension, id = id))
-        val expected = Boolean(value = value, extension = extension, id = id)
+        val input = FhirBoolTestObject.jsonData(Bool(value = value, extension = extension, id = id))
+        val expected = Bool(value = value, extension = extension, id = id)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -106,8 +106,8 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {
         // Given
         val value = true
-        val input = FhirBooleanTestObject.testData(Boolean(value = value))
-        val expected = FhirBooleanTestObject.jsonData(Boolean(value = value))
+        val input = FhirBoolTestObject.testData(Bool(value = value))
+        val expected = FhirBoolTestObject.jsonData(Bool(value = value))
 
         // When
         val result = parser.toJson(input)
@@ -122,9 +122,9 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         // Given
         val value = false
         val id = "12979787a32339"
-        val input = FhirBooleanTestObject.testData(Boolean(value = value, id = id))
-        val expected = FhirBooleanTestObject.jsonData(
-            Boolean(value = value, id = id)
+        val input = FhirBoolTestObject.testData(Bool(value = value, id = id))
+        val expected = FhirBoolTestObject.jsonData(
+            Bool(value = value, id = id)
         )
 
         // When
@@ -140,14 +140,14 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         // Given
         val value = true
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
-        val input = FhirBooleanTestObject.testData(
-            Boolean(
+        val input = FhirBoolTestObject.testData(
+            Bool(
                 value = value,
                 extension = extension
             )
         )
-        val expected = FhirBooleanTestObject.jsonData(
-            Boolean(
+        val expected = FhirBoolTestObject.jsonData(
+            Bool(
                 value = value,
                 extension = extension
             )
@@ -167,15 +167,15 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         val value = false
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input = FhirBooleanTestObject.testData(
-            Boolean(
+        val input = FhirBoolTestObject.testData(
+            Bool(
                 value = value,
                 extension = extension,
                 id = id
             )
         )
-        val expected = FhirBooleanTestObject.jsonData(
-            Boolean(
+        val expected = FhirBoolTestObject.jsonData(
+            Bool(
                 value = value,
                 extension = extension,
                 id = id
@@ -194,6 +194,6 @@ class BooleanJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     }
 
     companion object {
-        val fhirResourceType = FhirBooleanTestObject::class
+        val fhirResourceType = FhirBoolTestObject::class
     }
 }

@@ -23,12 +23,12 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
 
-interface FhirBoolean : FhirElement {
+interface FhirBool : FhirElement {
     val value: kotlin.Boolean
 }
 
 /**
- * Boolean
+ * Bool
  *
  *
  * true | false
@@ -42,36 +42,38 @@ interface FhirBoolean : FhirElement {
  * @param value Boolean
  */
 @Serializable
-@SerialName("Boolean")
-data class Boolean(
+@SerialName("Bool")
+data class Bool(
     override val value: kotlin.Boolean,
 
-        // # Element
-        // Additional Content defined by implementations.
-    override val extension: List<Extension>? = null,
-        // xml:id (or equivalent in JSON).
-    override val id: String? = null
-) : FhirBoolean {
+    // FhirElement
+    // xml:id (or equivalent in JSON).
+    @SerialName("id")
+    override val id: String? = null,
+    // Additional Content defined by implementations.
+    @SerialName("extension")
+    override val extension: List<Extension>? = null
+) : FhirBool {
 
     override val resourceType: kotlin.String
         get() = resourceType()
 
 
-    @Serializer(forClass = Boolean::class)
-    companion object : KSerializer<Boolean> {
+    @Serializer(forClass = Bool::class)
+    companion object : KSerializer<Bool> {
 
         @JvmStatic
-        fun resourceType(): kotlin.String = "Boolean"
+        fun resourceType(): kotlin.String = "Bool"
 
-        override fun deserialize(decoder: Decoder): Boolean {
+        override fun deserialize(decoder: Decoder): Bool {
             val value = decoder.decodeBoolean()
 
             //TODO deserialize extensions and id
 
-            return Boolean(value)
+            return Bool(value)
         }
 
-        override fun serialize(encoder: Encoder, value: Boolean) {
+        override fun serialize(encoder: Encoder, value: Bool) {
             encoder.encodeBoolean(value.value)
 
             //TODO serialize extensions and id

@@ -26,8 +26,8 @@ import kotlin.test.assertFails
 @RunWith(value = Parameterized::class)
 class BooleanTest(
     private var value: kotlin.Boolean,
-    private var extension: List<Extension>?,
     private var id: String?,
+    private var extension: List<Extension>?,
 
     private var shouldFail: kotlin.Boolean,
 ) {
@@ -36,21 +36,21 @@ class BooleanTest(
     fun testParameterized() {
         if (shouldFail) {
             assertFails {
-                Boolean(value, extension, id)
+                Bool(value, id, extension)
             }
             return
         }
 
-        val result = Boolean(value, extension, id)
+        val result = Bool(value, id, extension)
 
         assertEquals(value, result.value)
-        assertEquals(extension, result.extension)
         assertEquals(id, result.id)
+        assertEquals(extension, result.extension)
     }
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\"")
+        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\" shouldFail: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // just value
