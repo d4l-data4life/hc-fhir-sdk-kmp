@@ -36,12 +36,12 @@ class DecimalTest(
     fun testParameterized() {
         if (shouldFail) {
             assertFails {
-                Decimal(value.toDouble(), extension, id)
+                Decimal(value.toDouble(), id, extension)
             }
             return
         }
 
-        val result = Decimal(value.toDouble(), extension, id)
+        val result = Decimal(value.toDouble(), id, extension)
 
         assertEquals(value, result.value.toString())
         assertEquals(extension, result.extension)
@@ -50,7 +50,7 @@ class DecimalTest(
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\"")
+        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\" shouldFail: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // zero

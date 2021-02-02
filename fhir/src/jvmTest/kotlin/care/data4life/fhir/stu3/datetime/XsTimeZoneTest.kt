@@ -51,7 +51,7 @@ class XsTimeZoneTest(
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: hourOffset: \"{0}\" minuteOffset: \"{1}\" positiveOffset: \"{2}\" zeroOffsetGMT: \"{3}\"")
+        @Parameterized.Parameters(name = "{index}: hourOffset: \"{0}\" minuteOffset: \"{1}\" positiveOffset: \"{2}\" zeroOffsetGMT: \"{3}\" shouldFail: \"{4}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // hourOffset

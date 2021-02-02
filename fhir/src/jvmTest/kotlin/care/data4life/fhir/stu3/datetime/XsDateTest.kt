@@ -49,7 +49,7 @@ class XsDateTest(
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: year: \"{0}\" month: \"{1}\" day: \"{2}\"")
+        @Parameterized.Parameters(name = "{index}: year: \"{0}\" month: \"{1}\" day: \"{2}\" shouldFail: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // year

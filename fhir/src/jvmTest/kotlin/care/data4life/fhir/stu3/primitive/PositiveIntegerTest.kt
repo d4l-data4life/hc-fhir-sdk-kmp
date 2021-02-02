@@ -36,21 +36,21 @@ class PositiveIntegerTest(
     fun `Given, input should`() {
         if (shouldFail) {
             assertFails {
-                PositiveInteger(value, extension, id)
+                PositiveInteger(value, id, extension)
             }
             return
         }
 
-        val result = PositiveInteger(value, extension, id)
+        val result = PositiveInteger(value, id, extension)
 
         assertEquals(value, result.value)
-        assertEquals(extension, result.extension)
         assertEquals(id, result.id)
+        assertEquals(extension, result.extension)
     }
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\"")
+        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\" shouldFail: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // positive

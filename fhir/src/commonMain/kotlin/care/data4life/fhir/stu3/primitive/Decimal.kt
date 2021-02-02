@@ -57,11 +57,13 @@ data class Decimal(
     // TODO use BigDecimal for necessary precision
     override val value: kotlin.Double,
 
-    // # Element
-    // Additional Content defined by implementations.
-    override val extension: List<Extension>? = null,
+    // FhirElement
     // xml:id (or equivalent in JSON).
-    override val id: String? = null
+    @SerialName("id")
+    override val id: String? = null,
+    // Additional Content defined by implementations.
+    @SerialName("extension")
+    override val extension: List<Extension>? = null
 ) : FhirDecimal {
 
     override val resourceType: kotlin.String

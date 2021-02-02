@@ -54,7 +54,7 @@ class XsTimeTest(
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: hour: \"{0}\" minute: \"{1}\" second: \"{2}\" fractionOfSecond: \"{3}\"  fractionPadding: \"{4}\"")
+        @Parameterized.Parameters(name = "{index}: hour: \"{0}\" minute: \"{1}\" second: \"{2}\" fractionOfSecond: \"{3}\"  fractionPadding: \"{4}\" shouldFail: \"{5}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // hour

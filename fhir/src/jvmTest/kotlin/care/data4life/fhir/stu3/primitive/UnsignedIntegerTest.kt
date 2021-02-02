@@ -36,21 +36,21 @@ class UnsignedIntegerTest(
     fun testParameterized() {
         if (shouldFail) {
             assertFails {
-                UnsignedInteger(value, extension, id)
+                UnsignedInteger(value, id, extension)
             }
             return
         }
 
-        val result = UnsignedInteger(value, extension, id)
+        val result = UnsignedInteger(value, id, extension)
 
         assertEquals(value, result.value)
-        assertEquals(extension, result.extension)
         assertEquals(id, result.id)
+        assertEquals(extension, result.extension)
     }
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\"")
+        @Parameterized.Parameters(name = "{index}: value: \"{0}\" extensions: \"{1}\" id: \"{2}\" shouldFail: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // zero

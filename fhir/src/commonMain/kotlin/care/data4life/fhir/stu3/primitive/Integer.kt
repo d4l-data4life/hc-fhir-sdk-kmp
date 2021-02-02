@@ -48,11 +48,12 @@ interface FhirInteger : FhirElement {
 data class Integer(
     override val value: Int,
 
-    // # Element
-    // Additional Content defined by implementations.
-    override val extension: List<Extension>? = null,
     // xml:id (or equivalent in JSON).
-    override val id: String? = null
+    @SerialName("id")
+    override val id: String? = null,
+    // Additional Content defined by implementations.
+    @SerialName("extension")
+    override val extension: List<Extension>? = null
 ) : FhirInteger {
 
     override val resourceType: kotlin.String

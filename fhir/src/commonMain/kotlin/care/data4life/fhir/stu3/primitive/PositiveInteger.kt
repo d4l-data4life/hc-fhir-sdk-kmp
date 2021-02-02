@@ -54,11 +54,13 @@ data class PositiveInteger(
     // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28)
     override val value: kotlin.Long,
 
-    // # Element
-    // Additional Content defined by implementations.
-    override val extension: List<Extension>? = null,
+    // FhirElement
     // xml:id (or equivalent in JSON).
-    override val id: kotlin.String? = null
+    @SerialName("id")
+    override val id: String? = null,
+    // Additional Content defined by implementations.
+    @SerialName("extension")
+    override val extension: List<Extension>? = null
 ) : FhirPositiveInteger {
 
     init {

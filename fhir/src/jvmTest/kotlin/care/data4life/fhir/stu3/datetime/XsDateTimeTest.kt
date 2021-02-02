@@ -49,7 +49,7 @@ class XsDateTimeTest(
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: date: \"{0}\" time: \"{1}\" timeZone: \"{2}\"")
+        @Parameterized.Parameters(name = "{index}: date: \"{0}\" time: \"{1}\" timeZone: \"{2}\" shouldFail: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // date
