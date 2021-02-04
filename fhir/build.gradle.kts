@@ -29,13 +29,6 @@ kotlin {
     }
 
     sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlinx.serialization.ExperimentalSerializationApi")
-                useExperimentalAnnotation("kotlinx.serialization.InternalSerializationApi")
-            }
-        }
-
         val commonMain by getting {
             kotlin.srcDir("src-gen/commonMain/kotlin")
 

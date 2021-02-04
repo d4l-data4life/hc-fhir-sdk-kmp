@@ -28,12 +28,12 @@ class XsDateTest(
     private var month: Int?,
     private var day: Int?,
 
-    private var isCorrect: Boolean
+    private var shouldFail: Boolean
 ) {
 
     @Test
     fun test() {
-        if (!isCorrect) {
+        if (shouldFail) {
             assertFails {
                 XsDate(year, month, day)
             }
@@ -47,38 +47,38 @@ class XsDateTest(
         assertEquals(day, date.day)
     }
 
-    private companion object {
+    companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: year: \"{0}\" month: \"{1}\" day: \"{2}\"")
+        @Parameterized.Parameters(name = "{index}: year: \"{0}\" month: \"{1}\" day: \"{2}\" shouldFail: \"{3}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // year
-                arrayOf(-9999, null, null, true),
-                arrayOf(9999, null, null, true),
+                arrayOf(-9999, null, null, false),
+                arrayOf(9999, null, null, false),
 
                 // month
-                arrayOf(2015, 1, null, true),
-                arrayOf(2015, 12, null, true),
+                arrayOf(2015, 1, null, false),
+                arrayOf(2015, 12, null, false),
 
                 // day
-                arrayOf(2015, 1, 1, true),
-                arrayOf(2015, 1, 31, true),
+                arrayOf(2015, 1, 1, false),
+                arrayOf(2015, 1, 31, false),
 
 
                 // error cases
                 // year
-                arrayOf(10000, null, null, false),
-                arrayOf(-10000, null, null, false),
+                arrayOf(10000, null, null, true),
+                arrayOf(-10000, null, null, true),
 
                 // month
-                arrayOf(2020, 0, null, false),
-                arrayOf(2020, -1, null, false),
-                arrayOf(2020, 13, null, false),
+                arrayOf(2020, 0, null, true),
+                arrayOf(2020, -1, null, true),
+                arrayOf(2020, 13, null, true),
 
                 // day
-                arrayOf(2020, 1, 0, false),
-                arrayOf(2020, 1, -1, false),
-                arrayOf(2020, 1, 32, false),
+                arrayOf(2020, 1, 0, true),
+                arrayOf(2020, 1, -1, true),
+                arrayOf(2020, 1, 32, true),
             )
         }
     }

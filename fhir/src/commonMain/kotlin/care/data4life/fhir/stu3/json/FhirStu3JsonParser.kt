@@ -19,21 +19,18 @@ package care.data4life.fhir.stu3.json
 import care.data4life.fhir.parser.json.FhirJsonParser
 import care.data4life.fhir.stu3.model.FhirSerializationModule
 import care.data4life.fhir.stu3.model.FhirStu3
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.PolymorphicSerializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.serializer
 import kotlin.reflect.KClass
 
-@OptIn(InternalSerializationApi::class)
-class FhirStu3JsonParser @OptIn(ExperimentalSerializationApi::class) constructor(
+class FhirStu3JsonParser(
     private val reader: Json = defaultJsonReader()
 ) : FhirJsonParser<FhirStu3> {
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : FhirStu3> fromJson(fhirType: KClass<T>, fhirJson: String): T {
-        return reader.decodeFromString(fhirType.serializer(), fhirJson)
+        return reader.decodeFromString(PolymorphicSerializer(FhirStu3::class), fhirJson) as T
     }
 
     override fun <T : FhirStu3> toJson(fhirObject: T): String {
@@ -43,12 +40,8 @@ class FhirStu3JsonParser @OptIn(ExperimentalSerializationApi::class) constructor
 
     companion object {
 
-        @ExperimentalSerializationApi
-        private val fhirStu3SerializersModule = SerializersModule {
-            FhirSerializationModule.module().dumpTo(this)
-        }
+        private val fhirStu3SerializersModule = FhirSerializationModule.module()
 
-        @ExperimentalSerializationApi
         fun defaultJsonReader(module: SerializersModule = fhirStu3SerializersModule): Json {
             return Json {
                 encodeDefaults = false

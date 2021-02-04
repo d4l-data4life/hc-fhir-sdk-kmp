@@ -29,12 +29,12 @@ class XsTimeZoneTest(
     private var positiveOffset: Boolean,
     private var zeroOffsetGMT: Boolean,
 
-    private var isCorrect: Boolean
+    private var shouldFail: Boolean
 ) {
 
     @Test
     fun test() {
-        if (!isCorrect) {
+        if (shouldFail) {
             assertFails {
                 XsTimeZone(hourOffset, minuteOffset, positiveOffset, zeroOffsetGMT)
             }
@@ -49,41 +49,41 @@ class XsTimeZoneTest(
         assertEquals(zeroOffsetGMT, timeZone.zeroOffsetGMT)
     }
 
-    private companion object {
+    companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: hourOffset: \"{0}\" minuteOffset: \"{1}\" positiveOffset: \"{2}\" zeroOffsetGMT: \"{3}\"")
+        @Parameterized.Parameters(name = "{index}: hourOffset: \"{0}\" minuteOffset: \"{1}\" positiveOffset: \"{2}\" zeroOffsetGMT: \"{3}\" shouldFail: \"{4}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // hourOffset
-                arrayOf(0, 0, true, true, true),
-                arrayOf(23, 0, true, true, true),
+                arrayOf(0, 0, true, true, false),
+                arrayOf(23, 0, true, true, false),
 
                 // minuteOffset
-                arrayOf(0, 0, true, true, true),
-                arrayOf(0, 59, true, true, true),
+                arrayOf(0, 0, true, true, false),
+                arrayOf(0, 59, true, true, false),
 
                 // positiveOffset - negative
-                arrayOf(2, 0, false, true, true),
+                arrayOf(2, 0, false, true, false),
 
                 // zeroOffsetGMT
-                arrayOf(0, 0, true, false, true),
+                arrayOf(0, 0, true, false, false),
 
 
                 // error cases
                 // hourOffset
-                arrayOf(-1, 0, true, true, false),
-                arrayOf(24, 0, true, true, false),
+                arrayOf(-1, 0, true, true, true),
+                arrayOf(24, 0, true, true, true),
 
                 // minuteOffset
-                arrayOf(0, -1, true, true, false),
-                arrayOf(0, 60, true, true, false),
+                arrayOf(0, -1, true, true, true),
+                arrayOf(0, 60, true, true, true),
 
                 // positiveOffset
 
                 // zeroOffsetGMT
-                arrayOf(0, 0, false, false, false),
-                arrayOf(1, 0, true, false, false),
-                arrayOf(0, 1, true, false, false),
+                arrayOf(0, 0, false, false, true),
+                arrayOf(1, 0, true, false, true),
+                arrayOf(0, 1, true, false, true),
             )
         }
     }
