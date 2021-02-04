@@ -90,6 +90,8 @@ object Dependencies {
             const val tor = "org.koin:koin-tor:${Versions.koin}"
         }
 
+        const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.dateTime}"
+
         //Test
         val mockk = Mockk
 
