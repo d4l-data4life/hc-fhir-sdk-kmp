@@ -55,7 +55,7 @@ class XsDateTimeParserTest {
         assertEquals(
             XsDateTime(
                 XsDate(2015, 1, 31),
-                XsTime(21, 32, 52, null, null),
+                XsTime(21, 32, 52, null),
                 XsTimeZone(zeroOffsetGMT = false)
             ),
             XsDateTimeParser.parse("2015-01-31T21:32:52Z")
@@ -63,7 +63,7 @@ class XsDateTimeParserTest {
         assertEquals(
             XsDateTime(
                 XsDate(2015, 1, 31),
-                XsTime(21, 32, 52, 12679, null),
+                XsTime(21, 32, 52, .12679),
                 XsTimeZone(zeroOffsetGMT = false)
             ),
             XsDateTimeParser.parse("2015-01-31T21:32:52.12679Z")
@@ -71,7 +71,7 @@ class XsDateTimeParserTest {
         assertEquals(
             XsDateTime(
                 XsDate(2015, 1, 31),
-                XsTime(21, 32, 52, 1, 8),
+                XsTime(21, 32, 52, .000000001),
                 XsTimeZone(zeroOffsetGMT = false)
             ),
             XsDateTimeParser.parse("2015-01-31T21:32:52.000000001Z")
@@ -79,7 +79,7 @@ class XsDateTimeParserTest {
         assertEquals(
             XsDateTime(
                 XsDate(2015, 1, 31),
-                XsTime(21, 32, 52, 999999999, null),
+                XsTime(21, 32, 52, .999999999),
                 XsTimeZone(zeroOffsetGMT = false)
             ),
             XsDateTimeParser.parse("2015-01-31T21:32:52.999999999Z")
@@ -87,7 +87,7 @@ class XsDateTimeParserTest {
         assertEquals(
             XsDateTime(
                 XsDate(2015, 1, 31),
-                XsTime(21, 32, 52, null, null),
+                XsTime(21, 32, 52, null),
                 XsTimeZone(1)
             ),
             XsDateTimeParser.parse("2015-01-31T21:32:52+01:00")
@@ -95,7 +95,7 @@ class XsDateTimeParserTest {
         assertEquals(
             XsDateTime(
                 XsDate(2015, 1, 31),
-                XsTime(21, 32, 52, null, null),
+                XsTime(21, 32, 52, null),
                 XsTimeZone(1, 0, false)
             ),
             XsDateTimeParser.parse("2015-01-31T21:32:52-01:00")
@@ -103,7 +103,7 @@ class XsDateTimeParserTest {
         assertEquals(
             XsDateTime(
                 XsDate(2015, 1, 31),
-                XsTime(21, 32, 52, 12679, null),
+                XsTime(21, 32, 52, .12679),
                 XsTimeZone(1)
             ),
             XsDateTimeParser.parse("2015-01-31T21:32:52.12679+01:00")
@@ -163,7 +163,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(0, 0, null, null, null),
+                    XsTime(0, 0, null, null),
                     XsTimeZone(0, 0, zeroOffsetGMT = false)
                 )
             )
@@ -173,7 +173,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 0, null, null, null),
+                    XsTime(12, 0, null, null),
                     XsTimeZone(1, 0)
                 )
             )
@@ -183,7 +183,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(0, 12, null, null, null),
+                    XsTime(0, 12, null, null),
                     XsTimeZone(1, 0)
                 )
             )
@@ -193,7 +193,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 12, null, null, null),
+                    XsTime(12, 12, null, null),
                     XsTimeZone(1, 0)
                 )
             )
@@ -203,7 +203,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 12, 12, null, null),
+                    XsTime(12, 12, 12, null),
                     XsTimeZone(1, 0)
                 )
             )
@@ -213,7 +213,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(1, 2, 3, null, null),
+                    XsTime(1, 2, 3, null),
                     XsTimeZone(1, 0)
                 )
             )
@@ -224,7 +224,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 12, 12, 12345, null),
+                    XsTime(12, 12, 12, .12345),
                     XsTimeZone(1, 0)
                 )
             )
@@ -234,7 +234,27 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 12, 12, 1, 4),
+                    XsTime(12, 12, 12, .00001),
+                    XsTimeZone(1, 0)
+                )
+            )
+        )
+        assertEquals(
+            "2015-11-09T12:12:12.00006+01:00",
+            XsDateTimeParser.format(
+                XsDateTime(
+                    XsDate(2015, 11, 9),
+                    XsTime(12, 12, 12, .00006),
+                    XsTimeZone(1, 0)
+                )
+            )
+        )
+        assertEquals(
+            "2015-11-09T12:12:12.00026+01:00",
+            XsDateTimeParser.format(
+                XsDateTime(
+                    XsDate(2015, 11, 9),
+                    XsTime(12, 12, 12, .00026),
                     XsTimeZone(1, 0)
                 )
             )
@@ -245,7 +265,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 12, 12, null, null),
+                    XsTime(12, 12, 12, null),
                     XsTimeZone(5, 0, false)
                 )
             )
@@ -256,7 +276,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 12, 12, null, null),
+                    XsTime(12, 12, 12, null),
                     XsTimeZone(0, 0, zeroOffsetGMT = false)
                 )
             )
@@ -266,7 +286,7 @@ class XsDateTimeParserTest {
             XsDateTimeParser.format(
                 XsDateTime(
                     XsDate(2015, 11, 9),
-                    XsTime(12, 12, 12, null, null),
+                    XsTime(12, 12, 12, null),
                     XsTimeZone(0, 0)
                 )
             )

@@ -58,7 +58,7 @@ class XsDateTimeTest(
                 // time & timeZone
                 arrayOf(
                     XsDate(2018,5,12),
-                    XsTime(11,14, null, null, null),
+                    XsTime(11,14, null, null),
                     XsTimeZone(0, 0),
                     false
                 ),
@@ -76,7 +76,7 @@ class XsDateTimeTest(
                 // timeZone missing
                 arrayOf(
                     XsDate(2018,5,12),
-                    XsTime(11,14, null, null, null),
+                    XsTime(11,14, null, null),
                     null,
                     true
                 ),

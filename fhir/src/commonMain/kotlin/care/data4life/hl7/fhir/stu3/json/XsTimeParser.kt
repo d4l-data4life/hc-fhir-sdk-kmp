@@ -30,22 +30,18 @@ object XsTimeParser : StringParser<XsTime> {
 
     private val TIME_FORMAT =
         "([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?".toRegex()
-    private val FRACTION_ZEROES = "(\\.[0]+)?.*".toRegex()
-
 
     override fun parse(input: String): XsTime {
         require(TIME_FORMAT.matches(input))
 
         val match = TIME_FORMAT.matchEntire(input)
         val (hour, minute, second, fraction) = match!!.destructured
-        val (leadingZeroes) = FRACTION_ZEROES.matchEntire(fraction)!!.destructured
 
         return XsTime(
             hour.toInt(),
             minute.toInt(),
             second.toIntOrNull(),
-            fraction.replace(".", "").toIntOrNull(),
-            if (leadingZeroes.isEmpty()) null else leadingZeroes.length - 1
+            fraction.toDoubleOrNull()
         )
     }
 
