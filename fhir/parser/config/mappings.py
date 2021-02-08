@@ -24,8 +24,8 @@ classmap = {
 
     'base64Binary': 'String',
 
-    'date': 'String', # 'Date',
     'dateTime': 'String', # 'DateTime',
+    'date': 'Date',
     'time': 'Time',
     'instant': 'String', # 'Instant',
 }

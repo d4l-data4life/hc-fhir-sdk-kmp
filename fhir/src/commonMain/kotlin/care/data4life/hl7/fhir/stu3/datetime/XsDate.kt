@@ -16,6 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.datetime
 
+import care.data4life.fhir.stu3.json.XsDateParser
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
 
 /**
@@ -33,7 +35,7 @@ import kotlinx.serialization.Serializable
  *
  * @param year          Year as YYYY, allowed range -9999 to 9999
  * @param month         Month of the year, allowed range 1 to 12
- * @param day           Day of the month, allowed range 1 to 31
+ * @param day           Day of the month, allowed range 1 to 31 but has to be a valid date (leap year)
  */
 @Serializable
 data class XsDate(
@@ -51,8 +53,14 @@ data class XsDate(
         }
 
         if (day != null) {
-            require(day >= 1) { "day should be >= 1" }
-            require(day <= 31) { "day should be <= 31" }
+            require(month != null) { "if day is set month is required" }
+
+            @Suppress("USELESS_IS_CHECK")
+            require(LocalDate(year, month, day) is LocalDate) { "date should be valid" }
         }
+    }
+
+    override fun toString(): String {
+        return XsDateParser.format(this)
     }
 }
