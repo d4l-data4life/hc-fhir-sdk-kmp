@@ -28,7 +28,7 @@ class XsTimeTest(
     private var hour: Int,
     private var minute: Int,
     private var second: Int?,
-    private var fractionOfSecond: Double?,
+    private var fraction: Double?,
     private var stringFormat: String,
 
     private var shouldFail: Boolean
@@ -38,17 +38,17 @@ class XsTimeTest(
     fun test() {
         if (shouldFail) {
             assertFails {
-                XsTime(hour, minute, second, fractionOfSecond)
+                XsTime(hour, minute, second, fraction)
             }
             return
         }
 
-        val time = XsTime(hour, minute, second, fractionOfSecond)
+        val time = XsTime(hour, minute, second, fraction)
 
         assertEquals(hour, time.hour)
         assertEquals(minute, time.minute)
         assertEquals(second, time.second)
-        assertEquals(fractionOfSecond, time.fractionOfSecond)
+        assertEquals(fraction, time.fraction)
         assertEquals(stringFormat, time.toString())
     }
 

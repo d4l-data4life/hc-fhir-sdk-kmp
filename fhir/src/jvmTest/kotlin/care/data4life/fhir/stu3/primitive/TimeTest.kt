@@ -58,7 +58,11 @@ class TimeTest(
             ), id, extension
         )
 
-//        assertEquals(value, result.value.toString())
+        assertEquals(values["hour"], result.value.hour)
+        assertEquals(values["minute"], result.value.minute)
+        assertEquals(values["second"], result.value.second)
+        assertEquals(values["fraction"], result.value.fraction)
+
         assertEquals(id, result.id)
         assertEquals(extension, result.extension)
     }

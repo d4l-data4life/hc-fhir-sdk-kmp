@@ -35,14 +35,14 @@ import kotlinx.serialization.Serializable
  * @param hour             Hour of day, allowed range from 0 to 23
  * @param minute           Minute of the hour, allowed range from 0 to 59
  * @param second           Second of the minute, allowed range form 0 to 59
- * @param fractionOfSecond Fraction of the second
+ * @param fraction Fraction of the second
  */
 @Serializable
 data class XsTime(
     val hour: Int,
     val minute: Int,
     val second: Int? = null,
-    val fractionOfSecond: Double?
+    val fraction: Double?
 ) {
     init {
         require(hour >= 0) { "hour should be >= 0" }
@@ -56,9 +56,9 @@ data class XsTime(
             require(second <= 59) { "second should be <= 59" }
         }
 
-        if (fractionOfSecond != null) {
-            require(fractionOfSecond > 0.0) { "fractionOfSecond should be > 0" }
-            require(fractionOfSecond < 1.0) { "fractionOfSecond should be < 1" }
+        if (fraction != null) {
+            require(fraction > 0.0) { "fraction should be > 0" }
+            require(fraction < 1.0) { "fraction should be < 1" }
         }
     }
 

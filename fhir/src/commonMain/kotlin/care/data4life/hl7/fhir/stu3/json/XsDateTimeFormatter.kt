@@ -70,7 +70,7 @@ object XsDateTimeFormatter {
                 dateTime.time.hour,
                 dateTime.time.minute,
                 dateTime.time.second,
-                dateTime.time.fractionOfSecond,
+                dateTime.time.fraction,
                 dateTime.timeZone
             )
         } else {
@@ -87,7 +87,7 @@ object XsDateTimeFormatter {
             time.hour,
             time.minute,
             time.second,
-            time.fractionOfSecond,
+            time.fraction,
             null
         )
     }
