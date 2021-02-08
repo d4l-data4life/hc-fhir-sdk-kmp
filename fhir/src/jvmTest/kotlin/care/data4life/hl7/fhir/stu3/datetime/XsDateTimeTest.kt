@@ -27,6 +27,7 @@ class XsDateTimeTest(
     private var date: XsDate,
     private var time: XsTime?,
     private var timeZone: XsTimeZone?,
+    private var stringFormat: String,
 
     private var shouldFail: Boolean
 ) {
@@ -45,21 +46,23 @@ class XsDateTimeTest(
         assertEquals(date, dateTime.date)
         assertEquals(time, dateTime.time)
         assertEquals(timeZone, dateTime.timeZone)
+        assertEquals(stringFormat, dateTime.toString())
     }
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: date: \"{0}\" time: \"{1}\" timeZone: \"{2}\" shouldFail: \"{3}\"")
+        @Parameterized.Parameters(name = "{index}: date: \"{0}\" time: \"{1}\" timeZone: \"{2}\" stringFormat: \"{3}\" shouldFail: \"{4}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // date
-                arrayOf(XsDate(2018,5,12), null, null, false),
+                arrayOf(XsDate(2018, 5, 12), null, null, "2018-05-12", false),
 
                 // time & timeZone
                 arrayOf(
-                    XsDate(2018,5,12),
-                    XsTime(11,14, null, null),
+                    XsDate(2018, 5, 12),
+                    XsTime(11, 14, null, null),
                     XsTimeZone(0, 0),
+                    "2018-05-12T11:14:00+00:00",
                     false
                 ),
 
@@ -67,17 +70,19 @@ class XsDateTimeTest(
                 // error cases
                 // time missing
                 arrayOf(
-                    XsDate(2018,5,12),
+                    XsDate(2018, 5, 12),
                     null,
                     XsTimeZone(0, 0),
+                    "",
                     true
                 ),
 
                 // timeZone missing
                 arrayOf(
-                    XsDate(2018,5,12),
-                    XsTime(11,14, null, null),
+                    XsDate(2018, 5, 12),
+                    XsTime(11, 14, null, null),
                     null,
+                    "",
                     true
                 ),
             )

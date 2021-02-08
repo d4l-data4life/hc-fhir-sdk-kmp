@@ -40,8 +40,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class XsDate(
     val year: Int,
-    val month: Int?,
-    val day: Int?
+    val month: Int? = null,
+    val day: Int? = null
 ) {
     init {
         require(year >= -9999) { "year should be >= -9999" }

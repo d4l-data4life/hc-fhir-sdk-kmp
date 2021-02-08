@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.datetime
 
+import care.data4life.fhir.stu3.json.XsDateTimeParser
 import kotlinx.serialization.Serializable
 
 /**
@@ -41,13 +42,17 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class XsDateTime(
     val date: XsDate,
-    val time: XsTime?,
-    val timeZone: XsTimeZone?
+    val time: XsTime? = null,
+    val timeZone: XsTimeZone? = null
 ) {
     init {
         if (time != null || timeZone != null) {
             requireNotNull(time) { "if timezone is provided, time is needed too" }
             requireNotNull(timeZone) { "if time is provided, timezone is needed too" }
         }
+    }
+
+    override fun toString(): String {
+        return XsDateTimeParser.format(this)
     }
 }

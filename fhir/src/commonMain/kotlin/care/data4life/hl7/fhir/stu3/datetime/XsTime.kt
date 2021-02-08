@@ -42,7 +42,7 @@ data class XsTime(
     val hour: Int,
     val minute: Int,
     val second: Int? = null,
-    val fraction: Double?
+    val fraction: Double? = null
 ) {
     init {
         require(hour >= 0) { "hour should be >= 0" }
