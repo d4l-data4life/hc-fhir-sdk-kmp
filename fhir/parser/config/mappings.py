@@ -26,8 +26,8 @@ classmap = {
 
     'date': 'Date',
     'time': 'Time',
-    'instant': 'String', # 'Instant',
     'dateTime': 'DateTime',
+    'instant': 'Instant',
 }
 
 # Classes of properties to be replaced with different ones at resource rendering time
