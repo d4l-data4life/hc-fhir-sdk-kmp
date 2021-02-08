@@ -14,7 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.model
+package care.data4life.hl7.fhir.stu3.model
 
 
 import javax.annotation.Generated
@@ -22,10 +22,10 @@ import javax.annotation.Generated
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
 
-import care.data4life.fhir.stu3.codesystem.*
-import care.data4life.fhir.stu3.primitive.*
-import care.data4life.fhir.stu3.FhirStu3Parser
-import care.data4life.fhir.test.util.FileHelper.loadAsString
+import care.data4life.hl7.fhir.stu3.codesystem.*
+import care.data4life.hl7.fhir.stu3.primitive.*
+import care.data4life.hl7.fhir.stu3.FhirStu3Parser
+import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import kotlinx.serialization.modules.SerializersModule
