@@ -46,7 +46,7 @@ object Versions {
 
 
     // https://github.com/Kotlin/kotlinx-datetime
-    const val dateTime = "0.1.0"
+    const val dateTime = "0.1.1"
 
     // Android
     // https://developer.android.com/studio/write/java8-support
