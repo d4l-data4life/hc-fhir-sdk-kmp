@@ -44,12 +44,6 @@ interface FhirDate : FhirElement {
  *
  * @param value XsDate
  *
- * OR
- *
- * @param year  Year of the date, limited from 1000 to 9999
- * @param month Month of the year
- * @param day   Day of the month
- *
  * @see [Date](http://hl7.org/fhir/STU3/datatypes.html#date)
  *
  */
