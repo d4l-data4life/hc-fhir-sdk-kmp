@@ -26,7 +26,7 @@ import kotlinx.serialization.Serializable
  * @see <a href="http://hl7.org/fhir/guide-page-kind">GuidePageKind</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/guide-page-kind">ValueSet</a>
  *
- * Generated from FHIR 3.0.1.11917 on 2020-10-01
+ * Generated from FHIR 3.0.1.11917
  */
 @Serializable
 enum class GuidePageKind {

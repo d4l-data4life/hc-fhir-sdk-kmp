@@ -26,7 +26,7 @@ import kotlinx.serialization.Serializable
  * @see <a href="http://hl7.org/fhir/assert-operator-codes">AssertionOperatorType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/assert-operator-codes">ValueSet</a>
  *
- * Generated from FHIR 3.0.1.11917 on 2020-10-01
+ * Generated from FHIR 3.0.1.11917
  */
 @Serializable
 enum class AssertionOperatorType {

@@ -16,8 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.codesystem
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.*
 
 
 /**
@@ -26,7 +25,7 @@ import kotlinx.serialization.Serializable
  * @see <a href="http://hl7.org/fhir/discriminator-type">DiscriminatorType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/discriminator-type">ValueSet</a>
  *
- * Generated from FHIR 3.0.1.11917 on 2020-10-01
+ * Generated from FHIR 3.0.1.11917
  */
 @Serializable
 enum class DiscriminatorType {
