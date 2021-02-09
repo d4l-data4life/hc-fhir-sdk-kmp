@@ -94,7 +94,7 @@ interface FhirPatient : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">Patient</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient)
  */
 @Serializable
 @SerialName("Patient")

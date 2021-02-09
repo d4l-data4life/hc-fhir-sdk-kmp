@@ -98,7 +98,7 @@ interface FhirCarePlan : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlan</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CarePlan)
  */
 @Serializable
 @SerialName("CarePlan")
@@ -236,7 +236,7 @@ interface FhirCarePlanActivity : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlanActivity</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CarePlan)
  */
 @Serializable
 @SerialName("CarePlanActivity")
@@ -356,7 +356,7 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlanActivityDetail</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CarePlan)
  */
 @Serializable
 @SerialName("CarePlanActivityDetail")

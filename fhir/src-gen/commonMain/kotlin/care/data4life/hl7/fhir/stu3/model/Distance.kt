@@ -35,7 +35,7 @@ interface FhirDistance : FhirQuantity
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Distance">Distance</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Distance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Distance)
  */
 @Serializable
 @SerialName("Distance")

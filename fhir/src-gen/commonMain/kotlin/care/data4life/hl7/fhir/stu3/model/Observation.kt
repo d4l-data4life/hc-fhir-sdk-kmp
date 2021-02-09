@@ -133,7 +133,7 @@ interface FhirObservation : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Observation">Observation</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation)
  */
 @Serializable
 @SerialName("Observation")
@@ -334,7 +334,7 @@ interface FhirObservationComponent : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Observation">ObservationComponent</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation)
  */
 @Serializable
 @SerialName("ObservationComponent")
@@ -442,7 +442,7 @@ interface FhirObservationReferenceRange : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Observation">ObservationReferenceRange</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation)
  */
 @Serializable
 @SerialName("ObservationReferenceRange")
@@ -514,7 +514,7 @@ interface FhirObservationRelated : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Observation">ObservationRelated</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Observation)
  */
 @Serializable
 @SerialName("ObservationRelated")

@@ -54,7 +54,7 @@ interface FhirIdentifier : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Identifier">Identifier</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Identifier)
  */
 @Serializable
 @SerialName("Identifier")

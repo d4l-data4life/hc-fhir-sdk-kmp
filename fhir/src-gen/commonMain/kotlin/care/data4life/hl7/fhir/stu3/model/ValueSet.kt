@@ -94,7 +94,7 @@ interface FhirValueSet : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSet</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSet")
@@ -226,7 +226,7 @@ interface FhirValueSetCompose : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetCompose</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetCompose")
@@ -301,7 +301,7 @@ interface FhirValueSetComposeInclude : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeInclude</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeInclude")
@@ -373,7 +373,7 @@ interface FhirValueSetComposeIncludeConcept : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeIncludeConcept</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeIncludeConcept")
@@ -439,7 +439,7 @@ interface FhirValueSetComposeIncludeConceptDesignation : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeIncludeConceptDesignation</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeIncludeConceptDesignation")
@@ -505,7 +505,7 @@ interface FhirValueSetComposeIncludeFilter : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeIncludeFilter</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeIncludeFilter")
@@ -580,7 +580,7 @@ interface FhirValueSetExpansion : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetExpansion</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetExpansion")
@@ -670,7 +670,7 @@ interface FhirValueSetExpansionContains : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetExpansionContains</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetExpansionContains")
@@ -763,7 +763,7 @@ interface FhirValueSetExpansionParameter : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetExpansionParameter</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetExpansionParameter")

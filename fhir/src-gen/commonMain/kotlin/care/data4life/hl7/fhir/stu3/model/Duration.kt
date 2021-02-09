@@ -35,7 +35,7 @@ interface FhirDuration : FhirQuantity
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Duration">Duration</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Duration) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Duration)
  */
 @Serializable
 @SerialName("Duration")

@@ -35,7 +35,7 @@ interface FhirCount : FhirQuantity
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Count">Count</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Count) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Count)
  */
 @Serializable
 @SerialName("Count")

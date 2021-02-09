@@ -41,7 +41,7 @@ interface FhirElement : FhirStu3 {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Element">Element</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Element) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Element)
  */
 @Serializable
 @SerialName("Element")

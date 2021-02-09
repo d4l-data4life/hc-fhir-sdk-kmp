@@ -113,7 +113,7 @@ interface FhirMedicationRequest : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MedicationRequest">MedicationRequest</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest)
  */
 @Serializable
 @SerialName("MedicationRequest")
@@ -266,7 +266,7 @@ interface FhirMedicationRequestDispenseRequest : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MedicationRequest">MedicationRequestDispenseRequest</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest)
  */
 @Serializable
 @SerialName("MedicationRequestDispenseRequest")
@@ -335,7 +335,7 @@ interface FhirMedicationRequestRequester : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MedicationRequest">MedicationRequestRequester</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest)
  */
 @Serializable
 @SerialName("MedicationRequestRequester")
@@ -395,7 +395,7 @@ interface FhirMedicationRequestSubstitution : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MedicationRequest">MedicationRequestSubstitution</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/MedicationRequest)
  */
 @Serializable
 @SerialName("MedicationRequestSubstitution")

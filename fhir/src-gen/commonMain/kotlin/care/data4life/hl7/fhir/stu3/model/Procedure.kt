@@ -117,7 +117,7 @@ interface FhirProcedure : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">Procedure</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure)
  */
 @Serializable
 @SerialName("Procedure")
@@ -267,7 +267,7 @@ interface FhirProcedureFocalDevice : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">ProcedureFocalDevice</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure)
  */
 @Serializable
 @SerialName("ProcedureFocalDevice")
@@ -330,7 +330,7 @@ interface FhirProcedurePerformer : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">ProcedurePerformer</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure)
  */
 @Serializable
 @SerialName("ProcedurePerformer")

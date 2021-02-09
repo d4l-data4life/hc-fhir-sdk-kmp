@@ -111,7 +111,7 @@ interface FhirCodeSystem : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystem</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystem")
@@ -267,7 +267,7 @@ interface FhirCodeSystemConcept : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemConcept</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemConcept")
@@ -342,7 +342,7 @@ interface FhirCodeSystemConceptDesignation : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemConceptDesignation</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemConceptDesignation")
@@ -420,7 +420,7 @@ interface FhirCodeSystemConceptProperty : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemConceptProperty</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemConceptProperty")
@@ -501,7 +501,7 @@ interface FhirCodeSystemFilter : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemFilter</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemFilter")
@@ -573,7 +573,7 @@ interface FhirCodeSystemProperty : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemProperty</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemProperty")

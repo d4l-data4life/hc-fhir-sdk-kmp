@@ -41,7 +41,7 @@ interface FhirCodeableConcept : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeableConcept">CodeableConcept</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeableConcept)
  */
 @Serializable
 @SerialName("CodeableConcept")

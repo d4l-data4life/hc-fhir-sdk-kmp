@@ -63,7 +63,7 @@ interface FhirMedication : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">Medication</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
  */
 @Serializable
 @SerialName("Medication")
@@ -165,7 +165,7 @@ interface FhirMedicationIngredient : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationIngredient</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
  */
 @Serializable
 @SerialName("MedicationIngredient")
@@ -234,7 +234,7 @@ interface FhirMedicationPackage : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackage</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
  */
 @Serializable
 @SerialName("MedicationPackage")
@@ -297,7 +297,7 @@ interface FhirMedicationPackageBatch : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackageBatch</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
  */
 @Serializable
 @SerialName("MedicationPackageBatch")
@@ -360,7 +360,7 @@ interface FhirMedicationPackageContent : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackageContent</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
  */
 @Serializable
 @SerialName("MedicationPackageContent")

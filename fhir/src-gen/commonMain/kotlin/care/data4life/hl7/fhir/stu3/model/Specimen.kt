@@ -72,7 +72,7 @@ interface FhirSpecimen : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">Specimen</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("Specimen")
@@ -189,7 +189,7 @@ interface FhirSpecimenCollection : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenCollection</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("SpecimenCollection")
@@ -276,7 +276,7 @@ interface FhirSpecimenContainer : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenContainer</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("SpecimenContainer")
@@ -360,7 +360,7 @@ interface FhirSpecimenProcessing : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenProcessing</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("SpecimenProcessing")

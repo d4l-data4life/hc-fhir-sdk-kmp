@@ -35,7 +35,7 @@ interface FhirAge : FhirQuantity
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Age">Age</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Age) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Age)
  */
 @Serializable
 @SerialName("Age")

@@ -89,7 +89,7 @@ interface FhirDocumentReference : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentReference">DocumentReference</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference)
  */
 @Serializable
 @SerialName("DocumentReference")
@@ -209,7 +209,7 @@ interface FhirDocumentReferenceContent : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentReference">DocumentReferenceContent</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference)
  */
 @Serializable
 @SerialName("DocumentReferenceContent")
@@ -284,7 +284,7 @@ interface FhirDocumentReferenceContext : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentReference">DocumentReferenceContext</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference)
  */
 @Serializable
 @SerialName("DocumentReferenceContext")
@@ -359,7 +359,7 @@ interface FhirDocumentReferenceContextRelated : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentReference">DocumentReferenceContextRelated</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference)
  */
 @Serializable
 @SerialName("DocumentReferenceContextRelated")
@@ -419,7 +419,7 @@ interface FhirDocumentReferenceRelatesTo : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentReference">DocumentReferenceRelatesTo</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DocumentReference)
  */
 @Serializable
 @SerialName("DocumentReferenceRelatesTo")

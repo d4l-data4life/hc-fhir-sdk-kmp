@@ -35,7 +35,7 @@ interface FhirMoney : FhirQuantity
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Money">Money</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Money) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Money)
  */
 @Serializable
 @SerialName("Money")

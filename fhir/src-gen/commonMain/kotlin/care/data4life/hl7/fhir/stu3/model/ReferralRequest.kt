@@ -110,7 +110,7 @@ interface FhirReferralRequest : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ReferralRequest">ReferralRequest</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest)
  */
 @Serializable
 @SerialName("ReferralRequest")
@@ -251,7 +251,7 @@ interface FhirReferralRequestRequester : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ReferralRequest">ReferralRequestRequester</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest)
  */
 @Serializable
 @SerialName("ReferralRequestRequester")

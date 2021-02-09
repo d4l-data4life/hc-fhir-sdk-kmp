@@ -111,7 +111,7 @@ interface FhirCondition : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">Condition</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition)
  */
 @Serializable
 @SerialName("Condition")
@@ -255,7 +255,7 @@ interface FhirConditionEvidence : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">ConditionEvidence</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition)
  */
 @Serializable
 @SerialName("ConditionEvidence")
@@ -315,7 +315,7 @@ interface FhirConditionStage : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">ConditionStage</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition)
  */
 @Serializable
 @SerialName("ConditionStage")

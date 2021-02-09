@@ -59,7 +59,7 @@ interface FhirSignature : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Signature">Signature</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Signature) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Signature)
  */
 @Serializable
 @SerialName("Signature")

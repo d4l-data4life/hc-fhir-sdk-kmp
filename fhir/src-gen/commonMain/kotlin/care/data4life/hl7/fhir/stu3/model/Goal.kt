@@ -84,7 +84,7 @@ interface FhirGoal : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Goal">Goal</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Goal) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Goal)
  */
 @Serializable
 @SerialName("Goal")
@@ -213,7 +213,7 @@ interface FhirGoalTarget : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Goal">GoalTarget</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Goal) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Goal)
  */
 @Serializable
 @SerialName("GoalTarget")

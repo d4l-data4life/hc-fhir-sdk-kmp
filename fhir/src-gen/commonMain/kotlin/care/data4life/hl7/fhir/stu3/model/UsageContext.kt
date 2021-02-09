@@ -47,7 +47,7 @@ interface FhirUsageContext : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/UsageContext">UsageContext</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/UsageContext)
  */
 @Serializable
 @SerialName("UsageContext")

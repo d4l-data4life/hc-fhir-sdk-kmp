@@ -115,7 +115,7 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory">FamilyMemberHistory</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory)
  */
 @Serializable
 @SerialName("FamilyMemberHistory")
@@ -277,7 +277,7 @@ interface FhirFamilyMemberHistoryCondition : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory">FamilyMemberHistoryCondition</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory)
  */
 @Serializable
 @SerialName("FamilyMemberHistoryCondition")

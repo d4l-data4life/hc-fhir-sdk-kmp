@@ -45,7 +45,7 @@ interface FhirTiming : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Timing">Timing</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Timing) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Timing)
  */
 @Serializable
 @SerialName("Timing")
@@ -147,7 +147,7 @@ interface FhirTimingRepeat : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Timing">TimingRepeat</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Timing) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Timing)
  */
 @Serializable
 @SerialName("TimingRepeat")

@@ -66,7 +66,7 @@ interface FhirProvenance : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">Provenance</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance)
  */
 @Serializable
 @SerialName("Provenance")
@@ -177,7 +177,7 @@ interface FhirProvenanceAgent : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">ProvenanceAgent</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance)
  */
 @Serializable
 @SerialName("ProvenanceAgent")
@@ -258,7 +258,7 @@ interface FhirProvenanceEntity : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">ProvenanceEntity</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance)
  */
 @Serializable
 @SerialName("ProvenanceEntity")

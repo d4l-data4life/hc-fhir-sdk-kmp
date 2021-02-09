@@ -57,7 +57,7 @@ interface FhirSubstance : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Substance">Substance</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Substance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Substance)
  */
 @Serializable
 @SerialName("Substance")
@@ -150,7 +150,7 @@ interface FhirSubstanceIngredient : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Substance">SubstanceIngredient</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Substance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Substance)
  */
 @Serializable
 @SerialName("SubstanceIngredient")
@@ -216,7 +216,7 @@ interface FhirSubstanceInstance : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Substance">SubstanceInstance</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Substance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Substance)
  */
 @Serializable
 @SerialName("SubstanceInstance")

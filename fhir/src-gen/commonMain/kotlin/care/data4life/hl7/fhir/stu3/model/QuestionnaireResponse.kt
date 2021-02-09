@@ -69,7 +69,7 @@ interface FhirQuestionnaireResponse : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse">QuestionnaireResponse</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse)
  */
 @Serializable
 @SerialName("QuestionnaireResponse")
@@ -183,7 +183,7 @@ interface FhirQuestionnaireResponseItem : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse">QuestionnaireResponseItem</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse)
  */
 @Serializable
 @SerialName("QuestionnaireResponseItem")
@@ -288,7 +288,7 @@ interface FhirQuestionnaireResponseItemAnswer : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse">QuestionnaireResponseItemAnswer</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse)
  */
 @Serializable
 @SerialName("QuestionnaireResponseItemAnswer")

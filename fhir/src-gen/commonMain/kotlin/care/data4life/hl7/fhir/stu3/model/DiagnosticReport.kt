@@ -90,7 +90,7 @@ interface FhirDiagnosticReport : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReport</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport)
  */
 @Serializable
 @SerialName("DiagnosticReport")
@@ -213,7 +213,7 @@ interface FhirDiagnosticReportImage : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportImage</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport)
  */
 @Serializable
 @SerialName("DiagnosticReportImage")
@@ -273,7 +273,7 @@ interface FhirDiagnosticReportPerformer : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportPerformer</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport)
  */
 @Serializable
 @SerialName("DiagnosticReportPerformer")

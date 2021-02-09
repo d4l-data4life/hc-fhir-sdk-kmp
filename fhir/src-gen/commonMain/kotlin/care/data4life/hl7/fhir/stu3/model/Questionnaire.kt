@@ -101,7 +101,7 @@ interface FhirQuestionnaire : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Questionnaire">Questionnaire</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire)
  */
 @Serializable
 @SerialName("Questionnaire")
@@ -305,7 +305,7 @@ interface FhirQuestionnaireItem : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Questionnaire">QuestionnaireItem</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire)
  */
 @Serializable
 @SerialName("QuestionnaireItem")
@@ -473,7 +473,7 @@ interface FhirQuestionnaireItemEnableWhen : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Questionnaire">QuestionnaireItemEnableWhen</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire)
  */
 @Serializable
 @SerialName("QuestionnaireItemEnableWhen")
@@ -578,7 +578,7 @@ interface FhirQuestionnaireItemOption : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Questionnaire">QuestionnaireItemOption</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Questionnaire)
  */
 @Serializable
 @SerialName("QuestionnaireItemOption")

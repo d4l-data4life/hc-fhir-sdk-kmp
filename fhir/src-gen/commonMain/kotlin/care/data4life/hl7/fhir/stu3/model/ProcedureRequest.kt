@@ -125,7 +125,7 @@ interface FhirProcedureRequest : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcedureRequest">ProcedureRequest</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest)
  */
 @Serializable
 @SerialName("ProcedureRequest")
@@ -281,7 +281,7 @@ interface FhirProcedureRequestRequester : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcedureRequest">ProcedureRequestRequester</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest)
  */
 @Serializable
 @SerialName("ProcedureRequestRequester")

@@ -152,7 +152,7 @@ interface FhirExtension : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Extension">Extension</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Extension) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Extension)
  */
 @Serializable
 @SerialName("Extension")

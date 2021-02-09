@@ -66,7 +66,7 @@ interface FhirPractitioner : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Practitioner">Practitioner</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner)
  */
 @Serializable
 @SerialName("Practitioner")
@@ -171,7 +171,7 @@ interface FhirPractitionerQualification : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Practitioner">PractitionerQualification</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner)
  */
 @Serializable
 @SerialName("PractitionerQualification")
