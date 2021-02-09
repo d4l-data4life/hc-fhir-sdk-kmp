@@ -197,6 +197,6 @@ class TimeJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     companion object {
         val fhirResourceType = FhirTimeTestObject::class
 
-        val testValue = XsTime(12,12,50, .1234567)
+        val testValue = XsTime(12, 12, 50, .1234567)
     }
 }

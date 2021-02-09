@@ -84,6 +84,7 @@ data class DateTime(
 
             return DateTime(value)
         }
+
         override fun serialize(encoder: Encoder, value: DateTime) {
             encoder.encodeString(XsDateTimeParser.format(value.value))
 
