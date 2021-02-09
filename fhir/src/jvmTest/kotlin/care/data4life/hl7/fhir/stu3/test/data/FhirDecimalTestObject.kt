@@ -14,18 +14,18 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
-import care.data4life.fhir.stu3.model.FhirResource
-import care.data4life.fhir.stu3.model.Meta
-import care.data4life.fhir.stu3.primitive.Date
+import care.data4life.hl7.fhir.stu3.model.FhirResource
+import care.data4life.hl7.fhir.stu3.model.Meta
+import care.data4life.hl7.fhir.stu3.primitive.Decimal
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirDateTestObject")
-data class FhirDateTestObject(
-    val value: Date,
+@SerialName("FhirDecimalTestObject")
+data class FhirDecimalTestObject(
+    val value: Decimal,
 
     // FhirResource
     override val id: String? = null,
@@ -39,19 +39,19 @@ data class FhirDateTestObject(
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirDateTestObject"
+        fun resourceType(): String = "FhirDecimalTestObject"
 
         fun jsonData(
-            value: Date
+            value: Decimal
         ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
             resourceType(),
-            { "\"${value.value}\"" },
+            { "${value.value}" },
             value.extension,
             value.id
         )
 
-        fun testData(value: Date): FhirDateTestObject {
-            return FhirDateTestObject(value)
+        fun testData(value: Decimal): FhirDecimalTestObject {
+            return FhirDecimalTestObject(value)
         }
     }
 }

@@ -14,10 +14,10 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.primitive
+package care.data4life.hl7.fhir.stu3.primitive
 
-import care.data4life.fhir.stu3.datetime.XsTime
-import care.data4life.fhir.stu3.model.Extension
+import care.data4life.hl7.fhir.stu3.datetime.XsTime
+import care.data4life.hl7.fhir.stu3.model.Extension
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized

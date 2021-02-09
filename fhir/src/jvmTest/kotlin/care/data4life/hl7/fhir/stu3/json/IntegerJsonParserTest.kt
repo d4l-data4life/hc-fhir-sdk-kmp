@@ -19,7 +19,7 @@ package care.data4life.hl7.fhir.stu3.json
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
 import care.data4life.hl7.fhir.stu3.primitive.Integer
-import care.data4life.hl7.fhir.test.data.FhirIntegerTestObject
+import care.data4life.hl7.fhir.stu3.test.data.FhirIntegerTestObject
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore

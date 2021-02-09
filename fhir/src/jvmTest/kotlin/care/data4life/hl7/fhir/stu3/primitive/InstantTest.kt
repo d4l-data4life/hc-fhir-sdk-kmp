@@ -14,13 +14,13 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.primitive
+package care.data4life.hl7.fhir.stu3.primitive
 
-import care.data4life.fhir.stu3.datetime.XsDate
-import care.data4life.fhir.stu3.datetime.XsDateTime
-import care.data4life.fhir.stu3.datetime.XsTime
-import care.data4life.fhir.stu3.datetime.XsTimeZone
-import care.data4life.fhir.stu3.model.Extension
+import care.data4life.hl7.fhir.stu3.datetime.XsDate
+import care.data4life.hl7.fhir.stu3.datetime.XsDateTime
+import care.data4life.hl7.fhir.stu3.datetime.XsTime
+import care.data4life.hl7.fhir.stu3.datetime.XsTimeZone
+import care.data4life.hl7.fhir.stu3.model.Extension
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -28,7 +28,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
-class DateTimeTest(
+class InstantTest(
     private var values: Map<String, Any?>,
     private var id: String?,
     private var extension: List<Extension>?,
@@ -40,7 +40,7 @@ class DateTimeTest(
     fun testParameterized() {
         if (shouldFail) {
             assertFails {
-                DateTime(
+                Instant(
                     XsDateTime(
                         values["date"] as XsDate,
                         values["time"] as XsTime?,
@@ -51,7 +51,7 @@ class DateTimeTest(
             return
         }
 
-        val result = DateTime(
+        val result = Instant(
             XsDateTime(
                 values["date"] as XsDate,
                 values["time"] as XsTime?,
@@ -73,16 +73,13 @@ class DateTimeTest(
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // valid
-                arrayOf(mapOf("date" to XsDate(1000)), null, null, false),
-                arrayOf(mapOf("date" to XsDate(9999)), null, null, false),
-                arrayOf(mapOf("date" to XsDate(-9999)), null, null, false),
-
-                arrayOf(mapOf("date" to XsDate(2021, 1)), null, null, false),
-                arrayOf(mapOf("date" to XsDate(2021, 12)), null, null, false),
-
-                arrayOf(mapOf("date" to XsDate(2021, 1, 1)), null, null, false),
-                arrayOf(mapOf("date" to XsDate(2021, 1, 31)), null, null, false),
-
+                arrayOf(
+                    mapOf(
+                        "date" to XsDate(2021, 1, 31),
+                        "time" to XsTime(21, 32, 52),
+                        "timezone" to XsTimeZone(zeroOffsetGMT = false)
+                    ), null, null, false
+                ),
                 arrayOf(
                     mapOf(
                         "date" to XsDate(2021, 1, 31),
@@ -109,17 +106,26 @@ class DateTimeTest(
                 ),
 
                 // fails
+                // only date
+                // date incomplete
+//                arrayOf(mapOf("date" to XsDate(2021, null, 12)), null, null, true),
+                arrayOf(mapOf("date" to XsDate(2021, 5, null)), null, null, true),
+
+                // time not set
+                arrayOf(mapOf("date" to XsDate(2021, 5, 12)), null, null, true),
+                // time incomplete
                 arrayOf(
                     mapOf(
-                        "date" to XsDate(2021, 1, 31),
-                        "time" to null,
-                        "timezone" to XsTimeZone(1)
+                        "date" to XsDate(2021, 5, null),
+                        "time" to XsTime(21, 32, 52),
                     ), null, null, true
                 ),
+
+                // timezone missing
                 arrayOf(
                     mapOf(
                         "date" to XsDate(2021, 1, 31),
-                        "time" to XsTime(21, 32, 52, .1234567),
+                        "time" to XsTime(21, 32, 52),
                         "timezone" to null
                     ), null, null, true
                 ),

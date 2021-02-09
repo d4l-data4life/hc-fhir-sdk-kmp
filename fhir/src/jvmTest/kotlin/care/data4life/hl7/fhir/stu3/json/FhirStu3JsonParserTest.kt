@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.stu3.json
 import care.data4life.hl7.fhir.stu3.model.FhirResource
 import care.data4life.hl7.fhir.stu3.model.FhirSerializationModule
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
-import care.data4life.hl7.fhir.test.data.FhirContainedTestObject
-import care.data4life.hl7.fhir.test.data.FhirResourceTestObject
-import care.data4life.hl7.fhir.test.data.FhirSimpleTestObject
+import care.data4life.hl7.fhir.stu3.test.data.FhirContainedTestObject
+import care.data4life.hl7.fhir.stu3.test.data.FhirResourceTestObject
+import care.data4life.hl7.fhir.stu3.test.data.FhirSimpleTestObject
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.plus
 import kotlinx.serialization.modules.polymorphic

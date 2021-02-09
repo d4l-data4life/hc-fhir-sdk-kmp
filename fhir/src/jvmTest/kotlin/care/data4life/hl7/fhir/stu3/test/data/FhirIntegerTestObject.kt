@@ -14,18 +14,18 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
 import care.data4life.hl7.fhir.stu3.model.FhirResource
 import care.data4life.hl7.fhir.stu3.model.Meta
-import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
+import care.data4life.hl7.fhir.stu3.primitive.Integer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirUnsignedIntegerTestObject")
-data class FhirUnsignedIntegerTestObject(
-    val value: UnsignedInteger,
+@SerialName("FhirIntegerTestObject")
+data class FhirIntegerTestObject(
+    val value: Integer,
 
     // FhirResource
     override val id: String? = null,
@@ -39,10 +39,10 @@ data class FhirUnsignedIntegerTestObject(
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirUnsignedIntegerTestObject"
+        fun resourceType(): String = "FhirIntegerTestObject"
 
         fun jsonData(
-            value: UnsignedInteger
+            value: Integer
         ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
             resourceType(),
             { "${value.value}" },
@@ -50,8 +50,8 @@ data class FhirUnsignedIntegerTestObject(
             value.id
         )
 
-        fun testData(value: UnsignedInteger): FhirUnsignedIntegerTestObject {
-            return FhirUnsignedIntegerTestObject(value)
+        fun testData(value: Integer): FhirIntegerTestObject {
+            return FhirIntegerTestObject(value)
         }
     }
 }

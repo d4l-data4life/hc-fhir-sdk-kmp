@@ -14,20 +14,24 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
-import care.data4life.hl7.fhir.stu3.model.*
+import care.data4life.hl7.fhir.stu3.model.FhirResource
+import care.data4life.hl7.fhir.stu3.model.Meta
+import care.data4life.hl7.fhir.stu3.primitive.PositiveInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirResourceTestObject")
-data class FhirResourceTestObject(
+@SerialName("FhirPositiveIntegerTestObject")
+data class FhirPositiveIntegerTestObject(
+    val value: PositiveInteger,
+
+    // FhirResource
     override val id: String? = null,
     override val meta: Meta? = null,
     override val implicitRules: String? = null,
-    override val language: String? = null,
-    val value: String
+    override val language: String? = null
 ) : FhirResource {
 
     override val resourceType: String
@@ -35,10 +39,19 @@ data class FhirResourceTestObject(
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirResourceTestObject"
+        fun resourceType(): String = "FhirPositiveIntegerTestObject"
 
-        const val jsonData = """{"resourceType":"FhirResourceTestObject","value":"value"}"""
+        fun jsonData(
+            value: PositiveInteger
+        ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
+            resourceType(),
+            { "${value.value}" },
+            value.extension,
+            value.id
+        )
 
-        val testData = FhirResourceTestObject(value = "value")
+        fun testData(value: PositiveInteger): FhirPositiveIntegerTestObject {
+            return FhirPositiveIntegerTestObject(value)
+        }
     }
 }

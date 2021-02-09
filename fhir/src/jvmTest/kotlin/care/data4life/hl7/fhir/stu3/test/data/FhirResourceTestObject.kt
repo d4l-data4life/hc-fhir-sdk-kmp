@@ -14,27 +14,31 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
-import care.data4life.hl7.fhir.stu3.model.FhirStu3
+import care.data4life.hl7.fhir.stu3.model.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirSimpleTestObject")
-data class FhirSimpleTestObject(
+@SerialName("FhirResourceTestObject")
+data class FhirResourceTestObject(
+    override val id: String? = null,
+    override val meta: Meta? = null,
+    override val implicitRules: String? = null,
+    override val language: String? = null,
     val value: String
-) : FhirStu3 {
+) : FhirResource {
 
     override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirTestObject"
+        fun resourceType(): String = "FhirResourceTestObject"
 
-        const val jsonData = """{"resourceType":"FhirSimpleTestObject","value":"value"}"""
+        const val jsonData = """{"resourceType":"FhirResourceTestObject","value":"value"}"""
 
-        val testData = FhirSimpleTestObject("value")
+        val testData = FhirResourceTestObject(value = "value")
     }
 }

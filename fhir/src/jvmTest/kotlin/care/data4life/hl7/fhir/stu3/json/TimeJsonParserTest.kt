@@ -14,13 +14,13 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.json
+package care.data4life.hl7.fhir.stu3.json
 
-import care.data4life.fhir.stu3.datetime.XsTime
-import care.data4life.fhir.stu3.model.Extension
-import care.data4life.fhir.stu3.model.FhirStu3
-import care.data4life.fhir.stu3.primitive.Time
-import care.data4life.fhir.test.data.FhirTimeTestObject
+import care.data4life.hl7.fhir.stu3.datetime.XsTime
+import care.data4life.hl7.fhir.stu3.model.Extension
+import care.data4life.hl7.fhir.stu3.model.FhirStu3
+import care.data4life.hl7.fhir.stu3.primitive.Time
+import care.data4life.hl7.fhir.stu3.test.data.FhirTimeTestObject
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore

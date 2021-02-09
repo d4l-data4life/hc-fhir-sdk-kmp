@@ -14,34 +14,44 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
-import care.data4life.hl7.fhir.stu3.model.*
+import care.data4life.hl7.fhir.stu3.model.FhirResource
+import care.data4life.hl7.fhir.stu3.model.Meta
+import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirContainedTestObject")
-data class FhirContainedTestObject(
-    override val text: Narrative? = null,
-    override val contained: List<FhirResource>? = null,
-    override val extension: List<Extension>? = null,
-    override val modifierExtension: List<Extension>? = null,
+@SerialName("FhirUnsignedIntegerTestObject")
+data class FhirUnsignedIntegerTestObject(
+    val value: UnsignedInteger,
+
+    // FhirResource
     override val id: String? = null,
     override val meta: Meta? = null,
     override val implicitRules: String? = null,
     override val language: String? = null
-) : FhirDomainResource {
+) : FhirResource {
 
     override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirContainedTestObject"
+        fun resourceType(): String = "FhirUnsignedIntegerTestObject"
 
-        const val jsonData = """{"resourceType":"FhirContainedTestObject","contained":[${FhirResourceTestObject.jsonData}]}"""
+        fun jsonData(
+            value: UnsignedInteger
+        ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
+            resourceType(),
+            { "${value.value}" },
+            value.extension,
+            value.id
+        )
 
-        val testData = FhirContainedTestObject( contained = listOf(FhirResourceTestObject.testData))
+        fun testData(value: UnsignedInteger): FhirUnsignedIntegerTestObject {
+            return FhirUnsignedIntegerTestObject(value)
+        }
     }
 }

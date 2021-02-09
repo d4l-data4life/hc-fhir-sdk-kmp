@@ -14,16 +14,13 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.json
+package care.data4life.hl7.fhir.stu3.json
 
-import care.data4life.fhir.stu3.datetime.XsDate
-import care.data4life.fhir.stu3.datetime.XsDateTime
-import care.data4life.fhir.stu3.datetime.XsTime
-import care.data4life.fhir.stu3.datetime.XsTimeZone
-import care.data4life.fhir.stu3.model.Extension
-import care.data4life.fhir.stu3.model.FhirStu3
-import care.data4life.fhir.stu3.primitive.Instant
-import care.data4life.fhir.test.data.FhirInstantTestObject
+import care.data4life.hl7.fhir.stu3.datetime.XsDate
+import care.data4life.hl7.fhir.stu3.model.Extension
+import care.data4life.hl7.fhir.stu3.model.FhirStu3
+import care.data4life.hl7.fhir.stu3.primitive.Date
+import care.data4life.hl7.fhir.stu3.test.data.FhirDateTestObject
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore
@@ -31,23 +28,23 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
 
-class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
+class DateJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
 
     @Test
     fun `Given, fromJson() is called with malformed JSON, it throws exception`() {
         assertFails {
-            parser.fromJson(Instant::class, "malformed")
+            parser.fromJson(Date::class, "malformed")
         }
     }
 
 
     @Test
-    fun `Given, fromJson() is called with value only, it returns a Instant`() {
+    fun `Given, fromJson() is called with value only, it returns a Date`() {
         // Given
         val value = testValue
-        val input = FhirInstantTestObject.jsonData(Instant(value = value))
-        val expected = Instant(value = value)
+        val input = FhirDateTestObject.jsonData(Date(value = value))
+        val expected = Date(value = value)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -58,12 +55,12 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with id, it returns a Instant`() {
+    fun `Given, fromJson() is called with value and sibling object with id, it returns a Date`() {
         // Given
         val value = testValue
         val id = "12979787a32339"
-        val input = FhirInstantTestObject.jsonData(Instant(value = value, id = id))
-        val expected = Instant(value = value, id = id)
+        val input = FhirDateTestObject.jsonData(Date(value = value, id = id))
+        val expected = Date(value = value, id = id)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -74,12 +71,12 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with extension, it returns a Instant`() {
+    fun `Given, fromJson() is called with value and sibling object with extension, it returns a Date`() {
         // Given
         val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
-        val input = FhirInstantTestObject.jsonData(Instant(value = value, extension = extension))
-        val expected = Instant(value = value, extension = extension)
+        val input = FhirDateTestObject.jsonData(Date(value = value, extension = extension))
+        val expected = Date(value = value, extension = extension)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -90,14 +87,13 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a Instant`() {
+    fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a Date`() {
         // Given
         val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input =
-            FhirInstantTestObject.jsonData(Instant(value = value, extension = extension, id = id))
-        val expected = Instant(value = value, extension = extension, id = id)
+        val input = FhirDateTestObject.jsonData(Date(value = value, extension = extension, id = id))
+        val expected = Date(value = value, extension = extension, id = id)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -111,8 +107,8 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {
         // Given
         val value = testValue
-        val input = FhirInstantTestObject.testData(Instant(value = value))
-        val expected = FhirInstantTestObject.jsonData(Instant(value = value))
+        val input = FhirDateTestObject.testData(Date(value = value))
+        val expected = FhirDateTestObject.jsonData(Date(value = value))
 
         // When
         val result = parser.toJson(input)
@@ -127,9 +123,9 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         // Given
         val value = testValue
         val id = "12979787a32339"
-        val input = FhirInstantTestObject.testData(Instant(value = value, id = id))
-        val expected = FhirInstantTestObject.jsonData(
-            Instant(value = value, id = id)
+        val input = FhirDateTestObject.testData(Date(value = value, id = id))
+        val expected = FhirDateTestObject.jsonData(
+            Date(value = value, id = id)
         )
 
         // When
@@ -145,14 +141,14 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         // Given
         val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
-        val input = FhirInstantTestObject.testData(
-            Instant(
+        val input = FhirDateTestObject.testData(
+            Date(
                 value = value,
                 extension = extension
             )
         )
-        val expected = FhirInstantTestObject.jsonData(
-            Instant(
+        val expected = FhirDateTestObject.jsonData(
+            Date(
                 value = value,
                 extension = extension
             )
@@ -172,15 +168,15 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input = FhirInstantTestObject.testData(
-            Instant(
+        val input = FhirDateTestObject.testData(
+            Date(
                 value = value,
                 extension = extension,
                 id = id
             )
         )
-        val expected = FhirInstantTestObject.jsonData(
-            Instant(
+        val expected = FhirDateTestObject.jsonData(
+            Date(
                 value = value,
                 extension = extension,
                 id = id
@@ -199,12 +195,8 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     }
 
     companion object {
-        val fhirResourceType = FhirInstantTestObject::class
+        val fhirResourceType = FhirDateTestObject::class
 
-        val testValue = XsDateTime(
-            XsDate(2021, 1, 15),
-            XsTime(12, 12, 50, .1234567),
-            XsTimeZone(1, 15)
-        )
+        val testValue = XsDate(2021, 1, 12)
     }
 }

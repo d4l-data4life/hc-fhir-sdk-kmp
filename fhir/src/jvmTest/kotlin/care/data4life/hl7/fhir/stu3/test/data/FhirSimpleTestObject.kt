@@ -14,44 +14,27 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
-import care.data4life.fhir.stu3.model.FhirResource
-import care.data4life.fhir.stu3.model.Meta
-import care.data4life.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.model.FhirStu3
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirDateTimeTestObject")
-data class FhirDateTimeTestObject(
-    val value: DateTime,
-
-    // FhirResource
-    override val id: String? = null,
-    override val meta: Meta? = null,
-    override val implicitRules: String? = null,
-    override val language: String? = null
-) : FhirResource {
+@SerialName("FhirSimpleTestObject")
+data class FhirSimpleTestObject(
+    val value: String
+) : FhirStu3 {
 
     override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirDateTimeTestObject"
+        fun resourceType(): String = "FhirTestObject"
 
-        fun jsonData(
-            value: DateTime
-        ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
-            resourceType(),
-            { "\"${value.value}\"" },
-            value.extension,
-            value.id
-        )
+        const val jsonData = """{"resourceType":"FhirSimpleTestObject","value":"value"}"""
 
-        fun testData(value: DateTime): FhirDateTimeTestObject {
-            return FhirDateTimeTestObject(value)
-        }
+        val testData = FhirSimpleTestObject("value")
     }
 }
