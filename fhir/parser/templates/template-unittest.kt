@@ -37,7 +37,7 @@ import kotlin.test.assertEquals
  * {{ class.formal }}
  * {%- endif %}
  */
-@Generated("Generated from FHIR {{ info.version }})
+@Generated("Generated from FHIR {{ info.version }}")
 class {{ class.name }}Test {
 
 	val parser = FhirStu3Parser()
@@ -46,7 +46,7 @@ class {{ class.name }}Test {
 
 	@Test
 	fun test{{ class.name }}{{ loop.index }}() {
-		val sourceJson = loadAsString("{{ tcase.filename }}")
+		val sourceJson = loadAsString("stu3/{{ tcase.filename }}")
 
 		val data = parser.toFhir({{ class.name }}::class, sourceJson)
 
@@ -86,6 +86,10 @@ class {{ class.name }}Test {
 		assertEquals(data.{{ test.path }}{{ test.value }}d)
 		{%- else %}{% if "Integer" == test.klass.name %}
 		assertEquals(data.{{ test.path }}, Integer({{ test.value }}), "{{ test.value }}")
+		{%- else %}{% if "PositiveInteger" == test.klass.name %}
+		assertEquals(data.{{ test.path }}, PositiveInteger({{ test.value }}), "{{ test.value }}")
+		{%- else %}{% if "UnsignedInteger" == test.klass.name %}
+		assertEquals(data.{{ test.path }}, UnsignedInteger({{ test.value }}), "{{ test.value }}")
 		{%- else %}{% if "Bool" == test.klass.name %}
 		assertEquals(data.{{ test.path }}, Bool({% if test.value %}true{% else %}false{% endif %}))
 		{%- else %}{% if "Date" == test.klass.name %}
@@ -102,7 +106,7 @@ class {{ class.name }}Test {
 		assertEquals(data.{{ test.path }}, Base64Binary(value: "{{ test.value }}"))
 		{%- else %}
 		//FIXME Don't know how to create unit test for "{{ test.path }}", which is a {{ test.klass.name }}
-		{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+		{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
 		{%- endfor %}
 
 		val json = parser.fromFhir(data)

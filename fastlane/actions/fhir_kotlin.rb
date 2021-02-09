@@ -66,7 +66,7 @@ module Fastlane
           modelTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/stu3/model"
           codeSystemTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/stu3/codesystem"
           testTarget = "./fhir/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/stu3/model"
-          testJsonTarget = "./fhir/src-gen/jvmTest/resources/"
+          testJsonTarget = "./fhir/src-gen/jvmTest/resources/stu3"
 
 
           # Define filenames to include
