@@ -16,7 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.test.data
 
-import care.data4life.hl7.fhir.stu3.model.*
+import care.data4life.hl7.fhir.stu3.model.FhirResource
+import care.data4life.hl7.fhir.stu3.model.Meta
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
