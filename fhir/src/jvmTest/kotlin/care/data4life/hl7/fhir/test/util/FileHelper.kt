@@ -24,7 +24,7 @@ object FileHelper {
 
     @Throws(IOException::class)
     fun loadAsString(fileName: String): String {
-        return this::class.java.getResource(fileName).readText(FILE_ENCODING)
+        return this::class.java.classLoader.getResource(fileName).readText(FILE_ENCODING)
     }
 
 }
