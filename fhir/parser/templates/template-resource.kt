@@ -14,10 +14,10 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.model
+package care.data4life.hl7.fhir.stu3.model
 
-import care.data4life.fhir.stu3.primitive.*
-import care.data4life.fhir.stu3.codesystem.*
+import care.data4life.hl7.fhir.stu3.primitive.*
+import care.data4life.hl7.fhir.stu3.codesystem.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic

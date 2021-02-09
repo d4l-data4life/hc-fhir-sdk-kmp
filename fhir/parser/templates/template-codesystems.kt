@@ -14,7 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.fhir.stu3.codesystem
+package care.data4life.hl7.fhir.stu3.codesystem
 
 import kotlinx.serialization.*
 import kotlin.jvm.JvmStatic
