@@ -27,7 +27,7 @@ import kotlin.jvm.JvmStatic
  * @see <a href="{{ system.url }}">{{ system.name }}</a>
  * {%- if system.definition.valueSet %} @see <a href="{{ system.definition.valueSet }}">ValueSet</a> {%- endif %}
  *
- * Generated from FHIR {{ info.version }} on {{ info.date }}
+ * Generated from FHIR {{ info.version }}
  */
 @Serializable
 enum class {{ system.name }} {
