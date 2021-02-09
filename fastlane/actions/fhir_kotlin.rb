@@ -63,9 +63,9 @@ module Fastlane
           codeSystemSource = "#{fhir_parser}/codesystems/*"
           testSource = "#{fhir_parser}/tests/*"
 
-          modelTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/fhir/stu3/model"
-          codeSystemTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/fhir/stu3/codesystem"
-          testTarget = "./fhir/src-gen/jvmTest/kotlin/care/data4life/fhir/stu3/model"
+          modelTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/stu3/model"
+          codeSystemTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/stu3/codesystem"
+          testTarget = "./fhir/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/stu3/model"
           testJsonTarget = "./fhir/src-gen/jvmTest/resources/"
 
 
