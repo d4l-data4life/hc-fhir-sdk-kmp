@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.ProvenanceEntityRole
+import care.data4life.hl7.fhir.stu3.primitive.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -31,7 +32,7 @@ interface FhirProvenance : FhirDomainResource {
     val period: Period?
 
     // When the activity was recorded / updated.
-    val recorded: String
+    val recorded: Instant
 
     // Policy or plan the activity was defined by.
     val policy: List<String>?
@@ -80,7 +81,7 @@ data class Provenance(
     override val period: Period? = null,
     // When the activity was recorded / updated.
     @SerialName("recorded")
-    override val recorded: String,
+    override val recorded: Instant,
     // Policy or plan the activity was defined by.
     @SerialName("policy")
     override val policy: List<String>? = null,

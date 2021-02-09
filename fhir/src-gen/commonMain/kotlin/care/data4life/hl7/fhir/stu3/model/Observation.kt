@@ -18,6 +18,10 @@ package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.ObservationRelationshipType
 import care.data4life.hl7.fhir.stu3.codesystem.ObservationStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.Instant
+import care.data4life.hl7.fhir.stu3.primitive.Time
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -47,13 +51,13 @@ interface FhirObservation : FhirDomainResource {
     val context: Reference?
 
     // Clinically relevant time/time-period for observation.
-    val effectiveDateTime: String?
+    val effectiveDateTime: DateTime?
 
     // Clinically relevant time/time-period for observation.
     val effectivePeriod: Period?
 
     // Date/Time this was made available.
-    val issued: String?
+    val issued: Instant?
 
     // Who is responsible for the observation.
     val performer: List<Reference>?
@@ -68,7 +72,7 @@ interface FhirObservation : FhirDomainResource {
     val valueString: String?
 
     // Actual result.
-    val valueBoolean: String?
+    val valueBoolean: Bool?
 
     // Actual result.
     val valueRange: Range?
@@ -83,10 +87,10 @@ interface FhirObservation : FhirDomainResource {
     val valueAttachment: Attachment?
 
     // Actual result.
-    val valueTime: String?
+    val valueTime: Time?
 
     // Actual result.
-    val valueDateTime: String?
+    val valueDateTime: DateTime?
 
     // Actual result.
     val valuePeriod: Period?
@@ -162,13 +166,13 @@ data class Observation(
     override val context: Reference? = null,
     // Clinically relevant time/time-period for observation.
     @SerialName("effectiveDateTime")
-    override val effectiveDateTime: String? = null,
+    override val effectiveDateTime: DateTime? = null,
     // Clinically relevant time/time-period for observation.
     @SerialName("effectivePeriod")
     override val effectivePeriod: Period? = null,
     // Date/Time this was made available.
     @SerialName("issued")
-    override val issued: String? = null,
+    override val issued: Instant? = null,
     // Who is responsible for the observation.
     @SerialName("performer")
     override val performer: List<Reference>? = null,
@@ -183,7 +187,7 @@ data class Observation(
     override val valueString: String? = null,
     // Actual result.
     @SerialName("valueBoolean")
-    override val valueBoolean: String? = null,
+    override val valueBoolean: Bool? = null,
     // Actual result.
     @SerialName("valueRange")
     override val valueRange: Range? = null,
@@ -198,10 +202,10 @@ data class Observation(
     override val valueAttachment: Attachment? = null,
     // Actual result.
     @SerialName("valueTime")
-    override val valueTime: String? = null,
+    override val valueTime: Time? = null,
     // Actual result.
     @SerialName("valueDateTime")
-    override val valueDateTime: String? = null,
+    override val valueDateTime: DateTime? = null,
     // Actual result.
     @SerialName("valuePeriod")
     override val valuePeriod: Period? = null,
@@ -305,10 +309,10 @@ interface FhirObservationComponent : FhirBackboneElement {
     val valueAttachment: Attachment?
 
     // Actual component result.
-    val valueTime: String?
+    val valueTime: Time?
 
     // Actual component result.
-    val valueDateTime: String?
+    val valueDateTime: DateTime?
 
     // Actual component result.
     val valuePeriod: Period?
@@ -366,10 +370,10 @@ data class ObservationComponent(
     override val valueAttachment: Attachment? = null,
     // Actual component result.
     @SerialName("valueTime")
-    override val valueTime: String? = null,
+    override val valueTime: Time? = null,
     // Actual component result.
     @SerialName("valueDateTime")
-    override val valueDateTime: String? = null,
+    override val valueDateTime: DateTime? = null,
     // Actual component result.
     @SerialName("valuePeriod")
     override val valuePeriod: Period? = null,

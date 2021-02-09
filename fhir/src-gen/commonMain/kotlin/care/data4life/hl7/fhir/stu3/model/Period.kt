@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -24,10 +25,10 @@ import kotlin.jvm.JvmStatic
 interface FhirPeriod : FhirElement {
 
     // Starting time with inclusive boundary.
-    val start: String?
+    val start: DateTime?
 
     // End time with inclusive boundary, if not ongoing.
-    val end: String?
+    val end: DateTime?
 }
 
 
@@ -49,10 +50,10 @@ data class Period(
 
     // Starting time with inclusive boundary.
     @SerialName("start")
-    override val start: String? = null,
+    override val start: DateTime? = null,
     // End time with inclusive boundary, if not ongoing.
     @SerialName("end")
-    override val end: String? = null,
+    override val end: DateTime? = null,
 
 
     // # Element

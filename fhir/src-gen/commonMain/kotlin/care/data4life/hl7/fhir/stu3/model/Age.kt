@@ -17,12 +17,15 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.QuantityComparator
+import care.data4life.hl7.fhir.stu3.primitive.Decimal
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
 
-interface FhirAge : FhirQuantity
+interface FhirAge : FhirQuantity {
+
+}
 
 
 /**
@@ -45,7 +48,7 @@ data class Age(
     // # Quantity
     // Numerical value (with implicit precision).
     @SerialName("value")
-    override val value: String? = null,
+    override val value: Decimal? = null,
     // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,

@@ -18,6 +18,9 @@ package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.AdministrativeGender
 import care.data4life.hl7.fhir.stu3.codesystem.FamilyHistoryStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.Date
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -35,7 +38,7 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     val status: FamilyHistoryStatus
 
     // The taking of a family member's history did not occur.
-    val notDone: String?
+    val notDone: Bool?
 
     // subject-unknown | withheld | unable-to-obtain | deferred.
     val notDoneReason: CodeableConcept?
@@ -44,7 +47,7 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     val patient: Reference
 
     // When history was captured/updated.
-    val date: String?
+    val date: DateTime?
 
     // The family member described.
     val name: String?
@@ -59,7 +62,7 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     val bornPeriod: Period?
 
     // (approximate) date of birth.
-    val bornDate: String?
+    val bornDate: Date?
 
     // (approximate) date of birth.
     val bornString: String?
@@ -74,10 +77,10 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     val ageString: String?
 
     // Age is estimated?.
-    val estimatedAge: String?
+    val estimatedAge: Bool?
 
     // Dead? How old/when?.
-    val deceasedBoolean: String?
+    val deceasedBoolean: Bool?
 
     // Dead? How old/when?.
     val deceasedAge: Age?
@@ -86,7 +89,7 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     val deceasedRange: Range?
 
     // Dead? How old/when?.
-    val deceasedDate: String?
+    val deceasedDate: Date?
 
     // Dead? How old/when?.
     val deceasedString: String?
@@ -132,7 +135,7 @@ data class FamilyMemberHistory(
     override val status: FamilyHistoryStatus,
     // The taking of a family member's history did not occur.
     @SerialName("notDone")
-    override val notDone: String? = null,
+    override val notDone: Bool? = null,
     // subject-unknown | withheld | unable-to-obtain | deferred.
     @SerialName("notDoneReason")
     override val notDoneReason: CodeableConcept? = null,
@@ -141,7 +144,7 @@ data class FamilyMemberHistory(
     override val patient: Reference,
     // When history was captured/updated.
     @SerialName("date")
-    override val date: String? = null,
+    override val date: DateTime? = null,
     // The family member described.
     @SerialName("name")
     override val name: String? = null,
@@ -156,7 +159,7 @@ data class FamilyMemberHistory(
     override val bornPeriod: Period? = null,
     // (approximate) date of birth.
     @SerialName("bornDate")
-    override val bornDate: String? = null,
+    override val bornDate: Date? = null,
     // (approximate) date of birth.
     @SerialName("bornString")
     override val bornString: String? = null,
@@ -171,10 +174,10 @@ data class FamilyMemberHistory(
     override val ageString: String? = null,
     // Age is estimated?.
     @SerialName("estimatedAge")
-    override val estimatedAge: String? = null,
+    override val estimatedAge: Bool? = null,
     // Dead? How old/when?.
     @SerialName("deceasedBoolean")
-    override val deceasedBoolean: String? = null,
+    override val deceasedBoolean: Bool? = null,
     // Dead? How old/when?.
     @SerialName("deceasedAge")
     override val deceasedAge: Age? = null,
@@ -183,7 +186,7 @@ data class FamilyMemberHistory(
     override val deceasedRange: Range? = null,
     // Dead? How old/when?.
     @SerialName("deceasedDate")
-    override val deceasedDate: String? = null,
+    override val deceasedDate: Date? = null,
     // Dead? How old/when?.
     @SerialName("deceasedString")
     override val deceasedString: String? = null,

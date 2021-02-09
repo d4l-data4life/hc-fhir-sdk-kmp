@@ -19,6 +19,9 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.codesystem.MedicationRequestIntent
 import care.data4life.hl7.fhir.stu3.codesystem.MedicationRequestPriority
 import care.data4life.hl7.fhir.stu3.codesystem.MedicationRequestStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.PositiveInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -66,7 +69,7 @@ interface FhirMedicationRequest : FhirDomainResource {
     val supportingInformation: List<Reference>?
 
     // When request was initially authored.
-    val authoredOn: String?
+    val authoredOn: DateTime?
 
     // Who/What requested the Request.
     val requester: MedicationRequestRequester?
@@ -160,7 +163,7 @@ data class MedicationRequest(
     override val supportingInformation: List<Reference>? = null,
     // When request was initially authored.
     @SerialName("authoredOn")
-    override val authoredOn: String? = null,
+    override val authoredOn: DateTime? = null,
     // Who/What requested the Request.
     @SerialName("requester")
     override val requester: MedicationRequestRequester? = null,
@@ -243,7 +246,7 @@ interface FhirMedicationRequestDispenseRequest : FhirBackboneElement {
     val validityPeriod: Period?
 
     // Number of refills authorized.
-    val numberOfRepeatsAllowed: String?
+    val numberOfRepeatsAllowed: PositiveInteger?
 
     // Amount of medication to supply per dispense.
     val quantity: Quantity?
@@ -277,7 +280,7 @@ data class MedicationRequestDispenseRequest(
     override val validityPeriod: Period? = null,
     // Number of refills authorized.
     @SerialName("numberOfRepeatsAllowed")
-    override val numberOfRepeatsAllowed: String? = null,
+    override val numberOfRepeatsAllowed: PositiveInteger? = null,
     // Amount of medication to supply per dispense.
     @SerialName("quantity")
     override val quantity: Quantity? = null,
@@ -378,7 +381,7 @@ data class MedicationRequestRequester(
 interface FhirMedicationRequestSubstitution : FhirBackboneElement {
 
     // Whether substitution is allowed or not.
-    val allowed: String
+    val allowed: Bool
 
     // Why should (not) substitution be made.
     val reason: CodeableConcept?
@@ -403,7 +406,7 @@ data class MedicationRequestSubstitution(
 
     // Whether substitution is allowed or not.
     @SerialName("allowed")
-    override val allowed: String,
+    override val allowed: Bool,
     // Why should (not) substitution be made.
     @SerialName("reason")
     override val reason: CodeableConcept? = null,

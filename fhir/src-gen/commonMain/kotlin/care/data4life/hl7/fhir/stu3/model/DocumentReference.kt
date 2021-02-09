@@ -19,6 +19,8 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.codesystem.CompositionStatus
 import care.data4life.hl7.fhir.stu3.codesystem.DocumentReferenceStatus
 import care.data4life.hl7.fhir.stu3.codesystem.DocumentRelationshipType
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -48,10 +50,10 @@ interface FhirDocumentReference : FhirDomainResource {
     val subject: Reference?
 
     // Document creation time.
-    val created: String?
+    val created: DateTime?
 
     // When this document reference was created.
-    val indexed: String
+    val indexed: Instant
 
     // Who and/or what authored the document.
     val author: List<Reference>?
@@ -118,10 +120,10 @@ data class DocumentReference(
     override val subject: Reference? = null,
     // Document creation time.
     @SerialName("created")
-    override val created: String? = null,
+    override val created: DateTime? = null,
     // When this document reference was created.
     @SerialName("indexed")
-    override val indexed: String,
+    override val indexed: Instant,
     // Who and/or what authored the document.
     @SerialName("author")
     override val author: List<Reference>? = null,

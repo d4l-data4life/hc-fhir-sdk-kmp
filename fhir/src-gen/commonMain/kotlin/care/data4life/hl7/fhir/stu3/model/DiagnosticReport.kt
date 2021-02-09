@@ -17,6 +17,8 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.DiagnosticReportStatus
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -46,13 +48,13 @@ interface FhirDiagnosticReport : FhirDomainResource {
     val context: Reference?
 
     // Clinically relevant time/time-period for report.
-    val effectiveDateTime: String?
+    val effectiveDateTime: DateTime?
 
     // Clinically relevant time/time-period for report.
     val effectivePeriod: Period?
 
     // DateTime this version was released.
-    val issued: String?
+    val issued: Instant?
 
     // Participants in producing the report.
     val performer: List<DiagnosticReportPerformer>?
@@ -119,13 +121,13 @@ data class DiagnosticReport(
     override val context: Reference? = null,
     // Clinically relevant time/time-period for report.
     @SerialName("effectiveDateTime")
-    override val effectiveDateTime: String? = null,
+    override val effectiveDateTime: DateTime? = null,
     // Clinically relevant time/time-period for report.
     @SerialName("effectivePeriod")
     override val effectivePeriod: Period? = null,
     // DateTime this version was released.
     @SerialName("issued")
-    override val issued: String? = null,
+    override val issued: Instant? = null,
     // Participants in producing the report.
     @SerialName("performer")
     override val performer: List<DiagnosticReportPerformer>? = null,

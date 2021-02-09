@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.GoalStatus
+import care.data4life.hl7.fhir.stu3.primitive.Date
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -43,7 +44,7 @@ interface FhirGoal : FhirDomainResource {
     val subject: Reference?
 
     // When goal pursuit begins.
-    val startDate: String?
+    val startDate: Date?
 
     // When goal pursuit begins.
     val startCodeableConcept: CodeableConcept?
@@ -52,7 +53,7 @@ interface FhirGoal : FhirDomainResource {
     val target: GoalTarget?
 
     // When goal status took effect.
-    val statusDate: String?
+    val statusDate: Date?
 
     // Reason for current status.
     val statusReason: String?
@@ -110,7 +111,7 @@ data class Goal(
     override val subject: Reference? = null,
     // When goal pursuit begins.
     @SerialName("startDate")
-    override val startDate: String? = null,
+    override val startDate: Date? = null,
     // When goal pursuit begins.
     @SerialName("startCodeableConcept")
     override val startCodeableConcept: CodeableConcept? = null,
@@ -119,7 +120,7 @@ data class Goal(
     override val target: GoalTarget? = null,
     // When goal status took effect.
     @SerialName("statusDate")
-    override val statusDate: String? = null,
+    override val statusDate: Date? = null,
     // Reason for current status.
     @SerialName("statusReason")
     override val statusReason: String? = null,
@@ -196,7 +197,7 @@ interface FhirGoalTarget : FhirBackboneElement {
     val detailCodeableConcept: CodeableConcept?
 
     // Reach goal on or before.
-    val dueDate: String?
+    val dueDate: Date?
 
     // Reach goal on or before.
     val dueDuration: Duration?
@@ -233,7 +234,7 @@ data class GoalTarget(
     override val detailCodeableConcept: CodeableConcept? = null,
     // Reach goal on or before.
     @SerialName("dueDate")
-    override val dueDate: String? = null,
+    override val dueDate: Date? = null,
     // Reach goal on or before.
     @SerialName("dueDuration")
     override val dueDuration: Duration? = null,

@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.QuestionnaireResponseStatus
+import care.data4life.hl7.fhir.stu3.primitive.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -46,7 +47,7 @@ interface FhirQuestionnaireResponse : FhirDomainResource {
     val context: Reference?
 
     // Date the answers were gathered.
-    val authored: String?
+    val authored: DateTime?
 
     // Person who received and recorded the answers.
     val author: Reference?
@@ -98,7 +99,7 @@ data class QuestionnaireResponse(
     override val context: Reference? = null,
     // Date the answers were gathered.
     @SerialName("authored")
-    override val authored: String? = null,
+    override val authored: DateTime? = null,
     // Person who received and recorded the answers.
     @SerialName("author")
     override val author: Reference? = null,
@@ -238,22 +239,22 @@ data class QuestionnaireResponseItem(
 interface FhirQuestionnaireResponseItemAnswer : FhirBackboneElement {
 
     // Single-valued answer to the question.
-    val valueBoolean: String?
+    val valueBoolean: Bool?
 
     // Single-valued answer to the question.
-    val valueDecimal: String?
+    val valueDecimal: Decimal?
 
     // Single-valued answer to the question.
-    val valueInteger: String?
+    val valueInteger: Integer?
 
     // Single-valued answer to the question.
-    val valueDate: String?
+    val valueDate: Date?
 
     // Single-valued answer to the question.
-    val valueDateTime: String?
+    val valueDateTime: DateTime?
 
     // Single-valued answer to the question.
-    val valueTime: String?
+    val valueTime: Time?
 
     // Single-valued answer to the question.
     val valueString: String?
@@ -296,22 +297,22 @@ data class QuestionnaireResponseItemAnswer(
 
     // Single-valued answer to the question.
     @SerialName("valueBoolean")
-    override val valueBoolean: String? = null,
+    override val valueBoolean: Bool? = null,
     // Single-valued answer to the question.
     @SerialName("valueDecimal")
-    override val valueDecimal: String? = null,
+    override val valueDecimal: Decimal? = null,
     // Single-valued answer to the question.
     @SerialName("valueInteger")
-    override val valueInteger: String? = null,
+    override val valueInteger: Integer? = null,
     // Single-valued answer to the question.
     @SerialName("valueDate")
-    override val valueDate: String? = null,
+    override val valueDate: Date? = null,
     // Single-valued answer to the question.
     @SerialName("valueDateTime")
-    override val valueDateTime: String? = null,
+    override val valueDateTime: DateTime? = null,
     // Single-valued answer to the question.
     @SerialName("valueTime")
-    override val valueTime: String? = null,
+    override val valueTime: Time? = null,
     // Single-valued answer to the question.
     @SerialName("valueString")
     override val valueString: String? = null,

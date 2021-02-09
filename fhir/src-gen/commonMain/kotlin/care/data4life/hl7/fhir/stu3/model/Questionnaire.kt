@@ -19,6 +19,7 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.QuestionnaireItemType
 import care.data4life.hl7.fhir.stu3.codesystem.ResourceType
+import care.data4life.hl7.fhir.stu3.primitive.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -45,10 +46,10 @@ interface FhirQuestionnaire : FhirDomainResource {
     val status: PublicationStatus
 
     // For testing purposes, not real usage.
-    val experimental: String?
+    val experimental: Bool?
 
     // Date this was last changed.
-    val date: String?
+    val date: DateTime?
 
     // Name of the publisher (organization or individual).
     val publisher: String?
@@ -60,10 +61,10 @@ interface FhirQuestionnaire : FhirDomainResource {
     val purpose: String?
 
     // When the questionnaire was approved by publisher.
-    val approvalDate: String?
+    val approvalDate: Date?
 
     // When the questionnaire was last reviewed.
-    val lastReviewDate: String?
+    val lastReviewDate: Date?
 
     // When the questionnaire is expected to be used.
     val effectivePeriod: Period?
@@ -127,10 +128,10 @@ data class Questionnaire(
     override val status: PublicationStatus,
     // For testing purposes, not real usage.
     @SerialName("experimental")
-    override val experimental: String? = null,
+    override val experimental: Bool? = null,
     // Date this was last changed.
     @SerialName("date")
-    override val date: String? = null,
+    override val date: DateTime? = null,
     // Name of the publisher (organization or individual).
     @SerialName("publisher")
     override val publisher: String? = null,
@@ -142,10 +143,10 @@ data class Questionnaire(
     override val purpose: String? = null,
     // When the questionnaire was approved by publisher.
     @SerialName("approvalDate")
-    override val approvalDate: String? = null,
+    override val approvalDate: Date? = null,
     // When the questionnaire was last reviewed.
     @SerialName("lastReviewDate")
-    override val lastReviewDate: String? = null,
+    override val lastReviewDate: Date? = null,
     // When the questionnaire is expected to be used.
     @SerialName("effectivePeriod")
     override val effectivePeriod: Period? = null,
@@ -237,16 +238,16 @@ interface FhirQuestionnaireItem : FhirBackboneElement {
     val enableWhen: List<QuestionnaireItemEnableWhen>?
 
     // Whether the item must be included in data results.
-    val required: String?
+    val required: Bool?
 
     // Whether the item may repeat.
-    val repeats: String?
+    val repeats: Bool?
 
     // Don't allow human editing.
-    val readOnly: String?
+    val readOnly: Bool?
 
     // No more than this many characters.
-    val maxLength: String?
+    val maxLength: Integer?
 
     // Valueset containing permitted answers.
     val options: Reference?
@@ -255,22 +256,22 @@ interface FhirQuestionnaireItem : FhirBackboneElement {
     val option: List<QuestionnaireItemOption>?
 
     // Default value when item is first rendered.
-    val initialBoolean: String?
+    val initialBoolean: Bool?
 
     // Default value when item is first rendered.
-    val initialDecimal: String?
+    val initialDecimal: Decimal?
 
     // Default value when item is first rendered.
-    val initialInteger: String?
+    val initialInteger: Integer?
 
     // Default value when item is first rendered.
-    val initialDate: String?
+    val initialDate: Date?
 
     // Default value when item is first rendered.
-    val initialDateTime: String?
+    val initialDateTime: DateTime?
 
     // Default value when item is first rendered.
-    val initialTime: String?
+    val initialTime: Time?
 
     // Default value when item is first rendered.
     val initialString: String?
@@ -334,16 +335,16 @@ data class QuestionnaireItem(
     override val enableWhen: List<QuestionnaireItemEnableWhen>? = null,
     // Whether the item must be included in data results.
     @SerialName("required")
-    override val required: String? = null,
+    override val required: Bool? = null,
     // Whether the item may repeat.
     @SerialName("repeats")
-    override val repeats: String? = null,
+    override val repeats: Bool? = null,
     // Don't allow human editing.
     @SerialName("readOnly")
-    override val readOnly: String? = null,
+    override val readOnly: Bool? = null,
     // No more than this many characters.
     @SerialName("maxLength")
-    override val maxLength: String? = null,
+    override val maxLength: Integer? = null,
     // Valueset containing permitted answers.
     @SerialName("options")
     override val options: Reference? = null,
@@ -352,22 +353,22 @@ data class QuestionnaireItem(
     override val option: List<QuestionnaireItemOption>? = null,
     // Default value when item is first rendered.
     @SerialName("initialBoolean")
-    override val initialBoolean: String? = null,
+    override val initialBoolean: Bool? = null,
     // Default value when item is first rendered.
     @SerialName("initialDecimal")
-    override val initialDecimal: String? = null,
+    override val initialDecimal: Decimal? = null,
     // Default value when item is first rendered.
     @SerialName("initialInteger")
-    override val initialInteger: String? = null,
+    override val initialInteger: Integer? = null,
     // Default value when item is first rendered.
     @SerialName("initialDate")
-    override val initialDate: String? = null,
+    override val initialDate: Date? = null,
     // Default value when item is first rendered.
     @SerialName("initialDateTime")
-    override val initialDateTime: String? = null,
+    override val initialDateTime: DateTime? = null,
     // Default value when item is first rendered.
     @SerialName("initialTime")
-    override val initialTime: String? = null,
+    override val initialTime: Time? = null,
     // Default value when item is first rendered.
     @SerialName("initialString")
     override val initialString: String? = null,
@@ -423,25 +424,25 @@ interface FhirQuestionnaireItemEnableWhen : FhirBackboneElement {
     val question: String
 
     // Enable when answered or not.
-    val hasAnswer: String?
+    val hasAnswer: Bool?
 
     // Value question must have.
-    val answerBoolean: String?
+    val answerBoolean: Bool?
 
     // Value question must have.
-    val answerDecimal: String?
+    val answerDecimal: Decimal?
 
     // Value question must have.
-    val answerInteger: String?
+    val answerInteger: Integer?
 
     // Value question must have.
-    val answerDate: String?
+    val answerDate: Date?
 
     // Value question must have.
-    val answerDateTime: String?
+    val answerDateTime: DateTime?
 
     // Value question must have.
-    val answerTime: String?
+    val answerTime: Time?
 
     // Value question must have.
     val answerString: String?
@@ -484,25 +485,25 @@ data class QuestionnaireItemEnableWhen(
     override val question: String,
     // Enable when answered or not.
     @SerialName("hasAnswer")
-    override val hasAnswer: String? = null,
+    override val hasAnswer: Bool? = null,
     // Value question must have.
     @SerialName("answerBoolean")
-    override val answerBoolean: String? = null,
+    override val answerBoolean: Bool? = null,
     // Value question must have.
     @SerialName("answerDecimal")
-    override val answerDecimal: String? = null,
+    override val answerDecimal: Decimal? = null,
     // Value question must have.
     @SerialName("answerInteger")
-    override val answerInteger: String? = null,
+    override val answerInteger: Integer? = null,
     // Value question must have.
     @SerialName("answerDate")
-    override val answerDate: String? = null,
+    override val answerDate: Date? = null,
     // Value question must have.
     @SerialName("answerDateTime")
-    override val answerDateTime: String? = null,
+    override val answerDateTime: DateTime? = null,
     // Value question must have.
     @SerialName("answerTime")
-    override val answerTime: String? = null,
+    override val answerTime: Time? = null,
     // Value question must have.
     @SerialName("answerString")
     override val answerString: String? = null,
@@ -552,13 +553,13 @@ data class QuestionnaireItemEnableWhen(
 interface FhirQuestionnaireItemOption : FhirBackboneElement {
 
     // Answer value.
-    val valueInteger: String?
+    val valueInteger: Integer?
 
     // Answer value.
-    val valueDate: String?
+    val valueDate: Date?
 
     // Answer value.
-    val valueTime: String?
+    val valueTime: Time?
 
     // Answer value.
     val valueString: String?
@@ -586,13 +587,13 @@ data class QuestionnaireItemOption(
 
     // Answer value.
     @SerialName("valueInteger")
-    override val valueInteger: String? = null,
+    override val valueInteger: Integer? = null,
     // Answer value.
     @SerialName("valueDate")
-    override val valueDate: String? = null,
+    override val valueDate: Date? = null,
     // Answer value.
     @SerialName("valueTime")
-    override val valueTime: String? = null,
+    override val valueTime: Time? = null,
     // Answer value.
     @SerialName("valueString")
     override val valueString: String? = null,

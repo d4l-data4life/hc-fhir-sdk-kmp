@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.FHIRSubstanceStatus
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -199,7 +200,7 @@ interface FhirSubstanceInstance : FhirBackboneElement {
     val identifier: Identifier?
 
     // When no longer valid to use.
-    val expiry: String?
+    val expiry: DateTime?
 
     // Amount of substance in the package.
     val quantity: Quantity?
@@ -227,7 +228,7 @@ data class SubstanceInstance(
     override val identifier: Identifier? = null,
     // When no longer valid to use.
     @SerialName("expiry")
-    override val expiry: String? = null,
+    override val expiry: DateTime? = null,
     // Amount of substance in the package.
     @SerialName("quantity")
     override val quantity: Quantity? = null,

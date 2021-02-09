@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -27,7 +28,7 @@ interface FhirSignature : FhirElement {
     val type: List<Coding>
 
     // When the signature was created.
-    val `when`: String
+    val `when`: Instant
 
     // Who signed.
     val whoUri: String?
@@ -70,7 +71,7 @@ data class Signature(
     override val type: List<Coding>,
     // When the signature was created.
     @SerialName("when")
-    override val `when`: String,
+    override val `when`: Instant,
     // Who signed.
     @SerialName("whoUri")
     override val whoUri: String? = null,

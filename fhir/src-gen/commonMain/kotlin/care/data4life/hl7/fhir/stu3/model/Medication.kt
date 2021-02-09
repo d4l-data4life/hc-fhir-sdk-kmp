@@ -17,6 +17,8 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.MedicationStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -31,10 +33,10 @@ interface FhirMedication : FhirDomainResource {
     val status: MedicationStatus?
 
     // True if a brand.
-    val isBrand: String?
+    val isBrand: Bool?
 
     // True if medication does not require a prescription.
-    val isOverTheCounter: String?
+    val isOverTheCounter: Bool?
 
     // Manufacturer of the item.
     val manufacturer: Reference?
@@ -77,10 +79,10 @@ data class Medication(
     override val status: MedicationStatus? = null,
     // True if a brand.
     @SerialName("isBrand")
-    override val isBrand: String? = null,
+    override val isBrand: Bool? = null,
     // True if medication does not require a prescription.
     @SerialName("isOverTheCounter")
-    override val isOverTheCounter: String? = null,
+    override val isOverTheCounter: Bool? = null,
     // Manufacturer of the item.
     @SerialName("manufacturer")
     override val manufacturer: Reference? = null,
@@ -148,7 +150,7 @@ interface FhirMedicationIngredient : FhirBackboneElement {
     val itemReference: Reference?
 
     // Active ingredient indicator.
-    val isActive: String?
+    val isActive: Bool?
 
     // Quantity of ingredient present.
     val amount: Ratio?
@@ -179,7 +181,7 @@ data class MedicationIngredient(
     override val itemReference: Reference? = null,
     // Active ingredient indicator.
     @SerialName("isActive")
-    override val isActive: String? = null,
+    override val isActive: Bool? = null,
     // Quantity of ingredient present.
     @SerialName("amount")
     override val amount: Ratio? = null,
@@ -283,7 +285,7 @@ interface FhirMedicationPackageBatch : FhirBackboneElement {
     val lotNumber: String?
 
     // When batch will expire.
-    val expirationDate: String?
+    val expirationDate: DateTime?
 }
 
 
@@ -308,7 +310,7 @@ data class MedicationPackageBatch(
     override val lotNumber: String? = null,
     // When batch will expire.
     @SerialName("expirationDate")
-    override val expirationDate: String? = null,
+    override val expirationDate: DateTime? = null,
 
 
     // # BackboneElement

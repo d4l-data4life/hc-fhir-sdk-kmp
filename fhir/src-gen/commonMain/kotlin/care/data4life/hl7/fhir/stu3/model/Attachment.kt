@@ -16,6 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -36,7 +38,7 @@ interface FhirAttachment : FhirElement {
     val url: String?
 
     // Number of bytes of content (if url provided).
-    val size: String?
+    val size: UnsignedInteger?
 
     // Hash of the data (sha-1, base64ed).
     val hash: String?
@@ -45,7 +47,7 @@ interface FhirAttachment : FhirElement {
     val title: String?
 
     // Date attachment was first created.
-    val creation: String?
+    val creation: DateTime?
 }
 
 
@@ -79,7 +81,7 @@ data class Attachment(
     override val url: String? = null,
     // Number of bytes of content (if url provided).
     @SerialName("size")
-    override val size: String? = null,
+    override val size: UnsignedInteger? = null,
     // Hash of the data (sha-1, base64ed).
     @SerialName("hash")
     override val hash: String? = null,
@@ -88,7 +90,7 @@ data class Attachment(
     override val title: String? = null,
     // Date attachment was first created.
     @SerialName("creation")
-    override val creation: String? = null,
+    override val creation: DateTime? = null,
 
 
     // # Element

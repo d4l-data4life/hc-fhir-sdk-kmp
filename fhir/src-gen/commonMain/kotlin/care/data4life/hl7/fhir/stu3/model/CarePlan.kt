@@ -19,6 +19,7 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.codesystem.CarePlanActivityStatus
 import care.data4life.hl7.fhir.stu3.codesystem.CarePlanIntent
 import care.data4life.hl7.fhir.stu3.codesystem.CarePlanStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -312,7 +313,7 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
     val statusReason: String?
 
     // Do NOT do.
-    val prohibited: String?
+    val prohibited: Bool?
 
     // When activity is to occur.
     val scheduledTiming: Timing?
@@ -388,7 +389,7 @@ data class CarePlanActivityDetail(
     override val statusReason: String? = null,
     // Do NOT do.
     @SerialName("prohibited")
-    override val prohibited: String? = null,
+    override val prohibited: Bool? = null,
     // When activity is to occur.
     @SerialName("scheduledTiming")
     override val scheduledTiming: Timing? = null,

@@ -16,6 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.Decimal
+import care.data4life.hl7.fhir.stu3.primitive.PositiveInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -27,19 +29,19 @@ interface FhirSampledData : FhirElement {
     val origin: Quantity
 
     // Number of milliseconds between samples.
-    val period: String
+    val period: Decimal
 
     // Multiply data by this before adding to origin.
-    val factor: String?
+    val factor: Decimal?
 
     // Lower limit of detection.
-    val lowerLimit: String?
+    val lowerLimit: Decimal?
 
     // Upper limit of detection.
-    val upperLimit: String?
+    val upperLimit: Decimal?
 
     // Number of sample points at each time point.
-    val dimensions: String
+    val dimensions: PositiveInteger
 
     // Decimal values with spaces, or "E" | "U" | "L".
     val data: String
@@ -67,19 +69,19 @@ data class SampledData(
     override val origin: Quantity,
     // Number of milliseconds between samples.
     @SerialName("period")
-    override val period: String,
+    override val period: Decimal,
     // Multiply data by this before adding to origin.
     @SerialName("factor")
-    override val factor: String? = null,
+    override val factor: Decimal? = null,
     // Lower limit of detection.
     @SerialName("lowerLimit")
-    override val lowerLimit: String? = null,
+    override val lowerLimit: Decimal? = null,
     // Upper limit of detection.
     @SerialName("upperLimit")
-    override val upperLimit: String? = null,
+    override val upperLimit: Decimal? = null,
     // Number of sample points at each time point.
     @SerialName("dimensions")
-    override val dimensions: String,
+    override val dimensions: PositiveInteger,
     // Decimal values with spaces, or "E" | "U" | "L".
     @SerialName("data")
     override val data: String,

@@ -16,6 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.Integer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -24,7 +26,7 @@ import kotlin.jvm.JvmStatic
 interface FhirDosage : FhirElement {
 
     // The order of the dosage instructions.
-    val sequence: String?
+    val sequence: Integer?
 
     // Free text dosage instructions e.g. SIG.
     val text: String?
@@ -39,7 +41,7 @@ interface FhirDosage : FhirElement {
     val timing: Timing?
 
     // Take "as needed" (for x).
-    val asNeededBoolean: String?
+    val asNeededBoolean: Bool?
 
     // Take "as needed" (for x).
     val asNeededCodeableConcept: CodeableConcept?
@@ -97,7 +99,7 @@ data class Dosage(
 
     // The order of the dosage instructions.
     @SerialName("sequence")
-    override val sequence: String? = null,
+    override val sequence: Integer? = null,
     // Free text dosage instructions e.g. SIG.
     @SerialName("text")
     override val text: String? = null,
@@ -112,7 +114,7 @@ data class Dosage(
     override val timing: Timing? = null,
     // Take "as needed" (for x).
     @SerialName("asNeededBoolean")
-    override val asNeededBoolean: String? = null,
+    override val asNeededBoolean: Bool? = null,
     // Take "as needed" (for x).
     @SerialName("asNeededCodeableConcept")
     override val asNeededCodeableConcept: CodeableConcept? = null,

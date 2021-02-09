@@ -18,6 +18,10 @@ package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.AdministrativeGender
 import care.data4life.hl7.fhir.stu3.codesystem.LinkType
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.Date
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.Integer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -29,7 +33,7 @@ interface FhirPatient : FhirDomainResource {
     val identifier: List<Identifier>?
 
     // Whether this patient's record is in active use.
-    val active: String?
+    val active: Bool?
 
     // A name associated with the patient.
     val name: List<HumanName>?
@@ -41,13 +45,13 @@ interface FhirPatient : FhirDomainResource {
     val gender: AdministrativeGender?
 
     // The date of birth for the individual.
-    val birthDate: String?
+    val birthDate: Date?
 
     // Indicates if the individual is deceased or not.
-    val deceasedBoolean: String?
+    val deceasedBoolean: Bool?
 
     // Indicates if the individual is deceased or not.
-    val deceasedDateTime: String?
+    val deceasedDateTime: DateTime?
 
     // Addresses for the individual.
     val address: List<Address>?
@@ -56,10 +60,10 @@ interface FhirPatient : FhirDomainResource {
     val maritalStatus: CodeableConcept?
 
     // Whether patient is part of a multiple birth.
-    val multipleBirthBoolean: String?
+    val multipleBirthBoolean: Bool?
 
     // Whether patient is part of a multiple birth.
-    val multipleBirthInteger: String?
+    val multipleBirthInteger: Integer?
 
     // Image of the patient.
     val photo: List<Attachment>?
@@ -105,7 +109,7 @@ data class Patient(
     override val identifier: List<Identifier>? = null,
     // Whether this patient's record is in active use.
     @SerialName("active")
-    override val active: String? = null,
+    override val active: Bool? = null,
     // A name associated with the patient.
     @SerialName("name")
     override val name: List<HumanName>? = null,
@@ -117,13 +121,13 @@ data class Patient(
     override val gender: AdministrativeGender? = null,
     // The date of birth for the individual.
     @SerialName("birthDate")
-    override val birthDate: String? = null,
+    override val birthDate: Date? = null,
     // Indicates if the individual is deceased or not.
     @SerialName("deceasedBoolean")
-    override val deceasedBoolean: String? = null,
+    override val deceasedBoolean: Bool? = null,
     // Indicates if the individual is deceased or not.
     @SerialName("deceasedDateTime")
-    override val deceasedDateTime: String? = null,
+    override val deceasedDateTime: DateTime? = null,
     // Addresses for the individual.
     @SerialName("address")
     override val address: List<Address>? = null,
@@ -132,10 +136,10 @@ data class Patient(
     override val maritalStatus: CodeableConcept? = null,
     // Whether patient is part of a multiple birth.
     @SerialName("multipleBirthBoolean")
-    override val multipleBirthBoolean: String? = null,
+    override val multipleBirthBoolean: Bool? = null,
     // Whether patient is part of a multiple birth.
     @SerialName("multipleBirthInteger")
-    override val multipleBirthInteger: String? = null,
+    override val multipleBirthInteger: Integer? = null,
     // Image of the patient.
     @SerialName("photo")
     override val photo: List<Attachment>? = null,
@@ -223,7 +227,7 @@ interface FhirPatientAnimal : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientAnimal</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient)
  */
 @Serializable
 @SerialName("PatientAnimal")
@@ -272,7 +276,7 @@ interface FhirPatientCommunication : FhirBackboneElement {
     val language: CodeableConcept
 
     // Language preference indicator.
-    val preferred: String?
+    val preferred: Bool?
 }
 
 
@@ -286,7 +290,7 @@ interface FhirPatientCommunication : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientCommunication</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient)
  */
 @Serializable
 @SerialName("PatientCommunication")
@@ -297,7 +301,7 @@ data class PatientCommunication(
     override val language: CodeableConcept,
     // Language preference indicator.
     @SerialName("preferred")
-    override val preferred: String? = null,
+    override val preferred: Bool? = null,
 
 
     // # BackboneElement
@@ -361,7 +365,7 @@ interface FhirPatientContact : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientContact</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient)
  */
 @Serializable
 @SerialName("PatientContact")
@@ -436,7 +440,7 @@ interface FhirPatientLink : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientLink</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Patient)
  */
 @Serializable
 @SerialName("PatientLink")

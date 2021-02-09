@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.DaysOfWeek
+import care.data4life.hl7.fhir.stu3.primitive.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -25,7 +26,7 @@ import kotlin.jvm.JvmStatic
 interface FhirTiming : FhirElement {
 
     // When the event occurs.
-    val event: List<String>?
+    val event: List<DateTime>?
 
     // When the event is to occur.
     val repeat: TimingRepeat?
@@ -53,7 +54,7 @@ data class Timing(
 
     // When the event occurs.
     @SerialName("event")
-    override val event: List<String>? = null,
+    override val event: List<DateTime>? = null,
     // When the event is to occur.
     @SerialName("repeat")
     override val repeat: TimingRepeat? = null,
@@ -94,31 +95,31 @@ interface FhirTimingRepeat : FhirElement {
     val boundsPeriod: Period?
 
     // Number of times to repeat.
-    val count: String?
+    val count: Integer?
 
     // Maximum number of times to repeat.
-    val countMax: String?
+    val countMax: Integer?
 
     // How long when it happens.
-    val duration: String?
+    val duration: Decimal?
 
     // How long when it happens (Max).
-    val durationMax: String?
+    val durationMax: Decimal?
 
     // s | min | h | d | wk | mo | a - unit of time (UCUM).
     val durationUnit: String?
 
     // Event occurs frequency times per period.
-    val frequency: String?
+    val frequency: Integer?
 
     // Event occurs up to frequencyMax times per period.
-    val frequencyMax: String?
+    val frequencyMax: Integer?
 
     // Event occurs frequency times per period.
-    val period: String?
+    val period: Decimal?
 
     // Upper limit of period (3-4 hours).
-    val periodMax: String?
+    val periodMax: Decimal?
 
     // s | min | h | d | wk | mo | a - unit of time (UCUM).
     val periodUnit: String?
@@ -127,13 +128,13 @@ interface FhirTimingRepeat : FhirElement {
     val dayOfWeek: List<DaysOfWeek>?
 
     // Time of day for action.
-    val timeOfDay: List<String>?
+    val timeOfDay: List<Time>?
 
     // Regular life events the event is tied to.
     val `when`: List<String>?
 
     // Minutes from event (before or after).
-    val offset: String?
+    val offset: UnsignedInteger?
 }
 
 
@@ -164,31 +165,31 @@ data class TimingRepeat(
     override val boundsPeriod: Period? = null,
     // Number of times to repeat.
     @SerialName("count")
-    override val count: String? = null,
+    override val count: Integer? = null,
     // Maximum number of times to repeat.
     @SerialName("countMax")
-    override val countMax: String? = null,
+    override val countMax: Integer? = null,
     // How long when it happens.
     @SerialName("duration")
-    override val duration: String? = null,
+    override val duration: Decimal? = null,
     // How long when it happens (Max).
     @SerialName("durationMax")
-    override val durationMax: String? = null,
+    override val durationMax: Decimal? = null,
     // s | min | h | d | wk | mo | a - unit of time (UCUM).
     @SerialName("durationUnit")
     override val durationUnit: String? = null,
     // Event occurs frequency times per period.
     @SerialName("frequency")
-    override val frequency: String? = null,
+    override val frequency: Integer? = null,
     // Event occurs up to frequencyMax times per period.
     @SerialName("frequencyMax")
-    override val frequencyMax: String? = null,
+    override val frequencyMax: Integer? = null,
     // Event occurs frequency times per period.
     @SerialName("period")
-    override val period: String? = null,
+    override val period: Decimal? = null,
     // Upper limit of period (3-4 hours).
     @SerialName("periodMax")
-    override val periodMax: String? = null,
+    override val periodMax: Decimal? = null,
     // s | min | h | d | wk | mo | a - unit of time (UCUM).
     @SerialName("periodUnit")
     override val periodUnit: String? = null,
@@ -197,13 +198,13 @@ data class TimingRepeat(
     override val dayOfWeek: List<DaysOfWeek>? = null,
     // Time of day for action.
     @SerialName("timeOfDay")
-    override val timeOfDay: List<String>? = null,
+    override val timeOfDay: List<Time>? = null,
     // Regular life events the event is tied to.
     @SerialName("when")
     override val `when`: List<String>? = null,
     // Minutes from event (before or after).
     @SerialName("offset")
-    override val offset: String? = null,
+    override val offset: UnsignedInteger? = null,
 
 
     // # Element

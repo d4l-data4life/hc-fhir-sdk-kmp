@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.Bool
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -27,7 +28,7 @@ interface FhirOrganization : FhirDomainResource {
     val identifier: List<Identifier>?
 
     // Whether the organization's record is still in active use.
-    val active: String?
+    val active: Bool?
 
     // Kind of organization.
     val type: List<CodeableConcept>?
@@ -76,7 +77,7 @@ data class Organization(
     override val identifier: List<Identifier>? = null,
     // Whether the organization's record is still in active use.
     @SerialName("active")
-    override val active: String? = null,
+    override val active: Bool? = null,
     // Kind of organization.
     @SerialName("type")
     override val type: List<CodeableConcept>? = null,

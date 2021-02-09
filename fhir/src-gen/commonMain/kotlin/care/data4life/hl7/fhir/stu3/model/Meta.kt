@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -27,7 +28,7 @@ interface FhirMeta : FhirElement {
     val versionId: String?
 
     // When the resource version last changed.
-    val lastUpdated: String?
+    val lastUpdated: Instant?
 
     // Profiles this resource claims to conform to.
     val profile: List<String>?
@@ -61,7 +62,7 @@ data class Meta(
     override val versionId: String? = null,
     // When the resource version last changed.
     @SerialName("lastUpdated")
-    override val lastUpdated: String? = null,
+    override val lastUpdated: Instant? = null,
     // Profiles this resource claims to conform to.
     @SerialName("profile")
     override val profile: List<String>? = null,
