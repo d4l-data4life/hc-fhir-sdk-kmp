@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Add code of conduct
 * Add contained resource parsing support
 * Add FHIR primitives: Bool, Decimal, Integer, PositiveInteger, UnsignedInteger
+* Add FHIR primitives: Date, DateTime, Time, Instant
+* Add Kotlin KMP datetime SDK 0.1.1
 
 === Changed
 
@@ -33,6 +35,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 === Bumped
 
 * Bump AndroidStudio 4.0.1 to 4.1.2
-* Bump Gradle 6.6.1 -> 6.8.1
+* Bump Gradle 6.6.1 -> 6.8.2
 
 === Migration
