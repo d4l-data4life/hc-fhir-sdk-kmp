@@ -27,8 +27,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 === Changed
 
 * Change template project to prepare for FHIR SDK implementation
+* Change generated models to use FHIR primitives for numbers, datetime and boolean
 
 === Removed
+
+* Remove generation date from models -> git tracks time already
 
 === Fixed
 
