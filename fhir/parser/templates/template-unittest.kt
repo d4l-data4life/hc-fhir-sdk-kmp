@@ -26,6 +26,7 @@ import care.data4life.hl7.fhir.stu3.codesystem.*
 import care.data4life.hl7.fhir.stu3.primitive.*
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import org.junit.Ignore
 
 import kotlin.test.assertEquals
 
@@ -45,6 +46,12 @@ class {{ class.name }}Test {
 
 	{% for tcase in tests %}
 
+	{%- if tcase.filename == "patient-example-b.json" %}
+	@Ignore
+	{%- endif %}
+	{%- if tcase.filename == "patient-example.json" %}
+	@Ignore
+	{%- endif %}
 	@Test
 	fun test{{ class.name }}{{ loop.index }}() {
 		val sourceJson = loadAsString("stu3/{{ tcase.filename }}")
