@@ -26,7 +26,7 @@ import kotlinx.serialization.Serializable
  * @see <a href="http://hl7.org/fhir/medication-status">MedicationStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/medication-status">ValueSet</a>
  *
- * Generated from FHIR 3.0.1.11917 on 2020-10-01
+ * Generated from FHIR 3.0.1.11917
  */
 @Serializable
 enum class MedicationStatus {

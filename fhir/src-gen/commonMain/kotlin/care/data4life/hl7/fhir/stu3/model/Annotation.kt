@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -30,7 +31,7 @@ interface FhirAnnotation : FhirElement {
     val authorString: String?
 
     // When the annotation was made.
-    val time: String?
+    val time: DateTime?
 
     // The annotation  - text content.
     val text: String
@@ -47,7 +48,7 @@ interface FhirAnnotation : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Annotation">Annotation</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Annotation) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Annotation)
  */
 @Serializable
 @SerialName("Annotation")
@@ -61,7 +62,7 @@ data class Annotation(
     override val authorString: String? = null,
     // When the annotation was made.
     @SerialName("time")
-    override val time: String? = null,
+    override val time: DateTime? = null,
     // The annotation  - text content.
     @SerialName("text")
     override val text: String,

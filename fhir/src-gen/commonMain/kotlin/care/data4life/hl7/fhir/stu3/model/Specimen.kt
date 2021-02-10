@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.SpecimenStatus
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -40,7 +41,7 @@ interface FhirSpecimen : FhirDomainResource {
     val subject: Reference
 
     // The time when specimen was received for processing.
-    val receivedTime: String?
+    val receivedTime: DateTime?
 
     // Specimen from which this specimen originated.
     val parent: List<Reference>?
@@ -72,7 +73,7 @@ interface FhirSpecimen : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">Specimen</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("Specimen")
@@ -95,7 +96,7 @@ data class Specimen(
     override val subject: Reference,
     // The time when specimen was received for processing.
     @SerialName("receivedTime")
-    override val receivedTime: String? = null,
+    override val receivedTime: DateTime? = null,
     // Specimen from which this specimen originated.
     @SerialName("parent")
     override val parent: List<Reference>? = null,
@@ -163,7 +164,7 @@ interface FhirSpecimenCollection : FhirBackboneElement {
     val collector: Reference?
 
     // Collection time.
-    val collectedDateTime: String?
+    val collectedDateTime: DateTime?
 
     // Collection time.
     val collectedPeriod: Period?
@@ -189,7 +190,7 @@ interface FhirSpecimenCollection : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenCollection</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("SpecimenCollection")
@@ -200,7 +201,7 @@ data class SpecimenCollection(
     override val collector: Reference? = null,
     // Collection time.
     @SerialName("collectedDateTime")
-    override val collectedDateTime: String? = null,
+    override val collectedDateTime: DateTime? = null,
     // Collection time.
     @SerialName("collectedPeriod")
     override val collectedPeriod: Period? = null,
@@ -276,7 +277,7 @@ interface FhirSpecimenContainer : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenContainer</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("SpecimenContainer")
@@ -343,7 +344,7 @@ interface FhirSpecimenProcessing : FhirBackboneElement {
     val additive: List<Reference>?
 
     // Date and time of specimen processing.
-    val timeDateTime: String?
+    val timeDateTime: DateTime?
 
     // Date and time of specimen processing.
     val timePeriod: Period?
@@ -360,7 +361,7 @@ interface FhirSpecimenProcessing : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenProcessing</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Specimen)
  */
 @Serializable
 @SerialName("SpecimenProcessing")
@@ -377,7 +378,7 @@ data class SpecimenProcessing(
     override val additive: List<Reference>? = null,
     // Date and time of specimen processing.
     @SerialName("timeDateTime")
-    override val timeDateTime: String? = null,
+    override val timeDateTime: DateTime? = null,
     // Date and time of specimen processing.
     @SerialName("timePeriod")
     override val timePeriod: Period? = null,

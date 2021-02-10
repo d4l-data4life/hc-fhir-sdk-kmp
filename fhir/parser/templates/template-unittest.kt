@@ -40,7 +40,7 @@ import kotlin.test.assertEquals
  * {{ class.formal }}
  * {%- endif %}
  */
-@Generated("Generated from FHIR {{ info.version }} on {{ info.date }}")
+@Generated("Generated from FHIR {{ info.version }})
 class {{ class.name }}Test {
 
 	val parser = FhirStu3Parser()

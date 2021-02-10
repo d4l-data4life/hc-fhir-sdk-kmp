@@ -17,6 +17,8 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.ConditionVerificationStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -52,7 +54,7 @@ interface FhirCondition : FhirDomainResource {
     val context: Reference?
 
     // Estimated or actual date,  date-time, or age.
-    val onsetDateTime: String?
+    val onsetDateTime: DateTime?
 
     // Estimated or actual date,  date-time, or age.
     val onsetAge: Age?
@@ -67,13 +69,13 @@ interface FhirCondition : FhirDomainResource {
     val onsetString: String?
 
     // If/when in resolution/remission.
-    val abatementDateTime: String?
+    val abatementDateTime: DateTime?
 
     // If/when in resolution/remission.
     val abatementAge: Age?
 
     // If/when in resolution/remission.
-    val abatementBoolean: String?
+    val abatementBoolean: Bool?
 
     // If/when in resolution/remission.
     val abatementPeriod: Period?
@@ -85,7 +87,7 @@ interface FhirCondition : FhirDomainResource {
     val abatementString: String?
 
     // Date record was believed accurate.
-    val assertedDate: String?
+    val assertedDate: DateTime?
 
     // Person who asserts this condition.
     val asserter: Reference?
@@ -111,7 +113,7 @@ interface FhirCondition : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">Condition</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition)
  */
 @Serializable
 @SerialName("Condition")
@@ -146,7 +148,7 @@ data class Condition(
     override val context: Reference? = null,
     // Estimated or actual date,  date-time, or age.
     @SerialName("onsetDateTime")
-    override val onsetDateTime: String? = null,
+    override val onsetDateTime: DateTime? = null,
     // Estimated or actual date,  date-time, or age.
     @SerialName("onsetAge")
     override val onsetAge: Age? = null,
@@ -161,13 +163,13 @@ data class Condition(
     override val onsetString: String? = null,
     // If/when in resolution/remission.
     @SerialName("abatementDateTime")
-    override val abatementDateTime: String? = null,
+    override val abatementDateTime: DateTime? = null,
     // If/when in resolution/remission.
     @SerialName("abatementAge")
     override val abatementAge: Age? = null,
     // If/when in resolution/remission.
     @SerialName("abatementBoolean")
-    override val abatementBoolean: String? = null,
+    override val abatementBoolean: Bool? = null,
     // If/when in resolution/remission.
     @SerialName("abatementPeriod")
     override val abatementPeriod: Period? = null,
@@ -179,7 +181,7 @@ data class Condition(
     override val abatementString: String? = null,
     // Date record was believed accurate.
     @SerialName("assertedDate")
-    override val assertedDate: String? = null,
+    override val assertedDate: DateTime? = null,
     // Person who asserts this condition.
     @SerialName("asserter")
     override val asserter: Reference? = null,
@@ -255,7 +257,7 @@ interface FhirConditionEvidence : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">ConditionEvidence</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition)
  */
 @Serializable
 @SerialName("ConditionEvidence")
@@ -315,7 +317,7 @@ interface FhirConditionStage : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">ConditionStage</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Condition)
  */
 @Serializable
 @SerialName("ConditionStage")

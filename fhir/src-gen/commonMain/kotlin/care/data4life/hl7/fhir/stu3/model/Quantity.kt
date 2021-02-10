@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.QuantityComparator
+import care.data4life.hl7.fhir.stu3.primitive.Decimal
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -25,7 +26,7 @@ import kotlin.jvm.JvmStatic
 interface FhirQuantity : FhirElement {
 
     // Numerical value (with implicit precision).
-    val value: String?
+    val value: Decimal?
 
     // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
     val comparator: QuantityComparator?
@@ -51,7 +52,7 @@ interface FhirQuantity : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Quantity">Quantity</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Quantity) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Quantity)
  */
 @Serializable
 @SerialName("Quantity")
@@ -59,7 +60,7 @@ data class Quantity(
 
     // Numerical value (with implicit precision).
     @SerialName("value")
-    override val value: String? = null,
+    override val value: Decimal? = null,
     // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,

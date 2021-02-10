@@ -17,6 +17,8 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.EventStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -40,7 +42,7 @@ interface FhirProcedure : FhirDomainResource {
     val status: EventStatus
 
     // True if procedure was not performed as scheduled.
-    val notDone: String?
+    val notDone: Bool?
 
     // Reason procedure was not performed.
     val notDoneReason: CodeableConcept?
@@ -58,7 +60,7 @@ interface FhirProcedure : FhirDomainResource {
     val context: Reference?
 
     // Date/Period the procedure was performed.
-    val performedDateTime: String?
+    val performedDateTime: DateTime?
 
     // Date/Period the procedure was performed.
     val performedPeriod: Period?
@@ -117,7 +119,7 @@ interface FhirProcedure : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">Procedure</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure)
  */
 @Serializable
 @SerialName("Procedure")
@@ -140,7 +142,7 @@ data class Procedure(
     override val status: EventStatus,
     // True if procedure was not performed as scheduled.
     @SerialName("notDone")
-    override val notDone: String? = null,
+    override val notDone: Bool? = null,
     // Reason procedure was not performed.
     @SerialName("notDoneReason")
     override val notDoneReason: CodeableConcept? = null,
@@ -158,7 +160,7 @@ data class Procedure(
     override val context: Reference? = null,
     // Date/Period the procedure was performed.
     @SerialName("performedDateTime")
-    override val performedDateTime: String? = null,
+    override val performedDateTime: DateTime? = null,
     // Date/Period the procedure was performed.
     @SerialName("performedPeriod")
     override val performedPeriod: Period? = null,
@@ -267,7 +269,7 @@ interface FhirProcedureFocalDevice : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">ProcedureFocalDevice</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure)
  */
 @Serializable
 @SerialName("ProcedureFocalDevice")
@@ -330,7 +332,7 @@ interface FhirProcedurePerformer : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">ProcedurePerformer</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Procedure)
  */
 @Serializable
 @SerialName("ProcedurePerformer")

@@ -72,7 +72,7 @@ interface FhirCareTeam : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CareTeam">CareTeam</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CareTeam)
  */
 @Serializable
 @SerialName("CareTeam")
@@ -183,7 +183,7 @@ interface FhirCareTeamParticipant : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CareTeam">CareTeamParticipant</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CareTeam)
  */
 @Serializable
 @SerialName("CareTeamParticipant")

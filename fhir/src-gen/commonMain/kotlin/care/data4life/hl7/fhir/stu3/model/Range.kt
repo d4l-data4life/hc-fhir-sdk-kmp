@@ -41,7 +41,7 @@ interface FhirRange : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Range">Range</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Range) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Range)
  */
 @Serializable
 @SerialName("Range")

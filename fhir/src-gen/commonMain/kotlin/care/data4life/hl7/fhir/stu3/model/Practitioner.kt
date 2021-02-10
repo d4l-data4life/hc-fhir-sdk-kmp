@@ -17,6 +17,8 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.AdministrativeGender
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.Date
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -28,7 +30,7 @@ interface FhirPractitioner : FhirDomainResource {
     val identifier: List<Identifier>?
 
     // Whether this practitioner's record is in active use.
-    val active: String?
+    val active: Bool?
 
     // The name(s) associated with the practitioner.
     val name: List<HumanName>?
@@ -43,7 +45,7 @@ interface FhirPractitioner : FhirDomainResource {
     val gender: AdministrativeGender?
 
     // The date  on which the practitioner was born.
-    val birthDate: String?
+    val birthDate: Date?
 
     // Image of the person.
     val photo: List<Attachment>?
@@ -66,7 +68,7 @@ interface FhirPractitioner : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Practitioner">Practitioner</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner)
  */
 @Serializable
 @SerialName("Practitioner")
@@ -77,7 +79,7 @@ data class Practitioner(
     override val identifier: List<Identifier>? = null,
     // Whether this practitioner's record is in active use.
     @SerialName("active")
-    override val active: String? = null,
+    override val active: Bool? = null,
     // The name(s) associated with the practitioner.
     @SerialName("name")
     override val name: List<HumanName>? = null,
@@ -92,7 +94,7 @@ data class Practitioner(
     override val gender: AdministrativeGender? = null,
     // The date  on which the practitioner was born.
     @SerialName("birthDate")
-    override val birthDate: String? = null,
+    override val birthDate: Date? = null,
     // Image of the person.
     @SerialName("photo")
     override val photo: List<Attachment>? = null,
@@ -171,7 +173,7 @@ interface FhirPractitionerQualification : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Practitioner">PractitionerQualification</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Practitioner)
  */
 @Serializable
 @SerialName("PractitionerQualification")

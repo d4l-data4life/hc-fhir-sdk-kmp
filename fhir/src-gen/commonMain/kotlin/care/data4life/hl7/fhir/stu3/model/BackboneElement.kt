@@ -38,7 +38,7 @@ interface FhirBackboneElement : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/BackboneElement">BackboneElement</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/BackboneElement)
  */
 @Serializable
 @SerialName("BackboneElement")

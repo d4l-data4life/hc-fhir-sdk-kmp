@@ -41,7 +41,7 @@ interface FhirRatio : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Ratio">Ratio</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Ratio) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Ratio)
  */
 @Serializable
 @SerialName("Ratio")

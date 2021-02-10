@@ -17,6 +17,10 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.*
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.Integer
+import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -43,10 +47,10 @@ interface FhirCodeSystem : FhirDomainResource {
     val status: PublicationStatus
 
     // For testing purposes, not real usage.
-    val experimental: String?
+    val experimental: Bool?
 
     // Date this was last changed.
-    val date: String?
+    val date: DateTime?
 
     // Name of the publisher (organization or individual).
     val publisher: String?
@@ -70,7 +74,7 @@ interface FhirCodeSystem : FhirDomainResource {
     val copyright: String?
 
     // If code comparison is case sensitive.
-    val caseSensitive: String?
+    val caseSensitive: Bool?
 
     // Canonical URL for value set with entire code system.
     val valueSet: String?
@@ -79,16 +83,16 @@ interface FhirCodeSystem : FhirDomainResource {
     val hierarchyMeaning: CodeSystemHierarchyMeaning?
 
     // If code system defines a post-composition grammar.
-    val compositional: String?
+    val compositional: Bool?
 
     // If definitions are not stable.
-    val versionNeeded: String?
+    val versionNeeded: Bool?
 
     // How much of the content of the code system - the concepts and codes it defines - are represented in this resource.
     val content: CodeSystemContentMode
 
     // Total concepts in the code system.
-    val count: String?
+    val count: UnsignedInteger?
 
     // Filter that can be used in a value set.
     val filter: List<CodeSystemFilter>?
@@ -111,7 +115,7 @@ interface FhirCodeSystem : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystem</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystem")
@@ -137,10 +141,10 @@ data class CodeSystem(
     override val status: PublicationStatus,
     // For testing purposes, not real usage.
     @SerialName("experimental")
-    override val experimental: String? = null,
+    override val experimental: Bool? = null,
     // Date this was last changed.
     @SerialName("date")
-    override val date: String? = null,
+    override val date: DateTime? = null,
     // Name of the publisher (organization or individual).
     @SerialName("publisher")
     override val publisher: String? = null,
@@ -164,7 +168,7 @@ data class CodeSystem(
     override val copyright: String? = null,
     // If code comparison is case sensitive.
     @SerialName("caseSensitive")
-    override val caseSensitive: String? = null,
+    override val caseSensitive: Bool? = null,
     // Canonical URL for value set with entire code system.
     @SerialName("valueSet")
     override val valueSet: String? = null,
@@ -173,16 +177,16 @@ data class CodeSystem(
     override val hierarchyMeaning: CodeSystemHierarchyMeaning? = null,
     // If code system defines a post-composition grammar.
     @SerialName("compositional")
-    override val compositional: String? = null,
+    override val compositional: Bool? = null,
     // If definitions are not stable.
     @SerialName("versionNeeded")
-    override val versionNeeded: String? = null,
+    override val versionNeeded: Bool? = null,
     // How much of the content of the code system - the concepts and codes it defines - are represented in this resource.
     @SerialName("content")
     override val content: CodeSystemContentMode,
     // Total concepts in the code system.
     @SerialName("count")
-    override val count: String? = null,
+    override val count: UnsignedInteger? = null,
     // Filter that can be used in a value set.
     @SerialName("filter")
     override val filter: List<CodeSystemFilter>? = null,
@@ -267,7 +271,7 @@ interface FhirCodeSystemConcept : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemConcept</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemConcept")
@@ -342,7 +346,7 @@ interface FhirCodeSystemConceptDesignation : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemConceptDesignation</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemConceptDesignation")
@@ -400,13 +404,13 @@ interface FhirCodeSystemConceptProperty : FhirBackboneElement {
     val valueString: String?
 
     // Value of the property for this concept.
-    val valueInteger: String?
+    val valueInteger: Integer?
 
     // Value of the property for this concept.
-    val valueBoolean: String?
+    val valueBoolean: Bool?
 
     // Value of the property for this concept.
-    val valueDateTime: String?
+    val valueDateTime: DateTime?
 }
 
 
@@ -420,7 +424,7 @@ interface FhirCodeSystemConceptProperty : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemConceptProperty</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemConceptProperty")
@@ -440,13 +444,13 @@ data class CodeSystemConceptProperty(
     override val valueString: String? = null,
     // Value of the property for this concept.
     @SerialName("valueInteger")
-    override val valueInteger: String? = null,
+    override val valueInteger: Integer? = null,
     // Value of the property for this concept.
     @SerialName("valueBoolean")
-    override val valueBoolean: String? = null,
+    override val valueBoolean: Bool? = null,
     // Value of the property for this concept.
     @SerialName("valueDateTime")
-    override val valueDateTime: String? = null,
+    override val valueDateTime: DateTime? = null,
 
 
     // # BackboneElement
@@ -501,7 +505,7 @@ interface FhirCodeSystemFilter : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemFilter</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemFilter")
@@ -573,7 +577,7 @@ interface FhirCodeSystemProperty : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemProperty</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/CodeSystem)
  */
 @Serializable
 @SerialName("CodeSystemProperty")

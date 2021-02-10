@@ -18,6 +18,7 @@ package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.ContactPointSystem
 import care.data4life.hl7.fhir.stu3.codesystem.ContactPointUse
+import care.data4life.hl7.fhir.stu3.primitive.PositiveInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -35,7 +36,7 @@ interface FhirContactPoint : FhirElement {
     val use: ContactPointUse?
 
     // Specify preferred order of use (1 = highest).
-    val rank: String?
+    val rank: PositiveInteger?
 
     // Time period when the contact point was/is in use.
     val period: Period?
@@ -52,7 +53,7 @@ interface FhirContactPoint : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ContactPoint">ContactPoint</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ContactPoint)
  */
 @Serializable
 @SerialName("ContactPoint")
@@ -69,7 +70,7 @@ data class ContactPoint(
     override val use: ContactPointUse? = null,
     // Specify preferred order of use (1 = highest).
     @SerialName("rank")
-    override val rank: String? = null,
+    override val rank: PositiveInteger? = null,
     // Time period when the contact point was/is in use.
     @SerialName("period")
     override val period: Period? = null,

@@ -19,6 +19,7 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.codesystem.RequestIntent
 import care.data4life.hl7.fhir.stu3.codesystem.RequestPriority
 import care.data4life.hl7.fhir.stu3.codesystem.RequestStatus
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -63,13 +64,13 @@ interface FhirReferralRequest : FhirDomainResource {
     val context: Reference?
 
     // When the service(s) requested in the referral should occur.
-    val occurrenceDateTime: String?
+    val occurrenceDateTime: DateTime?
 
     // When the service(s) requested in the referral should occur.
     val occurrencePeriod: Period?
 
     // Date of creation/activation.
-    val authoredOn: String?
+    val authoredOn: DateTime?
 
     // Who/what is requesting service.
     val requester: ReferralRequestRequester?
@@ -110,7 +111,7 @@ interface FhirReferralRequest : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ReferralRequest">ReferralRequest</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest)
  */
 @Serializable
 @SerialName("ReferralRequest")
@@ -154,13 +155,13 @@ data class ReferralRequest(
     override val context: Reference? = null,
     // When the service(s) requested in the referral should occur.
     @SerialName("occurrenceDateTime")
-    override val occurrenceDateTime: String? = null,
+    override val occurrenceDateTime: DateTime? = null,
     // When the service(s) requested in the referral should occur.
     @SerialName("occurrencePeriod")
     override val occurrencePeriod: Period? = null,
     // Date of creation/activation.
     @SerialName("authoredOn")
-    override val authoredOn: String? = null,
+    override val authoredOn: DateTime? = null,
     // Who/what is requesting service.
     @SerialName("requester")
     override val requester: ReferralRequestRequester? = null,
@@ -251,7 +252,7 @@ interface FhirReferralRequestRequester : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ReferralRequest">ReferralRequestRequester</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ReferralRequest)
  */
 @Serializable
 @SerialName("ReferralRequestRequester")

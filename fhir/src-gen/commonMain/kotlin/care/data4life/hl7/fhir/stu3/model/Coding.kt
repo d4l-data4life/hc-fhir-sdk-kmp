@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
+import care.data4life.hl7.fhir.stu3.primitive.Bool
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -36,7 +37,7 @@ interface FhirCoding : FhirElement {
     val display: String?
 
     // If this coding was chosen directly by the user.
-    val userSelected: String?
+    val userSelected: Bool?
 }
 
 
@@ -50,7 +51,7 @@ interface FhirCoding : FhirElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Coding">Coding</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Coding) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Coding)
  */
 @Serializable
 @SerialName("Coding")
@@ -70,7 +71,7 @@ data class Coding(
     override val display: String? = null,
     // If this coding was chosen directly by the user.
     @SerialName("userSelected")
-    override val userSelected: String? = null,
+    override val userSelected: Bool? = null,
 
 
     // # Element

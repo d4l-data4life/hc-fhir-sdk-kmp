@@ -19,6 +19,8 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.codesystem.RequestIntent
 import care.data4life.hl7.fhir.stu3.codesystem.RequestPriority
 import care.data4life.hl7.fhir.stu3.codesystem.RequestStatus
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -51,7 +53,7 @@ interface FhirProcedureRequest : FhirDomainResource {
     val priority: RequestPriority?
 
     // True if procedure should not be performed.
-    val doNotPerform: String?
+    val doNotPerform: Bool?
 
     // Classification of procedure.
     val category: List<CodeableConcept>?
@@ -66,7 +68,7 @@ interface FhirProcedureRequest : FhirDomainResource {
     val context: Reference?
 
     // When procedure should occur.
-    val occurrenceDateTime: String?
+    val occurrenceDateTime: DateTime?
 
     // When procedure should occur.
     val occurrencePeriod: Period?
@@ -75,13 +77,13 @@ interface FhirProcedureRequest : FhirDomainResource {
     val occurrenceTiming: Timing?
 
     // Preconditions for procedure or diagnostic.
-    val asNeededBoolean: String?
+    val asNeededBoolean: Bool?
 
     // Preconditions for procedure or diagnostic.
     val asNeededCodeableConcept: CodeableConcept?
 
     // Date request signed.
-    val authoredOn: String?
+    val authoredOn: DateTime?
 
     // Who/what is requesting procedure or diagnostic.
     val requester: ProcedureRequestRequester?
@@ -125,7 +127,7 @@ interface FhirProcedureRequest : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcedureRequest">ProcedureRequest</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest)
  */
 @Serializable
 @SerialName("ProcedureRequest")
@@ -157,7 +159,7 @@ data class ProcedureRequest(
     override val priority: RequestPriority? = null,
     // True if procedure should not be performed.
     @SerialName("doNotPerform")
-    override val doNotPerform: String? = null,
+    override val doNotPerform: Bool? = null,
     // Classification of procedure.
     @SerialName("category")
     override val category: List<CodeableConcept>? = null,
@@ -172,7 +174,7 @@ data class ProcedureRequest(
     override val context: Reference? = null,
     // When procedure should occur.
     @SerialName("occurrenceDateTime")
-    override val occurrenceDateTime: String? = null,
+    override val occurrenceDateTime: DateTime? = null,
     // When procedure should occur.
     @SerialName("occurrencePeriod")
     override val occurrencePeriod: Period? = null,
@@ -181,13 +183,13 @@ data class ProcedureRequest(
     override val occurrenceTiming: Timing? = null,
     // Preconditions for procedure or diagnostic.
     @SerialName("asNeededBoolean")
-    override val asNeededBoolean: String? = null,
+    override val asNeededBoolean: Bool? = null,
     // Preconditions for procedure or diagnostic.
     @SerialName("asNeededCodeableConcept")
     override val asNeededCodeableConcept: CodeableConcept? = null,
     // Date request signed.
     @SerialName("authoredOn")
-    override val authoredOn: String? = null,
+    override val authoredOn: DateTime? = null,
     // Who/what is requesting procedure or diagnostic.
     @SerialName("requester")
     override val requester: ProcedureRequestRequester? = null,
@@ -281,7 +283,7 @@ interface FhirProcedureRequestRequester : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcedureRequest">ProcedureRequestRequester</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest)
  */
 @Serializable
 @SerialName("ProcedureRequestRequester")

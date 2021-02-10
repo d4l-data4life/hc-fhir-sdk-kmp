@@ -67,7 +67,7 @@ interface Fhir{{ klass.name }} : Fhir{{ superclass_name }} {
  * {% endif %}{%- endif %}
  * @see <a href="{{ profile.url }}">{{ klass.name }}</a>
  *
- * Generated from FHIR {{ info.version }} ({{ profile.url }}) on {{ info.date }}
+ * Generated from FHIR {{ info.version }} ({{ profile.url }})
  */
 @Serializable
 @SerialName("{{ klass.name }}")

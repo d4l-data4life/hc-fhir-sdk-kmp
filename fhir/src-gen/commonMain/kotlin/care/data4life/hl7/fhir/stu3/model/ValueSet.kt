@@ -18,6 +18,7 @@ package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.FilterOperator
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
+import care.data4life.hl7.fhir.stu3.primitive.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -44,10 +45,10 @@ interface FhirValueSet : FhirDomainResource {
     val status: PublicationStatus
 
     // For testing purposes, not real usage.
-    val experimental: String?
+    val experimental: Bool?
 
     // Date this was last changed.
-    val date: String?
+    val date: DateTime?
 
     // Name of the publisher (organization or individual).
     val publisher: String?
@@ -65,7 +66,7 @@ interface FhirValueSet : FhirDomainResource {
     val jurisdiction: List<CodeableConcept>?
 
     // Indicates whether or not any change to the content logical definition may occur.
-    val immutable: String?
+    val immutable: Bool?
 
     // Why this value set is defined.
     val purpose: String?
@@ -74,7 +75,7 @@ interface FhirValueSet : FhirDomainResource {
     val copyright: String?
 
     // Whether this is intended to be used with an extensible binding.
-    val extensible: String?
+    val extensible: Bool?
 
     // Definition of the content of the value set (CLD).
     val compose: ValueSetCompose?
@@ -94,7 +95,7 @@ interface FhirValueSet : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSet</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSet")
@@ -120,10 +121,10 @@ data class ValueSet(
     override val status: PublicationStatus,
     // For testing purposes, not real usage.
     @SerialName("experimental")
-    override val experimental: String? = null,
+    override val experimental: Bool? = null,
     // Date this was last changed.
     @SerialName("date")
-    override val date: String? = null,
+    override val date: DateTime? = null,
     // Name of the publisher (organization or individual).
     @SerialName("publisher")
     override val publisher: String? = null,
@@ -141,7 +142,7 @@ data class ValueSet(
     override val jurisdiction: List<CodeableConcept>? = null,
     // Indicates whether or not any change to the content logical definition may occur.
     @SerialName("immutable")
-    override val immutable: String? = null,
+    override val immutable: Bool? = null,
     // Why this value set is defined.
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -150,7 +151,7 @@ data class ValueSet(
     override val copyright: String? = null,
     // Whether this is intended to be used with an extensible binding.
     @SerialName("extensible")
-    override val extensible: String? = null,
+    override val extensible: Bool? = null,
     // Definition of the content of the value set (CLD).
     @SerialName("compose")
     override val compose: ValueSetCompose? = null,
@@ -203,10 +204,10 @@ data class ValueSet(
 interface FhirValueSetCompose : FhirBackboneElement {
 
     // Fixed date for version-less references (transitive).
-    val lockedDate: String?
+    val lockedDate: Date?
 
     // Whether inactive codes are in the value set.
-    val inactive: String?
+    val inactive: Bool?
 
     // Include one or more codes from a code system or other value set(s).
     val include: List<ValueSetComposeInclude>
@@ -226,7 +227,7 @@ interface FhirValueSetCompose : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetCompose</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetCompose")
@@ -234,10 +235,10 @@ data class ValueSetCompose(
 
     // Fixed date for version-less references (transitive).
     @SerialName("lockedDate")
-    override val lockedDate: String? = null,
+    override val lockedDate: Date? = null,
     // Whether inactive codes are in the value set.
     @SerialName("inactive")
-    override val inactive: String? = null,
+    override val inactive: Bool? = null,
     // Include one or more codes from a code system or other value set(s).
     @SerialName("include")
     override val include: List<ValueSetComposeInclude>,
@@ -301,7 +302,7 @@ interface FhirValueSetComposeInclude : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeInclude</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeInclude")
@@ -373,7 +374,7 @@ interface FhirValueSetComposeIncludeConcept : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeIncludeConcept</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeIncludeConcept")
@@ -439,7 +440,7 @@ interface FhirValueSetComposeIncludeConceptDesignation : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeIncludeConceptDesignation</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeIncludeConceptDesignation")
@@ -505,7 +506,7 @@ interface FhirValueSetComposeIncludeFilter : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetComposeIncludeFilter</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetComposeIncludeFilter")
@@ -554,13 +555,13 @@ interface FhirValueSetExpansion : FhirBackboneElement {
     val identifier: String
 
     // Time ValueSet expansion happened.
-    val timestamp: String
+    val timestamp: DateTime
 
     // Total number of codes in the expansion.
-    val total: String?
+    val total: Integer?
 
     // Offset at which this resource starts.
-    val offset: String?
+    val offset: Integer?
 
     // Parameter that controlled the expansion process.
     val parameter: List<ValueSetExpansionParameter>?
@@ -580,7 +581,7 @@ interface FhirValueSetExpansion : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetExpansion</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetExpansion")
@@ -591,13 +592,13 @@ data class ValueSetExpansion(
     override val identifier: String,
     // Time ValueSet expansion happened.
     @SerialName("timestamp")
-    override val timestamp: String,
+    override val timestamp: DateTime,
     // Total number of codes in the expansion.
     @SerialName("total")
-    override val total: String? = null,
+    override val total: Integer? = null,
     // Offset at which this resource starts.
     @SerialName("offset")
-    override val offset: String? = null,
+    override val offset: Integer? = null,
     // Parameter that controlled the expansion process.
     @SerialName("parameter")
     override val parameter: List<ValueSetExpansionParameter>? = null,
@@ -638,10 +639,10 @@ interface FhirValueSetExpansionContains : FhirBackboneElement {
     val system: String?
 
     // If user cannot select this entry.
-    val `abstract`: String?
+    val `abstract`: Bool?
 
     // If concept is inactive in the code system.
-    val inactive: String?
+    val inactive: Bool?
 
     // Version in which this code/display is defined.
     val version: String?
@@ -670,7 +671,7 @@ interface FhirValueSetExpansionContains : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetExpansionContains</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetExpansionContains")
@@ -681,10 +682,10 @@ data class ValueSetExpansionContains(
     override val system: String? = null,
     // If user cannot select this entry.
     @SerialName("abstract")
-    override val `abstract`: String? = null,
+    override val `abstract`: Bool? = null,
     // If concept is inactive in the code system.
     @SerialName("inactive")
-    override val inactive: String? = null,
+    override val inactive: Bool? = null,
     // Version in which this code/display is defined.
     @SerialName("version")
     override val version: String? = null,
@@ -737,13 +738,13 @@ interface FhirValueSetExpansionParameter : FhirBackboneElement {
     val valueString: String?
 
     // Value of the named parameter.
-    val valueBoolean: String?
+    val valueBoolean: Bool?
 
     // Value of the named parameter.
-    val valueInteger: String?
+    val valueInteger: Integer?
 
     // Value of the named parameter.
-    val valueDecimal: String?
+    val valueDecimal: Decimal?
 
     // Value of the named parameter.
     val valueUri: String?
@@ -763,7 +764,7 @@ interface FhirValueSetExpansionParameter : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSetExpansionParameter</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ValueSet)
  */
 @Serializable
 @SerialName("ValueSetExpansionParameter")
@@ -777,13 +778,13 @@ data class ValueSetExpansionParameter(
     override val valueString: String? = null,
     // Value of the named parameter.
     @SerialName("valueBoolean")
-    override val valueBoolean: String? = null,
+    override val valueBoolean: Bool? = null,
     // Value of the named parameter.
     @SerialName("valueInteger")
-    override val valueInteger: String? = null,
+    override val valueInteger: Integer? = null,
     // Value of the named parameter.
     @SerialName("valueDecimal")
-    override val valueDecimal: String? = null,
+    override val valueDecimal: Decimal? = null,
     // Value of the named parameter.
     @SerialName("valueUri")
     override val valueUri: String? = null,

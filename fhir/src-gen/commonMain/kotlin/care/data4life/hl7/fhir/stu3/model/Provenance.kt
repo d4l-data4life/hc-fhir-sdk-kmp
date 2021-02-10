@@ -17,6 +17,7 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.ProvenanceEntityRole
+import care.data4life.hl7.fhir.stu3.primitive.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -31,7 +32,7 @@ interface FhirProvenance : FhirDomainResource {
     val period: Period?
 
     // When the activity was recorded / updated.
-    val recorded: String
+    val recorded: Instant
 
     // Policy or plan the activity was defined by.
     val policy: List<String>?
@@ -66,7 +67,7 @@ interface FhirProvenance : FhirDomainResource {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">Provenance</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance)
  */
 @Serializable
 @SerialName("Provenance")
@@ -80,7 +81,7 @@ data class Provenance(
     override val period: Period? = null,
     // When the activity was recorded / updated.
     @SerialName("recorded")
-    override val recorded: String,
+    override val recorded: Instant,
     // Policy or plan the activity was defined by.
     @SerialName("policy")
     override val policy: List<String>? = null,
@@ -177,7 +178,7 @@ interface FhirProvenanceAgent : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">ProvenanceAgent</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance)
  */
 @Serializable
 @SerialName("ProvenanceAgent")
@@ -258,7 +259,7 @@ interface FhirProvenanceEntity : FhirBackboneElement {
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">ProvenanceEntity</a>
  *
- * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2020-10-01
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Provenance)
  */
 @Serializable
 @SerialName("ProvenanceEntity")
