@@ -13,9 +13,9 @@ documentation:
   - CONTRIBUTION.adoc
   - readmeOSS.adoc
 
-# Platform
+# Library
 library:
-  - library/**/*
+  - fhir/**/*
 
 # Sample
 sample-android:

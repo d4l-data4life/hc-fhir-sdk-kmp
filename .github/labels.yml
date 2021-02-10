@@ -38,7 +38,7 @@
   description: Breaking change
   color: f21d32
 
-# meta
+# Meta
 - name: blocked
   description: This is blocked
   color: f7ae7e
@@ -55,7 +55,7 @@
   description: Not ready yet!
   color: e56992
 
-# library
+# Library
 - name: library
   description: Library changes
   color: 000080
@@ -64,7 +64,7 @@
   description: FHIR changes
   color: d67d02
 
-# sample
+# Sample App
 - name: sample-android
   description: SampleApp Android
   color: 4514b7
