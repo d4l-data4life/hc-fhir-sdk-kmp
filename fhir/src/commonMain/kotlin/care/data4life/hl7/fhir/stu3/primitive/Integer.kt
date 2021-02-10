@@ -19,6 +19,8 @@ package care.data4life.hl7.fhir.stu3.primitive
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.*
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -43,7 +45,7 @@ interface FhirInteger : FhirElement {
  *
  * @param value Int
  */
-@Serializable
+@Serializable(with = IntegerSerializer::class)
 @SerialName("Integer")
 data class Integer(
     override val value: Int,
@@ -60,25 +62,28 @@ data class Integer(
         get() = resourceType()
 
 
-    @Serializer(forClass = Integer::class)
-    companion object : KSerializer<Integer> {
-
+    companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Integer"
+    }
+}
 
-        override fun deserialize(decoder: Decoder): Integer {
-            val value = decoder.decodeInt()
+object IntegerSerializer : KSerializer<Integer> {
 
-            //TODO deserialize extensions and id
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("Integer")
 
-            return Integer(value)
-        }
+    override fun deserialize(decoder: Decoder): Integer {
+        val value = decoder.decodeInt()
 
-        override fun serialize(encoder: Encoder, value: Integer) {
-            encoder.encodeInt(value.value)
+        //TODO deserialize extensions and id
 
-            //TODO serialize extensions and id
-        }
+        return Integer(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: Integer) {
+        encoder.encodeInt(value.value)
+
+        //TODO serialize extensions and id
     }
 }
 

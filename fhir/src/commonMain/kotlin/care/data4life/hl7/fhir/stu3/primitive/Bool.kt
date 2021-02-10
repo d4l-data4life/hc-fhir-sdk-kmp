@@ -19,6 +19,8 @@ package care.data4life.hl7.fhir.stu3.primitive
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.*
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -41,7 +43,7 @@ interface FhirBool : FhirElement {
  *
  * @param value Boolean
  */
-@Serializable
+@Serializable(with = BoolSerializer::class)
 @SerialName("Bool")
 data class Bool(
     override val value: kotlin.Boolean,
@@ -58,25 +60,27 @@ data class Bool(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
-    @Serializer(forClass = Bool::class)
-    companion object : KSerializer<Bool> {
-
+    companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Bool"
+    }
+}
 
-        override fun deserialize(decoder: Decoder): Bool {
-            val value = decoder.decodeBoolean()
+object BoolSerializer : KSerializer<Bool> {
 
-            //TODO deserialize extensions and id
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("Bool")
 
-            return Bool(value)
-        }
+    override fun deserialize(decoder: Decoder): Bool {
+        val value = decoder.decodeBoolean()
 
-        override fun serialize(encoder: Encoder, value: Bool) {
-            encoder.encodeBoolean(value.value)
+        //TODO deserialize extensions and id
 
-            //TODO serialize extensions and id
-        }
+        return Bool(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: Bool) {
+        encoder.encodeBoolean(value.value)
+
+        //TODO serialize extensions and id
     }
 }

@@ -21,6 +21,8 @@ import care.data4life.hl7.fhir.stu3.json.XsDateTimeParser
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.*
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -53,7 +55,7 @@ interface FhirDateTime : FhirElement {
  * @param time     The FhirTime of the dateTime (optional)
  * @param timeZone The TimeZone of the dateTime (optional)
  */
-@Serializable
+@Serializable(with = DateTimeSerializer::class)
 @SerialName("DateTime")
 data class DateTime(
     override val value: XsDateTime,
@@ -71,24 +73,27 @@ data class DateTime(
         get() = resourceType()
 
 
-    @Serializer(forClass = DateTime::class)
-    companion object : KSerializer<DateTime> {
-
+    companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DateTime"
+    }
+}
 
-        override fun deserialize(decoder: Decoder): DateTime {
-            val value = XsDateTimeParser.parse(decoder.decodeString())
+object DateTimeSerializer : KSerializer<DateTime> {
 
-            //TODO deserialize extensions and id
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("DateTime")
 
-            return DateTime(value)
-        }
+    override fun deserialize(decoder: Decoder): DateTime {
+        val value = XsDateTimeParser.parse(decoder.decodeString())
 
-        override fun serialize(encoder: Encoder, value: DateTime) {
-            encoder.encodeString(XsDateTimeParser.format(value.value))
+        //TODO deserialize extensions and id
 
-            //TODO serialize extensions and id
-        }
+        return DateTime(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: DateTime) {
+        encoder.encodeString(XsDateTimeParser.format(value.value))
+
+        //TODO serialize extensions and id
     }
 }

@@ -23,7 +23,8 @@ import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -56,7 +57,7 @@ interface FhirInstant : FhirElement {
  *
  * @param value XsDateTime of the Instant.
  */
-@Serializable
+@Serializable(with = InstantSerializer::class)
 @SerialName("Instant")
 data class Instant(
     override val value: XsDateTime,
@@ -82,24 +83,27 @@ data class Instant(
         get() = resourceType()
 
 
-    @Serializer(forClass = Instant::class)
-    companion object : KSerializer<Instant> {
-
+    companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Instant"
+    }
+}
 
-        override fun deserialize(decoder: Decoder): Instant {
-            val value = XsDateTimeParser.parse(decoder.decodeString())
+object InstantSerializer : KSerializer<Instant> {
 
-            //TODO deserialize extensions and id
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("Instant")
 
-            return Instant(value)
-        }
+    override fun deserialize(decoder: Decoder): Instant {
+        val value = XsDateTimeParser.parse(decoder.decodeString())
 
-        override fun serialize(encoder: Encoder, value: Instant) {
-            encoder.encodeString(XsDateTimeParser.format(value.value))
+        //TODO deserialize extensions and id
 
-            //TODO serialize extensions and id
-        }
+        return Instant(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: Instant) {
+        encoder.encodeString(XsDateTimeParser.format(value.value))
+
+        //TODO serialize extensions and id
     }
 }

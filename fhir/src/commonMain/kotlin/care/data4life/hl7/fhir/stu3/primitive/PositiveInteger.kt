@@ -21,7 +21,8 @@ import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -48,8 +49,8 @@ interface FhirPositiveInteger : FhirElement {
  *
  * @param value Int
  */
-@Serializable
-@SerialName("PositiveInt")
+@Serializable(with = PositiveIntegerSerializer::class)
+@SerialName("PositiveInteger")
 data class PositiveInteger(
     // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28)
     override val value: kotlin.Long,
@@ -71,24 +72,27 @@ data class PositiveInteger(
         get() = resourceType()
 
 
-    @Serializer(forClass = PositiveInteger::class)
-    companion object : KSerializer<PositiveInteger> {
-
+    companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "PositiveInt"
+        fun resourceType(): kotlin.String = "PositiveInteger"
+    }
+}
 
-        override fun deserialize(decoder: Decoder): PositiveInteger {
-            val value = decoder.decodeLong()
+object PositiveIntegerSerializer : KSerializer<PositiveInteger> {
 
-            //TODO deserialize extensions and id
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("PositiveInteger")
 
-            return PositiveInteger(value)
-        }
+    override fun deserialize(decoder: Decoder): PositiveInteger {
+        val value = decoder.decodeLong()
 
-        override fun serialize(encoder: Encoder, value: PositiveInteger) {
-            encoder.encodeLong(value.value)
+        //TODO deserialize extensions and id
 
-            //TODO serialize extensions and id
-        }
+        return PositiveInteger(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: PositiveInteger) {
+        encoder.encodeLong(value.value)
+
+        //TODO serialize extensions and id
     }
 }
