@@ -42,7 +42,11 @@ class InstantTest(
             assertFails {
                 Instant(
                     XsDateTime(
-                        values["date"] as XsDate,
+                        XsDate(
+                            values["year"] as Int,
+                            values["month"] as Int?,
+                            values["day"] as Int?,
+                        ),
                         values["time"] as XsTime?,
                         values["timezone"] as XsTimeZone?,
                     ), id, extension
@@ -53,13 +57,19 @@ class InstantTest(
 
         val result = Instant(
             XsDateTime(
-                values["date"] as XsDate,
+                XsDate(
+                    values["year"] as Int,
+                    values["month"] as Int?,
+                    values["day"] as Int?,
+                ),
                 values["time"] as XsTime?,
                 values["timezone"] as XsTimeZone?,
             ), id, extension
         )
 
-        assertEquals(values["date"], result.value.date)
+        assertEquals(values["year"], result.value.date.year)
+        assertEquals(values["month"], result.value.date.month)
+        assertEquals(values["day"], result.value.date.day)
         assertEquals(values["time"], result.value.time)
         assertEquals(values["timezone"], result.value.timeZone)
 
@@ -75,14 +85,14 @@ class InstantTest(
                 // valid
                 arrayOf(
                     mapOf(
-                        "date" to XsDate(2021, 1, 31),
+                        "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
                     ), null, null, false
                 ),
                 arrayOf(
                     mapOf(
-                        "date" to XsDate(2021, 1, 31),
+                        "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
                     ), null, null, false
@@ -91,7 +101,7 @@ class InstantTest(
 
                 arrayOf(
                     mapOf(
-                        "date" to XsDate(2021, 1, 31),
+                        "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1, 0, false)
                     ), null, null, false
@@ -99,7 +109,7 @@ class InstantTest(
 
                 arrayOf(
                     mapOf(
-                        "date" to XsDate(2021, 1, 31),
+                        "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1)
                     ), null, null, false
@@ -108,23 +118,35 @@ class InstantTest(
                 // fails
                 // only date
                 // date incomplete
-//                arrayOf(mapOf("date" to XsDate(2021, null, 12)), null, null, true),
-                arrayOf(mapOf("date" to XsDate(2021, 5, null)), null, null, true),
+                arrayOf(
+                    mapOf(
+                        "year" to 2021, "month" to null, "day" to 12
+                    ), null, null, true
+                ),
+                arrayOf(
+                    mapOf(
+                        "year" to 2021, "month" to 5, "day" to null
+                    ), null, null, true
+                ),
 
                 // time not set
-                arrayOf(mapOf("date" to XsDate(2021, 5, 12)), null, null, true),
+                arrayOf(
+                    mapOf(
+                        "year" to 2021, "month" to 5, "day" to 12
+                    ), null, null, true
+                ),
                 // time incomplete
                 arrayOf(
                     mapOf(
-                        "date" to XsDate(2021, 5, null),
-                        "time" to XsTime(21, 32, 52),
+                        "year" to 2021, "month" to 5, "day" to 12,
+                        "time" to XsTime(21, 32, null),
                     ), null, null, true
                 ),
 
                 // timezone missing
                 arrayOf(
                     mapOf(
-                        "date" to XsDate(2021, 1, 31),
+                        "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52),
                         "timezone" to null
                     ), null, null, true
