@@ -45,7 +45,7 @@ data class FhirDecimalTestObject(
             value: Decimal
         ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
             resourceType(),
-            { "${value.value}" },
+            { if (value.value % 1.0 == 0.0) "${value.value.toLong()}" else "${value.value}" },
             value.extension,
             value.id
         )
