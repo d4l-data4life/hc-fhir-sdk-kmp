@@ -24,10 +24,10 @@ classmap = {
 
     'base64Binary': 'String',
 
-    'date': 'String', # 'Date',
-    'time': 'String', # 'Time',
-    'dateTime': 'String', # 'DateTime',
-    'instant': 'String', # 'Instant',
+    'date': 'Date',
+    'time': 'Time',
+    'dateTime': 'DateTime',
+    'instant': 'Instant',
 }
 
 # Classes of properties to be replaced with different ones at resource rendering time

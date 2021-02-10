@@ -41,7 +41,6 @@ object XsDateTimeFormatter {
                 null,
                 null,
                 null,
-                null,
                 null
             )
         } else if (date.month != null) {
@@ -54,11 +53,10 @@ object XsDateTimeFormatter {
                 null,
                 null,
                 null,
-                null,
                 null
             )
         } else {
-            doFormat(DATE_FORMAT_YEAR, date.year, null, null, null, null, null, null, null, null)
+            doFormat(DATE_FORMAT_YEAR, date.year, null, null, null, null, null, null, null)
         }
     }
 
@@ -72,8 +70,7 @@ object XsDateTimeFormatter {
                 dateTime.time.hour,
                 dateTime.time.minute,
                 dateTime.time.second,
-                dateTime.time.fractionOfSecond,
-                dateTime.time.fractionPadding,
+                dateTime.time.fraction,
                 dateTime.timeZone
             )
         } else {
@@ -90,8 +87,7 @@ object XsDateTimeFormatter {
             time.hour,
             time.minute,
             time.second,
-            time.fractionOfSecond,
-            time.fractionPadding,
+            time.fraction,
             null
         )
     }
@@ -104,8 +100,7 @@ object XsDateTimeFormatter {
         hour: Int?,
         minute: Int?,
         second: Int?,
-        fractionOfSecond: Int?,
-        fractionPadding: Int?,
+        fractionOfSecond: Double?,
         timeZone: XsTimeZone?
     ): String {
 
@@ -139,7 +134,7 @@ object XsDateTimeFormatter {
                 -> formatMinute(minute, buffer)
 
                 's' // parse seconds.
-                -> formatSecond(second, fractionOfSecond, fractionPadding, buffer)
+                -> formatSecond(second, fractionOfSecond, buffer)
 
                 'z' // time zone
                 -> formatTimeZone(timeZone, buffer)
@@ -198,20 +193,39 @@ object XsDateTimeFormatter {
 
     private fun formatSecond(
         second: Int?,
-        fractionOfSecond: Int?,
-        fractionPadding: Int?,
+        fractionOfSecond: Double?,
         buffer: StringBuilder
     ) {
         formatTwoDigits(second, buffer)
-        if (fractionOfSecond != null && fractionOfSecond > 0) {
-            buffer.append('.')
-            if (fractionPadding != null && fractionPadding != 0) {
-                for (i in 1..fractionPadding) {
-                    buffer.append("0")
-                }
-            }
-            buffer.append("$fractionOfSecond")
+        if (fractionOfSecond != null && fractionOfSecond > 0.0) {
+            formatFraction(fractionOfSecond, buffer)
         }
+    }
+
+    private fun formatFraction(
+        fraction: Double?,
+        buffer: StringBuilder
+    ){
+        buffer.append(".")
+        val fractionString = fraction.toString()
+        if (fractionString.contains("E")) {
+            formatFractionExponent(fractionString, buffer)
+        } else buffer.append(fractionString.substringAfter("."))
+    }
+
+    private fun formatFractionExponent(
+        fractionString: String,
+        buffer: StringBuilder
+    ) {
+        val fraction = fractionString.substringBefore("E")
+        val padding = fractionString.substringAfter("-").toInt()
+        for (i in 1 until padding) {
+            buffer.append("0")
+        }
+        if (fraction.contains(".")) {
+            val split = fraction.split(".")
+            buffer.append(split[0] + (if (split[1] != "0") split[1] else ""))
+        } else buffer.append(fraction)
     }
 
     /**

@@ -14,31 +14,34 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
 import care.data4life.hl7.fhir.stu3.model.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirResourceTestObject")
-data class FhirResourceTestObject(
+@SerialName("FhirContainedTestObject")
+data class FhirContainedTestObject(
+    override val text: Narrative? = null,
+    override val contained: List<FhirResource>? = null,
+    override val extension: List<Extension>? = null,
+    override val modifierExtension: List<Extension>? = null,
     override val id: String? = null,
     override val meta: Meta? = null,
     override val implicitRules: String? = null,
-    override val language: String? = null,
-    val value: String
-) : FhirResource {
+    override val language: String? = null
+) : FhirDomainResource {
 
     override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirResourceTestObject"
+        fun resourceType(): String = "FhirContainedTestObject"
 
-        const val jsonData = """{"resourceType":"FhirResourceTestObject","value":"value"}"""
+        const val jsonData = """{"resourceType":"FhirContainedTestObject","contained":[${FhirResourceTestObject.jsonData}]}"""
 
-        val testData = FhirResourceTestObject(value = "value")
+        val testData = FhirContainedTestObject( contained = listOf(FhirResourceTestObject.testData))
     }
 }

@@ -16,6 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.datetime
 
+import care.data4life.hl7.fhir.stu3.json.XsTimeParser
 import kotlinx.serialization.Serializable
 
 /**
@@ -34,16 +35,14 @@ import kotlinx.serialization.Serializable
  * @param hour             Hour of day, allowed range from 0 to 23
  * @param minute           Minute of the hour, allowed range from 0 to 59
  * @param second           Second of the minute, allowed range form 0 to 59
- * @param fractionOfSecond Fraction of the second
- * @param fractionPadding  Left padding of the fraction for leading zeros, e.g. 00001 = padding of 4
+ * @param fraction Fraction of the second
  */
 @Serializable
 data class XsTime(
     val hour: Int,
     val minute: Int,
-    val second: Int?,
-    val fractionOfSecond: Int?,
-    val fractionPadding: Int?
+    val second: Int? = null,
+    val fraction: Double? = null
 ) {
     init {
         require(hour >= 0) { "hour should be >= 0" }
@@ -57,13 +56,13 @@ data class XsTime(
             require(second <= 59) { "second should be <= 59" }
         }
 
-        if (fractionOfSecond != null) {
-            require(fractionOfSecond >= 0) { "fractionOfSecond should be >=0" }
+        if (fraction != null) {
+            require(fraction > 0.0) { "fraction should be > 0" }
+            require(fraction < 1.0) { "fraction should be < 1" }
         }
+    }
 
-        if (fractionPadding != null) {
-            requireNotNull(fractionOfSecond) { "if fractionPadding is provided, fractionOfSecond is needed too"}
-            require(fractionPadding >= 0) { "fractionPadding should be >=0" }
-        }
+    override fun toString(): String {
+        return XsTimeParser.format(this)
     }
 }

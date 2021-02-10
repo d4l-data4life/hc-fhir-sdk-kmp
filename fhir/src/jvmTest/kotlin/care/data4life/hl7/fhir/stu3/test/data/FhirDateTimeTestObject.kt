@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -14,18 +14,18 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.test.data
+package care.data4life.hl7.fhir.stu3.test.data
 
 import care.data4life.hl7.fhir.stu3.model.FhirResource
 import care.data4life.hl7.fhir.stu3.model.Meta
-import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("FhirBoolTestObject")
-data class FhirBoolTestObject(
-    val value: Bool,
+@SerialName("FhirDateTimeTestObject")
+data class FhirDateTimeTestObject(
+    val value: DateTime,
 
     // FhirResource
     override val id: String? = null,
@@ -39,19 +39,19 @@ data class FhirBoolTestObject(
 
     companion object {
         @JvmStatic
-        fun resourceType(): String = "FhirBoolTestObject"
+        fun resourceType(): String = "FhirDateTimeTestObject"
 
         fun jsonData(
-            value: Bool
+            value: DateTime
         ) = FhirPrimitiveTestObjectHelper.formatFhirJson(
             resourceType(),
-            { "${value.value}" },
+            { "\"${value.value}\"" },
             value.extension,
             value.id
         )
 
-        fun testData(value: Bool): FhirBoolTestObject {
-            return FhirBoolTestObject(value)
+        fun testData(value: DateTime): FhirDateTimeTestObject {
+            return FhirDateTimeTestObject(value)
         }
     }
 }

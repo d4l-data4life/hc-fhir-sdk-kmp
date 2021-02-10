@@ -27,22 +27,22 @@ class XsTimeParserTest {
     @Test
     fun `parse() SHOULD return a valid XsTime`() {
         assertEquals(
-            XsTime(21, 32, 52, null, null),
+            XsTime(21, 32, 52, null),
             XsTimeParser.parse("21:32:52")
         )
 
         assertEquals(
-            XsTime(21, 32, 52, 12679, null),
+            XsTime(21, 32, 52, .12679),
             XsTimeParser.parse("21:32:52.12679")
         )
 
         assertEquals(
-            XsTime(21, 32, 52, 1, 8),
+            XsTime(21, 32, 52, .000000001),
             XsTimeParser.parse("21:32:52.000000001")
         )
 
         assertEquals(
-            XsTime(21, 32, 52, 999999999, null),
+            XsTime(21, 32, 52, .999999999),
             XsTimeParser.parse("21:32:52.999999999")
         )
     }
@@ -81,35 +81,35 @@ class XsTimeParserTest {
     fun `format() SHOULD return well formed time string`() {
         assertEquals(
             "00:00:00",
-            XsTimeParser.format(XsTime(0, 0, null, null, null))
+            XsTimeParser.format(XsTime(0, 0, null, null))
         )
         assertEquals(
             "12:00:00",
-            XsTimeParser.format(XsTime(12, 0, null, null, null))
+            XsTimeParser.format(XsTime(12, 0, null, null))
         )
         assertEquals(
             "00:12:00",
-            XsTimeParser.format(XsTime(0, 12, null, null, null))
+            XsTimeParser.format(XsTime(0, 12, null, null))
         )
         assertEquals(
             "12:12:00",
-            XsTimeParser.format(XsTime(12, 12, null, null, null))
+            XsTimeParser.format(XsTime(12, 12, null, null))
         )
         assertEquals(
             "12:12:12",
-            XsTimeParser.format(XsTime(12, 12, 12, null, null))
+            XsTimeParser.format(XsTime(12, 12, 12, null))
         )
         assertEquals(
             "01:02:03",
-            XsTimeParser.format(XsTime(1, 2, 3, null, null))
+            XsTimeParser.format(XsTime(1, 2, 3, null))
         )
         assertEquals(
             "12:12:12.12345",
-            XsTimeParser.format(XsTime(12, 12, 12, 12345, null))
+            XsTimeParser.format(XsTime(12, 12, 12, .12345))
         )
         assertEquals(
             "12:12:12.00001",
-            XsTimeParser.format(XsTime(12, 12, 12, 1, 4))
+            XsTimeParser.format(XsTime(12, 12, 12, .00001))
         )
     }
 }

@@ -16,10 +16,14 @@
 
 package care.data4life.hl7.fhir.stu3.json
 
+import care.data4life.hl7.fhir.stu3.datetime.XsDate
+import care.data4life.hl7.fhir.stu3.datetime.XsDateTime
+import care.data4life.hl7.fhir.stu3.datetime.XsTime
+import care.data4life.hl7.fhir.stu3.datetime.XsTimeZone
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
-import care.data4life.hl7.fhir.stu3.primitive.PositiveInteger
-import care.data4life.hl7.fhir.stu3.test.data.FhirPositiveIntegerTestObject
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.test.data.FhirDateTimeTestObject
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore
@@ -27,21 +31,23 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
 
-class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
+class DateTimeJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
+
 
     @Test
     fun `Given, fromJson() is called with malformed JSON, it throws exception`() {
         assertFails {
-            parser.fromJson(fhirResourceType, "malformed")
+            parser.fromJson(DateTime::class, "malformed")
         }
     }
 
+
     @Test
-    fun `Given, fromJson() is called with value only, it returns a FhirPrimitiveObject`() {
+    fun `Given, fromJson() is called with value only, it returns a DateTime`() {
         // Given
-        val value = 9223372036854775807L
-        val input = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value))
-        val expected = PositiveInteger(value = value)
+        val value = testValue
+        val input = FhirDateTimeTestObject.jsonData(DateTime(value = value))
+        val expected = DateTime(value = value)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -52,12 +58,12 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with id, it returns a PositiveInteger`() {
+    fun `Given, fromJson() is called with value and sibling object with id, it returns a DateTime`() {
         // Given
-        val value = 9223372036854775807L
+        val value = testValue
         val id = "12979787a32339"
-        val input = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value, id = id))
-        val expected = PositiveInteger(value = value, id = id)
+        val input = FhirDateTimeTestObject.jsonData(DateTime(value = value, id = id))
+        val expected = DateTime(value = value, id = id)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -68,17 +74,12 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with extension, it returns a PositiveInteger`() {
+    fun `Given, fromJson() is called with value and sibling object with extension, it returns a DateTime`() {
         // Given
-        val value = 9223372036854775807L
+        val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
-        val input = FhirPositiveIntegerTestObject.jsonData(
-            PositiveInteger(
-                value = value,
-                extension = extension
-            )
-        )
-        val expected = PositiveInteger(value = value, extension = extension)
+        val input = FhirDateTimeTestObject.jsonData(DateTime(value = value, extension = extension))
+        val expected = DateTime(value = value, extension = extension)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -89,19 +90,15 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
     @Test
     @Ignore
-    fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a PositiveInteger`() {
+    fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a DateTime`() {
         // Given
-        val value = 9223372036854775807L
+        val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input = FhirPositiveIntegerTestObject.jsonData(
-            PositiveInteger(
-                value = value,
-                extension = extension,
-                id = id
-            )
+        val input = FhirDateTimeTestObject.jsonData(
+            DateTime(value = value, extension = extension, id = id)
         )
-        val expected = PositiveInteger(value = value, extension = extension, id = id)
+        val expected = DateTime(value = value, extension = extension, id = id)
 
         // When
         val result = parser.fromJson(fhirResourceType, input)
@@ -114,9 +111,9 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Test
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {
         // Given
-        val value = 9223372036854775807L
-        val input = FhirPositiveIntegerTestObject.testData(PositiveInteger(value = value))
-        val expected = FhirPositiveIntegerTestObject.jsonData(PositiveInteger(value = value))
+        val value = testValue
+        val input = FhirDateTimeTestObject.testData(DateTime(value = value))
+        val expected = FhirDateTimeTestObject.jsonData(DateTime(value = value))
 
         // When
         val result = parser.toJson(input)
@@ -129,11 +126,11 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with value and id, it returns a JSON with the value as property and the id in a sibling property object`() {
         // Given
-        val value = 9223372036854775807L
+        val value = testValue
         val id = "12979787a32339"
-        val input = FhirPositiveIntegerTestObject.testData(PositiveInteger(value = value, id = id))
-        val expected = FhirPositiveIntegerTestObject.jsonData(
-            PositiveInteger(value = value, id = id)
+        val input = FhirDateTimeTestObject.testData(DateTime(value = value, id = id))
+        val expected = FhirDateTimeTestObject.jsonData(
+            DateTime(value = value, id = id)
         )
 
         // When
@@ -147,16 +144,16 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with value and extension, it returns a JSON with the value as property and the extension in a sibling property object`() {
         // Given
-        val value = 9223372036854775807L
+        val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
-        val input = FhirPositiveIntegerTestObject.testData(
-            PositiveInteger(
+        val input = FhirDateTimeTestObject.testData(
+            DateTime(
                 value = value,
                 extension = extension
             )
         )
-        val expected = FhirPositiveIntegerTestObject.jsonData(
-            PositiveInteger(
+        val expected = FhirDateTimeTestObject.jsonData(
+            DateTime(
                 value = value,
                 extension = extension
             )
@@ -173,18 +170,18 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with all properties set, it returns a JSON with the value as property and the extension and id in a sibling property object`() {
         // Given
-        val value = 9223372036854775807L
+        val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input = FhirPositiveIntegerTestObject.testData(
-            PositiveInteger(
+        val input = FhirDateTimeTestObject.testData(
+            DateTime(
                 value = value,
                 extension = extension,
                 id = id
             )
         )
-        val expected = FhirPositiveIntegerTestObject.jsonData(
-            PositiveInteger(
+        val expected = FhirDateTimeTestObject.jsonData(
+            DateTime(
                 value = value,
                 extension = extension,
                 id = id
@@ -203,6 +200,12 @@ class PositiveIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     }
 
     companion object {
-        val fhirResourceType = FhirPositiveIntegerTestObject::class
+        val fhirResourceType = FhirDateTimeTestObject::class
+
+        val testValue = XsDateTime(
+            XsDate(2021, 1, 15),
+            XsTime(12, 12, 50, .1234567),
+            XsTimeZone(1, 15)
+        )
     }
 }

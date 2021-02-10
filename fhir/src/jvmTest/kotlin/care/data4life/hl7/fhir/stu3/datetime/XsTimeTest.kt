@@ -28,8 +28,8 @@ class XsTimeTest(
     private var hour: Int,
     private var minute: Int,
     private var second: Int?,
-    private var fractionOfSecond: Int?,
-    private var fractionPadding: Int?,
+    private var fraction: Double?,
+    private var stringFormat: String,
 
     private var shouldFail: Boolean
 ) {
@@ -38,60 +38,58 @@ class XsTimeTest(
     fun test() {
         if (shouldFail) {
             assertFails {
-                XsTime(hour, minute, second, fractionOfSecond, fractionPadding)
+                XsTime(hour, minute, second, fraction)
             }
             return
         }
 
-        val time = XsTime(hour, minute, second, fractionOfSecond, fractionPadding)
+        val time = XsTime(hour, minute, second, fraction)
 
         assertEquals(hour, time.hour)
         assertEquals(minute, time.minute)
         assertEquals(second, time.second)
-        assertEquals(fractionOfSecond, time.fractionOfSecond)
-        assertEquals(fractionPadding, time.fractionPadding)
+        assertEquals(fraction, time.fraction)
+        assertEquals(stringFormat, time.toString())
     }
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index}: hour: \"{0}\" minute: \"{1}\" second: \"{2}\" fractionOfSecond: \"{3}\"  fractionPadding: \"{4}\" shouldFail: \"{5}\"")
+        @Parameterized.Parameters(name = "{index}: hour: \"{0}\" minute: \"{1}\" second: \"{2}\" fractionOfSecond: \"{3}\" stringFormat: \"{4}\" shouldFail: \"{5}\"")
         fun data(): Iterable<Array<Any?>> {
             return arrayListOf(
                 // hour
-                arrayOf(0, 0, null, null, null, false),
-                arrayOf(23, 0, null, null, null, false),
+                arrayOf(0, 0, null, null, "00:00:00", false),
+                arrayOf(23, 0, null, null, "23:00:00", false),
 
                 // minute
-                arrayOf(12, 0, null, null, null, false),
-                arrayOf(12, 59, null, null, null, false),
+                arrayOf(12, 0, null, null, "12:00:00", false),
+                arrayOf(12, 59, null, null, "12:59:00", false),
 
                 // second
-                arrayOf(12, 0, 0, null, null, false),
-                arrayOf(12, 0, 59, null, null, false),
+                arrayOf(12, 0, 0, null, "12:00:00", false),
+                arrayOf(12, 0, 59, null, "12:00:59", false),
 
                 // fraction
-                arrayOf(12, 0, 59, 123, null, false),
-                arrayOf(12, 0, 59, 123, 2, false),
-                arrayOf(12, 0, 59, 1, 4, false),
+                arrayOf(12, 0, 59, .123, "12:00:59.123", false),
+                arrayOf(12, 0, 59, .00123, "12:00:59.00123", false),
+                arrayOf(12, 0, 59, .0001, "12:00:59.0001", false),
 
 
                 // error cases
                 // hour
-                arrayOf(-1, 0, null, null, null, true),
-                arrayOf(24, 0, null, null, null, true),
+                arrayOf(-1, 0, null, null, "", true),
+                arrayOf(24, 0, null, null, "", true),
 
                 // minute
-                arrayOf(12, -1, null, null, null, true),
-                arrayOf(12, 60, null, null, null, true),
+                arrayOf(12, -1, null, null, "", true),
+                arrayOf(12, 60, null, null, "", true),
 
                 // second
-                arrayOf(12, 0, -1, null, null, true),
-                arrayOf(12, 0, 60, null, null, true),
+                arrayOf(12, 0, -1, null, "", true),
+                arrayOf(12, 0, 60, null, "", true),
 
                 // fraction
-                arrayOf(12, 0, 59, -123, null, true),
-                arrayOf(12, 0, 59, 123, -2, true),
-                arrayOf(12, 0, 59, null, 2, true),
+                arrayOf(12, 0, 59, -.123, "", true),
             )
         }
     }

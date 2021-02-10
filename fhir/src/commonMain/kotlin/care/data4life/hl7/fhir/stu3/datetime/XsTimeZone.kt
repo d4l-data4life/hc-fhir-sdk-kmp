@@ -45,9 +45,9 @@ data class XsTimeZone(
         require(minuteOffset <= 59) { "minute should be <= 59" }
 
         if (!zeroOffsetGMT) {
-            require(hourOffset == 0) { "if zeroOffsetGMT is provided, hourOffset must to be 0" }
-            require(minuteOffset == 0) { "if zeroOffsetGMT is provided, minuteOffset must to be 0" }
-            require(positiveOffset) { "if zeroOffsetGMT is false, positiveOffset must to be true" }
+            require(hourOffset == 0) { "if zeroOffsetGMT is provided, hourOffset must be 0" }
+            require(minuteOffset == 0) { "if zeroOffsetGMT is provided, minuteOffset must be 0" }
+            require(positiveOffset) { "if zeroOffsetGMT is false, positiveOffset must be true" }
         }
     }
 }

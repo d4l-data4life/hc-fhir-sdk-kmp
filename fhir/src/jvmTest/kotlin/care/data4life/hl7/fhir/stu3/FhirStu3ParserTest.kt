@@ -17,7 +17,7 @@
 package care.data4life.hl7.fhir.stu3
 
 import care.data4life.hl7.fhir.stu3.json.FhirStu3JsonParser
-import care.data4life.hl7.fhir.test.data.FhirSimpleTestObject
+import care.data4life.hl7.fhir.stu3.test.data.FhirSimpleTestObject
 import io.mockk.confirmVerified
 import io.mockk.mockk
 import io.mockk.verify
