@@ -37,6 +37,7 @@ import kotlin.test.assertEquals
  * {{ class.formal }}
  * {%- endif %}
  */
+@Suppress("UNNECESSARY_SAFE_CALL")
 @Generated("Generated from FHIR {{ info.version }}")
 class {{ class.name }}Test {
 
@@ -52,7 +53,7 @@ class {{ class.name }}Test {
 
 		{% for test in tcase.tests -%}
 		{%- if test.enum %}
-		assertEquals(data.{{ test.path }}, {{ test.enum }}.
+		assertEquals({{ test.enum }}.
 		{%- if test.value == "=" -%}
 		EQUAL
 		{%- else -%}
@@ -77,41 +78,35 @@ class {{ class.name }}Test {
 		{%- endif %}
 		{%- endif %}
 		{%- endif %}
-		{%- endif %})
+		{%- endif %}, data.{{ test.path }})
 		{%- else %}{% if "String" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, "{{ test.value|replace('"', '\\"') }}")
+		assertEquals("{{ test.value|replace('"', '\\"') }}", data.{{ test.path }})
 		{%- else %}{% if "Decimal" == test.klass.name %}
-		assertEquals(data.{{ test.path }}.toString(), "{{ test.value }}")
-		{%- else %}{% if "Double" == test.klass.name %}
-		assertEquals(data.{{ test.path }}{{ test.value }}d)
+		assertEquals("{{ test.value }}".toDouble(), data.{{ test.path }}?.value)
 		{%- else %}{% if "Integer" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, Integer({{ test.value }}), "{{ test.value }}")
+		assertEquals("{{ test.value }}".toInt(), data.{{ test.path }}?.value)
 		{%- else %}{% if "PositiveInteger" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, PositiveInteger({{ test.value }}), "{{ test.value }}")
+		assertEquals("{{ test.value }}".toLong(), data.{{ test.path }}?.value)
 		{%- else %}{% if "UnsignedInteger" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, UnsignedInteger({{ test.value }}), "{{ test.value }}")
+		assertEquals("{{ test.value }}".toLong(), data.{{ test.path }}?.value)
 		{%- else %}{% if "Bool" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, Bool({% if test.value %}true{% else %}false{% endif %}))
+		assertEquals("{{ test.value }}".toBoolean(), data.{{ test.path }}?.value)
 		{%- else %}{% if "Date" == test.klass.name %}
-		assertEquals(data.{{ test.path }}{% if not test.array_item %}?{% endif %}.toString(), "{{ test.value }}")
+		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString())
 		{%- else %}{% if "DateTime" == test.klass.name %}
-		assertEquals(data.{{ test.path }}{% if not test.array_item %}?{% endif %}.toString(), "{{ test.value }}")
+		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString(), )
 		{%- else %}{% if "Instant" == test.klass.name %}
-		assertEquals(data.{{ test.path }}{% if not test.array_item %}?{% endif %}.toString(), "{{ test.value }}")
+		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString(), )
 		{%- else %}{% if "Time" == test.klass.name %}
-		assertEquals(data.{{ test.path }}{% if not test.array_item %}?{% endif %}.toString(), "{{ test.value }}")
-		{%- else %}{% if "URL" == test.klass.name %}
-		assertEquals(data.{{ test.path }}.toString(), "{{ test.value }}")
-		{%- else %}{% if "Base64Binary" == test.klass.name %}
-		assertEquals(data.{{ test.path }}, Base64Binary(value: "{{ test.value }}"))
+		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString())
 		{%- else %}
 		//FIXME Don't know how to create unit test for "{{ test.path }}", which is a {{ test.klass.name }}
-		{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+		{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
 		{%- endfor %}
 
 		val json = parser.fromFhir(data)
 
-		JSONAssert.assertEquals(sourceJson, json, false)
+		JSONAssert.assertEquals(sourceJson, json, true)
 	}
 	{%- endfor %}
 }
