@@ -95,8 +95,9 @@ class DateTimeJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         val value = testValue
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
-        val input =
-            FhirDateTimeTestObject.jsonData(DateTime(value = value, extension = extension, id = id))
+        val input = FhirDateTimeTestObject.jsonData(
+            DateTime(value = value, extension = extension, id = id)
+        )
         val expected = DateTime(value = value, extension = extension, id = id)
 
         // When

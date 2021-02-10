@@ -198,20 +198,34 @@ object XsDateTimeFormatter {
     ) {
         formatTwoDigits(second, buffer)
         if (fractionOfSecond != null && fractionOfSecond > 0.0) {
-            buffer.append(".")
-            val fractionString = fractionOfSecond.toString()
-            if (fractionString.contains("E")) {
-                val fraction = fractionString.substringBefore("E")
-                val padding = fractionString.substringAfter("-").toInt()
-                for (i in 1 until padding) {
-                    buffer.append("0")
-                }
-                if (fraction.contains(".")) {
-                    val split = fraction.split(".")
-                    buffer.append(split[0] + (if (split[1] != "0") split[1] else ""))
-                } else buffer.append(fraction)
-            } else buffer.append(fractionString.substringAfter("."))
+            formatFraction(fractionOfSecond, buffer)
         }
+    }
+
+    private fun formatFraction(
+        fraction: Double?,
+        buffer: StringBuilder
+    ){
+        buffer.append(".")
+        val fractionString = fraction.toString()
+        if (fractionString.contains("E")) {
+            formatFractionExponent(fractionString, buffer)
+        } else buffer.append(fractionString.substringAfter("."))
+    }
+
+    private fun formatFractionExponent(
+        fractionString: String,
+        buffer: StringBuilder
+    ) {
+        val fraction = fractionString.substringBefore("E")
+        val padding = fractionString.substringAfter("-").toInt()
+        for (i in 1 until padding) {
+            buffer.append("0")
+        }
+        if (fraction.contains(".")) {
+            val split = fraction.split(".")
+            buffer.append(split[0] + (if (split[1] != "0") split[1] else ""))
+        } else buffer.append(fraction)
     }
 
     /**
