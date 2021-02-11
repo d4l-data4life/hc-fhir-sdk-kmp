@@ -41,7 +41,7 @@ class DecimalJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Test
     fun `Given, fromJson() is called with value only, it returns a Decimal`() {
         // Given
-        val value = 1.0
+        val value = 1.1
         val input = FhirDecimalTestObject.jsonData(Decimal(value = value))
         val expected = Decimal(value = value)
 
@@ -56,7 +56,7 @@ class DecimalJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, fromJson() is called with value and sibling object with id, it returns a Decimal`() {
         // Given
-        val value = 1.0
+        val value = 1.1
         val id = "12979787a32339"
         val input = FhirDecimalTestObject.jsonData(Decimal(value = value, id = id))
         val expected = Decimal(value = value, id = id)
@@ -88,7 +88,7 @@ class DecimalJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, fromJson() is called with value and sibling object with extension and id, it returns a Decimal`() {
         // Given
-        val value = 1.0
+        val value = 1.1
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
         val input = FhirDecimalTestObject.jsonData(Decimal(value = value, extension = extension, id = id))
@@ -105,6 +105,20 @@ class DecimalJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Test
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {
         // Given
+        val value = 1.1
+        val input = FhirDecimalTestObject.testData(Decimal(value = value))
+        val expected = FhirDecimalTestObject.jsonData(Decimal(value = value))
+
+        // When
+        val result = parser.toJson(input)
+
+        // Then
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Given, toJson() is called with whole number, it returns a JSON with only the whole value`() {
+        // Given
         val value = 1.0
         val input = FhirDecimalTestObject.testData(Decimal(value = value))
         val expected = FhirDecimalTestObject.jsonData(Decimal(value = value))
@@ -120,7 +134,7 @@ class DecimalJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with value and id, it returns a JSON with the value as property and the id in a sibling property object`() {
         // Given
-        val value = 1.0
+        val value = 1.1
         val id = "12979787a32339"
         val input = FhirDecimalTestObject.testData(Decimal(value = value, id = id))
         val expected = FhirDecimalTestObject.jsonData(
@@ -138,7 +152,7 @@ class DecimalJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with value and extension, it returns a JSON with the value as property and the extension in a sibling property object`() {
         // Given
-        val value = 1.0
+        val value = 1.1
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val input = FhirDecimalTestObject.testData(
             Decimal(
@@ -164,7 +178,7 @@ class DecimalJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
     @Ignore
     fun `Given, toJson() is called with all properties set, it returns a JSON with the value as property and the extension and id in a sibling property object`() {
         // Given
-        val value = 1.0
+        val value = 1.1
         val extension = listOf(Extension(url = "some url", valueString = "value as String"))
         val id = "12979787a32339"
         val input = FhirDecimalTestObject.testData(

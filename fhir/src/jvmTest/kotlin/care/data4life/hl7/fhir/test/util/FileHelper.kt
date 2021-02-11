@@ -14,26 +14,17 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.stu3
+package care.data4life.hl7.fhir.test.util
 
-import care.data4life.hl7.fhir.parser.FhirParser
-import care.data4life.hl7.fhir.stu3.json.FhirStu3JsonParser
-import care.data4life.hl7.fhir.stu3.model.FhirStu3
-import kotlin.reflect.KClass
+import java.io.IOException
+import java.nio.charset.StandardCharsets
 
-class FhirStu3Parser(
-    private val jsonParser: FhirStu3JsonParser = defaultJsonParser()
-) : FhirParser<FhirStu3> {
+object FileHelper {
+    private val FILE_ENCODING = StandardCharsets.UTF_8
 
-    override fun <T : FhirStu3> toFhir(fhirType: KClass<T>, fhirData: String): T {
-        return jsonParser.fromJson(fhirType, fhirData)
+    @Throws(IOException::class)
+    fun loadAsString(fileName: String): String {
+        return this::class.java.classLoader.getResource(fileName).readText(FILE_ENCODING)
     }
 
-    override fun <T : FhirStu3> fromFhir(fhirObject: T): String {
-        return jsonParser.toJson(fhirObject)
-    }
-
-    companion object {
-        fun defaultJsonParser() = FhirStu3JsonParser()
-    }
 }

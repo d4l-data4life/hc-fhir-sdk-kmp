@@ -40,8 +40,9 @@ data class FhirContainedTestObject(
         @JvmStatic
         fun resourceType(): String = "FhirContainedTestObject"
 
-        const val jsonData = """{"resourceType":"FhirContainedTestObject","contained":[${FhirResourceTestObject.jsonData}]}"""
+        const val jsonData =
+            """{"resourceType":"FhirContainedTestObject","contained":[${FhirResourceTestObject.jsonData}]}"""
 
-        val testData = FhirContainedTestObject( contained = listOf(FhirResourceTestObject.testData))
+        val testData = FhirContainedTestObject(contained = listOf(FhirResourceTestObject.testData))
     }
 }

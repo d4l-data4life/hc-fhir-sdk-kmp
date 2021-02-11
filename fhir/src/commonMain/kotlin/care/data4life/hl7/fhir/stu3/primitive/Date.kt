@@ -23,7 +23,8 @@ import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -47,7 +48,7 @@ interface FhirDate : FhirElement {
  * @see [Date](http://hl7.org/fhir/STU3/datatypes.html#date)
  *
  */
-@Serializable
+@Serializable(with = DateSerializer::class)
 @SerialName("Date")
 data class Date(
     override val value: XsDate,
@@ -64,33 +65,28 @@ data class Date(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
-    @Serializer(forClass = Date::class)
-    companion object : KSerializer<Date> {
-
+    companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Date"
-
-
-        // Serializer
-        override fun deserialize(decoder: Decoder): Date {
-            val value = XsDateParser.parse(decoder.decodeString())
-
-            //TODO deserialize extensions and id
-
-            return Date(value)
-        }
-
-        override fun serialize(encoder: Encoder, value: Date) {
-            encoder.encodeString(XsDateParser.format(value.value))
-
-            //TODO serialize extensions and id
-        }
     }
 }
 
+object DateSerializer : KSerializer<Date> {
 
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("Date")
 
+    // Serializer
+    override fun deserialize(decoder: Decoder): Date {
+        val value = XsDateParser.parse(decoder.decodeString())
 
+        //TODO deserialize extensions and id
 
+        return Date(value)
+    }
 
+    override fun serialize(encoder: Encoder, value: Date) {
+        encoder.encodeString(XsDateParser.format(value.value))
+
+        //TODO serialize extensions and id
+    }
+}

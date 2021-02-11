@@ -21,7 +21,8 @@ import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -51,7 +52,7 @@ interface FhirDecimal : FhirElement {
  *
  * @param value kotlin.Double
  */
-@Serializable
+@Serializable(with = DecimalSerializer::class)
 @SerialName("Decimal")
 data class Decimal(
     // TODO use BigDecimal for necessary precision
@@ -69,26 +70,32 @@ data class Decimal(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
-    @Serializer(forClass = Decimal::class)
-    companion object : KSerializer<Decimal> {
-
+    companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Decimal"
+    }
+}
 
-        override fun deserialize(decoder: Decoder): Decimal {
-            val value = decoder.decodeDouble()
+object DecimalSerializer : KSerializer<Decimal> {
 
-            //TODO deserialize extensions and id
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("Decimal")
 
-            return Decimal(value)
-        }
+    override fun deserialize(decoder: Decoder): Decimal {
+        val value = decoder.decodeDouble()
 
-        override fun serialize(encoder: Encoder, value: Decimal) {
+        //TODO deserialize extensions and id
+
+        return Decimal(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: Decimal) {
+        if (value.value % 1.0 == 0.0) {
+            encoder.encodeLong(value.value.toLong())
+        } else {
             encoder.encodeDouble(value.value)
-
-            //TODO serialize extensions and id
         }
+
+        //TODO serialize extensions and id
     }
 }
 

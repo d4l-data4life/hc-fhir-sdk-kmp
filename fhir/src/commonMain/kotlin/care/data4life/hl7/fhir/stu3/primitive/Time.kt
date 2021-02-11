@@ -23,7 +23,8 @@ import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -45,7 +46,7 @@ interface FhirTime : FhirElement {
  *
  * @see [Time](http://hl7.org/fhir/STU3/datatypes.html#time)
  */
-@Serializable
+@Serializable(with = TimeSerializer::class)
 @SerialName("Time")
 data class Time(
     override val value: XsTime,
@@ -67,25 +68,27 @@ data class Time(
         get() = resourceType()
 
 
-    @Serializer(forClass = Time::class)
-    companion object : KSerializer<Time> {
-
+    companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Time"
+    }
+}
 
-        // Serializer
-        override fun deserialize(decoder: Decoder): Time {
-            val value = XsTimeParser.parse(decoder.decodeString())
+object TimeSerializer : KSerializer<Time> {
 
-            //TODO deserialize extensions and id
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("Time")
 
-            return Time(value)
-        }
+    override fun deserialize(decoder: Decoder): Time {
+        val value = XsTimeParser.parse(decoder.decodeString())
 
-        override fun serialize(encoder: Encoder, value: Time) {
-            encoder.encodeString(XsTimeParser.format(value.value))
+        //TODO deserialize extensions and id
 
-            //TODO serialize extensions and id
-        }
+        return Time(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: Time) {
+        encoder.encodeString(XsTimeParser.format(value.value))
+
+        //TODO serialize extensions and id
     }
 }

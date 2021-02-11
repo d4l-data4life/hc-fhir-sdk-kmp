@@ -21,7 +21,8 @@ import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlin.jvm.JvmStatic
@@ -48,8 +49,8 @@ interface FhirUnsignedInteger : FhirElement {
  *
  * @param value Int
  */
-@Serializable
-@SerialName("UnsignedInt")
+@Serializable(with = UnsignedIntegerSerializer::class)
+@SerialName("UnsignedInteger")
 data class UnsignedInteger(
     // TODO could be replaced by kotlin.UInt when not experimental anymore (last check 2021-01-28)
     override val value: kotlin.Long,
@@ -71,24 +72,28 @@ data class UnsignedInteger(
         get() = resourceType()
 
 
-    @Serializer(forClass = UnsignedInteger::class)
-    companion object : KSerializer<UnsignedInteger> {
-
+    companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "UnsignedInt"
-
-        override fun deserialize(decoder: Decoder): UnsignedInteger {
-            val value = decoder.decodeLong()
-
-            //TODO deserialize extensions and id
-
-            return UnsignedInteger(value)
-        }
-
-        override fun serialize(encoder: Encoder, value: UnsignedInteger) {
-            encoder.encodeLong(value.value)
-
-            //TODO serialize extensions and id
-        }
+        fun resourceType(): kotlin.String = "UnsignedInteger"
     }
+}
+
+object UnsignedIntegerSerializer : KSerializer<UnsignedInteger> {
+
+    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("UnsignedInteger")
+
+    override fun deserialize(decoder: Decoder): UnsignedInteger {
+        val value = decoder.decodeLong()
+
+        //TODO deserialize extensions and id
+
+        return UnsignedInteger(value)
+    }
+
+    override fun serialize(encoder: Encoder, value: UnsignedInteger) {
+        encoder.encodeLong(value.value)
+
+        //TODO serialize extensions and id
+    }
+
 }

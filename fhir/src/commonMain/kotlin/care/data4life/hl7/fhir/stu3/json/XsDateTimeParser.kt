@@ -34,8 +34,8 @@ object XsDateTimeParser : StringParser<XsDateTime> {
         val (date, time, timeZone) = match!!.destructured
 
         val xsDate = XsDateParser.parse(date ?: input)
-        val xsTime = if(time.isNotEmpty()) XsTimeParser.parse(time) else null
-        val xsTimeZone = if(timeZone.isNotEmpty()) XsTimeZoneParser.parse(timeZone) else null
+        val xsTime = if (time.isNotEmpty()) XsTimeParser.parse(time) else null
+        val xsTimeZone = if (timeZone.isNotEmpty()) XsTimeZoneParser.parse(timeZone) else null
         return XsDateTime(xsDate, xsTime, xsTimeZone)
     }
 

@@ -30,7 +30,7 @@ tpl_dependencies_source = 'template-serialization.kt'       # template used to r
 tpl_dependencies_target = 'models/FhirSerializationModule.kt'      # write serialization module
 
 #Whether and where to write unit tests
-write_unittests = False
+write_unittests = True
 tpl_unittest_source = 'template-unittest.kt'                # the template to use for unit test generation
 tpl_unittest_target = 'tests'                               # target directory to write the generated unit test files to
 tpl_unittest_target_ptrn = '{}Test.kt'                      # a pattern to determine the output files for unit tests; the one placeholder will be the class name
