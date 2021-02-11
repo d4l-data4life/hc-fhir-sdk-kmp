@@ -16,12 +16,6 @@
 
 object Dependencies {
 
-    object GradlePlugin {
-        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-        const val kotlinAllOpen = "org.jetbrains.kotlin:kotlin-allopen:${Versions.kotlin}"
-        const val kotlinSerialization = "org.jetbrains.kotlin.plugin.serialization:${Versions.kotlin}"
-    }
-
     val kotlin = Kotlin
 
     object Kotlin {
