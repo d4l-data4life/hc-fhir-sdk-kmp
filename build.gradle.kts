@@ -17,6 +17,7 @@ plugins {
 
     dependencyUpdates()
 
+    id("scripts.download-scripts")
     id("scripts.versioning")
     id("scripts.publishing")
 }
