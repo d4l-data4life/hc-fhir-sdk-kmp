@@ -21,7 +21,6 @@ plugins {
 repositories {
     gradlePluginPortal()
     mavenCentral()
-    maven("https://dl.bintray.com/data4life/maven")
 }
 
 dependencies {
@@ -30,7 +29,7 @@ dependencies {
     // download scripts
     implementation("de.undercouch:gradle-download-task:4.1.1")
     // publishing.gradle.kts
-    implementation("care.data4life:gradle-git-publish:3.2.0")
+    implementation("org.eclipse.jgit:org.eclipse.jgit:5.11.0.202103091610-r")
     // versioning.gradle.kts
     implementation("com.palantir.gradle.gitversion:gradle-git-version:0.12.3")
 }
