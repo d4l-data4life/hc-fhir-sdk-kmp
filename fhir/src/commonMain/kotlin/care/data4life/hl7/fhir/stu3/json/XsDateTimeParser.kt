@@ -16,8 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.json
 
+import care.data4life.hl7.fhir.common.datetime.XsDateTime
 import care.data4life.hl7.fhir.parser.json.StringParser
-import care.data4life.hl7.fhir.stu3.datetime.XsDateTime
 
 object XsDateTimeParser : StringParser<XsDateTime> {
 

@@ -16,7 +16,11 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-import care.data4life.hl7.fhir.stu3.codesystem.*
+import care.data4life.hl7.fhir.stu3.codesystem.CodeSystemContentMode
+import care.data4life.hl7.fhir.stu3.codesystem.CodeSystemHierarchyMeaning
+import care.data4life.hl7.fhir.stu3.codesystem.FilterOperator
+import care.data4life.hl7.fhir.stu3.codesystem.PropertyType
+import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.stu3.primitive.Bool
 import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import care.data4life.hl7.fhir.stu3.primitive.Integer
