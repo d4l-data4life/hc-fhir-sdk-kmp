@@ -14,7 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.stu3.json
+package care.data4life.hl7.fhir.common.datetime.parser
 
 import care.data4life.hl7.fhir.common.datetime.XsDate
 import care.data4life.hl7.fhir.parser.json.StringParser

@@ -25,7 +25,7 @@ toc::[]
 === Changed
 
 * Change FHIR STU3 config to allow multiple FHIR versions
-* Change XsDateTime implementation to common for reuse in different FHIR versions
+* Change XsDateTime implementation and parser to common for reuse in different FHIR versions
 
 === Removed
 
