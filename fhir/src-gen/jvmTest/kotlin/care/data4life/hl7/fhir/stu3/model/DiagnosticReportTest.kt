@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -44,10 +44,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport1() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-f202-bloodculture.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("#req", data.basedOn?.get(0)?.reference)
         assertEquals("15220000", data.category?.coding?.get(0)?.code)
@@ -90,10 +93,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport2() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-ghp.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("GHP", data.code?.coding?.get(0)?.code)
         assertEquals("General Health Profile", data.code?.coding?.get(0)?.display)
@@ -142,10 +148,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport3() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-lipids.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("HM", data.category?.coding?.get(0)?.code)
         assertEquals("http://hl7.org/fhir/v2/0074", data.category?.coding?.get(0)?.system)
@@ -182,10 +191,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport4() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-f001-bloodexam.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("#req", data.basedOn?.get(0)?.reference)
         assertEquals("252275004", data.category?.coding?.get(0)?.code)
@@ -228,10 +240,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport5() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-ultrasound.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("394914008", data.category?.coding?.get(0)?.code)
         assertEquals("Radiology", data.category?.coding?.get(0)?.display)
@@ -264,10 +279,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport6() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-f201-brainct.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("394914008", data.category?.coding?.get(0)?.code)
         assertEquals("Radiology", data.category?.coding?.get(0)?.display)
@@ -306,10 +324,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport7() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-genetics-example-2-familyhistory.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("15220000", data.category?.coding?.get(0)?.code)
         assertEquals("Laboratory test", data.category?.coding?.get(0)?.display)
@@ -348,10 +369,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport8() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("HM", data.category?.coding?.get(0)?.code)
         assertEquals("http://hl7.org/fhir/v2/0074", data.category?.coding?.get(0)?.system)
@@ -415,10 +439,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport9() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-papsmear.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("47527-7", data.code?.coding?.get(0)?.code)
         assertEquals("http://loinc.org", data.code?.coding?.get(0)?.system)
@@ -437,10 +464,13 @@ class DiagnosticReportTest {
 
     @Test
     fun testDiagnosticReport10() {
+        // Given
         val sourceJson = loadAsString("stu3/diagnosticreport-example-gingival-mass.json")
 
+        // When
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
+        // Then
 
         assertEquals("PAT", data.category?.coding?.get(0)?.code)
         assertEquals(

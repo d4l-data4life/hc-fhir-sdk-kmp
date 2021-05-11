@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -44,10 +44,13 @@ class FamilyMemberHistoryTest {
 
     @Test
     fun testFamilyMemberHistory1() {
+        // Given
         val sourceJson = loadAsString("stu3/familymemberhistory-example.json")
 
+        // When
         val data = parser.toFhir(FamilyMemberHistory::class, sourceJson)
 
+        // Then
 
         assertEquals("315619001", data.condition?.get(0)?.code?.coding?.get(0)?.code)
         assertEquals("Myocardial Infarction", data.condition?.get(0)?.code?.coding?.get(0)?.display)
@@ -86,10 +89,13 @@ class FamilyMemberHistoryTest {
 
     @Test
     fun testFamilyMemberHistory2() {
+        // Given
         val sourceJson = loadAsString("stu3/familymemberhistory-example-mother.json")
 
+        // When
         val data = parser.toFhir(FamilyMemberHistory::class, sourceJson)
 
+        // Then
 
         assertEquals("371041009", data.condition?.get(0)?.code?.coding?.get(0)?.code)
         assertEquals("Embolic Stroke", data.condition?.get(0)?.code?.coding?.get(0)?.display)

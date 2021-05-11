@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -41,10 +41,13 @@ class SubstanceTest {
 
     @Test
     fun testSubstance1() {
+        // Given
         val sourceJson = loadAsString("stu3/substance-example-silver-nitrate-product.json")
 
+        // When
         val data = parser.toFhir(Substance::class, sourceJson)
 
+        // Then
 
         assertEquals("chemical", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Chemical", data.category?.get(0)?.coding?.get(0)?.display)
@@ -78,10 +81,13 @@ class SubstanceTest {
 
     @Test
     fun testSubstance2() {
+        // Given
         val sourceJson = loadAsString("stu3/substance-example-amoxicillin-clavulanate.json")
 
+        // When
         val data = parser.toFhir(Substance::class, sourceJson)
 
+        // Then
 
         assertEquals("drug", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Drug or Medicament", data.category?.get(0)?.coding?.get(0)?.display)
@@ -144,10 +150,13 @@ class SubstanceTest {
 
     @Test
     fun testSubstance3() {
+        // Given
         val sourceJson = loadAsString("stu3/substance-example-f203-potassium.json")
 
+        // When
         val data = parser.toFhir(Substance::class, sourceJson)
 
+        // Then
 
         assertEquals("chemical", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Chemical", data.category?.get(0)?.coding?.get(0)?.display)
@@ -170,10 +179,13 @@ class SubstanceTest {
 
     @Test
     fun testSubstance4() {
+        // Given
         val sourceJson = loadAsString("stu3/substance-example-f201-dust.json")
 
+        // When
         val data = parser.toFhir(Substance::class, sourceJson)
 
+        // Then
 
         assertEquals("406466009", data.code?.coding?.get(0)?.code)
         assertEquals("House dust allergen", data.code?.coding?.get(0)?.display)
@@ -188,10 +200,13 @@ class SubstanceTest {
 
     @Test
     fun testSubstance5() {
+        // Given
         val sourceJson = loadAsString("stu3/substance-example.json")
 
+        // When
         val data = parser.toFhir(Substance::class, sourceJson)
 
+        // Then
 
         assertEquals("allergen", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Allergen", data.category?.get(0)?.coding?.get(0)?.display)
@@ -213,10 +228,13 @@ class SubstanceTest {
 
     @Test
     fun testSubstance6() {
+        // Given
         val sourceJson = loadAsString("stu3/substance-example-f202-staphylococcus.json")
 
+        // When
         val data = parser.toFhir(Substance::class, sourceJson)
 
+        // Then
 
         assertEquals("3092008", data.code?.coding?.get(0)?.code)
         assertEquals("Staphylococcus Aureus", data.code?.coding?.get(0)?.display)

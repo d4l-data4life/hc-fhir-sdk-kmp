@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class MedicationTest {
 
     @Test
     fun testMedication1() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0307.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("2019-10-31", data.`package`?.batch?.get(0)?.expirationDate?.value.toString())
         assertEquals("12345", data.`package`?.batch?.get(0)?.lotNumber)
@@ -111,10 +114,13 @@ class MedicationTest {
 
     @Test
     fun testMedication2() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0311.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("373994007", data.code?.coding?.get(0)?.code)
         assertEquals("Prednisone 5mg tablet (Product)", data.code?.coding?.get(0)?.display)
@@ -147,10 +153,13 @@ class MedicationTest {
 
     @Test
     fun testMedication3() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0310.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("430127000", data.code?.coding?.get(0)?.code)
         assertEquals("Oral Form Oxycodone (product)", data.code?.coding?.get(0)?.display)
@@ -183,10 +192,13 @@ class MedicationTest {
 
     @Test
     fun testMedication4() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0306.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("2019-10-31", data.`package`?.batch?.get(0)?.expirationDate?.value.toString())
         assertEquals("12345", data.`package`?.batch?.get(0)?.lotNumber)
@@ -212,10 +224,13 @@ class MedicationTest {
 
     @Test
     fun testMedication5() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0301.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("2017-05-22", data.`package`?.batch?.get(0)?.expirationDate?.value.toString())
         assertEquals("9494788", data.`package`?.batch?.get(0)?.lotNumber)
@@ -286,10 +301,13 @@ class MedicationTest {
 
     @Test
     fun testMedication6() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0317.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("385219001", data.form?.coding?.get(0)?.code)
         assertEquals("Injection Solution (qualifier value)", data.form?.coding?.get(0)?.display)
@@ -348,10 +366,13 @@ class MedicationTest {
 
     @Test
     fun testMedication7() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample1.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("Amoxicillin 250mg/5ml Suspension", data.code?.text)
         assertEquals("medicationexample1", data.id)
@@ -368,10 +389,13 @@ class MedicationTest {
 
     @Test
     fun testMedication8() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample15.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("2017-05-22", data.`package`?.batch?.get(0)?.expirationDate?.value.toString())
         assertEquals("9494788", data.`package`?.batch?.get(0)?.lotNumber)
@@ -429,10 +453,13 @@ class MedicationTest {
 
     @Test
     fun testMedication9() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0321.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("108761006", data.code?.coding?.get(0)?.code)
         assertEquals("Capecitabine (product)", data.code?.coding?.get(0)?.display)
@@ -465,10 +492,13 @@ class MedicationTest {
 
     @Test
     fun testMedication10() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationexample0320.json")
 
+        // When
         val data = parser.toFhir(Medication::class, sourceJson)
 
+        // Then
 
         assertEquals("324252006", data.code?.coding?.get(0)?.code)
         assertEquals("Azithromycin 250mg capsule (product)", data.code?.coding?.get(0)?.display)

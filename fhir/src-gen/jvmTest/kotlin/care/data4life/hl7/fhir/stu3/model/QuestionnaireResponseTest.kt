@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -17,13 +17,17 @@
 package care.data4life.hl7.fhir.stu3.model
 
 
-import care.data4life.hl7.fhir.stu3.FhirStu3Parser
-import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
-import care.data4life.hl7.fhir.stu3.codesystem.QuestionnaireResponseStatus
-import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import javax.annotation.Generated
+
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
+
+import care.data4life.hl7.fhir.stu3.codesystem.*
+import care.data4life.hl7.fhir.stu3.primitive.*
+import care.data4life.hl7.fhir.stu3.FhirStu3Parser
+import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import org.junit.Ignore
+
 import kotlin.test.assertEquals
 
 /**
@@ -43,10 +47,13 @@ class QuestionnaireResponseTest {
 
     @Test
     fun testQuestionnaireResponse1() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaireresponse-example.json")
 
+        // When
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
+        // Then
 
         assertEquals("#questauth", data.author?.reference)
         assertEquals("2013-02-19T14:15:00-05:00", data.authored?.value.toString())
@@ -130,10 +137,13 @@ class QuestionnaireResponseTest {
 
     @Test
     fun testQuestionnaireResponse2() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaireresponse-example-ussg-fht-answers.json")
 
+        // When
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
+        // Then
 
         assertEquals("2008-01-17", data.authored?.value.toString())
         assertEquals("ussg-fht-answers", data.id)
@@ -2013,10 +2023,13 @@ class QuestionnaireResponseTest {
 
     @Test
     fun testQuestionnaireResponse3() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaireresponse-example-f201-lifelines.json")
 
+        // When
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
+        // Then
 
         assertEquals("Practitioner/f201", data.author?.reference)
         assertEquals("2013-06-18T00:00:00+01:00", data.authored?.value.toString())
@@ -2072,10 +2085,13 @@ class QuestionnaireResponseTest {
 
     @Test
     fun testQuestionnaireResponse4() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaireresponse-example-bluebook.json")
 
+        // When
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
+        // Then
 
         assertEquals("http://hl7.org/fhir/Practitioner/example", data.author?.reference)
         assertEquals("2013-02-19T14:15:00+10:00", data.authored?.value.toString())
@@ -2190,10 +2206,13 @@ class QuestionnaireResponseTest {
 
     @Test
     fun testQuestionnaireResponse5() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaireresponse-example-gcs.json")
 
+        // When
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
+        // Then
 
         assertEquals("2014-12-11T04:44:16Z", data.authored?.value.toString())
         assertEquals("gcs", data.id)

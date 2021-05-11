@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -42,10 +42,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization1() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("Ann Arbor", data.address?.get(0)?.city)
         assertEquals("USA", data.address?.get(0)?.country)
@@ -75,10 +78,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization2() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-mmanu.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Swizterland", data.address?.get(0)?.country)
@@ -93,10 +99,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization3() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-gastro.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("1", data.id)
         assertEquals("http://www.acme.org.au/units", data.identifier?.get(0)?.system)
@@ -119,10 +128,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization4() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-lab.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("1832473e-2fe0-452d-abe9-3cdb9879522f", data.id)
         assertEquals("http://www.acme.org.au/units", data.identifier?.get(0)?.system)
@@ -143,10 +155,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization5() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-f002-burgers-card.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("South Wing, floor 2", data.address?.get(0)?.line?.get(0))
@@ -183,10 +198,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization6() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-f201-aumc.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Den Helder", data.address?.get(0)?.city)
@@ -239,10 +257,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization7() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-good-health-care.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("2.16.840.1.113883.19.5", data.id)
         assertEquals("urn:ietf:rfc:3986", data.identifier?.get(0)?.system)
@@ -257,10 +278,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization8() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-f001-burgers.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("Den Burg", data.address?.get(0)?.city)
         assertEquals("NLD", data.address?.get(0)?.country)
@@ -318,10 +342,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization9() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-insurer.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("ABC Insurance", data.alias?.get(0))
         assertEquals("2", data.id)
@@ -337,10 +364,13 @@ class OrganizationTest {
 
     @Test
     fun testOrganization10() {
+        // Given
         val sourceJson = loadAsString("stu3/organization-example-f203-bumc.json")
 
+        // When
         val data = parser.toFhir(Organization::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Blijdorp", data.address?.get(0)?.city)

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -45,10 +45,13 @@ class CodeSystemTest {
 
     @Test
     fun testCodeSystem1() {
+        // Given
         val sourceJson = loadAsString("stu3/codesystem-list-example-codes.json")
 
+        // When
         val data = parser.toFhir(CodeSystem::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.caseSensitive?.value)
         assertEquals("alerts", data.concept?.get(0)?.code)
@@ -139,10 +142,13 @@ class CodeSystemTest {
 
     @Test
     fun testCodeSystem2() {
+        // Given
         val sourceJson = loadAsString("stu3/codesystem-example-summary.json")
 
+        // When
         val data = parser.toFhir(CodeSystem::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.caseSensitive?.value)
         assertEquals("FHIR project team", data.contact?.get(0)?.name)
@@ -188,10 +194,13 @@ class CodeSystemTest {
 
     @Test
     fun testCodeSystem3() {
+        // Given
         val sourceJson = loadAsString("stu3/codesystem-example.json")
 
+        // When
         val data = parser.toFhir(CodeSystem::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.caseSensitive?.value)
         assertEquals("chol-mmol", data.concept?.get(0)?.code)

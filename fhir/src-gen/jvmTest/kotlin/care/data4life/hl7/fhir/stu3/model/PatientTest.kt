@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class PatientTest {
 
     @Test
     fun testPatient1() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-xds.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Metropolis", data.address?.get(0)?.city)
@@ -77,10 +80,13 @@ class PatientTest {
 
     @Test
     fun testPatient2() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-f001-pieter.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Amsterdam", data.address?.get(0)?.city)
@@ -145,10 +151,13 @@ class PatientTest {
 
     @Test
     fun testPatient3() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-d.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("1982-08-02", data.birthDate?.value.toString())
@@ -177,10 +186,13 @@ class PatientTest {
 
     @Test
     fun testPatient4() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-genetics-example1.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("2222 Home Street", data.address?.get(0)?.line?.get(0))
@@ -213,10 +225,13 @@ class PatientTest {
     @Ignore
     @Test
     fun testPatient5() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-b.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals(AdministrativeGender.OTHER, data.gender)
@@ -247,10 +262,13 @@ class PatientTest {
 
     @Test
     fun testPatient6() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-c.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("1982-01-23", data.birthDate?.value.toString())
@@ -279,10 +297,13 @@ class PatientTest {
 
     @Test
     fun testPatient7() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-ihe-pcd.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("ihe-pcd", data.id)
@@ -304,10 +325,13 @@ class PatientTest {
     @Ignore
     @Test
     fun testPatient8() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("PleasantVille", data.address?.get(0)?.city)
@@ -386,10 +410,13 @@ class PatientTest {
 
     @Test
     fun testPatient9() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-proband.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("1966-04-04", data.birthDate?.value.toString())
@@ -416,10 +443,13 @@ class PatientTest {
 
     @Test
     fun testPatient10() {
+        // Given
         val sourceJson = loadAsString("stu3/patient-example-f201-roel.json")
 
+        // When
         val data = parser.toFhir(Patient::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Amsterdam", data.address?.get(0)?.city)

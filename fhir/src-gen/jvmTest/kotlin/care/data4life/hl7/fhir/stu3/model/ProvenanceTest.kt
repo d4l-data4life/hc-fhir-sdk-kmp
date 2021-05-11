@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class ProvenanceTest {
 
     @Test
     fun testProvenance1() {
+        // Given
         val sourceJson = loadAsString("stu3/provenance-example-sig.json")
 
+        // When
         val data = parser.toFhir(Provenance::class, sourceJson)
 
+        // Then
 
         assertEquals("AU", data.activity?.code)
         assertEquals("authenticated", data.activity?.display)
@@ -83,10 +86,13 @@ class ProvenanceTest {
 
     @Test
     fun testProvenance2() {
+        // Given
         val sourceJson = loadAsString("stu3/provenance-example-cwl.json")
 
+        // When
         val data = parser.toFhir(Provenance::class, sourceJson)
 
+        // Then
 
         assertEquals("AUT", data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code)
         assertEquals(
@@ -122,10 +128,13 @@ class ProvenanceTest {
 
     @Test
     fun testProvenance3() {
+        // Given
         val sourceJson = loadAsString("stu3/provenance-example-biocompute-object.json")
 
+        // When
         val data = parser.toFhir(Provenance::class, sourceJson)
 
+        // Then
 
         assertEquals("AUT", data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code)
         assertEquals(
@@ -158,10 +167,13 @@ class ProvenanceTest {
 
     @Test
     fun testProvenance4() {
+        // Given
         val sourceJson = loadAsString("stu3/provenance-example.json")
 
+        // When
         val data = parser.toFhir(Provenance::class, sourceJson)
 
+        // Then
 
         assertEquals("#a1", data.agent?.get(0)?.onBehalfOfUri)
         assertEquals("used", data.agent?.get(0)?.relatedAgentType?.text)

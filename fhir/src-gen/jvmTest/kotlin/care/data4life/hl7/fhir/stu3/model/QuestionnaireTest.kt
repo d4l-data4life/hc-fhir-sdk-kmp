@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -45,10 +45,13 @@ class QuestionnaireTest {
 
     @Test
     fun testQuestionnaire1() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaire-example.json")
 
+        // When
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
+        // Then
 
         assertEquals("2012-01", data.date?.value.toString())
         assertEquals("3141", data.id)
@@ -238,10 +241,13 @@ class QuestionnaireTest {
 
     @Test
     fun testQuestionnaire2() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaire-example-f201-lifelines.json")
 
+        // When
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
+        // Then
 
         assertEquals("VL 1-1, 18-65_1.2.2", data.code?.get(0)?.code)
         assertEquals("Lifelines Questionnaire 1 part 1", data.code?.get(0)?.display)
@@ -287,10 +293,13 @@ class QuestionnaireTest {
 
     @Test
     fun testQuestionnaire3() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaire-example-gcs.json")
 
+        // When
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
+        // Then
 
         assertEquals("9269-2", data.code?.get(0)?.code)
         assertEquals("http://loinc.org", data.code?.get(0)?.system)
@@ -328,10 +337,13 @@ class QuestionnaireTest {
 
     @Test
     fun testQuestionnaire4() {
+        // Given
         val sourceJson = loadAsString("stu3/questionnaire-example-bluebook.json")
 
+        // When
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
+        // Then
 
         assertEquals("2013-02-19", data.date?.value.toString())
         assertEquals("bb", data.id)

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -42,10 +42,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner1() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-f203-jvg.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Den helder", data.address?.get(0)?.city)
@@ -78,10 +81,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner2() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-f201-ab.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Den helder", data.address?.get(0)?.city)
@@ -120,10 +126,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner3() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-f202-lm.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("Den helder", data.address?.get(0)?.city)
@@ -160,10 +169,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner4() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-xcda-author.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("xcda-author", data.id)
         assertEquals("Hippocrates", data.name?.get(0)?.family)
@@ -178,10 +190,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner5() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-f003-mv.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("Amsterdam", data.address?.get(0)?.city)
         assertEquals("NLD", data.address?.get(0)?.country)
@@ -225,10 +240,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner6() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-f002-pv.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("Den Burg", data.address?.get(0)?.city)
         assertEquals("NLD", data.address?.get(0)?.country)
@@ -266,10 +284,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner7() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.active?.value)
         assertEquals("PleasantVille", data.address?.get(0)?.city)
@@ -309,10 +330,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner8() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-f007-sh.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("Den Burg", data.address?.get(0)?.city)
         assertEquals("NLD", data.address?.get(0)?.country)
@@ -350,10 +374,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner9() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-f204-ce.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("Den helder", data.address?.get(0)?.city)
         assertEquals("NLD", data.address?.get(0)?.country)
@@ -381,10 +408,13 @@ class PractitionerTest {
 
     @Test
     fun testPractitioner10() {
+        // Given
         val sourceJson = loadAsString("stu3/practitioner-example-xcda1.json")
 
+        // When
         val data = parser.toFhir(Practitioner::class, sourceJson)
 
+        // Then
 
         assertEquals("xcda1", data.id)
         assertEquals(

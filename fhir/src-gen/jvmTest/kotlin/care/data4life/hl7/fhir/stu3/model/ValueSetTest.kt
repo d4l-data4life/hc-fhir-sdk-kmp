@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -45,10 +45,13 @@ class ValueSetTest {
 
     @Test
     fun testValueSet1() {
+        // Given
         val sourceJson = loadAsString("stu3/valueset-example.json")
 
+        // When
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.compose?.inactive?.value)
         assertEquals("14647-2", data.compose?.include?.get(0)?.concept?.get(0)?.code)
@@ -108,10 +111,13 @@ class ValueSetTest {
 
     @Test
     fun testValueSet2() {
+        // Given
         val sourceJson = loadAsString("stu3/valueset-example-expansion.json")
 
+        // When
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
+        // Then
 
         assertEquals(FilterOperator.EQUAL, data.compose?.include?.get(0)?.filter?.get(0)?.op)
         assertEquals("parent", data.compose?.include?.get(0)?.filter?.get(0)?.property)
@@ -222,10 +228,13 @@ class ValueSetTest {
 
     @Test
     fun testValueSet3() {
+        // Given
         val sourceJson = loadAsString("stu3/valueset-example-inactive.json")
 
+        // When
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
+        // Then
 
         assertEquals("True".toBoolean(), data.compose?.inactive?.value)
         assertEquals(
@@ -274,10 +283,13 @@ class ValueSetTest {
 
     @Test
     fun testValueSet4() {
+        // Given
         val sourceJson = loadAsString("stu3/valueset-example-yesnodontknow.json")
 
+        // When
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
+        // Then
 
         assertEquals(
             "http://hl7.org/fhir/ValueSet/v2-0136",
@@ -317,10 +329,13 @@ class ValueSetTest {
 
     @Test
     fun testValueSet5() {
+        // Given
         val sourceJson = loadAsString("stu3/valueset-list-example-codes.json")
 
+        // When
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
+        // Then
 
         assertEquals(
             "http://hl7.org/fhir/list-example-use-codes",
@@ -372,10 +387,13 @@ class ValueSetTest {
 
     @Test
     fun testValueSet6() {
+        // Given
         val sourceJson = loadAsString("stu3/valueset-example-intensional.json")
 
+        // When
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
+        // Then
 
         assertEquals("5932-9", data.compose?.exclude?.get(0)?.concept?.get(0)?.code)
         assertEquals(

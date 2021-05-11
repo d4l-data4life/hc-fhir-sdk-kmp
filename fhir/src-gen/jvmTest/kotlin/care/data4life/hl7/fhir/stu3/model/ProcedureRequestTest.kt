@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -45,10 +45,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest1() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example-lipid.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("LIPID", data.code?.coding?.get(0)?.code)
         assertEquals("http://acme.org/tests", data.code?.coding?.get(0)?.system)
@@ -92,10 +95,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest2() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example4.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("229115003", data.code?.coding?.get(0)?.code)
         assertEquals("Bench Press (regime/therapy) ", data.code?.coding?.get(0)?.display)
@@ -122,10 +128,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest3() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example-edu.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("2016-08-16", data.authoredOn?.value.toString())
         assertEquals("311401005", data.category?.get(0)?.coding?.get(0)?.code)
@@ -159,10 +168,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest4() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example-pt.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("2016-09-20", data.authoredOn?.value.toString())
         assertEquals("36701003", data.bodySite?.get(0)?.coding?.get(0)?.code)
@@ -204,10 +216,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest5() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-genetics-example-1.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("49874-1", data.code?.coding?.get(0)?.code)
         assertEquals("http://loinc.org", data.code?.coding?.get(0)?.system)
@@ -229,10 +244,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest6() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example-di.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("24627-2", data.code?.coding?.get(0)?.code)
         assertEquals("http://loinc.org", data.code?.coding?.get(0)?.system)
@@ -254,10 +272,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest7() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example-subrequest.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("Original Request", data.basedOn?.get(0)?.display)
         assertEquals("Right arm", data.bodySite?.get(0)?.coding?.get(0)?.display)
@@ -288,10 +309,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest8() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example2.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("as needed to clear mucus", data.asNeededCodeableConcept?.text)
         assertEquals("2017-02-01T17:23:07Z", data.authoredOn?.value.toString())
@@ -337,10 +361,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest9() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example3.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("2017-02-01T17:23:07Z", data.authoredOn?.value.toString())
         assertEquals("359962006", data.code?.coding?.get(0)?.code)
@@ -366,10 +393,13 @@ class ProcedureRequestTest {
 
     @Test
     fun testProcedureRequest10() {
+        // Given
         val sourceJson = loadAsString("stu3/procedurerequest-example-ambulation.json")
 
+        // When
         val data = parser.toFhir(ProcedureRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("2017-03-05", data.authoredOn?.value.toString())
         assertEquals("Maternity care plan", data.basedOn?.get(0)?.display)

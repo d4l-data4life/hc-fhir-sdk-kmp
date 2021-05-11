@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class GoalTest {
 
     @Test
     fun testGoal1() {
+        // Given
         val sourceJson = loadAsString("stu3/goal-example.json")
 
+        // When
         val data = parser.toFhir(Goal::class, sourceJson)
 
+        // Then
 
         assertEquals("obesity condition", data.addresses?.get(0)?.display)
         assertEquals("dietary", data.category?.get(0)?.coding?.get(0)?.code)
@@ -92,10 +95,13 @@ class GoalTest {
 
     @Test
     fun testGoal2() {
+        // Given
         val sourceJson = loadAsString("stu3/goal-example-stop-smoking.json")
 
+        // When
         val data = parser.toFhir(Goal::class, sourceJson)
 
+        // Then
 
         assertEquals("Stop smoking", data.description?.text)
         assertEquals("stop-smoking", data.id)

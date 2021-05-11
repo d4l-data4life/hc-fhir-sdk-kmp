@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure1() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-f201-tpf.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("272676008", data.bodySite?.get(0)?.coding?.get(0)?.code)
         assertEquals("Sphenoid bone", data.bodySite?.get(0)?.coding?.get(0)?.display)
@@ -81,10 +84,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure2() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-ambulation.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("Maternity care plan", data.basedOn?.get(0)?.display)
         assertEquals("CarePlan/preg", data.basedOn?.get(0)?.reference)
@@ -126,10 +132,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure3() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-implant.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("25267002", data.code?.coding?.get(0)?.code)
         assertEquals(
@@ -165,10 +174,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure4() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-colon-biopsy.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("76164006", data.code?.coding?.get(0)?.code)
         assertEquals("Biopsy of colon (procedure)", data.code?.coding?.get(0)?.display)
@@ -201,10 +213,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure5() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-f004-tracheotomy.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("83030008", data.bodySite?.get(0)?.coding?.get(0)?.code)
         assertEquals("Retropharyngeal area", data.bodySite?.get(0)?.coding?.get(0)?.display)
@@ -242,10 +257,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure6() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-education.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("Order for health education", data.basedOn?.get(0)?.display)
         assertEquals("ProcedureRequest/education", data.basedOn?.get(0)?.reference)
@@ -280,10 +298,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure7() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-colonoscopy.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("73761001", data.code?.coding?.get(0)?.code)
         assertEquals("Colonoscopy (procedure)", data.code?.coding?.get(0)?.display)
@@ -316,10 +337,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure8() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-physical-therapy.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals(
             "Order for the assessment of passive range of motion",
@@ -364,10 +388,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure9() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example-f003-abscess.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("83030008", data.bodySite?.get(0)?.coding?.get(0)?.code)
         assertEquals("Retropharyngeal area", data.bodySite?.get(0)?.coding?.get(0)?.display)
@@ -405,10 +432,13 @@ class ProcedureTest {
 
     @Test
     fun testProcedure10() {
+        // Given
         val sourceJson = loadAsString("stu3/procedure-example.json")
 
+        // When
         val data = parser.toFhir(Procedure::class, sourceJson)
 
+        // Then
 
         assertEquals("80146002", data.code?.coding?.get(0)?.code)
         assertEquals("Appendectomy (Procedure)", data.code?.coding?.get(0)?.display)
