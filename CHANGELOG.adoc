@@ -17,10 +17,13 @@ toc::[]
 === Added
 
 * Add Spotless code style formatter and linter
+* Add FHIR R4
+** specification
+** FHIR parser integration and configuration
 
 === Changed
 
-* Change FHIR STU 3 config to allow multiple FHIR versions
+* Change FHIR STU3 config to allow multiple FHIR versions
 
 === Removed
 
