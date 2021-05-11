@@ -23,6 +23,7 @@ toc::[]
 ** JSON test samples
 ** Base Types FhirR4, Element and Extension and JSON parser
 ** Code systems
+** Date, DateTime, Instant and Time primitives
 
 === Changed
 

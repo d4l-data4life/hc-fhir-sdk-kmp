@@ -16,6 +16,10 @@
 
 package care.data4life.hl7.fhir.r4.model
 
+import care.data4life.hl7.fhir.r4.primitive.Date
+import care.data4life.hl7.fhir.r4.primitive.DateTime
+import care.data4life.hl7.fhir.r4.primitive.Instant
+import care.data4life.hl7.fhir.r4.primitive.Time
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -35,10 +39,10 @@ interface FhirExtension : FhirElement {
     val valueCode: String?
 
     // Value of extension.
-    val valueDate: String?
+    val valueDate: Date?
 
     // Value of extension.
-    val valueDateTime: String?
+    val valueDateTime: DateTime?
 
     // Value of extension.
     val valueDecimal: String?
@@ -47,7 +51,7 @@ interface FhirExtension : FhirElement {
     val valueId: String?
 
     // Value of extension.
-    val valueInstant: String?
+    val valueInstant: Instant?
 
     // Value of extension.
     val valueInteger: String?
@@ -65,7 +69,7 @@ interface FhirExtension : FhirElement {
     val valueString: String?
 
     // Value of extension.
-    val valueTime: String?
+    val valueTime: Time?
 
     // Value of extension.
     val valueUnsignedInt: String?
@@ -107,10 +111,10 @@ data class Extension(
     override val valueCode: String? = null,
     // Value of extension.
     @SerialName("valueDate")
-    override val valueDate: String? = null,
+    override val valueDate: Date? = null,
     // Value of extension.
     @SerialName("valueDateTime")
-    override val valueDateTime: String? = null,
+    override val valueDateTime: DateTime? = null,
     // Value of extension.
     @SerialName("valueDecimal")
     override val valueDecimal: String? = null,
@@ -119,7 +123,7 @@ data class Extension(
     override val valueId: String? = null,
     // Value of extension.
     @SerialName("valueInstant")
-    override val valueInstant: String? = null,
+    override val valueInstant: Instant? = null,
     // Value of extension.
     @SerialName("valueInteger")
     override val valueInteger: String? = null,
@@ -137,7 +141,7 @@ data class Extension(
     override val valueString: String? = null,
     // Value of extension.
     @SerialName("valueTime")
-    override val valueTime: String? = null,
+    override val valueTime: Time? = null,
     // Value of extension.
     @SerialName("valueUnsignedInt")
     override val valueUnsignedInt: String? = null,
