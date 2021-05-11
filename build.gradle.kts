@@ -3,7 +3,6 @@ buildscript {
         mavenCentral()
         google()
         jcenter()
-        maven("https://dl.bintray.com/data4life/maven")
     }
     dependencies {
         classpath(GradlePlugins.kotlin)
@@ -22,6 +21,6 @@ plugins {
 }
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "6.8.2"
+    gradleVersion = "6.8.3"
     distributionType = Wrapper.DistributionType.ALL
 }
