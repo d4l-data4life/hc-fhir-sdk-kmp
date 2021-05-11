@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -45,10 +45,13 @@ class MedicationRequestTest {
 
     @Test
     fun testMedicationRequest1() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationrequestexample1.json")
 
+        // When
         val data = parser.toFhir(MedicationRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("2015-01-15", data.authoredOn?.value.toString())
         assertEquals("med0316", data.contained?.get(0)?.id)
@@ -150,10 +153,13 @@ class MedicationRequestTest {
 
     @Test
     fun testMedicationRequest2() {
+        // Given
         val sourceJson = loadAsString("stu3/medicationrequestexample2.json")
 
+        // When
         val data = parser.toFhir(MedicationRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("2015-03-01", data.authoredOn?.value.toString())
         assertEquals("encounter that leads to this prescription", data.context?.display)

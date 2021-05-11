@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -42,10 +42,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan1() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-f002-lung.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("procedure", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -97,10 +100,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan2() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-f202-malignancy.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("procedure", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -145,10 +151,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan3() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-obesity-narrative.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("obesity-narrative", data.id)
         assertEquals(CarePlanIntent.PLAN, data.intent)
@@ -164,10 +173,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan4() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("observation", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -257,10 +269,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan5() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-f201-renal.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("diet", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -323,10 +338,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan6() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-GPVisit.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("encounter", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -392,10 +410,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan7() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-integrated.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("other", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -729,10 +750,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan8() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-f003-pharynx.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("procedure", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -787,10 +811,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan9() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-f001-heart.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals("procedure", data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code)
         assertEquals(
@@ -842,10 +869,13 @@ class CarePlanTest {
 
     @Test
     fun testCarePlan10() {
+        // Given
         val sourceJson = loadAsString("stu3/careplan-example-pregnancy.json")
 
+        // When
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
+        // Then
 
         assertEquals(
             "Prenatal vitamin MedicationRequest",

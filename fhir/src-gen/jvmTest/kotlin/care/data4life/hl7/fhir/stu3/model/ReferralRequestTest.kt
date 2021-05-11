@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -45,10 +45,13 @@ class ReferralRequestTest {
 
     @Test
     fun testReferralRequest1() {
+        // Given
         val sourceJson = loadAsString("stu3/referralrequest-example.json")
 
+        // When
         val data = parser.toFhir(ReferralRequest::class, sourceJson)
 
+        // Then
 
         assertEquals("2014-02-14", data.authoredOn?.value.toString())
         assertEquals(

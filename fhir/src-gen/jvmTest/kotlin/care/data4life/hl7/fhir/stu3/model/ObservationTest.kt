@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -44,10 +44,13 @@ class ObservationTest {
 
     @Test
     fun testObservation1() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-genetics-1.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("55233-1", data.code?.coding?.get(0)?.code)
         assertEquals(
@@ -109,10 +112,13 @@ class ObservationTest {
 
     @Test
     fun testObservation2() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-bmd.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("71341001:272741003=7771000", data.bodySite?.coding?.get(0)?.code)
         assertEquals("http://snomed.info/sct", data.bodySite?.coding?.get(0)?.system)
@@ -142,10 +148,13 @@ class ObservationTest {
 
     @Test
     fun testObservation3() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-respiratory-rate.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("vital-signs", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Vital Signs", data.category?.get(0)?.coding?.get(0)?.display)
@@ -179,10 +188,13 @@ class ObservationTest {
 
     @Test
     fun testObservation4() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("vital-signs", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Vital Signs", data.category?.get(0)?.coding?.get(0)?.display)
@@ -220,10 +232,13 @@ class ObservationTest {
 
     @Test
     fun testObservation5() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-haplotype2.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("55233-1", data.code?.coding?.get(0)?.code)
         assertEquals(
@@ -283,10 +298,13 @@ class ObservationTest {
 
     @Test
     fun testObservation6() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-mbp.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("vital-signs", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Vital Signs", data.category?.get(0)?.coding?.get(0)?.display)
@@ -316,10 +334,13 @@ class ObservationTest {
 
     @Test
     fun testObservation7() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-bmi.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("vital-signs", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Vital Signs", data.category?.get(0)?.coding?.get(0)?.display)
@@ -353,10 +374,13 @@ class ObservationTest {
 
     @Test
     fun testObservation8() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-body-height.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("vital-signs", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Vital Signs", data.category?.get(0)?.coding?.get(0)?.display)
@@ -390,10 +414,13 @@ class ObservationTest {
 
     @Test
     fun testObservation9() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-eye-color.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("eye color", data.code?.text)
         assertEquals("2016-05-18", data.effectiveDateTime?.value.toString())
@@ -410,10 +437,13 @@ class ObservationTest {
 
     @Test
     fun testObservation10() {
+        // Given
         val sourceJson = loadAsString("stu3/observation-example-body-temperature.json")
 
+        // When
         val data = parser.toFhir(Observation::class, sourceJson)
 
+        // Then
 
         assertEquals("vital-signs", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Vital Signs", data.category?.get(0)?.coding?.get(0)?.display)

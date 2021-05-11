@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class SpecimenTest {
 
     @Test
     fun testSpecimen1() {
+        // Given
         val sourceJson = loadAsString("stu3/specimen-example-isolate.json")
 
+        // When
         val data = parser.toFhir(Specimen::class, sourceJson)
 
+        // Then
 
         assertEquals("http://lab.acme.org/specimens/2011", data.accessionIdentifier?.system)
         assertEquals("X352356-ISO1", data.accessionIdentifier?.value)
@@ -73,10 +76,13 @@ class SpecimenTest {
 
     @Test
     fun testSpecimen2() {
+        // Given
         val sourceJson = loadAsString("stu3/specimen-example-urine.json")
 
+        // When
         val data = parser.toFhir(Specimen::class, sourceJson)
 
+        // Then
 
         assertEquals("http://lab.acme.org/specimens/2015", data.accessionIdentifier?.system)
         assertEquals("X352356", data.accessionIdentifier?.value)
@@ -114,10 +120,13 @@ class SpecimenTest {
 
     @Test
     fun testSpecimen3() {
+        // Given
         val sourceJson = loadAsString("stu3/specimen-example-serum.json")
 
+        // When
         val data = parser.toFhir(Specimen::class, sourceJson)
 
+        // Then
 
         assertEquals("http://acme.com/labs/accession-ids", data.accessionIdentifier?.system)
         assertEquals("20150816-00124", data.accessionIdentifier?.value)
@@ -141,10 +150,13 @@ class SpecimenTest {
 
     @Test
     fun testSpecimen4() {
+        // Given
         val sourceJson = loadAsString("stu3/specimen-example.json")
 
+        // When
         val data = parser.toFhir(Specimen::class, sourceJson)
 
+        // Then
 
         assertEquals("http://lab.acme.org/specimens/2011", data.accessionIdentifier?.system)
         assertEquals("X352356", data.accessionIdentifier?.value)

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class ConditionTest {
 
     @Test
     fun testCondition1() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-f003-abscess.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("2012-02-20", data.assertedDate?.value.toString())
         assertEquals("P. van de Heuvel", data.asserter?.display)
@@ -85,10 +88,13 @@ class ConditionTest {
 
     @Test
     fun testCondition2() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-f203-sepsis.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("2013-03-11", data.assertedDate?.value.toString())
         assertEquals("Practitioner/f201", data.asserter?.reference)
@@ -131,10 +137,13 @@ class ConditionTest {
 
     @Test
     fun testCondition3() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-stroke.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("encounter-diagnosis", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Encounter Diagnosis", data.category?.get(0)?.coding?.get(0)?.display)
@@ -164,10 +173,13 @@ class ConditionTest {
 
     @Test
     fun testCondition4() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-family-history.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("problem-list-item", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Problem List Item", data.category?.get(0)?.coding?.get(0)?.display)
@@ -194,10 +206,13 @@ class ConditionTest {
 
     @Test
     fun testCondition5() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-f002-lung.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("2012-06-03", data.assertedDate?.value.toString())
         assertEquals("P. van de Heuvel", data.asserter?.display)
@@ -239,10 +254,13 @@ class ConditionTest {
 
     @Test
     fun testCondition6() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-f205-infection.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("2013-04-04", data.assertedDate?.value.toString())
         assertEquals("Practitioner/f201", data.asserter?.reference)
@@ -263,10 +281,13 @@ class ConditionTest {
 
     @Test
     fun testCondition7() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-f204-renal.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("2013-03-20", data.abatementDateTime?.value.toString())
         assertEquals("2013-03-11", data.assertedDate?.value.toString())
@@ -313,10 +334,13 @@ class ConditionTest {
 
     @Test
     fun testCondition8() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example2.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("problem-list-item", data.category?.get(0)?.coding?.get(0)?.code)
         assertEquals("Problem List Item", data.category?.get(0)?.coding?.get(0)?.display)
@@ -346,10 +370,13 @@ class ConditionTest {
 
     @Test
     fun testCondition9() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-f202-malignancy.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("a", data.abatementAge?.code)
         assertEquals("http://unitsofmeasure.org", data.abatementAge?.system)
@@ -396,10 +423,13 @@ class ConditionTest {
 
     @Test
     fun testCondition10() {
+        // Given
         val sourceJson = loadAsString("stu3/condition-example-f201-fever.json")
 
+        // When
         val data = parser.toFhir(Condition::class, sourceJson)
 
+        // Then
 
         assertEquals("around April 9, 2013", data.abatementString)
         assertEquals("2013-04-04", data.assertedDate?.value.toString())

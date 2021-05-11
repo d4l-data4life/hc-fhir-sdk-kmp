@@ -18,6 +18,8 @@ toc::[]
 
 === Changed
 
+* Change FHIR STU 3 config to allow multiple FHIR versions
+
 === Removed
 
 === Fixed

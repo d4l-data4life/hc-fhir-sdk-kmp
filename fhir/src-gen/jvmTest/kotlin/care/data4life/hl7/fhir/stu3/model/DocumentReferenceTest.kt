@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -43,10 +43,13 @@ class DocumentReferenceTest {
 
     @Test
     fun testDocumentReference1() {
+        // Given
         val sourceJson = loadAsString("stu3/documentreference-example.json")
 
+        // When
         val data = parser.toFhir(DocumentReference::class, sourceJson)
 
+        // Then
 
         assertEquals("Organization/f001", data.authenticator?.reference)
         assertEquals("Practitioner/xcda1", data.author?.get(0)?.reference)
