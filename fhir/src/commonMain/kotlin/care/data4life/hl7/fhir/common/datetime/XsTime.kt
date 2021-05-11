@@ -16,7 +16,7 @@
 
 package care.data4life.hl7.fhir.common.datetime
 
-import care.data4life.hl7.fhir.stu3.json.XsTimeParser
+import care.data4life.hl7.fhir.common.datetime.parser.XsTimeParser
 import kotlinx.serialization.Serializable
 
 /**
