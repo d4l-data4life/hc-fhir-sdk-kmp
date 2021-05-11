@@ -20,6 +20,16 @@ or alternatively using `brew install fastlane`
 fastlane generate_fhir_kotlin_models
 ```
 Generate FHIR Kotlin multiplatform models
+### generate_fhir_kotlin_stu3_models
+```
+fastlane generate_fhir_kotlin_stu3_models
+```
+Generate FHIR STU3 Kotlin multiplatform models
+### generate_fhir_kotlin_r4_models
+```
+fastlane generate_fhir_kotlin_r4_models
+```
+Generate FHIR R4 Kotlin multiplatform models
 
 ----
 
