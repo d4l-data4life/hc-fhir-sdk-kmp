@@ -54,10 +54,13 @@ class {{ class.name }}Test {
 	{%- endif %}
 	@Test
 	fun test{{ class.name }}{{ loop.index }}() {
+		// Given
 		val sourceJson = loadAsString("stu3/{{ tcase.filename }}")
 
+		// When
 		val data = parser.toFhir({{ class.name }}::class, sourceJson)
 
+		// Then
 		{% for test in tcase.tests -%}
 		{%- if test.enum %}
 		assertEquals({{ test.enum }}.
