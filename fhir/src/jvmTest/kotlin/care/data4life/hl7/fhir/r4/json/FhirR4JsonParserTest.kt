@@ -17,11 +17,11 @@
 package care.data4life.hl7.fhir.r4.json
 
 import care.data4life.hl7.fhir.r4.model.FhirR4
-import care.data4life.hl7.fhir.r4.model.FhirSerializationModule
-import care.data4life.hl7.fhir.r4.test.data.FhirSimpleTestObject
 import care.data4life.hl7.fhir.r4.model.FhirResource
+import care.data4life.hl7.fhir.r4.model.FhirSerializationModule
 import care.data4life.hl7.fhir.r4.test.data.FhirContainedTestObject
 import care.data4life.hl7.fhir.r4.test.data.FhirResourceTestObject
+import care.data4life.hl7.fhir.r4.test.data.FhirSimpleTestObject
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.plus
 import kotlinx.serialization.modules.polymorphic
