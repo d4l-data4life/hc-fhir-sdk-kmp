@@ -51,18 +51,6 @@ object Dependencies {
             const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutines}"
         }
 
-        val coroutinesIO = CoroutinesIO
-
-        object CoroutinesIO {
-            // https://github.com/Kotlin/kotlinx-io
-            const val common =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-io:${Versions.kotlinCoroutinesIO}"
-            const val java =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-io-jvm:${Versions.kotlinCoroutinesIO}"
-            const val native =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-io-native:${Versions.kotlinCoroutinesIO}"
-        }
-
         val serialization = Serialization
 
         object Serialization {
