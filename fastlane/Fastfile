@@ -15,5 +15,5 @@
 
 desc "Generate FHIR Kotlin multiplatform models"
 lane :generate_fhir_kotlin_models do | options |
-  fhir_kotlin
+  fhir_kotlin_stu3
 end

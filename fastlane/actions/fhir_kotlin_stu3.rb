@@ -2,7 +2,7 @@ require "fileutils"
 
 module Fastlane
   module Actions
-    class FhirKotlinAction < Action
+    class FhirKotlinStu3Action < Action
       def self.run(params)
         cleanup
         generate_fhir_models
@@ -15,9 +15,9 @@ module Fastlane
           resources_path = './fhir/parser'
 
           # Configure our mappings
-          FileUtils.copy("#{resources_path}/config/mappings.py", "#{fhir_parser}/mappings.py")
-          FileUtils.copy("#{resources_path}/config/settings.py", "#{fhir_parser}/settings.py")
-          FileUtils.copy_entry("#{resources_path}/templates", "#{fhir_parser}/templates")
+          FileUtils.copy("#{resources_path}/stu3/config/mappings.py", "#{fhir_parser}/mappings.py")
+          FileUtils.copy("#{resources_path}/stu3/config/settings.py", "#{fhir_parser}/settings.py")
+          FileUtils.copy_entry("#{resources_path}/stu3/templates", "#{fhir_parser}/templates")
 
           # Create a cache for the FHIR JSON models
           cache_src = File.join('.', 'fhir-spec', 'hl7.org','fhir','STU3')
@@ -37,7 +37,7 @@ module Fastlane
             sh "venv/bin/python generate.py --cache-only"
           end
 
-          UI.success "Done generating FHIR models ✅"
+          UI.success "Done generating FHIR STU3 models ✅"
       end
 
       def self.cleanup
@@ -93,6 +93,7 @@ module Fastlane
               "Patient",
               "Medication",
               "MedicationRequest",
+              "Dosage",
               "CareTeam",
               "Goal",
               "Questionnaire",
@@ -103,7 +104,6 @@ module Fastlane
               "ValueSet",
               "Procedure"
           ]
-
 
           # Create test groups
           complexTest = genTestList(complex)
@@ -184,7 +184,7 @@ module Fastlane
       ####################################################
 
       def self.description
-          "Generates and integrates custom FHIR models for Swift from the JSON examples"
+          "Generates and integrates custom FHIR STU3 models for Kotlin from the JSON examples"
       end
 
       def self.output
