@@ -90,6 +90,99 @@ interface FhirExtension : FhirElement {
 
     // Value of extension.
     val valueUuid: String?
+
+    // Value of extension.
+    val valueAddress: Address?
+
+    // Value of extension.
+    val valueAge: Age?
+
+    // Value of extension.
+    val valueAnnotation: Annotation?
+
+    // Value of extension.
+    val valueAttachment: Attachment?
+
+    // Value of extension.
+    val valueCodeableConcept: CodeableConcept?
+
+    // Value of extension.
+    val valueCoding: Coding?
+
+    // Value of extension.
+    val valueContactPoint: ContactPoint?
+
+    // Value of extension.
+    val valueCount: Count?
+
+    // Value of extension.
+    val valueDistance: Distance?
+
+    // Value of extension.
+    val valueDuration: Duration?
+
+    // Value of extension.
+    val valueHumanName: HumanName?
+
+    // Value of extension.
+    val valueIdentifier: Identifier?
+
+    // Value of extension.
+    val valueMoney: Money?
+
+    // Value of extension.
+    val valuePeriod: Period?
+
+    // Value of extension.
+    val valueQuantity: Quantity?
+
+    // Value of extension.
+    val valueRange: Range?
+
+    // Value of extension.
+    val valueRatio: Ratio?
+
+    // Value of extension.
+    val valueReference: Reference?
+
+    // Value of extension.
+    val valueSampledData: SampledData?
+
+    // Value of extension.
+    val valueSignature: Signature?
+
+    // Value of extension.
+    val valueTiming: Timing?
+
+    // Value of extension.
+    val valueContactDetail: ContactDetail?
+
+    // Value of extension.
+    val valueContributor: Contributor?
+
+    // Value of extension.
+    val valueDataRequirement: DataRequirement?
+
+    // Value of extension.
+    val valueExpression: Expression?
+
+    // Value of extension.
+    val valueParameterDefinition: ParameterDefinition?
+
+    // Value of extension.
+    val valueRelatedArtifact: RelatedArtifact?
+
+    // Value of extension.
+    val valueTriggerDefinition: TriggerDefinition?
+
+    // Value of extension.
+    val valueUsageContext: UsageContext?
+
+    // Value of extension.
+    val valueDosage: Dosage?
+
+    // Value of extension.
+    val valueMeta: Meta?
 }
 
 /**
@@ -168,6 +261,99 @@ data class Extension(
     // Value of extension.
     @SerialName("valueUuid")
     override val valueUuid: String? = null,
+    // Value of extension.
+    @SerialName("valueAddress")
+    override val valueAddress: Address? = null,
+    // Value of extension.
+    @SerialName("valueAge")
+    override val valueAge: Age? = null,
+    // Value of extension.
+    @SerialName("valueAnnotation")
+    override val valueAnnotation: Annotation? = null,
+    // Value of extension.
+    @SerialName("valueAttachment")
+    override val valueAttachment: Attachment? = null,
+    // Value of extension.
+    @SerialName("valueCodeableConcept")
+    override val valueCodeableConcept: CodeableConcept? = null,
+    // Value of extension.
+    @SerialName("valueCoding")
+    override val valueCoding: Coding? = null,
+    // Value of extension.
+    @SerialName("valueContactPoint")
+    override val valueContactPoint: ContactPoint? = null,
+    // Value of extension.
+    @SerialName("valueCount")
+    override val valueCount: Count? = null,
+    // Value of extension.
+    @SerialName("valueDistance")
+    override val valueDistance: Distance? = null,
+    // Value of extension.
+    @SerialName("valueDuration")
+    override val valueDuration: Duration? = null,
+    // Value of extension.
+    @SerialName("valueHumanName")
+    override val valueHumanName: HumanName? = null,
+    // Value of extension.
+    @SerialName("valueIdentifier")
+    override val valueIdentifier: Identifier? = null,
+    // Value of extension.
+    @SerialName("valueMoney")
+    override val valueMoney: Money? = null,
+    // Value of extension.
+    @SerialName("valuePeriod")
+    override val valuePeriod: Period? = null,
+    // Value of extension.
+    @SerialName("valueQuantity")
+    override val valueQuantity: Quantity? = null,
+    // Value of extension.
+    @SerialName("valueRange")
+    override val valueRange: Range? = null,
+    // Value of extension.
+    @SerialName("valueRatio")
+    override val valueRatio: Ratio? = null,
+    // Value of extension.
+    @SerialName("valueReference")
+    override val valueReference: Reference? = null,
+    // Value of extension.
+    @SerialName("valueSampledData")
+    override val valueSampledData: SampledData? = null,
+    // Value of extension.
+    @SerialName("valueSignature")
+    override val valueSignature: Signature? = null,
+    // Value of extension.
+    @SerialName("valueTiming")
+    override val valueTiming: Timing? = null,
+    // Value of extension.
+    @SerialName("valueContactDetail")
+    override val valueContactDetail: ContactDetail? = null,
+    // Value of extension.
+    @SerialName("valueContributor")
+    override val valueContributor: Contributor? = null,
+    // Value of extension.
+    @SerialName("valueDataRequirement")
+    override val valueDataRequirement: DataRequirement? = null,
+    // Value of extension.
+    @SerialName("valueExpression")
+    override val valueExpression: Expression? = null,
+    // Value of extension.
+    @SerialName("valueParameterDefinition")
+    override val valueParameterDefinition: ParameterDefinition? = null,
+    // Value of extension.
+    @SerialName("valueRelatedArtifact")
+    override val valueRelatedArtifact: RelatedArtifact? = null,
+    // Value of extension.
+    @SerialName("valueTriggerDefinition")
+    override val valueTriggerDefinition: TriggerDefinition? = null,
+    // Value of extension.
+    @SerialName("valueUsageContext")
+    override val valueUsageContext: UsageContext? = null,
+    // Value of extension.
+    @SerialName("valueDosage")
+    override val valueDosage: Dosage? = null,
+    // Value of extension.
+    @SerialName("valueMeta")
+    override val valueMeta: Meta? = null,
 
     // # Element
     // Unique id for inter-element referencing.

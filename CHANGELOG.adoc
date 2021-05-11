@@ -26,6 +26,7 @@ toc::[]
 ** Date, DateTime, Instant and Time primitives
 ** Base Resource types Resource, DomainResource, Coding, Meta and Narrative
 ** Json parser tests for contained resources and primitives
+** generated FHIR R4 type system
 
 === Changed
 
