@@ -30,8 +30,6 @@ plugins {
 val ktlintVersion = "0.41.0"
 
 spotless {
-    ratchetFrom("origin/main")
-
     kotlin {
         target("**/*.kt")
         targetExclude(
