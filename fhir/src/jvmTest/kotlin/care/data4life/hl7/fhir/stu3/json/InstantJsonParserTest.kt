@@ -16,10 +16,10 @@
 
 package care.data4life.hl7.fhir.stu3.json
 
-import care.data4life.hl7.fhir.stu3.datetime.XsDate
-import care.data4life.hl7.fhir.stu3.datetime.XsDateTime
-import care.data4life.hl7.fhir.stu3.datetime.XsTime
-import care.data4life.hl7.fhir.stu3.datetime.XsTimeZone
+import care.data4life.hl7.fhir.common.datetime.XsDate
+import care.data4life.hl7.fhir.common.datetime.XsDateTime
+import care.data4life.hl7.fhir.common.datetime.XsTime
+import care.data4life.hl7.fhir.common.datetime.XsTimeZone
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
 import care.data4life.hl7.fhir.stu3.primitive.Instant

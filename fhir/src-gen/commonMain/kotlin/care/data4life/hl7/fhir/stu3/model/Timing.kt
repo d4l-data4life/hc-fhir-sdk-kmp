@@ -17,7 +17,11 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.codesystem.DaysOfWeek
-import care.data4life.hl7.fhir.stu3.primitive.*
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import care.data4life.hl7.fhir.stu3.primitive.Decimal
+import care.data4life.hl7.fhir.stu3.primitive.Integer
+import care.data4life.hl7.fhir.stu3.primitive.Time
+import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic

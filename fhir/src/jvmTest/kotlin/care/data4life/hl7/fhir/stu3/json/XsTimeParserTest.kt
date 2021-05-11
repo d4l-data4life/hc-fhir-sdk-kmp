@@ -16,7 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.json
 
-import care.data4life.hl7.fhir.stu3.datetime.XsTime
+import care.data4life.hl7.fhir.common.datetime.XsTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
