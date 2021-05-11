@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirUsageContext : FhirElement {
 
     // Type of context being specified.
@@ -35,7 +34,6 @@ interface FhirUsageContext : FhirElement {
     // Value that defines the context.
     val valueRange: Range?
 }
-
 
 /**
  * ClassName: UsageContext
@@ -66,7 +64,6 @@ data class UsageContext(
     @SerialName("valueRange")
     override val valueRange: Range? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -79,10 +76,8 @@ data class UsageContext(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "UsageContext"
     }
 }
-

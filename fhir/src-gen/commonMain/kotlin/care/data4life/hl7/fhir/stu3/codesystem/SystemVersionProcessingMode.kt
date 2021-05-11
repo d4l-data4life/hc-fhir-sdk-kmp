@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * How to manage the intersection between a fixed version in a value set, and a fixed version of the system in the expansion profile
  *

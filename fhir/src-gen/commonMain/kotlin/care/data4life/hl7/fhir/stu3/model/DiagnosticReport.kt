@@ -23,7 +23,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirDiagnosticReport : FhirDomainResource {
 
     // Business identifier for report.
@@ -80,7 +79,6 @@ interface FhirDiagnosticReport : FhirDomainResource {
     // Entire report as issued.
     val presentedForm: List<Attachment>?
 }
-
 
 /**
  * ClassName: DiagnosticReport
@@ -153,7 +151,6 @@ data class DiagnosticReport(
     @SerialName("presentedForm")
     override val presentedForm: List<Attachment>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -167,7 +164,6 @@ data class DiagnosticReport(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -187,13 +183,11 @@ data class DiagnosticReport(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DiagnosticReport"
     }
 }
-
 
 interface FhirDiagnosticReportImage : FhirBackboneElement {
 
@@ -203,7 +197,6 @@ interface FhirDiagnosticReportImage : FhirBackboneElement {
     // Reference to the image source.
     val link: Reference
 }
-
 
 /**
  * ClassName: DiagnosticReportImage
@@ -228,12 +221,10 @@ data class DiagnosticReportImage(
     @SerialName("link")
     override val link: Reference,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -247,13 +238,11 @@ data class DiagnosticReportImage(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DiagnosticReportImage"
     }
 }
-
 
 interface FhirDiagnosticReportPerformer : FhirBackboneElement {
 
@@ -263,7 +252,6 @@ interface FhirDiagnosticReportPerformer : FhirBackboneElement {
     // Practitioner or Organization  participant.
     val actor: Reference
 }
-
 
 /**
  * ClassName: DiagnosticReportPerformer
@@ -288,12 +276,10 @@ data class DiagnosticReportPerformer(
     @SerialName("actor")
     override val actor: Reference,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -307,10 +293,8 @@ data class DiagnosticReportPerformer(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DiagnosticReportPerformer"
     }
 }
-

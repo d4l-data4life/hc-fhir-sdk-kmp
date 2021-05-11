@@ -68,7 +68,6 @@ class XsTimeZoneTest(
                 // zeroOffsetGMT
                 arrayOf(0, 0, true, false, false),
 
-
                 // error cases
                 // hourOffset
                 arrayOf(-1, 0, true, true, true),

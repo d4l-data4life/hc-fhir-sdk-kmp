@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Distinguishes groups from questions and display text and indicates data type for questions
  *
@@ -44,7 +43,7 @@ enum class QuestionnaireItemType {
 
     /**
      * An item that defines a specific answer to be captured, and may have child items.
-    (the answer provided in the QuestionnaireResponse should be of the defined datatype)
+     (the answer provided in the QuestionnaireResponse should be of the defined datatype)
      */
     @SerialName("question")
     QUESTION,
@@ -129,7 +128,7 @@ enum class QuestionnaireItemType {
 
     /**
      * Question with a combination of a numeric value and unit, potentially with a comparator (<, >, etc.) as an answer. (valueQuantity)
-    There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to define what unit whould be captured (or the a unit that has a ucum conversion from the provided unit)
+     There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to define what unit whould be captured (or the a unit that has a ucum conversion from the provided unit)
      */
     @SerialName("quantity")
     QUANTITY

@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirDomainResource : FhirResource {
 
     // Text summary of the resource, for human interpretation.
@@ -35,7 +34,6 @@ interface FhirDomainResource : FhirResource {
     // Extensions that cannot be ignored.
     val modifierExtension: List<Extension>?
 }
-
 
 /**
  * ClassName: DomainResource
@@ -66,7 +64,6 @@ data class DomainResource(
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-
     // # Resource
     // Logical id of this artifact.
     @SerialName("id")
@@ -85,10 +82,8 @@ data class DomainResource(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DomainResource"
     }
 }
-

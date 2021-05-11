@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Codes for device specification types such as serial number, part number, hardware revision, software revision, etc.
  *

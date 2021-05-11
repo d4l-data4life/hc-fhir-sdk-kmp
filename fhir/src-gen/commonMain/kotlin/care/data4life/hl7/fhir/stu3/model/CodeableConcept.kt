@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirCodeableConcept : FhirElement {
 
     // Code defined by a terminology system.
@@ -29,7 +28,6 @@ interface FhirCodeableConcept : FhirElement {
     // Plain text representation of the concept.
     val text: String?
 }
-
 
 /**
  * ClassName: CodeableConcept
@@ -54,7 +52,6 @@ data class CodeableConcept(
     @SerialName("text")
     override val text: String? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -67,10 +64,8 @@ data class CodeableConcept(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CodeableConcept"
     }
 }
-

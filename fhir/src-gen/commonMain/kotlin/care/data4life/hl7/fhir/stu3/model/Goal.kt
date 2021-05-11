@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirGoal : FhirDomainResource {
 
     // External Ids for this goal.
@@ -73,7 +72,6 @@ interface FhirGoal : FhirDomainResource {
     // Observation that resulted from goal.
     val outcomeReference: List<Reference>?
 }
-
 
 /**
  * ClassName: Goal
@@ -140,7 +138,6 @@ data class Goal(
     @SerialName("outcomeReference")
     override val outcomeReference: List<Reference>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -154,7 +151,6 @@ data class Goal(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -174,13 +170,11 @@ data class Goal(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Goal"
     }
 }
-
 
 interface FhirGoalTarget : FhirBackboneElement {
 
@@ -202,7 +196,6 @@ interface FhirGoalTarget : FhirBackboneElement {
     // Reach goal on or before.
     val dueDuration: Duration?
 }
-
 
 /**
  * ClassName: GoalTarget
@@ -239,12 +232,10 @@ data class GoalTarget(
     @SerialName("dueDuration")
     override val dueDuration: Duration? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -258,10 +249,8 @@ data class GoalTarget(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "GoalTarget"
     }
 }
-

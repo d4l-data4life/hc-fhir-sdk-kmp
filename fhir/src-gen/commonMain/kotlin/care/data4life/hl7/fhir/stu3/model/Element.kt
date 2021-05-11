@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirElement : FhirStu3 {
 
     // xml:id (or equivalent in JSON).
@@ -29,7 +28,6 @@ interface FhirElement : FhirStu3 {
     // Additional Content defined by implementations.
     val extension: List<Extension>?
 }
-
 
 /**
  * ClassName: Element
@@ -58,10 +56,8 @@ data class Element(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Element"
     }
 }
-

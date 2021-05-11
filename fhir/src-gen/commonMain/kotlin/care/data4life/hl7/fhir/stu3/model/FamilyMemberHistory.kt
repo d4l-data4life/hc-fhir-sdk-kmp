@@ -25,7 +25,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirFamilyMemberHistory : FhirDomainResource {
 
     // External Id(s) for this record.
@@ -106,7 +105,6 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     // Condition that the related person had.
     val condition: List<FamilyMemberHistoryCondition>?
 }
-
 
 /**
  * ClassName: FamilyMemberHistory
@@ -203,7 +201,6 @@ data class FamilyMemberHistory(
     @SerialName("condition")
     override val condition: List<FamilyMemberHistoryCondition>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -217,7 +214,6 @@ data class FamilyMemberHistory(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -237,13 +233,11 @@ data class FamilyMemberHistory(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "FamilyMemberHistory"
     }
 }
-
 
 interface FhirFamilyMemberHistoryCondition : FhirBackboneElement {
 
@@ -268,7 +262,6 @@ interface FhirFamilyMemberHistoryCondition : FhirBackboneElement {
     // Extra information about condition.
     val note: List<Annotation>?
 }
-
 
 /**
  * ClassName: FamilyMemberHistoryCondition
@@ -308,12 +301,10 @@ data class FamilyMemberHistoryCondition(
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -327,10 +318,8 @@ data class FamilyMemberHistoryCondition(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "FamilyMemberHistoryCondition"
     }
 }
-

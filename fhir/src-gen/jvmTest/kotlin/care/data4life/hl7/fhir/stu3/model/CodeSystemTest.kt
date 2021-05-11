@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.CodeSystemContentMode
 import care.data4life.hl7.fhir.stu3.codesystem.ContactPointSystem
@@ -41,7 +40,6 @@ import kotlin.test.assertEquals
 class CodeSystemTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testCodeSystem1() {
@@ -262,5 +260,3 @@ class CodeSystemTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

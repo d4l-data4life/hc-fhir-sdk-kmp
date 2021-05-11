@@ -35,5 +35,4 @@ interface FhirParser<in FHIR : FhirVersion> {
      * Convert FHIR models into FHIR data (string representation)
      */
     fun <T : FHIR> fromFhir(fhirObject: T): String
-
 }

@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirSubstance : FhirDomainResource {
 
     // Unique identifier.
@@ -46,7 +45,6 @@ interface FhirSubstance : FhirDomainResource {
     // Composition information about the substance.
     val ingredient: List<SubstanceIngredient>?
 }
-
 
 /**
  * ClassName: Substance
@@ -86,7 +84,6 @@ data class Substance(
     @SerialName("ingredient")
     override val ingredient: List<SubstanceIngredient>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -100,7 +97,6 @@ data class Substance(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -120,13 +116,11 @@ data class Substance(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Substance"
     }
 }
-
 
 interface FhirSubstanceIngredient : FhirBackboneElement {
 
@@ -139,7 +133,6 @@ interface FhirSubstanceIngredient : FhirBackboneElement {
     // A component of the substance.
     val substanceReference: Reference?
 }
-
 
 /**
  * ClassName: SubstanceIngredient
@@ -167,12 +160,10 @@ data class SubstanceIngredient(
     @SerialName("substanceReference")
     override val substanceReference: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -186,13 +177,11 @@ data class SubstanceIngredient(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "SubstanceIngredient"
     }
 }
-
 
 interface FhirSubstanceInstance : FhirBackboneElement {
 
@@ -205,7 +194,6 @@ interface FhirSubstanceInstance : FhirBackboneElement {
     // Amount of substance in the package.
     val quantity: Quantity?
 }
-
 
 /**
  * ClassName: SubstanceInstance
@@ -233,12 +221,10 @@ data class SubstanceInstance(
     @SerialName("quantity")
     override val quantity: Quantity? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -252,10 +238,8 @@ data class SubstanceInstance(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "SubstanceInstance"
     }
 }
-

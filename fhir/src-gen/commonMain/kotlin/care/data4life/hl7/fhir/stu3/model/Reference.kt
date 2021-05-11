@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirReference : FhirElement {
 
     // Literal reference, Relative, internal or absolute URL.
@@ -32,7 +31,6 @@ interface FhirReference : FhirElement {
     // Text alternative for the resource.
     val display: String?
 }
-
 
 /**
  * ClassName: Reference
@@ -60,7 +58,6 @@ data class Reference(
     @SerialName("display")
     override val display: String? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -73,10 +70,8 @@ data class Reference(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Reference"
     }
 }
-

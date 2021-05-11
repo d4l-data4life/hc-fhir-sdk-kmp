@@ -67,7 +67,6 @@ data class Time(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Time"
@@ -81,7 +80,7 @@ object TimeSerializer : KSerializer<Time> {
     override fun deserialize(decoder: Decoder): Time {
         val value = XsTimeParser.parse(decoder.decodeString())
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return Time(value)
     }
@@ -89,6 +88,6 @@ object TimeSerializer : KSerializer<Time> {
     override fun serialize(encoder: Encoder, value: Time) {
         encoder.encodeString(XsTimeParser.format(value.value))
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

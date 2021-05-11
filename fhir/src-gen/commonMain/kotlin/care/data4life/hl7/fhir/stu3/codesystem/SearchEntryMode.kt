@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Why an entry is in the result set - whether it's included as a match or because of an _include requirement.
  *

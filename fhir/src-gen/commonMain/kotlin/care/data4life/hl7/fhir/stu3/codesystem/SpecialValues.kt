@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * A set of generally useful codes defined so they can be included in value sets.
  *

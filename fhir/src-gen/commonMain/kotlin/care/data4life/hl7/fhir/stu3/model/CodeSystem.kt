@@ -25,7 +25,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirCodeSystem : FhirDomainResource {
 
     // Logical URI to reference this code system (globally unique) (Coding.system).
@@ -103,7 +102,6 @@ interface FhirCodeSystem : FhirDomainResource {
     // Concepts in the code system.
     val concept: List<CodeSystemConcept>?
 }
-
 
 /**
  * ClassName: CodeSystem
@@ -197,7 +195,6 @@ data class CodeSystem(
     @SerialName("concept")
     override val concept: List<CodeSystemConcept>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -211,7 +208,6 @@ data class CodeSystem(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -231,13 +227,11 @@ data class CodeSystem(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CodeSystem"
     }
 }
-
 
 interface FhirCodeSystemConcept : FhirBackboneElement {
 
@@ -259,7 +253,6 @@ interface FhirCodeSystemConcept : FhirBackboneElement {
     // Child Concepts (is-a/contains/categorizes).
     val concept: List<CodeSystemConcept>?
 }
-
 
 /**
  * ClassName: CodeSystemConcept
@@ -296,12 +289,10 @@ data class CodeSystemConcept(
     @SerialName("concept")
     override val concept: List<CodeSystemConcept>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -315,13 +306,11 @@ data class CodeSystemConcept(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CodeSystemConcept"
     }
 }
-
 
 interface FhirCodeSystemConceptDesignation : FhirBackboneElement {
 
@@ -334,7 +323,6 @@ interface FhirCodeSystemConceptDesignation : FhirBackboneElement {
     // The text value for this designation.
     val value: String
 }
-
 
 /**
  * ClassName: CodeSystemConceptDesignation
@@ -362,12 +350,10 @@ data class CodeSystemConceptDesignation(
     @SerialName("value")
     override val value: String,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -381,13 +367,11 @@ data class CodeSystemConceptDesignation(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CodeSystemConceptDesignation"
     }
 }
-
 
 interface FhirCodeSystemConceptProperty : FhirBackboneElement {
 
@@ -412,7 +396,6 @@ interface FhirCodeSystemConceptProperty : FhirBackboneElement {
     // Value of the property for this concept.
     val valueDateTime: DateTime?
 }
-
 
 /**
  * ClassName: CodeSystemConceptProperty
@@ -452,12 +435,10 @@ data class CodeSystemConceptProperty(
     @SerialName("valueDateTime")
     override val valueDateTime: DateTime? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -471,13 +452,11 @@ data class CodeSystemConceptProperty(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CodeSystemConceptProperty"
     }
 }
-
 
 interface FhirCodeSystemFilter : FhirBackboneElement {
 
@@ -493,7 +472,6 @@ interface FhirCodeSystemFilter : FhirBackboneElement {
     // What to use for the value.
     val value: String
 }
-
 
 /**
  * ClassName: CodeSystemFilter
@@ -524,12 +502,10 @@ data class CodeSystemFilter(
     @SerialName("value")
     override val value: String,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -543,13 +519,11 @@ data class CodeSystemFilter(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CodeSystemFilter"
     }
 }
-
 
 interface FhirCodeSystemProperty : FhirBackboneElement {
 
@@ -565,7 +539,6 @@ interface FhirCodeSystemProperty : FhirBackboneElement {
     // The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).
     val type: PropertyType
 }
-
 
 /**
  * ClassName: CodeSystemProperty
@@ -596,12 +569,10 @@ data class CodeSystemProperty(
     @SerialName("type")
     override val type: PropertyType,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -615,10 +586,8 @@ data class CodeSystemProperty(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CodeSystemProperty"
     }
 }
-

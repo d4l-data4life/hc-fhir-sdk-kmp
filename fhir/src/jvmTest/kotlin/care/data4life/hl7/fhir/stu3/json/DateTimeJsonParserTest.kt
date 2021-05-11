@@ -33,14 +33,12 @@ import kotlin.test.assertFails
 
 class DateTimeJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
-
     @Test
     fun `Given, fromJson() is called with malformed JSON, it throws exception`() {
         assertFails {
             parser.fromJson(DateTime::class, "malformed")
         }
     }
-
 
     @Test
     fun `Given, fromJson() is called with value only, it returns a DateTime`() {
@@ -106,7 +104,6 @@ class DateTimeJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         // Then
         assertEquals(expected, result.value)
     }
-
 
     @Test
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {

@@ -22,11 +22,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
-interface FhirMoney : FhirQuantity {
-
-}
-
+interface FhirMoney : FhirQuantity
 
 /**
  * ClassName: Money
@@ -43,7 +39,6 @@ interface FhirMoney : FhirQuantity {
 @Serializable
 @SerialName("Money")
 data class Money(
-
 
     // # Quantity
     // Numerical value (with implicit precision).
@@ -62,7 +57,6 @@ data class Money(
     @SerialName("code")
     override val code: String? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -75,10 +69,8 @@ data class Money(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Money"
     }
 }
-

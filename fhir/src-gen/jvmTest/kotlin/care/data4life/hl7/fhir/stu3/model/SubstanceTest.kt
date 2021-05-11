@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.FHIRSubstanceStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
@@ -37,7 +36,6 @@ import kotlin.test.assertEquals
 class SubstanceTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testSubstance1() {
@@ -247,5 +245,3 @@ class SubstanceTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

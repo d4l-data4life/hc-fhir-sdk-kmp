@@ -61,7 +61,6 @@ data class Integer(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Integer"
@@ -75,7 +74,7 @@ object IntegerSerializer : KSerializer<Integer> {
     override fun deserialize(decoder: Decoder): Integer {
         val value = decoder.decodeInt()
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return Integer(value)
     }
@@ -83,7 +82,6 @@ object IntegerSerializer : KSerializer<Integer> {
     override fun serialize(encoder: Encoder, value: Integer) {
         encoder.encodeInt(value.value)
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }
-

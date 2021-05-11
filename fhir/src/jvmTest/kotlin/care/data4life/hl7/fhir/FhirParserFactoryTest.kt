@@ -21,7 +21,6 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-
 internal class FhirParserFactoryTest {
 
     // SUT

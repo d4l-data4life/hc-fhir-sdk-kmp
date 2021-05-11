@@ -104,7 +104,6 @@ class XsTimeZoneParserTest {
             XsTimeZoneParser.format(XsTimeZone(23, 59))
         )
 
-
         assertEquals(
             "-00:00",
             XsTimeZoneParser.format(XsTimeZone(0, 0, positiveOffset = false))

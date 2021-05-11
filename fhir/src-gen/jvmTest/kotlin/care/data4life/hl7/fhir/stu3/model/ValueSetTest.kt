@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.ContactPointSystem
 import care.data4life.hl7.fhir.stu3.codesystem.FilterOperator
@@ -41,7 +40,6 @@ import kotlin.test.assertEquals
 class ValueSetTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testValueSet1() {
@@ -437,5 +435,3 @@ class ValueSetTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

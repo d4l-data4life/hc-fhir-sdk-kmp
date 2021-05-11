@@ -20,13 +20,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirBackboneElement : FhirElement {
 
     // Extensions that cannot be ignored.
     val modifierExtension: List<Extension>?
 }
-
 
 /**
  * ClassName: BackboneElement
@@ -48,7 +46,6 @@ data class BackboneElement(
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -61,10 +58,8 @@ data class BackboneElement(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "BackboneElement"
     }
 }
-

@@ -66,7 +66,6 @@ class XsDateTest(
                 arrayOf(2015, 1, 1, "2015-01-01", false),
                 arrayOf(2015, 1, 31, "2015-01-31", false),
 
-
                 // error cases
                 // year
                 arrayOf(10000, null, null, "", true),

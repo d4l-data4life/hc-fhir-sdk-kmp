@@ -73,7 +73,7 @@ object BoolSerializer : KSerializer<Bool> {
     override fun deserialize(decoder: Decoder): Bool {
         val value = decoder.decodeBoolean()
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return Bool(value)
     }
@@ -81,6 +81,6 @@ object BoolSerializer : KSerializer<Bool> {
     override fun serialize(encoder: Encoder, value: Bool) {
         encoder.encodeBoolean(value.value)
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

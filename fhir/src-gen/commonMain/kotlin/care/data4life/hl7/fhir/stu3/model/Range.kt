@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirRange : FhirElement {
 
     // Low limit.
@@ -29,7 +28,6 @@ interface FhirRange : FhirElement {
     // High limit.
     val high: Quantity?
 }
-
 
 /**
  * ClassName: Range
@@ -54,7 +52,6 @@ data class Range(
     @SerialName("high")
     override val high: Quantity? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -67,10 +64,8 @@ data class Range(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Range"
     }
 }
-

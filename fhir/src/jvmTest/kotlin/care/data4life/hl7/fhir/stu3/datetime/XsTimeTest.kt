@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.datetime
 
-
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -73,7 +72,6 @@ class XsTimeTest(
                 arrayOf(12, 0, 59, .123, "12:00:59.123", false),
                 arrayOf(12, 0, 59, .00123, "12:00:59.00123", false),
                 arrayOf(12, 0, 59, .0001, "12:00:59.0001", false),
-
 
                 // error cases
                 // hour

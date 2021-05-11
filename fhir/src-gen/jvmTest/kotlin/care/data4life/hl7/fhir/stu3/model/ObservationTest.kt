@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ObservationRelationshipType
@@ -40,7 +39,6 @@ import kotlin.test.assertEquals
 class ObservationTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testObservation1() {
@@ -475,5 +473,3 @@ class ObservationTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

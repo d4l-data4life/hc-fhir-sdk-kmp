@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirSpecimen : FhirDomainResource {
 
     // External Identifier.
@@ -61,7 +60,6 @@ interface FhirSpecimen : FhirDomainResource {
     // Comments.
     val note: List<Annotation>?
 }
-
 
 /**
  * ClassName: Specimen
@@ -116,7 +114,6 @@ data class Specimen(
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -130,7 +127,6 @@ data class Specimen(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -150,13 +146,11 @@ data class Specimen(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Specimen"
     }
 }
-
 
 interface FhirSpecimenCollection : FhirBackboneElement {
 
@@ -178,7 +172,6 @@ interface FhirSpecimenCollection : FhirBackboneElement {
     // Anatomical collection site.
     val bodySite: CodeableConcept?
 }
-
 
 /**
  * ClassName: SpecimenCollection
@@ -215,12 +208,10 @@ data class SpecimenCollection(
     @SerialName("bodySite")
     override val bodySite: CodeableConcept? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -234,13 +225,11 @@ data class SpecimenCollection(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "SpecimenCollection"
     }
 }
-
 
 interface FhirSpecimenContainer : FhirBackboneElement {
 
@@ -265,7 +254,6 @@ interface FhirSpecimenContainer : FhirBackboneElement {
     // Additive associated with container.
     val additiveReference: Reference?
 }
-
 
 /**
  * ClassName: SpecimenContainer
@@ -305,12 +293,10 @@ data class SpecimenContainer(
     @SerialName("additiveReference")
     override val additiveReference: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -324,13 +310,11 @@ data class SpecimenContainer(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "SpecimenContainer"
     }
 }
-
 
 interface FhirSpecimenProcessing : FhirBackboneElement {
 
@@ -349,7 +333,6 @@ interface FhirSpecimenProcessing : FhirBackboneElement {
     // Date and time of specimen processing.
     val timePeriod: Period?
 }
-
 
 /**
  * ClassName: SpecimenProcessing
@@ -383,12 +366,10 @@ data class SpecimenProcessing(
     @SerialName("timePeriod")
     override val timePeriod: Period? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -402,10 +383,8 @@ data class SpecimenProcessing(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "SpecimenProcessing"
     }
 }
-

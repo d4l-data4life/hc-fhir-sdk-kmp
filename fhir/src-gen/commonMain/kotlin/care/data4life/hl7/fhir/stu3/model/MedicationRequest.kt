@@ -26,7 +26,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirMedicationRequest : FhirDomainResource {
 
     // External ids for this request.
@@ -104,7 +103,6 @@ interface FhirMedicationRequest : FhirDomainResource {
     // A list of events of interest in the lifecycle.
     val eventHistory: List<Reference>?
 }
-
 
 /**
  * ClassName: MedicationRequest
@@ -198,7 +196,6 @@ data class MedicationRequest(
     @SerialName("eventHistory")
     override val eventHistory: List<Reference>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -212,7 +209,6 @@ data class MedicationRequest(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -232,13 +228,11 @@ data class MedicationRequest(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationRequest"
     }
 }
-
 
 interface FhirMedicationRequestDispenseRequest : FhirBackboneElement {
 
@@ -257,7 +251,6 @@ interface FhirMedicationRequestDispenseRequest : FhirBackboneElement {
     // Intended dispenser.
     val performer: Reference?
 }
-
 
 /**
  * ClassName: MedicationRequestDispenseRequest
@@ -291,12 +284,10 @@ data class MedicationRequestDispenseRequest(
     @SerialName("performer")
     override val performer: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -310,13 +301,11 @@ data class MedicationRequestDispenseRequest(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationRequestDispenseRequest"
     }
 }
-
 
 interface FhirMedicationRequestRequester : FhirBackboneElement {
 
@@ -326,7 +315,6 @@ interface FhirMedicationRequestRequester : FhirBackboneElement {
     // Organization agent is acting for.
     val onBehalfOf: Reference?
 }
-
 
 /**
  * ClassName: MedicationRequestRequester
@@ -351,12 +339,10 @@ data class MedicationRequestRequester(
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -370,13 +356,11 @@ data class MedicationRequestRequester(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationRequestRequester"
     }
 }
-
 
 interface FhirMedicationRequestSubstitution : FhirBackboneElement {
 
@@ -386,7 +370,6 @@ interface FhirMedicationRequestSubstitution : FhirBackboneElement {
     // Why should (not) substitution be made.
     val reason: CodeableConcept?
 }
-
 
 /**
  * ClassName: MedicationRequestSubstitution
@@ -411,12 +394,10 @@ data class MedicationRequestSubstitution(
     @SerialName("reason")
     override val reason: CodeableConcept? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -430,10 +411,8 @@ data class MedicationRequestSubstitution(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationRequestSubstitution"
     }
 }
-

@@ -26,7 +26,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirPatient : FhirDomainResource {
 
     // An identifier for this patient.
@@ -86,7 +85,6 @@ interface FhirPatient : FhirDomainResource {
     // Link to another patient resource that concerns the same actual person.
     val link: List<PatientLink>?
 }
-
 
 /**
  * ClassName: Patient
@@ -162,7 +160,6 @@ data class Patient(
     @SerialName("link")
     override val link: List<PatientLink>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -176,7 +173,6 @@ data class Patient(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -196,13 +192,11 @@ data class Patient(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Patient"
     }
 }
-
 
 interface FhirPatientAnimal : FhirBackboneElement {
 
@@ -215,7 +209,6 @@ interface FhirPatientAnimal : FhirBackboneElement {
     // E.g. Neutered, Intact.
     val genderStatus: CodeableConcept?
 }
-
 
 /**
  * ClassName: PatientAnimal
@@ -243,12 +236,10 @@ data class PatientAnimal(
     @SerialName("genderStatus")
     override val genderStatus: CodeableConcept? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -262,13 +253,11 @@ data class PatientAnimal(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "PatientAnimal"
     }
 }
-
 
 interface FhirPatientCommunication : FhirBackboneElement {
 
@@ -278,7 +267,6 @@ interface FhirPatientCommunication : FhirBackboneElement {
     // Language preference indicator.
     val preferred: Bool?
 }
-
 
 /**
  * ClassName: PatientCommunication
@@ -303,12 +291,10 @@ data class PatientCommunication(
     @SerialName("preferred")
     override val preferred: Bool? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -322,13 +308,11 @@ data class PatientCommunication(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "PatientCommunication"
     }
 }
-
 
 interface FhirPatientContact : FhirBackboneElement {
 
@@ -353,7 +337,6 @@ interface FhirPatientContact : FhirBackboneElement {
     // The period during which this contact person or organization is valid to be contacted relating to this patient.
     val period: Period?
 }
-
 
 /**
  * ClassName: PatientContact
@@ -393,12 +376,10 @@ data class PatientContact(
     @SerialName("period")
     override val period: Period? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -412,13 +393,11 @@ data class PatientContact(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "PatientContact"
     }
 }
-
 
 interface FhirPatientLink : FhirBackboneElement {
 
@@ -428,7 +407,6 @@ interface FhirPatientLink : FhirBackboneElement {
     // The type of link between this patient resource and another patient resource.
     val type: LinkType
 }
-
 
 /**
  * ClassName: PatientLink
@@ -453,12 +431,10 @@ data class PatientLink(
     @SerialName("type")
     override val type: LinkType,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -472,10 +448,8 @@ data class PatientLink(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "PatientLink"
     }
 }
-

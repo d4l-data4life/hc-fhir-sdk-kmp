@@ -22,11 +22,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
-interface FhirCount : FhirQuantity {
-
-}
-
+interface FhirCount : FhirQuantity
 
 /**
  * ClassName: Count
@@ -43,7 +39,6 @@ interface FhirCount : FhirQuantity {
 @Serializable
 @SerialName("Count")
 data class Count(
-
 
     // # Quantity
     // Numerical value (with implicit precision).
@@ -62,7 +57,6 @@ data class Count(
     @SerialName("code")
     override val code: String? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -75,10 +69,8 @@ data class Count(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Count"
     }
 }
-

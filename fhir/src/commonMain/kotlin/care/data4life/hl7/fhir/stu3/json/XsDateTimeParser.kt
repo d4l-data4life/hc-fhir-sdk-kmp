@@ -25,7 +25,6 @@ object XsDateTimeParser : StringParser<XsDateTime> {
         "-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?".toRegex()
     private val DATE_TIME_FORMAT_DESTRUCT = "-?(\\d{4}(?:-\\d{2}(?:-\\d{2})?)?)(?:T)?(\\d{2}:\\d{2}:\\d{2}(?:\\.\\d*)?)?(Z|[\\+,\\-]\\d{2}:\\d{2})?".toRegex()
 
-
     override fun parse(input: String): XsDateTime {
         require(DATE_TIME_FORMAT_REGEX.matches(input))
 
@@ -38,7 +37,6 @@ object XsDateTimeParser : StringParser<XsDateTime> {
         val xsTimeZone = if (timeZone.isNotEmpty()) XsTimeZoneParser.parse(timeZone) else null
         return XsDateTime(xsDate, xsTime, xsTimeZone)
     }
-
 
     override fun format(input: XsDateTime): String = XsDateTimeFormatter.formatDateTime(input)
 }

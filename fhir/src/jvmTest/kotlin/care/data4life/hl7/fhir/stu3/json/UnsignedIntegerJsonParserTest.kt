@@ -110,7 +110,6 @@ class UnsignedIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         assertEquals(expected, result.value)
     }
 
-
     @Test
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {
         // Given

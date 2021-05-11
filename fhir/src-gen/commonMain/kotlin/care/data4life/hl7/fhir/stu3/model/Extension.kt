@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirExtension : FhirElement {
 
     // identifies the meaning of the extension.
@@ -141,7 +140,6 @@ interface FhirExtension : FhirElement {
     // Value of extension.
     val valueMeta: Meta?
 }
-
 
 /**
  * ClassName: Extension
@@ -277,7 +275,6 @@ data class Extension(
     @SerialName("valueMeta")
     override val valueMeta: Meta? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -290,10 +287,8 @@ data class Extension(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Extension"
     }
 }
-

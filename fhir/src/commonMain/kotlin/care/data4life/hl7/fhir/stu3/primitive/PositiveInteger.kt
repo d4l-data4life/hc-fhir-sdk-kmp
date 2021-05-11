@@ -71,7 +71,6 @@ data class PositiveInteger(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "PositiveInteger"
@@ -85,7 +84,7 @@ object PositiveIntegerSerializer : KSerializer<PositiveInteger> {
     override fun deserialize(decoder: Decoder): PositiveInteger {
         val value = decoder.decodeLong()
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return PositiveInteger(value)
     }
@@ -93,6 +92,6 @@ object PositiveIntegerSerializer : KSerializer<PositiveInteger> {
     override fun serialize(encoder: Encoder, value: PositiveInteger) {
         encoder.encodeLong(value.value)
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

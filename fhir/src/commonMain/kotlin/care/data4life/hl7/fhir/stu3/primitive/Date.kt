@@ -79,7 +79,7 @@ object DateSerializer : KSerializer<Date> {
     override fun deserialize(decoder: Decoder): Date {
         val value = XsDateParser.parse(decoder.decodeString())
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return Date(value)
     }
@@ -87,6 +87,6 @@ object DateSerializer : KSerializer<Date> {
     override fun serialize(encoder: Encoder, value: Date) {
         encoder.encodeString(XsDateParser.format(value.value))
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

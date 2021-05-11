@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirAnnotation : FhirElement {
 
     // Individual responsible for the annotation.
@@ -36,7 +35,6 @@ interface FhirAnnotation : FhirElement {
     // The annotation  - text content.
     val text: String
 }
-
 
 /**
  * ClassName: Annotation
@@ -67,7 +65,6 @@ data class Annotation(
     @SerialName("text")
     override val text: String,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -80,10 +77,8 @@ data class Annotation(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Annotation"
     }
 }
-

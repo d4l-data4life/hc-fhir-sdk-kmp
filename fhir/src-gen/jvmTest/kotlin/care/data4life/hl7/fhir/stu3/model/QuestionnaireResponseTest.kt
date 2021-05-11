@@ -16,18 +16,13 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
-import javax.annotation.Generated
-
-import org.junit.Test
-import org.skyscreamer.jsonassert.JSONAssert
-
+import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.*
 import care.data4life.hl7.fhir.stu3.primitive.*
-import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
-import org.junit.Ignore
-
+import org.junit.Test
+import org.skyscreamer.jsonassert.JSONAssert
+import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -43,7 +38,6 @@ import kotlin.test.assertEquals
 class QuestionnaireResponseTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testQuestionnaireResponse1() {
@@ -2267,5 +2261,3 @@ class QuestionnaireResponseTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

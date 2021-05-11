@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirOrganization : FhirDomainResource {
 
     // Identifies this organization  across multiple systems.
@@ -54,7 +53,6 @@ interface FhirOrganization : FhirDomainResource {
     // Technical endpoints providing access to services operated for the organization.
     val endpoint: List<Reference>?
 }
-
 
 /**
  * ClassName: Organization
@@ -103,7 +101,6 @@ data class Organization(
     @SerialName("endpoint")
     override val endpoint: List<Reference>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -117,7 +114,6 @@ data class Organization(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -137,13 +133,11 @@ data class Organization(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Organization"
     }
 }
-
 
 interface FhirOrganizationContact : FhirBackboneElement {
 
@@ -159,7 +153,6 @@ interface FhirOrganizationContact : FhirBackboneElement {
     // Visiting or postal addresses for the contact.
     val address: Address?
 }
-
 
 /**
  * ClassName: OrganizationContact
@@ -190,12 +183,10 @@ data class OrganizationContact(
     @SerialName("address")
     override val address: Address? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -209,10 +200,8 @@ data class OrganizationContact(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "OrganizationContact"
     }
 }
-

@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or HGPS systems
  *

@@ -39,7 +39,6 @@ object Versions {
     // https://github.com/Kotlin/kotlinx.serialization
     const val kotlinSerialization = "1.0.1"
 
-
     // https://github.com/Kotlin/kotlinx-datetime
     const val dateTime = "0.1.1"
 
@@ -62,7 +61,6 @@ object Versions {
     const val androidXTest = "1.1.2"
     const val androidXEspresso = "3.3.0"
     const val androidXUiAutomator = "2.2.0"
-
 
     // Material
     /**

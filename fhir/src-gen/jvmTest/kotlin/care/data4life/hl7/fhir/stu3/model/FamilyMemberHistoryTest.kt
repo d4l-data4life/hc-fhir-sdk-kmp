@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.AdministrativeGender
 import care.data4life.hl7.fhir.stu3.codesystem.FamilyHistoryStatus
@@ -40,7 +39,6 @@ import kotlin.test.assertEquals
 class FamilyMemberHistoryTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testFamilyMemberHistory1() {
@@ -123,5 +121,3 @@ class FamilyMemberHistoryTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

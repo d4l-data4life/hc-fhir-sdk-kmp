@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirPeriod : FhirElement {
 
     // Starting time with inclusive boundary.
@@ -30,7 +29,6 @@ interface FhirPeriod : FhirElement {
     // End time with inclusive boundary, if not ongoing.
     val end: DateTime?
 }
-
 
 /**
  * ClassName: Period
@@ -55,7 +53,6 @@ data class Period(
     @SerialName("end")
     override val end: DateTime? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -68,10 +65,8 @@ data class Period(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Period"
     }
 }
-

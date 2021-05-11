@@ -30,7 +30,6 @@ abstract class BaseFhirPrimitiveJsonParserTest {
 
     abstract fun PolymorphicModuleBuilder<FhirStu3>.addTestSubclass()
 
-
     @BeforeTest
     fun setup() {
         val fhirTestSerializersModule = SerializersModule {
@@ -45,5 +44,4 @@ abstract class BaseFhirPrimitiveJsonParserTest {
 
         parser = FhirStu3JsonParser(reader)
     }
-
 }

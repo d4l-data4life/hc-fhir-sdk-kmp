@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirContactDetail : FhirElement {
 
     // Name of an individual to contact.
@@ -29,7 +28,6 @@ interface FhirContactDetail : FhirElement {
     // Contact details for individual or organization.
     val telecom: List<ContactPoint>?
 }
-
 
 /**
  * ClassName: ContactDetail
@@ -54,7 +52,6 @@ data class ContactDetail(
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -67,10 +64,8 @@ data class ContactDetail(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ContactDetail"
     }
 }
-

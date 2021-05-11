@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirQuestionnaireResponse : FhirDomainResource {
 
     // Unique id for this set of answers.
@@ -58,7 +57,6 @@ interface FhirQuestionnaireResponse : FhirDomainResource {
     // Groups and questions.
     val item: List<QuestionnaireResponseItem>?
 }
-
 
 /**
  * ClassName: QuestionnaireResponse
@@ -110,7 +108,6 @@ data class QuestionnaireResponse(
     @SerialName("item")
     override val item: List<QuestionnaireResponseItem>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -124,7 +121,6 @@ data class QuestionnaireResponse(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -144,13 +140,11 @@ data class QuestionnaireResponse(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "QuestionnaireResponse"
     }
 }
-
 
 interface FhirQuestionnaireResponseItem : FhirBackboneElement {
 
@@ -172,7 +166,6 @@ interface FhirQuestionnaireResponseItem : FhirBackboneElement {
     // Nested questionnaire response items.
     val item: List<QuestionnaireResponseItem>?
 }
-
 
 /**
  * ClassName: QuestionnaireResponseItem
@@ -209,12 +202,10 @@ data class QuestionnaireResponseItem(
     @SerialName("item")
     override val item: List<QuestionnaireResponseItem>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -228,13 +219,11 @@ data class QuestionnaireResponseItem(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "QuestionnaireResponseItem"
     }
 }
-
 
 interface FhirQuestionnaireResponseItemAnswer : FhirBackboneElement {
 
@@ -277,7 +266,6 @@ interface FhirQuestionnaireResponseItemAnswer : FhirBackboneElement {
     // Nested groups and questions.
     val item: List<QuestionnaireResponseItem>?
 }
-
 
 /**
  * ClassName: QuestionnaireResponseItemAnswer
@@ -335,12 +323,10 @@ data class QuestionnaireResponseItemAnswer(
     @SerialName("item")
     override val item: List<QuestionnaireResponseItem>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -354,10 +340,8 @@ data class QuestionnaireResponseItemAnswer(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "QuestionnaireResponseItemAnswer"
     }
 }
-

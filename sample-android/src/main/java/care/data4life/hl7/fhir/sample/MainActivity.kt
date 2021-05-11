@@ -30,5 +30,4 @@ class MainActivity : AppCompatActivity() {
 
         mainText.text = "The Sample is not implemented yet"
     }
-
 }

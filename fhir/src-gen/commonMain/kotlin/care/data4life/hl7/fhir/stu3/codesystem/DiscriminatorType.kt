@@ -18,7 +18,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 
 import kotlinx.serialization.*
 
-
 /**
  * How an element value is interpreted when discrimination is evaluated
  *

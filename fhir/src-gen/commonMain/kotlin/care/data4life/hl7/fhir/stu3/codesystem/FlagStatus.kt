@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or entered in error.
  *

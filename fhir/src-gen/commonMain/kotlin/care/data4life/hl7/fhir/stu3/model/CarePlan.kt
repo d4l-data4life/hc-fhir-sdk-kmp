@@ -24,7 +24,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirCarePlan : FhirDomainResource {
 
     // External Ids for this plan.
@@ -87,7 +86,6 @@ interface FhirCarePlan : FhirDomainResource {
     // Comments about the plan.
     val note: List<Annotation>?
 }
-
 
 /**
  * ClassName: CarePlan
@@ -166,7 +164,6 @@ data class CarePlan(
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -180,7 +177,6 @@ data class CarePlan(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -200,13 +196,11 @@ data class CarePlan(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CarePlan"
     }
 }
-
 
 interface FhirCarePlanActivity : FhirBackboneElement {
 
@@ -225,7 +219,6 @@ interface FhirCarePlanActivity : FhirBackboneElement {
     // In-line definition of activity.
     val detail: CarePlanActivityDetail?
 }
-
 
 /**
  * ClassName: CarePlanActivity
@@ -259,12 +252,10 @@ data class CarePlanActivity(
     @SerialName("detail")
     override val detail: CarePlanActivityDetail? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -278,13 +269,11 @@ data class CarePlanActivity(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CarePlanActivity"
     }
 }
-
 
 interface FhirCarePlanActivityDetail : FhirBackboneElement {
 
@@ -345,7 +334,6 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
     // Extra info describing activity to perform.
     val description: String?
 }
-
 
 /**
  * ClassName: CarePlanActivityDetail
@@ -421,12 +409,10 @@ data class CarePlanActivityDetail(
     @SerialName("description")
     override val description: String? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -440,10 +426,8 @@ data class CarePlanActivityDetail(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CarePlanActivityDetail"
     }
 }
-

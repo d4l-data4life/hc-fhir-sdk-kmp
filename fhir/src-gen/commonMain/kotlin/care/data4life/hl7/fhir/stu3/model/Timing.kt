@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirTiming : FhirElement {
 
     // When the event occurs.
@@ -34,7 +33,6 @@ interface FhirTiming : FhirElement {
     // BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +.
     val code: CodeableConcept?
 }
-
 
 /**
  * ClassName: Timing
@@ -62,7 +60,6 @@ data class Timing(
     @SerialName("code")
     override val code: CodeableConcept? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -75,13 +72,11 @@ data class Timing(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Timing"
     }
 }
-
 
 interface FhirTimingRepeat : FhirElement {
 
@@ -136,7 +131,6 @@ interface FhirTimingRepeat : FhirElement {
     // Minutes from event (before or after).
     val offset: UnsignedInteger?
 }
-
 
 /**
  * ClassName: TimingRepeat
@@ -206,7 +200,6 @@ data class TimingRepeat(
     @SerialName("offset")
     override val offset: UnsignedInteger? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -219,10 +212,8 @@ data class TimingRepeat(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "TimingRepeat"
     }
 }
-

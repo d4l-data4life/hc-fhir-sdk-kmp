@@ -23,7 +23,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirContactPoint : FhirElement {
 
     // Telecommunications form for contact point - what communications system is required to make use of the contact.
@@ -41,7 +40,6 @@ interface FhirContactPoint : FhirElement {
     // Time period when the contact point was/is in use.
     val period: Period?
 }
-
 
 /**
  * ClassName: ContactPoint
@@ -75,7 +73,6 @@ data class ContactPoint(
     @SerialName("period")
     override val period: Period? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -88,10 +85,8 @@ data class ContactPoint(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ContactPoint"
     }
 }
-

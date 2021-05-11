@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirSignature : FhirElement {
 
     // Indication of the reason the entity signed the object(s).
@@ -48,7 +47,6 @@ interface FhirSignature : FhirElement {
     // The actual signature content (XML DigSig. JWT, picture, etc.).
     val blob: String?
 }
-
 
 /**
  * ClassName: Signature
@@ -91,7 +89,6 @@ data class Signature(
     @SerialName("blob")
     override val blob: String? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -104,10 +101,8 @@ data class Signature(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Signature"
     }
 }
-
