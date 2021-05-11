@@ -21,6 +21,7 @@ toc::[]
 ** specification
 ** FHIR parser integration and configuration
 ** JSON test samples
+** Base Types FhirR4, Element and Extension
 
 === Changed
 
