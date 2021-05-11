@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Preferred value set for AllergyIntolerance Clinical Status.
@@ -35,11 +34,13 @@ enum class AllergyIntoleranceClinicalStatusCodes {
      */
     @SerialName("active")
     ACTIVE,
+
     /**
      * The subject is no longer at risk of a reaction to the identified substance.
      */
     @SerialName("inactive")
     INACTIVE,
+
     /**
      * A reaction to the identified substance has been clinically reassessed by testing or re-exposure and is considered no longer to be present. Re-exposure could be accidental, unplanned, or outside of any clinical setting.
      */

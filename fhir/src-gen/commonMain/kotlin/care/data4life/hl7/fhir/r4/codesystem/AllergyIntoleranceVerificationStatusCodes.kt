@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Preferred value set for AllergyIntolerance Verification Status.
@@ -35,16 +34,19 @@ enum class AllergyIntoleranceVerificationStatusCodes {
      */
     @SerialName("unconfirmed")
     UNCONFIRMED,
+
     /**
      * A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
      */
     @SerialName("confirmed")
     CONFIRMED,
+
     /**
      * A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level of clinical certainty to justify invalidating the assertion. This might or might not include testing or rechallenge.
      */
     @SerialName("refuted")
     REFUTED,
+
     /**
      * The statement was entered in error and is not valid.
      */

@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set contract specific codes for asset subtype.

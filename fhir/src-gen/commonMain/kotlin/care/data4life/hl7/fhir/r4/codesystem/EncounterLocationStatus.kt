@@ -38,7 +38,7 @@ enum class EncounterLocationStatus {
     /**
      * The patient is currently at this location, or was between the period specified.
 
-    A system may update these records when the patient leaves the location to either reserved, or completed.
+     A system may update these records when the patient leaves the location to either reserved, or completed.
      */
     @SerialName("active")
     ACTIVE,
@@ -52,7 +52,7 @@ enum class EncounterLocationStatus {
     /**
      * The patient was at this location during the period specified.
 
-    Not to be used when the patient is currently at the location.
+     Not to be used when the patient is currently at the location.
      */
     @SerialName("completed")
     COMPLETED

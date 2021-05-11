@@ -16,7 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * How an element value is interpreted when discrimination is evaluated.

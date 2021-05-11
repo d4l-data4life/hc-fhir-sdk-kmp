@@ -69,7 +69,8 @@ enum class OrganizationAffiliationRole {
      * An organization that facilitates electronic clinical data exchange between entities
      */
     @SerialName("HIE/HIO")
-    HIE/HIO,
+    HIE_HIO,
+
     /**
      * A type of non-ownership relationship between entities (encompasses partnerships, collaboration, joint ventures, etc.)
      */

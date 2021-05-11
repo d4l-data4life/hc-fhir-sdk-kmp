@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set includes Example Coverage Financial Exception Codes.
@@ -35,6 +34,7 @@ enum class ExampleCoverageFinancialExceptionCodes {
      */
     @SerialName("retired")
     RETIRED,
+
     /**
      * Children in the foster care have all copays and deductibles waived.
      */

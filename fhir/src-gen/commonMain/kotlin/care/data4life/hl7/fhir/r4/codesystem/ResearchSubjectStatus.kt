@@ -49,7 +49,7 @@ enum class ResearchSubjectStatus {
 
     /**
      * A person who did not meet one or more criteria required for participation in a study is considered to have failed screening or
-    is ineligible for the study.
+     is ineligible for the study.
      */
     @SerialName("ineligible")
     INELIGIBLE,
@@ -62,7 +62,7 @@ enum class ResearchSubjectStatus {
 
     /**
      * A person that has ended their participation on a study either because their treatment/observation is complete or through not
-    responding, withdrawal, non-compliance and/or adverse event.
+     responding, withdrawal, non-compliance and/or adverse event.
      */
     @SerialName("off-study")
     OFF_STUDY,

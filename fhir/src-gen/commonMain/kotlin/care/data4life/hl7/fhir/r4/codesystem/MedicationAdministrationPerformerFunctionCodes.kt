@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * MedicationAdministration Performer Function Codes
@@ -35,11 +34,13 @@ enum class MedicationAdministrationPerformerFunctionCodes {
      */
     @SerialName("performer")
     PERFORMER,
+
     /**
      * A person who verifies the correctness and appropriateness of the service (plan, order, event, etc.) and hence takes on accountability.
      */
     @SerialName("verifier")
     VERIFIER,
+
     /**
      * A person witnessing the action happening without doing anything. A witness is not necessarily aware, much less approves of anything stated in the service event. Example for a witness is students watching an operation or an advanced directive witness.
      */

@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * BiologicallyDerived Product Storage Scale.
@@ -35,11 +34,13 @@ enum class BiologicallyDerivedProductStorageScale {
      */
     @SerialName("farenheit")
     FARENHEIT,
+
     /**
      * Celsius or centigrade temperature scale.
      */
     @SerialName("celsius")
     CELSIUS,
+
     /**
      * Kelvin absolute thermodynamic temperature scale.
      */

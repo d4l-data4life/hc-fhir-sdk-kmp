@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the destination within a TestScript.
@@ -35,16 +34,19 @@ enum class TestScriptProfileDestinationType {
      */
     @SerialName("FHIR-Server")
     FHIR_SERVER,
+
     /**
      * A FHIR server acting as a Structured Data Capture Form Manager.
      */
     @SerialName("FHIR-SDC-FormManager")
     FHIR_SDC_FORMMANAGER,
+
     /**
      * A FHIR server acting as a Structured Data Capture Form Processor.
      */
     @SerialName("FHIR-SDC-FormProcessor")
     FHIR_SDC_FORMPROCESSOR,
+
     /**
      * A FHIR server acting as a Structured Data Capture Form Receiver.
      */

@@ -16,7 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set includes sample Regulatory consent policy types from the US and other regions.

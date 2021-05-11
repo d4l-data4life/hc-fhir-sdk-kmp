@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set includes all medication refused, medication not administered, and non-administration of necessary drug or medicine codes from SNOMED CT - provided as an exemplar value set.
@@ -35,16 +34,19 @@ enum class SNOMEDCTReasonMedicationNotGivenCodes {
      */
     @SerialName("a")
     A,
+
     /**
      * The patient was not available when the dose was scheduled.
      */
     @SerialName("b")
     B,
+
     /**
      * The patient was asleep when the dose was scheduled.
      */
     @SerialName("c")
     C,
+
     /**
      * The patient was given the medication and immediately vomited it back.
      */

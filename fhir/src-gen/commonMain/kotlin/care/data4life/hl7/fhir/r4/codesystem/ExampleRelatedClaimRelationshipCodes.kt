@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set includes sample Related Claim Relationship codes.
@@ -35,6 +34,7 @@ enum class ExampleRelatedClaimRelationshipCodes {
      */
     @SerialName("prior")
     PRIOR,
+
     /**
      * A claim for a different suite of services which is related the suite claimed here.
      */

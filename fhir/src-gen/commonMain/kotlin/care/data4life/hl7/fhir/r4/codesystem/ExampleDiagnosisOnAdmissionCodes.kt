@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set includes example Diagnosis on Admission codes.
@@ -35,16 +34,19 @@ enum class ExampleDiagnosisOnAdmissionCodes {
      */
     @SerialName("y")
     Y,
+
     /**
      * Diagnosis was not present at time of inpatient admission.
      */
     @SerialName("n")
     N,
+
     /**
      * Documentation insufficient to determine if condition was present at the time of inpatient admission.
      */
     @SerialName("u")
     U,
+
     /**
      * Clinically undetermined. Provider unable to clinically determine whether the condition was present at the time of inpatient admission.
      */

@@ -16,7 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Real world event relating to the schedule.
@@ -38,52 +39,62 @@ enum class EventTiming {
      * Event occurs during the early morning. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("MORN.early")
-    MORN.EARLY,
+    MORN_EARLY,
+
     /**
      * Event occurs during the late morning. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("MORN.late")
-    MORN.LATE,
+    MORN_LATE,
+
     /**
      * Event occurs around 12:00pm. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("NOON")
     NOON,
+
     /**
      * Event occurs during the afternoon. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("AFT")
     AFT,
+
     /**
      * Event occurs during the early afternoon. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("AFT.early")
-    AFT.EARLY,
+    AFT_EARLY,
+
     /**
      * Event occurs during the late afternoon. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("AFT.late")
-    AFT.LATE,
+    AFT_LATE,
+
     /**
      * Event occurs during the evening. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("EVE")
     EVE,
+
     /**
      * Event occurs during the early evening. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("EVE.early")
-    EVE.EARLY,
+    EVE_EARLY,
+
     /**
      * Event occurs during the late evening. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("EVE.late")
-    EVE.LATE,
+    EVE_LATE,
+
     /**
      * Event occurs during the night. The exact time is unspecified and established by institution convention or patient interpretation.
      */
     @SerialName("NIGHT")
     NIGHT,
+
     /**
      * Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by institution convention or patient interpretation.
      */

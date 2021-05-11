@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Biologically Derived Product Category.
@@ -35,21 +34,25 @@ enum class BiologicallyDerivedProductCategory {
      */
     @SerialName("organ")
     ORGAN,
+
     /**
      * An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a specific function.
      */
     @SerialName("tissue")
     TISSUE,
+
     /**
      * Body fluid.
      */
     @SerialName("fluid")
     FLUID,
+
     /**
      * Collection of cells.
      */
     @SerialName("cells")
     CELLS,
+
     /**
      * Biological agent of unspecified type.
      */

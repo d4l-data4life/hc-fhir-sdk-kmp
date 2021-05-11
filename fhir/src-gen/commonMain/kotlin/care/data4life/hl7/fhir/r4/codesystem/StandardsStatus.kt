@@ -44,7 +44,7 @@ enum class StandardsStatus {
     /**
      * This content has been well reviewed and is considered by the authors to be ready for use in production systems. It has been subjected to ballot and approved as an official standard. However, it has not yet seen widespread use in production across the full spectrum of environments it is intended to be used in. In some cases, there may be documented known issues that require implementation experience to determine appropriate resolutions for.
 
-    Future versions of FHIR may make significant changes to Trial Use content that are not compatible with previously published content.
+     Future versions of FHIR may make significant changes to Trial Use content that are not compatible with previously published content.
      */
     @SerialName("trial-use")
     TRIAL_USE,

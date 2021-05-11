@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set includes CoverageEligibilityResponse Auth Support codes.
@@ -35,36 +34,43 @@ enum class CoverageEligibilityResponseAuthSupportCodes {
      */
     @SerialName("laborder")
     LABORDER,
+
     /**
      * A report on laboratory diagnostic test(s).
      */
     @SerialName("labreport")
     LABREPORT,
+
     /**
      * A request or authorization for diagnostic imaging.
      */
     @SerialName("diagnosticimageorder")
     DIAGNOSTICIMAGEORDER,
+
     /**
      * A report on diagnostic image(s).
      */
     @SerialName("diagnosticimagereport")
     DIAGNOSTICIMAGEREPORT,
+
     /**
      * A report from a licensed professional regarding the siutation, condition or proposed treatment.
      */
     @SerialName("professionalreport")
     PROFESSIONALREPORT,
+
     /**
      * A formal accident report as would be filed with police or a simlar official body.
      */
     @SerialName("accidentreport")
     ACCIDENTREPORT,
+
     /**
      * A physical model of the affected area.
      */
     @SerialName("model")
     MODEL,
+
     /**
      * A photograph of the affected area.
      */

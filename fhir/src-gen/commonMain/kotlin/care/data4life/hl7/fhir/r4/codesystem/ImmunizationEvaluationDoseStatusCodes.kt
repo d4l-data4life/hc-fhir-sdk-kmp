@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the validity of a dose relative to a particular recommended schedule. This value set is provided as a suggestive example.
@@ -35,6 +34,7 @@ enum class ImmunizationEvaluationDoseStatusCodes {
      */
     @SerialName("valid")
     VALID,
+
     /**
      * The dose does not count toward fulfilling a path to immunity for a patient.
      */

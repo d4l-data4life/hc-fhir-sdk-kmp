@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * MedicationRequest Course of Therapy Codes
@@ -35,11 +34,13 @@ enum class MedicationRequestCourseOfTherapyCodes {
      */
     @SerialName("continuous")
     CONTINUOUS,
+
     /**
      * A medication which the patient is only expected to consume for the duration of the current order and which is not expected to be renewed.
      */
     @SerialName("acute")
     ACUTE,
+
     /**
      * A medication which is expected to be used on a part time basis at certain times of the year
      */

@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Biologically Derived Product Status.
@@ -35,6 +34,7 @@ enum class BiologicallyDerivedProductStatus {
      */
     @SerialName("available")
     AVAILABLE,
+
     /**
      * Product is not currently available for use.
      */

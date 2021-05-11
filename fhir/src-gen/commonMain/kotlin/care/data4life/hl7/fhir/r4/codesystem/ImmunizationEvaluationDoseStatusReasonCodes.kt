@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the reason why an administered dose has been assigned a particular status. Often, this reason describes why a dose is considered invalid. This value set is provided as a suggestive example.
@@ -35,21 +34,25 @@ enum class ImmunizationEvaluationDoseStatusReasonCodes {
      */
     @SerialName("advstorage")
     ADVSTORAGE,
+
     /**
      * The product was stored at a temperature inconsistent with manufacturer guidelines potentially reducing the effectiveness of the product.
      */
     @SerialName("coldchbrk")
     COLDCHBRK,
+
     /**
      * The product was administered after the expiration date associated with lot of vaccine.
      */
     @SerialName("explot")
     EXPLOT,
+
     /**
      * The product was administered at a time inconsistent with the documented schedule.
      */
     @SerialName("outsidesched")
     OUTSIDESCHED,
+
     /**
      * The product administered has been recalled by the manufacturer.
      */

@@ -33,15 +33,17 @@ enum class ExpressionLanguage {
      * Clinical Quality Language.
      */
     @SerialName("text/cql")
-    TEXT/CQL,
+    TEXT_CQL,
+
     /**
      * FHIRPath.
      */
     @SerialName("text/fhirpath")
-    TEXT/FHIRPATH,
+    TEXT_FHIRPATH,
+
     /**
      * FHIR's RESTful query syntax - typically independent of base URL.
      */
     @SerialName("application/x-fhir-query")
-    APPLICATION/X_FHIR_QUERY
+    APPLICATION_X_FHIR_QUERY
 }

@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * MedicationAdministration Category Codes
@@ -35,11 +34,13 @@ enum class MedicationAdministrationCategoryCodes {
      */
     @SerialName("inpatient")
     INPATIENT,
+
     /**
      * Includes administrations in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
      */
     @SerialName("outpatient")
     OUTPATIENT,
+
     /**
      * Includes administrations by the patient in their home (this would include long term care or nursing homes, hospices, etc.)
      */

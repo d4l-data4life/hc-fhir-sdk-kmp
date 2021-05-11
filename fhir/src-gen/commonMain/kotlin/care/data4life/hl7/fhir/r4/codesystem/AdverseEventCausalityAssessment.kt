@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Codes for the assessment of whether the entity caused the event.
@@ -35,26 +34,31 @@ enum class AdverseEventCausalityAssessment {
      */
     @SerialName("Certain")
     CERTAIN,
+
     /**
      * i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Unlikely to be attributed to disease or other drugs; iii) Response to withdrawal clinically reasonable; or iv) Re-challenge not required.
      */
     @SerialName("Probably-Likely")
     PROBABLY_LIKELY,
+
     /**
      * i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Could also be explained by disease or other drugs; or iii) Information on drug withdrawal may be lacking or unclear.
      */
     @SerialName("Possible")
     POSSIBLE,
+
     /**
      * i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible); or ii) Disease or other drugs provide plausible explanations.
      */
     @SerialName("Unlikely")
     UNLIKELY,
+
     /**
      * i) Event or laboratory test abnormality; ii) More data for proper assessment needed; or iii) Additional data under examination.
      */
     @SerialName("Conditional-Classified")
     CONDITIONAL_CLASSIFIED,
+
     /**
      * i) Report suggesting an adverse reaction; ii) Cannot be judged because information is insufficient or contradictory; or iii) Data cannot be supplemented or verified.
      */

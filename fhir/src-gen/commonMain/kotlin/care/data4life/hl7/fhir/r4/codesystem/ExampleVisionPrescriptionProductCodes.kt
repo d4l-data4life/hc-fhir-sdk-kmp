@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set includes a smattering of Prescription Product codes.
@@ -35,6 +34,7 @@ enum class ExampleVisionPrescriptionProductCodes {
      */
     @SerialName("lens")
     LENS,
+
     /**
      * A lens to be fitted for wearing directly on an eye.
      */

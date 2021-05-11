@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Attested information may be validated by process that are manual or automated. For automated processes it may accomplished by the system of record reaching out through another system's API or information may be sent to the system of record. This value set defines a set of codes to describing the process, the how, a resource or data element is validated.
@@ -35,16 +34,19 @@ enum class VerificationresultCommunicationMethod {
      */
     @SerialName("manual")
     MANUAL,
+
     /**
      * The information is submitted/retrieved via a portal
      */
     @SerialName("portal")
     PORTAL,
+
     /**
      * The information is retrieved (i.e. pulled) from a source (e.g. over an API)
      */
     @SerialName("pull")
     PULL,
+
     /**
      * The information is sent (i.e. pushed) from a source (e.g. over an API, asynchronously, secure messaging)
      */

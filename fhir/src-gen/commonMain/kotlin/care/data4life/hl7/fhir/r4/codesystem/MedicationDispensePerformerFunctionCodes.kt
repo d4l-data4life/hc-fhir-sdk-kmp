@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * MedicationDispense Performer Function Codes
@@ -35,16 +34,19 @@ enum class MedicationDispensePerformerFunctionCodes {
      */
     @SerialName("dataenterer")
     DATAENTERER,
+
     /**
      * Prepared the medication.
      */
     @SerialName("packager")
     PACKAGER,
+
     /**
      * Performed initial quality assurance on the prepared medication
      */
     @SerialName("checker")
     CHECKER,
+
     /**
      * Performed the final quality assurance on the prepared medication against the request. Typically, this is a pharmacist function.
      */

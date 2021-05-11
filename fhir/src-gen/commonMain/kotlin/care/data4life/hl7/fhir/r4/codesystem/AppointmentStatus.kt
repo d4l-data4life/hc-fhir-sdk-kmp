@@ -85,7 +85,7 @@ enum class AppointmentStatus {
 
     /**
      * The appointment has been placed on a waitlist, to be scheduled/confirmed in the future when a slot/service is available.
-    A specific time might or might not be pre-allocated.
+     A specific time might or might not be pre-allocated.
      */
     @SerialName("waitlist")
     WAITLIST

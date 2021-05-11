@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * MedicationKnowledge Characteristic Codes
@@ -35,31 +34,37 @@ enum class MedicationKnowledgeCharacteristicCodes {
      */
     @SerialName("imprintcd")
     IMPRINTCD,
+
     /**
      * Description of size of the product
      */
     @SerialName("size")
     SIZE,
+
     /**
      * Description of the shape of the product
      */
     @SerialName("shape")
     SHAPE,
+
     /**
      * Description of the color of the product
      */
     @SerialName("color")
     COLOR,
+
     /**
      * Description of the coating of the product
      */
     @SerialName("coating")
     COATING,
+
     /**
      * Description of the scoring of the product
      */
     @SerialName("scoring")
     SCORING,
+
     /**
      * Description of the Logo of the product
      */

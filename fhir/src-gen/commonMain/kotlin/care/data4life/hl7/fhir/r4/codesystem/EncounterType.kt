@@ -39,12 +39,14 @@ enum class EncounterType {
      * bDBMClin
      */
     @SerialName("BD/BM-clin")
-    BD/BM_CLIN,
+    BD_BM_CLIN,
+
     /**
      * CCS60
      */
     @SerialName("CCS60")
     CCS60,
+
     /**
      * OKI
      */

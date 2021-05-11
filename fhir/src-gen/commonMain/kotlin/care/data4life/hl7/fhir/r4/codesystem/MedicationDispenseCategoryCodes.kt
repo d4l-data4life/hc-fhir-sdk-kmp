@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * MedicationDispense Category Codes
@@ -35,16 +34,19 @@ enum class MedicationDispenseCategoryCodes {
      */
     @SerialName("inpatient")
     INPATIENT,
+
     /**
      * Includes dispenses for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office).
      */
     @SerialName("outpatient")
     OUTPATIENT,
+
     /**
      * Includes dispenses for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.).
      */
     @SerialName("community")
     COMMUNITY,
+
     /**
      * Includes dispenses for medications created when the patient is being released from a facility.
      */

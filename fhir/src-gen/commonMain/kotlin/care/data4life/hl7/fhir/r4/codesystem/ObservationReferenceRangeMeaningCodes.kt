@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population.
@@ -35,61 +34,73 @@ enum class ObservationReferenceRangeMeaningCodes {
      */
     @SerialName("type")
     TYPE,
+
     /**
      * Values expected for a normal member of the relevant control population being measured. Typically each results producer such as a laboratory has specific normal ranges and they are usually defined as within two standard deviations from the mean and account for 95.45% of this population.
      */
     @SerialName("normal")
     NORMAL,
+
     /**
      * The range that is recommended by a relevant professional body.
      */
     @SerialName("recommended")
     RECOMMENDED,
+
     /**
      * The range at which treatment would/should be considered.
      */
     @SerialName("treatment")
     TREATMENT,
+
     /**
      * The optimal range for best therapeutic outcomes.
      */
     @SerialName("therapeutic")
     THERAPEUTIC,
+
     /**
      * The optimal range for best therapeutic outcomes for a specimen taken immediately before administration.
      */
     @SerialName("pre")
     PRE,
+
     /**
      * The optimal range for best therapeutic outcomes for a specimen taken immediately after administration.
      */
     @SerialName("post")
     POST,
+
     /**
      * Endocrine related states that change the expected value.
      */
     @SerialName("endocrine")
     ENDOCRINE,
+
     /**
      * An expected range in an individual prior to puberty.
      */
     @SerialName("pre-puberty")
     PRE_PUBERTY,
+
     /**
      * An expected range in an individual during the follicular stage of the cycle.
      */
     @SerialName("follicular")
     FOLLICULAR,
+
     /**
      * An expected range in an individual during the midcycle stage of the cycle.
      */
     @SerialName("midcycle")
     MIDCYCLE,
+
     /**
      * An expected range in an individual during the luteal stage of the cycle.
      */
     @SerialName("luteal")
     LUTEAL,
+
     /**
      * An expected range in an individual post-menopause.
      */

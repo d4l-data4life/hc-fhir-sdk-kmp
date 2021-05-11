@@ -16,9 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
-
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * MedicationKnowledge Package Type Codes
@@ -35,106 +34,127 @@ enum class MedicationKnowledgePackageTypeCodes {
      */
     @SerialName("amp")
     AMP,
+
     /**
      * bag
      */
     @SerialName("bag")
     BAG,
+
     /**
      * blstrpk
      */
     @SerialName("blstrpk")
     BLSTRPK,
+
     /**
      * bot
      */
     @SerialName("bot")
     BOT,
+
     /**
      * box
      */
     @SerialName("box")
     BOX,
+
     /**
      * can
      */
     @SerialName("can")
     CAN,
+
     /**
      * cart
      */
     @SerialName("cart")
     CART,
+
     /**
      * disk
      */
     @SerialName("disk")
     DISK,
+
     /**
      * doset
      */
     @SerialName("doset")
     DOSET,
+
     /**
      * jar
      */
     @SerialName("jar")
     JAR,
+
     /**
      * jug
      */
     @SerialName("jug")
     JUG,
+
     /**
      * minim
      */
     @SerialName("minim")
     MINIM,
+
     /**
      * nebamp
      */
     @SerialName("nebamp")
     NEBAMP,
+
     /**
      * ovul
      */
     @SerialName("ovul")
     OVUL,
+
     /**
      * pch
      */
     @SerialName("pch")
     PCH,
+
     /**
      * pkt
      */
     @SerialName("pkt")
     PKT,
+
     /**
      * sash
      */
     @SerialName("sash")
     SASH,
+
     /**
      * strip
      */
     @SerialName("strip")
     STRIP,
+
     /**
      * tin
      */
     @SerialName("tin")
     TIN,
+
     /**
      * tub
      */
     @SerialName("tub")
     TUB,
+
     /**
      * tube
      */
     @SerialName("tube")
     TUBE,
+
     /**
      * vial
      */
