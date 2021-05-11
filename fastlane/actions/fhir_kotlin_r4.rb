@@ -58,13 +58,14 @@ module Fastlane
       # Hotfix for https://gesundheitscloud.atlassian.net/browse/SDK-576
 	  # TODO Remove once the Spec is fixed
       def self.includeStatics
-          modelSource = "./fhir-java/parser/r4/statics"
-          modelTarget = "./fhir-java/src-gen/main/java/care/data4life/fhir/r4/model"
-          modelTestTarget = "./fhir-java/src-gen/test/java/care/data4life/fhir/r4/model"
+          modelSource = "./fhir/parser/r4/statics"
+          codesystemTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/r4/codesystem"
+          modelTarget = "./fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/r4/model"
+          modelTestTarget = "./fhir/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/r4/model"
 
-          sh "cp #{modelSource}/CodeSystemMedicationStatementStatusCodes.java #{modelTarget}"
-          sh "cp #{modelSource}/MedicationStatement.java #{modelTarget}"
-          sh "cp #{modelSource}/MedicationStatementTest.java #{modelTestTarget}"
+          sh "cp #{modelSource}/MedicationStatementStatusCodes.kt #{codesystemTarget}"
+          sh "cp #{modelSource}/MedicationStatement.kt #{modelTarget}"
+          sh "cp #{modelSource}/MedicationStatementTest.kt #{modelTestTarget}"
       end
 
       def self.integrate_fhir_models
