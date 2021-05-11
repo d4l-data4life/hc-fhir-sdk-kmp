@@ -19,7 +19,7 @@ object Versions {
     // Gradle Plugin
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.1.3"
+        const val android = "4.2.0"
 
         /**
          * [Dexcount](https://github.com/KeepSafe/dexcount-gradle-plugin)
@@ -29,7 +29,7 @@ object Versions {
 
     // Kotlin
     // https://github.com/JetBrains/kotlin
-    const val kotlin = "1.4.21"
+    const val kotlin = "1.4.32"
     const val kotlinGradlePlugin = kotlin
 
     // https://github.com/Kotlin/kotlinx.coroutines
@@ -37,10 +37,10 @@ object Versions {
     const val kotlinCoroutinesIO = "0.1.16"
 
     // https://github.com/Kotlin/kotlinx.serialization
-    const val kotlinSerialization = "1.0.1"
+    const val kotlinSerialization = "1.1.0"
 
     // https://github.com/Kotlin/kotlinx-datetime
-    const val dateTime = "0.1.1"
+    const val dateTime = "0.2.0"
 
     // Android
     // https://developer.android.com/studio/write/java8-support
@@ -49,10 +49,10 @@ object Versions {
     // AndroidX
     // https://developer.android.com/jetpack/androidx
     const val androidX = "1.1.0"
-    const val androidXKtx = "1.3.1"
+    const val androidXKtx = "1.3.2"
     const val androidXAppCompat = "1.2.0"
 
-    const val androidXConstraintLayout = "2.0.1"
+    const val androidXConstraintLayout = "2.0.4"
 
     const val androidXLifecycle = "2.1.0"
     const val androidXNavigation = "2.2.0"
@@ -75,14 +75,14 @@ object Versions {
     const val koin = "3.0.0-alpha-9"
 
     // Junit Test
-    const val testJUnit = "4.13"
+    const val testJUnit = "4.13.2"
 
     const val jsonAssert = "1.5.0"
 
     /**
      * [mockk](http://mockk.io)
      */
-    const val testMockk = "1.10.0"
+    const val testMockk = "1.11.0"
 
     /**
      * [Hamkrest](https://github.com/npryce/hamkrest)
