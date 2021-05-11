@@ -20,11 +20,6 @@ object Versions {
     object GradlePlugins {
         const val kotlin = Versions.kotlin
         const val android = "4.2.0"
-
-        /**
-         * [Dexcount](https://github.com/KeepSafe/dexcount-gradle-plugin)
-         */
-        const val dexcount = "0.8.4"
     }
 
     // Kotlin
@@ -33,8 +28,7 @@ object Versions {
     const val kotlinGradlePlugin = kotlin
 
     // https://github.com/Kotlin/kotlinx.coroutines
-    const val kotlinCoroutines = "1.3.9-native-mt"
-    const val kotlinCoroutinesIO = "0.1.16"
+    const val kotlinCoroutines = "1.4.3-native-mt"
 
     // https://github.com/Kotlin/kotlinx.serialization
     const val kotlinSerialization = "1.1.0"

@@ -18,4 +18,3 @@
 - [ ] Documentation updated
 - [ ] Changelog updated
 - [ ] Acceptance criteria met
-
