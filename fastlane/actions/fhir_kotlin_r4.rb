@@ -33,6 +33,7 @@ module Fastlane
           # Generate files
           Dir.chdir("#{fhir_parser}") do
             sh "test -d venv || python3 -m venv venv"
+            sh "venv/bin/pip install --upgrade pip"
             sh "venv/bin/pip install -Ur requirements.txt"
             sh "venv/bin/python generate.py --cache-only"
           end
