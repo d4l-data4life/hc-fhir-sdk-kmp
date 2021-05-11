@@ -20,6 +20,7 @@ toc::[]
 * Add FHIR R4
 ** specification
 ** FHIR parser integration and configuration
+** JSON test samples
 
 === Changed
 
