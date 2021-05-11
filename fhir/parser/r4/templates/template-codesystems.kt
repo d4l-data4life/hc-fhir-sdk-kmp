@@ -16,7 +16,8 @@
 
 package care.data4life.hl7.fhir.r4.codesystem
 
-import kotlinx.serialization.*
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 {% if system.generate_enum %}
 
@@ -39,6 +40,9 @@ enum class {{ system.name }} {
     {%- if code.code == "=" %}
     EQUAL,
     {%- else %}
+    {%- if code.code == "!=" %}
+    NOT_EQUAL,
+    {%- else %}
     {%- if code.code == "<" %}
     LESS_THAN,
     {%- else %}
@@ -54,7 +58,8 @@ enum class {{ system.name }} {
     {%- if code.code == "*" %}
     MAX,
     {%- else %}
-    {{ code.code.upper()|replace('-', '_') }}{% if not loop.last %},{% endif %}
+    {{ code.code.upper()|replace('-', '_')|replace('/', '_')|replace('.', '_') }}{% if not loop.last %},{% endif %}
+    {%- endif %}
     {%- endif %}
     {%- endif %}
     {%- endif %}
