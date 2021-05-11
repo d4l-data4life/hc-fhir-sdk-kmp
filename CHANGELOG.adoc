@@ -16,6 +16,8 @@ toc::[]
 
 === Added
 
+* Add Spotless code style formatter and linter
+
 === Changed
 
 * Change FHIR STU 3 config to allow multiple FHIR versions
