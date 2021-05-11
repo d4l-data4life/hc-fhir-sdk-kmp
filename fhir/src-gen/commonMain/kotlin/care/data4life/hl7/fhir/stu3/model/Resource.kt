@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirResource : FhirStu3 {
 
     // Logical id of this artifact.
@@ -35,7 +34,6 @@ interface FhirResource : FhirStu3 {
     // Language of the resource content.
     val language: String?
 }
-
 
 /**
  * ClassName: Resource
@@ -70,10 +68,8 @@ data class Resource(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Resource"
     }
 }
-

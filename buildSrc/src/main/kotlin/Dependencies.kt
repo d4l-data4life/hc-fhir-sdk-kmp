@@ -51,18 +51,6 @@ object Dependencies {
             const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutines}"
         }
 
-        val coroutinesIO = CoroutinesIO
-
-        object CoroutinesIO {
-            //https://github.com/Kotlin/kotlinx-io
-            const val common =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-io:${Versions.kotlinCoroutinesIO}"
-            const val java =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-io-jvm:${Versions.kotlinCoroutinesIO}"
-            const val native =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-io-native:${Versions.kotlinCoroutinesIO}"
-        }
-
         val serialization = Serialization
 
         object Serialization {
@@ -86,7 +74,7 @@ object Dependencies {
 
         const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.dateTime}"
 
-        //Test
+        // Test
         val mockk = Mockk
 
         object Mockk {
@@ -98,12 +86,11 @@ object Dependencies {
         val hamkrest = Hamkrest
 
         object Hamkrest {
-            //https://jitpack.io/com/github/npryce/hamkrest/63c8e84dd1/build.log
+            // https://jitpack.io/com/github/npryce/hamkrest/63c8e84dd1/build.log
             const val common = "com.github.npryce.hamkrest:hamkrest-metadata:${Versions.testHamkrest}"
             const val android = "com.github.npryce.hamkrest:hamkrest-jvm:${Versions.testHamkrest}"
         }
     }
-
 
     val test = Test
 

@@ -42,7 +42,8 @@ class DateTest(
                         values["year"] as Int,
                         values["month"] as Int?,
                         values["day"] as Int?,
-                    ), id, extension
+                    ),
+                    id, extension
                 )
             }
             return
@@ -53,7 +54,8 @@ class DateTest(
                 values["year"] as Int,
                 values["month"] as Int?,
                 values["day"] as Int?,
-            ), id, extension
+            ),
+            id, extension
         )
 
         assertEquals(values["year"], result.value.year)
@@ -93,7 +95,6 @@ class DateTest(
                 arrayOf(mapOf("year" to 2021, "month" to 11, "day" to 30), null, null, false),
                 arrayOf(mapOf("year" to 2021, "month" to 12, "day" to 31), null, null, false),
 
-
                 // leap year
                 arrayOf(mapOf("year" to 2016, "month" to 2, "day" to 29), null, null, false),
                 arrayOf(mapOf("year" to 2020, "month" to 2, "day" to 29), null, null, false),
@@ -106,7 +107,6 @@ class DateTest(
                 // negative year
                 arrayOf(mapOf("year" to -9999), null, null, false),
                 arrayOf(mapOf("year" to -2021, "month" to 7, "day" to 15), null, null, false),
-
 
                 // fails
                 // year out of range

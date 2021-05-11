@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirDosage : FhirElement {
 
     // The order of the dosage instructions.
@@ -79,7 +78,6 @@ interface FhirDosage : FhirElement {
     // Amount of medication per unit of time.
     val rateQuantity: Quantity?
 }
-
 
 /**
  * ClassName: Dosage
@@ -152,7 +150,6 @@ data class Dosage(
     @SerialName("rateQuantity")
     override val rateQuantity: Quantity? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -165,10 +162,8 @@ data class Dosage(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Dosage"
     }
 }
-

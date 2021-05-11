@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in a reaction event.
  *

@@ -33,14 +33,12 @@ import kotlin.test.assertFails
 
 class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 
-
     @Test
     fun `Given, fromJson() is called with malformed JSON, it throws exception`() {
         assertFails {
             parser.fromJson(Instant::class, "malformed")
         }
     }
-
 
     @Test
     fun `Given, fromJson() is called with value only, it returns a Instant`() {
@@ -105,7 +103,6 @@ class InstantJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
         // Then
         assertEquals(expected, result.value)
     }
-
 
     @Test
     fun `Given, toJson() is called with value only, it returns a JSON with only the value`() {

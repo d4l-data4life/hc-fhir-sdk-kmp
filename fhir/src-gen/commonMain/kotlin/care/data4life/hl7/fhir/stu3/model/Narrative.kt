@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirNarrative : FhirElement {
 
     // The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
@@ -30,7 +29,6 @@ interface FhirNarrative : FhirElement {
     // Limited xhtml content.
     val div: String
 }
-
 
 /**
  * ClassName: Narrative
@@ -55,7 +53,6 @@ data class Narrative(
     @SerialName("div")
     override val div: String,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -68,10 +65,8 @@ data class Narrative(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Narrative"
     }
 }
-

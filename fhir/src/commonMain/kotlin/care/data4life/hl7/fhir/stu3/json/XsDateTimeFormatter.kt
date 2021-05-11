@@ -29,7 +29,6 @@ object XsDateTimeFormatter {
     private const val DATE_TIME_FORMAT = "%Y-%M-%DT%h:%m:%s%z"
     private const val TIME_FORMAT = "%h:%m:%s"
 
-
     fun formatDate(date: XsDate): kotlin.String {
         return if (date.month != null && date.day != null) {
             doFormat(
@@ -111,7 +110,7 @@ object XsDateTimeFormatter {
         while (fidx < flen) {
             val fch = format[fidx++]
 
-            if (fch != '%') {  // not a meta character
+            if (fch != '%') { // not a meta character
                 buffer.append(fch)
                 continue
             }
@@ -147,7 +146,6 @@ object XsDateTimeFormatter {
 
         return buffer.toString()
     }
-
 
     private fun formatYear(year: Int?, buf: StringBuilder) {
         var s: String
@@ -205,7 +203,7 @@ object XsDateTimeFormatter {
     private fun formatFraction(
         fraction: Double?,
         buffer: StringBuilder
-    ){
+    ) {
         buffer.append(".")
         val fractionString = fraction.toString()
         if (fractionString.contains("E")) {

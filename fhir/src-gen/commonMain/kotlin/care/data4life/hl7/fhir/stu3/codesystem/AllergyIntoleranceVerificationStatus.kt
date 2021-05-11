@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance.
  *

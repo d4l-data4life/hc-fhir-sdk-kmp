@@ -49,7 +49,8 @@ class InstantTest(
                         ),
                         values["time"] as XsTime?,
                         values["timezone"] as XsTimeZone?,
-                    ), id, extension
+                    ),
+                    id, extension
                 )
             }
             return
@@ -64,7 +65,8 @@ class InstantTest(
                 ),
                 values["time"] as XsTime?,
                 values["timezone"] as XsTimeZone?,
-            ), id, extension
+            ),
+            id, extension
         )
 
         assertEquals(values["year"], result.value.date.year)
@@ -88,23 +90,25 @@ class InstantTest(
                         "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
-                    ), null, null, false
+                    ),
+                    null, null, false
                 ),
                 arrayOf(
                     mapOf(
                         "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
-                    ), null, null, false
+                    ),
+                    null, null, false
                 ),
-
 
                 arrayOf(
                     mapOf(
                         "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1, 0, false)
-                    ), null, null, false
+                    ),
+                    null, null, false
                 ),
 
                 arrayOf(
@@ -112,7 +116,8 @@ class InstantTest(
                         "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1)
-                    ), null, null, false
+                    ),
+                    null, null, false
                 ),
 
                 // fails
@@ -121,26 +126,30 @@ class InstantTest(
                 arrayOf(
                     mapOf(
                         "year" to 2021, "month" to null, "day" to 12
-                    ), null, null, true
+                    ),
+                    null, null, true
                 ),
                 arrayOf(
                     mapOf(
                         "year" to 2021, "month" to 5, "day" to null
-                    ), null, null, true
+                    ),
+                    null, null, true
                 ),
 
                 // time not set
                 arrayOf(
                     mapOf(
                         "year" to 2021, "month" to 5, "day" to 12
-                    ), null, null, true
+                    ),
+                    null, null, true
                 ),
                 // time incomplete
                 arrayOf(
                     mapOf(
                         "year" to 2021, "month" to 5, "day" to 12,
                         "time" to XsTime(21, 32, null),
-                    ), null, null, true
+                    ),
+                    null, null, true
                 ),
 
                 // timezone missing
@@ -149,7 +158,8 @@ class InstantTest(
                         "year" to 2021, "month" to 1, "day" to 31,
                         "time" to XsTime(21, 32, 52),
                         "timezone" to null
-                    ), null, null, true
+                    ),
+                    null, null, true
                 ),
             )
         }

@@ -25,7 +25,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirDocumentReference : FhirDomainResource {
 
     // Master Version Specific Identifier.
@@ -79,7 +78,6 @@ interface FhirDocumentReference : FhirDomainResource {
     // Clinical context of document.
     val context: DocumentReferenceContext?
 }
-
 
 /**
  * ClassName: DocumentReference
@@ -149,7 +147,6 @@ data class DocumentReference(
     @SerialName("context")
     override val context: DocumentReferenceContext? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -163,7 +160,6 @@ data class DocumentReference(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -183,13 +179,11 @@ data class DocumentReference(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DocumentReference"
     }
 }
-
 
 interface FhirDocumentReferenceContent : FhirBackboneElement {
 
@@ -199,7 +193,6 @@ interface FhirDocumentReferenceContent : FhirBackboneElement {
     // Format/content rules for the document.
     val format: Coding?
 }
-
 
 /**
  * ClassName: DocumentReferenceContent
@@ -224,12 +217,10 @@ data class DocumentReferenceContent(
     @SerialName("format")
     override val format: Coding? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -243,13 +234,11 @@ data class DocumentReferenceContent(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DocumentReferenceContent"
     }
 }
-
 
 interface FhirDocumentReferenceContext : FhirBackboneElement {
 
@@ -274,7 +263,6 @@ interface FhirDocumentReferenceContext : FhirBackboneElement {
     // Related identifiers or resources.
     val related: List<DocumentReferenceContextRelated>?
 }
-
 
 /**
  * ClassName: DocumentReferenceContext
@@ -314,12 +302,10 @@ data class DocumentReferenceContext(
     @SerialName("related")
     override val related: List<DocumentReferenceContextRelated>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -333,13 +319,11 @@ data class DocumentReferenceContext(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DocumentReferenceContext"
     }
 }
-
 
 interface FhirDocumentReferenceContextRelated : FhirBackboneElement {
 
@@ -349,7 +333,6 @@ interface FhirDocumentReferenceContextRelated : FhirBackboneElement {
     // Related Resource.
     val ref: Reference?
 }
-
 
 /**
  * ClassName: DocumentReferenceContextRelated
@@ -374,12 +357,10 @@ data class DocumentReferenceContextRelated(
     @SerialName("ref")
     override val ref: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -393,13 +374,11 @@ data class DocumentReferenceContextRelated(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DocumentReferenceContextRelated"
     }
 }
-
 
 interface FhirDocumentReferenceRelatesTo : FhirBackboneElement {
 
@@ -409,7 +388,6 @@ interface FhirDocumentReferenceRelatesTo : FhirBackboneElement {
     // Target of the relationship.
     val target: Reference
 }
-
 
 /**
  * ClassName: DocumentReferenceRelatesTo
@@ -434,12 +412,10 @@ data class DocumentReferenceRelatesTo(
     @SerialName("target")
     override val target: Reference,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -453,10 +429,8 @@ data class DocumentReferenceRelatesTo(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DocumentReferenceRelatesTo"
     }
 }
-

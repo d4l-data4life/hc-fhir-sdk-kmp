@@ -28,7 +28,7 @@ object FhirPrimitiveTestObjectHelper {
     ): kotlin.String {
         //language=JSON
         return """{"resourceType":"$resourceType","value":${value()}${
-            if (extension != null || id != null) formatSiblingJsonObject(extension, id) else ""
+        if (extension != null || id != null) formatSiblingJsonObject(extension, id) else ""
         }}""".trimMargin()
     }
 

@@ -43,7 +43,8 @@ class TimeTest(
                         values["minute"] as Int,
                         values["second"] as Int?,
                         values["fraction"] as Double?,
-                    ), id, extension
+                    ),
+                    id, extension
                 )
             }
             return
@@ -55,7 +56,8 @@ class TimeTest(
                 values["minute"] as Int,
                 values["second"] as Int?,
                 values["fraction"] as Double?,
-            ), id, extension
+            ),
+            id, extension
         )
 
         assertEquals(values["hour"], result.value.hour)

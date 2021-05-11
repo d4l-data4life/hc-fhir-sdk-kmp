@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.CompositionStatus
 import care.data4life.hl7.fhir.stu3.codesystem.DocumentReferenceStatus
@@ -39,7 +38,6 @@ import kotlin.test.assertEquals
 class DocumentReferenceTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testDocumentReference1() {
@@ -130,5 +128,3 @@ class DocumentReferenceTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

@@ -23,7 +23,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirPractitioner : FhirDomainResource {
 
     // A identifier for the person as this agent.
@@ -56,7 +55,6 @@ interface FhirPractitioner : FhirDomainResource {
     // A language the practitioner is able to use in patient communication.
     val communication: List<CodeableConcept>?
 }
-
 
 /**
  * ClassName: Practitioner
@@ -105,7 +103,6 @@ data class Practitioner(
     @SerialName("communication")
     override val communication: List<CodeableConcept>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -119,7 +116,6 @@ data class Practitioner(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -139,13 +135,11 @@ data class Practitioner(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Practitioner"
     }
 }
-
 
 interface FhirPractitionerQualification : FhirBackboneElement {
 
@@ -161,7 +155,6 @@ interface FhirPractitionerQualification : FhirBackboneElement {
     // Organization that regulates and issues the qualification.
     val issuer: Reference?
 }
-
 
 /**
  * ClassName: PractitionerQualification
@@ -192,12 +185,10 @@ data class PractitionerQualification(
     @SerialName("issuer")
     override val issuer: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -211,10 +202,8 @@ data class PractitionerQualification(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "PractitionerQualification"
     }
 }
-

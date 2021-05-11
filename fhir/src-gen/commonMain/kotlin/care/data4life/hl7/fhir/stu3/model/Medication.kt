@@ -23,7 +23,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirMedication : FhirDomainResource {
 
     // Codes that identify this medication.
@@ -53,7 +52,6 @@ interface FhirMedication : FhirDomainResource {
     // Picture of the medication.
     val image: List<Attachment>?
 }
-
 
 /**
  * ClassName: Medication
@@ -99,7 +97,6 @@ data class Medication(
     @SerialName("image")
     override val image: List<Attachment>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -113,7 +110,6 @@ data class Medication(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -133,13 +129,11 @@ data class Medication(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Medication"
     }
 }
-
 
 interface FhirMedicationIngredient : FhirBackboneElement {
 
@@ -155,7 +149,6 @@ interface FhirMedicationIngredient : FhirBackboneElement {
     // Quantity of ingredient present.
     val amount: Ratio?
 }
-
 
 /**
  * ClassName: MedicationIngredient
@@ -186,12 +179,10 @@ data class MedicationIngredient(
     @SerialName("amount")
     override val amount: Ratio? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -205,13 +196,11 @@ data class MedicationIngredient(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationIngredient"
     }
 }
-
 
 interface FhirMedicationPackage : FhirBackboneElement {
 
@@ -224,7 +213,6 @@ interface FhirMedicationPackage : FhirBackboneElement {
     // Identifies a single production run.
     val batch: List<MedicationPackageBatch>?
 }
-
 
 /**
  * ClassName: MedicationPackage
@@ -252,12 +240,10 @@ data class MedicationPackage(
     @SerialName("batch")
     override val batch: List<MedicationPackageBatch>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -271,13 +257,11 @@ data class MedicationPackage(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationPackage"
     }
 }
-
 
 interface FhirMedicationPackageBatch : FhirBackboneElement {
 
@@ -287,7 +271,6 @@ interface FhirMedicationPackageBatch : FhirBackboneElement {
     // When batch will expire.
     val expirationDate: DateTime?
 }
-
 
 /**
  * ClassName: MedicationPackageBatch
@@ -312,12 +295,10 @@ data class MedicationPackageBatch(
     @SerialName("expirationDate")
     override val expirationDate: DateTime? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -331,13 +312,11 @@ data class MedicationPackageBatch(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationPackageBatch"
     }
 }
-
 
 interface FhirMedicationPackageContent : FhirBackboneElement {
 
@@ -350,7 +329,6 @@ interface FhirMedicationPackageContent : FhirBackboneElement {
     // Quantity present in the package.
     val amount: Quantity?
 }
-
 
 /**
  * ClassName: MedicationPackageContent
@@ -378,12 +356,10 @@ data class MedicationPackageContent(
     @SerialName("amount")
     override val amount: Quantity? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -397,10 +373,8 @@ data class MedicationPackageContent(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "MedicationPackageContent"
     }
 }
-

@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirMeta : FhirElement {
 
     // Version specific identifier.
@@ -39,7 +38,6 @@ interface FhirMeta : FhirElement {
     // Tags applied to this resource.
     val tag: List<Coding>?
 }
-
 
 /**
  * ClassName: Meta
@@ -73,7 +71,6 @@ data class Meta(
     @SerialName("tag")
     override val tag: List<Coding>? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -86,10 +83,8 @@ data class Meta(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Meta"
     }
 }
-

@@ -36,7 +36,6 @@ class FhirStu3JsonParserTest {
     // SUT
     private lateinit var parser: FhirStu3JsonParser
 
-
     @BeforeTest
     fun setup() {
         val fhirTestSerializersModule = SerializersModule {

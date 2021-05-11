@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirAttachment : FhirElement {
 
     // Mime type of the content, with charset etc..
@@ -49,7 +48,6 @@ interface FhirAttachment : FhirElement {
     // Date attachment was first created.
     val creation: DateTime?
 }
-
 
 /**
  * ClassName: Attachment
@@ -92,7 +90,6 @@ data class Attachment(
     @SerialName("creation")
     override val creation: DateTime? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -105,10 +102,8 @@ data class Attachment(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Attachment"
     }
 }
-

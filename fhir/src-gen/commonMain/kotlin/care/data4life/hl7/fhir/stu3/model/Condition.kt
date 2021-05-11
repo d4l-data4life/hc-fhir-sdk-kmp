@@ -23,7 +23,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirCondition : FhirDomainResource {
 
     // External Ids for this condition.
@@ -101,7 +100,6 @@ interface FhirCondition : FhirDomainResource {
     // Additional information about the Condition.
     val note: List<Annotation>?
 }
-
 
 /**
  * ClassName: Condition
@@ -195,7 +193,6 @@ data class Condition(
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -209,7 +206,6 @@ data class Condition(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -229,13 +225,11 @@ data class Condition(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Condition"
     }
 }
-
 
 interface FhirConditionEvidence : FhirBackboneElement {
 
@@ -245,7 +239,6 @@ interface FhirConditionEvidence : FhirBackboneElement {
     // Supporting information found elsewhere.
     val detail: List<Reference>?
 }
-
 
 /**
  * ClassName: ConditionEvidence
@@ -270,12 +263,10 @@ data class ConditionEvidence(
     @SerialName("detail")
     override val detail: List<Reference>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -289,13 +280,11 @@ data class ConditionEvidence(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ConditionEvidence"
     }
 }
-
 
 interface FhirConditionStage : FhirBackboneElement {
 
@@ -305,7 +294,6 @@ interface FhirConditionStage : FhirBackboneElement {
     // Formal record of assessment.
     val assessment: List<Reference>?
 }
-
 
 /**
  * ClassName: ConditionStage
@@ -330,12 +318,10 @@ data class ConditionStage(
     @SerialName("assessment")
     override val assessment: List<Reference>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -349,10 +335,8 @@ data class ConditionStage(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ConditionStage"
     }
 }
-

@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirProvenance : FhirDomainResource {
 
     // Target Reference(s) (usually version specific).
@@ -55,7 +54,6 @@ interface FhirProvenance : FhirDomainResource {
     // Signature on target.
     val signature: List<Signature>?
 }
-
 
 /**
  * ClassName: Provenance
@@ -104,7 +102,6 @@ data class Provenance(
     @SerialName("signature")
     override val signature: List<Signature>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -118,7 +115,6 @@ data class Provenance(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -138,13 +134,11 @@ data class Provenance(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Provenance"
     }
 }
-
 
 interface FhirProvenanceAgent : FhirBackboneElement {
 
@@ -166,7 +160,6 @@ interface FhirProvenanceAgent : FhirBackboneElement {
     // Type of relationship between agents.
     val relatedAgentType: CodeableConcept?
 }
-
 
 /**
  * ClassName: ProvenanceAgent
@@ -203,12 +196,10 @@ data class ProvenanceAgent(
     @SerialName("relatedAgentType")
     override val relatedAgentType: CodeableConcept? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -222,13 +213,11 @@ data class ProvenanceAgent(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ProvenanceAgent"
     }
 }
-
 
 interface FhirProvenanceEntity : FhirBackboneElement {
 
@@ -247,7 +236,6 @@ interface FhirProvenanceEntity : FhirBackboneElement {
     // Entity is attributed to this agent.
     val agent: List<ProvenanceAgent>?
 }
-
 
 /**
  * ClassName: ProvenanceEntity
@@ -281,12 +269,10 @@ data class ProvenanceEntity(
     @SerialName("agent")
     override val agent: List<ProvenanceAgent>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -300,10 +286,8 @@ data class ProvenanceEntity(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ProvenanceEntity"
     }
 }
-

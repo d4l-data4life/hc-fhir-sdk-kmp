@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
  *

@@ -19,7 +19,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.
  *

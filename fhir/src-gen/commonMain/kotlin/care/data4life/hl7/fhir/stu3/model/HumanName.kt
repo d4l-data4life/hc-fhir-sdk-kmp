@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirHumanName : FhirElement {
 
     // Identifies the purpose for this name.
@@ -45,7 +44,6 @@ interface FhirHumanName : FhirElement {
     // Time period when name was/is in use.
     val period: Period?
 }
-
 
 /**
  * ClassName: HumanName
@@ -85,7 +83,6 @@ data class HumanName(
     @SerialName("period")
     override val period: Period? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -98,10 +95,8 @@ data class HumanName(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "HumanName"
     }
 }
-

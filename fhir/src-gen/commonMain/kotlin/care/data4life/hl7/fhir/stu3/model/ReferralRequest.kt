@@ -24,7 +24,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirReferralRequest : FhirDomainResource {
 
     // Business identifier.
@@ -99,7 +98,6 @@ interface FhirReferralRequest : FhirDomainResource {
     // Key events in history of request.
     val relevantHistory: List<Reference>?
 }
-
 
 /**
  * ClassName: ReferralRequest
@@ -190,7 +188,6 @@ data class ReferralRequest(
     @SerialName("relevantHistory")
     override val relevantHistory: List<Reference>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -204,7 +201,6 @@ data class ReferralRequest(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -224,13 +220,11 @@ data class ReferralRequest(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ReferralRequest"
     }
 }
-
 
 interface FhirReferralRequestRequester : FhirBackboneElement {
 
@@ -240,7 +234,6 @@ interface FhirReferralRequestRequester : FhirBackboneElement {
     // Organization agent is acting for.
     val onBehalfOf: Reference?
 }
-
 
 /**
  * ClassName: ReferralRequestRequester
@@ -265,12 +258,10 @@ data class ReferralRequestRequester(
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -284,10 +275,8 @@ data class ReferralRequestRequester(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ReferralRequestRequester"
     }
 }
-

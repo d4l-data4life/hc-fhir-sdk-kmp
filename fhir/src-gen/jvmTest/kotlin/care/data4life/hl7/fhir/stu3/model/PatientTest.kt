@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.*
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
@@ -39,7 +38,6 @@ import kotlin.test.assertEquals
 class PatientTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testPatient1() {
@@ -529,5 +527,3 @@ class PatientTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

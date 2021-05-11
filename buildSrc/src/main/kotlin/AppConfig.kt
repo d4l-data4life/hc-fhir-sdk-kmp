@@ -30,5 +30,4 @@ object AppConfig {
 
         const val applicationId = "$group.hl7.fhir.sample"
     }
-
 }

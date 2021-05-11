@@ -18,7 +18,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 
 import kotlinx.serialization.*
 
-
 /**
  * Type for access of external URI
  *

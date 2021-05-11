@@ -23,7 +23,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirProcedure : FhirDomainResource {
 
     // External Identifiers for this procedure.
@@ -107,7 +106,6 @@ interface FhirProcedure : FhirDomainResource {
     // Coded items used during the procedure.
     val usedCode: List<CodeableConcept>?
 }
-
 
 /**
  * ClassName: Procedure
@@ -207,7 +205,6 @@ data class Procedure(
     @SerialName("usedCode")
     override val usedCode: List<CodeableConcept>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -221,7 +218,6 @@ data class Procedure(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -241,13 +237,11 @@ data class Procedure(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Procedure"
     }
 }
-
 
 interface FhirProcedureFocalDevice : FhirBackboneElement {
 
@@ -257,7 +251,6 @@ interface FhirProcedureFocalDevice : FhirBackboneElement {
     // Device that was changed.
     val manipulated: Reference
 }
-
 
 /**
  * ClassName: ProcedureFocalDevice
@@ -282,12 +275,10 @@ data class ProcedureFocalDevice(
     @SerialName("manipulated")
     override val manipulated: Reference,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -301,13 +292,11 @@ data class ProcedureFocalDevice(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ProcedureFocalDevice"
     }
 }
-
 
 interface FhirProcedurePerformer : FhirBackboneElement {
 
@@ -320,7 +309,6 @@ interface FhirProcedurePerformer : FhirBackboneElement {
     // Organization the device or practitioner was acting for.
     val onBehalfOf: Reference?
 }
-
 
 /**
  * ClassName: ProcedurePerformer
@@ -348,12 +336,10 @@ data class ProcedurePerformer(
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -367,10 +353,8 @@ data class ProcedurePerformer(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ProcedurePerformer"
     }
 }
-

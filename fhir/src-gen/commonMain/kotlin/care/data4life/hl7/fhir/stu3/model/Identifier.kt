@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirIdentifier : FhirElement {
 
     // The purpose of this identifier.
@@ -42,7 +41,6 @@ interface FhirIdentifier : FhirElement {
     // Organization that issued id (may be just text).
     val assigner: Reference?
 }
-
 
 /**
  * ClassName: Identifier
@@ -79,7 +77,6 @@ data class Identifier(
     @SerialName("assigner")
     override val assigner: Reference? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -92,10 +89,8 @@ data class Identifier(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Identifier"
     }
 }
-

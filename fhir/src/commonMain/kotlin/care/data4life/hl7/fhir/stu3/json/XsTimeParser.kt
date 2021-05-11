@@ -46,5 +46,4 @@ object XsTimeParser : StringParser<XsTime> {
     }
 
     override fun format(input: XsTime): String = XsDateTimeFormatter.formatTime(input)
-
 }

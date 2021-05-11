@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirCareTeam : FhirDomainResource {
 
     // External Ids for this team.
@@ -60,7 +59,6 @@ interface FhirCareTeam : FhirDomainResource {
     // Comments made about the CareTeam.
     val note: List<Annotation>?
 }
-
 
 /**
  * ClassName: CareTeam
@@ -115,7 +113,6 @@ data class CareTeam(
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -129,7 +126,6 @@ data class CareTeam(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -149,13 +145,11 @@ data class CareTeam(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CareTeam"
     }
 }
-
 
 interface FhirCareTeamParticipant : FhirBackboneElement {
 
@@ -171,7 +165,6 @@ interface FhirCareTeamParticipant : FhirBackboneElement {
     // Time period of participant.
     val period: Period?
 }
-
 
 /**
  * ClassName: CareTeamParticipant
@@ -202,12 +195,10 @@ data class CareTeamParticipant(
     @SerialName("period")
     override val period: Period? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -221,10 +212,8 @@ data class CareTeamParticipant(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "CareTeamParticipant"
     }
 }
-

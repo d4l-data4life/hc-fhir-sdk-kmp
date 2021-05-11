@@ -25,7 +25,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirProcedureRequest : FhirDomainResource {
 
     // Identifiers assigned to this order.
@@ -115,7 +114,6 @@ interface FhirProcedureRequest : FhirDomainResource {
     // Request provenance.
     val relevantHistory: List<Reference>?
 }
-
 
 /**
  * ClassName: ProcedureRequest
@@ -221,7 +219,6 @@ data class ProcedureRequest(
     @SerialName("relevantHistory")
     override val relevantHistory: List<Reference>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -235,7 +232,6 @@ data class ProcedureRequest(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -255,13 +251,11 @@ data class ProcedureRequest(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ProcedureRequest"
     }
 }
-
 
 interface FhirProcedureRequestRequester : FhirBackboneElement {
 
@@ -271,7 +265,6 @@ interface FhirProcedureRequestRequester : FhirBackboneElement {
     // Organization agent is acting for.
     val onBehalfOf: Reference?
 }
-
 
 /**
  * ClassName: ProcedureRequestRequester
@@ -296,12 +289,10 @@ data class ProcedureRequestRequester(
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -315,10 +306,8 @@ data class ProcedureRequestRequester(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ProcedureRequestRequester"
     }
 }
-

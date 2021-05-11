@@ -23,7 +23,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirValueSet : FhirDomainResource {
 
     // Logical URI to reference this value set (globally unique).
@@ -83,7 +82,6 @@ interface FhirValueSet : FhirDomainResource {
     // Used when the value set is "expanded".
     val expansion: ValueSetExpansion?
 }
-
 
 /**
  * ClassName: ValueSet
@@ -159,7 +157,6 @@ data class ValueSet(
     @SerialName("expansion")
     override val expansion: ValueSetExpansion? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -173,7 +170,6 @@ data class ValueSet(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -193,13 +189,11 @@ data class ValueSet(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSet"
     }
 }
-
 
 interface FhirValueSetCompose : FhirBackboneElement {
 
@@ -215,7 +209,6 @@ interface FhirValueSetCompose : FhirBackboneElement {
     // Explicitly exclude codes from a code system or other value sets.
     val exclude: List<ValueSetComposeInclude>?
 }
-
 
 /**
  * ClassName: ValueSetCompose
@@ -246,12 +239,10 @@ data class ValueSetCompose(
     @SerialName("exclude")
     override val exclude: List<ValueSetComposeInclude>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -265,13 +256,11 @@ data class ValueSetCompose(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetCompose"
     }
 }
-
 
 interface FhirValueSetComposeInclude : FhirBackboneElement {
 
@@ -290,7 +279,6 @@ interface FhirValueSetComposeInclude : FhirBackboneElement {
     // Select only contents included in this value set.
     val valueSet: List<String>?
 }
-
 
 /**
  * ClassName: ValueSetComposeInclude
@@ -324,12 +312,10 @@ data class ValueSetComposeInclude(
     @SerialName("valueSet")
     override val valueSet: List<String>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -343,13 +329,11 @@ data class ValueSetComposeInclude(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetComposeInclude"
     }
 }
-
 
 interface FhirValueSetComposeIncludeConcept : FhirBackboneElement {
 
@@ -362,7 +346,6 @@ interface FhirValueSetComposeIncludeConcept : FhirBackboneElement {
     // Additional representations for this concept.
     val designation: List<ValueSetComposeIncludeConceptDesignation>?
 }
-
 
 /**
  * ClassName: ValueSetComposeIncludeConcept
@@ -390,12 +373,10 @@ data class ValueSetComposeIncludeConcept(
     @SerialName("designation")
     override val designation: List<ValueSetComposeIncludeConceptDesignation>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -409,13 +390,11 @@ data class ValueSetComposeIncludeConcept(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetComposeIncludeConcept"
     }
 }
-
 
 interface FhirValueSetComposeIncludeConceptDesignation : FhirBackboneElement {
 
@@ -428,7 +407,6 @@ interface FhirValueSetComposeIncludeConceptDesignation : FhirBackboneElement {
     // The text value for this designation.
     val value: String
 }
-
 
 /**
  * ClassName: ValueSetComposeIncludeConceptDesignation
@@ -456,12 +434,10 @@ data class ValueSetComposeIncludeConceptDesignation(
     @SerialName("value")
     override val value: String,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -475,13 +451,11 @@ data class ValueSetComposeIncludeConceptDesignation(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetComposeIncludeConceptDesignation"
     }
 }
-
 
 interface FhirValueSetComposeIncludeFilter : FhirBackboneElement {
 
@@ -494,7 +468,6 @@ interface FhirValueSetComposeIncludeFilter : FhirBackboneElement {
     // Code from the system, or regex criteria, or boolean value for exists.
     val value: String
 }
-
 
 /**
  * ClassName: ValueSetComposeIncludeFilter
@@ -522,12 +495,10 @@ data class ValueSetComposeIncludeFilter(
     @SerialName("value")
     override val value: String,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -541,13 +512,11 @@ data class ValueSetComposeIncludeFilter(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetComposeIncludeFilter"
     }
 }
-
 
 interface FhirValueSetExpansion : FhirBackboneElement {
 
@@ -569,7 +538,6 @@ interface FhirValueSetExpansion : FhirBackboneElement {
     // Codes in the value set.
     val contains: List<ValueSetExpansionContains>?
 }
-
 
 /**
  * ClassName: ValueSetExpansion
@@ -606,12 +574,10 @@ data class ValueSetExpansion(
     @SerialName("contains")
     override val contains: List<ValueSetExpansionContains>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -625,13 +591,11 @@ data class ValueSetExpansion(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetExpansion"
     }
 }
-
 
 interface FhirValueSetExpansionContains : FhirBackboneElement {
 
@@ -659,7 +623,6 @@ interface FhirValueSetExpansionContains : FhirBackboneElement {
     // Codes contained under this entry.
     val contains: List<ValueSetExpansionContains>?
 }
-
 
 /**
  * ClassName: ValueSetExpansionContains
@@ -702,12 +665,10 @@ data class ValueSetExpansionContains(
     @SerialName("contains")
     override val contains: List<ValueSetExpansionContains>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -721,13 +682,11 @@ data class ValueSetExpansionContains(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetExpansionContains"
     }
 }
-
 
 interface FhirValueSetExpansionParameter : FhirBackboneElement {
 
@@ -752,7 +711,6 @@ interface FhirValueSetExpansionParameter : FhirBackboneElement {
     // Value of the named parameter.
     val valueCode: String?
 }
-
 
 /**
  * ClassName: ValueSetExpansionParameter
@@ -792,12 +750,10 @@ data class ValueSetExpansionParameter(
     @SerialName("valueCode")
     override val valueCode: String? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -811,10 +767,8 @@ data class ValueSetExpansionParameter(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ValueSetExpansionParameter"
     }
 }
-

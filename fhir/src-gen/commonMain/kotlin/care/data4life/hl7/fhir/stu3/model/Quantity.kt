@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirQuantity : FhirElement {
 
     // Numerical value (with implicit precision).
@@ -40,7 +39,6 @@ interface FhirQuantity : FhirElement {
     // Coded form of the unit.
     val code: String?
 }
-
 
 /**
  * ClassName: Quantity
@@ -74,7 +72,6 @@ data class Quantity(
     @SerialName("code")
     override val code: String? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -87,10 +84,8 @@ data class Quantity(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Quantity"
     }
 }
-

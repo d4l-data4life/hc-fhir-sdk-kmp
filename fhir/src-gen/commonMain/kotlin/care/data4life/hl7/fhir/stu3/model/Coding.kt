@@ -21,7 +21,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirCoding : FhirElement {
 
     // Identity of the terminology system.
@@ -39,7 +38,6 @@ interface FhirCoding : FhirElement {
     // If this coding was chosen directly by the user.
     val userSelected: Bool?
 }
-
 
 /**
  * ClassName: Coding
@@ -73,7 +71,6 @@ data class Coding(
     @SerialName("userSelected")
     override val userSelected: Bool? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -86,10 +83,8 @@ data class Coding(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Coding"
     }
 }
-

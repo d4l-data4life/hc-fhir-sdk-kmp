@@ -16,7 +16,6 @@
 
 package care.data4life.hl7.fhir.stu3.model
 
-
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.RequestIntent
@@ -41,7 +40,6 @@ import kotlin.test.assertEquals
 class ProcedureRequestTest {
 
     val parser = FhirStu3Parser()
-
 
     @Test
     fun testProcedureRequest1() {
@@ -428,5 +426,3 @@ class ProcedureRequestTest {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }
-
-

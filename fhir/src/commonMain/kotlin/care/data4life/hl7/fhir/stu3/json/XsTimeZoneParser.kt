@@ -30,7 +30,6 @@ object XsTimeZoneParser : StringParser<XsTimeZone> {
 
     private val TIME_ZONE = "(Z|[+-](2[0-3]|[01]?[0-9])(?::([0-5][0-9])))".toRegex()
 
-
     override fun parse(input: String): XsTimeZone {
         require(TIME_ZONE.matches(input))
 

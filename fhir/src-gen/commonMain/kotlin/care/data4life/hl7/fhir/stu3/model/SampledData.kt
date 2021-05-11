@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirSampledData : FhirElement {
 
     // Zero value and units.
@@ -46,7 +45,6 @@ interface FhirSampledData : FhirElement {
     // Decimal values with spaces, or "E" | "U" | "L".
     val data: String
 }
-
 
 /**
  * ClassName: SampledData
@@ -86,7 +84,6 @@ data class SampledData(
     @SerialName("data")
     override val data: String,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -99,10 +96,8 @@ data class SampledData(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "SampledData"
     }
 }
-

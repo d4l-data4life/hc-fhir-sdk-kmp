@@ -72,7 +72,6 @@ data class DateTime(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DateTime"
@@ -86,7 +85,7 @@ object DateTimeSerializer : KSerializer<DateTime> {
     override fun deserialize(decoder: Decoder): DateTime {
         val value = XsDateTimeParser.parse(decoder.decodeString())
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return DateTime(value)
     }
@@ -94,6 +93,6 @@ object DateTimeSerializer : KSerializer<DateTime> {
     override fun serialize(encoder: Encoder, value: DateTime) {
         encoder.encodeString(XsDateTimeParser.format(value.value))
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

@@ -68,7 +68,6 @@ class XsDateParserTest {
         )
     }
 
-
     @Test
     fun `parse() SHOULD throw exception WHEN invalid input data`() {
         assertFails { XsDateParser.parse("") }

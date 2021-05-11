@@ -26,7 +26,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirObservation : FhirDomainResource {
 
     // Business Identifier for observation.
@@ -125,7 +124,6 @@ interface FhirObservation : FhirDomainResource {
     // Component results.
     val component: List<ObservationComponent>?
 }
-
 
 /**
  * ClassName: Observation
@@ -240,7 +238,6 @@ data class Observation(
     @SerialName("component")
     override val component: List<ObservationComponent>? = null,
 
-
     // # DomainResource
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
@@ -254,7 +251,6 @@ data class Observation(
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Resource
     // Logical id of this artifact.
@@ -274,13 +270,11 @@ data class Observation(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Observation"
     }
 }
-
 
 interface FhirObservationComponent : FhirBackboneElement {
 
@@ -326,7 +320,6 @@ interface FhirObservationComponent : FhirBackboneElement {
     // Provides guide for interpretation of component result.
     val referenceRange: List<ObservationReferenceRange>?
 }
-
 
 /**
  * ClassName: ObservationComponent
@@ -387,12 +380,10 @@ data class ObservationComponent(
     @SerialName("referenceRange")
     override val referenceRange: List<ObservationReferenceRange>? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -406,13 +397,11 @@ data class ObservationComponent(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ObservationComponent"
     }
 }
-
 
 interface FhirObservationReferenceRange : FhirBackboneElement {
 
@@ -434,7 +423,6 @@ interface FhirObservationReferenceRange : FhirBackboneElement {
     // Text based reference range in an observation.
     val text: String?
 }
-
 
 /**
  * ClassName: ObservationReferenceRange
@@ -471,12 +459,10 @@ data class ObservationReferenceRange(
     @SerialName("text")
     override val text: String? = null,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -490,13 +476,11 @@ data class ObservationReferenceRange(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ObservationReferenceRange"
     }
 }
-
 
 interface FhirObservationRelated : FhirBackboneElement {
 
@@ -506,7 +490,6 @@ interface FhirObservationRelated : FhirBackboneElement {
     // Resource that is related to this one.
     val target: Reference
 }
-
 
 /**
  * ClassName: ObservationRelated
@@ -531,12 +514,10 @@ data class ObservationRelated(
     @SerialName("target")
     override val target: Reference,
 
-
     // # BackboneElement
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
-
 
     // # Element
     // xml:id (or equivalent in JSON).
@@ -550,10 +531,8 @@ data class ObservationRelated(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ObservationRelated"
     }
 }
-

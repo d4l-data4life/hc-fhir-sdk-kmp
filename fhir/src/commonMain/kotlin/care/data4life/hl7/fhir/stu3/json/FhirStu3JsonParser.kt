@@ -37,7 +37,6 @@ class FhirStu3JsonParser(
         return reader.encodeToString(PolymorphicSerializer(FhirStu3::class), fhirObject)
     }
 
-
     companion object {
 
         private val fhirStu3SerializersModule = FhirSerializationModule.module()

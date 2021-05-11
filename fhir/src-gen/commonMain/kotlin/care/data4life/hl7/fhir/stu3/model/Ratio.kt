@@ -20,7 +20,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirRatio : FhirElement {
 
     // Numerator value.
@@ -29,7 +28,6 @@ interface FhirRatio : FhirElement {
     // Denominator value.
     val denominator: Quantity?
 }
-
 
 /**
  * ClassName: Ratio
@@ -54,7 +52,6 @@ data class Ratio(
     @SerialName("denominator")
     override val denominator: Quantity? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -67,10 +64,8 @@ data class Ratio(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Ratio"
     }
 }
-

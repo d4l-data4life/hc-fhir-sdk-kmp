@@ -33,7 +33,6 @@ interface FhirInstant : FhirElement {
     val value: XsDateTime
 }
 
-
 /**
  * Instant
  *
@@ -82,7 +81,6 @@ data class Instant(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Instant"
@@ -96,7 +94,7 @@ object InstantSerializer : KSerializer<Instant> {
     override fun deserialize(decoder: Decoder): Instant {
         val value = XsDateTimeParser.parse(decoder.decodeString())
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return Instant(value)
     }
@@ -104,6 +102,6 @@ object InstantSerializer : KSerializer<Instant> {
     override fun serialize(encoder: Encoder, value: Instant) {
         encoder.encodeString(XsDateTimeParser.format(value.value))
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

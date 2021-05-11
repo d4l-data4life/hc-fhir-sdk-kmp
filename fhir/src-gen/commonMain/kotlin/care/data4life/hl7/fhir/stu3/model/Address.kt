@@ -22,7 +22,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
 interface FhirAddress : FhirElement {
 
     // The purpose of this address.
@@ -55,7 +54,6 @@ interface FhirAddress : FhirElement {
     // Time period when address was/is in use.
     val period: Period?
 }
-
 
 /**
  * ClassName: Address
@@ -104,7 +102,6 @@ data class Address(
     @SerialName("period")
     override val period: Period? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -117,10 +114,8 @@ data class Address(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Address"
     }
 }
-

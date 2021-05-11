@@ -22,11 +22,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
-interface FhirAge : FhirQuantity {
-
-}
-
+interface FhirAge : FhirQuantity
 
 /**
  * ClassName: Age
@@ -43,7 +39,6 @@ interface FhirAge : FhirQuantity {
 @Serializable
 @SerialName("Age")
 data class Age(
-
 
     // # Quantity
     // Numerical value (with implicit precision).
@@ -62,7 +57,6 @@ data class Age(
     @SerialName("code")
     override val code: String? = null,
 
-
     // # Element
     // xml:id (or equivalent in JSON).
     @SerialName("id")
@@ -75,10 +69,8 @@ data class Age(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Age"
     }
 }
-

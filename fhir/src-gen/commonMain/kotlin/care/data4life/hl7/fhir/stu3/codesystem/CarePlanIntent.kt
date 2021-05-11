@@ -18,7 +18,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 
 import kotlinx.serialization.*
 
-
 /**
  * Codes indicating the degree of authority/intentionality associated with a care plan
  *
@@ -50,7 +49,7 @@ enum class CarePlanIntent {
     /**
      * The care plan represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.
 
-    Refer to [[[RequestGroup]]] for additional information on how this status is used
+     Refer to [[[RequestGroup]]] for additional information on how this status is used
      */
     @SerialName("option")
     OPTION

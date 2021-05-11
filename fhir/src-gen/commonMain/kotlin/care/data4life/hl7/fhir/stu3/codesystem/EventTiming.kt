@@ -18,7 +18,6 @@ package care.data4life.hl7.fhir.stu3.codesystem
 
 import kotlinx.serialization.*
 
-
 /**
  * Real world event relating to the schedule.
  *
