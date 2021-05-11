@@ -19,6 +19,9 @@ package care.data4life.hl7.fhir.r4.json
 import care.data4life.hl7.fhir.r4.model.FhirR4
 import care.data4life.hl7.fhir.r4.model.FhirSerializationModule
 import care.data4life.hl7.fhir.r4.test.data.FhirSimpleTestObject
+import care.data4life.hl7.fhir.r4.model.FhirResource
+import care.data4life.hl7.fhir.r4.test.data.FhirContainedTestObject
+import care.data4life.hl7.fhir.r4.test.data.FhirResourceTestObject
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.plus
 import kotlinx.serialization.modules.polymorphic
@@ -38,6 +41,10 @@ class FhirR4JsonParserTest {
         val fhirTestSerializersModule = SerializersModule {
             polymorphic(FhirR4::class) {
                 subclass(FhirSimpleTestObject::class)
+                subclass(FhirContainedTestObject::class)
+            }
+            polymorphic(FhirResource::class) {
+                subclass(FhirResourceTestObject::class)
             }
         }
 
@@ -70,10 +77,37 @@ class FhirR4JsonParserTest {
     }
 
     @Test
+    fun `fromJson() SHOULD parse WHEN Fhir type has contained fhir objects`() {
+        // Given
+        val fhirType = FhirContainedTestObject::class
+        val fhirJson = FhirContainedTestObject.jsonData
+        val expected = FhirContainedTestObject.testData
+
+        // When
+        val result = parser.fromJson(fhirType, fhirJson)
+
+        // Then
+        assertEquals(expected, result)
+    }
+
+    @Test
     fun `toJson() SHOULD format WHEN Fhir type is known`() {
         // Given
         val input = FhirSimpleTestObject.testData
         val expected = FhirSimpleTestObject.jsonData
+
+        // When
+        val result = parser.toJson(input)
+
+        // Then
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `toJson() SHOULD format WHEN Fhir type has contained fhir objects`() {
+        // Given
+        val input = FhirContainedTestObject.testData
+        val expected = FhirContainedTestObject.jsonData
 
         // When
         val result = parser.toJson(input)
