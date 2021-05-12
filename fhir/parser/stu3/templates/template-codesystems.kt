@@ -31,37 +31,37 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class {{ system.name }} {
-{% for code in system.codes %}
+{%- for code in system.codes %}
+{% if True %}{% endif %}
     /**
      * {{ code.definition | wordwrap(80) | replace('\n\n','\n') | replace('\n', '\n     * ') }}
      */
     @SerialName("{{code.code}}")
-    {%- if code.code == "=" %}
+{%- if code.code == "=" %}
     EQUAL,
-    {%- else %}
-    {%- if code.code == "<" %}
+{%- else %}
+{%- if code.code == "<" %}
     LESS_THAN,
-    {%- else %}
-    {%- if code.code == "<=" %}
+{%- else %}
+{%- if code.code == "<=" %}
     LESS_OR_EQUAL,
-    {%- else %}
-    {%- if code.code == ">" %}
+{%- else %}
+{%- if code.code == ">" %}
     GREATER_THAN,
-    {%- else %}
-    {%- if code.code == ">=" %}
+{%- else %}
+{%- if code.code == ">=" %}
     GREATER_OR_EQUAL,
-    {%- else %}
-    {%- if code.code == "*" %}
+{%- else %}
+{%- if code.code == "*" %}
     MAX,
-    {%- else %}
-    {{ code.code.upper()|replace('-', '_') }}{% if not loop.last %},
-{% endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endfor %}
+{%- else %}
+    {{ code.code.upper()|replace('-', '_') }}{% if not loop.last %},{% endif %}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- endfor %}
 }
 {% endif %}

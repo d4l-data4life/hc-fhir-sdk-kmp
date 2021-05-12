@@ -35,6 +35,7 @@ enum class FilterOperator {
      */
     @SerialName("=")
     EQUAL,
+
     /**
      * Includes all concept ids that have a transitive is-a relationship with the
      * concept Id provided as the value, including the provided concept itself (i.e.
