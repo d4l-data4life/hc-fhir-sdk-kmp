@@ -50,7 +50,6 @@ interface FhirRelatedArtifact : FhirElement {
  *
  * SourceFileName: RelatedArtifact.kt
  *
- *
  * Related artifacts such as additional documentation, justification, or bibliographic references.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/RelatedArtifact">RelatedArtifact</a>
@@ -64,29 +63,37 @@ data class RelatedArtifact(
     // The type of relationship to the related artifact.
     @SerialName("type")
     override val type: RelatedArtifactType,
+
     // Short label.
     @SerialName("label")
     override val label: String? = null,
+
     // Brief description of the related artifact.
     @SerialName("display")
     override val display: String? = null,
+
     // Bibliographic citation for the artifact.
     @SerialName("citation")
     override val citation: String? = null,
+
     // Where the artifact can be accessed.
     @SerialName("url")
     override val url: String? = null,
+
     // What document is being referenced.
     @SerialName("document")
     override val document: Attachment? = null,
+
     // What resource is being referenced.
     @SerialName("resource")
     override val resource: String? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

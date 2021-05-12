@@ -34,7 +34,6 @@ interface FhirRatio : FhirElement {
  *
  * SourceFileName: Ratio.kt
  *
- *
  * A relationship of two Quantity values - expressed as a numerator and a denominator.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Ratio">Ratio</a>
@@ -48,14 +47,17 @@ data class Ratio(
     // Numerator value.
     @SerialName("numerator")
     override val numerator: Quantity? = null,
+
     // Denominator value.
     @SerialName("denominator")
     override val denominator: Quantity? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

@@ -35,7 +35,6 @@ interface FhirNarrative : FhirElement {
  *
  * SourceFileName: Narrative.kt
  *
- *
  * A human-readable formatted text, including images
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Narrative">Narrative</a>
@@ -49,6 +48,7 @@ data class Narrative(
     // The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
     @SerialName("status")
     override val status: NarrativeStatus,
+
     // Limited xhtml content.
     @SerialName("div")
     override val div: String,

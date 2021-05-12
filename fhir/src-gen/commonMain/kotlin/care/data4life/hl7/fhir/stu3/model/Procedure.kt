@@ -112,8 +112,8 @@ interface FhirProcedure : FhirDomainResource {
  *
  * SourceFileName: Procedure.kt
  *
- *
- * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
+ * An action that is or was performed on a patient. This can be a physical intervention like an
+ * operation, or less invasive like counseling or hypnotherapy.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">Procedure</a>
  *
@@ -126,81 +126,107 @@ data class Procedure(
     // External Identifiers for this procedure.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Instantiates protocol or definition.
     @SerialName("definition")
     override val definition: List<Reference>? = null,
+
     // A request for this procedure.
     @SerialName("basedOn")
     override val basedOn: List<Reference>? = null,
+
     // Part of referenced event.
     @SerialName("partOf")
     override val partOf: List<Reference>? = null,
+
     // A code specifying the state of the procedure. Generally this will be in-progress or completed state.
     @SerialName("status")
     override val status: EventStatus,
+
     // True if procedure was not performed as scheduled.
     @SerialName("notDone")
     override val notDone: Bool? = null,
+
     // Reason procedure was not performed.
     @SerialName("notDoneReason")
     override val notDoneReason: CodeableConcept? = null,
+
     // Classification of the procedure.
     @SerialName("category")
     override val category: CodeableConcept? = null,
+
     // Identification of the procedure.
     @SerialName("code")
     override val code: CodeableConcept? = null,
+
     // Who the procedure was performed on.
     @SerialName("subject")
     override val subject: Reference,
+
     // Encounter or episode associated with the procedure.
     @SerialName("context")
     override val context: Reference? = null,
+
     // Date/Period the procedure was performed.
     @SerialName("performedDateTime")
     override val performedDateTime: DateTime? = null,
+
     // Date/Period the procedure was performed.
     @SerialName("performedPeriod")
     override val performedPeriod: Period? = null,
+
     // The people who performed the procedure.
     @SerialName("performer")
     override val performer: List<ProcedurePerformer>? = null,
+
     // Where the procedure happened.
     @SerialName("location")
     override val location: Reference? = null,
+
     // Coded reason procedure performed.
     @SerialName("reasonCode")
     override val reasonCode: List<CodeableConcept>? = null,
+
     // Condition that is the reason the procedure performed.
     @SerialName("reasonReference")
     override val reasonReference: List<Reference>? = null,
+
     // Target body sites.
     @SerialName("bodySite")
     override val bodySite: List<CodeableConcept>? = null,
+
     // The result of procedure.
     @SerialName("outcome")
     override val outcome: CodeableConcept? = null,
+
     // Any report resulting from the procedure.
     @SerialName("report")
     override val report: List<Reference>? = null,
+
     // Complication following the procedure.
     @SerialName("complication")
     override val complication: List<CodeableConcept>? = null,
+
     // A condition that is a result of the procedure.
     @SerialName("complicationDetail")
     override val complicationDetail: List<Reference>? = null,
+
     // Instructions for follow up.
     @SerialName("followUp")
     override val followUp: List<CodeableConcept>? = null,
+
     // Additional information about the procedure.
     @SerialName("note")
     override val note: List<Annotation>? = null,
+
     // Device changed in procedure.
     @SerialName("focalDevice")
     override val focalDevice: List<ProcedureFocalDevice>? = null,
+
     // Items used during procedure.
     @SerialName("usedReference")
     override val usedReference: List<Reference>? = null,
+
     // Coded items used during the procedure.
     @SerialName("usedCode")
     override val usedCode: List<CodeableConcept>? = null,
@@ -257,8 +283,8 @@ interface FhirProcedureFocalDevice : FhirBackboneElement {
  *
  * SourceFileName: Procedure.kt
  *
- *
- * A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
+ * A device that is implanted, removed or otherwise manipulated (calibration, battery replacement,
+ * fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">ProcedureFocalDevice</a>
  *
@@ -271,6 +297,7 @@ data class ProcedureFocalDevice(
     // Kind of change to device.
     @SerialName("action")
     override val action: CodeableConcept? = null,
+
     // Device that was changed.
     @SerialName("manipulated")
     override val manipulated: Reference,
@@ -315,7 +342,6 @@ interface FhirProcedurePerformer : FhirBackboneElement {
  *
  * SourceFileName: Procedure.kt
  *
- *
  * Limited to 'real' people rather than equipment.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">ProcedurePerformer</a>
@@ -329,9 +355,11 @@ data class ProcedurePerformer(
     // The role the actor was in.
     @SerialName("role")
     override val role: CodeableConcept? = null,
+
     // The reference to the practitioner.
     @SerialName("actor")
     override val actor: Reference,
+
     // Organization the device or practitioner was acting for.
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,

@@ -59,8 +59,9 @@ interface FhirOrganization : FhirDomainResource {
  *
  * SourceFileName: Organization.kt
  *
- *
- * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
+ * A formally or informally recognized grouping of people or organizations formed for the purpose of
+ * achieving some form of collective action. Includes companies, institutions, corporations,
+ * departments, community groups, healthcare practice groups, payer/insurer, etc.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Organization">Organization</a>
  *
@@ -73,58 +74,75 @@ data class Organization(
     // Identifies this organization  across multiple systems.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Whether the organization's record is still in active use.
     @SerialName("active")
     override val active: Bool? = null,
+
     // Kind of organization.
     @SerialName("type")
     override val type: List<CodeableConcept>? = null,
+
     // Name used for the organization.
     @SerialName("name")
     override val name: String? = null,
+
     // A list of alternate names that the organization is known as, or was known as in the past.
     @SerialName("alias")
     override val alias: List<String>? = null,
+
     // A contact detail for the organization.
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,
+
     // An address for the organization.
     @SerialName("address")
     override val address: List<Address>? = null,
+
     // The organization of which this organization forms a part.
     @SerialName("partOf")
     override val partOf: Reference? = null,
+
     // Contact for the organization for a certain purpose.
     @SerialName("contact")
     override val contact: List<OrganizationContact>? = null,
+
     // Technical endpoints providing access to services operated for the organization.
     @SerialName("endpoint")
     override val endpoint: List<Reference>? = null,
 
     // # DomainResource
+
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
     override val text: Narrative? = null,
+
     // Contained, inline Resources.
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Resource
+
     // Logical id of this artifact.
     @SerialName("id")
     override val id: String? = null,
+
     // Metadata about the resource.
     @SerialName("meta")
     override val meta: Meta? = null,
+
     // A set of rules under which this content was created.
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     // Language of the resource content.
     @SerialName("language")
     override val language: String? = null
@@ -159,7 +177,6 @@ interface FhirOrganizationContact : FhirBackboneElement {
  *
  * SourceFileName: Organization.kt
  *
- *
  * Contact for the organization for a certain purpose
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Organization">OrganizationContact</a>
@@ -173,25 +190,31 @@ data class OrganizationContact(
     // The type of contact.
     @SerialName("purpose")
     override val purpose: CodeableConcept? = null,
+
     // A name associated with the contact.
     @SerialName("name")
     override val name: HumanName? = null,
+
     // Contact details (telephone, email, etc.)  for a contact.
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,
+
     // Visiting or postal addresses for the contact.
     @SerialName("address")
     override val address: Address? = null,
 
     // # BackboneElement
+
     // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

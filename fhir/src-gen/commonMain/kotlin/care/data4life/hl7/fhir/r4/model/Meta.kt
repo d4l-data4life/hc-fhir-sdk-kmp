@@ -47,8 +47,9 @@ interface FhirMeta : FhirElement {
  *
  * SourceFileName: Meta.kt
  *
- *
- * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
+ * The metadata about a resource. This is content in the resource that is maintained by the
+ * infrastructure. Changes to the content might not always be associated with version changes to the
+ * resource.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Meta">Meta</a>
  *
@@ -61,26 +62,33 @@ data class Meta(
     // Version specific identifier.
     @SerialName("versionId")
     override val versionId: String? = null,
+
     // When the resource version last changed.
     @SerialName("lastUpdated")
     override val lastUpdated: Instant? = null,
+
     // Identifies where the resource comes from.
     @SerialName("source")
     override val source: String? = null,
+
     // Profiles this resource claims to conform to.
     @SerialName("profile")
     override val profile: List<String>? = null,
+
     // Security Labels applied to this resource.
     @SerialName("security")
     override val security: List<Coding>? = null,
+
     // Tags applied to this resource.
     @SerialName("tag")
     override val tag: List<Coding>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

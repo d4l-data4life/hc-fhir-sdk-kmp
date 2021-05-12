@@ -40,7 +40,6 @@ interface FhirDomainResource : FhirResource {
  *
  * SourceFileName: DomainResource.kt
  *
- *
  * A resource that includes narrative, extensions, and contained resources.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DomainResource">DomainResource</a>
@@ -54,26 +53,33 @@ data class DomainResource(
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
     override val text: Narrative? = null,
+
     // Contained, inline Resources.
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Resource
+
     // Logical id of this artifact.
     @SerialName("id")
     override val id: String? = null,
+
     // Metadata about the resource.
     @SerialName("meta")
     override val meta: Meta? = null,
+
     // A set of rules under which this content was created.
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     // Language of the resource content.
     @SerialName("language")
     override val language: String? = null

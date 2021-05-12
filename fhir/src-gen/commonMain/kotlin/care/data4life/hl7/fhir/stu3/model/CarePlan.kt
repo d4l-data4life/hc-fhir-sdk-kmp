@@ -92,8 +92,9 @@ interface FhirCarePlan : FhirDomainResource {
  *
  * SourceFileName: CarePlan.kt
  *
- *
- * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
+ * Describes the intention of how one or more practitioners intend to deliver care for a particular
+ * patient, group or community for a period of time, possibly limited to care for a specific condition
+ * or set of conditions.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlan</a>
  *
@@ -106,60 +107,79 @@ data class CarePlan(
     // External Ids for this plan.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Protocol or definition.
     @SerialName("definition")
     override val definition: List<Reference>? = null,
+
     // Fulfills care plan.
     @SerialName("basedOn")
     override val basedOn: List<Reference>? = null,
+
     // CarePlan replaced by this CarePlan.
     @SerialName("replaces")
     override val replaces: List<Reference>? = null,
+
     // Part of referenced CarePlan.
     @SerialName("partOf")
     override val partOf: List<Reference>? = null,
+
     // Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
     @SerialName("status")
     override val status: CarePlanStatus,
+
     // Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
     @SerialName("intent")
     override val intent: CarePlanIntent,
+
     // Type of plan.
     @SerialName("category")
     override val category: List<CodeableConcept>? = null,
+
     // Human-friendly name for the CarePlan.
     @SerialName("title")
     override val title: String? = null,
+
     // Summary of nature of plan.
     @SerialName("description")
     override val description: String? = null,
+
     // Who care plan is for.
     @SerialName("subject")
     override val subject: Reference,
+
     // Created in context of.
     @SerialName("context")
     override val context: Reference? = null,
+
     // Time period plan covers.
     @SerialName("period")
     override val period: Period? = null,
+
     // Who is responsible for contents of the plan.
     @SerialName("author")
     override val author: List<Reference>? = null,
+
     // Who's involved in plan?.
     @SerialName("careTeam")
     override val careTeam: List<Reference>? = null,
+
     // Health issues this plan addresses.
     @SerialName("addresses")
     override val addresses: List<Reference>? = null,
+
     // Information considered as part of plan.
     @SerialName("supportingInfo")
     override val supportingInfo: List<Reference>? = null,
+
     // Desired outcome of plan.
     @SerialName("goal")
     override val goal: List<Reference>? = null,
+
     // Action to occur as part of plan.
     @SerialName("activity")
     override val activity: List<CarePlanActivity>? = null,
+
     // Comments about the plan.
     @SerialName("note")
     override val note: List<Annotation>? = null,
@@ -225,8 +245,8 @@ interface FhirCarePlanActivity : FhirBackboneElement {
  *
  * SourceFileName: CarePlan.kt
  *
- *
- * Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
+ * Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab
+ * tests to perform, self-monitoring, education, etc.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlanActivity</a>
  *
@@ -239,15 +259,19 @@ data class CarePlanActivity(
     // Results of the activity.
     @SerialName("outcomeCodeableConcept")
     override val outcomeCodeableConcept: List<CodeableConcept>? = null,
+
     // Appointment, Encounter, Procedure, etc..
     @SerialName("outcomeReference")
     override val outcomeReference: List<Reference>? = null,
+
     // Comments about the activity status/progress.
     @SerialName("progress")
     override val progress: List<Annotation>? = null,
+
     // Activity details defined in specific resource.
     @SerialName("reference")
     override val reference: Reference? = null,
+
     // In-line definition of activity.
     @SerialName("detail")
     override val detail: CarePlanActivityDetail? = null,
@@ -340,8 +364,8 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
  *
  * SourceFileName: CarePlan.kt
  *
- *
- * A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.
+ * A simple summary of a planned activity suitable for a general care plan system (e.g. form driven)
+ * that doesn't know about specific resources such as procedure etc.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlanActivityDetail</a>
  *
@@ -354,57 +378,75 @@ data class CarePlanActivityDetail(
     // diet | drug | encounter | observation | procedure | supply | other.
     @SerialName("category")
     override val category: CodeableConcept? = null,
+
     // Protocol or definition.
     @SerialName("definition")
     override val definition: Reference? = null,
+
     // Detail type of activity.
     @SerialName("code")
     override val code: CodeableConcept? = null,
+
     // Why activity should be done or why activity was prohibited.
     @SerialName("reasonCode")
     override val reasonCode: List<CodeableConcept>? = null,
+
     // Condition triggering need for activity.
     @SerialName("reasonReference")
     override val reasonReference: List<Reference>? = null,
+
     // Goals this activity relates to.
     @SerialName("goal")
     override val goal: List<Reference>? = null,
+
     // Identifies what progress is being made for the specific activity.
     @SerialName("status")
     override val status: CarePlanActivityStatus,
+
     // Reason for current status.
     @SerialName("statusReason")
     override val statusReason: String? = null,
+
     // Do NOT do.
     @SerialName("prohibited")
     override val prohibited: Bool? = null,
+
     // When activity is to occur.
     @SerialName("scheduledTiming")
     override val scheduledTiming: Timing? = null,
+
     // When activity is to occur.
     @SerialName("scheduledPeriod")
     override val scheduledPeriod: Period? = null,
+
     // When activity is to occur.
     @SerialName("scheduledString")
     override val scheduledString: String? = null,
+
     // Where it should happen.
     @SerialName("location")
     override val location: Reference? = null,
+
     // Who will be responsible?.
     @SerialName("performer")
     override val performer: List<Reference>? = null,
+
     // What is to be administered/supplied.
     @SerialName("productCodeableConcept")
     override val productCodeableConcept: CodeableConcept? = null,
+
     // What is to be administered/supplied.
     @SerialName("productReference")
     override val productReference: Reference? = null,
+
     // How to consume/day?.
     @SerialName("dailyAmount")
     override val dailyAmount: Quantity? = null,
+
     // How much to administer/supply/consume.
     @SerialName("quantity")
     override val quantity: Quantity? = null,
+
     // Extra info describing activity to perform.
     @SerialName("description")
     override val description: String? = null,

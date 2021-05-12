@@ -44,7 +44,6 @@ interface FhirCoding : FhirElement {
  *
  * SourceFileName: Coding.kt
  *
- *
  * A reference to a code defined by a terminology system
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Coding">Coding</a>
@@ -58,15 +57,19 @@ data class Coding(
     // Identity of the terminology system.
     @SerialName("system")
     override val system: String? = null,
+
     // Version of the system - if relevant.
     @SerialName("version")
     override val version: String? = null,
+
     // Symbol in syntax defined by the system.
     @SerialName("code")
     override val code: String? = null,
+
     // Representation defined by the system.
     @SerialName("display")
     override val display: String? = null,
+
     // If this coding was chosen directly by the user.
     @SerialName("userSelected")
     override val userSelected: Bool? = null,

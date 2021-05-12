@@ -53,8 +53,9 @@ interface FhirSignature : FhirElement {
  *
  * SourceFileName: Signature.kt
  *
- *
- * A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.
+ * A digital signature along with supporting context. The signature may be electronic/cryptographic in
+ * nature, or a graphical image representing a hand-written signature, or a signature process.
+ * Different signature approaches have different utilities.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Signature">Signature</a>
  *
@@ -67,24 +68,31 @@ data class Signature(
     // Indication of the reason the entity signed the object(s).
     @SerialName("type")
     override val type: List<Coding>,
+
     // When the signature was created.
     @SerialName("when")
     override val `when`: Instant,
+
     // Who signed.
     @SerialName("whoUri")
     override val whoUri: String? = null,
+
     // Who signed.
     @SerialName("whoReference")
     override val whoReference: Reference? = null,
+
     // The party represented.
     @SerialName("onBehalfOfUri")
     override val onBehalfOfUri: String? = null,
+
     // The party represented.
     @SerialName("onBehalfOfReference")
     override val onBehalfOfReference: Reference? = null,
+
     // The technical format of the signature.
     @SerialName("contentType")
     override val contentType: String? = null,
+
     // The actual signature content (XML DigSig. JWT, picture, etc.).
     @SerialName("blob")
     override val blob: String? = null,

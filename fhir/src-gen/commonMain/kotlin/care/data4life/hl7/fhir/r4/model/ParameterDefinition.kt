@@ -51,8 +51,9 @@ interface FhirParameterDefinition : FhirElement {
  *
  * SourceFileName: ParameterDefinition.kt
  *
- *
- * The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.
+ * The parameters to the module. This collection specifies both the input and output parameters. Input
+ * parameters are provided by the caller as part of the $evaluate operation. Output parameters are
+ * included in the GuidanceResponse.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ParameterDefinition">ParameterDefinition</a>
  *
@@ -65,29 +66,37 @@ data class ParameterDefinition(
     // Name used to access the parameter value.
     @SerialName("name")
     override val name: String? = null,
+
     // Whether the parameter is input or output for the module.
     @SerialName("use")
     override val use: OperationParameterUse,
+
     // Minimum cardinality.
     @SerialName("min")
     override val min: Integer? = null,
+
     // Maximum cardinality (a number of *).
     @SerialName("max")
     override val max: String? = null,
+
     // A brief description of the parameter.
     @SerialName("documentation")
     override val documentation: String? = null,
+
     // What type of value.
     @SerialName("type")
     override val type: String,
+
     // What profile the value is expected to be.
     @SerialName("profile")
     override val profile: String? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

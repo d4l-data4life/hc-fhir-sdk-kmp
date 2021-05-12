@@ -58,8 +58,8 @@ interface FhirDataRequirement : FhirElement {
  *
  * SourceFileName: DataRequirement.kt
  *
- *
- * Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.
+ * Describes a required data item for evaluation in terms of the type of data, and optional code or
+ * date-based filters of the data.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DataRequirement">DataRequirement</a>
  *
@@ -72,35 +72,45 @@ data class DataRequirement(
     // The type of the required data.
     @SerialName("type")
     override val type: String,
+
     // The profile of the required data.
     @SerialName("profile")
     override val profile: List<String>? = null,
+
     // E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device.
     @SerialName("subjectCodeableConcept")
     override val subjectCodeableConcept: CodeableConcept? = null,
+
     // E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device.
     @SerialName("subjectReference")
     override val subjectReference: Reference? = null,
+
     // Indicates specific structure elements that are referenced by the knowledge module.
     @SerialName("mustSupport")
     override val mustSupport: List<String>? = null,
+
     // What codes are expected.
     @SerialName("codeFilter")
     override val codeFilter: List<DataRequirementCodeFilter>? = null,
+
     // What dates/date ranges are expected.
     @SerialName("dateFilter")
     override val dateFilter: List<DataRequirementDateFilter>? = null,
+
     // Number of results.
     @SerialName("limit")
     override val limit: PositiveInteger? = null,
+
     // Order of the results.
     @SerialName("sort")
     override val sort: List<DataRequirementSort>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
@@ -135,8 +145,9 @@ interface FhirDataRequirementCodeFilter : FhirElement {
  *
  * SourceFileName: DataRequirement.kt
  *
- *
- * Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed.
+ * Code filters specify additional constraints on the data, specifying the value set of interest for a
+ * particular element of the data. Each code filter defines an additional constraint on the data, i.e.
+ * code filters are AND'ed, not OR'ed.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DataRequirement">DataRequirementCodeFilter</a>
  *
@@ -149,20 +160,25 @@ data class DataRequirementCodeFilter(
     // A code-valued attribute to filter on.
     @SerialName("path")
     override val path: String? = null,
+
     // A coded (token) parameter to search on.
     @SerialName("searchParam")
     override val searchParam: String? = null,
+
     // Valueset for the filter.
     @SerialName("valueSet")
     override val valueSet: String? = null,
+
     // What code is expected.
     @SerialName("code")
     override val code: List<Coding>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
@@ -200,8 +216,9 @@ interface FhirDataRequirementDateFilter : FhirElement {
  *
  * SourceFileName: DataRequirement.kt
  *
- *
- * Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed.
+ * Date filters specify additional constraints on the data in terms of the applicable date range for
+ * specific elements. Each date filter specifies an additional constraint on the data, i.e. date
+ * filters are AND'ed, not OR'ed.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DataRequirement">DataRequirementDateFilter</a>
  *
@@ -214,23 +231,29 @@ data class DataRequirementDateFilter(
     // A date-valued attribute to filter on.
     @SerialName("path")
     override val path: String? = null,
+
     // A date valued parameter to search on.
     @SerialName("searchParam")
     override val searchParam: String? = null,
+
     // The value of the filter, as a Period, DateTime, or Duration value.
     @SerialName("valueDateTime")
     override val valueDateTime: DateTime? = null,
+
     // The value of the filter, as a Period, DateTime, or Duration value.
     @SerialName("valuePeriod")
     override val valuePeriod: Period? = null,
+
     // The value of the filter, as a Period, DateTime, or Duration value.
     @SerialName("valueDuration")
     override val valueDuration: Duration? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
@@ -259,7 +282,6 @@ interface FhirDataRequirementSort : FhirElement {
  *
  * SourceFileName: DataRequirement.kt
  *
- *
  * Specifies the order of the results to be returned.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DataRequirement">DataRequirementSort</a>
@@ -273,14 +295,17 @@ data class DataRequirementSort(
     // The name of the attribute to perform the sort.
     @SerialName("path")
     override val path: String,
+
     // The direction of the sort, ascending or descending.
     @SerialName("direction")
     override val direction: SortDirection,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

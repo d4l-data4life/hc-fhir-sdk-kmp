@@ -45,8 +45,9 @@ interface FhirQuantity : FhirElement {
  *
  * SourceFileName: Quantity.kt
  *
- *
- * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
+ * A measured amount (or an amount that can potentially be measured). Note that measured amounts
+ * include amounts that are not precisely quantified, including amounts involving arbitrary units and
+ * floating currencies.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Quantity">Quantity</a>
  *
@@ -59,15 +60,19 @@ data class Quantity(
     // Numerical value (with implicit precision).
     @SerialName("value")
     override val value: Decimal? = null,
+
     // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
+
     // Unit representation.
     @SerialName("unit")
     override val unit: String? = null,
+
     // System that defines coded unit form.
     @SerialName("system")
     override val system: String? = null,
+
     // Coded form of the unit.
     @SerialName("code")
     override val code: String? = null,

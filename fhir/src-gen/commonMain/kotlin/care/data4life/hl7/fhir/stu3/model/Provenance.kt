@@ -60,8 +60,14 @@ interface FhirProvenance : FhirDomainResource {
  *
  * SourceFileName: Provenance.kt
  *
- *
- * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
+ * Provenance of a resource is a record that describes entities and processes involved in producing and
+ * delivering or otherwise influencing that resource. Provenance provides a critical foundation for
+ * assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a
+ * form of contextual metadata and can themselves become important records with their own provenance.
+ * Provenance statement indicates clinical significance in terms of confidence in authenticity,
+ * reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has
+ * the artifact been legally authenticated), all of which may impact security, privacy, and trust
+ * policies.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">Provenance</a>
  *
@@ -74,30 +80,39 @@ data class Provenance(
     // Target Reference(s) (usually version specific).
     @SerialName("target")
     override val target: List<Reference>,
+
     // When the activity occurred.
     @SerialName("period")
     override val period: Period? = null,
+
     // When the activity was recorded / updated.
     @SerialName("recorded")
     override val recorded: Instant,
+
     // Policy or plan the activity was defined by.
     @SerialName("policy")
     override val policy: List<String>? = null,
+
     // Where the activity occurred, if relevant.
     @SerialName("location")
     override val location: Reference? = null,
+
     // Reason the activity is occurring.
     @SerialName("reason")
     override val reason: List<Coding>? = null,
+
     // Activity that occurred.
     @SerialName("activity")
     override val activity: Coding? = null,
+
     // Actor involved.
     @SerialName("agent")
     override val agent: List<ProvenanceAgent>,
+
     // An entity used in this activity.
     @SerialName("entity")
     override val entity: List<ProvenanceEntity>? = null,
+
     // Signature on target.
     @SerialName("signature")
     override val signature: List<Signature>? = null,
@@ -166,8 +181,8 @@ interface FhirProvenanceAgent : FhirBackboneElement {
  *
  * SourceFileName: Provenance.kt
  *
- *
- * An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.
+ * An actor taking a role in an activity  for which it can be assigned some degree of responsibility
+ * for the activity taking place.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">ProvenanceAgent</a>
  *
@@ -180,18 +195,23 @@ data class ProvenanceAgent(
     // What the agents role was.
     @SerialName("role")
     override val role: List<CodeableConcept>? = null,
+
     // Who participated.
     @SerialName("whoUri")
     override val whoUri: String? = null,
+
     // Who participated.
     @SerialName("whoReference")
     override val whoReference: Reference? = null,
+
     // Who the agent is representing.
     @SerialName("onBehalfOfUri")
     override val onBehalfOfUri: String? = null,
+
     // Who the agent is representing.
     @SerialName("onBehalfOfReference")
     override val onBehalfOfReference: Reference? = null,
+
     // Type of relationship between agents.
     @SerialName("relatedAgentType")
     override val relatedAgentType: CodeableConcept? = null,
@@ -242,7 +262,6 @@ interface FhirProvenanceEntity : FhirBackboneElement {
  *
  * SourceFileName: Provenance.kt
  *
- *
  * An entity used in this activity
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Provenance">ProvenanceEntity</a>
@@ -256,15 +275,19 @@ data class ProvenanceEntity(
     // How the entity was used during the activity.
     @SerialName("role")
     override val role: ProvenanceEntityRole,
+
     // Identity of entity.
     @SerialName("whatUri")
     override val whatUri: String? = null,
+
     // Identity of entity.
     @SerialName("whatReference")
     override val whatReference: Reference? = null,
+
     // Identity of entity.
     @SerialName("whatIdentifier")
     override val whatIdentifier: Identifier? = null,
+
     // Entity is attributed to this agent.
     @SerialName("agent")
     override val agent: List<ProvenanceAgent>? = null,

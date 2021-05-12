@@ -54,7 +54,6 @@ interface FhirAttachment : FhirElement {
  *
  * SourceFileName: Attachment.kt
  *
- *
  * For referring to data content defined in other formats.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Attachment">Attachment</a>
@@ -68,24 +67,31 @@ data class Attachment(
     // Mime type of the content, with charset etc..
     @SerialName("contentType")
     override val contentType: String? = null,
+
     // Human language of the content (BCP-47).
     @SerialName("language")
     override val language: String? = null,
+
     // Data inline, base64ed.
     @SerialName("data")
     override val data: String? = null,
+
     // Uri where the data can be found.
     @SerialName("url")
     override val url: String? = null,
+
     // Number of bytes of content (if url provided).
     @SerialName("size")
     override val size: UnsignedInteger? = null,
+
     // Hash of the data (sha-1, base64ed).
     @SerialName("hash")
     override val hash: String? = null,
+
     // Label to display in place of the data.
     @SerialName("title")
     override val title: String? = null,
+
     // Date attachment was first created.
     @SerialName("creation")
     override val creation: DateTime? = null,

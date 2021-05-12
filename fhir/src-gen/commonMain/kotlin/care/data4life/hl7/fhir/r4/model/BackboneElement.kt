@@ -31,7 +31,6 @@ interface FhirBackboneElement : FhirElement {
  *
  * SourceFileName: BackboneElement.kt
  *
- *
  * Base definition for all elements that are defined inside a resource - but not those in a data type.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/BackboneElement">BackboneElement</a>
@@ -47,9 +46,11 @@ data class BackboneElement(
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

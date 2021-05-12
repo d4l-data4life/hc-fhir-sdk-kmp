@@ -40,7 +40,6 @@ interface FhirReference : FhirElement {
  *
  * SourceFileName: Reference.kt
  *
- *
  * A reference from one resource to another
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Reference">Reference</a>
@@ -54,20 +53,25 @@ data class Reference(
     // Literal reference, Relative, internal or absolute URL.
     @SerialName("reference")
     override val reference: String? = null,
+
     // Type the reference refers to (e.g. "Patient").
     @SerialName("type")
     override val type: String? = null,
+
     // Logical reference, when literal reference is not known.
     @SerialName("identifier")
     override val identifier: Identifier? = null,
+
     // Text alternative for the resource.
     @SerialName("display")
     override val display: String? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

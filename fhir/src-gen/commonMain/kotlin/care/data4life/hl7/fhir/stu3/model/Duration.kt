@@ -29,7 +29,6 @@ interface FhirDuration : FhirQuantity
  *
  * SourceFileName: Duration.kt
  *
- *
  * A length of time
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Duration">Duration</a>

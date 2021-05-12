@@ -29,7 +29,6 @@ interface FhirMoney : FhirQuantity
  *
  * SourceFileName: Money.kt
  *
- *
  * An amount of economic utility in some recognized currency
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Money">Money</a>

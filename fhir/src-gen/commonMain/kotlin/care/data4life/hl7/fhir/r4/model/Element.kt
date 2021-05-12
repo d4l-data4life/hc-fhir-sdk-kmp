@@ -34,7 +34,6 @@ interface FhirElement : FhirR4 {
  *
  * SourceFileName: Element.kt
  *
- *
  * Base definition for all elements in a resource.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Element">Element</a>
@@ -48,6 +47,7 @@ data class Element(
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

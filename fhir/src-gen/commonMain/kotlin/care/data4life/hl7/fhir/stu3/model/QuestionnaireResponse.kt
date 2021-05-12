@@ -68,8 +68,8 @@ interface FhirQuestionnaireResponse : FhirDomainResource {
  *
  * SourceFileName: QuestionnaireResponse.kt
  *
- *
- * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
+ * A structured set of questions and their answers. The questions are ordered and grouped into coherent
+ * subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse">QuestionnaireResponse</a>
  *
@@ -82,33 +82,43 @@ data class QuestionnaireResponse(
     // Unique id for this set of answers.
     @SerialName("identifier")
     override val identifier: Identifier? = null,
+
     // Request fulfilled by this QuestionnaireResponse.
     @SerialName("basedOn")
     override val basedOn: List<Reference>? = null,
+
     // Part of this action.
     @SerialName("parent")
     override val parent: List<Reference>? = null,
+
     // Form being answered.
     @SerialName("questionnaire")
     override val questionnaire: Reference? = null,
+
     // The position of the questionnaire response within its overall lifecycle.
     @SerialName("status")
     override val status: QuestionnaireResponseStatus,
+
     // The subject of the questions.
     @SerialName("subject")
     override val subject: Reference? = null,
+
     // Encounter or Episode during which questionnaire was completed.
     @SerialName("context")
     override val context: Reference? = null,
+
     // Date the answers were gathered.
     @SerialName("authored")
     override val authored: DateTime? = null,
+
     // Person who received and recorded the answers.
     @SerialName("author")
     override val author: Reference? = null,
+
     // The person who answered the questions.
     @SerialName("source")
     override val source: Reference? = null,
+
     // Groups and questions.
     @SerialName("item")
     override val item: List<QuestionnaireResponseItem>? = null,
@@ -177,7 +187,6 @@ interface FhirQuestionnaireResponseItem : FhirBackboneElement {
  *
  * SourceFileName: QuestionnaireResponse.kt
  *
- *
  * A group or question item from the original questionnaire for which answers are provided.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse">QuestionnaireResponseItem</a>
@@ -191,18 +200,23 @@ data class QuestionnaireResponseItem(
     // Pointer to specific item from Questionnaire.
     @SerialName("linkId")
     override val linkId: String,
+
     // ElementDefinition - details for the item.
     @SerialName("definition")
     override val definition: String? = null,
+
     // Name for group or question text.
     @SerialName("text")
     override val text: String? = null,
+
     // The subject this group's answers are about.
     @SerialName("subject")
     override val subject: Reference? = null,
+
     // The response(s) to the question.
     @SerialName("answer")
     override val answer: List<QuestionnaireResponseItemAnswer>? = null,
+
     // Nested questionnaire response items.
     @SerialName("item")
     override val item: List<QuestionnaireResponseItem>? = null,
@@ -277,7 +291,6 @@ interface FhirQuestionnaireResponseItemAnswer : FhirBackboneElement {
  *
  * SourceFileName: QuestionnaireResponse.kt
  *
- *
  * The respondent's answer(s) to the question.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse">QuestionnaireResponseItemAnswer</a>
@@ -291,39 +304,51 @@ data class QuestionnaireResponseItemAnswer(
     // Single-valued answer to the question.
     @SerialName("valueBoolean")
     override val valueBoolean: Bool? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueDecimal")
     override val valueDecimal: Decimal? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueInteger")
     override val valueInteger: Integer? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueDate")
     override val valueDate: Date? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueDateTime")
     override val valueDateTime: DateTime? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueTime")
     override val valueTime: Time? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueString")
     override val valueString: String? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueUri")
     override val valueUri: String? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueAttachment")
     override val valueAttachment: Attachment? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueCoding")
     override val valueCoding: Coding? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueQuantity")
     override val valueQuantity: Quantity? = null,
+
     // Single-valued answer to the question.
     @SerialName("valueReference")
     override val valueReference: Reference? = null,
+
     // Nested groups and questions.
     @SerialName("item")
     override val item: List<QuestionnaireResponseItem>? = null,

@@ -104,8 +104,8 @@ interface FhirReferralRequest : FhirDomainResource {
  *
  * SourceFileName: ReferralRequest.kt
  *
- *
- * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
+ * Used to record and send details about a request for referral service or transfer of a patient to the
+ * care of another provider or provider organization.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ReferralRequest">ReferralRequest</a>
  *
@@ -118,72 +118,95 @@ data class ReferralRequest(
     // Business identifier.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Instantiates protocol or definition.
     @SerialName("definition")
     override val definition: List<Reference>? = null,
+
     // Request fulfilled by this request.
     @SerialName("basedOn")
     override val basedOn: List<Reference>? = null,
+
     // Request(s) replaced by this request.
     @SerialName("replaces")
     override val replaces: List<Reference>? = null,
+
     // Composite request this is part of.
     @SerialName("groupIdentifier")
     override val groupIdentifier: Identifier? = null,
+
     // The status of the authorization/intention reflected by the referral request record.
     @SerialName("status")
     override val status: RequestStatus,
+
     // Distinguishes the "level" of authorization/demand implicit in this request.
     @SerialName("intent")
     override val intent: RequestIntent,
+
     // Referral/Transition of care request type.
     @SerialName("type")
     override val type: CodeableConcept? = null,
+
     // An indication of the urgency of referral (or where applicable the type of transfer of care) request.
     @SerialName("priority")
     override val priority: RequestPriority? = null,
+
     // Actions requested as part of the referral.
     @SerialName("serviceRequested")
     override val serviceRequested: List<CodeableConcept>? = null,
+
     // Patient referred to care or transfer.
     @SerialName("subject")
     override val subject: Reference,
+
     // Originating encounter.
     @SerialName("context")
     override val context: Reference? = null,
+
     // When the service(s) requested in the referral should occur.
     @SerialName("occurrenceDateTime")
     override val occurrenceDateTime: DateTime? = null,
+
     // When the service(s) requested in the referral should occur.
     @SerialName("occurrencePeriod")
     override val occurrencePeriod: Period? = null,
+
     // Date of creation/activation.
     @SerialName("authoredOn")
     override val authoredOn: DateTime? = null,
+
     // Who/what is requesting service.
     @SerialName("requester")
     override val requester: ReferralRequestRequester? = null,
+
     // The clinical specialty (discipline) that the referral is requested for.
     @SerialName("specialty")
     override val specialty: CodeableConcept? = null,
+
     // Receiver of referral / transfer of care request.
     @SerialName("recipient")
     override val recipient: List<Reference>? = null,
+
     // Reason for referral / transfer of care request.
     @SerialName("reasonCode")
     override val reasonCode: List<CodeableConcept>? = null,
+
     // Why is service needed?.
     @SerialName("reasonReference")
     override val reasonReference: List<Reference>? = null,
+
     // A textual description of the referral.
     @SerialName("description")
     override val description: String? = null,
+
     // Additonal information to support referral or transfer of care request.
     @SerialName("supportingInfo")
     override val supportingInfo: List<Reference>? = null,
+
     // Comments made about referral request.
     @SerialName("note")
     override val note: List<Annotation>? = null,
+
     // Key events in history of request.
     @SerialName("relevantHistory")
     override val relevantHistory: List<Reference>? = null,
@@ -240,7 +263,6 @@ interface FhirReferralRequestRequester : FhirBackboneElement {
  *
  * SourceFileName: ReferralRequest.kt
  *
- *
  * The individual who initiated the request and has responsibility for its activation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ReferralRequest">ReferralRequestRequester</a>
@@ -254,6 +276,7 @@ data class ReferralRequestRequester(
     // Individual making the request.
     @SerialName("agent")
     override val agent: Reference,
+
     // Organization agent is acting for.
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,

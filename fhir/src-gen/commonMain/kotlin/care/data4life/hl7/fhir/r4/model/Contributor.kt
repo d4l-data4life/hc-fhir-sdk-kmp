@@ -38,8 +38,8 @@ interface FhirContributor : FhirElement {
  *
  * SourceFileName: Contributor.kt
  *
- *
- * A contributor to the content of a knowledge asset, including authors, editors, reviewers, and endorsers.
+ * A contributor to the content of a knowledge asset, including authors, editors, reviewers, and
+ * endorsers.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Contributor">Contributor</a>
  *
@@ -52,17 +52,21 @@ data class Contributor(
     // The type of contributor.
     @SerialName("type")
     override val type: ContributorType,
+
     // Who contributed the content.
     @SerialName("name")
     override val name: String,
+
     // Contact details of the contributor.
     @SerialName("contact")
     override val contact: List<ContactDetail>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

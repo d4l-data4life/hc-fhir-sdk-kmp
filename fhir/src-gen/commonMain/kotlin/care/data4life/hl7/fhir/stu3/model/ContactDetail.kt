@@ -34,7 +34,6 @@ interface FhirContactDetail : FhirElement {
  *
  * SourceFileName: ContactDetail.kt
  *
- *
  * Specifies contact information for a person or organization.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ContactDetail">ContactDetail</a>
@@ -48,6 +47,7 @@ data class ContactDetail(
     // Name of an individual to contact.
     @SerialName("name")
     override val name: String? = null,
+
     // Contact details for individual or organization.
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,

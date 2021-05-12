@@ -40,8 +40,9 @@ interface FhirUsageContext : FhirElement {
  *
  * SourceFileName: UsageContext.kt
  *
- *
- * Specifies clinical/business/etc metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
+ * Specifies clinical/business/etc metadata that can be used to retrieve, index and/or categorize an
+ * artifact. This metadata can either be specific to the applicable population (e.g., age category,
+ * DRG) or the specific context of care (e.g., venue, care setting, provider of care).
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/UsageContext">UsageContext</a>
  *
@@ -54,12 +55,15 @@ data class UsageContext(
     // Type of context being specified.
     @SerialName("code")
     override val code: Coding,
+
     // Value that defines the context.
     @SerialName("valueCodeableConcept")
     override val valueCodeableConcept: CodeableConcept? = null,
+
     // Value that defines the context.
     @SerialName("valueQuantity")
     override val valueQuantity: Quantity? = null,
+
     // Value that defines the context.
     @SerialName("valueRange")
     override val valueRange: Range? = null,

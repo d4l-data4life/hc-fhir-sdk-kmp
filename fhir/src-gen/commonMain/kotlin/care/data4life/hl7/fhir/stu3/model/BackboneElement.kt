@@ -31,7 +31,6 @@ interface FhirBackboneElement : FhirElement {
  *
  * SourceFileName: BackboneElement.kt
  *
- *
  * Base definition for all elements that are defined inside a resource - but not those in a data type.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/BackboneElement">BackboneElement</a>

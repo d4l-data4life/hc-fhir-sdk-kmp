@@ -29,7 +29,6 @@ interface FhirAge : FhirQuantity
  *
  * SourceFileName: Age.kt
  *
- *
  * A duration of time during which an organism (or a process) has existed
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Age">Age</a>

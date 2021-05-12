@@ -29,7 +29,6 @@ interface FhirDistance : FhirQuantity
  *
  * SourceFileName: Distance.kt
  *
- *
  * A length - a value with a unit that is a physical distance
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Distance">Distance</a>

@@ -40,7 +40,6 @@ interface FhirResource : FhirR4 {
  *
  * SourceFileName: Resource.kt
  *
- *
  * This is the base resource type for everything.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Resource">Resource</a>
@@ -54,12 +53,15 @@ data class Resource(
     // Logical id of this artifact.
     @SerialName("id")
     override val id: String? = null,
+
     // Metadata about the resource.
     @SerialName("meta")
     override val meta: Meta? = null,
+
     // A set of rules under which this content was created.
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     // Language of the resource content.
     @SerialName("language")
     override val language: String? = null

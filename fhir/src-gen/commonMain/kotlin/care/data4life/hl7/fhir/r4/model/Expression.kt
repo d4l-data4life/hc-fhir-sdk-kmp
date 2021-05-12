@@ -43,8 +43,9 @@ interface FhirExpression : FhirElement {
  *
  * SourceFileName: Expression.kt
  *
- *
- * A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
+ * A expression that is evaluated in a specified context and returns a value. The context of use of the
+ * expression must specify the context in which the expression is evaluated, and how the result of the
+ * expression is used.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Expression">Expression</a>
  *
@@ -57,23 +58,29 @@ data class Expression(
     // Natural language description of the condition.
     @SerialName("description")
     override val description: String? = null,
+
     // Short name assigned to expression for reuse.
     @SerialName("name")
     override val name: String? = null,
+
     // text/cql | text/fhirpath | application/x-fhir-query | etc..
     @SerialName("language")
     override val language: String,
+
     // Expression in specified language.
     @SerialName("expression")
     override val expression: String? = null,
+
     // Where the expression is found.
     @SerialName("reference")
     override val reference: String? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

@@ -106,8 +106,8 @@ interface FhirCondition : FhirDomainResource {
  *
  * SourceFileName: Condition.kt
  *
- *
- * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
+ * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that
+ * has risen to a level of concern.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">Condition</a>
  *
@@ -120,75 +120,99 @@ data class Condition(
     // External Ids for this condition.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // active | recurrence | inactive | remission | resolved.
     @SerialName("clinicalStatus")
     override val clinicalStatus: String? = null,
+
     // The verification status to support the clinical status of the condition.
     @SerialName("verificationStatus")
     override val verificationStatus: ConditionVerificationStatus? = null,
+
     // problem-list-item | encounter-diagnosis.
     @SerialName("category")
     override val category: List<CodeableConcept>? = null,
+
     // Subjective severity of condition.
     @SerialName("severity")
     override val severity: CodeableConcept? = null,
+
     // Identification of the condition, problem or diagnosis.
     @SerialName("code")
     override val code: CodeableConcept? = null,
+
     // Anatomical location, if relevant.
     @SerialName("bodySite")
     override val bodySite: List<CodeableConcept>? = null,
+
     // Who has the condition?.
     @SerialName("subject")
     override val subject: Reference,
+
     // Encounter or episode when condition first asserted.
     @SerialName("context")
     override val context: Reference? = null,
+
     // Estimated or actual date,  date-time, or age.
     @SerialName("onsetDateTime")
     override val onsetDateTime: DateTime? = null,
+
     // Estimated or actual date,  date-time, or age.
     @SerialName("onsetAge")
     override val onsetAge: Age? = null,
+
     // Estimated or actual date,  date-time, or age.
     @SerialName("onsetPeriod")
     override val onsetPeriod: Period? = null,
+
     // Estimated or actual date,  date-time, or age.
     @SerialName("onsetRange")
     override val onsetRange: Range? = null,
+
     // Estimated or actual date,  date-time, or age.
     @SerialName("onsetString")
     override val onsetString: String? = null,
+
     // If/when in resolution/remission.
     @SerialName("abatementDateTime")
     override val abatementDateTime: DateTime? = null,
+
     // If/when in resolution/remission.
     @SerialName("abatementAge")
     override val abatementAge: Age? = null,
+
     // If/when in resolution/remission.
     @SerialName("abatementBoolean")
     override val abatementBoolean: Bool? = null,
+
     // If/when in resolution/remission.
     @SerialName("abatementPeriod")
     override val abatementPeriod: Period? = null,
+
     // If/when in resolution/remission.
     @SerialName("abatementRange")
     override val abatementRange: Range? = null,
+
     // If/when in resolution/remission.
     @SerialName("abatementString")
     override val abatementString: String? = null,
+
     // Date record was believed accurate.
     @SerialName("assertedDate")
     override val assertedDate: DateTime? = null,
+
     // Person who asserts this condition.
     @SerialName("asserter")
     override val asserter: Reference? = null,
+
     // Stage/grade, usually assessed formally.
     @SerialName("stage")
     override val stage: ConditionStage? = null,
+
     // Supporting evidence.
     @SerialName("evidence")
     override val evidence: List<ConditionEvidence>? = null,
+
     // Additional information about the Condition.
     @SerialName("note")
     override val note: List<Annotation>? = null,
@@ -245,8 +269,8 @@ interface FhirConditionEvidence : FhirBackboneElement {
  *
  * SourceFileName: Condition.kt
  *
- *
- * Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.
+ * Supporting Evidence / manifestations that are the basis on which this condition is suspected or
+ * confirmed.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">ConditionEvidence</a>
  *
@@ -259,6 +283,7 @@ data class ConditionEvidence(
     // Manifestation/symptom.
     @SerialName("code")
     override val code: List<CodeableConcept>? = null,
+
     // Supporting information found elsewhere.
     @SerialName("detail")
     override val detail: List<Reference>? = null,
@@ -300,7 +325,6 @@ interface FhirConditionStage : FhirBackboneElement {
  *
  * SourceFileName: Condition.kt
  *
- *
  * Clinical stage or grade of a condition. May include formal severity assessments.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Condition">ConditionStage</a>
@@ -314,6 +338,7 @@ data class ConditionStage(
     // Simple summary (disease specific).
     @SerialName("summary")
     override val summary: CodeableConcept? = null,
+
     // Formal record of assessment.
     @SerialName("assessment")
     override val assessment: List<Reference>? = null,

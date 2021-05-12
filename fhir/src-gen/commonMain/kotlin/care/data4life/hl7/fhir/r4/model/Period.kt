@@ -35,7 +35,6 @@ interface FhirPeriod : FhirElement {
  *
  * SourceFileName: Period.kt
  *
- *
  * A time period defined by a start and end date and optionally time.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Period">Period</a>
@@ -49,14 +48,17 @@ data class Period(
     // Starting time with inclusive boundary.
     @SerialName("start")
     override val start: DateTime? = null,
+
     // End time with inclusive boundary, if not ongoing.
     @SerialName("end")
     override val end: DateTime? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

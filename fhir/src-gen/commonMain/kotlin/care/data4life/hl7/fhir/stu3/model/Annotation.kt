@@ -41,7 +41,6 @@ interface FhirAnnotation : FhirElement {
  *
  * SourceFileName: Annotation.kt
  *
- *
  * A  text note which also  contains information about who made the statement and when.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Annotation">Annotation</a>
@@ -55,12 +54,15 @@ data class Annotation(
     // Individual responsible for the annotation.
     @SerialName("authorReference")
     override val authorReference: Reference? = null,
+
     // Individual responsible for the annotation.
     @SerialName("authorString")
     override val authorString: String? = null,
+
     // When the annotation was made.
     @SerialName("time")
     override val time: DateTime? = null,
+
     // The annotation  - text content.
     @SerialName("text")
     override val text: String,

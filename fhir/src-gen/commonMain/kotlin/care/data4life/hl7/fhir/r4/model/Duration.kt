@@ -29,7 +29,6 @@ interface FhirDuration : FhirQuantity
  *
  * SourceFileName: Duration.kt
  *
- *
  * A length of time
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Duration">Duration</a>
@@ -41,26 +40,33 @@ interface FhirDuration : FhirQuantity
 data class Duration(
 
     // # Quantity
+
     // Numerical value (with implicit precision).
     @SerialName("value")
     override val value: Decimal? = null,
+
     // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
+
     // Unit representation.
     @SerialName("unit")
     override val unit: String? = null,
+
     // System that defines coded unit form.
     @SerialName("system")
     override val system: String? = null,
+
     // Coded form of the unit.
     @SerialName("code")
     override val code: String? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

@@ -47,7 +47,6 @@ interface FhirIdentifier : FhirElement {
  *
  * SourceFileName: Identifier.kt
  *
- *
  * A technical identifier - identifies some entity uniquely and unambiguously.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Identifier">Identifier</a>
@@ -61,18 +60,23 @@ data class Identifier(
     // The purpose of this identifier.
     @SerialName("use")
     override val use: IdentifierUse? = null,
+
     // Description of identifier.
     @SerialName("type")
     override val type: CodeableConcept? = null,
+
     // The namespace for the identifier value.
     @SerialName("system")
     override val system: String? = null,
+
     // The value that is unique.
     @SerialName("value")
     override val value: String? = null,
+
     // Time period when id is/was valid for use.
     @SerialName("period")
     override val period: Period? = null,
+
     // Organization that issued id (may be just text).
     @SerialName("assigner")
     override val assigner: Reference? = null,

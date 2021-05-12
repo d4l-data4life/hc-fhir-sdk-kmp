@@ -34,8 +34,8 @@ interface FhirCodeableConcept : FhirElement {
  *
  * SourceFileName: CodeableConcept.kt
  *
- *
- * A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
+ * A concept that may be defined by a formal reference to a terminology or ontology or may be provided
+ * by text.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeableConcept">CodeableConcept</a>
  *
@@ -48,14 +48,17 @@ data class CodeableConcept(
     // Code defined by a terminology system.
     @SerialName("coding")
     override val coding: List<Coding>? = null,
+
     // Plain text representation of the concept.
     @SerialName("text")
     override val text: String? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

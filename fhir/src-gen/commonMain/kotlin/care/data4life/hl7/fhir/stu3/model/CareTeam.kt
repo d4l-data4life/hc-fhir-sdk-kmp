@@ -65,8 +65,8 @@ interface FhirCareTeam : FhirDomainResource {
  *
  * SourceFileName: CareTeam.kt
  *
- *
- * The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
+ * The Care Team includes all the people and organizations who plan to participate in the coordination
+ * and delivery of care for a patient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CareTeam">CareTeam</a>
  *
@@ -79,36 +79,47 @@ data class CareTeam(
     // External Ids for this team.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Indicates the current state of the care team.
     @SerialName("status")
     override val status: CareTeamStatus? = null,
+
     // Type of team.
     @SerialName("category")
     override val category: List<CodeableConcept>? = null,
+
     // Name of the team, such as crisis assessment team.
     @SerialName("name")
     override val name: String? = null,
+
     // Who care team is for.
     @SerialName("subject")
     override val subject: Reference? = null,
+
     // Encounter or episode associated with CareTeam.
     @SerialName("context")
     override val context: Reference? = null,
+
     // Time period team covers.
     @SerialName("period")
     override val period: Period? = null,
+
     // Members of the team.
     @SerialName("participant")
     override val participant: List<CareTeamParticipant>? = null,
+
     // Why the care team exists.
     @SerialName("reasonCode")
     override val reasonCode: List<CodeableConcept>? = null,
+
     // Why the care team exists.
     @SerialName("reasonReference")
     override val reasonReference: List<Reference>? = null,
+
     // Organization responsible for the care team.
     @SerialName("managingOrganization")
     override val managingOrganization: List<Reference>? = null,
+
     // Comments made about the CareTeam.
     @SerialName("note")
     override val note: List<Annotation>? = null,
@@ -171,7 +182,6 @@ interface FhirCareTeamParticipant : FhirBackboneElement {
  *
  * SourceFileName: CareTeam.kt
  *
- *
  * Identifies all people and organizations who are expected to be involved in the care team.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CareTeam">CareTeamParticipant</a>
@@ -185,12 +195,15 @@ data class CareTeamParticipant(
     // Type of involvement.
     @SerialName("role")
     override val role: CodeableConcept? = null,
+
     // Who is involved.
     @SerialName("member")
     override val member: Reference? = null,
+
     // Organization of the practitioner.
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,
+
     // Time period of participant.
     @SerialName("period")
     override val period: Period? = null,

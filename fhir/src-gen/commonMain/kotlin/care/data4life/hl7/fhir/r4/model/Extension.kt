@@ -190,7 +190,6 @@ interface FhirExtension : FhirElement {
  *
  * SourceFileName: Extension.kt
  *
- *
  * Optional Extension Element - found in all resources.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Extension">Extension</a>
@@ -204,161 +203,213 @@ data class Extension(
     // identifies the meaning of the extension.
     @SerialName("url")
     override val url: String,
+
     // Value of extension.
     @SerialName("valueBase64Binary")
     override val valueBase64Binary: String? = null,
+
     // Value of extension.
     @SerialName("valueBoolean")
     override val valueBoolean: Bool? = null,
+
     // Value of extension.
     @SerialName("valueCanonical")
     override val valueCanonical: String? = null,
+
     // Value of extension.
     @SerialName("valueCode")
     override val valueCode: String? = null,
+
     // Value of extension.
     @SerialName("valueDate")
     override val valueDate: Date? = null,
+
     // Value of extension.
     @SerialName("valueDateTime")
     override val valueDateTime: DateTime? = null,
+
     // Value of extension.
     @SerialName("valueDecimal")
     override val valueDecimal: Decimal? = null,
+
     // Value of extension.
     @SerialName("valueId")
     override val valueId: String? = null,
+
     // Value of extension.
     @SerialName("valueInstant")
     override val valueInstant: Instant? = null,
+
     // Value of extension.
     @SerialName("valueInteger")
     override val valueInteger: Integer? = null,
+
     // Value of extension.
     @SerialName("valueMarkdown")
     override val valueMarkdown: String? = null,
+
     // Value of extension.
     @SerialName("valueOid")
     override val valueOid: String? = null,
+
     // Value of extension.
     @SerialName("valuePositiveInt")
     override val valuePositiveInt: PositiveInteger? = null,
+
     // Value of extension.
     @SerialName("valueString")
     override val valueString: String? = null,
+
     // Value of extension.
     @SerialName("valueTime")
     override val valueTime: Time? = null,
+
     // Value of extension.
     @SerialName("valueUnsignedInt")
     override val valueUnsignedInt: UnsignedInteger? = null,
+
     // Value of extension.
     @SerialName("valueUri")
     override val valueUri: String? = null,
+
     // Value of extension.
     @SerialName("valueUrl")
     override val valueUrl: String? = null,
+
     // Value of extension.
     @SerialName("valueUuid")
     override val valueUuid: String? = null,
+
     // Value of extension.
     @SerialName("valueAddress")
     override val valueAddress: Address? = null,
+
     // Value of extension.
     @SerialName("valueAge")
     override val valueAge: Age? = null,
+
     // Value of extension.
     @SerialName("valueAnnotation")
     override val valueAnnotation: Annotation? = null,
+
     // Value of extension.
     @SerialName("valueAttachment")
     override val valueAttachment: Attachment? = null,
+
     // Value of extension.
     @SerialName("valueCodeableConcept")
     override val valueCodeableConcept: CodeableConcept? = null,
+
     // Value of extension.
     @SerialName("valueCoding")
     override val valueCoding: Coding? = null,
+
     // Value of extension.
     @SerialName("valueContactPoint")
     override val valueContactPoint: ContactPoint? = null,
+
     // Value of extension.
     @SerialName("valueCount")
     override val valueCount: Count? = null,
+
     // Value of extension.
     @SerialName("valueDistance")
     override val valueDistance: Distance? = null,
+
     // Value of extension.
     @SerialName("valueDuration")
     override val valueDuration: Duration? = null,
+
     // Value of extension.
     @SerialName("valueHumanName")
     override val valueHumanName: HumanName? = null,
+
     // Value of extension.
     @SerialName("valueIdentifier")
     override val valueIdentifier: Identifier? = null,
+
     // Value of extension.
     @SerialName("valueMoney")
     override val valueMoney: Money? = null,
+
     // Value of extension.
     @SerialName("valuePeriod")
     override val valuePeriod: Period? = null,
+
     // Value of extension.
     @SerialName("valueQuantity")
     override val valueQuantity: Quantity? = null,
+
     // Value of extension.
     @SerialName("valueRange")
     override val valueRange: Range? = null,
+
     // Value of extension.
     @SerialName("valueRatio")
     override val valueRatio: Ratio? = null,
+
     // Value of extension.
     @SerialName("valueReference")
     override val valueReference: Reference? = null,
+
     // Value of extension.
     @SerialName("valueSampledData")
     override val valueSampledData: SampledData? = null,
+
     // Value of extension.
     @SerialName("valueSignature")
     override val valueSignature: Signature? = null,
+
     // Value of extension.
     @SerialName("valueTiming")
     override val valueTiming: Timing? = null,
+
     // Value of extension.
     @SerialName("valueContactDetail")
     override val valueContactDetail: ContactDetail? = null,
+
     // Value of extension.
     @SerialName("valueContributor")
     override val valueContributor: Contributor? = null,
+
     // Value of extension.
     @SerialName("valueDataRequirement")
     override val valueDataRequirement: DataRequirement? = null,
+
     // Value of extension.
     @SerialName("valueExpression")
     override val valueExpression: Expression? = null,
+
     // Value of extension.
     @SerialName("valueParameterDefinition")
     override val valueParameterDefinition: ParameterDefinition? = null,
+
     // Value of extension.
     @SerialName("valueRelatedArtifact")
     override val valueRelatedArtifact: RelatedArtifact? = null,
+
     // Value of extension.
     @SerialName("valueTriggerDefinition")
     override val valueTriggerDefinition: TriggerDefinition? = null,
+
     // Value of extension.
     @SerialName("valueUsageContext")
     override val valueUsageContext: UsageContext? = null,
+
     // Value of extension.
     @SerialName("valueDosage")
     override val valueDosage: Dosage? = null,
+
     // Value of extension.
     @SerialName("valueMeta")
     override val valueMeta: Meta? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

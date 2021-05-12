@@ -120,7 +120,6 @@ interface FhirProcedureRequest : FhirDomainResource {
  *
  * SourceFileName: ProcedureRequest.kt
  *
- *
  * A record of a request for diagnostic investigations, treatments, or operations to be performed.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcedureRequest">ProcedureRequest</a>
@@ -134,87 +133,115 @@ data class ProcedureRequest(
     // Identifiers assigned to this order.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Protocol or definition.
     @SerialName("definition")
     override val definition: List<Reference>? = null,
+
     // What request fulfills.
     @SerialName("basedOn")
     override val basedOn: List<Reference>? = null,
+
     // What request replaces.
     @SerialName("replaces")
     override val replaces: List<Reference>? = null,
+
     // Composite Request ID.
     @SerialName("requisition")
     override val requisition: Identifier? = null,
+
     // The status of the order.
     @SerialName("status")
     override val status: RequestStatus,
+
     // Whether the request is a proposal, plan, an original order or a reflex order.
     @SerialName("intent")
     override val intent: RequestIntent,
+
     // Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
     @SerialName("priority")
     override val priority: RequestPriority? = null,
+
     // True if procedure should not be performed.
     @SerialName("doNotPerform")
     override val doNotPerform: Bool? = null,
+
     // Classification of procedure.
     @SerialName("category")
     override val category: List<CodeableConcept>? = null,
+
     // What is being requested/ordered.
     @SerialName("code")
     override val code: CodeableConcept,
+
     // Individual the service is ordered for.
     @SerialName("subject")
     override val subject: Reference,
+
     // Encounter or Episode during which request was created.
     @SerialName("context")
     override val context: Reference? = null,
+
     // When procedure should occur.
     @SerialName("occurrenceDateTime")
     override val occurrenceDateTime: DateTime? = null,
+
     // When procedure should occur.
     @SerialName("occurrencePeriod")
     override val occurrencePeriod: Period? = null,
+
     // When procedure should occur.
     @SerialName("occurrenceTiming")
     override val occurrenceTiming: Timing? = null,
+
     // Preconditions for procedure or diagnostic.
     @SerialName("asNeededBoolean")
     override val asNeededBoolean: Bool? = null,
+
     // Preconditions for procedure or diagnostic.
     @SerialName("asNeededCodeableConcept")
     override val asNeededCodeableConcept: CodeableConcept? = null,
+
     // Date request signed.
     @SerialName("authoredOn")
     override val authoredOn: DateTime? = null,
+
     // Who/what is requesting procedure or diagnostic.
     @SerialName("requester")
     override val requester: ProcedureRequestRequester? = null,
+
     // Performer role.
     @SerialName("performerType")
     override val performerType: CodeableConcept? = null,
+
     // Requested perfomer.
     @SerialName("performer")
     override val performer: Reference? = null,
+
     // Explanation/Justification for test.
     @SerialName("reasonCode")
     override val reasonCode: List<CodeableConcept>? = null,
+
     // Explanation/Justification for test.
     @SerialName("reasonReference")
     override val reasonReference: List<Reference>? = null,
+
     // Additional clinical information.
     @SerialName("supportingInfo")
     override val supportingInfo: List<Reference>? = null,
+
     // Procedure Samples.
     @SerialName("specimen")
     override val specimen: List<Reference>? = null,
+
     // Location on Body.
     @SerialName("bodySite")
     override val bodySite: List<CodeableConcept>? = null,
+
     // Comments.
     @SerialName("note")
     override val note: List<Annotation>? = null,
+
     // Request provenance.
     @SerialName("relevantHistory")
     override val relevantHistory: List<Reference>? = null,
@@ -271,7 +298,6 @@ interface FhirProcedureRequestRequester : FhirBackboneElement {
  *
  * SourceFileName: ProcedureRequest.kt
  *
- *
  * The individual who initiated the request and has responsibility for its activation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcedureRequest">ProcedureRequestRequester</a>
@@ -285,6 +311,7 @@ data class ProcedureRequestRequester(
     // Individual making the request.
     @SerialName("agent")
     override val agent: Reference,
+
     // Organization agent is acting for.
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,

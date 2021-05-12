@@ -78,8 +78,9 @@ interface FhirGoal : FhirDomainResource {
  *
  * SourceFileName: Goal.kt
  *
- *
- * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
+ * Describes the intended objective(s) for a patient, group or organization care, for example, weight
+ * loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a
+ * process improvement objective, etc.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Goal">Goal</a>
  *
@@ -92,48 +93,63 @@ data class Goal(
     // External Ids for this goal.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Indicates whether the goal has been reached and is still considered relevant.
     @SerialName("status")
     override val status: GoalStatus,
+
     // E.g. Treatment, dietary, behavioral, etc..
     @SerialName("category")
     override val category: List<CodeableConcept>? = null,
+
     // high-priority | medium-priority | low-priority.
     @SerialName("priority")
     override val priority: CodeableConcept? = null,
+
     // Code or text describing goal.
     @SerialName("description")
     override val description: CodeableConcept,
+
     // Who this goal is intended for.
     @SerialName("subject")
     override val subject: Reference? = null,
+
     // When goal pursuit begins.
     @SerialName("startDate")
     override val startDate: Date? = null,
+
     // When goal pursuit begins.
     @SerialName("startCodeableConcept")
     override val startCodeableConcept: CodeableConcept? = null,
+
     // Target outcome for the goal.
     @SerialName("target")
     override val target: GoalTarget? = null,
+
     // When goal status took effect.
     @SerialName("statusDate")
     override val statusDate: Date? = null,
+
     // Reason for current status.
     @SerialName("statusReason")
     override val statusReason: String? = null,
+
     // Who's responsible for creating Goal?.
     @SerialName("expressedBy")
     override val expressedBy: Reference? = null,
+
     // Issues addressed by this goal.
     @SerialName("addresses")
     override val addresses: List<Reference>? = null,
+
     // Comments about the goal.
     @SerialName("note")
     override val note: List<Annotation>? = null,
+
     // What result was achieved regarding the goal?.
     @SerialName("outcomeCode")
     override val outcomeCode: List<CodeableConcept>? = null,
+
     // Observation that resulted from goal.
     @SerialName("outcomeReference")
     override val outcomeReference: List<Reference>? = null,
@@ -202,7 +218,6 @@ interface FhirGoalTarget : FhirBackboneElement {
  *
  * SourceFileName: Goal.kt
  *
- *
  * Indicates what should be done by when.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Goal">GoalTarget</a>
@@ -216,18 +231,23 @@ data class GoalTarget(
     // The parameter whose value is being tracked.
     @SerialName("measure")
     override val measure: CodeableConcept? = null,
+
     // The target value to be achieved.
     @SerialName("detailQuantity")
     override val detailQuantity: Quantity? = null,
+
     // The target value to be achieved.
     @SerialName("detailRange")
     override val detailRange: Range? = null,
+
     // The target value to be achieved.
     @SerialName("detailCodeableConcept")
     override val detailCodeableConcept: CodeableConcept? = null,
+
     // Reach goal on or before.
     @SerialName("dueDate")
     override val dueDate: Date? = null,
+
     // Reach goal on or before.
     @SerialName("dueDuration")
     override val dueDuration: Duration? = null,

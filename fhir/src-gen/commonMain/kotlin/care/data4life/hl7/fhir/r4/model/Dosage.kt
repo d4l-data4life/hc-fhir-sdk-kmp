@@ -72,7 +72,6 @@ interface FhirDosage : FhirBackboneElement {
  *
  * SourceFileName: Dosage.kt
  *
- *
  * Indicates how the medication is/was taken or should be taken by the patient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Dosage">Dosage</a>
@@ -86,55 +85,71 @@ data class Dosage(
     // The order of the dosage instructions.
     @SerialName("sequence")
     override val sequence: Integer? = null,
+
     // Free text dosage instructions e.g. SIG.
     @SerialName("text")
     override val text: String? = null,
+
     // Supplemental instruction or warnings to the patient - e.g. "with meals", "may cause drowsiness".
     @SerialName("additionalInstruction")
     override val additionalInstruction: List<CodeableConcept>? = null,
+
     // Patient or consumer oriented instructions.
     @SerialName("patientInstruction")
     override val patientInstruction: String? = null,
+
     // When medication should be administered.
     @SerialName("timing")
     override val timing: Timing? = null,
+
     // Take "as needed" (for x).
     @SerialName("asNeededBoolean")
     override val asNeededBoolean: Bool? = null,
+
     // Take "as needed" (for x).
     @SerialName("asNeededCodeableConcept")
     override val asNeededCodeableConcept: CodeableConcept? = null,
+
     // Body site to administer to.
     @SerialName("site")
     override val site: CodeableConcept? = null,
+
     // How drug should enter body.
     @SerialName("route")
     override val route: CodeableConcept? = null,
+
     // Technique for administering medication.
     @SerialName("method")
     override val method: CodeableConcept? = null,
+
     // Amount of medication administered.
     @SerialName("doseAndRate")
     override val doseAndRate: List<DosageDoseAndRate>? = null,
+
     // Upper limit on medication per unit of time.
     @SerialName("maxDosePerPeriod")
     override val maxDosePerPeriod: Ratio? = null,
+
     // Upper limit on medication per administration.
     @SerialName("maxDosePerAdministration")
     override val maxDosePerAdministration: Quantity? = null,
+
     // Upper limit on medication per lifetime of the patient.
     @SerialName("maxDosePerLifetime")
     override val maxDosePerLifetime: Quantity? = null,
 
     // # BackboneElement
+
     // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
@@ -175,7 +190,6 @@ interface FhirDosageDoseAndRate : FhirElement {
  *
  * SourceFileName: Dosage.kt
  *
- *
  * The amount of medication administered.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Dosage">DosageDoseAndRate</a>
@@ -189,26 +203,33 @@ data class DosageDoseAndRate(
     // The kind of dose or rate specified.
     @SerialName("type")
     override val type: CodeableConcept? = null,
+
     // Amount of medication per dose.
     @SerialName("doseRange")
     override val doseRange: Range? = null,
+
     // Amount of medication per dose.
     @SerialName("doseQuantity")
     override val doseQuantity: Quantity? = null,
+
     // Amount of medication per unit of time.
     @SerialName("rateRatio")
     override val rateRatio: Ratio? = null,
+
     // Amount of medication per unit of time.
     @SerialName("rateRange")
     override val rateRange: Range? = null,
+
     // Amount of medication per unit of time.
     @SerialName("rateQuantity")
     override val rateQuantity: Quantity? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null

@@ -60,8 +60,10 @@ interface FhirAddress : FhirElement {
  *
  * SourceFileName: Address.kt
  *
- *
- * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
+ * An address expressed using postal conventions (as opposed to GPS or other location definition
+ * formats).  This data type may be used to convey addresses for use in delivering mail as well as for
+ * visiting locations which might not be valid for mail delivery.  There are a variety of postal
+ * address formats defined around the world.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Address">Address</a>
  *
@@ -74,30 +76,39 @@ data class Address(
     // The purpose of this address.
     @SerialName("use")
     override val use: AddressUse? = null,
+
     // Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
     @SerialName("type")
     override val type: AddressType? = null,
+
     // Text representation of the address.
     @SerialName("text")
     override val text: String? = null,
+
     // Street name, number, direction & P.O. Box etc..
     @SerialName("line")
     override val line: List<String>? = null,
+
     // Name of city, town etc..
     @SerialName("city")
     override val city: String? = null,
+
     // District name (aka county).
     @SerialName("district")
     override val district: String? = null,
+
     // Sub-unit of country (abbreviations ok).
     @SerialName("state")
     override val state: String? = null,
+
     // Postal code for area.
     @SerialName("postalCode")
     override val postalCode: String? = null,
+
     // Country (e.g. can be ISO 3166 2 or 3 letter code).
     @SerialName("country")
     override val country: String? = null,
+
     // Time period when address was/is in use.
     @SerialName("period")
     override val period: Period? = null,

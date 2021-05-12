@@ -91,8 +91,8 @@ interface FhirPatient : FhirDomainResource {
  *
  * SourceFileName: Patient.kt
  *
- *
- * Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+ * Demographics and other administrative information about an individual or animal receiving care or
+ * other health-related services.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">Patient</a>
  *
@@ -105,57 +105,75 @@ data class Patient(
     // An identifier for this patient.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Whether this patient's record is in active use.
     @SerialName("active")
     override val active: Bool? = null,
+
     // A name associated with the patient.
     @SerialName("name")
     override val name: List<HumanName>? = null,
+
     // A contact detail for the individual.
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,
+
     // Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
     @SerialName("gender")
     override val gender: AdministrativeGender? = null,
+
     // The date of birth for the individual.
     @SerialName("birthDate")
     override val birthDate: Date? = null,
+
     // Indicates if the individual is deceased or not.
     @SerialName("deceasedBoolean")
     override val deceasedBoolean: Bool? = null,
+
     // Indicates if the individual is deceased or not.
     @SerialName("deceasedDateTime")
     override val deceasedDateTime: DateTime? = null,
+
     // Addresses for the individual.
     @SerialName("address")
     override val address: List<Address>? = null,
+
     // Marital (civil) status of a patient.
     @SerialName("maritalStatus")
     override val maritalStatus: CodeableConcept? = null,
+
     // Whether patient is part of a multiple birth.
     @SerialName("multipleBirthBoolean")
     override val multipleBirthBoolean: Bool? = null,
+
     // Whether patient is part of a multiple birth.
     @SerialName("multipleBirthInteger")
     override val multipleBirthInteger: Integer? = null,
+
     // Image of the patient.
     @SerialName("photo")
     override val photo: List<Attachment>? = null,
+
     // A contact party (e.g. guardian, partner, friend) for the patient.
     @SerialName("contact")
     override val contact: List<PatientContact>? = null,
+
     // This patient is known to be an animal (non-human).
     @SerialName("animal")
     override val animal: PatientAnimal? = null,
+
     // A list of Languages which may be used to communicate with the patient about his or her health.
     @SerialName("communication")
     override val communication: List<PatientCommunication>? = null,
+
     // Patient's nominated primary care provider.
     @SerialName("generalPractitioner")
     override val generalPractitioner: List<Reference>? = null,
+
     // Organization that is the custodian of the patient record.
     @SerialName("managingOrganization")
     override val managingOrganization: Reference? = null,
+
     // Link to another patient resource that concerns the same actual person.
     @SerialName("link")
     override val link: List<PatientLink>? = null,
@@ -215,7 +233,6 @@ interface FhirPatientAnimal : FhirBackboneElement {
  *
  * SourceFileName: Patient.kt
  *
- *
  * This patient is known to be an animal.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientAnimal</a>
@@ -229,9 +246,11 @@ data class PatientAnimal(
     // E.g. Dog, Cow.
     @SerialName("species")
     override val species: CodeableConcept,
+
     // E.g. Poodle, Angus.
     @SerialName("breed")
     override val breed: CodeableConcept? = null,
+
     // E.g. Neutered, Intact.
     @SerialName("genderStatus")
     override val genderStatus: CodeableConcept? = null,
@@ -273,7 +292,6 @@ interface FhirPatientCommunication : FhirBackboneElement {
  *
  * SourceFileName: Patient.kt
  *
- *
  * Languages which may be used to communicate with the patient about his or her health.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientCommunication</a>
@@ -287,6 +305,7 @@ data class PatientCommunication(
     // The language which can be used to communicate with the patient about his or her health.
     @SerialName("language")
     override val language: CodeableConcept,
+
     // Language preference indicator.
     @SerialName("preferred")
     override val preferred: Bool? = null,
@@ -343,7 +362,6 @@ interface FhirPatientContact : FhirBackboneElement {
  *
  * SourceFileName: Patient.kt
  *
- *
  * A contact party (e.g. guardian, partner, friend) for the patient
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientContact</a>
@@ -357,21 +375,27 @@ data class PatientContact(
     // The kind of relationship.
     @SerialName("relationship")
     override val relationship: List<CodeableConcept>? = null,
+
     // A name associated with the contact person.
     @SerialName("name")
     override val name: HumanName? = null,
+
     // A contact detail for the person.
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,
+
     // Address for the contact person.
     @SerialName("address")
     override val address: Address? = null,
+
     // Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
     @SerialName("gender")
     override val gender: AdministrativeGender? = null,
+
     // Organization that is associated with the contact.
     @SerialName("organization")
     override val organization: Reference? = null,
+
     // The period during which this contact person or organization is valid to be contacted relating to this patient.
     @SerialName("period")
     override val period: Period? = null,
@@ -413,7 +437,6 @@ interface FhirPatientLink : FhirBackboneElement {
  *
  * SourceFileName: Patient.kt
  *
- *
  * Link to another patient resource that concerns the same actual patient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientLink</a>
@@ -427,6 +450,7 @@ data class PatientLink(
     // The other patient or related person resource that the link refers to.
     @SerialName("other")
     override val other: Reference,
+
     // The type of link between this patient resource and another patient resource.
     @SerialName("type")
     override val type: LinkType,

@@ -85,8 +85,10 @@ interface FhirDiagnosticReport : FhirDomainResource {
  *
  * SourceFileName: DiagnosticReport.kt
  *
- *
- * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
+ * The findings and interpretation of diagnostic  tests performed on patients, groups of patients,
+ * devices, and locations, and/or specimens derived from these. The report includes clinical context
+ * such as requesting and provider information, and some mix of atomic results, images, textual and
+ * coded interpretations, and formatted representation of diagnostic reports.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReport</a>
  *
@@ -99,54 +101,71 @@ data class DiagnosticReport(
     // Business identifier for report.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // What was requested.
     @SerialName("basedOn")
     override val basedOn: List<Reference>? = null,
+
     // The status of the diagnostic report as a whole.
     @SerialName("status")
     override val status: DiagnosticReportStatus,
+
     // Service category.
     @SerialName("category")
     override val category: CodeableConcept? = null,
+
     // Name/Code for this diagnostic report.
     @SerialName("code")
     override val code: CodeableConcept,
+
     // The subject of the report - usually, but not always, the patient.
     @SerialName("subject")
     override val subject: Reference? = null,
+
     // Health care event when test ordered.
     @SerialName("context")
     override val context: Reference? = null,
+
     // Clinically relevant time/time-period for report.
     @SerialName("effectiveDateTime")
     override val effectiveDateTime: DateTime? = null,
+
     // Clinically relevant time/time-period for report.
     @SerialName("effectivePeriod")
     override val effectivePeriod: Period? = null,
+
     // DateTime this version was released.
     @SerialName("issued")
     override val issued: Instant? = null,
+
     // Participants in producing the report.
     @SerialName("performer")
     override val performer: List<DiagnosticReportPerformer>? = null,
+
     // Specimens this report is based on.
     @SerialName("specimen")
     override val specimen: List<Reference>? = null,
+
     // Observations - simple, or complex nested groups.
     @SerialName("result")
     override val result: List<Reference>? = null,
+
     // Reference to full details of imaging associated with the diagnostic report.
     @SerialName("imagingStudy")
     override val imagingStudy: List<Reference>? = null,
+
     // Key images associated with this report.
     @SerialName("image")
     override val image: List<DiagnosticReportImage>? = null,
+
     // Clinical Interpretation of test results.
     @SerialName("conclusion")
     override val conclusion: String? = null,
+
     // Codes for the conclusion.
     @SerialName("codedDiagnosis")
     override val codedDiagnosis: List<CodeableConcept>? = null,
+
     // Entire report as issued.
     @SerialName("presentedForm")
     override val presentedForm: List<Attachment>? = null,
@@ -203,8 +222,9 @@ interface FhirDiagnosticReportImage : FhirBackboneElement {
  *
  * SourceFileName: DiagnosticReport.kt
  *
- *
- * A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
+ * A list of key images associated with this report. The images are generally created during the
+ * diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of
+ * interest).
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportImage</a>
  *
@@ -217,6 +237,7 @@ data class DiagnosticReportImage(
     // Comment about the image (e.g. explanation).
     @SerialName("comment")
     override val comment: String? = null,
+
     // Reference to the image source.
     @SerialName("link")
     override val link: Reference,
@@ -258,7 +279,6 @@ interface FhirDiagnosticReportPerformer : FhirBackboneElement {
  *
  * SourceFileName: DiagnosticReport.kt
  *
- *
  * Indicates who or what participated in producing the report.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportPerformer</a>
@@ -272,6 +292,7 @@ data class DiagnosticReportPerformer(
     // Type of performer.
     @SerialName("role")
     override val role: CodeableConcept? = null,
+
     // Practitioner or Organization  participant.
     @SerialName("actor")
     override val actor: Reference,

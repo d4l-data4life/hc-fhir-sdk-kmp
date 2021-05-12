@@ -50,7 +50,6 @@ interface FhirHumanName : FhirElement {
  *
  * SourceFileName: HumanName.kt
  *
- *
  * A human's name with the ability to identify parts and usage.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/HumanName">HumanName</a>
@@ -64,21 +63,27 @@ data class HumanName(
     // Identifies the purpose for this name.
     @SerialName("use")
     override val use: NameUse? = null,
+
     // Text representation of the full name.
     @SerialName("text")
     override val text: String? = null,
+
     // Family name (often called 'Surname').
     @SerialName("family")
     override val family: String? = null,
+
     // Given names (not always 'first'). Includes middle names.
     @SerialName("given")
     override val given: List<String>? = null,
+
     // Parts that come before the name.
     @SerialName("prefix")
     override val prefix: List<String>? = null,
+
     // Parts that come after the name.
     @SerialName("suffix")
     override val suffix: List<String>? = null,
+
     // Time period when name was/is in use.
     @SerialName("period")
     override val period: Period? = null,

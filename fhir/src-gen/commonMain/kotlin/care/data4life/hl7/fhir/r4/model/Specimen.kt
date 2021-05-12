@@ -69,7 +69,6 @@ interface FhirSpecimen : FhirDomainResource {
  *
  * SourceFileName: Specimen.kt
  *
- *
  * A sample to be used for analysis.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">Specimen</a>
@@ -83,67 +82,87 @@ data class Specimen(
     // External Identifier.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Identifier assigned by the lab.
     @SerialName("accessionIdentifier")
     override val accessionIdentifier: Identifier? = null,
+
     // The availability of the specimen.
     @SerialName("status")
     override val status: SpecimenStatus? = null,
+
     // Kind of material that forms the specimen.
     @SerialName("type")
     override val type: CodeableConcept? = null,
+
     // Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device.
     @SerialName("subject")
     override val subject: Reference? = null,
+
     // The time when specimen was received for processing.
     @SerialName("receivedTime")
     override val receivedTime: DateTime? = null,
+
     // Specimen from which this specimen originated.
     @SerialName("parent")
     override val parent: List<Reference>? = null,
+
     // Why the specimen was collected.
     @SerialName("request")
     override val request: List<Reference>? = null,
+
     // Collection details.
     @SerialName("collection")
     override val collection: SpecimenCollection? = null,
+
     // Processing and processing step details.
     @SerialName("processing")
     override val processing: List<SpecimenProcessing>? = null,
+
     // Direct container of specimen (tube/slide, etc.).
     @SerialName("container")
     override val container: List<SpecimenContainer>? = null,
+
     // State of the specimen.
     @SerialName("condition")
     override val condition: List<CodeableConcept>? = null,
+
     // Comments.
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
     // # DomainResource
+
     // Text summary of the resource, for human interpretation.
     @SerialName("text")
     override val text: Narrative? = null,
+
     // Contained, inline Resources.
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Resource
+
     // Logical id of this artifact.
     @SerialName("id")
     override val id: String? = null,
+
     // Metadata about the resource.
     @SerialName("meta")
     override val meta: Meta? = null,
+
     // A set of rules under which this content was created.
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     // Language of the resource content.
     @SerialName("language")
     override val language: String? = null
@@ -193,7 +212,6 @@ interface FhirSpecimenCollection : FhirBackboneElement {
  *
  * SourceFileName: Specimen.kt
  *
- *
  * Details concerning the specimen collection.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenCollection</a>
@@ -207,40 +225,51 @@ data class SpecimenCollection(
     // Who collected the specimen.
     @SerialName("collector")
     override val collector: Reference? = null,
+
     // Collection time.
     @SerialName("collectedDateTime")
     override val collectedDateTime: DateTime? = null,
+
     // Collection time.
     @SerialName("collectedPeriod")
     override val collectedPeriod: Period? = null,
+
     // How long it took to collect specimen.
     @SerialName("duration")
     override val duration: Duration? = null,
+
     // The quantity of specimen collected.
     @SerialName("quantity")
     override val quantity: Quantity? = null,
+
     // Technique used to perform collection.
     @SerialName("method")
     override val method: CodeableConcept? = null,
+
     // Anatomical collection site.
     @SerialName("bodySite")
     override val bodySite: CodeableConcept? = null,
+
     // Whether or how long patient abstained from food and/or drink.
     @SerialName("fastingStatusCodeableConcept")
     override val fastingStatusCodeableConcept: CodeableConcept? = null,
+
     // Whether or how long patient abstained from food and/or drink.
     @SerialName("fastingStatusDuration")
     override val fastingStatusDuration: Duration? = null,
 
     // # BackboneElement
+
     // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
@@ -284,8 +313,8 @@ interface FhirSpecimenContainer : FhirBackboneElement {
  *
  * SourceFileName: Specimen.kt
  *
- *
- * The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
+ * The container holding the specimen. The recursive nature of containers; i.e. blood in tube in tray
+ * in rack is not addressed here.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenContainer</a>
  *
@@ -298,34 +327,43 @@ data class SpecimenContainer(
     // Id for the container.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
+
     // Textual description of the container.
     @SerialName("description")
     override val description: String? = null,
+
     // Kind of container directly associated with specimen.
     @SerialName("type")
     override val type: CodeableConcept? = null,
+
     // Container volume or size.
     @SerialName("capacity")
     override val capacity: Quantity? = null,
+
     // Quantity of specimen within container.
     @SerialName("specimenQuantity")
     override val specimenQuantity: Quantity? = null,
+
     // Additive associated with container.
     @SerialName("additiveCodeableConcept")
     override val additiveCodeableConcept: CodeableConcept? = null,
+
     // Additive associated with container.
     @SerialName("additiveReference")
     override val additiveReference: Reference? = null,
 
     // # BackboneElement
+
     // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
@@ -363,7 +401,6 @@ interface FhirSpecimenProcessing : FhirBackboneElement {
  *
  * SourceFileName: Specimen.kt
  *
- *
  * Details concerning processing and processing steps for the specimen.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Specimen">SpecimenProcessing</a>
@@ -377,28 +414,35 @@ data class SpecimenProcessing(
     // Textual description of procedure.
     @SerialName("description")
     override val description: String? = null,
+
     // Indicates the treatment step  applied to the specimen.
     @SerialName("procedure")
     override val procedure: CodeableConcept? = null,
+
     // Material used in the processing step.
     @SerialName("additive")
     override val additive: List<Reference>? = null,
+
     // Date and time of specimen processing.
     @SerialName("timeDateTime")
     override val timeDateTime: DateTime? = null,
+
     // Date and time of specimen processing.
     @SerialName("timePeriod")
     override val timePeriod: Period? = null,
 
     // # BackboneElement
+
     // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
+
     // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
+
     // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
