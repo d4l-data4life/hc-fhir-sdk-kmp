@@ -659,7 +659,6 @@ enum class ResourceType {
      * patient visit or stay.   The medication information may come from sources such
      * as the patient's memory, from a prescription bottle,  or from a list of
      * medications the patient, clinician or other party maintains.
-     * 
      * The primary difference between a medication statement and a medication
      * administration is that the medication administration has complete administration
      * information and is based on actual administration information from the person

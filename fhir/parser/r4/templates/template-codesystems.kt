@@ -20,7 +20,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 {% if system.generate_enum %}
 /**
- * {{ system.definition.description | wordwrap(100) | replace('\n', '\n * ') }}
+ * {{ system.definition.description | wordwrap(100) | replace('\n\n','\n') | replace('\n', '\n * ') }}
  *
  * @see <a href="{{ system.url }}">{{ system.name }}</a>
 {%- if system.definition.valueSet %}
@@ -33,7 +33,7 @@ import kotlinx.serialization.Serializable
 enum class {{ system.name }} {
 {% for code in system.codes %}
     /**
-     * {{ code.definition | wordwrap(80) | replace('\n', '\n     * ') }}
+     * {{ code.definition | wordwrap(80) | replace('\n\n','\n') | replace('\n', '\n     * ') }}
      */
     @SerialName("{{code.code}}")
     {%- if code.code == "=" %}

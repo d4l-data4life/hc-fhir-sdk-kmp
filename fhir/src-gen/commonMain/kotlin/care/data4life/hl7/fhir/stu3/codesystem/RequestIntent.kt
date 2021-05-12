@@ -83,7 +83,6 @@ enum class RequestIntent {
     /**
      * The request represents a component or option for a RequestGroup that establishes
      * timing, conditionality and/or other constraints among a set of requests.
-     * 
      * Refer to [[[RequestGroup]]] for additional information on how this status is
      * used
      */

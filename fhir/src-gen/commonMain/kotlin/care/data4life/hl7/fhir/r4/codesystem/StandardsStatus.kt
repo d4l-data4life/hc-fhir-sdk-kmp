@@ -61,7 +61,6 @@ enum class StandardsStatus {
      * across the full spectrum of environments it is intended to be used in. In some
      * cases, there may be documented known issues that require implementation
      * experience to determine appropriate resolutions for.
-     * 
      * Future versions of FHIR may make significant changes to Trial Use content that
      * are not compatible with previously published content.
      */
