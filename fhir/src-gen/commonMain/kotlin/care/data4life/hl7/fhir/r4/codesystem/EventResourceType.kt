@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EventResourceType {
+
     /**
      * Item containing charge code(s) associated with the provision of healthcare provider products.
      */

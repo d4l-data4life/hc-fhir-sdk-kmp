@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceDefinitionSubtypeCodes {
+
     /**
      * To be completed
      */

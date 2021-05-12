@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
+ * Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple
+ * different manifestations.
  *
  * @see <a href="http://hl7.org/fhir/reaction-event-severity">AllergyIntoleranceSeverity</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/reaction-event-severity">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceSeverity {
+
     /**
      * Causes mild physiological effects.
      */

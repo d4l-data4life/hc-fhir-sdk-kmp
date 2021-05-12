@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CommunicationTopic {
+
     /**
      * The purpose or content of the communication is a prescription refill request.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationStatementTaken {
+
     /**
      * Positive assertion that patient has taken medication
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AbstractType {
+
     /**
      * A place holder that means any kind of data type
      */

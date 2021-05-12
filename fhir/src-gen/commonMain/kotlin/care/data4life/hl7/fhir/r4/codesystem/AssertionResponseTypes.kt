@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AssertionResponseTypes {
+
     /**
      * Response code is 200.
      */

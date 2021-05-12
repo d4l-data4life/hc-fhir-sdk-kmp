@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PublicationStatus {
+
     /**
      * This resource is still under development and is not yet considered to be ready for normal use.
      */

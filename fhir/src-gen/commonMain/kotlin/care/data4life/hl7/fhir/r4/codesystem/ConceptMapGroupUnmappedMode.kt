@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConceptMapGroupUnmappedMode {
+
     /**
      * Use the code as provided in the $translate request.
      */

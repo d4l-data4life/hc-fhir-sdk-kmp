@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionConditionKind {
+
     /**
      * The condition describes whether or not a given action is applicable
      */

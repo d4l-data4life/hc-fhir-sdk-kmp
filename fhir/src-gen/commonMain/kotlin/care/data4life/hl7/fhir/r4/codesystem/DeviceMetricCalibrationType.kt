@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceMetricCalibrationType {
+
     /**
      * Metric calibration method has not been identified.
      */

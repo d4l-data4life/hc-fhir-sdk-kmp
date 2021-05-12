@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DefinitionResourceType {
+
     /**
      * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NetworkTypeCodes {
+
     /**
      * Services rendered by a Network provider
      */

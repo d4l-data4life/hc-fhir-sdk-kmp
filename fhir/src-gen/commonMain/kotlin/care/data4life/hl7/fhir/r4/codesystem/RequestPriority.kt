@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RequestPriority {
+
     /**
      * The request has normal priority.
      */

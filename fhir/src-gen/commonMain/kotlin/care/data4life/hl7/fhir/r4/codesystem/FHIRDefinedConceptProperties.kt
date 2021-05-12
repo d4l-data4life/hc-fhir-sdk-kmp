@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FHIRDefinedConceptProperties {
+
     /**
      * True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false
      */

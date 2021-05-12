@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SupplyType {
+
     /**
      * Supply is stored and requested from central supply.
      */

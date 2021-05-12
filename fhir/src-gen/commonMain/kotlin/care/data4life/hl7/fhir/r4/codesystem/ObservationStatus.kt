@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ObservationStatus {
+
     /**
      * The existence of the observation is registered, but there is no result yet available.
      */

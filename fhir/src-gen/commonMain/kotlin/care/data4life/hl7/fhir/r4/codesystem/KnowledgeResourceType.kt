@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class KnowledgeResourceType {
+
     /**
      * The definition of a specific activity to be taken, independent of any particular patient or context.
      */

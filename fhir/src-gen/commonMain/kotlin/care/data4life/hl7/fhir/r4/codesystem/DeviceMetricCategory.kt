@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceMetricCategory {
+
     /**
      * DeviceObservations generated for this DeviceMetric are measured.
      */

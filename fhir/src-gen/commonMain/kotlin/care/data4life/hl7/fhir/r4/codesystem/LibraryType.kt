@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class LibraryType {
+
     /**
      * The resource is a shareable library of formalized knowledge.
      */

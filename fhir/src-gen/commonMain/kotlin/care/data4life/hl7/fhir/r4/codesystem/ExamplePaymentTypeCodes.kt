@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExamplePaymentTypeCodes {
+
     /**
      * Complete (final) payment of the benefit under the Claim less any adjustments.
      */

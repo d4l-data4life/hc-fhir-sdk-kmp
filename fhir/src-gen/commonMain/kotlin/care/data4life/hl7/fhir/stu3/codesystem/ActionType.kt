@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionType {
+
     /**
      * The action is to create a new resource
      */

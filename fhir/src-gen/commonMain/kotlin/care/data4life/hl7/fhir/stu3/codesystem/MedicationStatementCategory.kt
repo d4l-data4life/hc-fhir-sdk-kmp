@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * A coded concept identifying where the medication included in the medicationstatement is expected to be consumed or administered
+ * A coded concept identifying where the medication included in the medicationstatement is expected to
+ * be consumed or administered
  *
  * @see <a href="http://hl7.org/fhir/medication-statement-category">MedicationStatementCategory</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/medication-statement-category">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationStatementCategory {
+
     /**
      * Includes orders for medications to be administered or consumed in an inpatient or acute care setting
      */

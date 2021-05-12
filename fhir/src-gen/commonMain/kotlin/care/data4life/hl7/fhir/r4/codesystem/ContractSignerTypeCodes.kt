@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractSignerTypeCodes {
+
     /**
      * A person who has corrected, edited, or amended pre-existing information.
      */

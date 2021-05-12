@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DoseAndRateType {
+
     /**
      * The dose specified is calculated by the prescriber or the system.
      */

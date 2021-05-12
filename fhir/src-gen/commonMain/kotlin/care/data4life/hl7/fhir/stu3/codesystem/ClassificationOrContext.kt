@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClassificationOrContext {
+
     /**
      * Indicates the useContext is a classification - e.g. Administrative, financial, etc.
      */

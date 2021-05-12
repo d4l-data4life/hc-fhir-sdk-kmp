@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PropertyType {
+
     /**
      * The property value is a code that identifies a concept defined in the code system
      */

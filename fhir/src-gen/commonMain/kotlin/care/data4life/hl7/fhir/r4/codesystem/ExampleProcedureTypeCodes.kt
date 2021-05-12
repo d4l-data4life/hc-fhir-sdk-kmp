@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleProcedureTypeCodes {
+
     /**
      * The first procedure in a series required to produce and overall patient outcome.
      */

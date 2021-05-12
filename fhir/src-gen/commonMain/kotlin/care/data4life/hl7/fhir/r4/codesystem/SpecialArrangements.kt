@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patients visit.
+ * This value set defines a set of codes that can be used to indicate the kinds of special arrangements
+ * in place for a patients visit.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/encounter-special-arrangements">SpecialArrangements</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/encounter-special-arrangements">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SpecialArrangements {
+
     /**
      * The patient requires a wheelchair to be made available for the encounter.
      */

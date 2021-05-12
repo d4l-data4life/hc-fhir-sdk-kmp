@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * How to manage the intersection between a fixed version in a value set, and a fixed version of the system in the expansion profile
+ * How to manage the intersection between a fixed version in a value set, and a fixed version of the
+ * system in the expansion profile
  *
  * @see <a href="http://hl7.org/fhir/system-version-processing-mode">SystemVersionProcessingMode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/system-version-processing-mode">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SystemVersionProcessingMode {
+
     /**
      * Use this version of the code system if a value set doesn't specify a version
      */

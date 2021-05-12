@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to another.
+ * This example value set defines a set of codes that can be used to indicate the role of one
+ * Organization in relation to another.
  *
  * @see <a href="http://hl7.org/fhir/organization-role">OrganizationAffiliationRole</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/organization-role">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class OrganizationAffiliationRole {
+
     /**
      * provider
      */

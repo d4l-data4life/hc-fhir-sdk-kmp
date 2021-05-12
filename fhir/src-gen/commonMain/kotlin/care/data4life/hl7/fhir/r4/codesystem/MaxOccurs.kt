@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MaxOccurs {
+
     /**
      * Element can repeat an unlimited number of times.
      */

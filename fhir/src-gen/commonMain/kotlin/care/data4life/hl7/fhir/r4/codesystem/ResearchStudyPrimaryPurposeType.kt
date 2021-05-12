@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyPrimaryPurposeType {
+
     /**
      * One or more interventions are being evaluated for treating a disease, syndrome, or condition.
      */

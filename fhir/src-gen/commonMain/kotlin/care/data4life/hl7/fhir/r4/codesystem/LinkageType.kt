@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class LinkageType {
+
     /**
      * The resource represents the "source of truth" (from the perspective of this Linkage resource) for the underlying event/condition/etc.
      */

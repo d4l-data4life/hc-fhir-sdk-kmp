@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CodeSearchSupport {
+
     /**
      * The search for code on ValueSet only includes codes explicitly detailed on includes or expansions.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MessageSignificanceCategory {
+
     /**
      * The message represents/requests a change that should not be processed more than once; e.g., making a booking for an appointment.
      */

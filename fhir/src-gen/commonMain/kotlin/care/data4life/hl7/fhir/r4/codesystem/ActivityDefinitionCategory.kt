@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActivityDefinitionCategory {
+
     /**
      * The activity is intended to provide or is related to treatment of the patient.
      */

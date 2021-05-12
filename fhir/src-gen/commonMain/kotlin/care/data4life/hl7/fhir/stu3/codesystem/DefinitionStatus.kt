@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DefinitionStatus {
+
     /**
      * The definition is in the design stage and is not yet considered to be "ready for use"
      */

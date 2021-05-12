@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestIntent {
+
     /**
      * The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act
      */

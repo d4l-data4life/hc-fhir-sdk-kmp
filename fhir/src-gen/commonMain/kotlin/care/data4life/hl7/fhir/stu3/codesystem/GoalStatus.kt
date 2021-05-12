@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalStatus {
+
     /**
      * A goal is proposed for this patient
      */

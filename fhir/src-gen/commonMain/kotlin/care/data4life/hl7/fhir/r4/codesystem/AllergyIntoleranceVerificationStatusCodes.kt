@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceVerificationStatusCodes {
+
     /**
      * A low level of certainty about the propensity for a reaction to the identified substance.
      */

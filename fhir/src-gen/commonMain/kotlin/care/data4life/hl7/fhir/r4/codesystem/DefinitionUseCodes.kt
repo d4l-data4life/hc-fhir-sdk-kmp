@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DefinitionUseCodes {
+
     /**
      * This structure is defined as part of the base FHIR Specification
      */

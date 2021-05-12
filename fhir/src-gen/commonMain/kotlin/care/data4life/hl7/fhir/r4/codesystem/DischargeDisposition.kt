@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DischargeDisposition {
+
     /**
      * The patient was dicharged and has indicated that they are going to return home afterwards.
      */

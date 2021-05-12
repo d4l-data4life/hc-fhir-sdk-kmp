@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class IssueSeverity {
+
     /**
      * The issue caused the action to fail and no further checking could be performed.
      */

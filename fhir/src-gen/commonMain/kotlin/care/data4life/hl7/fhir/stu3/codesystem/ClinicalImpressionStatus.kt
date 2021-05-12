@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClinicalImpressionStatus {
+
     /**
      * The assessment is still on-going and results are not yet final.
      */

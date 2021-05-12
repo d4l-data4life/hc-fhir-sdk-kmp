@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SupplyRequestStatus {
+
     /**
      * The request has been created but is not yet complete or ready for action.
      */

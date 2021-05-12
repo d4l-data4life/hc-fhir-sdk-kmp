@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class InvoiceStatus {
+
     /**
      * the invoice has been prepared but not yet finalized.
      */

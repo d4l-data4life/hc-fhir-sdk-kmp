@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NarrativeStatus {
+
     /**
      * The contents of the narrative are entirely generated from the core elements in the content.
      */

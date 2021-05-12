@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate species of animal patients.
+ * This example value set defines a set of codes that can be used to indicate species of animal
+ * patients.
  *
  * @see <a href="http://hl7.org/fhir/animal-species">AnimalSpecies</a>
  *
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AnimalSpecies {
+
     /**
      * Canis lupus familiaris
      */

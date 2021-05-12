@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CommonTags {
+
     /**
      * This request is intended to be acted upon, not merely stored
      */

@@ -16,7 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.codesystem
 
-import kotlinx.serialization.*
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Type for access of external URI
@@ -28,6 +29,7 @@ import kotlinx.serialization.*
  */
 @Serializable
 enum class RepositoryType {
+
     /**
      * When URL is clicked, the resource can be seen directly (by webpage or by download link format)
      */

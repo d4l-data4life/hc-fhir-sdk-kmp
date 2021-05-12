@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SearchParamType {
+
     /**
      * Search parameter SHALL be a number (a whole number, or a decimal).
      */

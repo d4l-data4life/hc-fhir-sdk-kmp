@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AddressType {
+
     /**
      * Mailing addresses - PO Boxes and care-of addresses.
      */

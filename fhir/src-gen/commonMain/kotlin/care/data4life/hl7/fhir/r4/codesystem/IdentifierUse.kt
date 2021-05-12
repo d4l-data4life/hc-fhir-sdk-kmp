@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class IdentifierUse {
+
     /**
      * The identifier recommended for display and use in real-world interactions.
      */

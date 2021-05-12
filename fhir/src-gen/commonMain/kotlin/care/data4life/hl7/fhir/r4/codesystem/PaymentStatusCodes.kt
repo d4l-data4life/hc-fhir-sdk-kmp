@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PaymentStatusCodes {
+
     /**
      * The payment has been sent physically or electronically.
      */

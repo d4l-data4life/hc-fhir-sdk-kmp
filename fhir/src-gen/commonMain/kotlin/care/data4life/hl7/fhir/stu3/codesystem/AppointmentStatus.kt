@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AppointmentStatus {
+
     /**
      * None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.
      */

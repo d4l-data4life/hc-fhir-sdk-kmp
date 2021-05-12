@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapContextType {
+
     /**
      * The context specifies a type.
      */

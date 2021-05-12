@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EndpointStatus {
+
     /**
      * This endpoint is expected to be active and can be used.
      */

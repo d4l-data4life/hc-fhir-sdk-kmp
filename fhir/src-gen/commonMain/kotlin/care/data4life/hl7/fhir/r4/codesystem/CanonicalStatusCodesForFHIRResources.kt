@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes.
+ * The master set of status codes used throughout FHIR. All status codes are mapped to one of these
+ * codes.
  *
  * @see <a href="http://hl7.org/fhir/resource-status">CanonicalStatusCodesForFHIRResources</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/resource-status">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CanonicalStatusCodesForFHIRResources {
+
     /**
      * The resource was created in error, and should not be treated as valid (note: in many cases, for various data integrity related reasons, the information cannot be removed from the record)
      */

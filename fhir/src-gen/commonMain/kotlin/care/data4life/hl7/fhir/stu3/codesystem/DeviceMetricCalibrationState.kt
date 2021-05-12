@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceMetricCalibrationState {
+
     /**
      * The metric has not been calibrated.
      */

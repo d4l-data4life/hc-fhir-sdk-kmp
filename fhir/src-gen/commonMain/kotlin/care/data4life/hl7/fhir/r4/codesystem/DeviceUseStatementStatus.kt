@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceUseStatementStatus {
+
     /**
      * The device is still being used.
      */

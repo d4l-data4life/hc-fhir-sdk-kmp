@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyStatus {
+
     /**
      * Study is opened for accrual.
      */
@@ -61,7 +62,7 @@ enum class ResearchStudyStatus {
 
     /**
      * Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment
-     or intervention but are still being followed according to the primary objective of the study.
+or intervention but are still being followed according to the primary objective of the study.
      */
     @SerialName("completed")
     COMPLETED,

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GuidePageGeneration {
+
     /**
      * Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing.
      */

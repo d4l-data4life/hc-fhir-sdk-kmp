@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate the current state of the animal's reproductive organs.
+ * This example value set defines a set of codes that can be used to indicate the current state of the
+ * animal's reproductive organs.
  *
  * @see <a href="http://hl7.org/fhir/animal-genderstatus">GenderStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/animal-genderstatus">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GenderStatus {
+
     /**
      * The animal has been sterilized, castrated or otherwise made infertile.
      */

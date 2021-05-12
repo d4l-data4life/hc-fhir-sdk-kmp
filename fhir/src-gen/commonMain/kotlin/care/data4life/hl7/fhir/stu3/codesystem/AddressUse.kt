@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AddressUse {
+
     /**
      * A communication address at a home.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FHIRDeviceStatus {
+
     /**
      * The device is available for use.  Note: For *implanted devices*  this means that the device is implanted in the patient.
      */

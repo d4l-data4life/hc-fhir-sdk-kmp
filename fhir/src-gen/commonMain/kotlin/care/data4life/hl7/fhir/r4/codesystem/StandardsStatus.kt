@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StandardsStatus {
+
     /**
      * This portion of the specification is not considered to be complete enough or sufficiently reviewed to be safe for implementation. It may have known issues or still be in the "in development" stage. It is included in the publication as a place-holder, to solicit feedback from the implementation community and/or to give implementers some insight as to functionality likely to be included in future versions of the specification. Content at this level should only be implemented by the brave or desperate and is very much "use at your own risk". The content that is Draft that will usually be elevated to Trial Use once review and correction is complete after it has been subjected to ballot.
      */
@@ -44,7 +45,7 @@ enum class StandardsStatus {
     /**
      * This content has been well reviewed and is considered by the authors to be ready for use in production systems. It has been subjected to ballot and approved as an official standard. However, it has not yet seen widespread use in production across the full spectrum of environments it is intended to be used in. In some cases, there may be documented known issues that require implementation experience to determine appropriate resolutions for.
 
-     Future versions of FHIR may make significant changes to Trial Use content that are not compatible with previously published content.
+Future versions of FHIR may make significant changes to Trial Use content that are not compatible with previously published content.
      */
     @SerialName("trial-use")
     TRIAL_USE,

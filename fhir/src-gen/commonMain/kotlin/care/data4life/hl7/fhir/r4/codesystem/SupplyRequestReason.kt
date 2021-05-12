@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SupplyRequestReason {
+
     /**
      * The supply has been requested for use in direct patient care.
      */

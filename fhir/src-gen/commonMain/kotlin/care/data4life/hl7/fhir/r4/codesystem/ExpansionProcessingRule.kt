@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExpansionProcessingRule {
+
     /**
      * The expansion (when in UI mode) includes all codes *and* any defined groups (in extensions).
      */

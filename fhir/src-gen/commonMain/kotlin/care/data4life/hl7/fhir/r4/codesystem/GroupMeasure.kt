@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GroupMeasure {
+
     /**
      * Aggregated using Mean of participant values.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BiologicallyDerivedProductCategory {
+
     /**
      * A collection of tissues joined in a structural unit to serve a common function.
      */

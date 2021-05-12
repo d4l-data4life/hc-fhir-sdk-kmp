@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EventCapabilityMode {
+
     /**
      * The application sends requests and receives responses.
      */

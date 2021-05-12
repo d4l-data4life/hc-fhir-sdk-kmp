@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BindingStrength {
+
     /**
      * To be conformant, the concept in this element SHALL be from the specified value set.
      */

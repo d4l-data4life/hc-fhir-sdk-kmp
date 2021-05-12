@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExtensionContextType {
+
     /**
      * The context is all elements that match the FHIRPath query found in the expression.
      */

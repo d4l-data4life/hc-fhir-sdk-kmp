@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NameUse {
+
     /**
      * Known as/conventional/the one you normally use
      */

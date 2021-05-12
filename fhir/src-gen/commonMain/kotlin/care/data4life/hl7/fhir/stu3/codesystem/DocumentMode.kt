@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DocumentMode {
+
     /**
      * The application produces documents of the specified type.
      */

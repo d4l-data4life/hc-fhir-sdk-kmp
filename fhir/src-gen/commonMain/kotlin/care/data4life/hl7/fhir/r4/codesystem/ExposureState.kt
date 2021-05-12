@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Whether the results by exposure is describing the results for the primary exposure of interest (exposure) or the alternative state (exposureAlternative).
+ * Whether the results by exposure is describing the results for the primary exposure of interest
+ * (exposure) or the alternative state (exposureAlternative).
  *
  * @see <a href="http://hl7.org/fhir/exposure-state">ExposureState</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/exposure-state">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExposureState {
+
     /**
      * used when the results by exposure is describing the results for the primary exposure of interest.
      */

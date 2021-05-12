@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ObservationRangeCategory {
+
     /**
      * Reference (Normal) Range for Ordinal and Continuous Observations.
      */

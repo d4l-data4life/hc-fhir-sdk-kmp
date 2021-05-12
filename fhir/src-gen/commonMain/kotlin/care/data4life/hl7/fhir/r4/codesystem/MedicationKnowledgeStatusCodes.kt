@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationKnowledgeStatusCodes {
+
     /**
      * The medication is available for use.
      */

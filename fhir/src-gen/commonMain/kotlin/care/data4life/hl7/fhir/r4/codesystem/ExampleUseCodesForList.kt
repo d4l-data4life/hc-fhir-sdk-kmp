@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleUseCodesForList {
+
     /**
      * A list of alerts for the patient.
      */

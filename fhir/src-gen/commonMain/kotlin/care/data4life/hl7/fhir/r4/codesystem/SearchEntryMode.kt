@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
+ * Why an entry is in the result set - whether it's included as a match or because of an _include
+ * requirement, or to convey information or warning information about the search process.
  *
  * @see <a href="http://hl7.org/fhir/search-entry-mode">SearchEntryMode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/search-entry-mode">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SearchEntryMode {
+
     /**
      * This resource matched the search specification.
      */

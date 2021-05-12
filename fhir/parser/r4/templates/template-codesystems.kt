@@ -18,11 +18,9 @@ package care.data4life.hl7.fhir.r4.codesystem
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-
 {% if system.generate_enum %}
-
 /**
- * {{ system.definition.description }}
+ * {{ system.definition.description | wordwrap(100) | replace('\n', '\n * ') }}
  *
  * @see <a href="{{ system.url }}">{{ system.name }}</a>
  * {%- if system.definition.valueSet %} @see <a href="{{ system.definition.valueSet }}">ValueSet</a> {%- endif %}
@@ -31,8 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class {{ system.name }} {
-
-	{%- for code in system.codes %}
+{% for code in system.codes %}
     /**
      * {{ code.definition }}
      */
@@ -58,7 +55,8 @@ enum class {{ system.name }} {
     {%- if code.code == "*" %}
     MAX,
     {%- else %}
-    {{ code.code.upper()|replace('-', '_')|replace('/', '_')|replace('.', '_') }}{% if not loop.last %},{% endif %}
+    {{ code.code.upper()|replace('-', '_')|replace('/', '_')|replace('.', '_') }}{% if not loop.last %},
+{% endif %}
     {%- endif %}
     {%- endif %}
     {%- endif %}

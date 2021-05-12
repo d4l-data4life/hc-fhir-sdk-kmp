@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set is provided as an exemplar. The value set is driven by IHE Table B.8-4: Abnormal Flags, Alert Priority.
+ * This value set is provided as an exemplar. The value set is driven by IHE Table B.8-4: Abnormal
+ * Flags, Alert Priority.
  *
  * @see <a href="http://hl7.org/fhir/flag-priority-code">FlagPriorityCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/flag-priority">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FlagPriorityCodes {
+
     /**
      * No alarm.
      */

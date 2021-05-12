@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * How much of the content of the code system - the concepts and codes it defines - are represented in a code system resource
+ * How much of the content of the code system - the concepts and codes it defines - are represented in
+ * a code system resource
  *
  * @see <a href="http://hl7.org/fhir/codesystem-content-mode">CodeSystemContentMode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/codesystem-content-mode">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CodeSystemContentMode {
+
     /**
      * None of the concepts defined by the code system are included in the code system resource
      */

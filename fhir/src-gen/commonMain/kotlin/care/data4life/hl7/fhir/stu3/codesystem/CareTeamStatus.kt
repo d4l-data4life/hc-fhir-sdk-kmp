@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CareTeamStatus {
+
     /**
      * The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AuditEventAction {
+
     /**
      * Create a new database object, such as placing an order.
      */

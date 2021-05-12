@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TaskStatus {
+
     /**
      * The task is not yet ready to be acted upon.
      */

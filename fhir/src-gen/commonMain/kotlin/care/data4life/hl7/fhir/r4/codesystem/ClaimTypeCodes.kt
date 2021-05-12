@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClaimTypeCodes {
+
     /**
      * Hospital, clinic and typically inpatient claims.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationrequestStatus {
+
     /**
      * The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
      */

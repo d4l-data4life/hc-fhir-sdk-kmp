@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TriggerType {
+
     /**
      * The trigger occurs in response to a specific named event
      */

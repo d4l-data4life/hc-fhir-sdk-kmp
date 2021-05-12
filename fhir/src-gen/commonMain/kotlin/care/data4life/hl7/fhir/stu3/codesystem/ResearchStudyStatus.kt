@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyStatus {
+
     /**
      * The study is undergoing design but the process of selecting study subjects and capturing data has not yet begun.
      */

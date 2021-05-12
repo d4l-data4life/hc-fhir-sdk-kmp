@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ReferralMethod {
+
     /**
      * Referrals may be accepted by fax.
      */

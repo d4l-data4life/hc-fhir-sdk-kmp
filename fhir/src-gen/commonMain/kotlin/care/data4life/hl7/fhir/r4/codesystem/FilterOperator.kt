@@ -29,12 +29,12 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FilterOperator {
+
     /**
      * The specified property of the code equals the provided value.
      */
     @SerialName("=")
     EQUAL,
-
     /**
      * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self).
      */

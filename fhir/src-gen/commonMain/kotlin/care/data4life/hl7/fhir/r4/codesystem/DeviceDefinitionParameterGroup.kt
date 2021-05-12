@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceDefinitionParameterGroup {
+
     /**
      * Haemodynamic Parameter Group - MDC_PGRP_HEMO.
      */

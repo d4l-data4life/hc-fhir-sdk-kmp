@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Example Message Reasons. These are the set of codes that might be used an updating an encounter using admin-update.
+ * Example Message Reasons. These are the set of codes that might be used an updating an encounter
+ * using admin-update.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/message-reasons-encounter">ExampleMessageReasonCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/message-reason-encounter">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleMessageReasonCodes {
+
     /**
      * The patient has been admitted.
      */

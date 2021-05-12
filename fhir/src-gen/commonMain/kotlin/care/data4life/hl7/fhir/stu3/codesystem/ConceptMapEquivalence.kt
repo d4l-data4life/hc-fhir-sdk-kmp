@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConceptMapEquivalence {
+
     /**
      * The concepts are related to each other, and have at least some overlap in meaning, but the exact relationship is not known
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CoverageSelfPayCodes {
+
     /**
      * An individual or organization is paying directly for goods and services.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireTextCategories {
+
     /**
      * The text provides guidance on how to populate or use a portion of the questionnaire (or the questionnaire as a whole).
      */

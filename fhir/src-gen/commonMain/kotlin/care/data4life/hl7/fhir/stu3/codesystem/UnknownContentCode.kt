@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * A code that indicates whether an application accepts unknown elements or extensions when reading resources.
+ * A code that indicates whether an application accepts unknown elements or extensions when reading
+ * resources.
  *
  * @see <a href="http://hl7.org/fhir/unknown-content-code">UnknownContentCode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/unknown-content-code">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class UnknownContentCode {
+
     /**
      * The application does not accept either unknown elements or extensions.
      */

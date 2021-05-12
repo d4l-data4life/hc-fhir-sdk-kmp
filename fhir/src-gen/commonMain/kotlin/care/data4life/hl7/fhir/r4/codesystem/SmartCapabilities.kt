@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SmartCapabilities {
+
     /**
      * support for SMART’s EHR Launch mode.
      */

@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in a reaction event.
+ * Statement about the degree of clinical certainty that a specific substance was the cause of the
+ * manifestation in a reaction event.
  *
  * @see <a href="http://hl7.org/fhir/reaction-event-certainty">AllergyIntoleranceCertainty</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/reaction-event-certainty">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceCertainty {
+
     /**
      * There is a low level of clinical certainty that the reaction was caused by the identified substance.
      */

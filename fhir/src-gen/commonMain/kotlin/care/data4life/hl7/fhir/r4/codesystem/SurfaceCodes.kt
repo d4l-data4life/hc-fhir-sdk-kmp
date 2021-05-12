@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SurfaceCodes {
+
     /**
      * The surface of a tooth that is closest to the midline (middle) of the face.
      */

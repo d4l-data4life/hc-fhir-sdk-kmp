@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClaimProcessingCodes {
+
     /**
      * The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.
      */

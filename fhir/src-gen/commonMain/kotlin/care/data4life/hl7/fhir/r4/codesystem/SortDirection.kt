@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SortDirection {
+
     /**
      * Sort by the value ascending, so that lower values appear first.
      */

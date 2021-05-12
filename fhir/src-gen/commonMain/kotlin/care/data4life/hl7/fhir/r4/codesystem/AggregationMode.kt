@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AggregationMode {
+
     /**
      * The reference is a local reference to a contained resource.
      */

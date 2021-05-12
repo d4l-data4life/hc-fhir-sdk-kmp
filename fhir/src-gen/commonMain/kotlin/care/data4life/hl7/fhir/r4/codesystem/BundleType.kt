@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BundleType {
+
     /**
      * The bundle is a document. The first resource is a Composition.
      */

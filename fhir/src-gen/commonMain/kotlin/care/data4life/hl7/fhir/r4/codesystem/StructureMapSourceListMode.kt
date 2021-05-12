@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapSourceListMode {
+
     /**
      * Only process this rule for the first in the list.
      */

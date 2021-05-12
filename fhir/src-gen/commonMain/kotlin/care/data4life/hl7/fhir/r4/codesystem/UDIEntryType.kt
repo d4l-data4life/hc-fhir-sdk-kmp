@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class UDIEntryType {
+
     /**
      * a barcodescanner captured the data from the device label.
      */

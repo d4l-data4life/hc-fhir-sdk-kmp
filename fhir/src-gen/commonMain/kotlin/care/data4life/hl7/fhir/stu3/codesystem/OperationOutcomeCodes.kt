@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class OperationOutcomeCodes {
+
     /**
      * MSG_AUTH_REQUIRED
      */

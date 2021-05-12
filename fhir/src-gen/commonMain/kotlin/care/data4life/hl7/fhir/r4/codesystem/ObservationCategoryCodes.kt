@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding.
+ * Codes to denote a guideline or policy statement.when a genetic test result is being shared as a
+ * secondary finding.
  *
  * @see <a href="http://hl7.org/fhir/secondary-finding">ObservationCategoryCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/secondary-finding">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ObservationCategoryCodes {
+
     /**
      * First release (2013): ACMG Recommendations for Reporting of Incidental Findings in Clinical Exome and Genome Sequencing.  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3727274/
      */

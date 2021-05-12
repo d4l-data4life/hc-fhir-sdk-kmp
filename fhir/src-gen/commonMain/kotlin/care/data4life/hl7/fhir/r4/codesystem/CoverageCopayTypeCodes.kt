@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CoverageCopayTypeCodes {
+
     /**
      * An office visit for a general practitioner of a discipline.
      */

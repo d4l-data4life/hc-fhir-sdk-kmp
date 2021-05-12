@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ProvenanceParticipantType {
+
     /**
      * A person entering the data into the originating system
      */

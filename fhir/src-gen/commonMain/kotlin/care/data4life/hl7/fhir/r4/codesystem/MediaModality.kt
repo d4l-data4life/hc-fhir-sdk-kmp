@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it.
+ * Detailed information about the type of the image - its kind, purpose, or the kind of equipment used
+ * to generate it.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/media-modality">MediaModality</a>
  *
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MediaModality {
+
     /**
      * A diagram. Often used in diagnostic reports
      */

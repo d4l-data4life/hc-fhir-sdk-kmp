@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * A version specific list of the data types defined by the FHIR specification for use as an element  type (any of the FHIR defined data types).
+ * A version specific list of the data types defined by the FHIR specification for use as an element
+ * type (any of the FHIR defined data types).
  *
  * @see <a href="http://hl7.org/fhir/data-types">DataType</a>
  *
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DataType {
+
     /**
      * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
      */

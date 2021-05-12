@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SlotStatus {
+
     /**
      * Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
      */

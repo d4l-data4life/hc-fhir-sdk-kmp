@@ -16,7 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.codesystem
 
-import kotlinx.serialization.*
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * How an element value is interpreted when discrimination is evaluated
@@ -28,6 +29,7 @@ import kotlinx.serialization.*
  */
 @Serializable
 enum class DiscriminatorType {
+
     /**
      * The slices have different values in the nominated element
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestReportResult {
+
     /**
      * All test operations successfully passed all asserts.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BenefitCostApplicability {
+
     /**
      * Provider is contracted with the health insurance company to provide services to plan members for specific pre-negotiated rates
      */

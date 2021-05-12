@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Example codes indicating the change that happened to the device during the procedure.  Note that these are in no way complete and might not even be appropriate for some uses.
+ * Example codes indicating the change that happened to the device during the procedure.  Note that
+ * these are in no way complete and might not even be appropriate for some uses.
  *
  * @see <a href="http://hl7.org/fhir/device-action">ProcedureDeviceActionCodes</a>
  *
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ProcedureDeviceActionCodes {
+
     /**
      * The device was implanted in the patient during the procedure.
      */

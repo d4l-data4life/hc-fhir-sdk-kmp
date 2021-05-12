@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NutritionOrderStatus {
+
     /**
      * The request has been proposed.
      */

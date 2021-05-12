@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CompositionAttestationMode {
+
     /**
      * The person authenticated the content in their personal capacity.
      */

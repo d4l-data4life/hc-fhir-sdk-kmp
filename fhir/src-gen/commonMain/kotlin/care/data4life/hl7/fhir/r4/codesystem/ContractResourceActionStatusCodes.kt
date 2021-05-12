@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceActionStatusCodes {
+
     /**
      * To be completed
      */

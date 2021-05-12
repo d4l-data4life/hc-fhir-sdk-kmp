@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EncounterStatus {
+
     /**
      * The Encounter has not yet started.
      */

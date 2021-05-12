@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContentType {
+
     /**
      * XML content-type corresponding to the application/fhir+xml mime-type.
      */

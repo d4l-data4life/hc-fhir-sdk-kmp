@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureScoring {
+
     /**
      * The measure score is defined using a proportion.
      */

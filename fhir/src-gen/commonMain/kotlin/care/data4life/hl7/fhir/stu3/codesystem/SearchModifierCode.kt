@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SearchModifierCode {
+
     /**
      * The search parameter returns resources that have a value or not.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchElementType {
+
     /**
      * The element defines the population that forms the basis for research.
      */

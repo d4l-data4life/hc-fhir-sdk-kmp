@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceCategory {
+
     /**
      * Any substance consumed to provide nutritional support for the body.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CompositionStatus {
+
     /**
      * This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
      */

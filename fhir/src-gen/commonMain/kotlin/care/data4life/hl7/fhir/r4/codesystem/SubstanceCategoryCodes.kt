@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SubstanceCategoryCodes {
+
     /**
      * A substance that causes an allergic reaction.
      */

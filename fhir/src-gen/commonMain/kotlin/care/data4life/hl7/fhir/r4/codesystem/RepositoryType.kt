@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RepositoryType {
+
     /**
      * When URL is clicked, the resource can be seen directly (by webpage or by download link format).
      */

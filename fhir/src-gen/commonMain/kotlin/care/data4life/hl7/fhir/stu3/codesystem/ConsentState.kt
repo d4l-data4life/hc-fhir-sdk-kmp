@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConsentState {
+
     /**
      * The consent is in development or awaiting use but is not yet intended to be acted upon.
      */

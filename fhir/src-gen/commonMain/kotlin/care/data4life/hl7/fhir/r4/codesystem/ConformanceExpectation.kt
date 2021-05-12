@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Indicates the degree of adherence to a specified behavior or capability expected for a system to be deemed conformant with a specification.
+ * Indicates the degree of adherence to a specified behavior or capability expected for a system to be
+ * deemed conformant with a specification.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/conformance-expectation">ConformanceExpectation</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/conformance-expectation">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConformanceExpectation {
+
     /**
      * Support for the specified capability is required to be considered conformant.
      */

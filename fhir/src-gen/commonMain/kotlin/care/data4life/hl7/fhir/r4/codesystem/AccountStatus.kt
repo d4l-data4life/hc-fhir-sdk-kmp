@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AccountStatus {
+
     /**
      * This account is active and may be used.
      */

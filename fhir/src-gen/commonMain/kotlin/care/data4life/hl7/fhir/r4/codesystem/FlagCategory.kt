@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FlagCategory {
+
     /**
      * Flags related to the subject's dietary needs.
      */

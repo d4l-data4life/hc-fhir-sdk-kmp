@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdverseEventActuality {
+
     /**
      * The adverse event actually happened regardless of whether anyone was affected or harmed.
      */

@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire.
+ * Starter set of user interface control/display mechanisms that might be used when rendering an item
+ * in a questionnaire.
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-item-control">QuestionnaireItemUIControlCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/questionnaire-item-control">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireItemUIControlCodes {
+
     /**
      * UI controls relevant to organizing groups of questions
      */

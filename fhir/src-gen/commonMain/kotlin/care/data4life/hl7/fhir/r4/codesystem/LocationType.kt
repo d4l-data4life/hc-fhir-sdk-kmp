@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate the physical form of the Location.
+ * This example value set defines a set of codes that can be used to indicate the physical form of the
+ * Location.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/location-physical-type">LocationType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/location-physical-type">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class LocationType {
+
     /**
      * A collection of buildings or other locations such as a site or a campus.
      */

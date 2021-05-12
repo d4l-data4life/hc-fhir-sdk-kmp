@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class Use {
+
     /**
      * The treatment is complete and this represents a Claim for the services.
      */

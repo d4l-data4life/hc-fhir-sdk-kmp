@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FinancialTaskInputTypeCodes {
+
     /**
      * The name of a resource to include in a selection.
      */

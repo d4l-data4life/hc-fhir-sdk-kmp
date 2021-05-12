@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided.
+ * This example value set defines a set of codes that can be used to indicate the type of encounter: a
+ * specific code indicating type of service provided.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/encounter-type">EncounterType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/encounter-type">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EncounterType {
+
     /**
      * ADMS
      */

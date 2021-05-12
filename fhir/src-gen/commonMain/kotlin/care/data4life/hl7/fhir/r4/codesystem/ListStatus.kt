@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ListStatus {
+
     /**
      * The list is considered to be an active part of the patient's record.
      */

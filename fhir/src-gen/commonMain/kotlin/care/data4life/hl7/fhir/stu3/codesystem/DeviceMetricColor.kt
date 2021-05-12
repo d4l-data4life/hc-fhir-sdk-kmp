@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceMetricColor {
+
     /**
      * Color for representation - black.
      */

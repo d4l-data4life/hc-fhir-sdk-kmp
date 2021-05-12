@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GraphCompartmentRule {
+
     /**
      * The compartment must be identical (the same literal reference)
      */

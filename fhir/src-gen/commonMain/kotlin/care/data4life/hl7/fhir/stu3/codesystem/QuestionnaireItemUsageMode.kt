@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireItemUsageMode {
+
     /**
      * Render the item regardless of usage mode
      */

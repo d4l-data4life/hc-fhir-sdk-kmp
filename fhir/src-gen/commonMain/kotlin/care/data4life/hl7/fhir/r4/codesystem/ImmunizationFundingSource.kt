@@ -20,7 +20,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the source of the vaccine administered. This value set is provided as a suggestive example.
+ * The value set to instantiate this attribute should be drawn from a terminologically robust code
+ * system that consists of or contains concepts to support describing the source of the vaccine
+ * administered. This value set is provided as a suggestive example.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/immunization-funding-source">ImmunizationFundingSource</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/immunization-funding-source">ValueSet</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ImmunizationFundingSource {
+
     /**
      * The vaccine was purchased with private funds.
      */

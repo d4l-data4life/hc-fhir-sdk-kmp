@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResponseType {
+
     /**
      * The message was accepted and processed without error.
      */

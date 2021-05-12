@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DocumentReferenceStatus {
+
     /**
      * This is the current reference for this document.
      */

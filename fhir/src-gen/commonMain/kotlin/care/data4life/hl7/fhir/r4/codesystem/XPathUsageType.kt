@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class XPathUsageType {
+
     /**
      * The search parameter is derived directly from the selected nodes based on the type definitions.
      */

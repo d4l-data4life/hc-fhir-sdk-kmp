@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireItemOperator {
+
     /**
      * True if whether an answer exists is equal to the enableWhen answer (which must be a boolean).
      */
@@ -40,31 +41,26 @@ enum class QuestionnaireItemOperator {
      */
     @SerialName("=")
     EQUAL,
-
     /**
      * True if whether at least no answer has a value that is equal to the enableWhen answer.
      */
     @SerialName("!=")
     NOT_EQUAL,
-
     /**
      * True if whether at least no answer has a value that is greater than the enableWhen answer.
      */
     @SerialName(">")
     GREATER_THAN,
-
     /**
      * True if whether at least no answer has a value that is less than the enableWhen answer.
      */
     @SerialName("<")
     LESS_THAN,
-
     /**
      * True if whether at least no answer has a value that is greater or equal to the enableWhen answer.
      */
     @SerialName(">=")
     GREATER_OR_EQUAL,
-
     /**
      * True if whether at least no answer has a value that is less or equal to the enableWhen answer.
      */

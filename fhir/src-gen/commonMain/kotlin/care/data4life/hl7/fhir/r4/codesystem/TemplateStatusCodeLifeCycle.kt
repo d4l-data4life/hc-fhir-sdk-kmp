@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TemplateStatusCodeLifeCycle {
+
     /**
      * Design is under development (nascent).
      */

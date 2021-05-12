@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapModelMode {
+
     /**
      * This structure describes an instance passed to the mapping engine that is used a source of data.
      */

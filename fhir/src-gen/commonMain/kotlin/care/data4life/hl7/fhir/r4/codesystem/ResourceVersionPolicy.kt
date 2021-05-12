@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResourceVersionPolicy {
+
     /**
      * VersionId meta-property is not supported (server) or used (client).
      */

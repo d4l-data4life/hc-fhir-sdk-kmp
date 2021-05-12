@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyReasonStopped {
+
     /**
      * The study prematurely ended because the accrual goal was met.
      */

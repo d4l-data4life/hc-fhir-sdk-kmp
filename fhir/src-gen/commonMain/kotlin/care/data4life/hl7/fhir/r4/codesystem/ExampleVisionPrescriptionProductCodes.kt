@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleVisionPrescriptionProductCodes {
+
     /**
      * A lens to be fitted to a frame to comprise a pair of glasses.
      */

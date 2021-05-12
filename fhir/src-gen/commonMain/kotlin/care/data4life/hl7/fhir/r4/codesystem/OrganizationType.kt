@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class OrganizationType {
+
     /**
      * An organization that provides healthcare services.
      */

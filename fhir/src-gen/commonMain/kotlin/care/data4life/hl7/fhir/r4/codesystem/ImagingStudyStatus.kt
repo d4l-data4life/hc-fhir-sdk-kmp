@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ImagingStudyStatus {
+
     /**
      * The existence of the imaging study is registered, but there is nothing yet available.
      */

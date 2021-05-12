@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TaskPerformerType {
+
     /**
      * A workflow participant that requests services.
      */

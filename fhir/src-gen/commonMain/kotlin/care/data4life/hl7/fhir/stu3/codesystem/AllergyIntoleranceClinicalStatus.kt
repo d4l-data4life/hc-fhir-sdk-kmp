@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceClinicalStatus {
+
     /**
      * An active record of a risk of a reaction to the identified substance.
      */

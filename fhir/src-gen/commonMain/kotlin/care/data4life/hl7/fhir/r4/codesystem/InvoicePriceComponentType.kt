@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class InvoicePriceComponentType {
+
     /**
      * the amount is the base price used for calculating the total price before applying surcharges, discount or taxes.
      */

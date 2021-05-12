@@ -29,24 +29,22 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuantityComparator {
+
     /**
      * The actual value is less than the given value.
      */
     @SerialName("<")
     LESS_THAN,
-
     /**
      * The actual value is less than or equal to the given value.
      */
     @SerialName("<=")
     LESS_OR_EQUAL,
-
     /**
      * The actual value is greater than or equal to the given value.
      */
     @SerialName(">=")
     GREATER_OR_EQUAL,
-
     /**
      * The actual value is greater than the given value.
      */

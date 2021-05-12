@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MediaType {
+
     /**
      * The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents
      */

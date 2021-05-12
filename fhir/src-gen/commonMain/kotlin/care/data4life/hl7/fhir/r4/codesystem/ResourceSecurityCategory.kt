@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Provides general guidance around the kind of access Control to Read, Search, Create, Update, or Delete a resource.
+ * Provides general guidance around the kind of access Control to Read, Search, Create, Update, or
+ * Delete a resource.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/resource-security-category">ResourceSecurityCategory</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/resource-security-category">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResourceSecurityCategory {
+
     /**
      * These resources tend to not contain any individual data, or business sensitive data. Most often these Resources will be available for anonymous access, meaning there is no access control based on the user or system requesting. However these Resources do tend to contain important information that must be authenticated back to the source publishing them, and protected from integrity failures in communication. For this reason server authenticated https (TLS) is recommended to provide authentication of the server and integrity protection in transit. This is normal web-server use of https.
      */

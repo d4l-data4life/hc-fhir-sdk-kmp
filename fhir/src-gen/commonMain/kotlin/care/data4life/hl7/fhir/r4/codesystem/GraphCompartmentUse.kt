@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GraphCompartmentUse {
+
     /**
      * This compartment rule is a condition for whether the rule applies.
      */

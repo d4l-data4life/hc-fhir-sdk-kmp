@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationContainer {
+
     /**
      * A sealed glass capsule containing a liquid
      */

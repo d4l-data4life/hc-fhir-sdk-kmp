@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestCourseOfTherapyCodes {
+
     /**
      * A medication which is expected to be continued beyond the present order and which the patient should be assumed to be taking unless explicitly stopped.
      */

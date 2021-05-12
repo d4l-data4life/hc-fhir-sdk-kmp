@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionRelationshipType {
+
     /**
      * The action must be performed before the start of the related action.
      */

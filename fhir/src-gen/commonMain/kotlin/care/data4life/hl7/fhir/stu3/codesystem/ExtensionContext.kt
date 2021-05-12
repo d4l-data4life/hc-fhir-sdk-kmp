@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExtensionContext {
+
     /**
      * The context is all elements matching a particular resource element path.
      */

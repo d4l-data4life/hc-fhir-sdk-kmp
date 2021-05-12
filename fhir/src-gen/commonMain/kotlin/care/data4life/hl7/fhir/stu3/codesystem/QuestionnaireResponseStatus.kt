@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireResponseStatus {
+
     /**
      * This QuestionnaireResponse has been partially filled out with answers, but changes or additions are still expected to be made to it.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CertaintySubcomponentType {
+
     /**
      * methodologic concerns reducing internal validity.
      */

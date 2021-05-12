@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CoverageEligibilityResponseAuthSupportCodes {
+
     /**
      * A request or authorization for laboratory diagnostic tests.
      */

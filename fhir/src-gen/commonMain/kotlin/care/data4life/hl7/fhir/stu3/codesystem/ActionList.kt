@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionList {
+
     /**
      * Cancel, reverse or nullify the target resource.
      */

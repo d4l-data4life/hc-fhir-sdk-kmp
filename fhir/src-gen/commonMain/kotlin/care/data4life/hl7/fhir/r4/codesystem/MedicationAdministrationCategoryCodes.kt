@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationAdministrationCategoryCodes {
+
     /**
      * Includes administrations in an inpatient or acute care setting
      */

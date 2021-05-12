@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.
+ * HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for
+ * details.
  *
  * @see <a href="http://hl7.org/fhir/http-verb">HTTPVerb</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/http-verb">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class HTTPVerb {
+
     /**
      * HTTP GET Command.
      */

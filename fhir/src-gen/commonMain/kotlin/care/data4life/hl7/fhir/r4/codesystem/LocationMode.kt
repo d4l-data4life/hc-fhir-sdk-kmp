@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class LocationMode {
+
     /**
      * The Location resource represents a specific instance of a location (e.g. Operating Theatre 1A).
      */

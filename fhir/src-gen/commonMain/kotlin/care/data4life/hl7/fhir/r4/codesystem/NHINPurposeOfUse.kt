@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system.
+ * This value set is suitable for use with the provenance resource. It is derived from, but not
+ * compatible with, the HL7 v3 Purpose of use Code system.
  *
  * @see <a href="http://healthit.gov/nhin/purposeofuse">NHINPurposeOfUse</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/nhin-purposeofuse">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NHINPurposeOfUse {
+
     /**
      * Treatment
      */

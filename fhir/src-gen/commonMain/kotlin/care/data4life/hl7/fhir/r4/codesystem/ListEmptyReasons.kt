@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list).
+ * General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem
+ * or medication list) or to a workflow related list (i.e. consultation list).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/list-empty-reason">ListEmptyReasons</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/list-empty-reason">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ListEmptyReasons {
+
     /**
      * Clinical judgment that there are no known items for this list after reasonable investigation. Note that this a positive statement by a clinical user, and not a default position asserted by a computer system in the lack of other information. Example uses:  * For allergies: the patient or patient's agent/guardian has asserted that he/she is not aware of any allergies (NKA - nil known allergies)  * For medications: the patient or patient's agent/guardian has asserted that the patient is known to be taking no medications  * For diagnoses, problems and procedures: the patient or patient's agent/guardian has asserted that there is no known event to record.
      */

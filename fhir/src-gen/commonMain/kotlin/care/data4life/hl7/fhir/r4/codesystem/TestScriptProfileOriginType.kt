@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the origin within a TestScript.
+ * This value set defines a set of codes that are used to indicate the profile type of a test system
+ * when acting as the origin within a TestScript.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types">TestScriptProfileOriginType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/testscript-profile-origin-types">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestScriptProfileOriginType {
+
     /**
      * General FHIR client used to initiate operations against a FHIR server.
      */

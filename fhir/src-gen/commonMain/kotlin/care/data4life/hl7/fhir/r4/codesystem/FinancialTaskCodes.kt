@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FinancialTaskCodes {
+
     /**
      * Cancel or reverse a resource, such as a claim or preauthorization, which is in-process or complete.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractTermTypeCodes {
+
     /**
      * Based on specialized statutes that deal with particular subjects.
      */

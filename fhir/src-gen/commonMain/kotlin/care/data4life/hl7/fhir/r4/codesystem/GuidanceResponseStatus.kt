@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GuidanceResponseStatus {
+
     /**
      * The request was processed successfully.
      */

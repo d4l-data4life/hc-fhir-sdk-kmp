@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConsentDataMeaning {
+
     /**
      * The consent applies directly to the instance of the resource.
      */

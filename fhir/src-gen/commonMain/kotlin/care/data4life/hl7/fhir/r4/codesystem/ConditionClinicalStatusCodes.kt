@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConditionClinicalStatusCodes {
+
     /**
      * The subject is currently experiencing the symptoms of the condition or there is evidence of the condition.
      */

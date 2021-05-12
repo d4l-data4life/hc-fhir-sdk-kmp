@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DefinitionTopic {
+
     /**
      * The definition is related to treatment of the patient.
      */

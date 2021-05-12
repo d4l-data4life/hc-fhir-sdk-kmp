@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConditionVerificationStatus {
+
     /**
      * There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
      */

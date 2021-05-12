@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapGroupTypeMode {
+
     /**
      * This group is not a default group for the types
      */

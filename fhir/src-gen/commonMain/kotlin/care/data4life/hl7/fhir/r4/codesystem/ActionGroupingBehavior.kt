@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionGroupingBehavior {
+
     /**
      * Any group marked with this behavior should be displayed as a visual group to the end user.
      */

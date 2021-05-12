@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FinancialResourceStatusCodes {
+
     /**
      * The instance is currently in-force.
      */

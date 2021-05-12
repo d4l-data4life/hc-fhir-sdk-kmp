@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureReportStatus {
+
     /**
      * The report is complete and ready for use.
      */

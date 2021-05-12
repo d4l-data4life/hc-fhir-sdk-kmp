@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContributorType {
+
     /**
      * An author of the content of the module
      */

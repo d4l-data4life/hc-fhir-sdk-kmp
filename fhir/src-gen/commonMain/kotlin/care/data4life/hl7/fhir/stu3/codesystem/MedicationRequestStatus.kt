@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription
+ * A coded concept specifying the state of the prescribing event. Describes the lifecycle of the
+ * prescription
  *
  * @see <a href="http://hl7.org/fhir/medication-request-status">MedicationRequestStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/medication-request-status">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestStatus {
+
     /**
      * The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
      */

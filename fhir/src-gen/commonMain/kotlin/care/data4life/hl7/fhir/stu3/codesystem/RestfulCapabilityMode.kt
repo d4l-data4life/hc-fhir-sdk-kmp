@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RestfulCapabilityMode {
+
     /**
      * The application acts as a client for this resource.
      */

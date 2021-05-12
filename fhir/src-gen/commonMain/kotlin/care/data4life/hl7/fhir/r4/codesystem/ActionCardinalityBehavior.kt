@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionCardinalityBehavior {
+
     /**
      * The action may only be selected one time.
      */

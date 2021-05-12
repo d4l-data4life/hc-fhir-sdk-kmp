@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RequestIntent {
+
     /**
      * The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act.
      */

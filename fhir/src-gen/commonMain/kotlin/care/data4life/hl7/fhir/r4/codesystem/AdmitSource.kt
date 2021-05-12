@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdmitSource {
+
     /**
      * The Patient has been transferred from another hospital for this encounter.
      */

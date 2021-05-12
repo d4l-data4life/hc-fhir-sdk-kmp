@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RiskProbability {
+
     /**
      * The specified outcome is exceptionally unlikely.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FamilyHistoryStatus {
+
     /**
      * Some health information is known and captured, but not complete - see notes for details.
      */

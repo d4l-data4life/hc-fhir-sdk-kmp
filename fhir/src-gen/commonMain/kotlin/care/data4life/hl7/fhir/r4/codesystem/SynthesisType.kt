@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SynthesisType {
+
     /**
      * A meta-analysis of the summary data of estimates from individual studies or data sets.
      */

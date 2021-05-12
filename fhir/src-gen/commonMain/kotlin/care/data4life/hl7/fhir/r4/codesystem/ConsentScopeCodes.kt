@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConsentScopeCodes {
+
     /**
      * Actions to be taken if they are no longer able to make decisions for themselves
      */

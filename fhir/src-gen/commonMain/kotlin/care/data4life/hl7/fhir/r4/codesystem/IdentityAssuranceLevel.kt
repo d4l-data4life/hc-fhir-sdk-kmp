@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
+ * The level of confidence that this link represents the same actual person, based on NIST
+ * Authentication Levels.
  *
  * @see <a href="http://hl7.org/fhir/identity-assuranceLevel">IdentityAssuranceLevel</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/identity-assuranceLevel">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class IdentityAssuranceLevel {
+
     /**
      * Little or no confidence in the asserted identity's accuracy.
      */

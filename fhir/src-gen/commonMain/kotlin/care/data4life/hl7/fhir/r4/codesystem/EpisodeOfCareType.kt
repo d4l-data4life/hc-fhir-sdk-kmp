@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to express the usage type of an EpisodeOfCare record.
+ * This example value set defines a set of codes that can be used to express the usage type of an
+ * EpisodeOfCare record.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/episodeofcare-type">EpisodeOfCareType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/episodeofcare-type">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EpisodeOfCareType {
+
     /**
      * hacc
      */

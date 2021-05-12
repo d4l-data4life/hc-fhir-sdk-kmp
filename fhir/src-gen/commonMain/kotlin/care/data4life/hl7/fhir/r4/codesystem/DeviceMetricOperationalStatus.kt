@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceMetricOperationalStatus {
+
     /**
      * The DeviceMetric is operating and will generate DeviceObservations.
      */

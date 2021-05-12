@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceComponentOperationalStatus {
+
     /**
      * The device is off.
      */

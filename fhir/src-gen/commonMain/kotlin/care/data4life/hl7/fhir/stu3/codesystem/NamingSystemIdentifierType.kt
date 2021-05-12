@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NamingSystemIdentifierType {
+
     /**
      * An ISO object identifier; e.g. 1.2.3.4.5.
      */

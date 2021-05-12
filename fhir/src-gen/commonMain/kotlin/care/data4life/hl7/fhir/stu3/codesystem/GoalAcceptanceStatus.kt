@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalAcceptanceStatus {
+
     /**
      * Stakeholder supports pursuit of the goal
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DocumentRelationshipType {
+
     /**
      * This document logically replaces or supersedes the target document.
      */

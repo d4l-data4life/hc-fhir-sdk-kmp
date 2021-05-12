@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SupplyDeliveryStatus {
+
     /**
      * Supply has been requested, but not delivered.
      */

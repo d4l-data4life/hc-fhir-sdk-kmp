@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DetectedIssueSeverity {
+
     /**
      * Indicates the issue may be life-threatening or has the potential to cause permanent injury.
      */

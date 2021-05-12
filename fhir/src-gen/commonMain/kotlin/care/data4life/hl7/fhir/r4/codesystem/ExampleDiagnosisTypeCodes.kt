@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleDiagnosisTypeCodes {
+
     /**
      * The diagnosis given as the reason why the patient was admitted to the hospital.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MatchGrade {
+
     /**
      * This record meets the matching criteria to be automatically considered as a full match.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SlicingRules {
+
     /**
      * No additional content is allowed other than that described by the slices in this profile.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapTransform {
+
     /**
      * create(type : string) - type is passed through to the application on the standard API, and must be known by it.
      */

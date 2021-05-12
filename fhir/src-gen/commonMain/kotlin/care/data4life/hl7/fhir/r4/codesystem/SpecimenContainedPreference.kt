@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SpecimenContainedPreference {
+
     /**
      * This type of contained specimen is preferred to collect this kind of specimen.
      */

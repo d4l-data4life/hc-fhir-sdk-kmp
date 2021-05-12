@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AssertionDirectionType {
+
     /**
      * The assertion is evaluated on the response. This is the default value.
      */

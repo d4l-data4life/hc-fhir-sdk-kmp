@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CompartmentType {
+
     /**
      * The compartment definition is for the patient compartment
      */

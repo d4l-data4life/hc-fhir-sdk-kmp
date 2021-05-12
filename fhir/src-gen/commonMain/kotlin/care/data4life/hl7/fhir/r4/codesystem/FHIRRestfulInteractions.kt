@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FHIRRestfulInteractions {
+
     /**
      * Read the current state of the resource.
      */

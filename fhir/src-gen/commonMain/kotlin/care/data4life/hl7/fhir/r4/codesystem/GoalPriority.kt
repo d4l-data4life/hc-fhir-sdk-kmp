@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalPriority {
+
     /**
      * Indicates that the goal is of considerable importance and should be a primary focus of care delivery.
      */

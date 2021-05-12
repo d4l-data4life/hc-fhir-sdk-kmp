@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionParticipantType {
+
     /**
      * The participant is the patient under evaluation
      */

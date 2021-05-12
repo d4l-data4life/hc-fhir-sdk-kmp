@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SubscriptionStatus {
+
     /**
      * The client has requested the subscription, and the server has not yet set it up.
      */

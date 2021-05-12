@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This is an example value set defined by the FHIR project, that could be used to represent possible connection type profile values.
+ * This is an example value set defined by the FHIR project, that could be used to represent possible
+ * connection type profile values.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/endpoint-connection-type">EndpointConnectionType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/endpoint-connection-type">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EndpointConnectionType {
+
     /**
      * IHE Cross Community Patient Discovery Profile (XCPD) - http://wiki.ihe.net/index.php/Cross-Community_Patient_Discovery
      */

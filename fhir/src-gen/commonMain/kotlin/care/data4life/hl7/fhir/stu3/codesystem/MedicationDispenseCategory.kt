@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationDispenseCategory {
+
     /**
      * Includes dispenses for medications to be administered or consumed in an inpatient or acute care setting
      */

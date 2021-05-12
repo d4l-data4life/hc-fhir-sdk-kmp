@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CompositeMeasureScoring {
+
     /**
      * Opportunity scoring combines the scores from component measures by combining the numerators and denominators for each component
      */

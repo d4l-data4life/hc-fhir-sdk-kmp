@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractActorRoleCodes {
+
     /**
      * Someone who provides health care related services to people or animals including both clinical and support services.
      */

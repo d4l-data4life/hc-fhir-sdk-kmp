@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationAdministrationStatus {
+
     /**
      * The administration has started but has not yet completed.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BiologicallyDerivedProductStatus {
+
     /**
      * Product is currently available for use.
      */

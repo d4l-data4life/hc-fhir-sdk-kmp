@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PaymentTypeCodes {
+
     /**
      * The amount is partial or complete settlement of the amounts due.
      */

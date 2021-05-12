@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleServiceModifierCodes {
+
     /**
      * Services provided on the side of the road or such other non-conventional setting.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionRequiredBehavior {
+
     /**
      * An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
      */

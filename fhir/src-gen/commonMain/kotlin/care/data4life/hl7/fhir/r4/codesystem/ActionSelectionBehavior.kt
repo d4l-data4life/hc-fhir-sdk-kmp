@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionSelectionBehavior {
+
     /**
      * Any number of the actions in the group may be chosen, from zero to all.
      */

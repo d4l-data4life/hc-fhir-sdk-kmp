@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population.
+ * This value set defines a set of codes that can be used to indicate the meaning/use of a reference
+ * range for a particular target population.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/referencerange-meaning">ObservationReferenceRangeMeaningCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/referencerange-meaning">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ObservationReferenceRangeMeaningCodes {
+
     /**
      * General types of reference range.
      */

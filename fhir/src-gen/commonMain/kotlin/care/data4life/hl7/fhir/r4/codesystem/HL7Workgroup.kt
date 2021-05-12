@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class HL7Workgroup {
+
     /**
      * Community Based Collaborative Care (http://www.hl7.org/Special/committees/cbcc/index.cfm).
      */

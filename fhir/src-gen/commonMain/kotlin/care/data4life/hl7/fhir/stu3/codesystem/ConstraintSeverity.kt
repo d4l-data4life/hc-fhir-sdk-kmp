@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConstraintSeverity {
+
     /**
      * If the constraint is violated, the resource is not conformant.
      */

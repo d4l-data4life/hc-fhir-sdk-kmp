@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleCoverageFinancialExceptionCodes {
+
     /**
      * Retired persons have all copays and deductibles reduced.
      */

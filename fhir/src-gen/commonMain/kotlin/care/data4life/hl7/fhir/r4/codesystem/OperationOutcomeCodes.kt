@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class OperationOutcomeCodes {
+
     /**
      * DELETE_MULTIPLE_MATCHES
      */

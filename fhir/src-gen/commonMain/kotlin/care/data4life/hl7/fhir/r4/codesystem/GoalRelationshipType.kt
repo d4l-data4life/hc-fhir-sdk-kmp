@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalRelationshipType {
+
     /**
      * Indicates that the target goal is one which must be met before striving for the current goal.
      */

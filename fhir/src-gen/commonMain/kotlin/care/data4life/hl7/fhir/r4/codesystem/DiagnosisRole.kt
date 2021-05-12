@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record.
+ * This value set defines a set of codes that can be used to express the role of a diagnosis on the
+ * Encounter or EpisodeOfCare record.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/diagnosis-role">DiagnosisRole</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/diagnosis-role">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DiagnosisRole {
+
     /**
      * AD
      */

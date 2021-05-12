@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceClinicalStatusCodes {
+
     /**
      * The subject is currently experiencing, or is at risk of, a reaction to the identified substance.
      */

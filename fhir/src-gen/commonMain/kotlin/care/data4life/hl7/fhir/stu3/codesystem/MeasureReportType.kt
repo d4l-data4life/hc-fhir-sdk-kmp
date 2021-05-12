@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureReportType {
+
     /**
      * An individual report that provides information on the performance for a given measure with respect to a single patient
      */

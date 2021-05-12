@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceCriticality {
+
     /**
      * Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure.
      */

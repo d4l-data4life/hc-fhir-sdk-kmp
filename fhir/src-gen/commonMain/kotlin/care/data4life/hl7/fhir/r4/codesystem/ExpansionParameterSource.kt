@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExpansionParameterSource {
+
     /**
      * The parameter was supplied by the client in the $expand request.
      */

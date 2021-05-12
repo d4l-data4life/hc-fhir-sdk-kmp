@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MessageTransport {
+
     /**
      * The application sends or receives messages using HTTP POST (may be over http: or https:).
      */

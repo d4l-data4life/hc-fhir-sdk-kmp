@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleDiagnosisOnAdmissionCodes {
+
     /**
      * Diagnosis was present at time of inpatient admission.
      */

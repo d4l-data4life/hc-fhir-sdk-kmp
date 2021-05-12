@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationAdministrationPerformerFunctionCodes {
+
     /**
      * A person, non-person living subject, organization or device that who actually and principally carries out the action
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleRelatedClaimRelationshipCodes {
+
     /**
      * A prior claim instance for the same intended suite of services.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FHIRSubstanceStatus {
+
     /**
      * The substance is considered for use or reference.
      */

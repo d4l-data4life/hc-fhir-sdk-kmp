@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DiagnosticReportStatus {
+
     /**
      * The existence of the report is registered, but there is nothing yet available.
      */

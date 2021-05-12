@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that are used to indicate the supported operations of a testing engine or tool.
+ * This value set defines a set of codes that are used to indicate the supported operations of a
+ * testing engine or tool.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/testscript-operation-codes">TestScriptOperationCode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/testscript-operation-codes">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestScriptOperationCode {
+
     /**
      * Read the current state of the resource.
      */

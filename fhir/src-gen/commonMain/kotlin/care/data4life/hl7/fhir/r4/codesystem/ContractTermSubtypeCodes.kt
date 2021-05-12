@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractTermSubtypeCodes {
+
     /**
      * Terms that go to the very root of a contract.
      */

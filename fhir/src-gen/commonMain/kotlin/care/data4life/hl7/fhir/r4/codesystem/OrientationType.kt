@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class OrientationType {
+
     /**
      * Sense orientation of reference sequence.
      */

@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FamilyHistoryAbsentReason {
+
     /**
      * Patient does not know the subject, e.g. the biological parent of an adopted patient.
      */

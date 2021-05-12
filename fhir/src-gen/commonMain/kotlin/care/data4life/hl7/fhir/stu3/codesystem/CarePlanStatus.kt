@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
+ * Indicates whether the plan is currently being acted upon, represents future intentions or is now a
+ * historical record.
  *
  * @see <a href="http://hl7.org/fhir/care-plan-status">CarePlanStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/care-plan-status">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CarePlanStatus {
+
     /**
      * The plan is in development or awaiting use but is not yet intended to be acted upon.
      */

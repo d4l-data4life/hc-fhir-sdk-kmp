@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireItemType {
+
     /**
      * An item with no direct answer but should have at least one child item.
      */

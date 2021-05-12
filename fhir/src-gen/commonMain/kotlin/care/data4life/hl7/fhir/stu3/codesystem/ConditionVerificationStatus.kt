@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConditionVerificationStatus {
+
     /**
      * This is a tentative diagnosis - still a candidate that is under consideration.
      */

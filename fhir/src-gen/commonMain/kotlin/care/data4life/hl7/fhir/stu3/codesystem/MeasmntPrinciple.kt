@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasmntPrinciple {
+
     /**
      * Measurement principle isn't in the list.
      */

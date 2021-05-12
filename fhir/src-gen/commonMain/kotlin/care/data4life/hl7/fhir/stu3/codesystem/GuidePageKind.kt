@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GuidePageKind {
+
     /**
      * This is a page of content that is included in the implementation guide. It has no particular function.
      */

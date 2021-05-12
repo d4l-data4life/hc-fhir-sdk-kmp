@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BenefitTermCodes {
+
     /**
      * Annual, renewing on the anniversary
      */

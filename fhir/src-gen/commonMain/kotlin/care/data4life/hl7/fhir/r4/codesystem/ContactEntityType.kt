@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party.
+ * This example value set defines a set of codes that can be used to indicate the purpose for which you
+ * would contact a contact party.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contactentity-type">ContactEntityType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/contactentity-type">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContactEntityType {
+
     /**
      * Contact details for information regarding to billing/general finance enquiries.
      */

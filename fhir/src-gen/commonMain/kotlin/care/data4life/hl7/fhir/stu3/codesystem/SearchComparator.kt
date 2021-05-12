@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SearchComparator {
+
     /**
      * the value for the parameter in the resource is equal to the provided value
      */

@@ -20,7 +20,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Whether the effect estimate is an absolute effect estimate (absolute difference) or a relative effect estimate (relative difference), and the specific type of effect estimate (eg relative risk or median difference).
+ * Whether the effect estimate is an absolute effect estimate (absolute difference) or a relative
+ * effect estimate (relative difference), and the specific type of effect estimate (eg relative risk or
+ * median difference).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/effect-estimate-type">EffectEstimateType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/effect-estimate-type">ValueSet</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EffectEstimateType {
+
     /**
      * relative risk (a type of relative effect estimate).
      */

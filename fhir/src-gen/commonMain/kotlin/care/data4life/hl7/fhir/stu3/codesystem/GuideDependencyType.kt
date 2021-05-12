@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GuideDependencyType {
+
     /**
      * The guide is referred to by URL.
      */

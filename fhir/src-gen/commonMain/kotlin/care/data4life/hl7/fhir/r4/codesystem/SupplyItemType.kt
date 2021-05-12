@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SupplyItemType {
+
     /**
      * Supply is a kind of medication.
      */

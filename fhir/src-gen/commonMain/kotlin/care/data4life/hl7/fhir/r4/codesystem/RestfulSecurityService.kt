@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RestfulSecurityService {
+
     /**
      * OAuth (unspecified version see oauth.net).
      */

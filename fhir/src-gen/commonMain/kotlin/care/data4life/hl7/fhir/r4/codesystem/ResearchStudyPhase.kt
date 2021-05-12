@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.
+ * Codes for the stage in the progression of a therapy from initial experimental use in humans in
+ * clinical trials to post-market evaluation.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/research-study-phase">ResearchStudyPhase</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/research-study-phase">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyPhase {
+
     /**
      * Trials without phases (for example, studies of devices or behavioral interventions).
      */

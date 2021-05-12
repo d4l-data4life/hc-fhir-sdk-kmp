@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestReportParticipantType {
+
     /**
      * The test execution engine.
      */

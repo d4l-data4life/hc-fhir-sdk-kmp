@@ -20,7 +20,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines codes for resources not yet supported by (or which will never be supported by) FHIR.  Many of the codes listed here will eventually be turned into official resources.  However, there is no guarantee that any particular resource will be created nor that the scope will be exactly as defined by the codes presented here.  Codes in this set will be deprecated if/when formal resources are defined that encompass these concepts.
+ * This value set defines codes for resources not yet supported by (or which will never be supported
+ * by) FHIR.  Many of the codes listed here will eventually be turned into official resources.
+ * However, there is no guarantee that any particular resource will be created nor that the scope will
+ * be exactly as defined by the codes presented here.  Codes in this set will be deprecated if/when
+ * formal resources are defined that encompass these concepts.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/basic-resource-type">BasicResourceTypes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/basic-resource-type">ValueSet</a>
@@ -29,6 +33,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BasicResourceTypes {
+
     /**
      * An assertion of permission for an activity or set of activities to occur, possibly subject to particular limitations; e.g. surgical consent, information disclosure consent, etc.
      */

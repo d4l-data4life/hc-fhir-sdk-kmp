@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DiscriminatorType {
+
     /**
      * The slices have different values in the nominated element.
      */

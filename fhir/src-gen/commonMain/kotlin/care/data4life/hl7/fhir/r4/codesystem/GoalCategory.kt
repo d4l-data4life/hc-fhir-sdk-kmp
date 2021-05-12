@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalCategory {
+
     /**
      * Goals related to the consumption of food and/or beverages.
      */

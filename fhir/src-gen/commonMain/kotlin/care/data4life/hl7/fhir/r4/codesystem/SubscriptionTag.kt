@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SubscriptionTag {
+
     /**
      * The message has been queued for processing on a destination systems.
      */

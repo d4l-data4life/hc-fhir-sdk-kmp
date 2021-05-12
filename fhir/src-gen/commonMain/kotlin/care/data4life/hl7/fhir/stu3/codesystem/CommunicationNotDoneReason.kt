@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CommunicationNotDoneReason {
+
     /**
      * The communication was not done due to an unknown reason.
      */

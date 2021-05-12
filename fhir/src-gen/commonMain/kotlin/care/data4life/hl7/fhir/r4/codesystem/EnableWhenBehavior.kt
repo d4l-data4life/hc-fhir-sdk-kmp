@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EnableWhenBehavior {
+
     /**
      * Enable the question when all the enableWhen criteria are satisfied.
      */

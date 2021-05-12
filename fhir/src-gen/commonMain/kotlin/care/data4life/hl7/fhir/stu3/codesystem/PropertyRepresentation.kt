@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PropertyRepresentation {
+
     /**
      * In XML, this property is represented as an attribute not an element.
      */

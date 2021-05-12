@@ -20,7 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance.
+ * Assertion about certainty associated with a propensity, or potential risk, of a reaction to the
+ * identified substance.
  *
  * @see <a href="http://hl7.org/fhir/allergy-verification-status">AllergyIntoleranceVerificationStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/allergy-verification-status">ValueSet</a>
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceVerificationStatus {
+
     /**
      * A low level of certainty about the propensity for a reaction to the identified substance.
      */

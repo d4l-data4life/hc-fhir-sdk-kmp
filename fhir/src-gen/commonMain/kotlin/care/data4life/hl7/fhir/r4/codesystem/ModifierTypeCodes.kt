@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ModifierTypeCodes {
+
     /**
      * Repair of prior service or installation.
      */

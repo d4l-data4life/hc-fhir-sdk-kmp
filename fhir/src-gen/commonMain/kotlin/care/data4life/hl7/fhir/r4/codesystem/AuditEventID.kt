@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AuditEventID {
+
     /**
      * Audit Event: Execution of a RESTful operation as defined by FHIR.
      */

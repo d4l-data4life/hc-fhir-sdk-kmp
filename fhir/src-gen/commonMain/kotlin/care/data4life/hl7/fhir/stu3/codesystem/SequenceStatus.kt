@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SequenceStatus {
+
     /**
      * the variant is detected
      */

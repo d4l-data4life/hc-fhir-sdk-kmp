@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ListOrderCodes {
+
     /**
      * The list was sorted by a user. The criteria the user used are not specified.
      */

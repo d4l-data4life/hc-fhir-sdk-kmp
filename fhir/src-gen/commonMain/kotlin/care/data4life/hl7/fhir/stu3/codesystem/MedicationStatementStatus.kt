@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationStatementStatus {
+
     /**
      * The medication is still being taken.
      */

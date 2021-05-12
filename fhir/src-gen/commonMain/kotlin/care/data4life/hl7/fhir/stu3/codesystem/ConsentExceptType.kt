@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConsentExceptType {
+
     /**
      * Consent is denied for actions meeting these rules
      */

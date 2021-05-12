@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EventTiming {
+
     /**
      * Event occurs during the morning. The exact time is unspecified and established by institution convention or patient interpretation.
      */

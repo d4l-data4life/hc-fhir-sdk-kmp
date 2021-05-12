@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CarePlanActivityStatus {
+
     /**
      * Activity is planned but no action has yet been taken.
      */

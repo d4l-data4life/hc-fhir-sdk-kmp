@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AlternativeCodeKind {
+
     /**
      * The code is an alternative code that can be used in any of the circumstances that the primary code can be used.
      */

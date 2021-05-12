@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureDataUsage {
+
     /**
      * The data is intended to be provided as additional information alongside the measure results.
      */

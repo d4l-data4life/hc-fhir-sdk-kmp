@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdverseEventCategory {
+
     /**
      * The adverse event pertains to a product problem.
      */

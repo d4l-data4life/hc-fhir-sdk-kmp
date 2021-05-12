@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchSubjectStatus {
+
     /**
      * The subject has been identified as a potential participant in the study but has not yet agreed to participate
      */

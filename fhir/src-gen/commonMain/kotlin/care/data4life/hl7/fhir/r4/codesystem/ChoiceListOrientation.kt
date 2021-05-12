@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ChoiceListOrientation {
+
     /**
      * List choices along the horizontal axis.
      */

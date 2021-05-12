@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SpecimenStatus {
+
     /**
      * The physical specimen is present and in good condition.
      */

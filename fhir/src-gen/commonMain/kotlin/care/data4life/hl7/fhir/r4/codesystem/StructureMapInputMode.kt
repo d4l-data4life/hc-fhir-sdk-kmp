@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapInputMode {
+
     /**
      * Names an input instance used a source for mapping.
      */

@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the status of the patient towards perceived immunity against a vaccine preventable disease. This value set is provided as a suggestive example.
+ * The value set to instantiate this attribute should be drawn from a terminologically robust code
+ * system that consists of or contains concepts to support describing the status of the patient towards
+ * perceived immunity against a vaccine preventable disease. This value set is provided as a suggestive
+ * example.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/immunization-recommendation-status">ImmunizationRecommendationStatusCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/immunization-recommendation-status">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ImmunizationRecommendationStatusCodes {
+
     /**
      * The patient is due for their next vaccination.
      */

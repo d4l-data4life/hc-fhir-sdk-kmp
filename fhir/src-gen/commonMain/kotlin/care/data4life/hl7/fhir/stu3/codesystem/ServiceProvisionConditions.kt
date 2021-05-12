@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ServiceProvisionConditions {
+
     /**
      * This service is available for no patient cost.
      */

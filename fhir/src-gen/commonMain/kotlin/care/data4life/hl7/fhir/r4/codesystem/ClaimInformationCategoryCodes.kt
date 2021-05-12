@@ -29,6 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClaimInformationCategoryCodes {
+
     /**
      * Codes conveying additional situation and condition information.
      */
