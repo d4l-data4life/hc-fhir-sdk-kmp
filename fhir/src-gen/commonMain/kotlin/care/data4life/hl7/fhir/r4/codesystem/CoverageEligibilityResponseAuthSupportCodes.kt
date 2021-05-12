@@ -55,13 +55,15 @@ enum class CoverageEligibilityResponseAuthSupportCodes {
     DIAGNOSTICIMAGEREPORT,
 
     /**
-     * A report from a licensed professional regarding the siutation, condition or proposed treatment.
+     * A report from a licensed professional regarding the siutation, condition or
+     * proposed treatment.
      */
     @SerialName("professionalreport")
     PROFESSIONALREPORT,
 
     /**
-     * A formal accident report as would be filed with police or a simlar official body.
+     * A formal accident report as would be filed with police or a simlar official
+     * body.
      */
     @SerialName("accidentreport")
     ACCIDENTREPORT,

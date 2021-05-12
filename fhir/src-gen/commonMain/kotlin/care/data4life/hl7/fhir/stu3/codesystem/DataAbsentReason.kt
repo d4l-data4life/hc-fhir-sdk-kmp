@@ -73,19 +73,22 @@ enum class DataAbsentReason {
     ASTEXT,
 
     /**
-     * Some system or workflow process error means that the information is not available.
+     * Some system or workflow process error means that the information is not
+     * available.
      */
     @SerialName("error")
     ERROR,
 
     /**
-     * NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value.
+     * NaN, standing for not a number, is a numeric data type value representing an
+     * undefined or unrepresentable value.
      */
     @SerialName("NaN")
     NAN,
 
     /**
-     * The value is not available because the observation procedure (test, etc.) was not performed.
+     * The value is not available because the observation procedure (test, etc.) was
+     * not performed.
      */
     @SerialName("not-performed")
     NOT_PERFORMED

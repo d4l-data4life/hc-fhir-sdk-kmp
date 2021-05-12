@@ -31,19 +31,23 @@ import kotlinx.serialization.Serializable
 enum class EligibilityResponsePurpose {
 
     /**
-     * The prior authorization requirements for the listed, or discovered if specified, converages for the categories of service and/or specifed biling codes are requested.
+     * The prior authorization requirements for the listed, or discovered if specified,
+     * converages for the categories of service and/or specifed biling codes are
+     * requested.
      */
     @SerialName("auth-requirements")
     AUTH_REQUIREMENTS,
 
     /**
-     * The plan benefits and optionally benefits consumed  for the listed, or discovered if specified, converages are requested.
+     * The plan benefits and optionally benefits consumed  for the listed, or
+     * discovered if specified, converages are requested.
      */
     @SerialName("benefits")
     BENEFITS,
 
     /**
-     * The insurer is requested to report on any coverages which they are aware of in addition to any specifed.
+     * The insurer is requested to report on any coverages which they are aware of in
+     * addition to any specifed.
      */
     @SerialName("discovery")
     DISCOVERY,

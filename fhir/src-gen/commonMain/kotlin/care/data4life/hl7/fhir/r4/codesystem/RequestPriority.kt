@@ -43,13 +43,15 @@ enum class RequestPriority {
     URGENT,
 
     /**
-     * The request should be actioned as soon as possible - higher priority than urgent.
+     * The request should be actioned as soon as possible - higher priority than
+     * urgent.
      */
     @SerialName("asap")
     ASAP,
 
     /**
-     * The request should be actioned immediately - highest possible priority.  E.g. an emergency.
+     * The request should be actioned immediately - highest possible priority.  E.g. an
+     * emergency.
      */
     @SerialName("stat")
     STAT

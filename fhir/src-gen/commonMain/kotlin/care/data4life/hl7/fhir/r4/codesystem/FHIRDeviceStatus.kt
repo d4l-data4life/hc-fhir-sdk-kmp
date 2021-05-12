@@ -31,13 +31,16 @@ import kotlinx.serialization.Serializable
 enum class FHIRDeviceStatus {
 
     /**
-     * The device is available for use.  Note: For *implanted devices*  this means that the device is implanted in the patient.
+     * The device is available for use.  Note: For *implanted devices*  this means that
+     * the device is implanted in the patient.
      */
     @SerialName("active")
     ACTIVE,
 
     /**
-     * The device is no longer available for use (e.g. lost, expired, damaged).  Note: For *implanted devices*  this means that the device has been removed from the patient.
+     * The device is no longer available for use (e.g. lost, expired, damaged).  Note:
+     * For *implanted devices*  this means that the device has been removed from the
+     * patient.
      */
     @SerialName("inactive")
     INACTIVE,

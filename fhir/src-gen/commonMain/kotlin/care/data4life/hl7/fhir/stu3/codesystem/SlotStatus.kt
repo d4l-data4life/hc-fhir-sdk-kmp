@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class SlotStatus {
 
     /**
-     * Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
+     * Indicates that the time interval is busy because one  or more events have been
+     * scheduled for that interval.
      */
     @SerialName("busy")
     BUSY,
@@ -43,13 +44,15 @@ enum class SlotStatus {
     FREE,
 
     /**
-     * Indicates that the time interval is busy and that the interval can not be scheduled.
+     * Indicates that the time interval is busy and that the interval can not be
+     * scheduled.
      */
     @SerialName("busy-unavailable")
     BUSY_UNAVAILABLE,
 
     /**
-     * Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
+     * Indicates that the time interval is busy because one or more events have been
+     * tentatively scheduled for that interval.
      */
     @SerialName("busy-tentative")
     BUSY_TENTATIVE,

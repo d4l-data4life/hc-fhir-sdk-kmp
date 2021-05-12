@@ -31,19 +31,23 @@ import kotlinx.serialization.Serializable
 enum class LinkageType {
 
     /**
-     * The record represents the "source of truth" (from the perspective of this Linkage resource) for the underlying event/condition/etc.
+     * The record represents the "source of truth" (from the perspective of this
+     * Linkage resource) for the underlying event/condition/etc.
      */
     @SerialName("source")
     SOURCE,
 
     /**
-     * The record represents the alternative view of the underlying event/condition/etc.  The record may still be actively maintained, even though it is not considered to be the source of truth.
+     * The record represents the alternative view of the underlying
+     * event/condition/etc.  The record may still be actively maintained, even though
+     * it is not considered to be the source of truth.
      */
     @SerialName("alternate")
     ALTERNATE,
 
     /**
-     * The record represents an obsolete record of the underlyng event/condition/etc.  It is not expected to be actively maintained.
+     * The record represents an obsolete record of the underlyng event/condition/etc.
+     * It is not expected to be actively maintained.
      */
     @SerialName("historical")
     HISTORICAL

@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class TypeDerivationRule {
 
     /**
-     * This definition defines a new type that adds additional elements to the base type.
+     * This definition defines a new type that adds additional elements to the base
+     * type.
      */
     @SerialName("specialization")
     SPECIALIZATION,

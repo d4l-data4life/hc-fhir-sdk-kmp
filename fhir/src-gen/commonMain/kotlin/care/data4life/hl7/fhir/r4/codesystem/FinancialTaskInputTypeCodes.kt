@@ -67,7 +67,8 @@ enum class FinancialTaskInputTypeCodes {
     PERIOD,
 
     /**
-     * The processing status from a check on the processing status of a resource such as the adjudication of a claim.
+     * The processing status from a check on the processing status of a resource such
+     * as the adjudication of a claim.
      */
     @SerialName("status")
     STATUS

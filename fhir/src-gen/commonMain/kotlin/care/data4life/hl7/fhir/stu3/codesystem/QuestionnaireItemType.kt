@@ -44,7 +44,8 @@ enum class QuestionnaireItemType {
 
     /**
      * An item that defines a specific answer to be captured, and may have child items.
-(the answer provided in the QuestionnaireResponse should be of the defined datatype)
+     * (the answer provided in the QuestionnaireResponse should be of the defined
+     * datatype)
      */
     @SerialName("question")
     QUESTION,
@@ -80,19 +81,22 @@ enum class QuestionnaireItemType {
     DATETIME,
 
     /**
-     * Question with a time (hour:minute:second) answer independent of date. (valueTime)
+     * Question with a time (hour:minute:second) answer independent of date.
+     * (valueTime)
      */
     @SerialName("time")
     TIME,
 
     /**
-     * Question with a short (few words to short sentence) free-text entry answer (valueString)
+     * Question with a short (few words to short sentence) free-text entry answer
+     * (valueString)
      */
     @SerialName("string")
     STRING,
 
     /**
-     * Question with a long (potentially multi-paragraph) free-text entry answer (valueString)
+     * Question with a long (potentially multi-paragraph) free-text entry answer
+     * (valueString)
      */
     @SerialName("text")
     TEXT,
@@ -104,32 +108,40 @@ enum class QuestionnaireItemType {
     URL,
 
     /**
-     * Question with a Coding drawn from a list of options (specified in either the option property, or via the valueset referenced in the options property) as an answer (valueCoding)
+     * Question with a Coding drawn from a list of options (specified in either the
+     * option property, or via the valueset referenced in the options property) as an
+     * answer (valueCoding)
      */
     @SerialName("choice")
     CHOICE,
 
     /**
-     * Answer is a Coding drawn from a list of options (as with the choice type) or a free-text entry in a string (valueCoding or valueString)
+     * Answer is a Coding drawn from a list of options (as with the choice type) or a
+     * free-text entry in a string (valueCoding or valueString)
      */
     @SerialName("open-choice")
     OPEN_CHOICE,
 
     /**
-     * Question with binary content such as a image, PDF, etc. as an answer (valueAttachment)
+     * Question with binary content such as a image, PDF, etc. as an answer
+     * (valueAttachment)
      */
     @SerialName("attachment")
     ATTACHMENT,
 
     /**
-     * Question with a reference to another resource (practitioner, organization, etc.) as an answer (valueReference)
+     * Question with a reference to another resource (practitioner, organization, etc.)
+     * as an answer (valueReference)
      */
     @SerialName("reference")
     REFERENCE,
 
     /**
-     * Question with a combination of a numeric value and unit, potentially with a comparator (<, >, etc.) as an answer. (valueQuantity)
-There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to define what unit whould be captured (or the a unit that has a ucum conversion from the provided unit)
+     * Question with a combination of a numeric value and unit, potentially with a
+     * comparator (<, >, etc.) as an answer. (valueQuantity)
+     * There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-
+     * unit' that can be used to define what unit whould be captured (or the a unit
+     * that has a ucum conversion from the provided unit)
      */
     @SerialName("quantity")
     QUANTITY

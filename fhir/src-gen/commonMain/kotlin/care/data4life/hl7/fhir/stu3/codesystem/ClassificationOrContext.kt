@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class ClassificationOrContext {
 
     /**
-     * Indicates the useContext is a classification - e.g. Administrative, financial, etc.
+     * Indicates the useContext is a classification - e.g. Administrative, financial,
+     * etc.
      */
     @SerialName("classification")
     CLASSIFICATION,
 
     /**
-     * Indicates the useContext is a context - a domain of use - e.g. Particular country, organization or system
+     * Indicates the useContext is a context - a domain of use - e.g. Particular
+     * country, organization or system
      */
     @SerialName("context")
     CONTEXT

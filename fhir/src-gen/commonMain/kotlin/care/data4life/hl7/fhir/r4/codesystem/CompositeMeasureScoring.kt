@@ -31,25 +31,30 @@ import kotlinx.serialization.Serializable
 enum class CompositeMeasureScoring {
 
     /**
-     * Opportunity scoring combines the scores from component measures by combining the numerators and denominators for each component.
+     * Opportunity scoring combines the scores from component measures by combining the
+     * numerators and denominators for each component.
      */
     @SerialName("opportunity")
     OPPORTUNITY,
 
     /**
-     * All-or-nothing scoring includes an individual in the numerator of the composite measure if they are in the numerators of all of the component measures in which they are in the denominator.
+     * All-or-nothing scoring includes an individual in the numerator of the composite
+     * measure if they are in the numerators of all of the component measures in which
+     * they are in the denominator.
      */
     @SerialName("all-or-nothing")
     ALL_OR_NOTHING,
 
     /**
-     * Linear scoring gives an individual a score based on the number of numerators in which they appear.
+     * Linear scoring gives an individual a score based on the number of numerators in
+     * which they appear.
      */
     @SerialName("linear")
     LINEAR,
 
     /**
-     * Weighted scoring gives an individual a score based on a weighted factor for each component numerator in which they appear.
+     * Weighted scoring gives an individual a score based on a weighted factor for each
+     * component numerator in which they appear.
      */
     @SerialName("weighted")
     WEIGHTED

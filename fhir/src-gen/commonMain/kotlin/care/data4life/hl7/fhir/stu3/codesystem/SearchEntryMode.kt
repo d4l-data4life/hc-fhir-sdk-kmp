@@ -38,13 +38,15 @@ enum class SearchEntryMode {
     MATCH,
 
     /**
-     * This resource is returned because it is referred to from another resource in the search set.
+     * This resource is returned because it is referred to from another resource in the
+     * search set.
      */
     @SerialName("include")
     INCLUDE,
 
     /**
-     * An OperationOutcome that provides additional information about the processing of a search.
+     * An OperationOutcome that provides additional information about the processing of
+     * a search.
      */
     @SerialName("outcome")
     OUTCOME

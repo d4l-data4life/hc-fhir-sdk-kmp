@@ -38,19 +38,22 @@ enum class ConformanceExpectation {
     SHALL,
 
     /**
-     * Support for the specified capability is strongly encouraged, and failure to support it should only occur after careful consideration.
+     * Support for the specified capability is strongly encouraged, and failure to
+     * support it should only occur after careful consideration.
      */
     @SerialName("SHOULD")
     SHOULD,
 
     /**
-     * Support for the specified capability is not necessary to be considered conformant, and the requirement should be considered strictly optional.
+     * Support for the specified capability is not necessary to be considered
+     * conformant, and the requirement should be considered strictly optional.
      */
     @SerialName("MAY")
     MAY,
 
     /**
-     * Support for the specified capability is strongly discouraged and should occur only after careful consideration.
+     * Support for the specified capability is strongly discouraged and should occur
+     * only after careful consideration.
      */
     @SerialName("SHOULD-NOT")
     SHOULD_NOT

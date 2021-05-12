@@ -46,7 +46,8 @@ enum class ImmunizationRecommendationStatusCodes {
     OVERDUE,
 
     /**
-     * The patient is immune to the target disease and further immunization against the disease is not likely to provide benefit.
+     * The patient is immune to the target disease and further immunization against the
+     * disease is not likely to provide benefit.
      */
     @SerialName("immune")
     IMMUNE,

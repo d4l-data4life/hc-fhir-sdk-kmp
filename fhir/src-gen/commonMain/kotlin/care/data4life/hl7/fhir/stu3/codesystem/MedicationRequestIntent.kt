@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class MedicationRequestIntent {
 
     /**
-     * The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act
+     * The request is a suggestion made by someone/something that doesn't have an
+     * intention to ensure it occurs and without providing an authorization to act
      */
     @SerialName("proposal")
     PROPOSAL,
 
     /**
-     * The request represents an intension to ensure something occurs without providing an authorization for others to act
+     * The request represents an intension to ensure something occurs without providing
+     * an authorization for others to act
      */
     @SerialName("plan")
     PLAN,
@@ -49,7 +51,8 @@ enum class MedicationRequestIntent {
     ORDER,
 
     /**
-     * The request represents an instance for the particular order, for example a medication administration record.
+     * The request represents an instance for the particular order, for example a
+     * medication administration record.
      */
     @SerialName("instance-order")
     INSTANCE_ORDER

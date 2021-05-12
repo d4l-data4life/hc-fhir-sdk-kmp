@@ -37,7 +37,8 @@ enum class TriggerType {
     NAMED_EVENT,
 
     /**
-     * The trigger occurs at a specific time or periodically as described by a timing or schedule
+     * The trigger occurs at a specific time or periodically as described by a timing
+     * or schedule
      */
     @SerialName("periodic")
     PERIODIC,

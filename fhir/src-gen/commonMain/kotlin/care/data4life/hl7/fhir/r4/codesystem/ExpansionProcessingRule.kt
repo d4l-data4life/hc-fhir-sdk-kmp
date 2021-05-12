@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class ExpansionProcessingRule {
 
     /**
-     * The expansion (when in UI mode) includes all codes *and* any defined groups (in extensions).
+     * The expansion (when in UI mode) includes all codes *and* any defined groups (in
+     * extensions).
      */
     @SerialName("all-codes")
     ALL_CODES,
 
     /**
-     * The expanion (when in UI mode) lists the groups, and then any codes that have not been included in a group.
+     * The expanion (when in UI mode) lists the groups, and then any codes that have
+     * not been included in a group.
      */
     @SerialName("ungrouped")
     UNGROUPED,

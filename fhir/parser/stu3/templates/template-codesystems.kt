@@ -23,7 +23,9 @@ import kotlinx.serialization.Serializable
  * {{ system.definition.description | wordwrap(100) | replace('\n', '\n * ') }}
  *
  * @see <a href="{{ system.url }}">{{ system.name }}</a>
- * {%- if system.definition.valueSet %} @see <a href="{{ system.definition.valueSet }}">ValueSet</a> {%- endif %}
+{%- if system.definition.valueSet %}
+ * @see <a href="{{ system.definition.valueSet }}">ValueSet</a>
+{%- endif %}
  *
  * Generated from FHIR {{ info.version }}
  */
@@ -31,7 +33,7 @@ import kotlinx.serialization.Serializable
 enum class {{ system.name }} {
 {% for code in system.codes %}
     /**
-     * {{ code.definition }}
+     * {{ code.definition | wordwrap(80) | replace('\n', '\n     * ') }}
      */
     @SerialName("{{code.code}}")
     {%- if code.code == "=" %}

@@ -37,7 +37,8 @@ enum class IssueType {
     INVALID,
 
     /**
-     * A structural issue in the content such as wrong namespace, unable to parse the content completely, invalid syntax, etc.
+     * A structural issue in the content such as wrong namespace, unable to parse the
+     * content completely, invalid syntax, etc.
      */
     @SerialName("structure")
     STRUCTURE,
@@ -73,7 +74,8 @@ enum class IssueType {
     LOGIN,
 
     /**
-     * The user or system was not able to be authenticated (either there is no process, or the proferred token is unacceptable).
+     * The user or system was not able to be authenticated (either there is no process,
+     * or the proferred token is unacceptable).
      */
     @SerialName("unknown")
     UNKNOWN,
@@ -91,13 +93,16 @@ enum class IssueType {
     FORBIDDEN,
 
     /**
-     * Some information was not or might not have been returned due to business rules, consent or privacy rules, or access permission constraints.  This information may be accessible through alternate processes.
+     * Some information was not or might not have been returned due to business rules,
+     * consent or privacy rules, or access permission constraints.  This information
+     * may be accessible through alternate processes.
      */
     @SerialName("suppressed")
     SUPPRESSED,
 
     /**
-     * Processing issues. These are expected to be final e.g. there is no point resubmitting the same content unchanged.
+     * Processing issues. These are expected to be final e.g. there is no point
+     * resubmitting the same content unchanged.
      */
     @SerialName("processing")
     PROCESSING,
@@ -121,7 +126,9 @@ enum class IssueType {
     MULTIPLE_MATCHES,
 
     /**
-     * The reference provided was not found. In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the content is not found further into the application architecture.
+     * The reference provided was not found. In a pure RESTful environment, this would
+     * be an HTTP 404 error, but this code may be used where the content is not found
+     * further into the application architecture.
      */
     @SerialName("not-found")
     NOT_FOUND,
@@ -133,43 +140,52 @@ enum class IssueType {
     DELETED,
 
     /**
-     * Provided content is too long (typically, this is a denial of service protection type of error).
+     * Provided content is too long (typically, this is a denial of service protection
+     * type of error).
      */
     @SerialName("too-long")
     TOO_LONG,
 
     /**
-     * The code or system could not be understood, or it was not valid in the context of a particular ValueSet.code.
+     * The code or system could not be understood, or it was not valid in the context
+     * of a particular ValueSet.code.
      */
     @SerialName("code-invalid")
     CODE_INVALID,
 
     /**
-     * An extension was found that was not acceptable, could not be resolved, or a modifierExtension was not recognized.
+     * An extension was found that was not acceptable, could not be resolved, or a
+     * modifierExtension was not recognized.
      */
     @SerialName("extension")
     EXTENSION,
 
     /**
-     * The operation was stopped to protect server resources; e.g. a request for a value set expansion on all of SNOMED CT.
+     * The operation was stopped to protect server resources; e.g. a request for a
+     * value set expansion on all of SNOMED CT.
      */
     @SerialName("too-costly")
     TOO_COSTLY,
 
     /**
-     * The content/operation failed to pass some business rule and so could not proceed.
+     * The content/operation failed to pass some business rule and so could not
+     * proceed.
      */
     @SerialName("business-rule")
     BUSINESS_RULE,
 
     /**
-     * Content could not be accepted because of an edit conflict (i.e. version aware updates). (In a pure RESTful environment, this would be an HTTP 409 error, but this code may be used where the conflict is discovered further into the application architecture.).
+     * Content could not be accepted because of an edit conflict (i.e. version aware
+     * updates). (In a pure RESTful environment, this would be an HTTP 409 error, but
+     * this code may be used where the conflict is discovered further into the
+     * application architecture.).
      */
     @SerialName("conflict")
     CONFLICT,
 
     /**
-     * Transient processing issues. The system receiving the message may be able to resubmit the same content once an underlying issue is resolved.
+     * Transient processing issues. The system receiving the message may be able to
+     * resubmit the same content once an underlying issue is resolved.
      */
     @SerialName("transient")
     TRANSIENT,
@@ -181,7 +197,8 @@ enum class IssueType {
     LOCK_ERROR,
 
     /**
-     * The persistent store is unavailable; e.g. the database is down for maintenance or similar action, and the interaction or operation cannot be processed.
+     * The persistent store is unavailable; e.g. the database is down for maintenance
+     * or similar action, and the interaction or operation cannot be processed.
      */
     @SerialName("no-store")
     NO_STORE,
@@ -199,7 +216,9 @@ enum class IssueType {
     TIMEOUT,
 
     /**
-     * Not all data sources typically accessed could be reached or responded in time, so the returned information might not be complete (applies to search interactions and some operations).
+     * Not all data sources typically accessed could be reached or responded in time,
+     * so the returned information might not be complete (applies to search
+     * interactions and some operations).
      */
     @SerialName("incomplete")
     INCOMPLETE,
@@ -211,7 +230,9 @@ enum class IssueType {
     THROTTLED,
 
     /**
-     * A message unrelated to the processing success of the completed operation (examples of the latter include things like reminders of password expiry, system maintenance times, etc.).
+     * A message unrelated to the processing success of the completed operation
+     * (examples of the latter include things like reminders of password expiry, system
+     * maintenance times, etc.).
      */
     @SerialName("informational")
     INFORMATIONAL

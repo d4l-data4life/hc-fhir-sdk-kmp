@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class AdverseEventActuality {
 
     /**
-     * The adverse event actually happened regardless of whether anyone was affected or harmed.
+     * The adverse event actually happened regardless of whether anyone was affected or
+     * harmed.
      */
     @SerialName("actual")
     ACTUAL,

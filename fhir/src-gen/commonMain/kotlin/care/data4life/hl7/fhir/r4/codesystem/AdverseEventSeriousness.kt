@@ -55,7 +55,8 @@ enum class AdverseEventSeriousness {
     SERIOUSISLIFETHREATENING,
 
     /**
-     * Requires inpatient hospitalization or causes prolongation of existing hospitalization.
+     * Requires inpatient hospitalization or causes prolongation of existing
+     * hospitalization.
      */
     @SerialName("SeriousResultsInHospitalization")
     SERIOUSRESULTSINHOSPITALIZATION,
@@ -73,7 +74,8 @@ enum class AdverseEventSeriousness {
     SERIOUSISBIRTHDEFECT,
 
     /**
-     * Requires intervention to prevent permanent impairment or damage (i.e., an important medical event that requires medical judgement).
+     * Requires intervention to prevent permanent impairment or damage (i.e., an
+     * important medical event that requires medical judgement).
      */
     @SerialName("SeriousRequiresPreventImpairment")
     SERIOUSREQUIRESPREVENTIMPAIRMENT

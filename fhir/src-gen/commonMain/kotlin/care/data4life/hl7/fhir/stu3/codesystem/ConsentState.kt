@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class ConsentState {
 
     /**
-     * The consent is in development or awaiting use but is not yet intended to be acted upon.
+     * The consent is in development or awaiting use but is not yet intended to be
+     * acted upon.
      */
     @SerialName("draft")
     DRAFT,
 
     /**
-     * The consent has been proposed but not yet agreed to by all parties. The negotiation stage.
+     * The consent has been proposed but not yet agreed to by all parties. The
+     * negotiation stage.
      */
     @SerialName("proposed")
     PROPOSED,

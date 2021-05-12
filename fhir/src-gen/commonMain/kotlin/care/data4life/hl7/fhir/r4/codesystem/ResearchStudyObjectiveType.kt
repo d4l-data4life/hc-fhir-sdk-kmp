@@ -31,13 +31,16 @@ import kotlinx.serialization.Serializable
 enum class ResearchStudyObjectiveType {
 
     /**
-     * The main question to be answered, and the one that drives any statistical planning for the study—e.g., calculation of the sample size to provide the appropriate power for statistical testing.
+     * The main question to be answered, and the one that drives any statistical
+     * planning for the study—e.g., calculation of the sample size to provide the
+     * appropriate power for statistical testing.
      */
     @SerialName("primary")
     PRIMARY,
 
     /**
-     * Question to be answered in the study that is of lesser importance than the primary objective.
+     * Question to be answered in the study that is of lesser importance than the
+     * primary objective.
      */
     @SerialName("secondary")
     SECONDARY,

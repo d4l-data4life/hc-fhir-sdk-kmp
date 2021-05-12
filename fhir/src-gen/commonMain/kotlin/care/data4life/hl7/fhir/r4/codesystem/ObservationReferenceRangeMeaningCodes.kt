@@ -38,7 +38,10 @@ enum class ObservationReferenceRangeMeaningCodes {
     TYPE,
 
     /**
-     * Values expected for a normal member of the relevant control population being measured. Typically each results producer such as a laboratory has specific normal ranges and they are usually defined as within two standard deviations from the mean and account for 95.45% of this population.
+     * Values expected for a normal member of the relevant control population being
+     * measured. Typically each results producer such as a laboratory has specific
+     * normal ranges and they are usually defined as within two standard deviations
+     * from the mean and account for 95.45% of this population.
      */
     @SerialName("normal")
     NORMAL,
@@ -62,13 +65,15 @@ enum class ObservationReferenceRangeMeaningCodes {
     THERAPEUTIC,
 
     /**
-     * The optimal range for best therapeutic outcomes for a specimen taken immediately before administration.
+     * The optimal range for best therapeutic outcomes for a specimen taken immediately
+     * before administration.
      */
     @SerialName("pre")
     PRE,
 
     /**
-     * The optimal range for best therapeutic outcomes for a specimen taken immediately after administration.
+     * The optimal range for best therapeutic outcomes for a specimen taken immediately
+     * after administration.
      */
     @SerialName("post")
     POST,

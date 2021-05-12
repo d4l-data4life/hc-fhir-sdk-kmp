@@ -37,13 +37,16 @@ enum class ExtensionContext {
     RESOURCE,
 
     /**
-     * The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
+     * The context is all nodes matching a particular data type element path (root or
+     * repeating element) or all elements referencing a particular primitive data type
+     * (expressed as the datatype name).
      */
     @SerialName("datatype")
     DATATYPE,
 
     /**
-     * The context is a particular extension from a particular profile, a uri that identifies the extension definition.
+     * The context is a particular extension from a particular profile, a uri that
+     * identifies the extension definition.
      */
     @SerialName("extension")
     EXTENSION

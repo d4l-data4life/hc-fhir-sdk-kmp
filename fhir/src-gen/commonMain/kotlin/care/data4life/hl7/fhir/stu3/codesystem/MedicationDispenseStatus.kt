@@ -31,7 +31,9 @@ import kotlinx.serialization.Serializable
 enum class MedicationDispenseStatus {
 
     /**
-     * The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes.
+     * The core event has not started yet, but some staging activities have begun (e.g.
+     * initial compounding or packaging of medication). Preparation stages may be
+     * tracked for billing purposes.
      */
     @SerialName("preparation")
     PREPARATION,
@@ -43,7 +45,8 @@ enum class MedicationDispenseStatus {
     IN_PROGRESS,
 
     /**
-     * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended"
+     * Actions implied by the administration have been temporarily halted, but are
+     * expected to continue later. May also be called "suspended"
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -61,7 +64,8 @@ enum class MedicationDispenseStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * Actions implied by the dispense have been permanently halted, before all of them occurred.
+     * Actions implied by the dispense have been permanently halted, before all of them
+     * occurred.
      */
     @SerialName("stopped")
     STOPPED

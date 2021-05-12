@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class FinancialTaskCodes {
 
     /**
-     * Cancel or reverse a resource, such as a claim or preauthorization, which is in-process or complete.
+     * Cancel or reverse a resource, such as a claim or preauthorization, which is in-
+     * process or complete.
      */
     @SerialName("cancel")
     CANCEL,
@@ -43,19 +44,23 @@ enum class FinancialTaskCodes {
     POLL,
 
     /**
-     * Release any reserved funds or material obligations associated with a resource. For example, any unused but reserved funds or treatment allowance associated with a preauthorization once treatment is complete.
+     * Release any reserved funds or material obligations associated with a resource.
+     * For example, any unused but reserved funds or treatment allowance associated
+     * with a preauthorization once treatment is complete.
      */
     @SerialName("release")
     RELEASE,
 
     /**
-     * Indication that the processing of a resource, such as a claim, for some or all of the required work is now being requested.
+     * Indication that the processing of a resource, such as a claim, for some or all
+     * of the required work is now being requested.
      */
     @SerialName("reprocess")
     REPROCESS,
 
     /**
-     * Check on the processing status of a resource such as the adjudication of a claim.
+     * Check on the processing status of a resource such as the adjudication of a
+     * claim.
      */
     @SerialName("status")
     STATUS

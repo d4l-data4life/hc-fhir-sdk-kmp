@@ -43,25 +43,29 @@ enum class BundleType {
     MESSAGE,
 
     /**
-     * The bundle is a transaction - intended to be processed by a server as an atomic commit.
+     * The bundle is a transaction - intended to be processed by a server as an atomic
+     * commit.
      */
     @SerialName("transaction")
     TRANSACTION,
 
     /**
-     * The bundle is a transaction response. Because the response is a transaction response, the transaction has succeeded, and all responses are error free.
+     * The bundle is a transaction response. Because the response is a transaction
+     * response, the transaction has succeeded, and all responses are error free.
      */
     @SerialName("transaction-response")
     TRANSACTION_RESPONSE,
 
     /**
-     * The bundle is a transaction - intended to be processed by a server as a group of actions.
+     * The bundle is a transaction - intended to be processed by a server as a group of
+     * actions.
      */
     @SerialName("batch")
     BATCH,
 
     /**
-     * The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success.
+     * The bundle is a batch response. Note that as a batch, some responses may
+     * indicate failure and others success.
      */
     @SerialName("batch-response")
     BATCH_RESPONSE,
@@ -73,13 +77,15 @@ enum class BundleType {
     HISTORY,
 
     /**
-     * The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.
+     * The bundle is a list of resources returned as a result of a search/query
+     * interaction, operation, or message.
      */
     @SerialName("searchset")
     SEARCHSET,
 
     /**
-     * The bundle is a set of resources collected into a single package for ease of distribution.
+     * The bundle is a set of resources collected into a single package for ease of
+     * distribution.
      */
     @SerialName("collection")
     COLLECTION

@@ -37,13 +37,15 @@ enum class TaskPerformerType {
     REQUESTER,
 
     /**
-     * A workflow participant that dispatches services (assigns another task to a participant).
+     * A workflow participant that dispatches services (assigns another task to a
+     * participant).
      */
     @SerialName("dispatcher")
     DISPATCHER,
 
     /**
-     * A workflow participant that schedules (dispatches and sets the time or date for performance of) services.
+     * A workflow participant that schedules (dispatches and sets the time or date for
+     * performance of) services.
      */
     @SerialName("scheduler")
     SCHEDULER,
@@ -67,7 +69,8 @@ enum class TaskPerformerType {
     MANAGER,
 
     /**
-     * A workflow participant that acquires resources (specimens, images, etc) necessary to perform the task.
+     * A workflow participant that acquires resources (specimens, images, etc)
+     * necessary to perform the task.
      */
     @SerialName("acquirer")
     ACQUIRER,

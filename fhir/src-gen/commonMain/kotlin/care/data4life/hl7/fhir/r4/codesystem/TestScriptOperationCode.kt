@@ -140,7 +140,8 @@ enum class TestScriptOperationCode {
     CONFORMS,
 
     /**
-     * Aggregates and returns the parameters and data requirements for a resource and all its dependencies as a single module definition
+     * Aggregates and returns the parameters and data requirements for a resource and
+     * all its dependencies as a single module definition
      */
     @SerialName("data-requirements")
     DATA_REQUIREMENTS,
@@ -152,7 +153,8 @@ enum class TestScriptOperationCode {
     DOCUMENT,
 
     /**
-     * Request clinical decision support guidance based on a specific decision support module
+     * Request clinical decision support guidance based on a specific decision support
+     * module
      */
     @SerialName("evaluate")
     EVALUATE,

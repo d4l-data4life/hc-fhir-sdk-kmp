@@ -44,13 +44,15 @@ enum class ContactEntityType {
     ADMIN,
 
     /**
-     * Contact details for issues related to Human Resources, such as staff matters, OH&S etc.
+     * Contact details for issues related to Human Resources, such as staff matters,
+     * OH&S etc.
      */
     @SerialName("HR")
     HR,
 
     /**
-     * Contact details for dealing with issues related to insurance claims/adjudication/payment.
+     * Contact details for dealing with issues related to insurance
+     * claims/adjudication/payment.
      */
     @SerialName("PAYOR")
     PAYOR,

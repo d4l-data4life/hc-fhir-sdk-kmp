@@ -31,19 +31,23 @@ import kotlinx.serialization.Serializable
 enum class ActionRequiredBehavior {
 
     /**
-     * An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT choose not to include this action.
+     * An action with this behavior must be included in the actions processed by the
+     * end user; the end user SHALL NOT choose not to include this action.
      */
     @SerialName("must")
     MUST,
 
     /**
-     * An action with this behavior may be included in the set of actions processed by the end user.
+     * An action with this behavior may be included in the set of actions processed by
+     * the end user.
      */
     @SerialName("could")
     COULD,
 
     /**
-     * An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included.
+     * An action with this behavior must be included in the set of actions processed by
+     * the end user, unless the end user provides documentation as to why the action
+     * was not included.
      */
     @SerialName("must-unless-documented")
     MUST_UNLESS_DOCUMENTED

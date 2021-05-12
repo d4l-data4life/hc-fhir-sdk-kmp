@@ -43,7 +43,9 @@ enum class EndpointStatus {
     SUSPENDED,
 
     /**
-     * This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken
+     * This endpoint has exceeded connectivity thresholds and is considered in an error
+     * state and should no longer be attempted to connect to until corrective action is
+     * taken
      */
     @SerialName("error")
     ERROR,

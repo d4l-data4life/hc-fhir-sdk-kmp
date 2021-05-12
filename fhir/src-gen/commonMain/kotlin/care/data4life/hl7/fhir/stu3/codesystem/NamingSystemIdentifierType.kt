@@ -37,19 +37,22 @@ enum class NamingSystemIdentifierType {
     OID,
 
     /**
-     * A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
+     * A universally unique identifier of the form
+     * a5afddf4-e880-459b-876e-e4591b0acc11.
      */
     @SerialName("uuid")
     UUID,
 
     /**
-     * A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.
+     * A uniform resource identifier (ideally a URL - uniform resource locator); e.g.
+     * http://unitsofmeasure.org.
      */
     @SerialName("uri")
     URI,
 
     /**
-     * Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.
+     * Some other type of unique identifier; e.g. HL7-assigned reserved string such as
+     * LN for LOINC.
      */
     @SerialName("other")
     OTHER

@@ -43,7 +43,8 @@ enum class ContractTermSubtypeCodes {
     WARRANTY,
 
     /**
-     * Breach of which might or might not go to the root of the contract depending upon the nature of the breach
+     * Breach of which might or might not go to the root of the contract depending upon
+     * the nature of the breach
      */
     @SerialName("innominate")
     INNOMINATE

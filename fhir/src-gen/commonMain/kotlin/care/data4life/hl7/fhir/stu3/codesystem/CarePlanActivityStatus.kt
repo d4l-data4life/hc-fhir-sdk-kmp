@@ -49,7 +49,8 @@ enum class CarePlanActivityStatus {
     IN_PROGRESS,
 
     /**
-     * Activity was started but has temporarily ceased with an expectation of resumption at a future time.
+     * Activity was started but has temporarily ceased with an expectation of
+     * resumption at a future time.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -61,7 +62,8 @@ enum class CarePlanActivityStatus {
     COMPLETED,
 
     /**
-     * The activities have been ended prior to completion (perhaps even before they were started).
+     * The activities have been ended prior to completion (perhaps even before they
+     * were started).
      */
     @SerialName("cancelled")
     CANCELLED,

@@ -43,7 +43,8 @@ enum class GroupType {
     ANIMAL,
 
     /**
-     * Group contains healthcare practitioner resources (Practitioner or PractitionerRole).
+     * Group contains healthcare practitioner resources (Practitioner or
+     * PractitionerRole).
      */
     @SerialName("practitioner")
     PRACTITIONER,

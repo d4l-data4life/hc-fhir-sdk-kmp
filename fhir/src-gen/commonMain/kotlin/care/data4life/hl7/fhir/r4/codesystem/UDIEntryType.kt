@@ -43,7 +43,8 @@ enum class UDIEntryType {
     RFID,
 
     /**
-     * The data was read from the label by a person and manually entered. (e.g.  via a keyboard).
+     * The data was read from the label by a person and manually entered. (e.g.  via a
+     * keyboard).
      */
     @SerialName("manual")
     MANUAL,
@@ -55,7 +56,8 @@ enum class UDIEntryType {
     CARD,
 
     /**
-     * The data originated from a patient source and was not directly scanned or read from a label or card.
+     * The data originated from a patient source and was not directly scanned or read
+     * from a label or card.
      */
     @SerialName("self-reported")
     SELF_REPORTED,

@@ -43,13 +43,17 @@ enum class ReferralMethod {
     PHONE,
 
     /**
-     * Referrals may be accepted via a secure messaging system. To determine the types of secure messaging systems supported, refer to the identifiers collection. Callers will need to understand the specific identifier system used to know that they are able to transmit messages.
+     * Referrals may be accepted via a secure messaging system. To determine the types
+     * of secure messaging systems supported, refer to the identifiers collection.
+     * Callers will need to understand the specific identifier system used to know that
+     * they are able to transmit messages.
      */
     @SerialName("elec")
     ELEC,
 
     /**
-     * Referrals may be accepted via a secure email. To send please encrypt with the services public key.
+     * Referrals may be accepted via a secure email. To send please encrypt with the
+     * services public key.
      */
     @SerialName("semail")
     SEMAIL,

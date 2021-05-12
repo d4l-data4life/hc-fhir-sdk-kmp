@@ -49,7 +49,8 @@ enum class LibraryType {
     ASSET_COLLECTION,
 
     /**
-     * The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation context.
+     * The resource defines the dependencies, parameters, and data requirements for a
+     * particular module or evaluation context.
      */
     @SerialName("module-definition")
     MODULE_DEFINITION

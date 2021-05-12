@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class GuidePageKind {
 
     /**
-     * This is a page of content that is included in the implementation guide. It has no particular function.
+     * This is a page of content that is included in the implementation guide. It has
+     * no particular function.
      */
     @SerialName("page")
     PAGE,
@@ -55,7 +56,8 @@ enum class GuidePageKind {
     INCLUDE,
 
     /**
-     * This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section.
+     * This is a page that lists the resources of a given type, and also creates pages
+     * for all the listed types as other pages in the section.
      */
     @SerialName("directory")
     DIRECTORY,
@@ -73,7 +75,8 @@ enum class GuidePageKind {
     TOC,
 
     /**
-     * This is a page that represents a presented resource. This is typically used for generated conformance resource presentations.
+     * This is a page that represents a presented resource. This is typically used for
+     * generated conformance resource presentations.
      */
     @SerialName("resource")
     RESOURCE

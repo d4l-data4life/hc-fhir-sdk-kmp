@@ -37,7 +37,8 @@ enum class AddressUse {
     HOME,
 
     /**
-     * An office address. First choice for business related contacts during business hours.
+     * An office address. First choice for business related contacts during business
+     * hours.
      */
     @SerialName("work")
     WORK,
@@ -49,7 +50,8 @@ enum class AddressUse {
     TEMP,
 
     /**
-     * This address is no longer in use (or was never correct but retained for records).
+     * This address is no longer in use (or was never correct but retained for
+     * records).
      */
     @SerialName("old")
     OLD,

@@ -25,7 +25,6 @@ import kotlinx.serialization.Serializable
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/media-modality">MediaModality</a>
  *
- *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
@@ -44,7 +43,8 @@ enum class MediaModality {
     FAX,
 
     /**
-     * A digital scan of a document. This is reserved for when there is not enough metadata to create a document reference
+     * A digital scan of a document. This is reserved for when there is not enough
+     * metadata to create a document reference
      */
     @SerialName("scan")
     SCAN,

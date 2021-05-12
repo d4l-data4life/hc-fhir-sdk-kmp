@@ -32,13 +32,15 @@ import kotlinx.serialization.Serializable
 enum class RiskEstimateType {
 
     /**
-     * dichotomous measure (present or absent) reported as a ratio compared to the denominator of 1 (A percentage is a proportion with denominator of 100).
+     * dichotomous measure (present or absent) reported as a ratio compared to the
+     * denominator of 1 (A percentage is a proportion with denominator of 100).
      */
     @SerialName("proportion")
     PROPORTION,
 
     /**
-     * A special use case where the proportion is derived from a formula rather than derived from summary evidence.
+     * A special use case where the proportion is derived from a formula rather than
+     * derived from summary evidence.
      */
     @SerialName("derivedProportion")
     DERIVEDPROPORTION,

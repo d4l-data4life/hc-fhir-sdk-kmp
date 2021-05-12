@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class FamilyHistoryStatus {
 
     /**
-     * Some health information is known and captured, but not complete - see notes for details.
+     * Some health information is known and captured, but not complete - see notes for
+     * details.
      */
     @SerialName("partial")
     PARTIAL,
 
     /**
-     * All available related health information is captured as of the date (and possibly time) when the family member history was taken.
+     * All available related health information is captured as of the date (and
+     * possibly time) when the family member history was taken.
      */
     @SerialName("completed")
     COMPLETED,

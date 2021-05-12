@@ -25,7 +25,6 @@ import kotlinx.serialization.Serializable
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/practitioner-role">PractitionerRole</a>
  *
- *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable

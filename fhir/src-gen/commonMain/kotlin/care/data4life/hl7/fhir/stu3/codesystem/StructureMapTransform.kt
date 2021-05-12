@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class StructureMapTransform {
 
     /**
-     * create(type : string) - type is passed through to the application on the standard API, and must be known by it
+     * create(type : string) - type is passed through to the application on the
+     * standard API, and must be known by it
      */
     @SerialName("create")
     CREATE,
@@ -49,13 +50,16 @@ enum class StructureMapTransform {
     TRUNCATE,
 
     /**
-     * escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped
+     * escape(source, fmt1, fmt2) - change source from one kind of escaping to another
+     * (plain, java, xml, json). note that this is for when the string itself is
+     * escaped
      */
     @SerialName("escape")
     ESCAPE,
 
     /**
-     * cast(source, type?) - case source from one type to another. target type can be left as implicit if there is one and only one target type known
+     * cast(source, type?) - case source from one type to another. target type can be
+     * left as implicit if there is one and only one target type known
      */
     @SerialName("cast")
     CAST,
@@ -73,7 +77,8 @@ enum class StructureMapTransform {
     TRANSLATE,
 
     /**
-     * reference(source : object) - return a string that references the provided tree properly
+     * reference(source : object) - return a string that references the provided tree
+     * properly
      */
     @SerialName("reference")
     REFERENCE,
@@ -91,7 +96,8 @@ enum class StructureMapTransform {
     UUID,
 
     /**
-     * Return the appropriate string to put in a reference that refers to the resource provided as a parameter
+     * Return the appropriate string to put in a reference that refers to the resource
+     * provided as a parameter
      */
     @SerialName("pointer")
     POINTER,
@@ -115,19 +121,22 @@ enum class StructureMapTransform {
     C,
 
     /**
-     * Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit
+     * Create a quantity. Parameters = (text) or (value, unit, [system, code]) where
+     * text is the natural representation e.g. [comparator]value[space]unit
      */
     @SerialName("qty")
     QTY,
 
     /**
-     * Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set
+     * Create an identifier. Parameters = (system, value[, type]) where type is a code
+     * from the identifier type value set
      */
     @SerialName("id")
     ID,
 
     /**
-     * Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value
+     * Create a contact details. Parameters = (value) or (system, value). If no system
+     * is provided, the system should be inferred from the content of the value
      */
     @SerialName("cp")
     CP

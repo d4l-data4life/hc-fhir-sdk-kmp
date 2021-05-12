@@ -37,7 +37,8 @@ enum class StructureMapGroupTypeMode {
     NONE,
 
     /**
-     * This group is a default mapping group for the specified types and for the primary source type.
+     * This group is a default mapping group for the specified types and for the
+     * primary source type.
      */
     @SerialName("types")
     TYPES,

@@ -37,7 +37,8 @@ enum class MedicationAdministrationStatus {
     IN_PROGRESS,
 
     /**
-     * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
+     * Actions implied by the administration have been temporarily halted, but are
+     * expected to continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -55,13 +56,16 @@ enum class MedicationAdministrationStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * Actions implied by the administration have been permanently halted, before all of them occurred.
+     * Actions implied by the administration have been permanently halted, before all
+     * of them occurred.
      */
     @SerialName("stopped")
     STOPPED,
 
     /**
-     * The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+     * The authoring system does not know which of the status values currently applies
+     * for this request. Note: This concept is not to be used for "other" - one of the
+     * listed statuses is presumed to apply, it's just not known which one.
      */
     @SerialName("unknown")
     UNKNOWN

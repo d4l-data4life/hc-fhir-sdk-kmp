@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class NamingSystemType {
 
     /**
-     * The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
+     * The naming system is used to define concepts and symbols to represent those
+     * concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
      */
     @SerialName("codesystem")
     CODESYSTEM,
 
     /**
-     * The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.).
+     * The naming system is used to manage identifiers (e.g. license numbers, order
+     * numbers, etc.).
      */
     @SerialName("identifier")
     IDENTIFIER,

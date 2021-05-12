@@ -25,7 +25,6 @@ import kotlinx.serialization.Serializable
  *
  * @see <a href="http://hl7.org/fhir/reason-medication-not-given">SNOMEDCTReasonMedicationNotGivenCodes</a>
  *
- *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable

@@ -38,7 +38,8 @@ enum class LocationType {
     SI,
 
     /**
-     * Any Building or structure. This may contain rooms, corridors, wings, etc. It might not have walls, or a roof, but is considered a defined/allocated space.
+     * Any Building or structure. This may contain rooms, corridors, wings, etc. It
+     * might not have walls, or a roof, but is considered a defined/allocated space.
      */
     @SerialName("bu")
     BU,
@@ -50,7 +51,8 @@ enum class LocationType {
     WI,
 
     /**
-     * A Ward is a section of a medical facility that may contain rooms and other types of location.
+     * A Ward is a section of a medical facility that may contain rooms and other types
+     * of location.
      */
     @SerialName("wa")
     WA,
@@ -68,13 +70,15 @@ enum class LocationType {
     CO,
 
     /**
-     * A space that is allocated as a room, it may have walls/roof etc., but does not require these.
+     * A space that is allocated as a room, it may have walls/roof etc., but does not
+     * require these.
      */
     @SerialName("ro")
     RO,
 
     /**
-     * A space that is allocated for sleeping/laying on. This is not the physical bed/trolley that may be moved about, but the space it may occupy.
+     * A space that is allocated for sleeping/laying on. This is not the physical
+     * bed/trolley that may be moved about, but the space it may occupy.
      */
     @SerialName("bd")
     BD,
@@ -86,7 +90,8 @@ enum class LocationType {
     VE,
 
     /**
-     * A residential dwelling. Usually used to reference a location that a person/patient may reside.
+     * A residential dwelling. Usually used to reference a location that a
+     * person/patient may reside.
      */
     @SerialName("ho")
     HO,
@@ -104,13 +109,18 @@ enum class LocationType {
     RD,
 
     /**
-     * A defined physical boundary of something, such as a flood risk zone, region, postcode
+     * A defined physical boundary of something, such as a flood risk zone, region,
+     * postcode
      */
     @SerialName("area")
     AREA,
 
     /**
-     * A wide scope that covers a conceptual domain, such as a Nation (Country wide community or Federal Government - e.g. Ministry of Health),  Province or State (community or Government), Business (throughout the enterprise), Nation with a business scope of an agency (e.g. CDC, FDA etc.) or a Business segment (UK Pharmacy), not just an physical boundary
+     * A wide scope that covers a conceptual domain, such as a Nation (Country wide
+     * community or Federal Government - e.g. Ministry of Health),  Province or State
+     * (community or Government), Business (throughout the enterprise), Nation with a
+     * business scope of an agency (e.g. CDC, FDA etc.) or a Business segment (UK
+     * Pharmacy), not just an physical boundary
      */
     @SerialName("jdn")
     JDN

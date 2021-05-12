@@ -40,19 +40,22 @@ enum class ConceptSubsumptionOutcome {
     EQUIVALENT,
 
     /**
-     * Coding/code "A" subsumes Coding/code "B" (e.g. B has all the properties A has, and some of it's own).
+     * Coding/code "A" subsumes Coding/code "B" (e.g. B has all the properties A has,
+     * and some of it's own).
      */
     @SerialName("subsumes")
     SUBSUMES,
 
     /**
-     * Coding/code "A" is subsumed by Coding/code "B" (e.g. A has all the properties B has, and some of it's own).
+     * Coding/code "A" is subsumed by Coding/code "B" (e.g. A has all the properties B
+     * has, and some of it's own).
      */
     @SerialName("subsumed-by")
     SUBSUMED_BY,
 
     /**
-     * Coding/code "A" and Coding/code "B" are disjoint (e.g. each has propeties that the other doesn't have).
+     * Coding/code "A" and Coding/code "B" are disjoint (e.g. each has propeties that
+     * the other doesn't have).
      */
     @SerialName("not-subsumed")
     NOT_SUBSUMED

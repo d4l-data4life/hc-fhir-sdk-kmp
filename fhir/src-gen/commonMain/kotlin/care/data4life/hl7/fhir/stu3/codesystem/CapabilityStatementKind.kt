@@ -31,19 +31,24 @@ import kotlinx.serialization.Serializable
 enum class CapabilityStatementKind {
 
     /**
-     * The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
+     * The CapabilityStatement instance represents the present capabilities of a
+     * specific system instance.  This is the kind returned by OPTIONS for a FHIR
+     * server end-point.
      */
     @SerialName("instance")
     INSTANCE,
 
     /**
-     * The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.
+     * The CapabilityStatement instance represents the capabilities of a system or
+     * piece of software, independent of a particular installation.
      */
     @SerialName("capability")
     CAPABILITY,
 
     /**
-     * The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.
+     * The CapabilityStatement instance represents a set of requirements for other
+     * systems to meet; e.g. as part of an implementation guide or 'request for
+     * proposal'.
      */
     @SerialName("requirements")
     REQUIREMENTS

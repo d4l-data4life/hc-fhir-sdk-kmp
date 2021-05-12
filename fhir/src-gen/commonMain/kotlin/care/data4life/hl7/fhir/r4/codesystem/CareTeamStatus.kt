@@ -31,25 +31,29 @@ import kotlinx.serialization.Serializable
 enum class CareTeamStatus {
 
     /**
-     * The care team has been drafted and proposed, but not yet participating in the coordination and delivery of patient care.
+     * The care team has been drafted and proposed, but not yet participating in the
+     * coordination and delivery of patient care.
      */
     @SerialName("proposed")
     PROPOSED,
 
     /**
-     * The care team is currently participating in the coordination and delivery of care.
+     * The care team is currently participating in the coordination and delivery of
+     * care.
      */
     @SerialName("active")
     ACTIVE,
 
     /**
-     * The care team is temporarily on hold or suspended and not participating in the coordination and delivery of care.
+     * The care team is temporarily on hold or suspended and not participating in the
+     * coordination and delivery of care.
      */
     @SerialName("suspended")
     SUSPENDED,
 
     /**
-     * The care team was, but is no longer, participating in the coordination and delivery of care.
+     * The care team was, but is no longer, participating in the coordination and
+     * delivery of care.
      */
     @SerialName("inactive")
     INACTIVE,

@@ -31,31 +31,37 @@ import kotlinx.serialization.Serializable
 enum class ProvenanceEntityRole {
 
     /**
-     * A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity.
+     * A transformation of an entity into another, an update of an entity resulting in
+     * a new one, or the construction of a new entity based on a preexisting entity.
      */
     @SerialName("derivation")
     DERIVATION,
 
     /**
-     * A derivation for which the resulting entity is a revised version of some original.
+     * A derivation for which the resulting entity is a revised version of some
+     * original.
      */
     @SerialName("revision")
     REVISION,
 
     /**
-     * The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author.
+     * The repeat of (some or all of) an entity, such as text or image, by someone who
+     * may or may not be its original author.
      */
     @SerialName("quotation")
     QUOTATION,
 
     /**
-     * A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.
+     * A primary source for a topic refers to something produced by some agent with
+     * direct experience and knowledge about the topic, at the time of the topic's
+     * study, without benefit from hindsight.
      */
     @SerialName("source")
     SOURCE,
 
     /**
-     * A derivation for which the entity is removed from accessibility usually through the use of the Delete operation.
+     * A derivation for which the entity is removed from accessibility usually through
+     * the use of the Delete operation.
      */
     @SerialName("removal")
     REMOVAL

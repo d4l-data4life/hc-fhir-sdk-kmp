@@ -31,19 +31,24 @@ import kotlinx.serialization.Serializable
 enum class QuestionnaireTextCategories {
 
     /**
-     * The text provides guidance on how to populate or use a portion of the questionnaire (or the questionnaire as a whole).
+     * The text provides guidance on how to populate or use a portion of the
+     * questionnaire (or the questionnaire as a whole).
      */
     @SerialName("instructions")
     INSTRUCTIONS,
 
     /**
-     * The text provides guidance on how the information should be or will be handled from a security/confidentiality/access control perspective when completed
+     * The text provides guidance on how the information should be or will be handled
+     * from a security/confidentiality/access control perspective when completed
      */
     @SerialName("security")
     SECURITY,
 
     /**
-     * The text provides additional guidance on populating the containing item.  Help text isn't necessarily expected to be rendered as part of the form, but may instead be made available through fly-over, pop-up button, link to a "help" page, etc.
+     * The text provides additional guidance on populating the containing item.  Help
+     * text isn't necessarily expected to be rendered as part of the form, but may
+     * instead be made available through fly-over, pop-up button, link to a "help"
+     * page, etc.
      */
     @SerialName("help")
     HELP

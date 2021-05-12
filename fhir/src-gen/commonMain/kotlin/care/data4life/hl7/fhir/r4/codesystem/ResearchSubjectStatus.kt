@@ -43,14 +43,17 @@ enum class ResearchSubjectStatus {
     ELIGIBLE,
 
     /**
-     * A person is no longer receiving study intervention and/or being evaluated with tests and procedures according to the protocol, but they are being monitored on a protocol-prescribed schedule.
+     * A person is no longer receiving study intervention and/or being evaluated with
+     * tests and procedures according to the protocol, but they are being monitored on
+     * a protocol-prescribed schedule.
      */
     @SerialName("follow-up")
     FOLLOW_UP,
 
     /**
-     * A person who did not meet one or more criteria required for participation in a study is considered to have failed screening or
-is ineligible for the study.
+     * A person who did not meet one or more criteria required for participation in a
+     * study is considered to have failed screening or
+     * is ineligible for the study.
      */
     @SerialName("ineligible")
     INELIGIBLE,
@@ -62,8 +65,9 @@ is ineligible for the study.
     NOT_REGISTERED,
 
     /**
-     * A person that has ended their participation on a study either because their treatment/observation is complete or through not
-responding, withdrawal, non-compliance and/or adverse event.
+     * A person that has ended their participation on a study either because their
+     * treatment/observation is complete or through not
+     * responding, withdrawal, non-compliance and/or adverse event.
      */
     @SerialName("off-study")
     OFF_STUDY,
@@ -75,13 +79,17 @@ responding, withdrawal, non-compliance and/or adverse event.
     ON_STUDY,
 
     /**
-     * The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc.) that the study is evaluating.
+     * The person is receiving the treatment or participating in an activity (e.g.
+     * yoga, diet, etc.) that the study is evaluating.
      */
     @SerialName("on-study-intervention")
     ON_STUDY_INTERVENTION,
 
     /**
-     * The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is "short-term follow-up".
+     * The subject is being evaluated via tests and assessments according to the study
+     * calendar, but is not receiving any intervention. Note that this state is study-
+     * dependent and might not exist in all studies.  A synonym for this is "short-term
+     * follow-up".
      */
     @SerialName("on-study-observation")
     ON_STUDY_OBSERVATION,

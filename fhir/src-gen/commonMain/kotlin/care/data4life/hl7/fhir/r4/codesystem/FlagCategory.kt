@@ -43,7 +43,8 @@ enum class FlagCategory {
     DRUG,
 
     /**
-     * Flags related to performing laboratory tests and related processes (e.g. phlebotomy).
+     * Flags related to performing laboratory tests and related processes (e.g.
+     * phlebotomy).
      */
     @SerialName("lab")
     LAB,

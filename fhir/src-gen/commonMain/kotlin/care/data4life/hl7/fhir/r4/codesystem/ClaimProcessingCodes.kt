@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class ClaimProcessingCodes {
 
     /**
-     * The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.
+     * The Claim/Pre-authorization/Pre-determination has been received but processing
+     * has not begun.
      */
     @SerialName("queued")
     QUEUED,
@@ -49,7 +50,8 @@ enum class ClaimProcessingCodes {
     ERROR,
 
     /**
-     * No errors have been detected in the Claim and some of the adjudication has been performed.
+     * No errors have been detected in the Claim and some of the adjudication has been
+     * performed.
      */
     @SerialName("partial")
     PARTIAL

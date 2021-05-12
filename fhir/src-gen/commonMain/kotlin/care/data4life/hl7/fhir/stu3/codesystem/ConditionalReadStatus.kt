@@ -37,7 +37,8 @@ enum class ConditionalReadStatus {
     NOT_SUPPORTED,
 
     /**
-     * Conditional reads are supported, but only with the If-Modified-Since HTTP Header.
+     * Conditional reads are supported, but only with the If-Modified-Since HTTP
+     * Header.
      */
     @SerialName("modified-since")
     MODIFIED_SINCE,
@@ -49,7 +50,8 @@ enum class ConditionalReadStatus {
     NOT_MATCH,
 
     /**
-     * Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.
+     * Conditional reads are supported, with both If-Modified-Since and If-None-Match
+     * HTTP Headers.
      */
     @SerialName("full-support")
     FULL_SUPPORT

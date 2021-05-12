@@ -32,19 +32,23 @@ import kotlinx.serialization.Serializable
 enum class AllergyIntoleranceVerificationStatus {
 
     /**
-     * A low level of certainty about the propensity for a reaction to the identified substance.
+     * A low level of certainty about the propensity for a reaction to the identified
+     * substance.
      */
     @SerialName("unconfirmed")
     UNCONFIRMED,
 
     /**
-     * A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
+     * A high level of certainty about the propensity for a reaction to the identified
+     * substance, which may include clinical evidence by testing or rechallenge.
      */
     @SerialName("confirmed")
     CONFIRMED,
 
     /**
-     * A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+     * A propensity for a reaction to the identified substance has been disproven with
+     * a high level of clinical certainty, which may include testing or rechallenge,
+     * and is refuted.
      */
     @SerialName("refuted")
     REFUTED,

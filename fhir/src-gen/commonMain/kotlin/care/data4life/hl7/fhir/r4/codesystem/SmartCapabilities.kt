@@ -49,7 +49,8 @@ enum class SmartCapabilities {
     CLIENT_PUBLIC,
 
     /**
-     * support for SMART’s confidential client profile (symmetric client secret authentication).
+     * support for SMART’s confidential client profile (symmetric client secret
+     * authentication).
      */
     @SerialName("client-confidential-symmetric")
     CLIENT_CONFIDENTIAL_SYMMETRIC,
@@ -61,37 +62,43 @@ enum class SmartCapabilities {
     SSO_OPENID_CONNECT,
 
     /**
-     * support for “need patient banner” launch context (conveyed via need_patient_banner token parameter).
+     * support for “need patient banner” launch context (conveyed via
+     * need_patient_banner token parameter).
      */
     @SerialName("context-passthrough-banner")
     CONTEXT_PASSTHROUGH_BANNER,
 
     /**
-     * support for “SMART style URL” launch context (conveyed via smart_style_url token parameter).
+     * support for “SMART style URL” launch context (conveyed via smart_style_url token
+     * parameter).
      */
     @SerialName("context-passthrough-style")
     CONTEXT_PASSTHROUGH_STYLE,
 
     /**
-     * support for patient-level launch context (requested by launch/patient scope, conveyed via patient token parameter).
+     * support for patient-level launch context (requested by launch/patient scope,
+     * conveyed via patient token parameter).
      */
     @SerialName("context-ehr-patient")
     CONTEXT_EHR_PATIENT,
 
     /**
-     * support for encounter-level launch context (requested by launch/encounter scope, conveyed via encounter token parameter).
+     * support for encounter-level launch context (requested by launch/encounter scope,
+     * conveyed via encounter token parameter).
      */
     @SerialName("context-ehr-encounter")
     CONTEXT_EHR_ENCOUNTER,
 
     /**
-     * support for patient-level launch context (requested by launch/patient scope, conveyed via patient token parameter).
+     * support for patient-level launch context (requested by launch/patient scope,
+     * conveyed via patient token parameter).
      */
     @SerialName("context-standalone-patient")
     CONTEXT_STANDALONE_PATIENT,
 
     /**
-     * support for encounter-level launch context (requested by launch/encounter scope, conveyed via encounter token parameter).
+     * support for encounter-level launch context (requested by launch/encounter scope,
+     * conveyed via encounter token parameter).
      */
     @SerialName("context-standalone-encounter")
     CONTEXT_STANDALONE_ENCOUNTER,

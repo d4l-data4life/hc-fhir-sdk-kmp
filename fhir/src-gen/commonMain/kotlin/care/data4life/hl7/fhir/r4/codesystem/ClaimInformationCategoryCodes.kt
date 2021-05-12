@@ -73,7 +73,8 @@ enum class ClaimInformationCategoryCodes {
     ATTACHMENT,
 
     /**
-     * Teeth which are missing for any reason, for example: prior extraction, never developed.
+     * Teeth which are missing for any reason, for example: prior extraction, never
+     * developed.
      */
     @SerialName("missingtooth")
     MISSINGTOOTH,
@@ -91,13 +92,15 @@ enum class ClaimInformationCategoryCodes {
     OTHER,
 
     /**
-     * An indication that the patient was hospitalized, the period if known otherwise a Yes/No (boolean).
+     * An indication that the patient was hospitalized, the period if known otherwise a
+     * Yes/No (boolean).
      */
     @SerialName("hospitalized")
     HOSPITALIZED,
 
     /**
-     * An indication that the patient was unable to work, the period if known otherwise a Yes/No (boolean).
+     * An indication that the patient was unable to work, the period if known otherwise
+     * a Yes/No (boolean).
      */
     @SerialName("employmentimpacted")
     EMPLOYMENTIMPACTED,

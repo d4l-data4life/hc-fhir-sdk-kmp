@@ -49,7 +49,9 @@ enum class GoalStatus {
     PLANNED,
 
     /**
-     * The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)
+     * The goal is being sought but has not yet been reached.  (Also applies if goal
+     * was reached in the past but there has been regression and goal is being sought
+     * again)
      */
     @SerialName("in-progress")
     IN_PROGRESS,
@@ -73,7 +75,8 @@ enum class GoalStatus {
     BEHIND_TARGET,
 
     /**
-     * The goal has been met, but ongoing activity is needed to sustain the goal objective
+     * The goal has been met, but ongoing activity is needed to sustain the goal
+     * objective
      */
     @SerialName("sustaining")
     SUSTAINING,
@@ -85,7 +88,8 @@ enum class GoalStatus {
     ACHIEVED,
 
     /**
-     * The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.
+     * The goal remains a long term objective but is no longer being actively pursued
+     * for a temporary period of time.
      */
     @SerialName("on-hold")
     ON_HOLD,

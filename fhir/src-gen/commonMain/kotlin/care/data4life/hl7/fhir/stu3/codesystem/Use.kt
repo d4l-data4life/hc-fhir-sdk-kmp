@@ -37,13 +37,15 @@ enum class Use {
     COMPLETE,
 
     /**
-     * The treatment is proposed and this represents a Pre-authorization for the services.
+     * The treatment is proposed and this represents a Pre-authorization for the
+     * services.
      */
     @SerialName("proposed")
     PROPOSED,
 
     /**
-     * The treatment is proposed and this represents a Pre-determination for the services.
+     * The treatment is proposed and this represents a Pre-determination for the
+     * services.
      */
     @SerialName("exploratory")
     EXPLORATORY,

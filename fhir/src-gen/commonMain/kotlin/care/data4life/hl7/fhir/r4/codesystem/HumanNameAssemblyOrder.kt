@@ -24,7 +24,6 @@ import kotlinx.serialization.Serializable
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/name-assembly-order">HumanNameAssemblyOrder</a>
  *
- *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable

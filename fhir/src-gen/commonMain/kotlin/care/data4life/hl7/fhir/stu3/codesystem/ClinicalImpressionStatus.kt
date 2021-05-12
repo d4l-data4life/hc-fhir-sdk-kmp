@@ -43,7 +43,8 @@ enum class ClinicalImpressionStatus {
     COMPLETED,
 
     /**
-     * This assessment was never actually done and the record is erroneous (e.g. Wrong patient).
+     * This assessment was never actually done and the record is erroneous (e.g. Wrong
+     * patient).
      */
     @SerialName("entered-in-error")
     ENTERED_IN_ERROR

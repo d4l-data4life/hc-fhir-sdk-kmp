@@ -43,7 +43,8 @@ enum class ResourceVersionPolicy {
     VERSIONED,
 
     /**
-     * VersionId must be correct for updates (server) or will be specified (If-match header) for updates (client).
+     * VersionId must be correct for updates (server) or will be specified (If-match
+     * header) for updates (client).
      */
     @SerialName("versioned-update")
     VERSIONED_UPDATE

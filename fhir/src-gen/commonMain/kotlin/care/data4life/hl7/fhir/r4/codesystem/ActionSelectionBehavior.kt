@@ -43,13 +43,15 @@ enum class ActionSelectionBehavior {
     ALL,
 
     /**
-     * All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected.
+     * All the actions in the group are meant to be chosen as a single unit: either all
+     * must be selected by the end user, or none may be selected.
      */
     @SerialName("all-or-none")
     ALL_OR_NONE,
 
     /**
-     * The end user must choose one and only one of the selectable actions in the group. The user SHALL NOT choose none of the actions in the group.
+     * The end user must choose one and only one of the selectable actions in the
+     * group. The user SHALL NOT choose none of the actions in the group.
      */
     @SerialName("exactly-one")
     EXACTLY_ONE,

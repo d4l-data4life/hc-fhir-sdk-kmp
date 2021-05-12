@@ -34,7 +34,8 @@ import kotlinx.serialization.Serializable
 enum class VerificationresultCommunicationMethod {
 
     /**
-     * The information is submitted/retrieved manually (e.g. by phone, fax, paper-based)
+     * The information is submitted/retrieved manually (e.g. by phone, fax, paper-
+     * based)
      */
     @SerialName("manual")
     MANUAL,
@@ -52,7 +53,8 @@ enum class VerificationresultCommunicationMethod {
     PULL,
 
     /**
-     * The information is sent (i.e. pushed) from a source (e.g. over an API, asynchronously, secure messaging)
+     * The information is sent (i.e. pushed) from a source (e.g. over an API,
+     * asynchronously, secure messaging)
      */
     @SerialName("push")
     PUSH

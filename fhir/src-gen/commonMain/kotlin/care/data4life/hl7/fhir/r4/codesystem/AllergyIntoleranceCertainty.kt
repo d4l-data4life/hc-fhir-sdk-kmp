@@ -32,25 +32,30 @@ import kotlinx.serialization.Serializable
 enum class AllergyIntoleranceCertainty {
 
     /**
-     * There is a low level of clinical certainty that the reaction was caused by the identified substance.
+     * There is a low level of clinical certainty that the reaction was caused by the
+     * identified substance.
      */
     @SerialName("unlikely")
     UNLIKELY,
 
     /**
-     * There is a high level of clinical certainty that the reaction was caused by the identified substance.
+     * There is a high level of clinical certainty that the reaction was caused by the
+     * identified substance.
      */
     @SerialName("likely")
     LIKELY,
 
     /**
-     * There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.
+     * There is a very high level of clinical certainty that the reaction was due to
+     * the identified substance, which may include clinical evidence by testing or
+     * rechallenge.
      */
     @SerialName("confirmed")
     CONFIRMED,
 
     /**
-     * The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit assertion that certainty is not known.
+     * The clinical certainty that the reaction was caused by the identified substance
+     * is unknown.  It is an explicit assertion that certainty is not known.
      */
     @SerialName("unknown")
     UNKNOWN

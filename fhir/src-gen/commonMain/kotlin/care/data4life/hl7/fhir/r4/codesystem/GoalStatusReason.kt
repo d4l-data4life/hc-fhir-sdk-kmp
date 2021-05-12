@@ -38,7 +38,8 @@ enum class GoalStatusReason {
     SURGERY,
 
     /**
-     * Goal suspended or ended because of a significant life event (marital change, bereavement, etc.).
+     * Goal suspended or ended because of a significant life event (marital change,
+     * bereavement, etc.).
      */
     @SerialName("life-event")
     LIFE_EVENT,

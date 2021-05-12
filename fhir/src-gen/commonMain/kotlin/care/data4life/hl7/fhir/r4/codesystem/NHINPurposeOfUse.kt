@@ -92,7 +92,8 @@ enum class NHINPurposeOfUse {
     DIRECTORY,
 
     /**
-     * Disclose to a family member, other relative, or a close personal friend of the individual
+     * Disclose to a family member, other relative, or a close personal friend of the
+     * individual
      */
     @SerialName("FAMILY")
     FAMILY,
@@ -104,7 +105,8 @@ enum class NHINPurposeOfUse {
     PRESENT,
 
     /**
-     * Permission cannot practicably be provided because of the individual's incapacity or an emergency.
+     * Permission cannot practicably be provided because of the individual's incapacity
+     * or an emergency.
      */
     @SerialName("EMERGENCY")
     EMERGENCY,

@@ -37,13 +37,15 @@ enum class ConditionVerificationStatus {
     PROVISIONAL,
 
     /**
-     * One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.
+     * One of a set of potential (and typically mutually exclusive) diagnoses asserted
+     * to further guide the diagnostic process and preliminary treatment.
      */
     @SerialName("differential")
     DIFFERENTIAL,
 
     /**
-     * There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
+     * There is sufficient diagnostic and/or clinical evidence to treat this as a
+     * confirmed condition.
      */
     @SerialName("confirmed")
     CONFIRMED,
@@ -61,7 +63,9 @@ enum class ConditionVerificationStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * The condition status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+     * The condition status is unknown.  Note that "unknown" is a value of last resort
+     * and every attempt should be made to provide a meaningful value other than
+     * "unknown".
      */
     @SerialName("unknown")
     UNKNOWN

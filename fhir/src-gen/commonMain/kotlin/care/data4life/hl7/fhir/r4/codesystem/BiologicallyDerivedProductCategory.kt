@@ -37,7 +37,8 @@ enum class BiologicallyDerivedProductCategory {
     ORGAN,
 
     /**
-     * An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a specific function.
+     * An ensemble of similar cells and their extracellular matrix from the same origin
+     * that together carry out a specific function.
      */
     @SerialName("tissue")
     TISSUE,

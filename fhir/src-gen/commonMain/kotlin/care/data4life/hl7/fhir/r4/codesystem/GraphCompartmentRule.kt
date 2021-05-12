@@ -37,7 +37,8 @@ enum class GraphCompartmentRule {
     IDENTICAL,
 
     /**
-     * The compartment must be the same - the record must be about the same patient, but the reference may be different.
+     * The compartment must be the same - the record must be about the same patient,
+     * but the reference may be different.
      */
     @SerialName("matching")
     MATCHING,

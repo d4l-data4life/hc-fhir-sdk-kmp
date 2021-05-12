@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class ConditionVerificationStatus {
 
     /**
-     * There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
+     * There is not sufficient diagnostic and/or clinical evidence to treat this as a
+     * confirmed condition.
      */
     @SerialName("unconfirmed")
     UNCONFIRMED,
@@ -43,13 +44,15 @@ enum class ConditionVerificationStatus {
     PROVISIONAL,
 
     /**
-     * One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.
+     * One of a set of potential (and typically mutually exclusive) diagnoses asserted
+     * to further guide the diagnostic process and preliminary treatment.
      */
     @SerialName("differential")
     DIFFERENTIAL,
 
     /**
-     * There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
+     * There is sufficient diagnostic and/or clinical evidence to treat this as a
+     * confirmed condition.
      */
     @SerialName("confirmed")
     CONFIRMED,

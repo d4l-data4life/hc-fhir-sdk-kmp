@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class BenefitCostApplicability {
 
     /**
-     * Provider is contracted with the health insurance company to provide services to plan members for specific pre-negotiated rates
+     * Provider is contracted with the health insurance company to provide services to
+     * plan members for specific pre-negotiated rates
      */
     @SerialName("in-network")
     IN_NETWORK,
 
     /**
-     * Provider is  not contracted with the health insurance company to provide services to plan members for specific pre-negotiated rates
+     * Provider is  not contracted with the health insurance company to provide
+     * services to plan members for specific pre-negotiated rates
      */
     @SerialName("out-of-network")
     OUT_OF_NETWORK,

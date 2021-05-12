@@ -43,7 +43,8 @@ enum class ObservationRangeCategory {
     CRITICAL,
 
     /**
-     * Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible.
+     * Absolute Range for Ordinal and Continuous Observations. Results outside this
+     * range are not possible.
      */
     @SerialName("absolute")
     ABSOLUTE

@@ -25,14 +25,14 @@ import kotlinx.serialization.Serializable
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/participant-type">ParticipantType</a>
  *
- *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class ParticipantType {
 
     /**
-     * A translator who is facilitating communication with the patient during the encounter.
+     * A translator who is facilitating communication with the patient during the
+     * encounter.
      */
     @SerialName("translator")
     TRANSLATOR,

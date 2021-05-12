@@ -25,7 +25,6 @@ import kotlinx.serialization.Serializable
  *
  * @see <a href="http://hl7.org/fhir/device-action">ProcedureDeviceActionCodes</a>
  *
- *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
@@ -44,7 +43,8 @@ enum class ProcedureDeviceActionCodes {
     EXPLANTED,
 
     /**
-     * The device remains in the patient, but its location, settings, or functionality was changed.
+     * The device remains in the patient, but its location, settings, or functionality
+     * was changed.
      */
     @SerialName("manipulated")
     MANIPULATED

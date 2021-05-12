@@ -32,7 +32,8 @@ import kotlinx.serialization.Serializable
 enum class CarePlanStatus {
 
     /**
-     * The plan is in development or awaiting use but is not yet intended to be acted upon.
+     * The plan is in development or awaiting use but is not yet intended to be acted
+     * upon.
      */
     @SerialName("draft")
     DRAFT,
@@ -50,7 +51,8 @@ enum class CarePlanStatus {
     SUSPENDED,
 
     /**
-     * The plan is no longer in use and is not expected to be followed or used in patient care.
+     * The plan is no longer in use and is not expected to be followed or used in
+     * patient care.
      */
     @SerialName("completed")
     COMPLETED,
@@ -62,7 +64,8 @@ enum class CarePlanStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).
+     * The plan has been terminated prior to reaching completion (though it may have
+     * been replaced by a new plan).
      */
     @SerialName("cancelled")
     CANCELLED,

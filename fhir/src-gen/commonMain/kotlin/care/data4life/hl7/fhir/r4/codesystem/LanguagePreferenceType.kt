@@ -25,7 +25,6 @@ import kotlinx.serialization.Serializable
  *
  * @see <a href="http://hl7.org/fhir/language-preference-type">LanguagePreferenceType</a>
  *
- *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable

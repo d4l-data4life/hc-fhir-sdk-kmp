@@ -85,13 +85,15 @@ enum class CertaintySubcomponentRating {
     CRITICAL_CONCERN,
 
     /**
-     * possible reason for increasing quality rating was checked and found to bepresent.
+     * possible reason for increasing quality rating was checked and found to
+     * bepresent.
      */
     @SerialName("present")
     PRESENT,
 
     /**
-     * possible reason for increasing quality rating was checked and found to be absent.
+     * possible reason for increasing quality rating was checked and found to be
+     * absent.
      */
     @SerialName("absent")
     ABSENT

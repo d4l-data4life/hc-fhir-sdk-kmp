@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class ReferenceHandlingPolicy {
 
     /**
-     * The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see 'enforced')
+     * The server supports and populates Literal references where they are known (this
+     * code does not guarantee that all references are literal; see 'enforced')
      */
     @SerialName("literal")
     LITERAL,
@@ -43,13 +44,16 @@ enum class ReferenceHandlingPolicy {
     LOGICAL,
 
     /**
-     * The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)
+     * The server will attempt to resolve logical references to literal references (if
+     * resolution fails, the server may still accept resources; see logical)
      */
     @SerialName("resolves")
     RESOLVES,
 
     /**
-     * The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems
+     * The server enforces that references have integrity - e.g. it ensures that
+     * references can always be resolved. This is typically the case for clinical
+     * record systems, but often not the case for middleware/proxy systems
      */
     @SerialName("enforced")
     ENFORCED,

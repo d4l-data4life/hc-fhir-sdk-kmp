@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class FamilyHistoryAbsentReason {
 
     /**
-     * Patient does not know the subject, e.g. the biological parent of an adopted patient.
+     * Patient does not know the subject, e.g. the biological parent of an adopted
+     * patient.
      */
     @SerialName("subject-unknown")
     SUBJECT_UNKNOWN,
@@ -49,7 +50,8 @@ enum class FamilyHistoryAbsentReason {
     UNABLE_TO_OBTAIN,
 
     /**
-     * Patient does not have the information now, but can provide the information at a later date.
+     * Patient does not have the information now, but can provide the information at a
+     * later date.
      */
     @SerialName("deferred")
     DEFERRED

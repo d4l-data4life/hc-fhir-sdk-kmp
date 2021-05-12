@@ -37,7 +37,8 @@ enum class IdentifierUse {
     USUAL,
 
     /**
-     * The identifier considered to be most trusted for the identification of this item.
+     * The identifier considered to be most trusted for the identification of this
+     * item.
      */
     @SerialName("official")
     OFFICIAL,
@@ -49,7 +50,9 @@ enum class IdentifierUse {
     TEMP,
 
     /**
-     * An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
+     * An identifier that was assigned in secondary use - it serves to identify the
+     * object in a relative context, but cannot be consistently assigned to the same
+     * object again in a different context.
      */
     @SerialName("secondary")
     SECONDARY

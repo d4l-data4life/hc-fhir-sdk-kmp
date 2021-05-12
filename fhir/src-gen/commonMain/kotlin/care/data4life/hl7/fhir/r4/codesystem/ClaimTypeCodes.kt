@@ -49,13 +49,15 @@ enum class ClaimTypeCodes {
     PHARMACY,
 
     /**
-     * Typically, outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speech Pathology, rehabilitative, consulting.
+     * Typically, outpatient claims from Physician, Psychological, Chiropractor,
+     * Physiotherapy, Speech Pathology, rehabilitative, consulting.
      */
     @SerialName("professional")
     PROFESSIONAL,
 
     /**
-     * Vision claims for professional services and products such as glasses and contact lenses.
+     * Vision claims for professional services and products such as glasses and contact
+     * lenses.
      */
     @SerialName("vision")
     VISION

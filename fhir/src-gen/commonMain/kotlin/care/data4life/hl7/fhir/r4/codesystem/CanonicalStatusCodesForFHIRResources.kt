@@ -32,19 +32,23 @@ import kotlinx.serialization.Serializable
 enum class CanonicalStatusCodesForFHIRResources {
 
     /**
-     * The resource was created in error, and should not be treated as valid (note: in many cases, for various data integrity related reasons, the information cannot be removed from the record)
+     * The resource was created in error, and should not be treated as valid (note: in
+     * many cases, for various data integrity related reasons, the information cannot
+     * be removed from the record)
      */
     @SerialName("error")
     ERROR,
 
     /**
-     * The resource describes an action or plan that is proposed, and not yet approved by the participants
+     * The resource describes an action or plan that is proposed, and not yet approved
+     * by the participants
      */
     @SerialName("proposed")
     PROPOSED,
 
     /**
-     * The resource describes a course of action that is planned and agreed/approved, but at the time of recording was still future
+     * The resource describes a course of action that is planned and agreed/approved,
+     * but at the time of recording was still future
      */
     @SerialName("planned")
     PLANNED,
@@ -62,7 +66,8 @@ enum class CanonicalStatusCodesForFHIRResources {
     REQUESTED,
 
     /**
-     * The fulfiller has received the request, but not yet agreed to carry out the action
+     * The fulfiller has received the request, but not yet agreed to carry out the
+     * action
      */
     @SerialName("received")
     RECEIVED,
@@ -74,7 +79,8 @@ enum class CanonicalStatusCodesForFHIRResources {
     DECLINED,
 
     /**
-     * The fulfiller has decided to perform the action, and plans are in train to do this in the future
+     * The fulfiller has decided to perform the action, and plans are in train to do
+     * this in the future
      */
     @SerialName("accepted")
     ACCEPTED,
@@ -86,7 +92,8 @@ enum class CanonicalStatusCodesForFHIRResources {
     ARRIVED,
 
     /**
-     * The resource describes information that is currently valid or a process that is presently occuring
+     * The resource describes information that is currently valid or a process that is
+     * presently occuring
      */
     @SerialName("active")
     ACTIVE,
@@ -98,31 +105,36 @@ enum class CanonicalStatusCodesForFHIRResources {
     SUSPENDED,
 
     /**
-     * The process described/requested in the resource could not be completed, and no further action is planned
+     * The process described/requested in the resource could not be completed, and no
+     * further action is planned
      */
     @SerialName("failed")
     FAILED,
 
     /**
-     * The information in this resource has been replaced by information in another resource
+     * The information in this resource has been replaced by information in another
+     * resource
      */
     @SerialName("replaced")
     REPLACED,
 
     /**
-     * The process described/requested in the resource has been completed, and no further action is planned
+     * The process described/requested in the resource has been completed, and no
+     * further action is planned
      */
     @SerialName("complete")
     COMPLETE,
 
     /**
-     * The resource describes information that is no longer valid or a process that is stopped occurring
+     * The resource describes information that is no longer valid or a process that is
+     * stopped occurring
      */
     @SerialName("inactive")
     INACTIVE,
 
     /**
-     * The process described/requested in the resource did not complete - usually due to some workflow error, and no further action is planned
+     * The process described/requested in the resource did not complete - usually due
+     * to some workflow error, and no further action is planned
      */
     @SerialName("abandoned")
     ABANDONED,

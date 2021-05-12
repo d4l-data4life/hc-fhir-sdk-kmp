@@ -49,7 +49,8 @@ enum class MedicationDispensePerformerFunctionCodes {
     CHECKER,
 
     /**
-     * Performed the final quality assurance on the prepared medication against the request. Typically, this is a pharmacist function.
+     * Performed the final quality assurance on the prepared medication against the
+     * request. Typically, this is a pharmacist function.
      */
     @SerialName("finalchecker")
     FINALCHECKER

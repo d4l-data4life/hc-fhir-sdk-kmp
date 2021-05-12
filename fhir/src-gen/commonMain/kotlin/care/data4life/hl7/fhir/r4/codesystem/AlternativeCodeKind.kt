@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class AlternativeCodeKind {
 
     /**
-     * The code is an alternative code that can be used in any of the circumstances that the primary code can be used.
+     * The code is an alternative code that can be used in any of the circumstances
+     * that the primary code can be used.
      */
     @SerialName("alternate")
     ALTERNATE,
@@ -43,19 +44,22 @@ enum class AlternativeCodeKind {
     DEPRECATED,
 
     /**
-     * The code is an alternative to be used when a case insensitive code is required (when the primary codes are case sensitive).
+     * The code is an alternative to be used when a case insensitive code is required
+     * (when the primary codes are case sensitive).
      */
     @SerialName("case-insensitive")
     CASE_INSENSITIVE,
 
     /**
-     * The code is an alternative to be used when a case sensitive code is required (when the primary codes are case insensitive).
+     * The code is an alternative to be used when a case sensitive code is required
+     * (when the primary codes are case insensitive).
      */
     @SerialName("case-sensitive")
     CASE_SENSITIVE,
 
     /**
-     * The code is an alternative for the primary code that is built using the expression grammar defined by the code system.
+     * The code is an alternative for the primary code that is built using the
+     * expression grammar defined by the code system.
      */
     @SerialName("expression")
     EXPRESSION

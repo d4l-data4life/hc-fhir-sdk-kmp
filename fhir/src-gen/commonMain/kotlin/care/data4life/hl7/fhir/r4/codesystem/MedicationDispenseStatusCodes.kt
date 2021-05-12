@@ -31,7 +31,9 @@ import kotlinx.serialization.Serializable
 enum class MedicationDispenseStatusCodes {
 
     /**
-     * The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes.
+     * The core event has not started yet, but some staging activities have begun (e.g.
+     * initial compounding or packaging of medication). Preparation stages may be
+     * tracked for billing purposes.
      */
     @SerialName("preparation")
     PREPARATION,
@@ -49,7 +51,8 @@ enum class MedicationDispenseStatusCodes {
     CANCELLED,
 
     /**
-     * The dispense process is paused while waiting for an external event to reactivate the dispense.  For example, new stock has arrived or the prescriber has called.
+     * The dispense process is paused while waiting for an external event to reactivate
+     * the dispense.  For example, new stock has arrived or the prescriber has called.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -67,7 +70,8 @@ enum class MedicationDispenseStatusCodes {
     ENTERED_IN_ERROR,
 
     /**
-     * Actions implied by the dispense have been permanently halted, before all of them occurred.
+     * Actions implied by the dispense have been permanently halted, before all of them
+     * occurred.
      */
     @SerialName("stopped")
     STOPPED,
@@ -79,7 +83,9 @@ enum class MedicationDispenseStatusCodes {
     DECLINED,
 
     /**
-     * The authoring system does not know which of the status values applies for this medication dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it's just now known which one.
+     * The authoring system does not know which of the status values applies for this
+     * medication dispense.  Note: this concept is not to be used for other - one of
+     * the listed statuses is presumed to apply, it's just now known which one.
      */
     @SerialName("unknown")
     UNKNOWN

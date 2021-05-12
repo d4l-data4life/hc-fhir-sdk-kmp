@@ -32,7 +32,8 @@ import kotlinx.serialization.Serializable
 enum class FlagStatus {
 
     /**
-     * A current flag that should be displayed to a user. A system may use the category to determine which user roles should view the flag.
+     * A current flag that should be displayed to a user. A system may use the category
+     * to determine which user roles should view the flag.
      */
     @SerialName("active")
     ACTIVE,

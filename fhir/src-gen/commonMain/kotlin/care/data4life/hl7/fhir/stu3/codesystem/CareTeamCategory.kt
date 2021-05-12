@@ -31,37 +31,53 @@ import kotlinx.serialization.Serializable
 enum class CareTeamCategory {
 
     /**
-     * This type of team focuses on one specific type of incident, which is non-patient specific. The incident is determined by the context of use.  For example, code team (code red, code blue, medical emergency treatment) or the PICC line team.
+     * This type of team focuses on one specific type of incident, which is non-patient
+     * specific. The incident is determined by the context of use.  For example, code
+     * team (code red, code blue, medical emergency treatment) or the PICC line team.
      */
     @SerialName("event")
     EVENT,
 
     /**
-     * This type of team focuses on one specific encounter. The encounter is determined by the context of use.  For example, during an inpatient encounter, the nutrition support care team
+     * This type of team focuses on one specific encounter. The encounter is determined
+     * by the context of use.  For example, during an inpatient encounter, the
+     * nutrition support care team
      */
     @SerialName("encounter")
     ENCOUNTER,
 
     /**
-     * This type of team focuses on one specific episode of care with a defined time period or self-limiting process (e.g. 10 visits). The episode of care is determined by the context of use.  For example, a maternity care team over 9 months.
+     * This type of team focuses on one specific episode of care with a defined time
+     * period or self-limiting process (e.g. 10 visits). The episode of care is
+     * determined by the context of use.  For example, a maternity care team over 9
+     * months.
      */
     @SerialName("episode")
     EPISODE,
 
     /**
-     * This type of team focuses on overall care coordination managing one or more conditions across the continuum of care ensuring there are smooth transitions of care. The members of the team are determined or selected by an individual or organization. When determined by an organization, the team may be assigned or based on the person's enrollment in a particular program. For example, disease management team or patient centered medical home team.
+     * This type of team focuses on overall care coordination managing one or more
+     * conditions across the continuum of care ensuring there are smooth transitions of
+     * care. The members of the team are determined or selected by an individual or
+     * organization. When determined by an organization, the team may be assigned or
+     * based on the person's enrollment in a particular program. For example, disease
+     * management team or patient centered medical home team.
      */
     @SerialName("longitudinal")
     LONGITUDINAL,
 
     /**
-     * This type of team focuses on one specific condition. The condition is determined by the context of use.  For example, a disease management team focused on one condition (e.g. diabetes).
+     * This type of team focuses on one specific condition. The condition is determined
+     * by the context of use.  For example, a disease management team focused on one
+     * condition (e.g. diabetes).
      */
     @SerialName("condition")
     CONDITION,
 
     /**
-     * This type of team is responsible for establishing, conducting, coordinating and monitoring the outcomes of clinical trials. The team focuses on research, clinical care and education.
+     * This type of team is responsible for establishing, conducting, coordinating and
+     * monitoring the outcomes of clinical trials. The team focuses on research,
+     * clinical care and education.
      */
     @SerialName("clinical-research")
     CLINICAL_RESEARCH

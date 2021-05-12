@@ -37,7 +37,8 @@ enum class ContractTermTypeCodes {
     STATUTORY,
 
     /**
-     * Execution of the term in the contract is conditional on the execution of other actions.
+     * Execution of the term in the contract is conditional on the execution of other
+     * actions.
      */
     @SerialName("subject-to")
     SUBJECT_TO

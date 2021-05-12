@@ -31,7 +31,9 @@ import kotlinx.serialization.Serializable
 enum class MessageEvent {
 
     /**
-     * The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message.
+     * The definition of a code system is used to create a simple collection of codes
+     * suitable for use for data entry or validation. An expanded code system will be
+     * returned, or an error message.
      */
     @SerialName("CodeSystem-expand")
     CODESYSTEM_EXPAND,
@@ -43,7 +45,8 @@ enum class MessageEvent {
     MEDICATIONADMINISTRATION_COMPLETE,
 
     /**
-     * Someone wishes to record that the record of administration of a medication is in error and should be ignored.
+     * Someone wishes to record that the record of administration of a medication is in
+     * error and should be ignored.
      */
     @SerialName("MedicationAdministration-Nullification")
     MEDICATIONADMINISTRATION_NULLIFICATION,
@@ -61,7 +64,9 @@ enum class MessageEvent {
     MEDICATIONADMINISTRATION_UPDATE,
 
     /**
-     * Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.
+     * Notification of a change to an administrative resource (either create or
+     * update). Note that there is no delete, though some administrative resources have
+     * status or period elements for this use.
      */
     @SerialName("admin-notify")
     ADMIN_NOTIFY,
@@ -91,13 +96,16 @@ enum class MessageEvent {
     PATIENT_LINK,
 
     /**
-     * Notification that previous advice that two patient records concern the same patient is now considered incorrect.
+     * Notification that previous advice that two patient records concern the same
+     * patient is now considered incorrect.
      */
     @SerialName("patient-unlink")
     PATIENT_UNLINK,
 
     /**
-     * The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. An expanded value set will be returned, or an error message.
+     * The definition of a value set is used to create a simple collection of codes
+     * suitable for use for data entry or validation. An expanded value set will be
+     * returned, or an error message.
      */
     @SerialName("valueset-expand")
     VALUESET_EXPAND

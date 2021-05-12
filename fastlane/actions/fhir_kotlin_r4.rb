@@ -46,6 +46,7 @@ module Fastlane
 
           # Remove tmp files
           sh "rm -rf #{fhir_parser}/templates"
+          sh "rm -rf #{fhir_parser}/codesystems"
           sh "rm -rf #{fhir_parser}/models"
           sh "rm -rf #{fhir_parser}/tests"
           sh "rm -rf #{fhir_parser}/dependencies.json"

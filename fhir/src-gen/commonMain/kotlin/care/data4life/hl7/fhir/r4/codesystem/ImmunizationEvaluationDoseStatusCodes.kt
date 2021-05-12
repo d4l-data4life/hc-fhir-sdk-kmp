@@ -33,7 +33,8 @@ import kotlinx.serialization.Serializable
 enum class ImmunizationEvaluationDoseStatusCodes {
 
     /**
-     * The dose counts toward fulfilling a path to immunity for a patient, providing protection against the target disease.
+     * The dose counts toward fulfilling a path to immunity for a patient, providing
+     * protection against the target disease.
      */
     @SerialName("valid")
     VALID,

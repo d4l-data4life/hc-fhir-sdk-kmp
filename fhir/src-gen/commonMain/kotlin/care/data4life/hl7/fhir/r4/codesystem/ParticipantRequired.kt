@@ -43,7 +43,9 @@ enum class ParticipantRequired {
     OPTIONAL,
 
     /**
-     * The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
+     * The participant is excluded from the appointment, and might not be informed of
+     * the appointment taking place. (Appointment is about them, not for them - such as
+     * 2 doctors discussing results about a patient's test).
      */
     @SerialName("information-only")
     INFORMATION_ONLY

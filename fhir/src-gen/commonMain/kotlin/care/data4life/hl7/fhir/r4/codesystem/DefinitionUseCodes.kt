@@ -37,7 +37,8 @@ enum class DefinitionUseCodes {
     FHIR_STRUCTURE,
 
     /**
-     * This structure is intended to be treated like a FHIR resource (e.g. on the FHIR API)
+     * This structure is intended to be treated like a FHIR resource (e.g. on the FHIR
+     * API)
      */
     @SerialName("custom-resource")
     CUSTOM_RESOURCE,

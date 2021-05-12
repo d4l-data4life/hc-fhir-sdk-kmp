@@ -32,13 +32,15 @@ import kotlinx.serialization.Serializable
 enum class MeasureImprovementNotation {
 
     /**
-     * Improvement is indicated as an increase in the score or measurement (e.g. Higher score indicates better quality).
+     * Improvement is indicated as an increase in the score or measurement (e.g. Higher
+     * score indicates better quality).
      */
     @SerialName("increase")
     INCREASE,
 
     /**
-     * Improvement is indicated as a decrease in the score or measurement (e.g. Lower score indicates better quality).
+     * Improvement is indicated as a decrease in the score or measurement (e.g. Lower
+     * score indicates better quality).
      */
     @SerialName("decrease")
     DECREASE

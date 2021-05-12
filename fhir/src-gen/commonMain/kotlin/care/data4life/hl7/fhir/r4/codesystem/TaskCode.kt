@@ -31,19 +31,25 @@ import kotlinx.serialization.Serializable
 enum class TaskCode {
 
     /**
-     * Take what actions are needed to transition the focus resource from 'draft' to 'active' or 'in-progress', as appropriate for the resource type.  This may involve additing additional content, approval, validation, etc.
+     * Take what actions are needed to transition the focus resource from 'draft' to
+     * 'active' or 'in-progress', as appropriate for the resource type.  This may
+     * involve additing additional content, approval, validation, etc.
      */
     @SerialName("approve")
     APPROVE,
 
     /**
-     * Act to perform the actions defined in the focus request.  This might result in a 'more assertive' request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  The degree of fulfillment requested might be limited by Task.restriction.
+     * Act to perform the actions defined in the focus request.  This might result in a
+     * 'more assertive' request (order for a plan or proposal, filler order for a
+     * placer order), but is intend to eventually result in events.  The degree of
+     * fulfillment requested might be limited by Task.restriction.
      */
     @SerialName("fulfill")
     FULFILL,
 
     /**
-     * Abort, cancel or withdraw the focal resource, as appropriate for the type of resource.
+     * Abort, cancel or withdraw the focal resource, as appropriate for the type of
+     * resource.
      */
     @SerialName("abort")
     ABORT,
@@ -55,7 +61,8 @@ enum class TaskCode {
     REPLACE,
 
     /**
-     * Update the focal resource of the owning system to reflect the content specified as the Task.focus
+     * Update the focal resource of the owning system to reflect the content specified
+     * as the Task.focus
      */
     @SerialName("change")
     CHANGE,
@@ -67,7 +74,8 @@ enum class TaskCode {
     SUSPEND,
 
     /**
-     * Transition the focal resource from 'suspended' to 'active' or 'in-progress' as appropriate for the resource type.
+     * Transition the focal resource from 'suspended' to 'active' or 'in-progress' as
+     * appropriate for the resource type.
      */
     @SerialName("resume")
     RESUME

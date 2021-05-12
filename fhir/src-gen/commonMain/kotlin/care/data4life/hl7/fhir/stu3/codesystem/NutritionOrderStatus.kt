@@ -55,19 +55,22 @@ enum class NutritionOrderStatus {
     REQUESTED,
 
     /**
-     * The request is 'actionable', but not all actions that are implied by it have occurred yet.
+     * The request is 'actionable', but not all actions that are implied by it have
+     * occurred yet.
      */
     @SerialName("active")
     ACTIVE,
 
     /**
-     * Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called "suspended".
+     * Actions implied by the request have been temporarily halted, but are expected to
+     * continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
     ON_HOLD,
 
     /**
-     * All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).
+     * All actions that are implied by the order have occurred and no continuation is
+     * planned (this will rarely be made explicit).
      */
     @SerialName("completed")
     COMPLETED,

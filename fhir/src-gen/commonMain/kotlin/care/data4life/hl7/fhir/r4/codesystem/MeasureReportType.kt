@@ -31,19 +31,22 @@ import kotlinx.serialization.Serializable
 enum class MeasureReportType {
 
     /**
-     * An individual report that provides information on the performance for a given measure with respect to a single subject.
+     * An individual report that provides information on the performance for a given
+     * measure with respect to a single subject.
      */
     @SerialName("individual")
     INDIVIDUAL,
 
     /**
-     * A subject list report that includes a listing of subjects that satisfied each population criteria in the measure.
+     * A subject list report that includes a listing of subjects that satisfied each
+     * population criteria in the measure.
      */
     @SerialName("subject-list")
     SUBJECT_LIST,
 
     /**
-     * A summary report that returns the number of members in each population criteria for the measure.
+     * A summary report that returns the number of members in each population criteria
+     * for the measure.
      */
     @SerialName("summary")
     SUMMARY,

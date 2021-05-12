@@ -43,7 +43,8 @@ enum class ConditionalDeleteStatus {
     SINGLE,
 
     /**
-     * Conditional deletes are supported, and multiple resources can be deleted in a single interaction.
+     * Conditional deletes are supported, and multiple resources can be deleted in a
+     * single interaction.
      */
     @SerialName("multiple")
     MULTIPLE

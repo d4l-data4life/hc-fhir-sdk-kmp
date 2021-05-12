@@ -43,7 +43,8 @@ enum class AllergyIntoleranceClinicalStatus {
     INACTIVE,
 
     /**
-     * A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved.
+     * A reaction to the identified substance has been clinically reassessed by testing
+     * or re-exposure and considered to be resolved.
      */
     @SerialName("resolved")
     RESOLVED

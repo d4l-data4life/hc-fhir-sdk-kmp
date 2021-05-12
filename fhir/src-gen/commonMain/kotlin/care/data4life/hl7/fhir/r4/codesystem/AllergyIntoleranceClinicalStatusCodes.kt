@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class AllergyIntoleranceClinicalStatusCodes {
 
     /**
-     * The subject is currently experiencing, or is at risk of, a reaction to the identified substance.
+     * The subject is currently experiencing, or is at risk of, a reaction to the
+     * identified substance.
      */
     @SerialName("active")
     ACTIVE,
@@ -43,7 +44,9 @@ enum class AllergyIntoleranceClinicalStatusCodes {
     INACTIVE,
 
     /**
-     * A reaction to the identified substance has been clinically reassessed by testing or re-exposure and is considered no longer to be present. Re-exposure could be accidental, unplanned, or outside of any clinical setting.
+     * A reaction to the identified substance has been clinically reassessed by testing
+     * or re-exposure and is considered no longer to be present. Re-exposure could be
+     * accidental, unplanned, or outside of any clinical setting.
      */
     @SerialName("resolved")
     RESOLVED

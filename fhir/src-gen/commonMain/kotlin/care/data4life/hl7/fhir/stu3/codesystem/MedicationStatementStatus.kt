@@ -55,13 +55,15 @@ enum class MedicationStatementStatus {
     INTENDED,
 
     /**
-     * Actions implied by the statement have been permanently halted, before all of them occurred.
+     * Actions implied by the statement have been permanently halted, before all of
+     * them occurred.
      */
     @SerialName("stopped")
     STOPPED,
 
     /**
-     * Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called "suspended".
+     * Actions implied by the statement have been temporarily halted, but are expected
+     * to continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
     ON_HOLD

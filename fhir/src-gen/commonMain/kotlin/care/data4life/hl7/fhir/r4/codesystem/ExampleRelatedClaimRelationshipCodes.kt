@@ -37,7 +37,8 @@ enum class ExampleRelatedClaimRelationshipCodes {
     PRIOR,
 
     /**
-     * A claim for a different suite of services which is related the suite claimed here.
+     * A claim for a different suite of services which is related the suite claimed
+     * here.
      */
     @SerialName("associated")
     ASSOCIATED

@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class GoalRelationshipType {
 
     /**
-     * Indicates that the target goal is one which must be met before striving for the current goal.
+     * Indicates that the target goal is one which must be met before striving for the
+     * current goal.
      */
     @SerialName("predecessor")
     PREDECESSOR,
 
     /**
-     * Indicates that the target goal is a desired objective once the current goal is met.
+     * Indicates that the target goal is a desired objective once the current goal is
+     * met.
      */
     @SerialName("successor")
     SUCCESSOR,
@@ -49,13 +51,16 @@ enum class GoalRelationshipType {
     REPLACEMENT,
 
     /**
-     * Indicates that the target goal is considered to be a "piece" of attaining this goal.
+     * Indicates that the target goal is considered to be a "piece" of attaining this
+     * goal.
      */
     @SerialName("milestone")
     MILESTONE,
 
     /**
-     * Indicates that the relationship is not covered by one of the pre-defined codes.  (An extension may convey more information about the meaning of the relationship.).
+     * Indicates that the relationship is not covered by one of the pre-defined codes.
+     * (An extension may convey more information about the meaning of the
+     * relationship.).
      */
     @SerialName("other")
     OTHER

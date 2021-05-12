@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class CatalogEntryRelationType {
 
     /**
-     * the related entry represents an activity that may be triggered by the current item.
+     * the related entry represents an activity that may be triggered by the current
+     * item.
      */
     @SerialName("triggers")
     TRIGGERS,

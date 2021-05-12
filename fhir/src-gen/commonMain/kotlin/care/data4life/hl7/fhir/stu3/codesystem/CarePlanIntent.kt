@@ -31,13 +31,15 @@ import kotlinx.serialization.Serializable
 enum class CarePlanIntent {
 
     /**
-     * The care plan is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act
+     * The care plan is a suggestion made by someone/something that doesn't have an
+     * intention to ensure it occurs and without providing an authorization to act
      */
     @SerialName("proposal")
     PROPOSAL,
 
     /**
-     * The care plan represents an intention to ensure something occurs without providing an authorization for others to act
+     * The care plan represents an intention to ensure something occurs without
+     * providing an authorization for others to act
      */
     @SerialName("plan")
     PLAN,
@@ -49,9 +51,12 @@ enum class CarePlanIntent {
     ORDER,
 
     /**
-     * The care plan represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.
-
-Refer to [[[RequestGroup]]] for additional information on how this status is used
+     * The care plan represents a component or option for a RequestGroup that
+     * establishes timing, conditionality and/or other constraints among a set of
+     * requests.
+     * 
+     * Refer to [[[RequestGroup]]] for additional information on how this status is
+     * used
      */
     @SerialName("option")
     OPTION

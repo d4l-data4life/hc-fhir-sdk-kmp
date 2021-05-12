@@ -43,13 +43,15 @@ enum class CompositionAttestationMode {
     PROFESSIONAL,
 
     /**
-     * The person authenticated the content and accepted legal responsibility for its content.
+     * The person authenticated the content and accepted legal responsibility for its
+     * content.
      */
     @SerialName("legal")
     LEGAL,
 
     /**
-     * The organization authenticated the content as consistent with their policies and procedures.
+     * The organization authenticated the content as consistent with their policies and
+     * procedures.
      */
     @SerialName("official")
     OFFICIAL

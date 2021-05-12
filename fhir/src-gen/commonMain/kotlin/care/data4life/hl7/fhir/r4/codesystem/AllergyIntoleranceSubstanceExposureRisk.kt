@@ -32,13 +32,15 @@ import kotlinx.serialization.Serializable
 enum class AllergyIntoleranceSubstanceExposureRisk {
 
     /**
-     * Known risk of allergy or intolerance reaction upon exposure to the specified substance.
+     * Known risk of allergy or intolerance reaction upon exposure to the specified
+     * substance.
      */
     @SerialName("known-reaction-risk")
     KNOWN_REACTION_RISK,
 
     /**
-     * No known risk of allergy or intolerance reaction upon exposure to the specified substance.
+     * No known risk of allergy or intolerance reaction upon exposure to the specified
+     * substance.
      */
     @SerialName("no-known-reaction-risk")
     NO_KNOWN_REACTION_RISK

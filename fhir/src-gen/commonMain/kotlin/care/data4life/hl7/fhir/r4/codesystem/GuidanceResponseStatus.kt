@@ -37,7 +37,8 @@ enum class GuidanceResponseStatus {
     SUCCESS,
 
     /**
-     * The request was processed successfully, but more data may result in a more complete evaluation.
+     * The request was processed successfully, but more data may result in a more
+     * complete evaluation.
      */
     @SerialName("data-requested")
     DATA_REQUESTED,

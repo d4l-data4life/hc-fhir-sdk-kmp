@@ -37,7 +37,8 @@ enum class DeviceMetricCategory {
     MEASUREMENT,
 
     /**
-     * DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device.
+     * DeviceObservations generated for this DeviceMetric is a setting that will
+     * influence the behavior of the Device.
      */
     @SerialName("setting")
     SETTING,

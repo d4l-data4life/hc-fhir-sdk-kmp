@@ -55,7 +55,8 @@ enum class CoverageCopayTypeCodes {
     INPTHOSP,
 
     /**
-     * A visit held where the patient is remote relative to the practitioner, e.g. by phone, computer or video conference.
+     * A visit held where the patient is remote relative to the practitioner, e.g. by
+     * phone, computer or video conference.
      */
     @SerialName("televisit")
     TELEVISIT,
@@ -67,25 +68,29 @@ enum class CoverageCopayTypeCodes {
     URGENTCARE,
 
     /**
-     * A standard percentage applied to all classes or service or product not otherwise specified.
+     * A standard percentage applied to all classes or service or product not otherwise
+     * specified.
      */
     @SerialName("copaypct")
     COPAYPCT,
 
     /**
-     * A standard fixed currency amount applied to all classes or service or product not otherwise specified.
+     * A standard fixed currency amount applied to all classes or service or product
+     * not otherwise specified.
      */
     @SerialName("copay")
     COPAY,
 
     /**
-     * The accumulated amount of patient payment before the coverage begins to pay for services.
+     * The accumulated amount of patient payment before the coverage begins to pay for
+     * services.
      */
     @SerialName("deductible")
     DEDUCTIBLE,
 
     /**
-     * The maximum amout of payment for services which a patient, or family, is expected to incur - typically annually.
+     * The maximum amout of payment for services which a patient, or family, is
+     * expected to incur - typically annually.
      */
     @SerialName("maxoutofpocket")
     MAXOUTOFPOCKET

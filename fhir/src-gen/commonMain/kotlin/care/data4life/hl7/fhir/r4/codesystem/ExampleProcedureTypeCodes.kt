@@ -37,7 +37,8 @@ enum class ExampleProcedureTypeCodes {
     PRIMARY,
 
     /**
-     * The second procedure in a series required to produce and overall patient outcome.
+     * The second procedure in a series required to produce and overall patient
+     * outcome.
      */
     @SerialName("secondary")
     SECONDARY

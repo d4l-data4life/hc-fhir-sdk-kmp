@@ -34,25 +34,29 @@ import kotlinx.serialization.Serializable
 enum class ImmunizationEvaluationDoseStatusReasonCodes {
 
     /**
-     * The product was stored in a manner inconsistent with manufacturer guidelines potentially reducing the effectiveness of the product.
+     * The product was stored in a manner inconsistent with manufacturer guidelines
+     * potentially reducing the effectiveness of the product.
      */
     @SerialName("advstorage")
     ADVSTORAGE,
 
     /**
-     * The product was stored at a temperature inconsistent with manufacturer guidelines potentially reducing the effectiveness of the product.
+     * The product was stored at a temperature inconsistent with manufacturer
+     * guidelines potentially reducing the effectiveness of the product.
      */
     @SerialName("coldchbrk")
     COLDCHBRK,
 
     /**
-     * The product was administered after the expiration date associated with lot of vaccine.
+     * The product was administered after the expiration date associated with lot of
+     * vaccine.
      */
     @SerialName("explot")
     EXPLOT,
 
     /**
-     * The product was administered at a time inconsistent with the documented schedule.
+     * The product was administered at a time inconsistent with the documented
+     * schedule.
      */
     @SerialName("outsidesched")
     OUTSIDESCHED,

@@ -37,25 +37,29 @@ enum class DiscriminatorType {
     VALUE,
 
     /**
-     * The slices are differentiated by the presence or absence of the nominated element
+     * The slices are differentiated by the presence or absence of the nominated
+     * element
      */
     @SerialName("exists")
     EXISTS,
 
     /**
-     * The slices have different values in the nominated element, as determined by testing them against the applicable ElementDefinition.pattern[x]
+     * The slices have different values in the nominated element, as determined by
+     * testing them against the applicable ElementDefinition.pattern[x]
      */
     @SerialName("pattern")
     PATTERN,
 
     /**
-     * The slices are differentiated by type of the nominated element to a specifed profile
+     * The slices are differentiated by type of the nominated element to a specifed
+     * profile
      */
     @SerialName("type")
     TYPE,
 
     /**
-     * The slices are differentiated by conformance of the nominated element to a specifed profile
+     * The slices are differentiated by conformance of the nominated element to a
+     * specifed profile
      */
     @SerialName("profile")
     PROFILE

@@ -56,7 +56,8 @@ enum class Diet {
     GLUTEN_FREE,
 
     /**
-     * Food without meat, poultry, seafood, eggs, dairy products and other animal-derived substances.
+     * Food without meat, poultry, seafood, eggs, dairy products and other animal-
+     * derived substances.
      */
     @SerialName("vegan")
     VEGAN,

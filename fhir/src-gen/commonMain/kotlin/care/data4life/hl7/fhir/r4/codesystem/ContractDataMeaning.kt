@@ -37,13 +37,15 @@ enum class ContractDataMeaning {
     INSTANCE,
 
     /**
-     * The consent applies directly to the instance of the resource and instances it refers to.
+     * The consent applies directly to the instance of the resource and instances it
+     * refers to.
      */
     @SerialName("related")
     RELATED,
 
     /**
-     * The consent applies directly to the instance of the resource and instances that refer to it.
+     * The consent applies directly to the instance of the resource and instances that
+     * refer to it.
      */
     @SerialName("dependents")
     DEPENDENTS,

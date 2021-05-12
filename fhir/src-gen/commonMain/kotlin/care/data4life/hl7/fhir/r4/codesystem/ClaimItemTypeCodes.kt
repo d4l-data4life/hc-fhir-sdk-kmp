@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class ClaimItemTypeCodes {
 
     /**
-     * A group of products and/or Services, amount ar the summary or detail level products and services.
+     * A group of products and/or Services, amount ar the summary or detail level
+     * products and services.
      */
     @SerialName("group")
     GROUP,

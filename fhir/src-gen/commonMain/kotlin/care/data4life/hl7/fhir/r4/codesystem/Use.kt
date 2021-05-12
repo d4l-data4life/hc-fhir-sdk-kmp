@@ -37,13 +37,15 @@ enum class Use {
     CLAIM,
 
     /**
-     * The treatment is proposed and this represents a Pre-authorization for the services.
+     * The treatment is proposed and this represents a Pre-authorization for the
+     * services.
      */
     @SerialName("preauthorization")
     PREAUTHORIZATION,
 
     /**
-     * The treatment is proposed and this represents a Pre-determination for the services.
+     * The treatment is proposed and this represents a Pre-determination for the
+     * services.
      */
     @SerialName("predetermination")
     PREDETERMINATION

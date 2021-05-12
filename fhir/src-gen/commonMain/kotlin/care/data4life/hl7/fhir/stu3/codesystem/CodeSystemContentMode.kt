@@ -32,7 +32,8 @@ import kotlinx.serialization.Serializable
 enum class CodeSystemContentMode {
 
     /**
-     * None of the concepts defined by the code system are included in the code system resource
+     * None of the concepts defined by the code system are included in the code system
+     * resource
      */
     @SerialName("not-present")
     NOT_PRESENT,
@@ -50,7 +51,8 @@ enum class CodeSystemContentMode {
     FRAGMENT,
 
     /**
-     * All the concepts defined by the code system are included in the code system resource
+     * All the concepts defined by the code system are included in the code system
+     * resource
      */
     @SerialName("complete")
     COMPLETE

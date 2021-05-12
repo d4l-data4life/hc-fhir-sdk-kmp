@@ -31,7 +31,8 @@ import kotlinx.serialization.Serializable
 enum class KnowledgeResourceType {
 
     /**
-     * The definition of a specific activity to be taken, independent of any particular patient or context.
+     * The definition of a specific activity to be taken, independent of any particular
+     * patient or context.
      */
     @SerialName("ActivityDefinition")
     ACTIVITYDEFINITION,
@@ -61,7 +62,8 @@ enum class KnowledgeResourceType {
     MEASURE,
 
     /**
-     * The definition of a plan for a series of actions, independent of any specific patient or context.
+     * The definition of a plan for a series of actions, independent of any specific
+     * patient or context.
      */
     @SerialName("PlanDefinition")
     PLANDEFINITION,
