@@ -22,7 +22,6 @@ import care.data4life.hl7.fhir.stu3.codesystem.ProvenanceEntityRole
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -32,9 +31,10 @@ import kotlin.test.assertEquals
  *
  * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
  *
+ *
+ * Generated from FHIR 3.0.1.11917)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 3.0.1.11917")
 class ProvenanceTest {
 
     val parser = FhirStu3Parser()

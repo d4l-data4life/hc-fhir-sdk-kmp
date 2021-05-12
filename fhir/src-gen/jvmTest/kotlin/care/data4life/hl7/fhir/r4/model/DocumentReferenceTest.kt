@@ -22,7 +22,6 @@ import care.data4life.hl7.fhir.r4.primitive.*
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -32,9 +31,10 @@ import kotlin.test.assertEquals
  *
  * A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
  *
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 4.0.1-9346c8cc45")
 class DocumentReferenceTest {
 
     val parser = FhirR4Parser()

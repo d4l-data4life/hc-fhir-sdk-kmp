@@ -23,7 +23,6 @@ import care.data4life.hl7.fhir.stu3.codesystem.ObservationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -33,9 +32,10 @@ import kotlin.test.assertEquals
  *
  * Measurements and simple assertions made about a patient, device or other subject.
  *
+ *
+ * Generated from FHIR 3.0.1.11917)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 3.0.1.11917")
 class ObservationTest {
 
     val parser = FhirStu3Parser()

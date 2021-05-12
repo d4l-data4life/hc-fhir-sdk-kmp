@@ -17,11 +17,14 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
-import care.data4life.hl7.fhir.stu3.codesystem.*
+import care.data4life.hl7.fhir.stu3.codesystem.CarePlanActivityStatus
+import care.data4life.hl7.fhir.stu3.codesystem.CarePlanIntent
+import care.data4life.hl7.fhir.stu3.codesystem.CarePlanStatus
+import care.data4life.hl7.fhir.stu3.codesystem.IdentifierUse
+import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -31,9 +34,10 @@ import kotlin.test.assertEquals
  *
  * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
  *
+ *
+ * Generated from FHIR 3.0.1.11917)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 3.0.1.11917")
 class CarePlanTest {
 
     val parser = FhirStu3Parser()

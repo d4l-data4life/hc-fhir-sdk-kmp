@@ -23,7 +23,6 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -33,9 +32,10 @@ import kotlin.test.assertEquals
  *
  * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
  *
+ *
+ * Generated from FHIR 3.0.1.11917)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 3.0.1.11917")
 class DiagnosticReportTest {
 
     val parser = FhirStu3Parser()

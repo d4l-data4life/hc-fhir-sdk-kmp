@@ -22,7 +22,6 @@ import care.data4life.hl7.fhir.r4.primitive.*
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -32,9 +31,10 @@ import kotlin.test.assertEquals
  *
  * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [CodeSystem](codesystem.html) definitions and their use in [coded elements](terminologies.html).
  *
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 4.0.1-9346c8cc45")
 class ValueSetTest {
 
     val parser = FhirR4Parser()

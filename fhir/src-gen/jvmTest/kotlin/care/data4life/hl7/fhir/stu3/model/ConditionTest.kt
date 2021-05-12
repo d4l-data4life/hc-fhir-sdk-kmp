@@ -22,7 +22,6 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -32,9 +31,10 @@ import kotlin.test.assertEquals
  *
  * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
  *
+ *
+ * Generated from FHIR 3.0.1.11917)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 3.0.1.11917")
 class ConditionTest {
 
     val parser = FhirStu3Parser()

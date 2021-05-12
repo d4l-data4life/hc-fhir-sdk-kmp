@@ -17,8 +17,6 @@
 package care.data4life.hl7.fhir.r4.model
 
 
-import javax.annotation.Generated
-
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
 
@@ -37,9 +35,10 @@ import kotlin.test.assertEquals
  * {%- if class.formal %}
  * {{ class.formal }}
  * {%- endif %}
+ *
+ * Generated from FHIR {{ info.version }})
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR {{ info.version }}")
 class {{ class.name }}Test {
 
 	val parser = FhirR4Parser()

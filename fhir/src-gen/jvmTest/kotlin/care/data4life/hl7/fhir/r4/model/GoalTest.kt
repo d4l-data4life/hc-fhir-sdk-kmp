@@ -22,7 +22,6 @@ import care.data4life.hl7.fhir.r4.primitive.*
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import javax.annotation.Generated
 import kotlin.test.assertEquals
 
 /**
@@ -32,9 +31,10 @@ import kotlin.test.assertEquals
  *
  * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
  *
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45)
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-@Generated("Generated from FHIR 4.0.1-9346c8cc45")
 class GoalTest {
 
     val parser = FhirR4Parser()
