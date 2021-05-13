@@ -15,110 +15,159 @@
  */
 
 package care.data4life.hl7.fhir.stu3.model
+{% set resource_list = [
+    "DomainResource",
+    "Resource"
+] %}
+{%- set primitives_list = [
+    "Bool",
+    "Date",
+    "DateTime",
+    "Decimal",
+    "Instant",
+    "Integer",
+    "PositiveInteger",
+    "Time",
+    "UnsignedInteger"
+] %}
+{%- set allsuperclasses = {} %}
+{%- set codesystems = {} %}
+{%- set primitives = {} %}
 
-
+{%- for tcase in tests %}
+{%- for test in tcase.tests %}
+{%- if test.enum %}
+{%- set _ = codesystems.update({ test.enum:test.enum }) %}
+{%- endif %}
+{%- if test.klass.name in primitives_list %}
+{%- set _ = primitives.update({ test.klass.name:test.klass.name }) %}
+{%- endif %}
+{%- endfor %}
+{%- endfor %}
+import care.data4life.hl7.fhir.stu3.FhirStu3Parser
+{%- for _, codesystem in codesystems.items() | sort %}
+import care.data4life.hl7.fhir.stu3.codesystem.{{ codesystem }}
+{%- endfor %}
+{%- for _, primitive in primitives.items() | sort %}
+{#- import care.data4life.hl7.fhir.stu3.primitive.{{ primitive }} #}
+{%- endfor %}
+import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-
-import care.data4life.hl7.fhir.stu3.codesystem.*
-import care.data4life.hl7.fhir.stu3.primitive.*
-import care.data4life.hl7.fhir.stu3.FhirStu3Parser
-import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
-import org.junit.Ignore
-
 import kotlin.test.assertEquals
 
 /**
  * {{ class.name }}Test.java
  *
- * {{ class.short }}.
- * {%- if class.formal %}
- * {{ class.formal }}
- * {%- endif %}
+ * {{ class.short }}
+{%- if class.formal %}
+ *
+ * {{ class.formal | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | wordwrap(100) | replace('\n', '\n * ') }}
+{%- endif %}
  *
  * Generated from FHIR {{ info.version }})
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
 class {{ class.name }}Test {
 
-	val parser = FhirStu3Parser()
+    val parser = FhirStu3Parser()
 
-	{% for tcase in tests %}
+{%- for tcase in tests %}
 
-	{%- if tcase.filename == "patient-example-b.json" %}
-	@Ignore
-	{%- endif %}
-	{%- if tcase.filename == "patient-example.json" %}
-	@Ignore
-	{%- endif %}
-	@Test
-	fun test{{ class.name }}{{ loop.index }}() {
-		// Given
-		val sourceJson = loadAsString("stu3/{{ tcase.filename }}")
+    @Test
+    fun test{{ class.name }}{{ '%02d' % loop.index }}() {
+        // Given
+        val sourceJson = loadAsString("stu3/{{ tcase.filename }}")
 
-		// When
-		val data = parser.toFhir({{ class.name }}::class, sourceJson)
+        // When
+        val data = parser.toFhir({{ class.name }}::class, sourceJson)
 
-		// Then
-		{% for test in tcase.tests -%}
-		{%- if test.enum %}
-		assertEquals({{ test.enum }}.
-		{%- if test.value == "=" -%}
-		EQUAL
-		{%- else -%}
-		{%- if test.value == "<" -%}
-		LESS_THAN
-		{%- else -%}
-		{%- if test.value == "<=" -%}
-		LESS_OR_EQUAL
-		{%- else -%}
-		{%- if test.value == ">" -%}
-		GREATER_THAN
-		{%- else -%}
-		{%- if test.value == ">=" -%}
-		GREATER_OR_EQUAL
-		{%- else -%}
-		{%- if test.value == "*" -%}
-		MAX
-		{%- else -%}
-		{{ test.value.upper()|replace('-', '_') }}
-		{%- endif %}
-		{%- endif %}
-		{%- endif %}
-		{%- endif %}
-		{%- endif %}
-		{%- endif %}, data.{{ test.path }})
-		{%- else %}{% if "String" == test.klass.name %}
-		assertEquals("{{ test.value|replace('"', '\\"') }}", data.{{ test.path }})
-		{%- else %}{% if "Decimal" == test.klass.name %}
-		assertEquals("{{ test.value }}".toDouble(), data.{{ test.path }}?.value)
-		{%- else %}{% if "Integer" == test.klass.name %}
-		assertEquals("{{ test.value }}".toInt(), data.{{ test.path }}?.value)
-		{%- else %}{% if "PositiveInteger" == test.klass.name %}
-		assertEquals("{{ test.value }}".toLong(), data.{{ test.path }}?.value)
-		{%- else %}{% if "UnsignedInteger" == test.klass.name %}
-		assertEquals("{{ test.value }}".toLong(), data.{{ test.path }}?.value)
-		{%- else %}{% if "Bool" == test.klass.name %}
-		assertEquals("{{ test.value }}".toBoolean(), data.{{ test.path }}?.value)
-		{%- else %}{% if "Date" == test.klass.name %}
-		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString())
-		{%- else %}{% if "DateTime" == test.klass.name %}
-		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString(), )
-		{%- else %}{% if "Instant" == test.klass.name %}
-		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString(), )
-		{%- else %}{% if "Time" == test.klass.name %}
-		assertEquals("{{ test.value }}", data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString())
-		{%- else %}
-		//FIXME Don't know how to create unit test for "{{ test.path }}", which is a {{ test.klass.name }}
-		{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
-		{%- endfor %}
+        // Then
+{% for test in tcase.tests -%}
+{%- if test.enum %}
+        assertEquals(
+            {{ test.enum }}.
+{%- if test.value == "=" -%}
+            EQUAL
+{%- else -%}{% if test.value == "<" -%}
+            LESS_THAN
+{%- else -%}{% if test.value == "<=" -%}
+            LESS_OR_EQUAL
+{%- else -%}{%- if test.value == ">" -%}
+            GREATER_THAN
+{%- else -%}{%- if test.value == ">=" -%}
+            GREATER_OR_EQUAL
+{%- else -%}{%- if test.value == "*" -%}
+            MAX
+{%- else -%}
+            {{ test.value.upper()|replace('-', '_') }}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- endif %},
+            data.{{ test.path }}
+        )
+{%- else %}{% if "String" == test.klass.name %}
+        assertEquals(
+            "{{ test.value|replace('"', '\\"') }}",
+            data.{{ test.path }}
+        )
+{%- else %}{% if "Decimal" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}".toDouble(),
+            data.{{ test.path }}?.value
+        )
+{%- else %}{% if "Integer" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}".toInt(),
+            data.{{ test.path }}?.value
+        )
+{%- else %}{% if "PositiveInteger" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}".toLong(),
+            data.{{ test.path }}?.value
+        )
+{%- else %}{% if "UnsignedInteger" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}".toLong(),
+            data.{{ test.path }}?.value
+        )
+{%- else %}{% if "Bool" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}".toBoolean(),
+            data.{{ test.path }}?.value
+        )
+{%- else %}{% if "Date" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}",
+            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}{% if "DateTime" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}",
+            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}{% if "Instant" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}",
+            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}{% if "Time" == test.klass.name %}
+        assertEquals(
+            "{{ test.value }}",
+            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}
+        //FIXME Don't know how to create unit test for "{{ test.path }}", which is a {{ test.klass.name }}
+{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+{%- endfor %}
 
-		val json = parser.fromFhir(data)
+        val json = parser.fromFhir(data)
 
-		JSONAssert.assertEquals(sourceJson, json, true)
-	}
-	{%- endfor %}
+        JSONAssert.assertEquals(sourceJson, json, true)
+    }
+{%- endfor %}
 }
-
-
-
+{% if True %}{% endif %}

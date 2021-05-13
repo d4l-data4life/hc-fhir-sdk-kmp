@@ -29,10 +29,10 @@ import kotlin.test.assertEquals
 /**
  * ReferralRequestTest.java
  *
- * A request for referral or transfer of care.
+ * A request for referral or transfer of care
  *
- * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
- *
+ * Used to record and send details about a request for referral service or transfer of a patient to the
+ * care of another provider or provider organization.
  *
  * Generated from FHIR 3.0.1.11917)
  */
@@ -42,7 +42,7 @@ class ReferralRequestTest {
     val parser = FhirStu3Parser()
 
     @Test
-    fun testReferralRequest1() {
+    fun testReferralRequest01() {
         // Given
         val sourceJson = loadAsString("stu3/referralrequest-example.json")
 
@@ -51,12 +51,18 @@ class ReferralRequestTest {
 
         // Then
 
-        assertEquals("2014-02-14", data.authoredOn?.value.toString())
+        assertEquals(
+            "2014-02-14",
+            data.authoredOn?.value.toString()
+        )
         assertEquals(
             "ProcedureRequest for Myringotomy and insertion of tympanic ventilation tube",
             data.basedOn?.get(0)?.display
         )
-        assertEquals("Beverly Waver's encounter on 2014-02-14", data.context?.display)
+        assertEquals(
+            "Beverly Waver's encounter on 2014-02-14",
+            data.context?.display
+        )
         assertEquals(
             "Protocol for insertion of tympanic ventilation tube",
             data.definition?.get(0)?.display
@@ -65,29 +71,62 @@ class ReferralRequestTest {
             "In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is     falling behind her peers at school, and displaying some learning difficulties.",
             data.description
         )
-        assertEquals("1234", data.groupIdentifier?.value)
-        assertEquals("example", data.id)
+        assertEquals(
+            "1234",
+            data.groupIdentifier?.value
+        )
+        assertEquals(
+            "example",
+            data.id
+        )
         assertEquals(
             "http://orionhealth.com/fhir/apps/referralids",
             data.identifier?.get(0)?.system
         )
-        assertEquals("ret4421", data.identifier?.get(0)?.value)
-        assertEquals(RequestIntent.ORDER, data.intent)
-        assertEquals("2014-03-14", data.occurrencePeriod?.end?.value.toString())
-        assertEquals(RequestPriority.ROUTINE, data.priority)
-        assertEquals("For consideration of Grommets", data.reasonCode?.get(0)?.text)
-        assertEquals("Dr Dave", data.recipient?.get(0)?.display)
+        assertEquals(
+            "ret4421",
+            data.identifier?.get(0)?.value
+        )
+        assertEquals(
+            RequestIntent.ORDER,
+            data.intent
+        )
+        assertEquals(
+            "2014-03-14",
+            data.occurrencePeriod?.end?.value.toString()
+        )
+        assertEquals(
+            RequestPriority.ROUTINE,
+            data.priority
+        )
+        assertEquals(
+            "For consideration of Grommets",
+            data.reasonCode?.get(0)?.text
+        )
+        assertEquals(
+            "Dr Dave",
+            data.recipient?.get(0)?.display
+        )
         assertEquals(
             "https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597",
             data.recipient?.get(0)?.reference
         )
-        assertEquals("prior ReferralRequest", data.replaces?.get(0)?.display)
-        assertEquals("Serena Shrink", data.requester?.agent?.display)
+        assertEquals(
+            "prior ReferralRequest",
+            data.replaces?.get(0)?.display
+        )
+        assertEquals(
+            "Serena Shrink",
+            data.requester?.agent?.display
+        )
         assertEquals(
             "https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272",
             data.requester?.agent?.reference
         )
-        assertEquals("172676009", data.serviceRequested?.get(0)?.coding?.get(0)?.code)
+        assertEquals(
+            "172676009",
+            data.serviceRequested?.get(0)?.coding?.get(0)?.code
+        )
         assertEquals(
             "Myringotomy and insertion of tympanic ventilation tube",
             data.serviceRequested?.get(0)?.coding?.get(0)?.display
@@ -96,15 +135,30 @@ class ReferralRequestTest {
             "http://snomed.info/sct",
             data.serviceRequested?.get(0)?.coding?.get(0)?.system
         )
-        assertEquals("Insertion of grommets", data.serviceRequested?.get(0)?.text)
-        assertEquals("ent", data.specialty?.coding?.get(0)?.code)
-        assertEquals("ENT", data.specialty?.coding?.get(0)?.display)
+        assertEquals(
+            "Insertion of grommets",
+            data.serviceRequested?.get(0)?.text
+        )
+        assertEquals(
+            "ent",
+            data.specialty?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "ENT",
+            data.specialty?.coding?.get(0)?.display
+        )
         assertEquals(
             "http://orionhealth.com/fhir/apps/specialties",
             data.specialty?.coding?.get(0)?.system
         )
-        assertEquals(RequestStatus.ACTIVE, data.status)
-        assertEquals("Beverly Weaver", data.subject?.display)
+        assertEquals(
+            RequestStatus.ACTIVE,
+            data.status
+        )
+        assertEquals(
+            "Beverly Weaver",
+            data.subject?.display
+        )
         assertEquals(
             "https://fhir.orionhealth.com/blaze/fhir/Patient/77662",
             data.subject?.reference
@@ -113,10 +167,22 @@ class ReferralRequestTest {
             "<div xmlns=\"http://www.w3.org/1999/xhtml\">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>",
             data.text?.div
         )
-        assertEquals(NarrativeStatus.GENERATED, data.text?.status)
-        assertEquals("103696004", data.type?.coding?.get(0)?.code)
-        assertEquals("Patient referral to specialist", data.type?.coding?.get(0)?.display)
-        assertEquals("http://snomed.info/sct", data.type?.coding?.get(0)?.system)
+        assertEquals(
+            NarrativeStatus.GENERATED,
+            data.text?.status
+        )
+        assertEquals(
+            "103696004",
+            data.type?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "Patient referral to specialist",
+            data.type?.coding?.get(0)?.display
+        )
+        assertEquals(
+            "http://snomed.info/sct",
+            data.type?.coding?.get(0)?.system
+        )
 
         val json = parser.fromFhir(data)
 
