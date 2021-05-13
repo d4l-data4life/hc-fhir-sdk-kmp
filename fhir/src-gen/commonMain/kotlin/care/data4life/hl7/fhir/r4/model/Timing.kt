@@ -194,7 +194,7 @@ interface FhirTimingRepeat : FhirElement {
     /**
      * Code for time period of occurrence.
      */
-    val `when`: List<String>?
+    val whenn: List<String>?
 
     /**
      * Minutes from event (before or after).
@@ -261,7 +261,7 @@ data class TimingRepeat(
     override val timeOfDay: List<Time>? = null,
 
     @SerialName("when")
-    override val `when`: List<String>? = null,
+    override val whenn: List<String>? = null,
 
     @SerialName("offset")
     override val offset: UnsignedInteger? = null,

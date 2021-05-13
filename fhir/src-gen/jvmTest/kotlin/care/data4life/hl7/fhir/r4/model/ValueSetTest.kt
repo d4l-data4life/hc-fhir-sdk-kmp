@@ -455,7 +455,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(0)?.`abstract`?.value
+            data.expansion?.contains?.get(0)?.abstrakt?.value
         )
         assertEquals(
             "login",
@@ -523,7 +523,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(2)?.`abstract`?.value
+            data.expansion?.contains?.get(2)?.abstrakt?.value
         )
         assertEquals(
             "invalid",
@@ -575,7 +575,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(3)?.`abstract`?.value
+            data.expansion?.contains?.get(3)?.abstrakt?.value
         )
         assertEquals(
             "transient",
@@ -627,7 +627,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(4)?.`abstract`?.value
+            data.expansion?.contains?.get(4)?.abstrakt?.value
         )
         assertEquals(
             "security",
@@ -788,7 +788,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(1)?.`abstract`?.value
+            data.expansion?.contains?.get(1)?.abstrakt?.value
         )
         assertEquals(
             "2093-3",
@@ -844,7 +844,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(2)?.`abstract`?.value
+            data.expansion?.contains?.get(2)?.abstrakt?.value
         )
         assertEquals(
             "2096-6",

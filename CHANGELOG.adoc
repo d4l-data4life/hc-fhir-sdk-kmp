@@ -38,6 +38,12 @@ toc::[]
 
 === Fixed
 
+:backtick: `
+* Fix usage of backticks `{backtick}` as they won't work on Android:
+** `{backtick}abstract{backtick}` -> `abstrakt`
+** `{backtick}when{backtick}` -> `whenn`
+** `{backtick}package{backtick}` -> `pakkage`
+
 === Bumped
 
 * Bump Gradle 6.8.2 -> 6.8.3
@@ -55,6 +61,10 @@ toc::[]
 
 === Migration
 
+* You need to replace following properties for FHIR3 types `Medication`, `Signature`, `Timing` and `ValueSet`:
+** `{backtick}abstract{backtick}` -> `abstrakt`
+** `{backtick}when{backtick}` -> `whenn`
+** `{backtick}package{backtick}` -> `pakkage`
 
 == https://github.com/d4l-data4life/hc-fhir-sdk-kmp/compare/v0.0.1...v0.1.0[0.1.0]
 

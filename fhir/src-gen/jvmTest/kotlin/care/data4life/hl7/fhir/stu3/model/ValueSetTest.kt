@@ -238,7 +238,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(1)?.`abstract`?.value
+            data.expansion?.contains?.get(1)?.abstrakt?.value
         )
         assertEquals(
             "2093-3",
@@ -294,7 +294,7 @@ class ValueSetTest {
         )
         assertEquals(
             "True".toBoolean(),
-            data.expansion?.contains?.get(2)?.`abstract`?.value
+            data.expansion?.contains?.get(2)?.abstrakt?.value
         )
         assertEquals(
             "2096-6",

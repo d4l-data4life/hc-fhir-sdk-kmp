@@ -43,7 +43,7 @@ interface FhirSignature : FhirElement {
     /**
      * When the signature was created.
      */
-    val `when`: Instant
+    val whenn: Instant
 
     /**
      * Who signed.
@@ -91,7 +91,7 @@ data class Signature(
     override val type: List<Coding>,
 
     @SerialName("when")
-    override val `when`: Instant,
+    override val whenn: Instant,
 
     @SerialName("who")
     override val who: Reference,

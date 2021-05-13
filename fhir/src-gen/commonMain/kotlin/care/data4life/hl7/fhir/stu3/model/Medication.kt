@@ -73,7 +73,7 @@ interface FhirMedication : FhirDomainResource {
     /**
      * Details about packaged medications.
      */
-    val `package`: MedicationPackage?
+    val pakkage: MedicationPackage?
 
     /**
      * Picture of the medication.
@@ -119,7 +119,7 @@ data class Medication(
     override val ingredient: List<MedicationIngredient>? = null,
 
     @SerialName("package")
-    override val `package`: MedicationPackage? = null,
+    override val pakkage: MedicationPackage? = null,
 
     @SerialName("image")
     override val image: List<Attachment>? = null,

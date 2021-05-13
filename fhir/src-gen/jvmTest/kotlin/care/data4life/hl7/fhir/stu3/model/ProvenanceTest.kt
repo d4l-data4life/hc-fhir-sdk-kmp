@@ -100,10 +100,6 @@ class ProvenanceTest {
             data.recorded?.value.toString()
         )
         assertEquals(
-            "2015-08-27T08:39:24+10:00",
-            data.signature?.get(0)?.`when`?.value.toString()
-        )
-        assertEquals(
             "Li4u",
             data.signature?.get(0)?.blob
         )
@@ -122,6 +118,10 @@ class ProvenanceTest {
         assertEquals(
             "urn:iso-astm:E1762-95:2013",
             data.signature?.get(0)?.type?.get(0)?.system
+        )
+        assertEquals(
+            "2015-08-27T08:39:24+10:00",
+            data.signature?.get(0)?.whenn?.value.toString()
         )
         assertEquals(
             "Practitioner/xcda-author",

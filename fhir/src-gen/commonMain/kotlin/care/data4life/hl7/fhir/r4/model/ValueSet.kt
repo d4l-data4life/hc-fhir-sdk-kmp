@@ -752,7 +752,7 @@ interface FhirValueSetExpansionContains : FhirBackboneElement {
     /**
      * If user cannot select this entry.
      */
-    val `abstract`: Bool?
+    val abstrakt: Bool?
 
     /**
      * If concept is inactive in the code system.
@@ -802,7 +802,7 @@ data class ValueSetExpansionContains(
     override val system: String? = null,
 
     @SerialName("abstract")
-    override val `abstract`: Bool? = null,
+    override val abstrakt: Bool? = null,
 
     @SerialName("inactive")
     override val inactive: Bool? = null,

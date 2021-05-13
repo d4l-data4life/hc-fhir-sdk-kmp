@@ -50,50 +50,6 @@ class MedicationTest {
         // Then
 
         assertEquals(
-            "2019-10-31",
-            data.`package`?.batch?.get(0)?.expirationDate?.value.toString()
-        )
-        assertEquals(
-            "12345",
-            data.`package`?.batch?.get(0)?.lotNumber
-        )
-        assertEquals(
-            "415818006",
-            data.`package`?.container?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vial",
-            data.`package`?.container?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.`package`?.container?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mL",
-            data.`package`?.content?.get(0)?.amount?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.`package`?.content?.get(0)?.amount?.system
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.`package`?.content?.get(0)?.amount?.value?.value
-        )
-        assertEquals(
-            "325072002",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Insulin Aspart (substance)",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
             "0169-7501-11",
             data.code?.coding?.get(0)?.code
         )
@@ -168,6 +124,50 @@ class MedicationTest {
         assertEquals(
             "#org3",
             data.manufacturer?.reference
+        )
+        assertEquals(
+            "2019-10-31",
+            data.pakkage?.batch?.get(0)?.expirationDate?.value.toString()
+        )
+        assertEquals(
+            "12345",
+            data.pakkage?.batch?.get(0)?.lotNumber
+        )
+        assertEquals(
+            "415818006",
+            data.pakkage?.container?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "Vial",
+            data.pakkage?.container?.coding?.get(0)?.display
+        )
+        assertEquals(
+            "http://snomed.info/sct",
+            data.pakkage?.container?.coding?.get(0)?.system
+        )
+        assertEquals(
+            "mL",
+            data.pakkage?.content?.get(0)?.amount?.code
+        )
+        assertEquals(
+            "http://unitsofmeasure.org",
+            data.pakkage?.content?.get(0)?.amount?.system
+        )
+        assertEquals(
+            "10".toDouble(),
+            data.pakkage?.content?.get(0)?.amount?.value?.value
+        )
+        assertEquals(
+            "325072002",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "Insulin Aspart (substance)",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.display
+        )
+        assertEquals(
+            "http://snomed.info/sct",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
         )
         assertEquals(
             NarrativeStatus.GENERATED,
@@ -364,14 +364,6 @@ class MedicationTest {
         // Then
 
         assertEquals(
-            "2019-10-31",
-            data.`package`?.batch?.get(0)?.expirationDate?.value.toString()
-        )
-        assertEquals(
-            "12345",
-            data.`package`?.batch?.get(0)?.lotNumber
-        )
-        assertEquals(
             "51144-050-01",
             data.code?.coding?.get(0)?.code
         )
@@ -412,6 +404,14 @@ class MedicationTest {
             data.manufacturer?.reference
         )
         assertEquals(
+            "2019-10-31",
+            data.pakkage?.batch?.get(0)?.expirationDate?.value.toString()
+        )
+        assertEquals(
+            "12345",
+            data.pakkage?.batch?.get(0)?.lotNumber
+        )
+        assertEquals(
             NarrativeStatus.GENERATED,
             data.text?.status
         )
@@ -433,50 +433,6 @@ class MedicationTest {
 
         // Then
 
-        assertEquals(
-            "2017-05-22",
-            data.`package`?.batch?.get(0)?.expirationDate?.value.toString()
-        )
-        assertEquals(
-            "9494788",
-            data.`package`?.batch?.get(0)?.lotNumber
-        )
-        assertEquals(
-            "415818006",
-            data.`package`?.container?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vial",
-            data.`package`?.container?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.`package`?.container?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mL",
-            data.`package`?.content?.get(0)?.amount?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.`package`?.content?.get(0)?.amount?.system
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.`package`?.content?.get(0)?.amount?.value?.value
-        )
-        assertEquals(
-            "324337001",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vancomycin 500mg powder for infusion solution vial (product)",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
-        )
         assertEquals(
             "0069-2587-10",
             data.code?.coding?.get(0)?.code
@@ -572,6 +528,50 @@ class MedicationTest {
         assertEquals(
             "#org4",
             data.manufacturer?.reference
+        )
+        assertEquals(
+            "2017-05-22",
+            data.pakkage?.batch?.get(0)?.expirationDate?.value.toString()
+        )
+        assertEquals(
+            "9494788",
+            data.pakkage?.batch?.get(0)?.lotNumber
+        )
+        assertEquals(
+            "415818006",
+            data.pakkage?.container?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "Vial",
+            data.pakkage?.container?.coding?.get(0)?.display
+        )
+        assertEquals(
+            "http://snomed.info/sct",
+            data.pakkage?.container?.coding?.get(0)?.system
+        )
+        assertEquals(
+            "mL",
+            data.pakkage?.content?.get(0)?.amount?.code
+        )
+        assertEquals(
+            "http://unitsofmeasure.org",
+            data.pakkage?.content?.get(0)?.amount?.system
+        )
+        assertEquals(
+            "10".toDouble(),
+            data.pakkage?.content?.get(0)?.amount?.value?.value
+        )
+        assertEquals(
+            "324337001",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "Vancomycin 500mg powder for infusion solution vial (product)",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.display
+        )
+        assertEquals(
+            "http://snomed.info/sct",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
         )
         assertEquals(
             MedicationStatus.ACTIVE,
@@ -752,38 +752,6 @@ class MedicationTest {
         // Then
 
         assertEquals(
-            "2017-05-22",
-            data.`package`?.batch?.get(0)?.expirationDate?.value.toString()
-        )
-        assertEquals(
-            "9494788",
-            data.`package`?.batch?.get(0)?.lotNumber
-        )
-        assertEquals(
-            "419672006",
-            data.`package`?.container?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Bottle - unit of produce usage (qualifier value)",
-            data.`package`?.container?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.`package`?.container?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "134622004",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Capecitabine 500mg tablets (product)",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.`package`?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
             "213293",
             data.code?.coding?.get(0)?.code
         )
@@ -854,6 +822,38 @@ class MedicationTest {
         assertEquals(
             "#org2",
             data.manufacturer?.reference
+        )
+        assertEquals(
+            "2017-05-22",
+            data.pakkage?.batch?.get(0)?.expirationDate?.value.toString()
+        )
+        assertEquals(
+            "9494788",
+            data.pakkage?.batch?.get(0)?.lotNumber
+        )
+        assertEquals(
+            "419672006",
+            data.pakkage?.container?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "Bottle - unit of produce usage (qualifier value)",
+            data.pakkage?.container?.coding?.get(0)?.display
+        )
+        assertEquals(
+            "http://snomed.info/sct",
+            data.pakkage?.container?.coding?.get(0)?.system
+        )
+        assertEquals(
+            "134622004",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
+        )
+        assertEquals(
+            "Capecitabine 500mg tablets (product)",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.display
+        )
+        assertEquals(
+            "http://snomed.info/sct",
+            data.pakkage?.content?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
         )
         assertEquals(
             NarrativeStatus.GENERATED,
