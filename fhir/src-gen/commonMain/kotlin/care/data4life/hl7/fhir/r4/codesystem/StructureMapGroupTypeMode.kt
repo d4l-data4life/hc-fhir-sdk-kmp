@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureMapGroupTypeMode
+ *
  * If this is the default rule set to apply for the source type, or this combination of types.
  *
  * @see <a href="http://hl7.org/fhir/map-group-type-mode">StructureMapGroupTypeMode</a>
@@ -47,5 +49,5 @@ enum class StructureMapGroupTypeMode {
      * This group is a default mapping group for the specified types.
      */
     @SerialName("type-and-types")
-    TYPE_AND_TYPES
+    TYPE_AND_TYPES,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: VisionEyes
+ *
  * A coded concept listing the eye codes.
  *
  * @see <a href="http://hl7.org/fhir/vision-eye-codes">VisionEyes</a>
@@ -40,5 +42,5 @@ enum class VisionEyes {
      * Left Eye
      */
     @SerialName("left")
-    LEFT
+    LEFT,
 }

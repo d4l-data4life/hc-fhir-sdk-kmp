@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BiologicallyDerivedProductCategory
+ *
  * Biologically Derived Product Category.
  *
  * @see <a href="http://hl7.org/fhir/product-category">BiologicallyDerivedProductCategory</a>
@@ -59,5 +61,5 @@ enum class BiologicallyDerivedProductCategory {
      * Biological agent of unspecified type.
      */
     @SerialName("biologicalAgent")
-    BIOLOGICALAGENT
+    BIOLOGICALAGENT,
 }

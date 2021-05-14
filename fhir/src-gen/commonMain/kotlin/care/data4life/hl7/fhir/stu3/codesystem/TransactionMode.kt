@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TransactionMode
+ *
  * A code that indicates how transactions are supported.
  *
  * @see <a href="http://hl7.org/fhir/transaction-mode">TransactionMode</a>
@@ -37,7 +39,7 @@ enum class TransactionMode {
     NOT_SUPPORTED,
 
     /**
-     * Batches are  supported.
+     * Batches are supported.
      */
     @SerialName("batch")
     BATCH,
@@ -52,5 +54,5 @@ enum class TransactionMode {
      * Both batches and transactions are supported.
      */
     @SerialName("both")
-    BOTH
+    BOTH,
 }

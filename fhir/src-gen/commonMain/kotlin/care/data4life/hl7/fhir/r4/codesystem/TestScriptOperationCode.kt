@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TestScriptOperationCode
+ *
  * This value set defines a set of codes that are used to indicate the supported operations of a
  * testing engine or tool.
  *
@@ -301,5 +303,5 @@ enum class TestScriptOperationCode {
      * ValueSet based Validation
      */
     @SerialName("validate-code")
-    VALIDATE_CODE
+    VALIDATE_CODE,
 }

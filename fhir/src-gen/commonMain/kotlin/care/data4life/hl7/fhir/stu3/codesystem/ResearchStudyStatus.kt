@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyStatus
+ *
  * Codes that convey the current status of the research study
  *
  * @see <a href="http://hl7.org/fhir/research-study-status">ResearchStudyStatus</a>
@@ -63,9 +65,9 @@ enum class ResearchStudyStatus {
     COMPLETED,
 
     /**
-     * This study never actually existed.  The record is retained for tracking purposes
+     * This study never actually existed. The record is retained for tracking purposes
      * in the event decisions may have been made based on this erroneous information.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

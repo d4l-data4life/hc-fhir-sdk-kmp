@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AppointmentStatus
+ *
  * The free/busy status of an appointment.
  *
  * @see <a href="http://hl7.org/fhir/appointmentstatus">AppointmentStatus</a>
@@ -80,5 +82,5 @@ enum class AppointmentStatus {
      * This instance should not have been part of this patient's medical record.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

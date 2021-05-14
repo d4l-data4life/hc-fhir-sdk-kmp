@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NamingSystemType
+ *
  * Identifies the purpose of the naming system.
  *
  * @see <a href="http://hl7.org/fhir/namingsystem-type">NamingSystemType</a>
@@ -48,5 +50,5 @@ enum class NamingSystemType {
      * The naming system is used as the root for other identifiers and naming systems.
      */
     @SerialName("root")
-    ROOT
+    ROOT,
 }

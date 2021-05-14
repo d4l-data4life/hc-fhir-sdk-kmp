@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationDispenseStatusCodes
+ *
  * MedicationDispense Status Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationdispense-status">MedicationDispenseStatusCodes</a>
@@ -52,7 +54,7 @@ enum class MedicationDispenseStatusCodes {
 
     /**
      * The dispense process is paused while waiting for an external event to reactivate
-     * the dispense.  For example, new stock has arrived or the prescriber has called.
+     * the dispense. For example, new stock has arrived or the prescriber has called.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -84,9 +86,9 @@ enum class MedicationDispenseStatusCodes {
 
     /**
      * The authoring system does not know which of the status values applies for this
-     * medication dispense.  Note: this concept is not to be used for other - one of
-     * the listed statuses is presumed to apply, it's just now known which one.
+     * medication dispense. Note: this concept is not to be used for other - one of the
+     * listed statuses is presumed to apply, it's just now known which one.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

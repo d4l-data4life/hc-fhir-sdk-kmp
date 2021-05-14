@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FlagStatus
+ *
  * Indicates whether this flag is active and needs to be displayed to a user, or whether it is no
  * longer needed or was entered in error.
  *
@@ -48,5 +50,5 @@ enum class FlagStatus {
      * The flag was added in error and should no longer be displayed.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

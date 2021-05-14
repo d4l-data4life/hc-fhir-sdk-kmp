@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EnteralFormulaAdditiveTypeCode
+ *
  * EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or
  * fiber to be provided in addition to or mixed with the base formula. This value set is provided as a
  * suggestive example.
@@ -60,5 +62,5 @@ enum class EnteralFormulaAdditiveTypeCode {
      * Added water
      */
     @SerialName("water")
-    WATER
+    WATER,
 }

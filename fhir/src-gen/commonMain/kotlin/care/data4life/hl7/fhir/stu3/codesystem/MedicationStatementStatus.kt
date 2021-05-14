@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationStatementStatus
+ *
  * A coded concept indicating the current status of a MedicationStatement.
  *
  * @see <a href="http://hl7.org/fhir/medication-statement-status">MedicationStatementStatus</a>
@@ -66,5 +68,5 @@ enum class MedicationStatementStatus {
      * to continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
-    ON_HOLD
+    ON_HOLD,
 }

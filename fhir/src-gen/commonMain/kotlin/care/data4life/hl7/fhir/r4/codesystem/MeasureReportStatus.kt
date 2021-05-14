@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureReportStatus
+ *
  * The status of the measure report.
  *
  * @see <a href="http://hl7.org/fhir/measure-report-status">MeasureReportStatus</a>
@@ -46,5 +48,5 @@ enum class MeasureReportStatus {
      * An error occurred attempting to generate the report.
      */
     @SerialName("error")
-    ERROR
+    ERROR,
 }

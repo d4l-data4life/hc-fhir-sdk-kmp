@@ -20,19 +20,30 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirElement
+ *
+ * Base definition for all elements in a resource.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Element">Element</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Element)
+ */
 interface FhirElement : FhirR4 {
 
-    // Unique id for inter-element referencing.
+    /**
+     * Unique id for inter-element referencing.
+     */
     val id: String?
 
-    // Additional content defined by implementations.
+    /**
+     * Additional content defined by implementations.
+     */
     val extension: List<Extension>?
 }
 
 /**
- * ClassName: Element
- *
- * SourceFileName: Element.kt
+ * Element
  *
  * Base definition for all elements in a resource.
  *
@@ -44,20 +55,18 @@ interface FhirElement : FhirR4 {
 @SerialName("Element")
 data class Element(
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirElement {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Element"
+        fun resourceType(): String = "Element"
     }
 }

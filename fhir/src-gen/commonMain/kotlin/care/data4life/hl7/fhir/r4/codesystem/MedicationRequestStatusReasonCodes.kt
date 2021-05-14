@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestStatusReasonCodes
+ *
  * MedicationRequest Status Reason Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason">MedicationRequestStatusReasonCodes</a>
@@ -120,5 +122,5 @@ enum class MedicationRequestStatusReasonCodes {
      * medication has been cleansed from their system.
      */
     @SerialName("washout")
-    WASHOUT
+    WASHOUT,
 }

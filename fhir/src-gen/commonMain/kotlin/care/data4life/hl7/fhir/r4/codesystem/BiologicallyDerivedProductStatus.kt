@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BiologicallyDerivedProductStatus
+ *
  * Biologically Derived Product Status.
  *
  * @see <a href="http://hl7.org/fhir/product-status">BiologicallyDerivedProductStatus</a>
@@ -40,5 +42,5 @@ enum class BiologicallyDerivedProductStatus {
      * Product is not currently available for use.
      */
     @SerialName("unavailable")
-    UNAVAILABLE
+    UNAVAILABLE,
 }

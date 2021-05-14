@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FeedingDeviceCodes
+ *
  * Materials used or needed to feed the patient.
  *
  * @see <a href="http://hl7.org/fhir/feeding-device">FeedingDeviceCodes</a>
@@ -159,5 +161,5 @@ enum class FeedingDeviceCodes {
      * Rocker knife definition:
      */
     @SerialName("rocker-knife")
-    ROCKER_KNIFE
+    ROCKER_KNIFE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ObservationReferenceRangeMeaningCodes
+ *
  * This value set defines a set of codes that can be used to indicate the meaning/use of a reference
  * range for a particular target population.
  *
@@ -112,5 +114,5 @@ enum class ObservationReferenceRangeMeaningCodes {
      * An expected range in an individual post-menopause.
      */
     @SerialName("postmenopausal")
-    POSTMENOPAUSAL
+    POSTMENOPAUSAL,
 }

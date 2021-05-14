@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: HTTPVerb
+ *
  * HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for
  * details.
  *
@@ -65,5 +67,5 @@ enum class HTTPVerb {
      * HTTP PATCH Command.
      */
     @SerialName("PATCH")
-    PATCH
+    PATCH,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CompartmentType
+ *
  * Which type a compartment definition describes.
  *
  * @see <a href="http://hl7.org/fhir/compartment-type">CompartmentType</a>
@@ -58,5 +60,5 @@ enum class CompartmentType {
      * The compartment definition is for the device compartment.
      */
     @SerialName("Device")
-    DEVICE
+    DEVICE,
 }

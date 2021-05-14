@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchSubjectStatus
+ *
  * Indicates the progression of a study subject through a study
  *
  * @see <a href="http://hl7.org/fhir/research-subject-status">ResearchSubjectStatus</a>
@@ -70,5 +72,5 @@ enum class ResearchSubjectStatus {
      * engagement with the study is now ended
      */
     @SerialName("completed")
-    COMPLETED
+    COMPLETED,
 }

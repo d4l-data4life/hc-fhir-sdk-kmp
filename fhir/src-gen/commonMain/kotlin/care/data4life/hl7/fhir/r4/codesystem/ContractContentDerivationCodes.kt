@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractContentDerivationCodes
+ *
  * This is an example set of Content Derivative type codes, which represent the minimal content derived
  * from the basal information source at a specific stage in its lifecycle, which is sufficient to
  * manage that source information, for example, in a repository, registry, processes and workflows, for
@@ -35,8 +37,8 @@ enum class ContractContentDerivationCodes {
 
     /**
      * Content derivative that conveys sufficient information needed to register the
-     * source basal content from which it is derived.  This derivative content may be
-     * used to register the basal content as it changes status in its lifecycle.  For
+     * source basal content from which it is derived. This derivative content may be
+     * used to register the basal content as it changes status in its lifecycle. For
      * example, content registration may occur when the basal content is created,
      * updated, inactive, or deleted.
      */
@@ -65,5 +67,5 @@ enum class ContractContentDerivationCodes {
      * authorized entities with which the content may be shared.
      */
     @SerialName("shareable")
-    SHAREABLE
+    SHAREABLE,
 }

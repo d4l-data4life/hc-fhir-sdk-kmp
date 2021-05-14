@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AppointmentStatus
+ *
  * The free/busy status of an appointment.
  *
  * @see <a href="http://hl7.org/fhir/appointmentstatus">AppointmentStatus</a>
@@ -94,9 +96,9 @@ enum class AppointmentStatus {
 
     /**
      * The appointment has been placed on a waitlist, to be scheduled/confirmed in the
-     * future when a slot/service is available.
-     * A specific time might or might not be pre-allocated.
+     * future when a slot/service is available. A specific time might or might not be
+     * pre-allocated.
      */
     @SerialName("waitlist")
-    WAITLIST
+    WAITLIST,
 }

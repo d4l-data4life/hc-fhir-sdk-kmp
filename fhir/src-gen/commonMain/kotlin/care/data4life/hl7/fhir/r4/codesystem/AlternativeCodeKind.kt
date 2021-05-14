@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AlternativeCodeKind
+ *
  * Indicates the type of use for which the code is defined.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/codesystem-altcode-kind">AlternativeCodeKind</a>
@@ -62,5 +64,5 @@ enum class AlternativeCodeKind {
      * expression grammar defined by the code system.
      */
     @SerialName("expression")
-    EXPRESSION
+    EXPRESSION,
 }

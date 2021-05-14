@@ -22,12 +22,19 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirDistance
+ *
+ * A length - a value with a unit that is a physical distance
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Distance">Distance</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Distance)
+ */
 interface FhirDistance : FhirQuantity
 
 /**
- * ClassName: Distance
- *
- * SourceFileName: Distance.kt
+ * Distance
  *
  * A length - a value with a unit that is a physical distance
  *
@@ -41,42 +48,35 @@ data class Distance(
 
     // # Quantity
 
-    // Numerical value (with implicit precision).
     @SerialName("value")
     override val value: Decimal? = null,
 
-    // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
 
-    // Unit representation.
     @SerialName("unit")
     override val unit: String? = null,
 
-    // System that defines coded unit form.
     @SerialName("system")
     override val system: String? = null,
 
-    // Coded form of the unit.
     @SerialName("code")
     override val code: String? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirDistance {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Distance"
+        fun resourceType(): String = "Distance"
     }
 }

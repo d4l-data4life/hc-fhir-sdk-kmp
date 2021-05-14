@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ReferenceHandlingPolicy
+ *
  * A set of flags that defines how references are supported.
  *
  * @see <a href="http://hl7.org/fhir/reference-handling-policy">ReferenceHandlingPolicy</a>
@@ -64,5 +66,5 @@ enum class ReferenceHandlingPolicy {
      * The server does not support references that point to other servers.
      */
     @SerialName("local")
-    LOCAL
+    LOCAL,
 }

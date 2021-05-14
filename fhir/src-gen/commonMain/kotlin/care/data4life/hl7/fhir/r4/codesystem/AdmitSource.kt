@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdmitSource
+ *
  * This value set defines a set of codes that can be used to indicate from where the patient came in.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/admit-source">AdmitSource</a>
@@ -93,5 +95,5 @@ enum class AdmitSource {
      * The patient has been admitted from a source otherwise not specified here.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

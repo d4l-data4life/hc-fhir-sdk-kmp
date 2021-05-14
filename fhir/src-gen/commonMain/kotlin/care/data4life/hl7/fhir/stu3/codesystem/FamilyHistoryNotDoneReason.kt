@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FamilyHistoryNotDoneReason
+ *
  * Codes describing the reason why a family member history was not done.
  *
  * @see <a href="http://hl7.org/fhir/history-not-done-reason">FamilyHistoryNotDoneReason</a>
@@ -54,5 +56,5 @@ enum class FamilyHistoryNotDoneReason {
      * later date.
      */
     @SerialName("deferred")
-    DEFERRED
+    DEFERRED,
 }

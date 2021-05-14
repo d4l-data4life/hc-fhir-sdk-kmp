@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureMapTransform
+ *
  * How data is copied/created.
  *
  * @see <a href="http://hl7.org/fhir/map-transform">StructureMapTransform</a>
@@ -139,5 +141,5 @@ enum class StructureMapTransform {
      * is provided, the system should be inferred from the content of the value.
      */
     @SerialName("cp")
-    CP
+    CP,
 }

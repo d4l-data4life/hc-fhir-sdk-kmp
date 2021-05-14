@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SupplyRequestStatus
+ *
  * Status of the supply request.
  *
  * @see <a href="http://hl7.org/fhir/supplyrequest-status">SupplyRequestStatus</a>
@@ -51,7 +53,7 @@ enum class SupplyRequestStatus {
 
     /**
      * The authorization/request to act has been terminated prior to the full
-     * completion of the intended actions.  No further activity should occur.
+     * completion of the intended actions. No further activity should occur.
      */
     @SerialName("cancelled")
     CANCELLED,
@@ -65,8 +67,8 @@ enum class SupplyRequestStatus {
 
     /**
      * This electronic record should never have existed, though it is possible that
-     * real-world decisions were based on it.  (If real-world activity has occurred,
-     * the status should be "cancelled" rather than "entered-in-error".).
+     * real-world decisions were based on it. (If real-world activity has occurred, the
+     * status should be "cancelled" rather than "entered-in-error".).
      */
     @SerialName("entered-in-error")
     ENTERED_IN_ERROR,
@@ -78,5 +80,5 @@ enum class SupplyRequestStatus {
      * does not know which.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

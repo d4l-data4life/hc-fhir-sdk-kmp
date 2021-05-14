@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: IdentifierUse
+ *
  * Identifies the purpose for this identifier, if known .
  *
  * @see <a href="http://hl7.org/fhir/identifier-use">IdentifierUse</a>
@@ -61,8 +63,8 @@ enum class IdentifierUse {
 
     /**
      * The identifier id no longer considered valid, but may be relevant for search
-     * purposes.  E.g. Changes to identifier schemes, account merges, etc.
+     * purposes. E.g. Changes to identifier schemes, account merges, etc.
      */
     @SerialName("old")
-    OLD
+    OLD,
 }

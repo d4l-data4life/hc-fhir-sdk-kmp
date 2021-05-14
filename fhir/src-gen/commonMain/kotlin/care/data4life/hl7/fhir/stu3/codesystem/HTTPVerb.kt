@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: HTTPVerb
+ *
  * HTTP verbs (in the HTTP command line).
  *
  * @see <a href="http://hl7.org/fhir/http-verb">HTTPVerb</a>
@@ -52,5 +54,5 @@ enum class HTTPVerb {
      * HTTP DELETE
      */
     @SerialName("DELETE")
-    DELETE
+    DELETE,
 }

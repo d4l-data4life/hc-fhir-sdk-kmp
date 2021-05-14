@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractTermTypeCodes
+ *
  * This value set includes sample Contract Term Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contracttermtypecodes">ContractTermTypeCodes</a>
@@ -41,5 +43,5 @@ enum class ContractTermTypeCodes {
      * actions.
      */
     @SerialName("subject-to")
-    SUBJECT_TO
+    SUBJECT_TO,
 }

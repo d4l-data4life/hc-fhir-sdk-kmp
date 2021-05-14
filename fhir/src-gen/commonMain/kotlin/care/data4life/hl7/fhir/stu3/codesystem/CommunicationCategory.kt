@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CommunicationCategory
+ *
  * Codes for general categories of communications such as alerts, instruction, etc.
  *
  * @see <a href="http://hl7.org/fhir/communication-category">CommunicationCategory</a>
@@ -52,5 +54,5 @@ enum class CommunicationCategory {
      * The communication conveys instruction.
      */
     @SerialName("instruction")
-    INSTRUCTION
+    INSTRUCTION,
 }

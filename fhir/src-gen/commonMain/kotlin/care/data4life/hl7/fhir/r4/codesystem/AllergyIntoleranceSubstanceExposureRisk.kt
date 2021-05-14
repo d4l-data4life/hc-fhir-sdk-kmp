@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceSubstanceExposureRisk
+ *
  * The risk of an adverse reaction (allergy or intolerance) for this patient upon exposure to the
  * substance (including pharmaceutical products).
  *
@@ -43,5 +45,5 @@ enum class AllergyIntoleranceSubstanceExposureRisk {
      * substance.
      */
     @SerialName("no-known-reaction-risk")
-    NO_KNOWN_REACTION_RISK
+    NO_KNOWN_REACTION_RISK,
 }

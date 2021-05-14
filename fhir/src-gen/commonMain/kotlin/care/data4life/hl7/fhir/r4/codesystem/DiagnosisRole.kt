@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DiagnosisRole
+ *
  * This value set defines a set of codes that can be used to express the role of a diagnosis on the
  * Encounter or EpisodeOfCare record.
  *
@@ -71,5 +73,5 @@ enum class DiagnosisRole {
      * billing
      */
     @SerialName("billing")
-    BILLING
+    BILLING,
 }

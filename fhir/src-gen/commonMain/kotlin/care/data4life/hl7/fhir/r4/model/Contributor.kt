@@ -21,22 +21,36 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirContributor
+ *
+ * A contributor to the content of a knowledge asset, including authors, editors, reviewers, and
+ * endorsers.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Contributor">Contributor</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Contributor)
+ */
 interface FhirContributor : FhirElement {
 
-    // The type of contributor.
+    /**
+     * The type of contributor.
+     */
     val type: ContributorType
 
-    // Who contributed the content.
+    /**
+     * Who contributed the content.
+     */
     val name: String
 
-    // Contact details of the contributor.
+    /**
+     * Contact details of the contributor.
+     */
     val contact: List<ContactDetail>?
 }
 
 /**
- * ClassName: Contributor
- *
- * SourceFileName: Contributor.kt
+ * Contributor
  *
  * A contributor to the content of a knowledge asset, including authors, editors, reviewers, and
  * endorsers.
@@ -49,34 +63,29 @@ interface FhirContributor : FhirElement {
 @SerialName("Contributor")
 data class Contributor(
 
-    // The type of contributor.
     @SerialName("type")
     override val type: ContributorType,
 
-    // Who contributed the content.
     @SerialName("name")
     override val name: String,
 
-    // Contact details of the contributor.
     @SerialName("contact")
     override val contact: List<ContactDetail>? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirContributor {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Contributor"
+        fun resourceType(): String = "Contributor"
     }
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationKnowledgePackageTypeCodes
+ *
  * MedicationKnowledge Package Type Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type">MedicationKnowledgePackageTypeCodes</a>
@@ -160,5 +162,5 @@ enum class MedicationKnowledgePackageTypeCodes {
      * vial
      */
     @SerialName("vial")
-    VIAL
+    VIAL,
 }

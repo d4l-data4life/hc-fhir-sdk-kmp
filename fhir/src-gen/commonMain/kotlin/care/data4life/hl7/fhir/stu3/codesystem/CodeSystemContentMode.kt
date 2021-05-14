@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CodeSystemContentMode
+ *
  * How much of the content of the code system - the concepts and codes it defines - are represented in
  * a code system resource
  *
@@ -55,5 +57,5 @@ enum class CodeSystemContentMode {
      * resource
      */
     @SerialName("complete")
-    COMPLETE
+    COMPLETE,
 }

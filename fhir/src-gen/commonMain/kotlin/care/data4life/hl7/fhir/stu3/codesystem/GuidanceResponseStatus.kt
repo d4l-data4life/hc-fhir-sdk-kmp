@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GuidanceResponseStatus
+ *
  * The status of a guidance response
  *
  * @see <a href="http://hl7.org/fhir/guidance-response-status">GuidanceResponseStatus</a>
@@ -65,5 +67,5 @@ enum class GuidanceResponseStatus {
      * The response was entered in error
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PropertyType
+ *
  * The type of a property value
  *
  * @see <a href="http://hl7.org/fhir/concept-property-type">PropertyType</a>
@@ -38,7 +40,7 @@ enum class PropertyType {
     CODE,
 
     /**
-     * The property  value is a code defined in an external code system. This may be
+     * The property value is a code defined in an external code system. This may be
      * used for translations, but is not the intent
      */
     @SerialName("Coding")
@@ -67,5 +69,5 @@ enum class PropertyType {
      * The property is a date or a date + time
      */
     @SerialName("dateTime")
-    DATETIME
+    DATETIME,
 }

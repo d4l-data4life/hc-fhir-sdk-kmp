@@ -22,12 +22,21 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirCount
+ *
+ * A measured amount (or an amount that can potentially be measured). Note that measured amounts
+ * include amounts that are not precisely quantified, including amounts involving arbitrary units and
+ * floating currencies.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Count">Count</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Count)
+ */
 interface FhirCount : FhirQuantity
 
 /**
- * ClassName: Count
- *
- * SourceFileName: Count.kt
+ * Count
  *
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts
  * include amounts that are not precisely quantified, including amounts involving arbitrary units and
@@ -43,42 +52,35 @@ data class Count(
 
     // # Quantity
 
-    // Numerical value (with implicit precision).
     @SerialName("value")
     override val value: Decimal? = null,
 
-    // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
 
-    // Unit representation.
     @SerialName("unit")
     override val unit: String? = null,
 
-    // System that defines coded unit form.
     @SerialName("system")
     override val system: String? = null,
 
-    // Coded form of the unit.
     @SerialName("code")
     override val code: String? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCount {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Count"
+        fun resourceType(): String = "Count"
     }
 }

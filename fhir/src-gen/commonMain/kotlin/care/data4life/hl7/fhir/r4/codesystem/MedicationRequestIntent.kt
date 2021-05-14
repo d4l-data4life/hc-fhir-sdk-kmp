@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestIntent
+ *
  * MedicationRequest Intent Codes
  *
  * @see <a href="http://hl7.org/fhir/CodeSystem/medicationrequest-intent">MedicationRequestIntent</a>
@@ -81,8 +83,8 @@ enum class MedicationRequestIntent {
 
     /**
      * The request represents a component or option for a RequestGroup that establishes
-     * timing, conditionality and/or  other constraints among a set of requests.
+     * timing, conditionality and/or other constraints among a set of requests.
      */
     @SerialName("option")
-    OPTION
+    OPTION,
 }

@@ -22,37 +22,60 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirAttachment
+ *
+ * For referring to data content defined in other formats.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Attachment">Attachment</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Attachment)
+ */
 interface FhirAttachment : FhirElement {
 
-    // Mime type of the content, with charset etc..
+    /**
+     * Mime type of the content, with charset etc..
+     */
     val contentType: String?
 
-    // Human language of the content (BCP-47).
+    /**
+     * Human language of the content (BCP-47).
+     */
     val language: String?
 
-    // Data inline, base64ed.
+    /**
+     * Data inline, base64ed.
+     */
     val data: String?
 
-    // Uri where the data can be found.
+    /**
+     * Uri where the data can be found.
+     */
     val url: String?
 
-    // Number of bytes of content (if url provided).
+    /**
+     * Number of bytes of content (if url provided).
+     */
     val size: UnsignedInteger?
 
-    // Hash of the data (sha-1, base64ed).
+    /**
+     * Hash of the data (sha-1, base64ed).
+     */
     val hash: String?
 
-    // Label to display in place of the data.
+    /**
+     * Label to display in place of the data.
+     */
     val title: String?
 
-    // Date attachment was first created.
+    /**
+     * Date attachment was first created.
+     */
     val creation: DateTime?
 }
 
 /**
- * ClassName: Attachment
- *
- * SourceFileName: Attachment.kt
+ * Attachment
  *
  * For referring to data content defined in other formats.
  *
@@ -64,54 +87,44 @@ interface FhirAttachment : FhirElement {
 @SerialName("Attachment")
 data class Attachment(
 
-    // Mime type of the content, with charset etc..
     @SerialName("contentType")
     override val contentType: String? = null,
 
-    // Human language of the content (BCP-47).
     @SerialName("language")
     override val language: String? = null,
 
-    // Data inline, base64ed.
     @SerialName("data")
     override val data: String? = null,
 
-    // Uri where the data can be found.
     @SerialName("url")
     override val url: String? = null,
 
-    // Number of bytes of content (if url provided).
     @SerialName("size")
     override val size: UnsignedInteger? = null,
 
-    // Hash of the data (sha-1, base64ed).
     @SerialName("hash")
     override val hash: String? = null,
 
-    // Label to display in place of the data.
     @SerialName("title")
     override val title: String? = null,
 
-    // Date attachment was first created.
     @SerialName("creation")
     override val creation: DateTime? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirAttachment {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Attachment"
+        fun resourceType(): String = "Attachment"
     }
 }

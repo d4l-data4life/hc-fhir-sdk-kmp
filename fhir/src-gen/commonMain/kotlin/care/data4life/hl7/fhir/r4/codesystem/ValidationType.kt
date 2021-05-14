@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ValidationType
+ *
  * What the target is validated against
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/validation-type">ValidationType</a>
@@ -46,5 +48,5 @@ enum class ValidationType {
      * multiple
      */
     @SerialName("multiple")
-    MULTIPLE
+    MULTIPLE,
 }

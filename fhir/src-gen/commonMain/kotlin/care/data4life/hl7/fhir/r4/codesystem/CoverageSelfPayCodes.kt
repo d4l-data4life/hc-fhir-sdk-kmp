@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CoverageSelfPayCodes
+ *
  * This value set includes Coverage SelfPay codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/coverage-selfpay">CoverageSelfPayCodes</a>
@@ -34,5 +36,5 @@ enum class CoverageSelfPayCodes {
      * An individual or organization is paying directly for goods and services.
      */
     @SerialName("pay")
-    PAY
+    PAY,
 }

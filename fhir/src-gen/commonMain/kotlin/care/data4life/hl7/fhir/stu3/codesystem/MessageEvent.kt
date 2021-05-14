@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MessageEvent
+ *
  * One of the message events defined as part of FHIR.
  *
  * @see <a href="http://hl7.org/fhir/message-events">MessageEvent</a>
@@ -108,5 +110,5 @@ enum class MessageEvent {
      * returned, or an error message.
      */
     @SerialName("valueset-expand")
-    VALUESET_EXPAND
+    VALUESET_EXPAND,
 }

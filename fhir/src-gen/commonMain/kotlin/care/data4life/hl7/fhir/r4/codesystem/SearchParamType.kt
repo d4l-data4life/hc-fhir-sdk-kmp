@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SearchParamType
+ *
  * Data types allowed to be used for search parameters.
  *
  * @see <a href="http://hl7.org/fhir/search-param-type">SearchParamType</a>
@@ -89,5 +91,5 @@ enum class SearchParamType {
      * parameter.
      */
     @SerialName("special")
-    SPECIAL
+    SPECIAL,
 }

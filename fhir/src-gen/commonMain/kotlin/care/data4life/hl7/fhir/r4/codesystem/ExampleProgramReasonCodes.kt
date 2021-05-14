@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleProgramReasonCodes
+ *
  * This value set includes sample Program Reason Span codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-programcode">ExampleProgramReasonCodes</a>
@@ -52,5 +54,5 @@ enum class ExampleProgramReasonCodes {
      * No program code applies.
      */
     @SerialName("none")
-    NONE
+    NONE,
 }

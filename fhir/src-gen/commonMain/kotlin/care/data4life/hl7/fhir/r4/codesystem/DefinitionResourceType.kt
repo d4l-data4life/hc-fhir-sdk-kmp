@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DefinitionResourceType
+ *
  * A list of all the definition resource types defined in this version of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/definition-resource-types">DefinitionResourceType</a>
@@ -72,5 +74,5 @@ enum class DefinitionResourceType {
      * phraseology and grouping to allow coherent, consistent data collection.
      */
     @SerialName("Questionnaire")
-    QUESTIONNAIRE
+    QUESTIONNAIRE,
 }

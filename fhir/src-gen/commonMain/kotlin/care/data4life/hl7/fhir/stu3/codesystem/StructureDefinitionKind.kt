@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureDefinitionKind
+ *
  * Defines the type of structure that a definition is describing.
  *
  * @see <a href="http://hl7.org/fhir/structure-definition-kind">StructureDefinitionKind</a>
@@ -39,7 +41,7 @@ enum class StructureDefinitionKind {
     PRIMITIVE_TYPE,
 
     /**
-     * A  complex structure that defines a set of data elements. These can be used
+     * A complex structure that defines a set of data elements. These can be used
      * throughout Resource and extension definitions, and in logical models.
      */
     @SerialName("complex-type")
@@ -56,5 +58,5 @@ enum class StructureDefinitionKind {
      * implementation.
      */
     @SerialName("logical")
-    LOGICAL
+    LOGICAL,
 }

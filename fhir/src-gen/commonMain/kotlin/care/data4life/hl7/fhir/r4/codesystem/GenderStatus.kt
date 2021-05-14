@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GenderStatus
+ *
  * This example value set defines a set of codes that can be used to indicate the current state of the
  * animal's reproductive organs.
  *
@@ -47,5 +49,5 @@ enum class GenderStatus {
      * Unable to determine whether the animal has been neutered.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

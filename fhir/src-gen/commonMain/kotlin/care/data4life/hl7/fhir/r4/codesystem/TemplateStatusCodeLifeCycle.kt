@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TemplateStatusCodeLifeCycle
+ *
  * Life cycle of the Status Code of a Template Design (Version)
  *
  * @see <a href="urn:oid:2.16.840.1.113883.3.1937.98.5.8">TemplateStatusCodeLifeCycle</a>
@@ -90,5 +92,5 @@ enum class TemplateStatusCodeLifeCycle {
      * published, but if published, is shown in the terminated state.
      */
     @SerialName("terminated")
-    TERMINATED
+    TERMINATED,
 }

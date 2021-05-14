@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SupplyType
+ *
  * This value sets refers to a Category of supply.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/supply-kind">SupplyType</a>
@@ -41,5 +43,5 @@ enum class SupplyType {
      * stock requisition.
      */
     @SerialName("nonstock")
-    NONSTOCK
+    NONSTOCK,
 }

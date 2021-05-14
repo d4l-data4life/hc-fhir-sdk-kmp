@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EventTiming
+ *
  * Real world event relating to the schedule.
  *
  * @see <a href="http://hl7.org/fhir/event-timing">EventTiming</a>
@@ -58,5 +60,5 @@ enum class EventTiming {
      * event occurs [offset] after subject goes to sleep
      */
     @SerialName("PHS")
-    PHS
+    PHS,
 }

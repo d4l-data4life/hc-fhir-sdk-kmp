@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceSpecificationSpecType
+ *
  * Codes for device specification types such as serial number, part number, hardware revision, software
  * revision, etc.
  *
@@ -77,5 +79,5 @@ enum class DeviceSpecificationSpecType {
      * GMDN - MDC_ID_PROD_SPEC_GMDN
      */
     @SerialName("gmdn")
-    GMDN
+    GMDN,
 }

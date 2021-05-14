@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DoseAndRateType
+ *
  * The kind of dose or rate specified.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/dose-rate-type">DoseAndRateType</a>
@@ -40,5 +42,5 @@ enum class DoseAndRateType {
      * The dose specified is as ordered by the prescriber.
      */
     @SerialName("ordered")
-    ORDERED
+    ORDERED,
 }

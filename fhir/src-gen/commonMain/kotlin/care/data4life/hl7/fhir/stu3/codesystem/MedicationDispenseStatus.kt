@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationDispenseStatus
+ *
  * A coded concept specifying the state of the dispense event.
  *
  * @see <a href="http://hl7.org/fhir/medication-dispense-status">MedicationDispenseStatus</a>
@@ -68,5 +70,5 @@ enum class MedicationDispenseStatus {
      * occurred.
      */
     @SerialName("stopped")
-    STOPPED
+    STOPPED,
 }

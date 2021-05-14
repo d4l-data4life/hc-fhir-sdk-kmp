@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceMetricCategory
+ *
  * Describes the category of the metric.
  *
  * @see <a href="http://hl7.org/fhir/metric-category">DeviceMetricCategory</a>
@@ -53,5 +55,5 @@ enum class DeviceMetricCategory {
      * The category of this DeviceMetric is unspecified.
      */
     @SerialName("unspecified")
-    UNSPECIFIED
+    UNSPECIFIED,
 }

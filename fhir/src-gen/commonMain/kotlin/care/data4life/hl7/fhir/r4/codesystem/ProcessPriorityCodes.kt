@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ProcessPriorityCodes
+ *
  * This value set includes the financial processing priority codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/processpriority">ProcessPriorityCodes</a>
@@ -46,5 +48,5 @@ enum class ProcessPriorityCodes {
      * Later, when possible.
      */
     @SerialName("deferred")
-    DEFERRED
+    DEFERRED,
 }

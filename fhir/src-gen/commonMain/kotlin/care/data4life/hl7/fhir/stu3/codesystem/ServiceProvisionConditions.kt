@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ServiceProvisionConditions
+ *
  * The code(s) that detail the conditions under which the healthcare service is available/offered.
  *
  * @see <a href="http://hl7.org/fhir/service-provision-conditions">ServiceProvisionConditions</a>
@@ -46,5 +48,5 @@ enum class ServiceProvisionConditions {
      * Fees apply for this service.
      */
     @SerialName("cost")
-    COST
+    COST,
 }

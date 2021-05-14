@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExpansionParameterSource
+ *
  * Declares what the source of a parameter is.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/expansion-parameter-source">ExpansionParameterSource</a>
@@ -46,5 +48,5 @@ enum class ExpansionParameterSource {
      * The parameter was added from one the code systems used in the $expand operation.
      */
     @SerialName("codesystem")
-    CODESYSTEM
+    CODESYSTEM,
 }

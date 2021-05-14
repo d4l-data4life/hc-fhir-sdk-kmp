@@ -21,35 +21,62 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirSignature
+ *
+ * A digital signature along with supporting context. The signature may be electronic/cryptographic in
+ * nature, or a graphical image representing a hand-written signature, or a signature process.
+ * Different signature approaches have different utilities.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Signature">Signature</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Signature)
+ */
 interface FhirSignature : FhirElement {
 
-    // Indication of the reason the entity signed the object(s).
+    /**
+     * Indication of the reason the entity signed the object(s).
+     */
     val type: List<Coding>
 
-    // When the signature was created.
+    /**
+     * When the signature was created.
+     */
     val `when`: Instant
 
-    // Who signed.
+    /**
+     * Who signed.
+     */
     val whoUri: String?
 
-    // Who signed.
+    /**
+     * Who signed.
+     */
     val whoReference: Reference?
 
-    // The party represented.
+    /**
+     * The party represented.
+     */
     val onBehalfOfUri: String?
 
-    // The party represented.
+    /**
+     * The party represented.
+     */
     val onBehalfOfReference: Reference?
 
-    // The technical format of the signature.
+    /**
+     * The technical format of the signature.
+     */
     val contentType: String?
 
-    // The actual signature content (XML DigSig. JWT, picture, etc.).
+    /**
+     * The actual signature content (XML DigSig. JWT, picture, etc.).
+     */
     val blob: String?
 }
 
 /**
- * ClassName: Signature
+ * Signature
  *
  * SourceFileName: Signature.kt
  *
@@ -65,43 +92,32 @@ interface FhirSignature : FhirElement {
 @SerialName("Signature")
 data class Signature(
 
-    // Indication of the reason the entity signed the object(s).
     @SerialName("type")
     override val type: List<Coding>,
 
-    // When the signature was created.
     @SerialName("when")
     override val `when`: Instant,
 
-    // Who signed.
     @SerialName("whoUri")
     override val whoUri: String? = null,
 
-    // Who signed.
     @SerialName("whoReference")
     override val whoReference: Reference? = null,
 
-    // The party represented.
     @SerialName("onBehalfOfUri")
     override val onBehalfOfUri: String? = null,
 
-    // The party represented.
     @SerialName("onBehalfOfReference")
     override val onBehalfOfReference: Reference? = null,
 
-    // The technical format of the signature.
     @SerialName("contentType")
     override val contentType: String? = null,
 
-    // The actual signature content (XML DigSig. JWT, picture, etc.).
     @SerialName("blob")
     override val blob: String? = null,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirSignature {

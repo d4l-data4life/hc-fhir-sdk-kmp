@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DetectedIssueSeverity
+ *
  * Indicates the potential degree of impact of the identified issue on the patient.
  *
  * @see <a href="http://hl7.org/fhir/detectedissue-severity">DetectedIssueSeverity</a>
@@ -49,5 +51,5 @@ enum class DetectedIssueSeverity {
      * substantially affect the situation of the subject.
      */
     @SerialName("low")
-    LOW
+    LOW,
 }

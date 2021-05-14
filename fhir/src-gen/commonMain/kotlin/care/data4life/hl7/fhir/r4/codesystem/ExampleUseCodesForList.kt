@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleUseCodesForList
+ *
  * Example use codes for the List resource - typical kinds of use.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/list-example-use-codes">ExampleUseCodesForList</a>
@@ -83,5 +85,5 @@ enum class ExampleUseCodesForList {
      * A set of care plans that apply in a particular context of care.
      */
     @SerialName("plans")
-    PLANS
+    PLANS,
 }

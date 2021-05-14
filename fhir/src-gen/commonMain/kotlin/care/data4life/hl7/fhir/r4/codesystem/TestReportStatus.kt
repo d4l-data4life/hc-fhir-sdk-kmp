@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TestReportStatus
+ *
  * The current status of the test report.
  *
  * @see <a href="http://hl7.org/fhir/report-status-codes">TestReportStatus</a>
@@ -58,5 +60,5 @@ enum class TestReportStatus {
      * This test report was entered or created in error.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

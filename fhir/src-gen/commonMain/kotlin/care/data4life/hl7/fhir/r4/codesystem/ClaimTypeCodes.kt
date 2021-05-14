@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimTypeCodes
+ *
  * This value set includes Claim Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/claim-type">ClaimTypeCodes</a>
@@ -60,5 +62,5 @@ enum class ClaimTypeCodes {
      * lenses.
      */
     @SerialName("vision")
-    VISION
+    VISION,
 }

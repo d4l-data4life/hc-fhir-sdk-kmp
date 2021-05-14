@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ImmunizationEvaluationDoseStatusReasonCodes
+ *
  * The value set to instantiate this attribute should be drawn from a terminologically robust code
  * system that consists of or contains concepts to support describing the reason why an administered
  * dose has been assigned a particular status. Often, this reason describes why a dose is considered
@@ -65,5 +67,5 @@ enum class ImmunizationEvaluationDoseStatusReasonCodes {
      * The product administered has been recalled by the manufacturer.
      */
     @SerialName("prodrecall")
-    PRODRECALL
+    PRODRECALL,
 }

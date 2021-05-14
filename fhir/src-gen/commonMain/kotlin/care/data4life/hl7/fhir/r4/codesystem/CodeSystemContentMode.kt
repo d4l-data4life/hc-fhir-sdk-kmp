@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CodeSystemContentMode
+ *
  * The extent of the content of the code system (the concepts and codes it defines) are represented in
  * a code system resource.
  *
@@ -68,5 +70,5 @@ enum class CodeSystemContentMode {
      * designations and properties to another code system.
      */
     @SerialName("supplement")
-    SUPPLEMENT
+    SUPPLEMENT,
 }

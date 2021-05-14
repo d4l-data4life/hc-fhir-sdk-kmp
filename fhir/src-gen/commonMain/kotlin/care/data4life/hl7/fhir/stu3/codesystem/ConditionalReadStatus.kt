@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionalReadStatus
+ *
  * A code that indicates how the server supports conditional read.
  *
  * @see <a href="http://hl7.org/fhir/conditional-read-status">ConditionalReadStatus</a>
@@ -54,5 +56,5 @@ enum class ConditionalReadStatus {
      * HTTP Headers.
      */
     @SerialName("full-support")
-    FULL_SUPPORT
+    FULL_SUPPORT,
 }

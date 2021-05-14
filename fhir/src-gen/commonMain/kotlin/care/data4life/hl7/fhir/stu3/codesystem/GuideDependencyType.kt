@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GuideDependencyType
+ *
  * How a dependency is represented when the guide is published.
  *
  * @see <a href="http://hl7.org/fhir/guide-dependency-type">GuideDependencyType</a>
@@ -40,5 +42,5 @@ enum class GuideDependencyType {
      * The guide is embedded in this guide when published.
      */
     @SerialName("inclusion")
-    INCLUSION
+    INCLUSION,
 }

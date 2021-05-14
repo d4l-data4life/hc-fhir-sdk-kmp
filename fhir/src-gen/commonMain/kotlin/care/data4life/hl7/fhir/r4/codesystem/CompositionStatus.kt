@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CompositionStatus
+ *
  * The workflow/clinical status of the composition.
  *
  * @see <a href="http://hl7.org/fhir/composition-status">CompositionStatus</a>
@@ -59,5 +61,5 @@ enum class CompositionStatus {
      * valid.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

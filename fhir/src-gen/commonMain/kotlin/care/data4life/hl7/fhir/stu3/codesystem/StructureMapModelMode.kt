@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureMapModelMode
+ *
  * How the referenced structure is used in this mapping
  *
  * @see <a href="http://hl7.org/fhir/map-model-mode">StructureMapModelMode</a>
@@ -56,5 +58,5 @@ enum class StructureMapModelMode {
      * that is used a target of data
      */
     @SerialName("produced")
-    PRODUCED
+    PRODUCED,
 }

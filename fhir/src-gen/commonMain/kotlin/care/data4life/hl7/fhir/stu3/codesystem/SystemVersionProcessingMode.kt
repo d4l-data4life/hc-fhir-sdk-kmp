@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SystemVersionProcessingMode
+ *
  * How to manage the intersection between a fixed version in a value set, and a fixed version of the
  * system in the expansion profile
  *
@@ -50,9 +52,9 @@ enum class SystemVersionProcessingMode {
      * in a value set expansion giving a different list of codes that is both wrong and
      * unsafe, and implementers should only use this capability reluctantly. It
      * primarily exists to deal with situations where specifications have fallen into
-     * decay as time passes. If a  version is override, the version used SHALL
+     * decay as time passes. If a version is override, the version used SHALL
      * explicitly be represented in the expansion parameters
      */
     @SerialName("override")
-    OVERRIDE
+    OVERRIDE,
 }

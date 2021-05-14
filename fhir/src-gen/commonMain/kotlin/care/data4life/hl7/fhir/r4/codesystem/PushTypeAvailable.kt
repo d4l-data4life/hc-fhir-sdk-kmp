@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PushTypeAvailable
+ *
  * Type of alerts/updates the primary source can send
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/push-type-available">PushTypeAvailable</a>
@@ -46,5 +48,5 @@ enum class PushTypeAvailable {
      * source
      */
     @SerialName("source")
-    SOURCE
+    SOURCE,
 }

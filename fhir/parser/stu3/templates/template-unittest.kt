@@ -30,6 +30,16 @@ package care.data4life.hl7.fhir.stu3.model
     'Time',
     'UnsignedInteger',
 ] %}
+{%- set enum_replacement_dict = {
+    '=':'EQUAL',
+    '!=':'NOT_EQUAL',
+    '<':'LESS_THAN',
+    '<=':'LESS_OR_EQUAL',
+    '>':'GREATER_THAN',
+    '>=':'GREATER_OR_EQUAL',
+    '>=':'GREATER_OR_EQUAL',
+    '*':'MAX',
+} %}
 {%- set test_exclusion_dict = {
     'patient-example-b.json':'Property _gender is not supported',
     'patient-example.json':'Properties _birthDate and _family are not supported'
@@ -66,7 +76,7 @@ import kotlin.test.assertEquals
  * {{ class.short }}
 {%- if class.formal %}
  *
- * {{ class.formal | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | wordwrap(100) | replace('\n', '\n * ') }}
+ * {{ class.formal | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | replace('\n\n','\n') | replace('\n\n','\n') | wordwrap(100) | replace('\n', '\n * ') }}
 {%- endif %}
  *
  * Generated from FHIR {{ info.version }})
@@ -80,7 +90,6 @@ class {{ class.name }}Test {
 
     @Test
     fun test{{ class.name }}{{ '%02d' % loop.index }}() {
-
 {%- if tcase.filename in test_exclusion_dict %}
         // FIXME Test disabled due to issues with {{ tcase.filename }}
         // REASON - {{ test_exclusion_dict.get(tcase.filename) }}
@@ -174,11 +183,13 @@ class {{ class.name }}Test {
 {%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
 {%- endfor %}
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
 {%- endif %}
     }
 {%- endfor %}
 }
-{% if True %}{% endif %}
+{% if True %}{# ensure empty line at end of file #}{% endif %}

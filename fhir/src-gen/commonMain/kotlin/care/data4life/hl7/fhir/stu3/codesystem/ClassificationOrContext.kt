@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClassificationOrContext
+ *
  * Identifies whether a useContext represents a context or classification for the element
  *
  * @see <a href="http://hl7.org/fhir/classification-or-context">ClassificationOrContext</a>
@@ -42,5 +44,5 @@ enum class ClassificationOrContext {
      * country, organization or system
      */
     @SerialName("context")
-    CONTEXT
+    CONTEXT,
 }

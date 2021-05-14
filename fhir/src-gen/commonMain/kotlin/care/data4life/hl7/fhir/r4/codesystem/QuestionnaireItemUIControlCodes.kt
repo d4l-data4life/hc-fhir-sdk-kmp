@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireItemUIControlCodes
+ *
  * Starter set of user interface control/display mechanisms that might be used when rendering an item
  * in a questionnaire.
  *
@@ -45,27 +47,27 @@ enum class QuestionnaireItemUIControlCodes {
 
     /**
      * Questions within the group are rows in the table with possible answers as
-     * columns.  Used for 'choice' questions.
+     * columns. Used for 'choice' questions.
      */
     @SerialName("table")
     TABLE,
 
     /**
      * Questions within the group are columns in the table with possible answers as
-     * rows.  Used for 'choice' questions.
+     * rows. Used for 'choice' questions.
      */
     @SerialName("htable")
     HTABLE,
 
     /**
      * Questions within the group are columns in the table with each group repetition
-     * as a row.  Used for single-answer questions.
+     * as a row. Used for single-answer questions.
      */
     @SerialName("gtable")
     GTABLE,
 
     /**
-     * This table has one row - for the question.  Permitted answers are columns.  Used
+     * This table has one row - for the question. Permitted answers are columns. Used
      * for choice questions.
      */
     @SerialName("atable")
@@ -112,7 +114,7 @@ enum class QuestionnaireItemUIControlCodes {
 
     /**
      * Text is displayed to the left of the set of answer choices or a scaling control
-     * for the parent question item to indicate the meaning of the 'lower' bound.  E.g.
+     * for the parent question item to indicate the meaning of the 'lower' bound. E.g.
      * 'Strongly disagree'
      */
     @SerialName("lower")
@@ -120,7 +122,7 @@ enum class QuestionnaireItemUIControlCodes {
 
     /**
      * Text is displayed to the right of the set of answer choices or a scaling control
-     * for the parent question item to indicate the meaning of the 'upper' bound.  E.g.
+     * for the parent question item to indicate the meaning of the 'upper' bound. E.g.
      * 'Strongly agree'
      */
     @SerialName("upper")
@@ -149,7 +151,7 @@ enum class QuestionnaireItemUIControlCodes {
 
     /**
      * A control which provides a list of potential matches based on text entered into
-     * a control.  Used for large choice sets where text-matching is an appropriate
+     * a control. Used for large choice sets where text-matching is an appropriate
      * discovery mechanism.
      */
     @SerialName("autocomplete")
@@ -163,8 +165,8 @@ enum class QuestionnaireItemUIControlCodes {
     DROP_DOWN,
 
     /**
-     * A control where choices are listed with a box beside them.  The box can be
-     * toggled to select or de-select a given choice.  Multiple selections may be
+     * A control where choices are listed with a box beside them. The box can be
+     * toggled to select or de-select a given choice. Multiple selections may be
      * possible.
      */
     @SerialName("check-box")
@@ -173,16 +175,16 @@ enum class QuestionnaireItemUIControlCodes {
     /**
      * A control where editing an item spawns a separate dialog box or screen
      * permitting a user to navigate, filter or otherwise discover an appropriate
-     * match.  Useful for large choice sets where text matching is not an appropriate
-     * discovery mechanism.  Such screens must generally be tuned for the specific
+     * match. Useful for large choice sets where text matching is not an appropriate
+     * discovery mechanism. Such screens must generally be tuned for the specific
      * choice list structure.
      */
     @SerialName("lookup")
     LOOKUP,
 
     /**
-     * A control where choices are listed with a button beside them.  The button can be
-     * toggled to select or de-select a given choice.  Selecting one item deselects all
+     * A control where choices are listed with a button beside them. The button can be
+     * toggled to select or de-select a given choice. Selecting one item deselects all
      * others.
      */
     @SerialName("radio-button")
@@ -206,5 +208,5 @@ enum class QuestionnaireItemUIControlCodes {
      * A control where a user can type in their answer freely.
      */
     @SerialName("text-box")
-    TEXT_BOX
+    TEXT_BOX,
 }

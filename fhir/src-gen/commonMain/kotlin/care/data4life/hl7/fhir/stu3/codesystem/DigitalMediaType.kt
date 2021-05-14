@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DigitalMediaType
+ *
  * Whether the media is a photo, video, or audio
  *
  * @see <a href="http://hl7.org/fhir/digital-media-type">DigitalMediaType</a>
@@ -47,5 +49,5 @@ enum class DigitalMediaType {
      * The media consists of a sound recording
      */
     @SerialName("audio")
-    AUDIO
+    AUDIO,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractActionCodes
+ *
  * This value set includes sample Contract Action codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contractaction">ContractActionCodes</a>
@@ -40,5 +42,5 @@ enum class ContractActionCodes {
      * Definition for Action B
      */
     @SerialName("action-b")
-    ACTION_B
+    ACTION_B,
 }

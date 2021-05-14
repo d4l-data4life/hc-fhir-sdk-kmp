@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdministrativeGender
+ *
  * The gender of a person used for administrative purposes.
  *
  * @see <a href="http://hl7.org/fhir/administrative-gender">AdministrativeGender</a>
@@ -52,5 +54,5 @@ enum class AdministrativeGender {
      * Unknown
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

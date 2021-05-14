@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AddressUse
+ *
  * The use of an address
  *
  * @see <a href="http://hl7.org/fhir/address-use">AddressUse</a>
@@ -54,5 +56,5 @@ enum class AddressUse {
      * records).
      */
     @SerialName("old")
-    OLD
+    OLD,
 }

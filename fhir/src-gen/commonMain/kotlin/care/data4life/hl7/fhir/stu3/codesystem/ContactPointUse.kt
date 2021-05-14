@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContactPointUse
+ *
  * Use of contact point
  *
  * @see <a href="http://hl7.org/fhir/contact-point-use">ContactPointUse</a>
@@ -65,5 +67,5 @@ enum class ContactPointUse {
      * first choice for routine business.
      */
     @SerialName("mobile")
-    MOBILE
+    MOBILE,
 }

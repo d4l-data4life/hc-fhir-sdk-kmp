@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: IssueSeverity
+ *
  * How the issue affects the success of the action.
  *
  * @see <a href="http://hl7.org/fhir/issue-severity">IssueSeverity</a>
@@ -53,5 +55,5 @@ enum class IssueSeverity {
      * The issue has no relation to the degree of success of the action.
      */
     @SerialName("information")
-    INFORMATION
+    INFORMATION,
 }

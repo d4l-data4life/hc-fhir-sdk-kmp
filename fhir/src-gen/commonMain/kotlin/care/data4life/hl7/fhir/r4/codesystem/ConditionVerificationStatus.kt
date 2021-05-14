@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionVerificationStatus
+ *
  * The verification status to support or decline the clinical status of the condition or diagnosis.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/condition-ver-status">ConditionVerificationStatus</a>
@@ -67,5 +69,5 @@ enum class ConditionVerificationStatus {
      * The statement was entered in error and is not valid.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

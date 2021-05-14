@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CanPushUpdates
+ *
  * Ability of the primary source to push updates/alerts
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/can-push-updates">CanPushUpdates</a>
@@ -46,5 +48,5 @@ enum class CanPushUpdates {
      * undetermined
      */
     @SerialName("undetermined")
-    UNDETERMINED
+    UNDETERMINED,
 }

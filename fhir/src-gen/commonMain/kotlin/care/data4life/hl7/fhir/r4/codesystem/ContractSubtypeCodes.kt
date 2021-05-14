@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractSubtypeCodes
+ *
  * This value set includes sample Contract Subtype codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contractsubtypecodes">ContractSubtypeCodes</a>
@@ -40,5 +42,5 @@ enum class ContractSubtypeCodes {
      * United States health information disclosure policy.
      */
     @SerialName("disclosure-us")
-    DISCLOSURE_US
+    DISCLOSURE_US,
 }

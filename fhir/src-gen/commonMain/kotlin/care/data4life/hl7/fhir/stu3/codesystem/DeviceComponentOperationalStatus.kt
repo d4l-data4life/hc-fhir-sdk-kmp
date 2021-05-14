@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceComponentOperationalStatus
+ *
  * Codes representing the current status of the device - on, off, suspended, etc.
  *
  * @see <a href="http://hl7.org/fhir/operational-status">DeviceComponentOperationalStatus</a>
@@ -70,5 +72,5 @@ enum class DeviceComponentOperationalStatus {
      * The device was entered in error.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

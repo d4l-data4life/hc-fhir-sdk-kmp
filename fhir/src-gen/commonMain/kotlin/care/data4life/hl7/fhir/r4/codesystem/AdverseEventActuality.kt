@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventActuality
+ *
  * Overall nature of the adverse event, e.g. real or potential.
  *
  * @see <a href="http://hl7.org/fhir/adverse-event-actuality">AdverseEventActuality</a>
@@ -41,5 +43,5 @@ enum class AdverseEventActuality {
      * A potential adverse event.
      */
     @SerialName("potential")
-    POTENTIAL
+    POTENTIAL,
 }

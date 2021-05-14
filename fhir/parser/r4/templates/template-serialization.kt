@@ -135,4 +135,4 @@ object FhirSerializationModule {
         }
     }
 }
-{% if True %}{% endif %}
+{% if True %}{# ensure empty line at end of file #}{% endif %}

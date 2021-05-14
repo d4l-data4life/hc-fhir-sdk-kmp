@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PaymentTypeCodes
+ *
  * This value set includes sample Payment Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/payment-type">PaymentTypeCodes</a>
@@ -46,5 +48,5 @@ enum class PaymentTypeCodes {
      * The amount is an advance against future claims.
      */
     @SerialName("advance")
-    ADVANCE
+    ADVANCE,
 }

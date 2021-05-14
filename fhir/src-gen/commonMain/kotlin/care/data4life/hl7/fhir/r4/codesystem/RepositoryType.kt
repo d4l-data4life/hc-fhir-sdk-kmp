@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RepositoryType
+ *
  * Type for access of external URI.
  *
  * @see <a href="http://hl7.org/fhir/repository-type">RepositoryType</a>
@@ -52,7 +54,7 @@ enum class RepositoryType {
     LOGIN,
 
     /**
-     * When logged in and  follow the API in the website related with URL, the resource
+     * When logged in and follow the API in the website related with URL, the resource
      * can be seen.
      */
     @SerialName("oauth")
@@ -62,5 +64,5 @@ enum class RepositoryType {
      * Some other complicated or particular way to get resource from URL.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

@@ -20,23 +20,42 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirUsageContext
+ *
+ * Specifies clinical/business/etc metadata that can be used to retrieve, index and/or categorize an
+ * artifact. This metadata can either be specific to the applicable population (e.g., age category,
+ * DRG) or the specific context of care (e.g., venue, care setting, provider of care).
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/UsageContext">UsageContext</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/UsageContext)
+ */
 interface FhirUsageContext : FhirElement {
 
-    // Type of context being specified.
+    /**
+     * Type of context being specified.
+     */
     val code: Coding
 
-    // Value that defines the context.
+    /**
+     * Value that defines the context.
+     */
     val valueCodeableConcept: CodeableConcept?
 
-    // Value that defines the context.
+    /**
+     * Value that defines the context.
+     */
     val valueQuantity: Quantity?
 
-    // Value that defines the context.
+    /**
+     * Value that defines the context.
+     */
     val valueRange: Range?
 }
 
 /**
- * ClassName: UsageContext
+ * UsageContext
  *
  * SourceFileName: UsageContext.kt
  *
@@ -52,27 +71,20 @@ interface FhirUsageContext : FhirElement {
 @SerialName("UsageContext")
 data class UsageContext(
 
-    // Type of context being specified.
     @SerialName("code")
     override val code: Coding,
 
-    // Value that defines the context.
     @SerialName("valueCodeableConcept")
     override val valueCodeableConcept: CodeableConcept? = null,
 
-    // Value that defines the context.
     @SerialName("valueQuantity")
     override val valueQuantity: Quantity? = null,
 
-    // Value that defines the context.
     @SerialName("valueRange")
     override val valueRange: Range? = null,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirUsageContext {

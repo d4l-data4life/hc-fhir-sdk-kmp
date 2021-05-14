@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: LinkType
+ *
  * The type of link between this patient resource and another patient resource.
  *
  * @see <a href="http://hl7.org/fhir/link-type">LinkType</a>
@@ -64,5 +66,5 @@ enum class LinkType {
      * resources concerned, and both should be regarded as equally valid.
      */
     @SerialName("seealso")
-    SEEALSO
+    SEEALSO,
 }

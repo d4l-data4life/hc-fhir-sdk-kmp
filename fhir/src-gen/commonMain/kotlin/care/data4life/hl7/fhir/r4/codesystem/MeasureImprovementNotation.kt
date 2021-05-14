@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureImprovementNotation
+ *
  * Observation values that indicate what change in a measurement value or score is indicative of an
  * improvement in the measured item or scored issue.
  *
@@ -43,5 +45,5 @@ enum class MeasureImprovementNotation {
      * score indicates better quality).
      */
     @SerialName("decrease")
-    DECREASE
+    DECREASE,
 }

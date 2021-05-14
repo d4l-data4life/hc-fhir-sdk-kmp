@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceType
+ *
  * Identification of the underlying physiological mechanism for a Reaction Risk.
  *
  * @see <a href="http://hl7.org/fhir/allergy-intolerance-type">AllergyIntoleranceType</a>
@@ -31,7 +33,7 @@ import kotlinx.serialization.Serializable
 enum class AllergyIntoleranceType {
 
     /**
-     * A propensity for hypersensitivity reaction(s) to a substance.  These reactions
+     * A propensity for hypersensitivity reaction(s) to a substance. These reactions
      * are most typically type I hypersensitivity, plus other "allergy-like" reactions,
      * including pseudoallergy.
      */
@@ -40,11 +42,11 @@ enum class AllergyIntoleranceType {
 
     /**
      * A propensity for adverse reactions to a substance that is not judged to be
-     * allergic or "allergy-like".  These reactions are typically (but not necessarily)
-     * non-immune.  They are to some degree idiosyncratic and/or individually specific
+     * allergic or "allergy-like". These reactions are typically (but not necessarily)
+     * non-immune. They are to some degree idiosyncratic and/or individually specific
      * (i.e. are not a reaction that is expected to occur with most or all patients
      * given similar circumstances).
      */
     @SerialName("intolerance")
-    INTOLERANCE
+    INTOLERANCE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CodeSystemHierarchyMeaning
+ *
  * The meaning of the hierarchy of concepts in a code system
  *
  * @see <a href="http://hl7.org/fhir/codesystem-hierarchy-meaning">CodeSystemHierarchyMeaning</a>
@@ -58,5 +60,5 @@ enum class CodeSystemHierarchyMeaning {
      * in the hierarchy. This results in concepts such as "not otherwise classified."
      */
     @SerialName("classified-with")
-    CLASSIFIED_WITH
+    CLASSIFIED_WITH,
 }

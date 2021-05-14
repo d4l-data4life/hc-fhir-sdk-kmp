@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: Indicator
+ *
  * This value set captures the set of indicator codes defined by the CDS Hooks specification.
  *
  * @see <a href="http://cds-hooks.hl7.org/CodeSystem/indicator">Indicator</a>
@@ -46,5 +48,5 @@ enum class Indicator {
      * critical
      */
     @SerialName("critical")
-    CRITICAL
+    CRITICAL,
 }

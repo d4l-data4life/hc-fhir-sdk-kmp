@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceCertainty
+ *
  * Statement about the degree of clinical certainty that a specific substance was the cause of the
  * manifestation in a reaction event.
  *
@@ -55,8 +57,8 @@ enum class AllergyIntoleranceCertainty {
 
     /**
      * The clinical certainty that the reaction was caused by the identified substance
-     * is unknown.  It is an explicit assertion that certainty is not known.
+     * is unknown. It is an explicit assertion that certainty is not known.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

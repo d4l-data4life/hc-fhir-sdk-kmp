@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentPolicyRuleCodes
+ *
  * This value set includes sample Regulatory consent policy types from the US and other regions.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/consentpolicycodes">ConsentPolicyRuleCodes</a>
@@ -70,7 +72,7 @@ enum class ConsentPolicyRuleCodes {
     HIPAA_AUTH,
 
     /**
-     * 164.520  Notice of privacy practices for protected health information. (1) Right
+     * 164.520 Notice of privacy practices for protected health information. (1) Right
      * to notice. Except as provided by paragraph (a)(2) or (3) of this section, an
      * individual has a right to adequate notice of the uses and disclosures of
      * protected health information that may be made by the covered entity, and of the
@@ -274,7 +276,7 @@ enum class ConsentPolicyRuleCodes {
     /**
      * Squaxin Indian HIPAA and 42 CFR Part 2 Consent for Release and Exchange of
      * Confidential Information, which permits consenter to select healthcare record
-     * type and types of treatment purposes.  This consent requires disclosers and
+     * type and types of treatment purposes. This consent requires disclosers and
      * recipients to comply with 42 C.F.R. Part 2, and HIPAA 45 C.F.R. parts 160 and
      * 164. It includes patient notice of the refrain policy not to disclose without
      * consent, and revocation rights.
@@ -287,7 +289,7 @@ enum class ConsentPolicyRuleCodes {
      * LSP (National Exchange Point) requires that providers, hospitals and pharmacy
      * obtain explicit permission [opt-in] from healthcare consumers to submit and
      * retrieve all or only some of a subject of care’s health information collected by
-     * the LSP for purpose of treatment, which can be revoked.  Without permission, a
+     * the LSP for purpose of treatment, which can be revoked. Without permission, a
      * provider cannot access LSP information even in an emergency. The LSP provides
      * healthcare consumers with accountings of disclosures. https://www.vzvz.nl/upload
      * ed/FILES/htmlcontent/Formulieren/TOESTEMMINGSFORMULIER.pdf,
@@ -356,5 +358,5 @@ enum class ConsentPolicyRuleCodes {
      * ndex.php?action=doc&file=Wx/org/genomicsandhealth/REWG/Demo/Roberta_Robinson_US
      */
     @SerialName("ga4gh")
-    GA4GH
+    GA4GH,
 }

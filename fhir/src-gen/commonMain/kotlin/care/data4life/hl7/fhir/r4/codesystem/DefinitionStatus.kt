@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DefinitionStatus
+ *
  * Codes identifying the lifecycle stage of a definition.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/definition-status">DefinitionStatus</a>
@@ -51,10 +53,10 @@ enum class DefinitionStatus {
 
     /**
      * The authoring/source system does not know which of the status values currently
-     * applies for this resource.  Note: This concept is not to be used for "other" -
-     * one of the listed statuses is presumed to apply,  but the authoring/source
-     * system does not know which.
+     * applies for this resource. Note: This concept is not to be used for "other" -
+     * one of the listed statuses is presumed to apply, but the authoring/source system
+     * does not know which.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

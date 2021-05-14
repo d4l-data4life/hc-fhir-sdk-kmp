@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: IssueType
+ *
  * A code that describes the type of issue.
  *
  * @see <a href="http://hl7.org/fhir/issue-type">IssueType</a>
@@ -94,8 +96,8 @@ enum class IssueType {
 
     /**
      * Some information was not or may not have been returned due to business rules,
-     * consent or privacy rules, or access permission constraints.  This information
-     * may be accessible through alternate processes.
+     * consent or privacy rules, or access permission constraints. This information may
+     * be accessible through alternate processes.
      */
     @SerialName("suppressed")
     SUPPRESSED,
@@ -222,5 +224,5 @@ enum class IssueType {
      * maintenance times, etc.).
      */
     @SerialName("informational")
-    INFORMATIONAL
+    INFORMATIONAL,
 }

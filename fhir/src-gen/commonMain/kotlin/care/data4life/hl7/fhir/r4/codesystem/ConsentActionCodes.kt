@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentActionCodes
+ *
  * This value set includes sample Consent Action codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/consentaction">ConsentActionCodes</a>
@@ -59,5 +61,5 @@ enum class ConsentActionCodes {
      * Allow retrieval of a patient's information for the purpose of update or rectify
      */
     @SerialName("correct")
-    CORRECT
+    CORRECT,
 }

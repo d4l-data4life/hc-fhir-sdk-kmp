@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SupplyItemType
+ *
  * This value sets refers to a specific supply item.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/supply-item-type">SupplyItemType</a>
@@ -40,5 +42,5 @@ enum class SupplyItemType {
      * What is supplied (or requested) is a device.
      */
     @SerialName("device")
-    DEVICE
+    DEVICE,
 }

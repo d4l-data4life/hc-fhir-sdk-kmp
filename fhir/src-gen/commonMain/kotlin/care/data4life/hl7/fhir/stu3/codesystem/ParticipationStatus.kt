@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ParticipationStatus
+ *
  * The Participation status of an appointment.
  *
  * @see <a href="http://hl7.org/fhir/participationstatus">ParticipationStatus</a>
@@ -44,7 +46,7 @@ enum class ParticipationStatus {
     DECLINED,
 
     /**
-     * The participant has  tentatively accepted the appointment. This could be
+     * The participant has tentatively accepted the appointment. This could be
      * automatically created by a system and requires further processing before it can
      * be accepted. There is no commitment that attendance will occur.
      */
@@ -56,5 +58,5 @@ enum class ParticipationStatus {
      * this status to one of the other statuses.
      */
     @SerialName("needs-action")
-    NEEDS_ACTION
+    NEEDS_ACTION,
 }

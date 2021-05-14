@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: LocationStatus
+ *
  * Indicates whether the location is still in use.
  *
  * @see <a href="http://hl7.org/fhir/location-status">LocationStatus</a>
@@ -46,5 +48,5 @@ enum class LocationStatus {
      * The location is no longer used.
      */
     @SerialName("inactive")
-    INACTIVE
+    INACTIVE,
 }

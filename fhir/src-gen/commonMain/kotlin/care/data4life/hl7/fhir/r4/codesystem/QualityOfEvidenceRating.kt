@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QualityOfEvidenceRating
+ *
  * A rating system that describes the quality of evidence such as the GRADE, DynaMed, or Oxford CEBM
  * systems.
  *
@@ -53,5 +55,5 @@ enum class QualityOfEvidenceRating {
      * Very low quality evidence.
      */
     @SerialName("very-low")
-    VERY_LOW
+    VERY_LOW,
 }

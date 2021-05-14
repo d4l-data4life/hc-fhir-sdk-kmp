@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionSelectionBehavior
+ *
  * Defines selection behavior of a group
  *
  * @see <a href="http://hl7.org/fhir/action-selection-behavior">ActionSelectionBehavior</a>
@@ -66,5 +68,5 @@ enum class ActionSelectionBehavior {
      * The end user must choose a minimum of one, and as many additional as desired
      */
     @SerialName("one-or-more")
-    ONE_OR_MORE
+    ONE_OR_MORE,
 }

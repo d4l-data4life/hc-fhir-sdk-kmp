@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EventCapabilityMode
+ *
  * The mode of a message capability statement.
  *
  * @see <a href="http://hl7.org/fhir/event-capability-mode">EventCapabilityMode</a>
@@ -40,5 +42,5 @@ enum class EventCapabilityMode {
      * The application receives requests and sends responses.
      */
     @SerialName("receiver")
-    RECEIVER
+    RECEIVER,
 }

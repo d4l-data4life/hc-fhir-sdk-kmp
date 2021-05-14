@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MessageTransport
+ *
  * The protocol used for message transport.
  *
  * @see <a href="http://hl7.org/fhir/message-transport">MessageTransport</a>
@@ -48,5 +50,5 @@ enum class MessageTransport {
      * Protocol.
      */
     @SerialName("mllp")
-    MLLP
+    MLLP,
 }

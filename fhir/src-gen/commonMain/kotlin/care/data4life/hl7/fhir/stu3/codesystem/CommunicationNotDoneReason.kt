@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CommunicationNotDoneReason
+ *
  * Codes for the reason why a communication was not done.
  *
  * @see <a href="http://hl7.org/fhir/communication-not-done-reason">CommunicationNotDoneReason</a>
@@ -64,5 +66,5 @@ enum class CommunicationNotDoneReason {
      * The communication was not done due to a patient objection.
      */
     @SerialName("patient-objection")
-    PATIENT_OBJECTION
+    PATIENT_OBJECTION,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConceptMapEquivalence
+ *
  * The degree of equivalence between concepts.
  *
  * @see <a href="http://hl7.org/fhir/concept-map-equivalence">ConceptMapEquivalence</a>
@@ -103,5 +105,5 @@ enum class ConceptMapEquivalence {
      * target concept.
      */
     @SerialName("disjoint")
-    DISJOINT
+    DISJOINT,
 }

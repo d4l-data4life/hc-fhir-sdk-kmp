@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalAcceptanceStatus
+ *
  * Codes indicating whether the goal has been accepted by a stakeholder.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/goal-acceptance-status">GoalAcceptanceStatus</a>
@@ -46,5 +48,5 @@ enum class GoalAcceptanceStatus {
      * Stakeholder has not yet made a decision on whether they support the goal.
      */
     @SerialName("pending")
-    PENDING
+    PENDING,
 }

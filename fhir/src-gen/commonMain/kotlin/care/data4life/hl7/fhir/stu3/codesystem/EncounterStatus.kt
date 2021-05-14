@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EncounterStatus
+ *
  * Current state of the encounter
  *
  * @see <a href="http://hl7.org/fhir/encounter-status">EncounterStatus</a>
@@ -87,5 +89,5 @@ enum class EncounterStatus {
      * "unknown".
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

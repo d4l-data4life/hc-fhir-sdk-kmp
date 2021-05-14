@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourcePublicationStatusCodes
+ *
  * This value set contract specific codes for status.
  *
  * @see <a href="http://hl7.org/fhir/contract-publicationstatus">ContractResourcePublicationStatusCodes</a>
@@ -66,7 +68,7 @@ enum class ContractResourcePublicationStatusCodes {
     DISPUTED,
 
     /**
-     * Contract was created in error. No Precedence Order.  Status may be applied to a
+     * Contract was created in error. No Precedence Order. Status may be applied to a
      * Contract with any status.
      */
     @SerialName("entered-in-error")
@@ -77,7 +79,7 @@ enum class ContractResourcePublicationStatusCodes {
      * Grantee accepts the contract provisions by signing. I.e., where either the
      * Grantor or the Grantee has signed, but not both. E.g., when an insurance
      * applicant signs the insurers application, which references the policy. Usage:
-     * Optional first step of contract execution activity.  May be skipped and
+     * Optional first step of contract execution activity. May be skipped and
      * contracting activity moves directly to executed state. Precedence Order = 3.
      * Comparable FHIR and v.3 status codes: draft; preliminary; planned; intended;
      * active.
@@ -88,7 +90,7 @@ enum class ContractResourcePublicationStatusCodes {
     /**
      * Contract is activated for period stipulated when both the Grantor and Grantee
      * have signed it. Usage: Required state for normal completion of contracting
-     * activity.  Precedence Order = 6. Comparable FHIR and v.3 status codes: accepted;
+     * activity. Precedence Order = 6. Comparable FHIR and v.3 status codes: accepted;
      * completed.
      */
     @SerialName("executed")
@@ -97,7 +99,7 @@ enum class ContractResourcePublicationStatusCodes {
     /**
      * Contract execution is suspended while either or both the Grantor and Grantee
      * propose and consider new or revised contract provisions. I.e., where the party
-     * which has not signed proposes changes to the terms.  E .g., a life insurer
+     * which has not signed proposes changes to the terms. E .g., a life insurer
      * declines to agree to the signed application because the life insurer has
      * evidence that the applicant, who asserted to being younger or a non-smoker to
      * get a lower premium rate - but offers instead to agree to a higher premium based
@@ -133,7 +135,7 @@ enum class ContractResourcePublicationStatusCodes {
      *  Execution of the Contract is not completed because either or both the Grantor
      * and Grantee decline to accept some or all of the contract provisions. Usage:
      * Optional contract activity between executable and abnormal termination.
-     * Precedence Order = 5. Comparable FHIR and v.3 status codes:  stopped; cancelled.
+     * Precedence Order = 5. Comparable FHIR and v.3 status codes: stopped; cancelled.
      */
     @SerialName("rejected")
     REJECTED,
@@ -148,8 +150,8 @@ enum class ContractResourcePublicationStatusCodes {
     RENEWED,
 
     /**
-     * A Contract that is rescinded.  May be required prior to replacing with an
-     * updated Contract. Comparable FHIR and v.3 status codes: nullified.
+     * A Contract that is rescinded. May be required prior to replacing with an updated
+     * Contract. Comparable FHIR and v.3 status codes: nullified.
      */
     @SerialName("revoked")
     REVOKED,
@@ -171,5 +173,5 @@ enum class ContractResourcePublicationStatusCodes {
      * Comparable FHIR and v.3 status codes: Obsoleted.
      */
     @SerialName("terminated")
-    TERMINATED
+    TERMINATED,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TriggerType
+ *
  * The type of trigger
  *
  * @see <a href="http://hl7.org/fhir/trigger-type">TriggerType</a>
@@ -71,5 +73,5 @@ enum class TriggerType {
      * The trigger occurs whenever access to data of a particular type is completed
      */
     @SerialName("data-access-ended")
-    DATA_ACCESS_ENDED
+    DATA_ACCESS_ENDED,
 }

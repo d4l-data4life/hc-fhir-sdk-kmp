@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: Use
+ *
  * Complete, proposed, exploratory, other
  *
  * @see <a href="http://hl7.org/fhir/claim-use">Use</a>
@@ -54,5 +56,5 @@ enum class Use {
      * A locally defined or otherwise resolved status.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

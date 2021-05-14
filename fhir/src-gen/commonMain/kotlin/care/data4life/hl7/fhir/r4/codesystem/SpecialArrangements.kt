@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SpecialArrangements
+ *
  * This value set defines a set of codes that can be used to indicate the kinds of special arrangements
  * in place for a patients visit.
  *
@@ -64,5 +66,5 @@ enum class SpecialArrangements {
      * able to support the presence of the service animal.
      */
     @SerialName("dog")
-    DOG
+    DOG,
 }

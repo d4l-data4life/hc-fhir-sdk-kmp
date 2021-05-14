@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: IdentifierUse
+ *
  * Identifies the purpose for this identifier, if known .
  *
  * @see <a href="http://hl7.org/fhir/identifier-use">IdentifierUse</a>
@@ -55,5 +57,5 @@ enum class IdentifierUse {
      * object again in a different context.
      */
     @SerialName("secondary")
-    SECONDARY
+    SECONDARY,
 }

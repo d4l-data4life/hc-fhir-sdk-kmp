@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestStatus
+ *
  * A coded concept specifying the state of the prescribing event. Describes the lifecycle of the
  * prescription
  *
@@ -40,7 +42,7 @@ enum class MedicationRequestStatus {
 
     /**
      * Actions implied by the prescription are to be temporarily halted, but are
-     * expected to continue later.  May also be called "suspended".
+     * expected to continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -83,5 +85,5 @@ enum class MedicationRequestStatus {
      * for this request
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

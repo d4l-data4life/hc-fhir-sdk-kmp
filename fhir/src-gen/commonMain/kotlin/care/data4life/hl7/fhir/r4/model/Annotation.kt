@@ -21,25 +21,40 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirAnnotation
+ *
+ * A text note which also contains information about who made the statement and when.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Annotation">Annotation</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Annotation)
+ */
 interface FhirAnnotation : FhirElement {
 
-    // Individual responsible for the annotation.
+    /**
+     * Individual responsible for the annotation.
+     */
     val authorReference: Reference?
 
-    // Individual responsible for the annotation.
+    /**
+     * Individual responsible for the annotation.
+     */
     val authorString: String?
 
-    // When the annotation was made.
+    /**
+     * When the annotation was made.
+     */
     val time: DateTime?
 
-    // The annotation  - text content (as markdown).
+    /**
+     * The annotation - text content (as markdown).
+     */
     val text: String
 }
 
 /**
- * ClassName: Annotation
- *
- * SourceFileName: Annotation.kt
+ * Annotation
  *
  * A text note which also contains information about who made the statement and when.
  *
@@ -51,38 +66,32 @@ interface FhirAnnotation : FhirElement {
 @SerialName("Annotation")
 data class Annotation(
 
-    // Individual responsible for the annotation.
     @SerialName("authorReference")
     override val authorReference: Reference? = null,
 
-    // Individual responsible for the annotation.
     @SerialName("authorString")
     override val authorString: String? = null,
 
-    // When the annotation was made.
     @SerialName("time")
     override val time: DateTime? = null,
 
-    // The annotation  - text content (as markdown).
     @SerialName("text")
     override val text: String,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirAnnotation {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Annotation"
+        fun resourceType(): String = "Annotation"
     }
 }

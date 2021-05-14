@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ObservationStatus
+ *
  * Codes providing the status of an observation.
  *
  * @see <a href="http://hl7.org/fhir/observation-status">ObservationStatus</a>
@@ -50,7 +52,7 @@ enum class ObservationStatus {
     FINAL,
 
     /**
-     * Subsequent to being Final, the observation has been modified subsequent.  This
+     * Subsequent to being Final, the observation has been modified subsequent. This
      * includes updates/new information and corrections.
      */
     @SerialName("amended")
@@ -71,7 +73,7 @@ enum class ObservationStatus {
     CANCELLED,
 
     /**
-     * The observation has been withdrawn following previous final release.  This
+     * The observation has been withdrawn following previous final release. This
      * electronic record should never have existed, though it is possible that real-
      * world decisions were based on it. (If real-world activity has occurred, the
      * status should be "cancelled" rather than "entered-in-error".)
@@ -86,5 +88,5 @@ enum class ObservationStatus {
      * which.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

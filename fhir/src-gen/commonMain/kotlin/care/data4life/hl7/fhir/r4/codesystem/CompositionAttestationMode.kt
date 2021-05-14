@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CompositionAttestationMode
+ *
  * The way in which a person authenticated a composition.
  *
  * @see <a href="http://hl7.org/fhir/composition-attestation-mode">CompositionAttestationMode</a>
@@ -54,5 +56,5 @@ enum class CompositionAttestationMode {
      * procedures.
      */
     @SerialName("official")
-    OFFICIAL
+    OFFICIAL,
 }

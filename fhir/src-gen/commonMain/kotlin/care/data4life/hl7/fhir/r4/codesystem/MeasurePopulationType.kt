@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasurePopulationType
+ *
  * The type of population.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/measure-population">MeasurePopulationType</a>
@@ -112,5 +114,5 @@ enum class MeasurePopulationType {
      * aggregated to determine the overall measure score for the population.
      */
     @SerialName("measure-observation")
-    MEASURE_OBSERVATION
+    MEASURE_OBSERVATION,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SearchComparator
+ *
  * What Search Comparator Codes are supported in search.
  *
  * @see <a href="http://hl7.org/fhir/search-comparator">SearchComparator</a>
@@ -85,5 +87,5 @@ enum class SearchComparator {
      * provided value.
      */
     @SerialName("ap")
-    AP
+    AP,
 }

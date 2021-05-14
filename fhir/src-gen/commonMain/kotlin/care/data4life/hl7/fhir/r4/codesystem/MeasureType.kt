@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureType
+ *
  * The type of measure (includes codes from 2.16.840.1.113883.1.11.20368).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/measure-type">MeasureType</a>
@@ -64,5 +66,5 @@ enum class MeasureType {
      * measure.
      */
     @SerialName("composite")
-    COMPOSITE
+    COMPOSITE,
 }

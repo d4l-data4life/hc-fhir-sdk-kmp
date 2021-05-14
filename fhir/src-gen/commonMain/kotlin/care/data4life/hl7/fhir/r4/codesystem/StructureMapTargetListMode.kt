@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureMapTargetListMode
+ *
  * If field is a list, how to manage the production.
  *
  * @see <a href="http://hl7.org/fhir/map-target-list-mode">StructureMapTargetListMode</a>
@@ -57,5 +59,5 @@ enum class StructureMapTargetListMode {
      * re-use the first item in the list, and keep adding content to it.
      */
     @SerialName("collate")
-    COLLATE
+    COLLATE,
 }

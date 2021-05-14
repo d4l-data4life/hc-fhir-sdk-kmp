@@ -20,7 +20,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Example codes indicating the change that happened to the device during the procedure.  Note that
+ * Code System: ProcedureDeviceActionCodes
+ *
+ * Example codes indicating the change that happened to the device during the procedure. Note that
  * these are in no way complete and might not even be appropriate for some uses.
  *
  * @see <a href="http://hl7.org/fhir/device-action">ProcedureDeviceActionCodes</a>
@@ -47,5 +49,5 @@ enum class ProcedureDeviceActionCodes {
      * was changed.
      */
     @SerialName("manipulated")
-    MANIPULATED
+    MANIPULATED,
 }

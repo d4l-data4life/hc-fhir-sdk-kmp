@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventCategory
+ *
  * Overall categorization of the event, e.g. product-related or situational.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adverse-event-category">AdverseEventCategory</a>
@@ -113,5 +115,5 @@ enum class AdverseEventCategory {
      * The adverse event pertains to an unsafe physical environment.
      */
     @SerialName("unsafe-physical-environment")
-    UNSAFE_PHYSICAL_ENVIRONMENT
+    UNSAFE_PHYSICAL_ENVIRONMENT,
 }

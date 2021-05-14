@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceSeverity
+ *
  * Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple
  * different manifestations.
  *
@@ -47,5 +49,5 @@ enum class AllergyIntoleranceSeverity {
      * Causes severe physiological effects.
      */
     @SerialName("severe")
-    SEVERE
+    SEVERE,
 }

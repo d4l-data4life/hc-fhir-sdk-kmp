@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CoverageClassCodes
+ *
  * This value set includes Coverage Class codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/coverage-class">CoverageClassCodes</a>
@@ -94,5 +96,5 @@ enum class CoverageClassCodes {
      * A Pharmacy Benefit Manager specified Group number.
      */
     @SerialName("rxgroup")
-    RXGROUP
+    RXGROUP,
 }

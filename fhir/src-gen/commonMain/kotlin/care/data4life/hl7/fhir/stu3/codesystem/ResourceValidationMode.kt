@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResourceValidationMode
+ *
  * Codes indicating the type of validation to perform
  *
  * @see <a href="http://hl7.org/fhir/resource-validation-mode">ResourceValidationMode</a>
@@ -52,5 +54,5 @@ enum class ResourceValidationMode {
      * allowed to be deleted (e.g. checking referential integrity rules).
      */
     @SerialName("delete")
-    DELETE
+    DELETE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FailureAction
+ *
  * The result if validation fails
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/failure-action">FailureAction</a>
@@ -52,5 +54,5 @@ enum class FailureAction {
      * none
      */
     @SerialName("none")
-    NONE
+    NONE,
 }

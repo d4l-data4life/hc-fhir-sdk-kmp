@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationDispenseCategory
+ *
  * A code describing where the dispensed medication is expected to be consumed or administered
  *
  * @see <a href="http://hl7.org/fhir/medication-dispense-category">MedicationDispenseCategory</a>
@@ -51,5 +53,5 @@ enum class MedicationDispenseCategory {
      * etc)
      */
     @SerialName("community")
-    COMMUNITY
+    COMMUNITY,
 }

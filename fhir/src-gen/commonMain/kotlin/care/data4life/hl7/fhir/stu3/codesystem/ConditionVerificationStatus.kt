@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionVerificationStatus
+ *
  * The verification status to support or decline the clinical status of the condition or diagnosis.
  *
  * @see <a href="http://hl7.org/fhir/condition-ver-status">ConditionVerificationStatus</a>
@@ -63,10 +65,10 @@ enum class ConditionVerificationStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * The condition status is unknown.  Note that "unknown" is a value of last resort
+     * The condition status is unknown. Note that "unknown" is a value of last resort
      * and every attempt should be made to provide a meaningful value other than
      * "unknown".
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

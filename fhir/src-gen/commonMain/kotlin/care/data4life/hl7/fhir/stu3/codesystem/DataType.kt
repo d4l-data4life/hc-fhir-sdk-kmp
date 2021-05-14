@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DataType
+ *
  * The type of an element - one of the FHIR data types.
  *
  * @see <a href="http://hl7.org/fhir/data-types">DataType</a>
@@ -32,9 +34,9 @@ enum class DataType {
 
     /**
      * An address expressed using postal conventions (as opposed to GPS or other
-     * location definition formats).  This data type may be used to convey addresses
-     * for use in delivering mail as well as for visiting locations which might not be
-     * valid for mail delivery.  There are a variety of postal address formats defined
+     * location definition formats). This data type may be used to convey addresses for
+     * use in delivering mail as well as for visiting locations which might not be
+     * valid for mail delivery. There are a variety of postal address formats defined
      * around the world.
      */
     @SerialName("Address")
@@ -47,7 +49,7 @@ enum class DataType {
     AGE,
 
     /**
-     * A  text note which also  contains information about who made the statement and
+     * A text note which also contains information about who made the statement and
      * when.
      */
     @SerialName("Annotation")
@@ -298,18 +300,18 @@ enum class DataType {
 
     /**
      * A date or partial date (e.g. just year or year + month). There is no time zone.
-     * The format is a union of the schema types gYear, gYearMonth and date.  Dates
+     * The format is a union of the schema types gYear, gYearMonth and date. Dates
      * SHALL be valid dates.
      */
     @SerialName("date")
     DATE,
 
     /**
-     * A date, date-time or partial date (e.g. just year or year + month).  If hours
-     * and minutes are specified, a time zone SHALL be populated. The format is a union
-     * of the schema types gYear, gYearMonth, date and dateTime. Seconds must be
-     * provided due to schema type constraints but may be zero-filled and may be
-     * ignored.                 Dates SHALL be valid dates.
+     * A date, date-time or partial date (e.g. just year or year + month). If hours and
+     * minutes are specified, a time zone SHALL be populated. The format is a union of
+     * the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided
+     * due to schema type constraints but may be zero-filled and may be ignored.
+     * Dates SHALL be valid dates.
      */
     @SerialName("dateTime")
     DATETIME,
@@ -322,8 +324,8 @@ enum class DataType {
 
     /**
      * Any combination of letters, numerals, "-" and ".", with a length limit of 64
-     * characters.  (This might be an integer, an unprefixed OID, UUID or any other
-     * identifier pattern that meets these constraints.)  Ids are case-insensitive.
+     * characters. (This might be an integer, an unprefixed OID, UUID or any other
+     * identifier pattern that meets these constraints.) Ids are case-insensitive.
      */
     @SerialName("id")
     ID,
@@ -394,5 +396,5 @@ enum class DataType {
      * content)
      */
     @SerialName("xhtml")
-    XHTML
+    XHTML,
 }

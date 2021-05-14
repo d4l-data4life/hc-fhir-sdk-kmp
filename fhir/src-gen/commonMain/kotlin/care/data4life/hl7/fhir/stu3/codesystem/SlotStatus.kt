@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SlotStatus
+ *
  * The free/busy status of the slot.
  *
  * @see <a href="http://hl7.org/fhir/slotstatus">SlotStatus</a>
@@ -31,7 +33,7 @@ import kotlinx.serialization.Serializable
 enum class SlotStatus {
 
     /**
-     * Indicates that the time interval is busy because one  or more events have been
+     * Indicates that the time interval is busy because one or more events have been
      * scheduled for that interval.
      */
     @SerialName("busy")
@@ -61,5 +63,5 @@ enum class SlotStatus {
      * This instance should not have been part of this patient's medical record.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

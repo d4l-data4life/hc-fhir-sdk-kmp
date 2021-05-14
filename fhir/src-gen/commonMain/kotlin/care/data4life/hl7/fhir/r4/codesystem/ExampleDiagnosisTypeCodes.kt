@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleDiagnosisTypeCodes
+ *
  * This value set includes example Diagnosis Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-diagnosistype">ExampleDiagnosisTypeCodes</a>
@@ -106,5 +108,5 @@ enum class ExampleDiagnosisTypeCodes {
      * A diagnosis determined by the patient.
      */
     @SerialName("self")
-    SELF
+    SELF,
 }

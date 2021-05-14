@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MediaType
+ *
  * Codes for high level media categories.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/media-type">MediaType</a>
@@ -47,5 +49,5 @@ enum class MediaType {
      * The media consists of a sound recording
      */
     @SerialName("audio")
-    AUDIO
+    AUDIO,
 }

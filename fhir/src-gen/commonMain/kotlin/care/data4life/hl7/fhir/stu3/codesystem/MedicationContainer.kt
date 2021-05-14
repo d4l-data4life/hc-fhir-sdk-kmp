@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationContainer
+ *
  * A coded concept defining the kind of container a medication package is packaged in
  *
  * @see <a href="http://hl7.org/fhir/medication-package-form">MedicationContainer</a>
@@ -82,5 +84,5 @@ enum class MedicationContainer {
      * holding liquid medications.
      */
     @SerialName("vial")
-    VIAL
+    VIAL,
 }

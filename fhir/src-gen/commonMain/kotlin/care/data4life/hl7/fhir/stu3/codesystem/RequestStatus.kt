@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RequestStatus
+ *
  * Codes identifying the stage lifecycle stage of a request
  *
  * @see <a href="http://hl7.org/fhir/request-status">RequestStatus</a>
@@ -51,7 +53,7 @@ enum class RequestStatus {
 
     /**
      * The authorization/request to act has been terminated prior to the full
-     * completion of the intended actions.  No further activity should occur.
+     * completion of the intended actions. No further activity should occur.
      */
     @SerialName("cancelled")
     CANCELLED,
@@ -65,18 +67,18 @@ enum class RequestStatus {
 
     /**
      * This electronic record should never have existed, though it is possible that
-     * real-world decisions were based on it.  (If real-world activity has occurred,
-     * the status should be "cancelled" rather than "entered-in-error".)
+     * real-world decisions were based on it. (If real-world activity has occurred, the
+     * status should be "cancelled" rather than "entered-in-error".)
      */
     @SerialName("entered-in-error")
     ENTERED_IN_ERROR,
 
     /**
      * The authoring system does not know which of the status values currently applies
-     * for this request.  Note: This concept is not to be used for "other" . One of the
-     * listed statuses is presumed to apply,  but the system creating the request
+     * for this request. Note: This concept is not to be used for "other" . One of the
+     * listed statuses is presumed to apply, but the system creating the request
      * doesn't know.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

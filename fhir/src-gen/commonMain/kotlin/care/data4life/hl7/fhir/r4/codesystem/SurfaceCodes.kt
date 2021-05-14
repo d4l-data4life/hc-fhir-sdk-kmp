@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SurfaceCodes
+ *
  * This value set includes a smattering of FDI tooth surface codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/FDI-surface">SurfaceCodes</a>
@@ -94,5 +96,5 @@ enum class SurfaceCodes {
      * The Mesioclusodistal surfaces of a tooth.
      */
     @SerialName("MOD")
-    MOD
+    MOD,
 }

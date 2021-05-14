@@ -21,17 +21,32 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirNarrative
+ *
+ * A human-readable formatted text, including images
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Narrative">Narrative</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Narrative)
+ */
 interface FhirNarrative : FhirElement {
 
-    // The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
+    /**
+     * The status of the narrative - whether it's entirely generated (from just the
+     * defined data or the extensions too), or whether a human authored it and it may
+     * contain additional data.
+     */
     val status: NarrativeStatus
 
-    // Limited xhtml content.
+    /**
+     * Limited xhtml content.
+     */
     val div: String
 }
 
 /**
- * ClassName: Narrative
+ * Narrative
  *
  * SourceFileName: Narrative.kt
  *
@@ -45,19 +60,14 @@ interface FhirNarrative : FhirElement {
 @SerialName("Narrative")
 data class Narrative(
 
-    // The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
     @SerialName("status")
     override val status: NarrativeStatus,
 
-    // Limited xhtml content.
     @SerialName("div")
     override val div: String,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirNarrative {

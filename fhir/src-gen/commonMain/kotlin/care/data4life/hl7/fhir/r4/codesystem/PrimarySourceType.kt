@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PrimarySourceType
+ *
  * Type of the validation primary source
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/primary-source-type">PrimarySourceType</a>
@@ -82,5 +84,5 @@ enum class PrimarySourceType {
      * authSource
      */
     @SerialName("auth-source")
-    AUTH_SOURCE
+    AUTH_SOURCE,
 }

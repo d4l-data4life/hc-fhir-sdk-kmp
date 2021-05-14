@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CodeSearchSupport
+ *
  * The degree to which the server supports the code search parameter on ValueSet, if it is supported.
  *
  * @see <a href="http://hl7.org/fhir/code-search-support">CodeSearchSupport</a>
@@ -42,5 +44,5 @@ enum class CodeSearchSupport {
      * of the value set.
      */
     @SerialName("all")
-    ALL
+    ALL,
 }

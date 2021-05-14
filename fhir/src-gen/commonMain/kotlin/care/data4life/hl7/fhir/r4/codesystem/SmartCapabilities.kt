@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SmartCapabilities
+ *
  * Codes that define what the server is capable of.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/smart-capabilities">SmartCapabilities</a>
@@ -119,5 +121,5 @@ enum class SmartCapabilities {
      * support for user-level scopes (e.g. user/Appointment.read).
      */
     @SerialName("permission-user")
-    PERMISSION_USER
+    PERMISSION_USER,
 }

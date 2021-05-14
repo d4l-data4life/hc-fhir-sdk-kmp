@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationStatusCodes
+ *
  * Medication Status Codes
  *
  * @see <a href="http://hl7.org/fhir/CodeSystem/medication-status">MedicationStatusCodes</a>
@@ -46,5 +48,5 @@ enum class MedicationStatusCodes {
      * The medication was entered in error.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

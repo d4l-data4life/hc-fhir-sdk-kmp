@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NutritionOrderStatus
+ *
  * Codes specifying the state of the request. Describes the lifecycle of the nutrition order.
  *
  * @see <a href="http://hl7.org/fhir/nutrition-request-status">NutritionOrderStatus</a>
@@ -85,5 +87,5 @@ enum class NutritionOrderStatus {
      * The request was entered in error and voided.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

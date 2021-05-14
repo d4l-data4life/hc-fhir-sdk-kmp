@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DataAbsentReason
+ *
  * Used to specify why the normally expected content of the data element is missing.
  *
  * @see <a href="http://hl7.org/fhir/data-absent-reason">DataAbsentReason</a>
@@ -91,5 +93,5 @@ enum class DataAbsentReason {
      * not performed.
      */
     @SerialName("not-performed")
-    NOT_PERFORMED
+    NOT_PERFORMED,
 }

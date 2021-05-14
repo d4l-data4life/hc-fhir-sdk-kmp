@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: UDICodes
+ *
  * This value set includes sample UDI codes.
  *
  * @see <a href="http://hl7.org/fhir/ex-udi">UDICodes</a>
@@ -34,5 +36,5 @@ enum class UDICodes {
      * GUDID (FDA) US Repository
      */
     @SerialName("gudid")
-    GUDID
+    GUDID,
 }

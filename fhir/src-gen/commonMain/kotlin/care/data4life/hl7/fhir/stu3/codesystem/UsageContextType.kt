@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: UsageContextType
+ *
  * A code that specifies a type of context being specified by a usage context
  *
  * @see <a href="http://hl7.org/fhir/usage-context-type">UsageContextType</a>
@@ -93,5 +95,5 @@ enum class UsageContextType {
      * Kingdom Animalia (organism).
      */
     @SerialName("species")
-    SPECIES
+    SPECIES,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AggregationMode
+ *
  * How resource references can be aggregated.
  *
  * @see <a href="http://hl7.org/fhir/resource-aggregation-mode">AggregationMode</a>
@@ -48,5 +50,5 @@ enum class AggregationMode {
      * resource that includes the reference.
      */
     @SerialName("bundled")
-    BUNDLED
+    BUNDLED,
 }

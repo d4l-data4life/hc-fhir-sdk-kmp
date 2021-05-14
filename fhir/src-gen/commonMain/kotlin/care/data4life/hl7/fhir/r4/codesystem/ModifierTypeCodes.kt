@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ModifierTypeCodes
+ *
  * This value set includes sample Modifier type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/modifiers">ModifierTypeCodes</a>
@@ -64,5 +66,5 @@ enum class ModifierTypeCodes {
      * None.
      */
     @SerialName("x")
-    X
+    X,
 }

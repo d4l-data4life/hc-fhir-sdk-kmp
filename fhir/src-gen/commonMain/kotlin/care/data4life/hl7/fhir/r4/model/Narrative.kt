@@ -21,19 +21,33 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirNarrative
+ *
+ * A human-readable summary of the resource conveying the essential clinical and business information
+ * for the resource.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Narrative">Narrative</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Narrative)
+ */
 interface FhirNarrative : FhirElement {
 
-    // The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
+    /**
+     * The status of the narrative - whether it's entirely generated (from just the
+     * defined data or the extensions too), or whether a human authored it and it may
+     * contain additional data.
+     */
     val status: NarrativeStatus
 
-    // Limited xhtml content.
+    /**
+     * Limited xhtml content.
+     */
     val div: String
 }
 
 /**
- * ClassName: Narrative
- *
- * SourceFileName: Narrative.kt
+ * Narrative
  *
  * A human-readable summary of the resource conveying the essential clinical and business information
  * for the resource.
@@ -46,30 +60,26 @@ interface FhirNarrative : FhirElement {
 @SerialName("Narrative")
 data class Narrative(
 
-    // The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
     @SerialName("status")
     override val status: NarrativeStatus,
 
-    // Limited xhtml content.
     @SerialName("div")
     override val div: String,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirNarrative {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Narrative"
+        fun resourceType(): String = "Narrative"
     }
 }

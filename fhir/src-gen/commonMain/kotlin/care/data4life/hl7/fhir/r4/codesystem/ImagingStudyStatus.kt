@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ImagingStudyStatus
+ *
  * The status of the ImagingStudy.
  *
  * @see <a href="http://hl7.org/fhir/imagingstudy-status">ImagingStudyStatus</a>
@@ -51,7 +53,7 @@ enum class ImagingStudyStatus {
     CANCELLED,
 
     /**
-     * The imaging study has been withdrawn following a previous final release.  This
+     * The imaging study has been withdrawn following a previous final release. This
      * electronic record should never have existed, though it is possible that real-
      * world decisions were based on it. (If real-world activity has occurred, the
      * status should be "cancelled" rather than "entered-in-error".).
@@ -65,5 +67,5 @@ enum class ImagingStudyStatus {
      * statuses is presumed to apply, it's just not known which one.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

@@ -26,83 +26,141 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirCarePlan
+ *
+ * Describes the intention of how one or more practitioners intend to deliver care for a particular
+ * patient, group or community for a period of time, possibly limited to care for a specific condition
+ * or set of conditions.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlan</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CarePlan)
+ */
 interface FhirCarePlan : FhirDomainResource {
 
-    // External Ids for this plan.
+    /**
+     * External Ids for this plan.
+     */
     val identifier: List<Identifier>?
 
-    // Instantiates FHIR protocol or definition.
+    /**
+     * Instantiates FHIR protocol or definition.
+     */
     val instantiatesCanonical: List<String>?
 
-    // Instantiates external protocol or definition.
+    /**
+     * Instantiates external protocol or definition.
+     */
     val instantiatesUri: List<String>?
 
-    // Fulfills CarePlan.
+    /**
+     * Fulfills CarePlan.
+     */
     val basedOn: List<Reference>?
 
-    // CarePlan replaced by this CarePlan.
+    /**
+     * CarePlan replaced by this CarePlan.
+     */
     val replaces: List<Reference>?
 
-    // Part of referenced CarePlan.
+    /**
+     * Part of referenced CarePlan.
+     */
     val partOf: List<Reference>?
 
-    // Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
+    /**
+     * Indicates whether the plan is currently being acted upon, represents future
+     * intentions or is now a historical record.
+     */
     val status: RequestStatus
 
-    // Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
-    // Only use: ['proposal', 'plan', 'order', 'option']
+    /**
+     * Indicates the level of authority/intentionality associated with the care plan
+     * and where the care plan fits into the workflow chain.
+     *
+     * Only use: ['proposal', 'plan', 'order', 'option']
+     */
     val intent: RequestIntent
 
-    // Type of plan.
+    /**
+     * Type of plan.
+     */
     val category: List<CodeableConcept>?
 
-    // Human-friendly name for the care plan.
+    /**
+     * Human-friendly name for the care plan.
+     */
     val title: String?
 
-    // Summary of nature of plan.
+    /**
+     * Summary of nature of plan.
+     */
     val description: String?
 
-    // Who the care plan is for.
+    /**
+     * Who the care plan is for.
+     */
     val subject: Reference
 
-    // Encounter created as part of.
+    /**
+     * Encounter created as part of.
+     */
     val encounter: Reference?
 
-    // Time period plan covers.
+    /**
+     * Time period plan covers.
+     */
     val period: Period?
 
-    // Date record was first recorded.
+    /**
+     * Date record was first recorded.
+     */
     val created: DateTime?
 
-    // Who is the designated responsible party.
+    /**
+     * Who is the designated responsible party.
+     */
     val author: Reference?
 
-    // Who provided the content of the care plan.
+    /**
+     * Who provided the content of the care plan.
+     */
     val contributor: List<Reference>?
 
-    // Who's involved in plan?.
+    /**
+     * Who's involved in plan?.
+     */
     val careTeam: List<Reference>?
 
-    // Health issues this plan addresses.
+    /**
+     * Health issues this plan addresses.
+     */
     val addresses: List<Reference>?
 
-    // Information considered as part of plan.
+    /**
+     * Information considered as part of plan.
+     */
     val supportingInfo: List<Reference>?
 
-    // Desired outcome of plan.
+    /**
+     * Desired outcome of plan.
+     */
     val goal: List<Reference>?
 
-    // Action to occur as part of plan.
+    /**
+     * Action to occur as part of plan.
+     */
     val activity: List<CarePlanActivity>?
 
-    // Comments about the plan.
+    /**
+     * Comments about the plan.
+     */
     val note: List<Annotation>?
 }
 
 /**
- * ClassName: CarePlan
- *
- * SourceFileName: CarePlan.kt
+ * CarePlan
  *
  * Describes the intention of how one or more practitioners intend to deliver care for a particular
  * patient, group or community for a period of time, possibly limited to care for a specific condition
@@ -116,167 +174,153 @@ interface FhirCarePlan : FhirDomainResource {
 @SerialName("CarePlan")
 data class CarePlan(
 
-    // External Ids for this plan.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
 
-    // Instantiates FHIR protocol or definition.
     @SerialName("instantiatesCanonical")
     override val instantiatesCanonical: List<String>? = null,
 
-    // Instantiates external protocol or definition.
     @SerialName("instantiatesUri")
     override val instantiatesUri: List<String>? = null,
 
-    // Fulfills CarePlan.
     @SerialName("basedOn")
     override val basedOn: List<Reference>? = null,
 
-    // CarePlan replaced by this CarePlan.
     @SerialName("replaces")
     override val replaces: List<Reference>? = null,
 
-    // Part of referenced CarePlan.
     @SerialName("partOf")
     override val partOf: List<Reference>? = null,
 
-    // Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
     @SerialName("status")
     override val status: RequestStatus,
 
-    // Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
-    // Only use: ['proposal', 'plan', 'order', 'option']
     @SerialName("intent")
     override val intent: RequestIntent,
 
-    // Type of plan.
     @SerialName("category")
     override val category: List<CodeableConcept>? = null,
 
-    // Human-friendly name for the care plan.
     @SerialName("title")
     override val title: String? = null,
 
-    // Summary of nature of plan.
     @SerialName("description")
     override val description: String? = null,
 
-    // Who the care plan is for.
     @SerialName("subject")
     override val subject: Reference,
 
-    // Encounter created as part of.
     @SerialName("encounter")
     override val encounter: Reference? = null,
 
-    // Time period plan covers.
     @SerialName("period")
     override val period: Period? = null,
 
-    // Date record was first recorded.
     @SerialName("created")
     override val created: DateTime? = null,
 
-    // Who is the designated responsible party.
     @SerialName("author")
     override val author: Reference? = null,
 
-    // Who provided the content of the care plan.
     @SerialName("contributor")
     override val contributor: List<Reference>? = null,
 
-    // Who's involved in plan?.
     @SerialName("careTeam")
     override val careTeam: List<Reference>? = null,
 
-    // Health issues this plan addresses.
     @SerialName("addresses")
     override val addresses: List<Reference>? = null,
 
-    // Information considered as part of plan.
     @SerialName("supportingInfo")
     override val supportingInfo: List<Reference>? = null,
 
-    // Desired outcome of plan.
     @SerialName("goal")
     override val goal: List<Reference>? = null,
 
-    // Action to occur as part of plan.
     @SerialName("activity")
     override val activity: List<CarePlanActivity>? = null,
 
-    // Comments about the plan.
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
     // # DomainResource
 
-    // Text summary of the resource, for human interpretation.
     @SerialName("text")
     override val text: Narrative? = null,
 
-    // Contained, inline Resources.
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null,
 
-    // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Resource
 
-    // Logical id of this artifact.
     @SerialName("id")
     override val id: String? = null,
 
-    // Metadata about the resource.
     @SerialName("meta")
     override val meta: Meta? = null,
 
-    // A set of rules under which this content was created.
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
 
-    // Language of the resource content.
     @SerialName("language")
     override val language: String? = null
 ) : FhirCarePlan {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "CarePlan"
+        fun resourceType(): String = "CarePlan"
     }
 }
 
+/**
+ * FhirCarePlanActivity
+ *
+ * Identifies a planned action to occur as part of the plan. For example, a medication to be used, lab
+ * tests to perform, self-monitoring, education, etc.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlanActivity</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CarePlan)
+ */
 interface FhirCarePlanActivity : FhirBackboneElement {
 
-    // Results of the activity.
+    /**
+     * Results of the activity.
+     */
     val outcomeCodeableConcept: List<CodeableConcept>?
 
-    // Appointment, Encounter, Procedure, etc..
+    /**
+     * Appointment, Encounter, Procedure, etc..
+     */
     val outcomeReference: List<Reference>?
 
-    // Comments about the activity status/progress.
+    /**
+     * Comments about the activity status/progress.
+     */
     val progress: List<Annotation>?
 
-    // Activity details defined in specific resource.
+    /**
+     * Activity details defined in specific resource.
+     */
     val reference: Reference?
 
-    // In-line definition of activity.
+    /**
+     * In-line definition of activity.
+     */
     val detail: CarePlanActivityDetail?
 }
 
 /**
- * ClassName: CarePlanActivity
- *
- * SourceFileName: CarePlan.kt
+ * CarePlanActivity
  *
  * Identifies a planned action to occur as part of the plan. For example, a medication to be used, lab
  * tests to perform, self-monitoring, education, etc.
@@ -289,120 +333,164 @@ interface FhirCarePlanActivity : FhirBackboneElement {
 @SerialName("CarePlanActivity")
 data class CarePlanActivity(
 
-    // Results of the activity.
     @SerialName("outcomeCodeableConcept")
     override val outcomeCodeableConcept: List<CodeableConcept>? = null,
 
-    // Appointment, Encounter, Procedure, etc..
     @SerialName("outcomeReference")
     override val outcomeReference: List<Reference>? = null,
 
-    // Comments about the activity status/progress.
     @SerialName("progress")
     override val progress: List<Annotation>? = null,
 
-    // Activity details defined in specific resource.
     @SerialName("reference")
     override val reference: Reference? = null,
 
-    // In-line definition of activity.
     @SerialName("detail")
     override val detail: CarePlanActivityDetail? = null,
 
     // # BackboneElement
 
-    // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCarePlanActivity {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "CarePlanActivity"
+        fun resourceType(): String = "CarePlanActivity"
     }
 }
 
+/**
+ * FhirCarePlanActivityDetail
+ *
+ * A simple summary of a planned activity suitable for a general care plan system (e.g. form driven)
+ * that doesn't know about specific resources such as procedure etc.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/CarePlan">CarePlanActivityDetail</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CarePlan)
+ */
 interface FhirCarePlanActivityDetail : FhirBackboneElement {
 
-    // A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
-    // Only use: ['Appointment', 'CommunicationRequest', 'DeviceRequest', 'MedicationRequest', 'NutritionOrder', 'Task', 'ServiceRequest', 'VisionPrescription']
+    /**
+     * A description of the kind of resource the in-line definition of a care plan
+     * activity is representing. The CarePlan.activity.detail is an in-line definition
+     * when a resource is not referenced using CarePlan.activity.reference. For
+     * example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
+     *
+     * Only use: ['Appointment', 'CommunicationRequest', 'DeviceRequest', 'MedicationRequest', 'NutritionOrder', 'Task', 'ServiceRequest', 'VisionPrescription']
+     */
     val kind: ResourceType?
 
-    // Instantiates FHIR protocol or definition.
+    /**
+     * Instantiates FHIR protocol or definition.
+     */
     val instantiatesCanonical: List<String>?
 
-    // Instantiates external protocol or definition.
+    /**
+     * Instantiates external protocol or definition.
+     */
     val instantiatesUri: List<String>?
 
-    // Detail type of activity.
+    /**
+     * Detail type of activity.
+     */
     val code: CodeableConcept?
 
-    // Why activity should be done or why activity was prohibited.
+    /**
+     * Why activity should be done or why activity was prohibited.
+     */
     val reasonCode: List<CodeableConcept>?
 
-    // Why activity is needed.
+    /**
+     * Why activity is needed.
+     */
     val reasonReference: List<Reference>?
 
-    // Goals this activity relates to.
+    /**
+     * Goals this activity relates to.
+     */
     val goal: List<Reference>?
 
-    // Identifies what progress is being made for the specific activity.
+    /**
+     * Identifies what progress is being made for the specific activity.
+     */
     val status: CarePlanActivityStatus
 
-    // Reason for current status.
+    /**
+     * Reason for current status.
+     */
     val statusReason: CodeableConcept?
 
-    // If true, activity is prohibiting action.
+    /**
+     * If true, activity is prohibiting action.
+     */
     val doNotPerform: Bool?
 
-    // When activity is to occur.
+    /**
+     * When activity is to occur.
+     */
     val scheduledTiming: Timing?
 
-    // When activity is to occur.
+    /**
+     * When activity is to occur.
+     */
     val scheduledPeriod: Period?
 
-    // When activity is to occur.
+    /**
+     * When activity is to occur.
+     */
     val scheduledString: String?
 
-    // Where it should happen.
+    /**
+     * Where it should happen.
+     */
     val location: Reference?
 
-    // Who will be responsible?.
+    /**
+     * Who will be responsible?.
+     */
     val performer: List<Reference>?
 
-    // What is to be administered/supplied.
+    /**
+     * What is to be administered/supplied.
+     */
     val productCodeableConcept: CodeableConcept?
 
-    // What is to be administered/supplied.
+    /**
+     * What is to be administered/supplied.
+     */
     val productReference: Reference?
 
-    // How to consume/day?.
+    /**
+     * How to consume/day?.
+     */
     val dailyAmount: Quantity?
 
-    // How much to administer/supply/consume.
+    /**
+     * How much to administer/supply/consume.
+     */
     val quantity: Quantity?
 
-    // Extra info describing activity to perform.
+    /**
+     * Extra info describing activity to perform.
+     */
     val description: String?
 }
 
 /**
- * ClassName: CarePlanActivityDetail
- *
- * SourceFileName: CarePlan.kt
+ * CarePlanActivityDetail
  *
  * A simple summary of a planned activity suitable for a general care plan system (e.g. form driven)
  * that doesn't know about specific resources such as procedure etc.
@@ -415,109 +503,85 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
 @SerialName("CarePlanActivityDetail")
 data class CarePlanActivityDetail(
 
-    // A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
-    // Only use: ['Appointment', 'CommunicationRequest', 'DeviceRequest', 'MedicationRequest', 'NutritionOrder', 'Task', 'ServiceRequest', 'VisionPrescription']
     @SerialName("kind")
     override val kind: ResourceType? = null,
 
-    // Instantiates FHIR protocol or definition.
     @SerialName("instantiatesCanonical")
     override val instantiatesCanonical: List<String>? = null,
 
-    // Instantiates external protocol or definition.
     @SerialName("instantiatesUri")
     override val instantiatesUri: List<String>? = null,
 
-    // Detail type of activity.
     @SerialName("code")
     override val code: CodeableConcept? = null,
 
-    // Why activity should be done or why activity was prohibited.
     @SerialName("reasonCode")
     override val reasonCode: List<CodeableConcept>? = null,
 
-    // Why activity is needed.
     @SerialName("reasonReference")
     override val reasonReference: List<Reference>? = null,
 
-    // Goals this activity relates to.
     @SerialName("goal")
     override val goal: List<Reference>? = null,
 
-    // Identifies what progress is being made for the specific activity.
     @SerialName("status")
     override val status: CarePlanActivityStatus,
 
-    // Reason for current status.
     @SerialName("statusReason")
     override val statusReason: CodeableConcept? = null,
 
-    // If true, activity is prohibiting action.
     @SerialName("doNotPerform")
     override val doNotPerform: Bool? = null,
 
-    // When activity is to occur.
     @SerialName("scheduledTiming")
     override val scheduledTiming: Timing? = null,
 
-    // When activity is to occur.
     @SerialName("scheduledPeriod")
     override val scheduledPeriod: Period? = null,
 
-    // When activity is to occur.
     @SerialName("scheduledString")
     override val scheduledString: String? = null,
 
-    // Where it should happen.
     @SerialName("location")
     override val location: Reference? = null,
 
-    // Who will be responsible?.
     @SerialName("performer")
     override val performer: List<Reference>? = null,
 
-    // What is to be administered/supplied.
     @SerialName("productCodeableConcept")
     override val productCodeableConcept: CodeableConcept? = null,
 
-    // What is to be administered/supplied.
     @SerialName("productReference")
     override val productReference: Reference? = null,
 
-    // How to consume/day?.
     @SerialName("dailyAmount")
     override val dailyAmount: Quantity? = null,
 
-    // How much to administer/supply/consume.
     @SerialName("quantity")
     override val quantity: Quantity? = null,
 
-    // Extra info describing activity to perform.
     @SerialName("description")
     override val description: String? = null,
 
     // # BackboneElement
 
-    // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCarePlanActivityDetail {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "CarePlanActivityDetail"
+        fun resourceType(): String = "CarePlanActivityDetail"
     }
 }

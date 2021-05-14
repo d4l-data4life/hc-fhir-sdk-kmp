@@ -153,10 +153,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -282,10 +282,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -379,10 +379,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -472,10 +472,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -601,10 +601,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -706,10 +706,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -799,10 +799,10 @@ class ProcedureTest {
             data.usedReference?.get(0)?.display
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -920,10 +920,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -1049,10 +1049,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -1154,10 +1154,10 @@ class ProcedureTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }

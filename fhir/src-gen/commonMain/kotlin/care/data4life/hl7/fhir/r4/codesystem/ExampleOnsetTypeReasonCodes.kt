@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleOnsetTypeReasonCodes
+ *
  * This value set includes example Onset Type codes which are used to identify the event for which the
  * onset, starting date, is required.
  *
@@ -47,5 +49,5 @@ enum class ExampleOnsetTypeReasonCodes {
      * Start date of last menstruation.
      */
     @SerialName("lmn")
-    LMN
+    LMN,
 }

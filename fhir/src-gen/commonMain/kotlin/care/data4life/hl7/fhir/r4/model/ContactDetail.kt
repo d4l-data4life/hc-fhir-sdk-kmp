@@ -20,19 +20,30 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirContactDetail
+ *
+ * Specifies contact information for a person or organization.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/ContactDetail">ContactDetail</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ContactDetail)
+ */
 interface FhirContactDetail : FhirElement {
 
-    // Name of an individual to contact.
+    /**
+     * Name of an individual to contact.
+     */
     val name: String?
 
-    // Contact details for individual or organization.
+    /**
+     * Contact details for individual or organization.
+     */
     val telecom: List<ContactPoint>?
 }
 
 /**
- * ClassName: ContactDetail
- *
- * SourceFileName: ContactDetail.kt
+ * ContactDetail
  *
  * Specifies contact information for a person or organization.
  *
@@ -44,30 +55,26 @@ interface FhirContactDetail : FhirElement {
 @SerialName("ContactDetail")
 data class ContactDetail(
 
-    // Name of an individual to contact.
     @SerialName("name")
     override val name: String? = null,
 
-    // Contact details for individual or organization.
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirContactDetail {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "ContactDetail"
+        fun resourceType(): String = "ContactDetail"
     }
 }

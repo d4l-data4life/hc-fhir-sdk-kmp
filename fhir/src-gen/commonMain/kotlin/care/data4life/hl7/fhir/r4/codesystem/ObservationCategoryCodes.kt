@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ObservationCategoryCodes
+ *
  * Codes to denote a guideline or policy statement.when a genetic test result is being shared as a
  * secondary finding.
  *
@@ -46,5 +48,5 @@ enum class ObservationCategoryCodes {
      * https://www.ncbi.nlm.nih.gov/pubmed/27854360
      */
     @SerialName("acmg-version2")
-    ACMG_VERSION2
+    ACMG_VERSION2,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceCriticality
+ *
  * Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.
  *
  * @see <a href="http://hl7.org/fhir/allergy-intolerance-criticality">AllergyIntoleranceCriticality</a>
@@ -48,5 +50,5 @@ enum class AllergyIntoleranceCriticality {
      * Unable to assess the worst case result of a future exposure.
      */
     @SerialName("unable-to-assess")
-    UNABLE_TO_ASSESS
+    UNABLE_TO_ASSESS,
 }

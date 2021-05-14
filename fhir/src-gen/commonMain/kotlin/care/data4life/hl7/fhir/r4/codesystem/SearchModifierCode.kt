@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SearchModifierCode
+ *
  * A supported modifier for a search parameter.
  *
  * @see <a href="http://hl7.org/fhir/search-modifier-code">SearchModifierCode</a>
@@ -114,5 +116,5 @@ enum class SearchModifierCode {
      * type codes match. All 3 parts must be present.
      */
     @SerialName("ofType")
-    OFTYPE
+    OFTYPE,
 }

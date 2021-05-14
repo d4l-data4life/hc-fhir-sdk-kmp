@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AuditEventAction
+ *
  * Indicator for type of action performed during the event that generated the event
  *
  * @see <a href="http://hl7.org/fhir/audit-event-action">AuditEventAction</a>
@@ -59,5 +61,5 @@ enum class AuditEventAction {
      * use of an object's method, or perform a query/search operation.
      */
     @SerialName("E")
-    E
+    E,
 }

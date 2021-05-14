@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalRelationshipType
+ *
  * Types of relationships between two goals
  *
  * @see <a href="http://hl7.org/fhir/goal-relationship-type">GoalRelationshipType</a>
@@ -63,5 +65,5 @@ enum class GoalRelationshipType {
      * relationship.)
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

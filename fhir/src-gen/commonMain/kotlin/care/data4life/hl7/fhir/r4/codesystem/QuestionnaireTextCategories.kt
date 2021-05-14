@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireTextCategories
+ *
  * Codes defining the purpose of a Questionnaire item of type 'text'.
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-display-category">QuestionnaireTextCategories</a>
@@ -45,11 +47,11 @@ enum class QuestionnaireTextCategories {
     SECURITY,
 
     /**
-     * The text provides additional guidance on populating the containing item.  Help
+     * The text provides additional guidance on populating the containing item. Help
      * text isn't necessarily expected to be rendered as part of the form, but may
      * instead be made available through fly-over, pop-up button, link to a "help"
      * page, etc.
      */
     @SerialName("help")
-    HELP
+    HELP,
 }

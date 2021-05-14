@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PerformerRoleCodes
+ *
  * This value set includes sample Performer Role codes.
  *
  * @see <a href="http://hl7.org/fhir/consentperformer">PerformerRoleCodes</a>
@@ -60,5 +62,5 @@ enum class PerformerRoleCodes {
      * A party that grants all or some portion its right or authority to another party.
      */
     @SerialName("delegator")
-    DELEGATOR
+    DELEGATOR,
 }

@@ -21,19 +21,30 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirMoney
+ *
+ * An amount of economic utility in some recognized currency
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Money">Money</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Money)
+ */
 interface FhirMoney : FhirElement {
 
-    // Numerical value (with implicit precision).
+    /**
+     * Numerical value (with implicit precision).
+     */
     val value: Decimal?
 
-    // ISO 4217 Currency Code.
+    /**
+     * ISO 4217 Currency Code.
+     */
     val currency: String?
 }
 
 /**
- * ClassName: Money
- *
- * SourceFileName: Money.kt
+ * Money
  *
  * An amount of economic utility in some recognized currency
  *
@@ -45,30 +56,26 @@ interface FhirMoney : FhirElement {
 @SerialName("Money")
 data class Money(
 
-    // Numerical value (with implicit precision).
     @SerialName("value")
     override val value: Decimal? = null,
 
-    // ISO 4217 Currency Code.
     @SerialName("currency")
     override val currency: String? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMoney {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Money"
+        fun resourceType(): String = "Money"
     }
 }

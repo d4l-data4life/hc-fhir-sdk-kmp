@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StrandType
+ *
  * Type for strand.
  *
  * @see <a href="http://hl7.org/fhir/strand-type">StrandType</a>
@@ -40,5 +42,5 @@ enum class StrandType {
      * Crick strand of reference sequence.
      */
     @SerialName("crick")
-    CRICK
+    CRICK,
 }

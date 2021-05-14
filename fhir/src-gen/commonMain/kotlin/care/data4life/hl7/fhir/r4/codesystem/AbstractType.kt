@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AbstractType
+ *
  * A list of the base types defined by this version of the FHIR specification - types that are defined,
  * but for which only specializations actually are created.
  *
@@ -40,5 +42,5 @@ enum class AbstractType {
      * A place holder that means any kind of resource
      */
     @SerialName("Any")
-    ANY
+    ANY,
 }

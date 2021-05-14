@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FHIRSubstanceStatus
+ *
  * A code to indicate if the substance is actively used
  *
  * @see <a href="http://hl7.org/fhir/substance-status">FHIRSubstanceStatus</a>
@@ -46,5 +48,5 @@ enum class FHIRSubstanceStatus {
      * The substance was entered in error
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

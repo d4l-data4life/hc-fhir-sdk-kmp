@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PractitionerSpecialty
+ *
  * This example value set defines a set of codes that can be used to indicate the specialty of a
  * Practitioner.
  *
@@ -59,5 +61,5 @@ enum class PractitionerSpecialty {
      * sysarch
      */
     @SerialName("sysarch")
-    SYSARCH
+    SYSARCH,
 }

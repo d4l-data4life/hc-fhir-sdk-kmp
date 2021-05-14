@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceDefinitionTypeCodes
+ *
  * This value set contract specific codes for status.
  *
  * @see <a href="http://hl7.org/fhir/contract-definition-type">ContractResourceDefinitionTypeCodes</a>
@@ -34,5 +36,5 @@ enum class ContractResourceDefinitionTypeCodes {
      * To be completed
      */
     @SerialName("temp")
-    TEMP
+    TEMP,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QualityType
+ *
  * Type for quality report.
  *
  * @see <a href="http://hl7.org/fhir/quality-type">QualityType</a>
@@ -46,5 +48,5 @@ enum class QualityType {
      * UNKNOWN Comparison.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

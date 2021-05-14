@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalAchievementStatus
+ *
  * Describes the progression, or lack thereof, towards the goal against the target.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/goal-achievement">GoalAchievementStatus</a>
@@ -86,5 +88,5 @@ enum class GoalAchievementStatus {
      * The goal is not possible to be met.
      */
     @SerialName("not-attainable")
-    NOT_ATTAINABLE
+    NOT_ATTAINABLE,
 }

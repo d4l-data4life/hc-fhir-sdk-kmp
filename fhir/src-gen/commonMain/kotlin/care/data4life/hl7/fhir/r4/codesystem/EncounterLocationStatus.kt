@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EncounterLocationStatus
+ *
  * The status of the location.
  *
  * @see <a href="http://hl7.org/fhir/encounter-location-status">EncounterLocationStatus</a>
@@ -55,5 +57,5 @@ enum class EncounterLocationStatus {
      * Not to be used when the patient is currently at the location.
      */
     @SerialName("completed")
-    COMPLETED
+    COMPLETED,
 }

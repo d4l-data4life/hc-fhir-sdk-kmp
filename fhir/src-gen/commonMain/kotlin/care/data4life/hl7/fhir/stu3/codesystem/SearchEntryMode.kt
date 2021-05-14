@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SearchEntryMode
+ *
  * Why an entry is in the result set - whether it's included as a match or because of an _include
  * requirement.
  *
@@ -49,5 +51,5 @@ enum class SearchEntryMode {
      * a search.
      */
     @SerialName("outcome")
-    OUTCOME
+    OUTCOME,
 }

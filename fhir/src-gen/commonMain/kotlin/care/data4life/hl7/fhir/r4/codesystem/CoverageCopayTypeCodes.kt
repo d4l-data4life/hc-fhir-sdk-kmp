@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CoverageCopayTypeCodes
+ *
  * This value set includes sample Coverage Copayment Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/coverage-copay-type">CoverageCopayTypeCodes</a>
@@ -93,5 +95,5 @@ enum class CoverageCopayTypeCodes {
      * expected to incur - typically annually.
      */
     @SerialName("maxoutofpocket")
-    MAXOUTOFPOCKET
+    MAXOUTOFPOCKET,
 }

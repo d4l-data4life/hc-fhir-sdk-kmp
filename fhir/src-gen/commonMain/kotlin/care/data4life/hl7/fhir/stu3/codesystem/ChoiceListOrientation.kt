@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ChoiceListOrientation
+ *
  * Direction in which lists of question options should be displayed
  *
  * @see <a href="http://hl7.org/fhir/choice-list-orientation">ChoiceListOrientation</a>
@@ -40,5 +42,5 @@ enum class ChoiceListOrientation {
      * List choices down the vertical axis
      */
     @SerialName("vertical")
-    VERTICAL
+    VERTICAL,
 }

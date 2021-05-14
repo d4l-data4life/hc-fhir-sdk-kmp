@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimInformationCategoryCodes
+ *
  * This value set includes sample Information Category codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/claiminformationcategory">ClaimInformationCategoryCodes</a>
@@ -115,5 +117,5 @@ enum class ClaimInformationCategoryCodes {
      * The reason for the patient visit.
      */
     @SerialName("patientreasonforvisit")
-    PATIENTREASONFORVISIT
+    PATIENTREASONFORVISIT,
 }

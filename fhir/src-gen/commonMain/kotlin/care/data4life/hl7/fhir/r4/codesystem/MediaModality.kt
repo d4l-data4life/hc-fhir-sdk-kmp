@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MediaModality
+ *
  * Detailed information about the type of the image - its kind, purpose, or the kind of equipment used
  * to generate it.
  *
@@ -77,5 +79,5 @@ enum class MediaModality {
      * A face scan used for identification purposes
      */
     @SerialName("face")
-    FACE
+    FACE,
 }

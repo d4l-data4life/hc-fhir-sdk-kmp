@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureScoring
+ *
  * The scoring type of the measure.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/measure-scoring">MeasureScoring</a>
@@ -52,5 +54,5 @@ enum class MeasureScoring {
      * The measure is a cohort definition.
      */
     @SerialName("cohort")
-    COHORT
+    COHORT,
 }

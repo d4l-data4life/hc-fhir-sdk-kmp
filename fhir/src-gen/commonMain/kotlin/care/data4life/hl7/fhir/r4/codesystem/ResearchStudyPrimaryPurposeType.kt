@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyPrimaryPurposeType
+ *
  * Codes for the main intent of the study.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type">ResearchStudyPrimaryPurposeType</a>
@@ -88,5 +90,5 @@ enum class ResearchStudyPrimaryPurposeType {
      * specifications of a device before beginning a full clinical trial.
      */
     @SerialName("device-feasibility")
-    DEVICE_FEASIBILITY
+    DEVICE_FEASIBILITY,
 }

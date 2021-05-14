@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: InvoicePriceComponentType
+ *
  * Codes indicating the kind of the price component.
  *
  * @see <a href="http://hl7.org/fhir/invoice-priceComponentType">InvoicePriceComponentType</a>
@@ -66,5 +68,5 @@ enum class InvoicePriceComponentType {
      * calculation of the total price.
      */
     @SerialName("informational")
-    INFORMATIONAL
+    INFORMATIONAL,
 }

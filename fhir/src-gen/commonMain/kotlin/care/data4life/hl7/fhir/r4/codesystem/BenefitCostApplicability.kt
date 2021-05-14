@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BenefitCostApplicability
+ *
  * Whether the cost applies to in-network or out-of-network providers.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/applicability">BenefitCostApplicability</a>
@@ -38,8 +40,8 @@ enum class BenefitCostApplicability {
     IN_NETWORK,
 
     /**
-     * Provider is  not contracted with the health insurance company to provide
-     * services to plan members for specific pre-negotiated rates
+     * Provider is not contracted with the health insurance company to provide services
+     * to plan members for specific pre-negotiated rates
      */
     @SerialName("out-of-network")
     OUT_OF_NETWORK,
@@ -48,5 +50,5 @@ enum class BenefitCostApplicability {
      * Other applicability
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CertaintySubcomponentRating
+ *
  * The quality rating of the subcomponent of a quality of evidence rating.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating">CertaintySubcomponentRating</a>
@@ -96,5 +98,5 @@ enum class CertaintySubcomponentRating {
      * absent.
      */
     @SerialName("absent")
-    ABSENT
+    ABSENT,
 }

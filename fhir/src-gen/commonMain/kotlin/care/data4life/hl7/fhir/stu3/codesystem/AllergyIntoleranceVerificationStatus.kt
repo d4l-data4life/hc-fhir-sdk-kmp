@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceVerificationStatus
+ *
  * Assertion about certainty associated with a propensity, or potential risk, of a reaction to the
  * identified substance.
  *
@@ -57,5 +59,5 @@ enum class AllergyIntoleranceVerificationStatus {
      * The statement was entered in error and is not valid.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

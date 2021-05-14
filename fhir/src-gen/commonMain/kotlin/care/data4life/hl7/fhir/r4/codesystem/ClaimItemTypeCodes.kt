@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimItemTypeCodes
+ *
  * This value set includes sample Item Type codes.
  *
  * @see <a href="http://hl7.org/fhir/ex-claimitemtype">ClaimItemTypeCodes</a>
@@ -47,5 +49,5 @@ enum class ClaimItemTypeCodes {
      * A billed service line item.
      */
     @SerialName("service")
-    SERVICE
+    SERVICE,
 }

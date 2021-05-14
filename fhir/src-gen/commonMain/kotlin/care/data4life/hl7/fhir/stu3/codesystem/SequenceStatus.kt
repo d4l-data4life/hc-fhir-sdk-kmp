@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SequenceStatus
+ *
  * Codes providing the status of the variant test result
  *
  * @see <a href="http://hl7.org/fhir/variant-state">SequenceStatus</a>
@@ -46,5 +48,5 @@ enum class SequenceStatus {
      * result of the variant is missing
      */
     @SerialName("absent")
-    ABSENT
+    ABSENT,
 }

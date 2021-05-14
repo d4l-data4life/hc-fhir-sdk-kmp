@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConceptSubsumptionOutcome
+ *
  * The subsumption relationship between code/Coding "A" and code/Coding "B". There are 4 possible codes
  * to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to
  * determine the relationship between the codes/Codings, then it returns an error (i.e. an
@@ -58,5 +60,5 @@ enum class ConceptSubsumptionOutcome {
      * the other doesn't have).
      */
     @SerialName("not-subsumed")
-    NOT_SUBSUMED
+    NOT_SUBSUMED,
 }

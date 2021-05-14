@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConstraintSeverity
+ *
  * SHALL applications comply with this constraint?
  *
  * @see <a href="http://hl7.org/fhir/constraint-severity">ConstraintSeverity</a>
@@ -41,5 +43,5 @@ enum class ConstraintSeverity {
      * necessarily following best practice.
      */
     @SerialName("warning")
-    WARNING
+    WARNING,
 }

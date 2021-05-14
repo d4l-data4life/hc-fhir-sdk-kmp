@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SubscriptionTag
+ *
  * Tags to put on a resource after subscriptions have been sent.
  *
  * @see <a href="http://hl7.org/fhir/subscription-tag">SubscriptionTag</a>
@@ -40,5 +42,5 @@ enum class SubscriptionTag {
      * The message has been delivered to its intended recipient.
      */
     @SerialName("delivered")
-    DELIVERED
+    DELIVERED,
 }

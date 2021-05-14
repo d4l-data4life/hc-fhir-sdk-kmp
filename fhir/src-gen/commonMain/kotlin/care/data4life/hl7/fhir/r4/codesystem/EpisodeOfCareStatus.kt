@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EpisodeOfCareStatus
+ *
  * The status of the episode of care.
  *
  * @see <a href="http://hl7.org/fhir/episode-of-care-status">EpisodeOfCareStatus</a>
@@ -80,5 +82,5 @@ enum class EpisodeOfCareStatus {
      * This instance should not have been part of this patient's medical record.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

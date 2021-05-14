@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExposureState
+ *
  * Whether the results by exposure is describing the results for the primary exposure of interest
  * (exposure) or the alternative state (exposureAlternative).
  *
@@ -43,5 +45,5 @@ enum class ExposureState {
      * exposure state, control state or comparator state.
      */
     @SerialName("exposure-alternative")
-    EXPOSURE_ALTERNATIVE
+    EXPOSURE_ALTERNATIVE,
 }

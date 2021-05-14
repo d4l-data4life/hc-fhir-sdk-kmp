@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyPhase
+ *
  * Codes for the stage in the progression of a therapy from initial experimental use in humans in
  * clinical trials to post-market evaluation.
  *
@@ -89,5 +91,5 @@ enum class ResearchStudyPhase {
      * drug's risks, benefits, and optimal use.
      */
     @SerialName("phase-4")
-    PHASE_4
+    PHASE_4,
 }

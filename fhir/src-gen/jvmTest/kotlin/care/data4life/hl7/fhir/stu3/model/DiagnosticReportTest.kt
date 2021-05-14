@@ -149,8 +149,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -309,8 +311,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -421,8 +425,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -545,8 +551,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -641,8 +649,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -749,8 +759,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -869,8 +881,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -1065,8 +1079,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -1117,8 +1133,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -1213,8 +1231,10 @@ class DiagnosticReportTest {
             data.text?.status
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }

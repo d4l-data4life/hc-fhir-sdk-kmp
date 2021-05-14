@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasmntPrinciple
+ *
  * Different measurement principle supported by the device.
  *
  * @see <a href="http://hl7.org/fhir/measurement-principle">MeasmntPrinciple</a>
@@ -94,5 +96,5 @@ enum class MeasmntPrinciple {
      * Measurement is done using the manual principle.
      */
     @SerialName("manual")
-    MANUAL
+    MANUAL,
 }

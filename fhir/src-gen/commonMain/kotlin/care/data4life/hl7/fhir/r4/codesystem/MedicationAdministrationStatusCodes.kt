@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationAdministrationStatusCodes
+ *
  * MedicationAdministration Status Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medication-admin-status">MedicationAdministrationStatusCodes</a>
@@ -75,5 +77,5 @@ enum class MedicationAdministrationStatusCodes {
      * listed statuses is presumed to apply, it's just not known which one.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

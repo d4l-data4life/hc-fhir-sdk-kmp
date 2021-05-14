@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MessageSignificanceCategory
+ *
  * The impact of the content of a message.
  *
  * @see <a href="http://hl7.org/fhir/message-significance-category">MessageSignificanceCategory</a>
@@ -50,5 +52,5 @@ enum class MessageSignificanceCategory {
      * notifications.
      */
     @SerialName("notification")
-    NOTIFICATION
+    NOTIFICATION,
 }

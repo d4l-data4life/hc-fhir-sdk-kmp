@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SubscriptionStatus
+ *
  * The status of a subscription.
  *
  * @see <a href="http://hl7.org/fhir/subscription-status">SubscriptionStatus</a>
@@ -52,5 +54,5 @@ enum class SubscriptionStatus {
      * Too many errors have occurred or the subscription has expired.
      */
     @SerialName("off")
-    OFF
+    OFF,
 }

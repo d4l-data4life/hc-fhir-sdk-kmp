@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CarePlanActivityStatus
+ *
  * Indicates where the activity is at in its overall life cycle.
  *
  * @see <a href="http://hl7.org/fhir/care-plan-activity-status">CarePlanActivityStatus</a>
@@ -72,5 +74,5 @@ enum class CarePlanActivityStatus {
      * The authoring system doesn't know the current state of the activity.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

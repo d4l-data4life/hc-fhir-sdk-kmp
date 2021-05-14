@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: OperationKind
+ *
  * Whether an operation is a normal operation or a query.
  *
  * @see <a href="http://hl7.org/fhir/operation-kind">OperationKind</a>
@@ -40,5 +42,5 @@ enum class OperationKind {
      * This operation is a named query, invoked using the search mechanism.
      */
     @SerialName("query")
-    QUERY
+    QUERY,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationDispensePerformerFunctionCodes
+ *
  * MedicationDispense Performer Function Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationdispense-performer-function">MedicationDispensePerformerFunctionCodes</a>
@@ -53,5 +55,5 @@ enum class MedicationDispensePerformerFunctionCodes {
      * request. Typically, this is a pharmacist function.
      */
     @SerialName("finalchecker")
-    FINALCHECKER
+    FINALCHECKER,
 }

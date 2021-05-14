@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventSeriousness
+ *
  * Overall seriousness of this event for the patient.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness">AdverseEventSeriousness</a>
@@ -78,5 +80,5 @@ enum class AdverseEventSeriousness {
      * important medical event that requires medical judgement).
      */
     @SerialName("SeriousRequiresPreventImpairment")
-    SERIOUSREQUIRESPREVENTIMPAIRMENT
+    SERIOUSREQUIRESPREVENTIMPAIRMENT,
 }

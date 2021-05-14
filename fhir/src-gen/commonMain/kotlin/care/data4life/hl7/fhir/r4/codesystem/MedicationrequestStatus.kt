@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationrequestStatus
+ *
  * MedicationRequest Status Codes
  *
  * @see <a href="http://hl7.org/fhir/CodeSystem/medicationrequest-status">MedicationrequestStatus</a>
@@ -39,7 +41,7 @@ enum class MedicationrequestStatus {
 
     /**
      * Actions implied by the prescription are to be temporarily halted, but are
-     * expected to continue later.  May also be called 'suspended'.
+     * expected to continue later. May also be called 'suspended'.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -58,8 +60,8 @@ enum class MedicationrequestStatus {
 
     /**
      * Some of the actions that are implied by the medication request may have
-     * occurred.  For example, the medication may have been dispensed and the patient
-     * may have taken some of the medication.  Clinical decision support systems should
+     * occurred. For example, the medication may have been dispensed and the patient
+     * may have taken some of the medication. Clinical decision support systems should
      * take this status into account
      */
     @SerialName("entered-in-error")
@@ -88,5 +90,5 @@ enum class MedicationrequestStatus {
      * does not know which.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

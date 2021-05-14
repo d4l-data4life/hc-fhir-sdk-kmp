@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SupplyDeliveryStatus
+ *
  * Status of the supply delivery.
  *
  * @see <a href="http://hl7.org/fhir/supplydelivery-status">SupplyDeliveryStatus</a>
@@ -54,5 +56,5 @@ enum class SupplyDeliveryStatus {
      * status should be "cancelled" rather than "entered-in-error".)
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

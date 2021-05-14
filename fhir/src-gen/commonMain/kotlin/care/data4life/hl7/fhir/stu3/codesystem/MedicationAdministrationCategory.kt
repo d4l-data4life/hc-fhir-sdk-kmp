@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationAdministrationCategory
+ *
  * A coded concept describing where the medication administered is expected to occur
  *
  * @see <a href="http://hl7.org/fhir/medication-admin-category">MedicationAdministrationCategory</a>
@@ -48,5 +50,5 @@ enum class MedicationAdministrationCategory {
      * term care or nursing homes, hospices, etc)
      */
     @SerialName("community")
-    COMMUNITY
+    COMMUNITY,
 }

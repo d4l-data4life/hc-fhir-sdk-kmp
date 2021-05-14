@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExpressionLanguage
+ *
  * The media type of the expression language.
  *
  * @see <a href="http://hl7.org/fhir/expression-language">ExpressionLanguage</a>
@@ -46,5 +48,5 @@ enum class ExpressionLanguage {
      * FHIR's RESTful query syntax - typically independent of base URL.
      */
     @SerialName("application/x-fhir-query")
-    APPLICATION_X_FHIR_QUERY
+    APPLICATION_X_FHIR_QUERY,
 }

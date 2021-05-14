@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceVerificationStatusCodes
+ *
  * Preferred value set for AllergyIntolerance Verification Status.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification">AllergyIntoleranceVerificationStatusCodes</a>
@@ -56,5 +58,5 @@ enum class AllergyIntoleranceVerificationStatusCodes {
      * The statement was entered in error and is not valid.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

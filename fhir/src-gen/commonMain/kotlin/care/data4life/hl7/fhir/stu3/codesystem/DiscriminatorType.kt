@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DiscriminatorType
+ *
  * How an element value is interpreted when discrimination is evaluated
  *
  * @see <a href="http://hl7.org/fhir/discriminator-type">DiscriminatorType</a>
@@ -62,5 +64,5 @@ enum class DiscriminatorType {
      * specifed profile
      */
     @SerialName("profile")
-    PROFILE
+    PROFILE,
 }

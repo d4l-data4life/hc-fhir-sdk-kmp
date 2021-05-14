@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentProvisionType
+ *
  * How a rule statement is applied, such as adding additional consent or removing consent.
  *
  * @see <a href="http://hl7.org/fhir/consent-provision-type">ConsentProvisionType</a>
@@ -40,5 +42,5 @@ enum class ConsentProvisionType {
      * Consent is provided for actions meeting these rules.
      */
     @SerialName("permit")
-    PERMIT
+    PERMIT,
 }

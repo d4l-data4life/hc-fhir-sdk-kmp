@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceDefinitionParameterGroup
+ *
  * Codes identifying groupings of parameters; e.g. Cardiovascular.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/parameter-group">DeviceDefinitionParameterGroup</a>
@@ -82,5 +84,5 @@ enum class DeviceDefinitionParameterGroup {
      * Miscellaneous Parameter Group - MDC_PGRP_MISC.
      */
     @SerialName("miscellaneous")
-    MISCELLANEOUS
+    MISCELLANEOUS,
 }

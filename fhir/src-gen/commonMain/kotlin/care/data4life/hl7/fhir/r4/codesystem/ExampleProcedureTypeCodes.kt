@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleProcedureTypeCodes
+ *
  * This value set includes example Procedure Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-procedure-type">ExampleProcedureTypeCodes</a>
@@ -41,5 +43,5 @@ enum class ExampleProcedureTypeCodes {
      * outcome.
      */
     @SerialName("secondary")
-    SECONDARY
+    SECONDARY,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SpecimenContainedPreference
+ *
  * Degree of preference of a type of conditioned specimen.
  *
  * @see <a href="http://hl7.org/fhir/specimen-contained-preference">SpecimenContainedPreference</a>
@@ -40,5 +42,5 @@ enum class SpecimenContainedPreference {
      * This type of conditioned specimen is an alternate.
      */
     @SerialName("alternate")
-    ALTERNATE
+    ALTERNATE,
 }

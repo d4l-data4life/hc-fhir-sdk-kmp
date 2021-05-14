@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CopyNumberEvent
+ *
  * Copy Number Event.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/copy-number-event">CopyNumberEvent</a>
@@ -46,5 +48,5 @@ enum class CopyNumberEvent {
      * loss of function.
      */
     @SerialName("lof")
-    LOF
+    LOF,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceMetricOperationalStatus
+ *
  * Describes the operational status of the DeviceMetric.
  *
  * @see <a href="http://hl7.org/fhir/metric-operational-status">DeviceMetricOperationalStatus</a>
@@ -52,5 +54,5 @@ enum class DeviceMetricOperationalStatus {
      * The DeviceMetric was entered in error.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventSeverity
+ *
  * The severity of the adverse event itself, in direct relation to the subject.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adverse-event-severity">AdverseEventSeverity</a>
@@ -46,5 +48,5 @@ enum class AdverseEventSeverity {
      * severe
      */
     @SerialName("severe")
-    SEVERE
+    SEVERE,
 }

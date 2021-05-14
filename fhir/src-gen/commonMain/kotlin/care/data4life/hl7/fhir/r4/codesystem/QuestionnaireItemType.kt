@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireItemType
+ *
  * Distinguishes groups from questions and display text and indicates data type for questions.
  *
  * @see <a href="http://hl7.org/fhir/item-type">QuestionnaireItemType</a>
@@ -144,5 +146,5 @@ enum class QuestionnaireItemType {
      * the provided unit).
      */
     @SerialName("quantity")
-    QUANTITY
+    QUANTITY,
 }

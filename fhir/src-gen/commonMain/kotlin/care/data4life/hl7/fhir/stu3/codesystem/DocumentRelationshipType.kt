@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DocumentRelationshipType
+ *
  * The type of relationship between documents.
  *
  * @see <a href="http://hl7.org/fhir/document-relationship-type">DocumentRelationshipType</a>
@@ -53,5 +55,5 @@ enum class DocumentRelationshipType {
      * This document adds additional information to the target document.
      */
     @SerialName("appends")
-    APPENDS
+    APPENDS,
 }

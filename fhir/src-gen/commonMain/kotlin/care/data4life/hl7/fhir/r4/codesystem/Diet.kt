@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: Diet
+ *
  * This value set defines a set of codes that can be used to indicate dietary preferences or
  * restrictions a patient may have.
  *
@@ -72,5 +74,5 @@ enum class Diet {
      * Foods that conform to Jewish dietary law.
      */
     @SerialName("kosher")
-    KOSHER
+    KOSHER,
 }

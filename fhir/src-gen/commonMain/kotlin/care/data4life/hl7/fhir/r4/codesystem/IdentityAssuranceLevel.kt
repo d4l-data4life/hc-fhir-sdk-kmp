@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: IdentityAssuranceLevel
+ *
  * The level of confidence that this link represents the same actual person, based on NIST
  * Authentication Levels.
  *
@@ -53,5 +55,5 @@ enum class IdentityAssuranceLevel {
      * Very high confidence in the asserted identity's accuracy.
      */
     @SerialName("level4")
-    LEVEL4
+    LEVEL4,
 }

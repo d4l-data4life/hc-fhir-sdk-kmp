@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdjudicationValueCodes
+ *
  * This value set includes a smattering of Adjudication Value codes which includes codes to indicate
  * the amounts eligible under the plan, the amount of benefit, copays etc.
  *
@@ -77,5 +79,5 @@ enum class AdjudicationValueCodes {
      * Amount payable under the coverage
      */
     @SerialName("benefit")
-    BENEFIT
+    BENEFIT,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExpansionProcessingRule
+ *
  * Defines how concepts are processed into the expansion when it's for UI presentation.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/expansion-processing-rule">ExpansionProcessingRule</a>
@@ -48,5 +50,5 @@ enum class ExpansionProcessingRule {
      * The expansion (when in UI mode) only includes the defined groups.
      */
     @SerialName("groups-only")
-    GROUPS_ONLY
+    GROUPS_ONLY,
 }

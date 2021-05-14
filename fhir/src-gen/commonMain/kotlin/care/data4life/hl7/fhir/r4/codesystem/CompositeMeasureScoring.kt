@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CompositeMeasureScoring
+ *
  * The composite scoring method of the measure.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/composite-measure-scoring">CompositeMeasureScoring</a>
@@ -57,5 +59,5 @@ enum class CompositeMeasureScoring {
      * component numerator in which they appear.
      */
     @SerialName("weighted")
-    WEIGHTED
+    WEIGHTED,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationAdministrationPerformerFunctionCodes
+ *
  * MedicationAdministration Performer Function Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/med-admin-perform-function">MedicationAdministrationPerformerFunctionCodes</a>
@@ -51,5 +53,5 @@ enum class MedicationAdministrationPerformerFunctionCodes {
      * directive witness.
      */
     @SerialName("witness")
-    WITNESS
+    WITNESS,
 }

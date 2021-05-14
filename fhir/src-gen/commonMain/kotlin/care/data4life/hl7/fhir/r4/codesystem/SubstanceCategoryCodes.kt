@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SubstanceCategoryCodes
+ *
  * Substance category codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/substance-category">SubstanceCategoryCodes</a>
@@ -78,5 +80,5 @@ enum class SubstanceCategoryCodes {
      * steel, iron, wood, plastic and paper).
      */
     @SerialName("material")
-    MATERIAL
+    MATERIAL,
 }

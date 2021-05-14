@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GuideParameterCode
+ *
  * Code of parameter that is input to the guide.
  *
  * @see <a href="http://hl7.org/fhir/guide-parameter-code">GuideParameterCode</a>
@@ -108,5 +110,5 @@ enum class GuideParameterCode {
      * the builder template for each generated page (see templating).
      */
     @SerialName("html-template")
-    HTML_TEMPLATE
+    HTML_TEMPLATE,
 }

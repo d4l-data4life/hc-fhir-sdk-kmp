@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: HL7Workgroup
+ *
  * An HL7 administrative unit that owns artifacts in the FHIR specification.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/hl7-work-group">HL7Workgroup</a>
@@ -184,5 +186,5 @@ enum class HL7Workgroup {
      * (http://www.hl7.org/Special/committees/java/index.cfm).
      */
     @SerialName("aid")
-    AID
+    AID,
 }

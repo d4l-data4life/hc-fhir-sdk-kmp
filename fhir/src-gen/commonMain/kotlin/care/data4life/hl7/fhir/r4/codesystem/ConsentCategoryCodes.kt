@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentCategoryCodes
+ *
  * This value set includes sample Consent Directive Type codes, including several consent directive
  * related LOINC codes; HL7 VALUE SET: ActConsentType(2.16.840.1.113883.1.11.19897); examples of US
  * realm consent directive legal descriptions and references to online and/or downloadable forms such
@@ -116,5 +118,5 @@ enum class ConsentCategoryCodes {
      * (2.16.840.1.113883.1.11.19897)]
      */
     @SerialName("rsreid")
-    RSREID
+    RSREID,
 }

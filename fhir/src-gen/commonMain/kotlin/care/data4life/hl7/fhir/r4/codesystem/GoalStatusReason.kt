@@ -20,8 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Example codes indicating the reason for a current status.  Note that these are in no way complete
- * and might not even be appropriate for some uses.
+ * Code System: GoalStatusReason
+ *
+ * Example codes indicating the reason for a current status. Note that these are in no way complete and
+ * might not even be appropriate for some uses.
  *
  * @see <a href="http://hl7.org/fhir/goal-status-reason">GoalStatusReason</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/goal-status-reason">ValueSet</a>
@@ -84,5 +86,5 @@ enum class GoalStatusReason {
      * Goal cannot be reached due to a lack of social support.
      */
     @SerialName("lack-of-social-support")
-    LACK_OF_SOCIAL_SUPPORT
+    LACK_OF_SOCIAL_SUPPORT,
 }

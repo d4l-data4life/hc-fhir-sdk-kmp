@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StrengthOfRecommendationRating
+ *
  * A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or
  * HGPS systems
  *
@@ -41,5 +43,5 @@ enum class StrengthOfRecommendationRating {
      * Weak recommendation
      */
     @SerialName("weak")
-    WEAK
+    WEAK,
 }

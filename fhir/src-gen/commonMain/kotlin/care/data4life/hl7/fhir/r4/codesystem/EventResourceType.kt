@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EventResourceType
+ *
  * A list of all the event resource types defined in this version of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/event-resource-types">EventResourceType</a>
@@ -120,7 +122,7 @@ enum class EventResourceType {
     ENROLLMENTRESPONSE,
 
     /**
-     * An association of a Patient with an Organization and  Healthcare Provider(s) for
+     * An association of a Patient with an Organization and Healthcare Provider(s) for
      * a period of time that the Organization assumes some level of responsibility.
      */
     @SerialName("EpisodeOfCare")
@@ -240,5 +242,5 @@ enum class EventResourceType {
      * A task to be performed.
      */
     @SerialName("Task")
-    TASK
+    TASK,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: HumanNameAssemblyOrder
+ *
  * A code that represents the preferred display order of the components of a human name
  *
  * @see <a href="http://hl7.org/fhir/name-assembly-order">HumanNameAssemblyOrder</a>
@@ -52,5 +54,5 @@ enum class HumanNameAssemblyOrder {
      * NL4
      */
     @SerialName("NL4")
-    NL4
+    NL4,
 }

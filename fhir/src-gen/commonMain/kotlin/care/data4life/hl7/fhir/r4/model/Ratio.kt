@@ -20,19 +20,30 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirRatio
+ *
+ * A relationship of two Quantity values - expressed as a numerator and a denominator.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Ratio">Ratio</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Ratio)
+ */
 interface FhirRatio : FhirElement {
 
-    // Numerator value.
+    /**
+     * Numerator value.
+     */
     val numerator: Quantity?
 
-    // Denominator value.
+    /**
+     * Denominator value.
+     */
     val denominator: Quantity?
 }
 
 /**
- * ClassName: Ratio
- *
- * SourceFileName: Ratio.kt
+ * Ratio
  *
  * A relationship of two Quantity values - expressed as a numerator and a denominator.
  *
@@ -44,30 +55,26 @@ interface FhirRatio : FhirElement {
 @SerialName("Ratio")
 data class Ratio(
 
-    // Numerator value.
     @SerialName("numerator")
     override val numerator: Quantity? = null,
 
-    // Denominator value.
     @SerialName("denominator")
     override val denominator: Quantity? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirRatio {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Ratio"
+        fun resourceType(): String = "Ratio"
     }
 }

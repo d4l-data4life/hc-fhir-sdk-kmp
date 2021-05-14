@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractDataMeaning
+ *
  * How a resource reference is interpreted when evaluating contract offers.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contract-data-meaning">ContractDataMeaning</a>
@@ -54,5 +56,5 @@ enum class ContractDataMeaning {
      * The consent applies to instances of resources that are authored by.
      */
     @SerialName("authoredby")
-    AUTHOREDBY
+    AUTHOREDBY,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GroupType
+ *
  * Types of resources that are part of group.
  *
  * @see <a href="http://hl7.org/fhir/group-type">GroupType</a>
@@ -65,5 +67,5 @@ enum class GroupType {
      * Group contains Substance resources.
      */
     @SerialName("substance")
-    SUBSTANCE
+    SUBSTANCE,
 }

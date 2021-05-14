@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EndpointPayloadType
+ *
  * This is an example value set defined by the FHIR project, that could be used to represent possible
  * payload document types.
  *
@@ -45,5 +47,5 @@ enum class EndpointPayloadType {
      * are correctly handled
      */
     @SerialName("none")
-    NONE
+    NONE,
 }

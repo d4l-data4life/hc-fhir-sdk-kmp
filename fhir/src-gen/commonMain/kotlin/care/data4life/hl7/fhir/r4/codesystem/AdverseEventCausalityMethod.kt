@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventCausalityMethod
+ *
  * TODO.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adverse-event-causality-method">AdverseEventCausalityMethod</a>
@@ -46,5 +48,5 @@ enum class AdverseEventCausalityMethod {
      * checklist
      */
     @SerialName("Checklist")
-    CHECKLIST
+    CHECKLIST,
 }

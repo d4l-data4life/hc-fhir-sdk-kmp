@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContactEntityType
+ *
  * This example value set defines a set of codes that can be used to indicate the purpose for which you
  * would contact a contact party.
  *
@@ -67,5 +69,5 @@ enum class ContactEntityType {
      * Dedicated contact point for matters relating to press enquiries.
      */
     @SerialName("PRESS")
-    PRESS
+    PRESS,
 }

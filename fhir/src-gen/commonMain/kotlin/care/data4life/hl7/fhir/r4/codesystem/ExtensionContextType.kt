@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExtensionContextType
+ *
  * How an extension context is interpreted.
  *
  * @see <a href="http://hl7.org/fhir/extension-context-type">ExtensionContextType</a>
@@ -51,5 +53,5 @@ enum class ExtensionContextType {
      * the expression is just a uri that identifies the extension.
      */
     @SerialName("extension")
-    EXTENSION
+    EXTENSION,
 }

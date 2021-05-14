@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RequestIntent
+ *
  * Codes indicating the degree of authority/intentionality associated with a request
  *
  * @see <a href="http://hl7.org/fhir/request-intent">RequestIntent</a>
@@ -74,7 +76,7 @@ enum class RequestIntent {
 
     /**
      * An order created in fulfillment of a broader order that represents the
-     * authorization for a single activity occurrence.  E.g. The administration of a
+     * authorization for a single activity occurrence. E.g. The administration of a
      * single dose of a drug.
      */
     @SerialName("instance-order")
@@ -82,10 +84,9 @@ enum class RequestIntent {
 
     /**
      * The request represents a component or option for a RequestGroup that establishes
-     * timing, conditionality and/or other constraints among a set of requests.
-     * Refer to [[[RequestGroup]]] for additional information on how this status is
-     * used
+     * timing, conditionality and/or other constraints among a set of requests.  Refer
+     * to [[[RequestGroup]]] for additional information on how this status is used
      */
     @SerialName("option")
-    OPTION
+    OPTION,
 }

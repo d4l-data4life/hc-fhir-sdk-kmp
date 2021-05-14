@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleScenarioActorType
+ *
  * The type of actor - system or human.
  *
  * @see <a href="http://hl7.org/fhir/examplescenario-actor-type">ExampleScenarioActorType</a>
@@ -40,5 +42,5 @@ enum class ExampleScenarioActorType {
      * A system.
      */
     @SerialName("entity")
-    ENTITY
+    ENTITY,
 }

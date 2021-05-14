@@ -21,34 +21,55 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirRelatedArtifact
+ *
+ * Related artifacts such as additional documentation, justification, or bibliographic references.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/RelatedArtifact">RelatedArtifact</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/RelatedArtifact)
+ */
 interface FhirRelatedArtifact : FhirElement {
 
-    // The type of relationship to the related artifact.
+    /**
+     * The type of relationship to the related artifact.
+     */
     val type: RelatedArtifactType
 
-    // Short label.
+    /**
+     * Short label.
+     */
     val label: String?
 
-    // Brief description of the related artifact.
+    /**
+     * Brief description of the related artifact.
+     */
     val display: String?
 
-    // Bibliographic citation for the artifact.
+    /**
+     * Bibliographic citation for the artifact.
+     */
     val citation: String?
 
-    // Where the artifact can be accessed.
+    /**
+     * Where the artifact can be accessed.
+     */
     val url: String?
 
-    // What document is being referenced.
+    /**
+     * What document is being referenced.
+     */
     val document: Attachment?
 
-    // What resource is being referenced.
+    /**
+     * What resource is being referenced.
+     */
     val resource: String?
 }
 
 /**
- * ClassName: RelatedArtifact
- *
- * SourceFileName: RelatedArtifact.kt
+ * RelatedArtifact
  *
  * Related artifacts such as additional documentation, justification, or bibliographic references.
  *
@@ -60,50 +81,41 @@ interface FhirRelatedArtifact : FhirElement {
 @SerialName("RelatedArtifact")
 data class RelatedArtifact(
 
-    // The type of relationship to the related artifact.
     @SerialName("type")
     override val type: RelatedArtifactType,
 
-    // Short label.
     @SerialName("label")
     override val label: String? = null,
 
-    // Brief description of the related artifact.
     @SerialName("display")
     override val display: String? = null,
 
-    // Bibliographic citation for the artifact.
     @SerialName("citation")
     override val citation: String? = null,
 
-    // Where the artifact can be accessed.
     @SerialName("url")
     override val url: String? = null,
 
-    // What document is being referenced.
     @SerialName("document")
     override val document: Attachment? = null,
 
-    // What resource is being referenced.
     @SerialName("resource")
     override val resource: String? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirRelatedArtifact {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "RelatedArtifact"
+        fun resourceType(): String = "RelatedArtifact"
     }
 }

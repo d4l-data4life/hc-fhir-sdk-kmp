@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: KnowledgeResourceType
+ *
  * A list of all the knowledge resource types defined in this version of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/knowledge-resource-types">KnowledgeResourceType</a>
@@ -84,5 +86,5 @@ enum class KnowledgeResourceType {
      * A set of codes drawn from one or more code systems.
      */
     @SerialName("ValueSet")
-    VALUESET
+    VALUESET,
 }

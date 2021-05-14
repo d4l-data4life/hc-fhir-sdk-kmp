@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PlanDefinitionType
+ *
  * The type of PlanDefinition.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/plan-definition-type">PlanDefinitionType</a>
@@ -63,5 +65,5 @@ enum class PlanDefinitionType {
      * complete a particular objective.
      */
     @SerialName("workflow-definition")
-    WORKFLOW_DEFINITION
+    WORKFLOW_DEFINITION,
 }

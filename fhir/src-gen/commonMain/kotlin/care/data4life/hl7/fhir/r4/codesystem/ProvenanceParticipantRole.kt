@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ProvenanceParticipantRole
+ *
  * The role that a provenance participant played
  *
  * @see <a href="http://hl7.org/fhir/provenance-participant-role">ProvenanceParticipantRole</a>
@@ -96,5 +98,5 @@ enum class ProvenanceParticipantRole {
      * information for the purpose of generating a new artifact.
      */
     @SerialName("composer")
-    COMPOSER
+    COMPOSER,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ProvenanceEntityRole
+ *
  * How an entity was used in an activity.
  *
  * @see <a href="http://hl7.org/fhir/provenance-entity-role">ProvenanceEntityRole</a>
@@ -64,5 +66,5 @@ enum class ProvenanceEntityRole {
      * the use of the Delete operation.
      */
     @SerialName("removal")
-    REMOVAL
+    REMOVAL,
 }

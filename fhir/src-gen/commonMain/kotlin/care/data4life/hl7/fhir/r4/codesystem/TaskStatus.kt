@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TaskStatus
+ *
  * The current status of the task.
  *
  * @see <a href="http://hl7.org/fhir/task-status">TaskStatus</a>
@@ -64,7 +66,7 @@ enum class TaskStatus {
     REJECTED,
 
     /**
-     * The task is ready to be performed, but no action has yet been taken.  Used in
+     * The task is ready to be performed, but no action has yet been taken. Used in
      * place of requested/received/accepted/rejected when request assignment and
      * acceptance is a given.
      */
@@ -106,5 +108,5 @@ enum class TaskStatus {
      * possibility it may have used.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

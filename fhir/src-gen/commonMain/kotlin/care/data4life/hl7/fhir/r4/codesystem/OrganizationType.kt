@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: OrganizationType
+ *
  * This example value set defines a set of codes that can be used to indicate a type of organization.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/organization-type">OrganizationType</a>
@@ -108,5 +110,5 @@ enum class OrganizationType {
      * Other type of organization not already specified.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

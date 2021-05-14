@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GraphCompartmentUse
+ *
  * Defines how a compartment rule is used.
  *
  * @see <a href="http://hl7.org/fhir/graph-compartment-use">GraphCompartmentUse</a>
@@ -40,5 +42,5 @@ enum class GraphCompartmentUse {
      * This compartment rule is enforced on any relationships that meet the conditions.
      */
     @SerialName("requirement")
-    REQUIREMENT
+    REQUIREMENT,
 }

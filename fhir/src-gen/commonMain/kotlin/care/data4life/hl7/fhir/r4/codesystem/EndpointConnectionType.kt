@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EndpointConnectionType
+ *
  * This is an example value set defined by the FHIR project, that could be used to represent possible
  * connection type profile values.
  *
@@ -127,5 +129,5 @@ enum class EndpointConnectionType {
      * Direct Project information - http://wiki.directproject.org/
      */
     @SerialName("direct-project")
-    DIRECT_PROJECT
+    DIRECT_PROJECT,
 }

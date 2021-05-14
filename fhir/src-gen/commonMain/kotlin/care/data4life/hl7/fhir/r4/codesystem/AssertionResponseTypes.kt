@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AssertionResponseTypes
+ *
  * The type of response code to use for assertion.
  *
  * @see <a href="http://hl7.org/fhir/assert-response-code-types">AssertionResponseTypes</a>
@@ -100,5 +102,5 @@ enum class AssertionResponseTypes {
      * Response code is 422.
      */
     @SerialName("unprocessable")
-    UNPROCESSABLE
+    UNPROCESSABLE,
 }

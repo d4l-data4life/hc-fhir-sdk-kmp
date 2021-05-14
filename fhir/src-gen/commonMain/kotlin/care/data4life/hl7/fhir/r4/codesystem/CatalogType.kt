@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CatalogType
+ *
  * The type of catalog.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/catalogType">CatalogType</a>
@@ -46,5 +48,5 @@ enum class CatalogType {
      * Protocol List.
      */
     @SerialName("protocol")
-    PROTOCOL
+    PROTOCOL,
 }

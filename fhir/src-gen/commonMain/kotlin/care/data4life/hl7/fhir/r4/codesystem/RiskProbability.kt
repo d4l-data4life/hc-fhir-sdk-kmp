@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RiskProbability
+ *
  * Codes representing the likelihood of a particular outcome in a risk assessment.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/risk-probability">RiskProbability</a>
@@ -58,5 +60,5 @@ enum class RiskProbability {
      * The specified outcome is effectively guaranteed.
      */
     @SerialName("certain")
-    CERTAIN
+    CERTAIN,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventCausalityAssessment
+ *
  * Codes for the assessment of whether the entity caused the event.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess">AdverseEventCausalityAssessment</a>
@@ -78,5 +80,5 @@ enum class AdverseEventCausalityAssessment {
      * supplemented or verified.
      */
     @SerialName("Unassessable-Unclassifiable")
-    UNASSESSABLE_UNCLASSIFIABLE
+    UNASSESSABLE_UNCLASSIFIABLE,
 }

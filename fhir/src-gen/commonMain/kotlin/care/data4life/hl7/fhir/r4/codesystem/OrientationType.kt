@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: OrientationType
+ *
  * Type for orientation.
  *
  * @see <a href="http://hl7.org/fhir/orientation-type">OrientationType</a>
@@ -40,5 +42,5 @@ enum class OrientationType {
      * Antisense orientation of reference sequence.
      */
     @SerialName("antisense")
-    ANTISENSE
+    ANTISENSE,
 }

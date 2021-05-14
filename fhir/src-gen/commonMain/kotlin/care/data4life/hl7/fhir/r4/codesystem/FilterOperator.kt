@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FilterOperator
+ *
  * The kind of operation to perform as a part of a property based filter.
  *
  * @see <a href="http://hl7.org/fhir/filter-operator">FilterOperator</a>
@@ -60,7 +62,7 @@ enum class FilterOperator {
     IS_NOT_A,
 
     /**
-     * The specified property of the code  matches the regex specified in the provided
+     * The specified property of the code matches the regex specified in the provided
      * value.
      */
     @SerialName("regex")
@@ -94,5 +96,5 @@ enum class FilterOperator {
      * property of the code has no values).
      */
     @SerialName("exists")
-    EXISTS
+    EXISTS,
 }

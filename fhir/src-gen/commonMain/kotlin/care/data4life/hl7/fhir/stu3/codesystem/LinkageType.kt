@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: LinkageType
+ *
  * Used to distinguish different roles a resource can play within a set of linked resources
  *
  * @see <a href="http://hl7.org/fhir/linkage-type">LinkageType</a>
@@ -39,8 +41,8 @@ enum class LinkageType {
 
     /**
      * The record represents the alternative view of the underlying
-     * event/condition/etc.  The record may still be actively maintained, even though
-     * it is not considered to be the source of truth.
+     * event/condition/etc. The record may still be actively maintained, even though it
+     * is not considered to be the source of truth.
      */
     @SerialName("alternate")
     ALTERNATE,
@@ -50,5 +52,5 @@ enum class LinkageType {
      * It is not expected to be actively maintained.
      */
     @SerialName("historical")
-    HISTORICAL
+    HISTORICAL,
 }

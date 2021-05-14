@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CareTeamStatus
+ *
  * Indicates the status of the care team.
  *
  * @see <a href="http://hl7.org/fhir/care-team-status">CareTeamStatus</a>
@@ -62,5 +64,5 @@ enum class CareTeamStatus {
      * The care team should have never existed.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

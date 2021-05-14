@@ -21,19 +21,30 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirPeriod
+ *
+ * A time period defined by a start and end date and optionally time.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Period">Period</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Period)
+ */
 interface FhirPeriod : FhirElement {
 
-    // Starting time with inclusive boundary.
+    /**
+     * Starting time with inclusive boundary.
+     */
     val start: DateTime?
 
-    // End time with inclusive boundary, if not ongoing.
+    /**
+     * End time with inclusive boundary, if not ongoing.
+     */
     val end: DateTime?
 }
 
 /**
- * ClassName: Period
- *
- * SourceFileName: Period.kt
+ * Period
  *
  * A time period defined by a start and end date and optionally time.
  *
@@ -45,30 +56,26 @@ interface FhirPeriod : FhirElement {
 @SerialName("Period")
 data class Period(
 
-    // Starting time with inclusive boundary.
     @SerialName("start")
     override val start: DateTime? = null,
 
-    // End time with inclusive boundary, if not ongoing.
     @SerialName("end")
     override val end: DateTime? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirPeriod {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Period"
+        fun resourceType(): String = "Period"
     }
 }

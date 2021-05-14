@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BenefitTypeCodes
+ *
  * This value set includes a smattering of Benefit type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/benefit-type">BenefitTypeCodes</a>
@@ -100,5 +102,5 @@ enum class BenefitTypeCodes {
      * Pharmacy Dispense Coverage
      */
     @SerialName("pharmacy-dispense")
-    PHARMACY_DISPENSE
+    PHARMACY_DISPENSE,
 }

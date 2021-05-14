@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyStatus
+ *
  * Codes that convey the current status of the research study.
  *
  * @see <a href="http://hl7.org/fhir/research-study-status">ResearchStudyStatus</a>
@@ -65,9 +67,8 @@ enum class ResearchStudyStatus {
 
     /**
      * Study is closed to accrual and intervention, i.e. the study is closed to
-     * enrollment, all study subjects have completed treatment
-     * or intervention but are still being followed according to the primary objective
-     * of the study.
+     * enrollment, all study subjects have completed treatment or intervention but are
+     * still being followed according to the primary objective of the study.
      */
     @SerialName("completed")
     COMPLETED,
@@ -102,5 +103,5 @@ enum class ResearchStudyStatus {
      * Protocol was withdrawn by the lead organization.
      */
     @SerialName("withdrawn")
-    WITHDRAWN
+    WITHDRAWN,
 }

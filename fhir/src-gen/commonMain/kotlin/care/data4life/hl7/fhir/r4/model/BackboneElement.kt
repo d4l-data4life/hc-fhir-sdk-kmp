@@ -20,16 +20,25 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirBackboneElement
+ *
+ * Base definition for all elements that are defined inside a resource - but not those in a data type.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/BackboneElement">BackboneElement</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/BackboneElement)
+ */
 interface FhirBackboneElement : FhirElement {
 
-    // Extensions that cannot be ignored even if unrecognized.
+    /**
+     * Extensions that cannot be ignored even if unrecognized.
+     */
     val modifierExtension: List<Extension>?
 }
 
 /**
- * ClassName: BackboneElement
- *
- * SourceFileName: BackboneElement.kt
+ * BackboneElement
  *
  * Base definition for all elements that are defined inside a resource - but not those in a data type.
  *
@@ -41,26 +50,23 @@ interface FhirBackboneElement : FhirElement {
 @SerialName("BackboneElement")
 data class BackboneElement(
 
-    // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirBackboneElement {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "BackboneElement"
+        fun resourceType(): String = "BackboneElement"
     }
 }

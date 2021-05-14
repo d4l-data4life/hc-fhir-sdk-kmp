@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationAdministrationCategoryCodes
+ *
  * MedicationAdministration Category Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medication-admin-category">MedicationAdministrationCategoryCodes</a>
@@ -48,5 +50,5 @@ enum class MedicationAdministrationCategoryCodes {
      * term care or nursing homes, hospices, etc.)
      */
     @SerialName("community")
-    COMMUNITY
+    COMMUNITY,
 }

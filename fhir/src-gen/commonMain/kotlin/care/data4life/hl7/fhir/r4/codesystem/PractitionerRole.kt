@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PractitionerRole
+ *
  * This example value set defines a set of codes that can be used to indicate the role of a
  * Practitioner.
  *
@@ -64,5 +66,5 @@ enum class PractitionerRole {
      * Someone who is qualified in Information and Communication Technologies
      */
     @SerialName("ict")
-    ICT
+    ICT,
 }

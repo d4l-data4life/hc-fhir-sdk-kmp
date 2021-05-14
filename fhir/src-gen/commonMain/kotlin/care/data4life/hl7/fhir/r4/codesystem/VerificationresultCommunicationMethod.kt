@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: VerificationresultCommunicationMethod
+ *
  * Attested information may be validated by process that are manual or automated. For automated
  * processes it may accomplished by the system of record reaching out through another system's API or
  * information may be sent to the system of record. This value set defines a set of codes to describing
@@ -57,5 +59,5 @@ enum class VerificationresultCommunicationMethod {
      * asynchronously, secure messaging)
      */
     @SerialName("push")
-    PUSH
+    PUSH,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleMessageReasonCodes
+ *
  * Example Message Reasons. These are the set of codes that might be used an updating an encounter
  * using admin-update.
  *
@@ -65,5 +67,5 @@ enum class ExampleMessageReasonCodes {
      * Encounter details have been updated (e.g. to correct a coding error).
      */
     @SerialName("edit")
-    EDIT
+    EDIT,
 }

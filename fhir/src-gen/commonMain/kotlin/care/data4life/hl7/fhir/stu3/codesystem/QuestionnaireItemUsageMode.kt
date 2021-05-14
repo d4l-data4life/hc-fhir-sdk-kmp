@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireItemUsageMode
+ *
  * Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-usage-mode">QuestionnaireItemUsageMode</a>
@@ -60,5 +62,5 @@ enum class QuestionnaireItemUsageMode {
      * item has been answered (or has child items that have been answered)
      */
     @SerialName("capture-display-non-empty")
-    CAPTURE_DISPLAY_NON_EMPTY
+    CAPTURE_DISPLAY_NON_EMPTY,
 }

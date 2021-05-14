@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceCategory
+ *
  * Category of an identified substance.
  *
  * @see <a href="http://hl7.org/fhir/allergy-intolerance-category">AllergyIntoleranceCategory</a>
@@ -55,9 +57,9 @@ enum class AllergyIntoleranceCategory {
      * used as a diagnostic, preventive, or therapeutic agent. Examples of biologic
      * medications include: vaccines; allergenic extracts, which are used for both
      * diagnosis and treatment (for example, allergy shots); gene therapies; cellular
-     * therapies.  There are other biologic products, such as tissues, that are not
+     * therapies. There are other biologic products, such as tissues, that are not
      * typically associated with allergies.
      */
     @SerialName("biologic")
-    BIOLOGIC
+    BIOLOGIC,
 }

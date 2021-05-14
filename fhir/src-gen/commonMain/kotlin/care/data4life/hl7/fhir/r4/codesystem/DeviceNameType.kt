@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceNameType
+ *
  * The type of name the device is referred by.
  *
  * @see <a href="http://hl7.org/fhir/device-nametype">DeviceNameType</a>
@@ -64,5 +66,5 @@ enum class DeviceNameType {
      * other.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

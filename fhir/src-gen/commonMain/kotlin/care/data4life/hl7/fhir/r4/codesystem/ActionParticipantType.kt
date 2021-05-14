@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionParticipantType
+ *
  * The type of participant for the action.
  *
  * @see <a href="http://hl7.org/fhir/action-participant-type">ActionParticipantType</a>
@@ -52,5 +54,5 @@ enum class ActionParticipantType {
      * The participant is a system or device used in the care of the patient.
      */
     @SerialName("device")
-    DEVICE
+    DEVICE,
 }

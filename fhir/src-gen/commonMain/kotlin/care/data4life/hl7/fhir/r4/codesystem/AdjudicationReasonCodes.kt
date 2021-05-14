@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdjudicationReasonCodes
+ *
  * This value set includes smattering of Adjudication Reason codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adjudication-reason">AdjudicationReasonCodes</a>
@@ -40,5 +42,5 @@ enum class AdjudicationReasonCodes {
      * Plan Limit Reached
      */
     @SerialName("ar002")
-    AR002
+    AR002,
 }

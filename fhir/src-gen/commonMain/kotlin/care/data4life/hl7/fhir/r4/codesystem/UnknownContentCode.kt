@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: UnknownContentCode
+ *
  * A code that indicates whether an application accepts unknown elements or extensions when reading
  * resources.
  *
@@ -53,5 +55,5 @@ enum class UnknownContentCode {
      * The application accepts unknown elements and extensions.
      */
     @SerialName("both")
-    BOTH
+    BOTH,
 }

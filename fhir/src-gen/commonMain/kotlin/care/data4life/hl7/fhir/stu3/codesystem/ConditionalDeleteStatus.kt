@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionalDeleteStatus
+ *
  * A code that indicates how the server supports conditional delete.
  *
  * @see <a href="http://hl7.org/fhir/conditional-delete-status">ConditionalDeleteStatus</a>
@@ -47,5 +49,5 @@ enum class ConditionalDeleteStatus {
      * single interaction.
      */
     @SerialName("multiple")
-    MULTIPLE
+    MULTIPLE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TestScriptRequestMethodCode
+ *
  * The allowable request method or HTTP operation codes.
  *
  * @see <a href="http://hl7.org/fhir/http-operations">TestScriptRequestMethodCode</a>
@@ -64,5 +66,5 @@ enum class TestScriptRequestMethodCode {
      * HTTP PUT operation
      */
     @SerialName("put")
-    PUT
+    PUT,
 }

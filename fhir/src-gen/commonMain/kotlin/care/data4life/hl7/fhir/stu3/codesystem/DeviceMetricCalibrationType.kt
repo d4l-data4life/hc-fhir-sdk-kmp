@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceMetricCalibrationType
+ *
  * Describes the type of a metric calibration.
  *
  * @see <a href="http://hl7.org/fhir/metric-calibration-type">DeviceMetricCalibrationType</a>
@@ -52,5 +54,5 @@ enum class DeviceMetricCalibrationType {
      * Two-point metric calibration method
      */
     @SerialName("two-point")
-    TWO_POINT
+    TWO_POINT,
 }

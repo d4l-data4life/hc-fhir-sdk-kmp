@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AssertionDirectionType
+ *
  * The type of direction to use for assertion.
  *
  * @see <a href="http://hl7.org/fhir/assert-direction-codes">AssertionDirectionType</a>
@@ -40,5 +42,5 @@ enum class AssertionDirectionType {
      * The assertion is evaluated on the request.
      */
     @SerialName("request")
-    REQUEST
+    REQUEST,
 }

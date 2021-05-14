@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ObservationRelationshipType
+ *
  * Codes specifying how two observations are related.
  *
  * @see <a href="http://hl7.org/fhir/observation-relationshiptypes">ObservationRelationshipType</a>
@@ -40,7 +42,7 @@ enum class ObservationRelationshipType {
     /**
      * The target resource (Observation or QuestionnaireResponse) is part of the
      * information from which this observation value is derived. (e.g. calculated anion
-     * gap, Apgar score)  NOTE:  "derived-from" is the only logical choice when
+     * gap, Apgar score) NOTE: "derived-from" is the only logical choice when
      * referencing QuestionnaireResponse.
      */
     @SerialName("derived-from")
@@ -73,5 +75,5 @@ enum class ObservationRelationshipType {
      * hemolysis measure target from a plasma potassium measure, which has no value).
      */
     @SerialName("interfered-by")
-    INTERFERED_BY
+    INTERFERED_BY,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EffectEstimateType
+ *
  * Whether the effect estimate is an absolute effect estimate (absolute difference) or a relative
  * effect estimate (relative difference), and the specific type of effect estimate (eg relative risk or
  * median difference).
@@ -72,5 +74,5 @@ enum class EffectEstimateType {
      * median difference (a type of absolute effect estimate).
      */
     @SerialName("absolute-MedianDiff")
-    ABSOLUTE_MEDIANDIFF
+    ABSOLUTE_MEDIANDIFF,
 }

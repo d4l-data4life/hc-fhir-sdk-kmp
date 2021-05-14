@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BenefitTermCodes
+ *
  * This value set includes a smattering of Benefit Term codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/benefit-term">BenefitTermCodes</a>
@@ -46,5 +48,5 @@ enum class BenefitTermCodes {
      * For the total term, lifetime, of the policy or coverage
      */
     @SerialName("lifetime")
-    LIFETIME
+    LIFETIME,
 }

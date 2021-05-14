@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ChargeItemStatus
+ *
  * Codes identifying the stage lifecycle stage of a ChargeItem
  *
  * @see <a href="http://hl7.org/fhir/chargeitem-status">ChargeItemStatus</a>
@@ -31,7 +33,7 @@ import kotlinx.serialization.Serializable
 enum class ChargeItemStatus {
 
     /**
-     * The charge item has been entered, but the charged service is not  yet complete,
+     * The charge item has been entered, but the charged service is not yet complete,
      * so it shall not be billed yet but might be used in the context of pre-
      * authorization
      */
@@ -74,9 +76,9 @@ enum class ChargeItemStatus {
 
     /**
      * The authoring system does not know which of the status values currently applies
-     * for this charge item  Note: This concept is not to be used for "other" - one of
+     * for this charge item Note: This concept is not to be used for "other" - one of
      * the listed statuses is presumed to apply, it's just not known which one.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

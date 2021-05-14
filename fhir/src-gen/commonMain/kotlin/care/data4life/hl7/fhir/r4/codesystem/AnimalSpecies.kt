@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AnimalSpecies
+ *
  * This example value set defines a set of codes that can be used to indicate species of animal
  * patients.
  *
@@ -46,5 +48,5 @@ enum class AnimalSpecies {
      * Serinus canaria domestica
      */
     @SerialName("serinuscd")
-    SERINUSCD
+    SERINUSCD,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CarePlanStatus
+ *
  * Indicates whether the plan is currently being acted upon, represents future intentions or is now a
  * historical record.
  *
@@ -74,5 +76,5 @@ enum class CarePlanStatus {
      * The authoring system doesn't know the current state of the care plan.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

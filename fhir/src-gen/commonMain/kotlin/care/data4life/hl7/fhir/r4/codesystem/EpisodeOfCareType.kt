@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EpisodeOfCareType
+ *
  * This example value set defines a set of codes that can be used to express the usage type of an
  * EpisodeOfCare record.
  *
@@ -59,5 +61,5 @@ enum class EpisodeOfCareType {
      * cacp
      */
     @SerialName("cacp")
-    CACP
+    CACP,
 }

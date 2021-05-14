@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceScopeCodes
+ *
  * This value set contract specific codes for scope.
  *
  * @see <a href="http://hl7.org/fhir/contract-scope">ContractResourceScopeCodes</a>
@@ -34,5 +36,5 @@ enum class ContractResourceScopeCodes {
      * To be completed
      */
     @SerialName("policy")
-    POLICY
+    POLICY,
 }

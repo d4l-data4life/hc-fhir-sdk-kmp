@@ -30,6 +30,16 @@ package care.data4life.hl7.fhir.r4.model
     'Time',
     'UnsignedInteger',
 ] %}
+{%- set enum_replacement_dict = {
+    '=':'EQUAL',
+    '!=':'NOT_EQUAL',
+    '<':'LESS_THAN',
+    '<=':'LESS_OR_EQUAL',
+    '>':'GREATER_THAN',
+    '>=':'GREATER_OR_EQUAL',
+    '>=':'GREATER_OR_EQUAL',
+    '*':'MAX',
+} %}
 {%- set test_exclusion_dict = {
     'examplescenario-questionnaire.json':'ExampleScenario contains an item that is just an extension and fails with linkId required',
     'patient-example-infant-twin-1.json':'Property _birthDate is not supported',
@@ -68,7 +78,7 @@ import kotlin.test.assertEquals
  * {{ class.short }}
 {%- if class.formal %}
  *
- * {{ class.formal | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | wordwrap(100) | replace('\n', '\n * ') }}
+ * {{ class.formal | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | replace('\n\n','\n') | wordwrap(100) | replace('\n', '\n * ') }}
 {%- endif %}
  *
  * Generated from FHIR {{ info.version }})
@@ -98,28 +108,10 @@ class {{ class.name }}Test {
 {%- if test.enum %}
         assertEquals(
             {{ test.enum }}.
-{%- if test.value == "=" -%}
-            EQUAL
-{%- else -%}{% if test.value == "!=" -%}
-            LESS_THAN
-{%- else -%}{%- if test.value == "<" -%}
-            LESS_THAN
-{%- else -%}{%- if test.value == "<=" -%}
-            LESS_OR_EQUAL
-{%- else -%}{%- if test.value == ">" -%}
-            GREATER_THAN
-{%- else -%}{%- if test.value == ">=" -%}
-            GREATER_OR_EQUAL
-{%- else -%}{%- if test.value == "*" -%}
-            MAX
+{%- if test.value in enum_replacement_dict -%}
+            {{ enum_replacement_dict.get(test.value) }}
 {%- else -%}
-            {{ test.value.upper()|replace('-', '_') }}
-{%- endif %}
-{%- endif %}
-{%- endif %}
-{%- endif %}
-{%- endif %}
-{%- endif %}
+            {{ test.value.upper() | replace('-', '_') }}
 {%- endif %},
             data.{{ test.path }}
         )
@@ -178,13 +170,13 @@ class {{ class.name }}Test {
 {%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
 {%- endfor %}
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
 {%- endif %}
     }
 {%- endfor %}
 }
-{% if True %}{% endif %}
+{% if True %}{# ensure empty line at end of file #}{% endif %}

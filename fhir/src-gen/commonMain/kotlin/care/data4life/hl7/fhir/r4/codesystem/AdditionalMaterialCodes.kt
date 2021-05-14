@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdditionalMaterialCodes
+ *
  * This value set includes sample additional material type codes.
  *
  * @see <a href="http://hl7.org/fhir/additionalmaterials">AdditionalMaterialCodes</a>
@@ -64,5 +66,5 @@ enum class AdditionalMaterialCodes {
      * Other
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

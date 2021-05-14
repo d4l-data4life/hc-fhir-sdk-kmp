@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RiskEstimateType
+ *
  * Whether the risk estimate is dichotomous, continuous or qualitative and the specific type of risk
  * estimate (eg proportion or median).
  *
@@ -67,5 +69,5 @@ enum class RiskEstimateType {
      * descriptive measure reported as narrative.
      */
     @SerialName("descriptive")
-    DESCRIPTIVE
+    DESCRIPTIVE,
 }

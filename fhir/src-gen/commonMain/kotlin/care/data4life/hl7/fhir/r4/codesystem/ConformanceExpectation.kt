@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConformanceExpectation
+ *
  * Indicates the degree of adherence to a specified behavior or capability expected for a system to be
  * deemed conformant with a specification.
  *
@@ -56,5 +58,5 @@ enum class ConformanceExpectation {
      * only after careful consideration.
      */
     @SerialName("SHOULD-NOT")
-    SHOULD_NOT
+    SHOULD_NOT,
 }

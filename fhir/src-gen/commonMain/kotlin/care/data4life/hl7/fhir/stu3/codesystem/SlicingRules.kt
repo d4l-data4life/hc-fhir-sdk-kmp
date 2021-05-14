@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SlicingRules
+ *
  * How slices are interpreted when evaluating an instance.
  *
  * @see <a href="http://hl7.org/fhir/resource-slicing-rules">SlicingRules</a>
@@ -49,5 +51,5 @@ enum class SlicingRules {
      * This should only be done where absolutely required.
      */
     @SerialName("openAtEnd")
-    OPENATEND
+    OPENATEND,
 }

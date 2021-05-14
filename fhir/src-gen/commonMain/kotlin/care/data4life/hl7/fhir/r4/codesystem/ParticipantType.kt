@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ParticipantType
+ *
  * This value set defines a set of codes that can be used to indicate how an individual participates in
  * an encounter.
  *
@@ -41,5 +43,5 @@ enum class ParticipantType {
      * A person to be contacted in case of an emergency during the encounter.
      */
     @SerialName("emergency")
-    EMERGENCY
+    EMERGENCY,
 }

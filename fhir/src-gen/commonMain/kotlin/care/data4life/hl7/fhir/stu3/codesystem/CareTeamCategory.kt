@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CareTeamCategory
+ *
  * Indicates the type of care team.
  *
  * @see <a href="http://hl7.org/fhir/care-team-category">CareTeamCategory</a>
@@ -32,7 +34,7 @@ enum class CareTeamCategory {
 
     /**
      * This type of team focuses on one specific type of incident, which is non-patient
-     * specific. The incident is determined by the context of use.  For example, code
+     * specific. The incident is determined by the context of use. For example, code
      * team (code red, code blue, medical emergency treatment) or the PICC line team.
      */
     @SerialName("event")
@@ -40,8 +42,8 @@ enum class CareTeamCategory {
 
     /**
      * This type of team focuses on one specific encounter. The encounter is determined
-     * by the context of use.  For example, during an inpatient encounter, the
-     * nutrition support care team
+     * by the context of use. For example, during an inpatient encounter, the nutrition
+     * support care team
      */
     @SerialName("encounter")
     ENCOUNTER,
@@ -49,7 +51,7 @@ enum class CareTeamCategory {
     /**
      * This type of team focuses on one specific episode of care with a defined time
      * period or self-limiting process (e.g. 10 visits). The episode of care is
-     * determined by the context of use.  For example, a maternity care team over 9
+     * determined by the context of use. For example, a maternity care team over 9
      * months.
      */
     @SerialName("episode")
@@ -68,7 +70,7 @@ enum class CareTeamCategory {
 
     /**
      * This type of team focuses on one specific condition. The condition is determined
-     * by the context of use.  For example, a disease management team focused on one
+     * by the context of use. For example, a disease management team focused on one
      * condition (e.g. diabetes).
      */
     @SerialName("condition")
@@ -80,5 +82,5 @@ enum class CareTeamCategory {
      * clinical care and education.
      */
     @SerialName("clinical-research")
-    CLINICAL_RESEARCH
+    CLINICAL_RESEARCH,
 }

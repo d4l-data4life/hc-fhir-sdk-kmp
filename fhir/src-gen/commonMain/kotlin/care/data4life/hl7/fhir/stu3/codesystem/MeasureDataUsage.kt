@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureDataUsage
+ *
  * The intended usage for supplemental data elements in the measure
  *
  * @see <a href="http://hl7.org/fhir/measure-data-usage">MeasureDataUsage</a>
@@ -42,5 +44,5 @@ enum class MeasureDataUsage {
      * for the measure
      */
     @SerialName("risk-adjustment-factor")
-    RISK_ADJUSTMENT_FACTOR
+    RISK_ADJUSTMENT_FACTOR,
 }

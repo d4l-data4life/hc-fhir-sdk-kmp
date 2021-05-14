@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireItemOperator
+ *
  * The criteria by which a question is enabled.
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-enable-operator">QuestionnaireItemOperator</a>

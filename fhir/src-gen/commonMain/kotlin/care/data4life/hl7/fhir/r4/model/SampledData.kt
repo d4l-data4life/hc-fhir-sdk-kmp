@@ -22,34 +22,56 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirSampledData
+ *
+ * A series of measurements taken by a device, with upper and lower limits. There may be more than one
+ * dimension in the data.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/SampledData">SampledData</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SampledData)
+ */
 interface FhirSampledData : FhirElement {
 
-    // Zero value and units.
+    /**
+     * Zero value and units.
+     */
     val origin: Quantity
 
-    // Number of milliseconds between samples.
+    /**
+     * Number of milliseconds between samples.
+     */
     val period: Decimal
 
-    // Multiply data by this before adding to origin.
+    /**
+     * Multiply data by this before adding to origin.
+     */
     val factor: Decimal?
 
-    // Lower limit of detection.
+    /**
+     * Lower limit of detection.
+     */
     val lowerLimit: Decimal?
 
-    // Upper limit of detection.
+    /**
+     * Upper limit of detection.
+     */
     val upperLimit: Decimal?
 
-    // Number of sample points at each time point.
+    /**
+     * Number of sample points at each time point.
+     */
     val dimensions: PositiveInteger
 
-    // Decimal values with spaces, or "E" | "U" | "L".
+    /**
+     * Decimal values with spaces, or "E" | "U" | "L".
+     */
     val data: String?
 }
 
 /**
- * ClassName: SampledData
- *
- * SourceFileName: SampledData.kt
+ * SampledData
  *
  * A series of measurements taken by a device, with upper and lower limits. There may be more than one
  * dimension in the data.
@@ -62,50 +84,41 @@ interface FhirSampledData : FhirElement {
 @SerialName("SampledData")
 data class SampledData(
 
-    // Zero value and units.
     @SerialName("origin")
     override val origin: Quantity,
 
-    // Number of milliseconds between samples.
     @SerialName("period")
     override val period: Decimal,
 
-    // Multiply data by this before adding to origin.
     @SerialName("factor")
     override val factor: Decimal? = null,
 
-    // Lower limit of detection.
     @SerialName("lowerLimit")
     override val lowerLimit: Decimal? = null,
 
-    // Upper limit of detection.
     @SerialName("upperLimit")
     override val upperLimit: Decimal? = null,
 
-    // Number of sample points at each time point.
     @SerialName("dimensions")
     override val dimensions: PositiveInteger,
 
-    // Decimal values with spaces, or "E" | "U" | "L".
     @SerialName("data")
     override val data: String? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirSampledData {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "SampledData"
+        fun resourceType(): String = "SampledData"
     }
 }

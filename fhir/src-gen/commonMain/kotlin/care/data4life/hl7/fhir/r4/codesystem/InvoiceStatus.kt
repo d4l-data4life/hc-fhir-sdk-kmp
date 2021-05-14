@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: InvoiceStatus
+ *
  * Codes identifying the lifecycle stage of an Invoice.
  *
  * @see <a href="http://hl7.org/fhir/invoice-status">InvoiceStatus</a>
@@ -58,5 +60,5 @@ enum class InvoiceStatus {
      * the invoice was determined as entered in error before it was issued.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

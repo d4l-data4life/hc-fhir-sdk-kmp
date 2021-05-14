@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionCategoryCodes
+ *
  * Preferred value set for Condition Categories.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/condition-category">ConditionCategoryCodes</a>
@@ -42,5 +44,5 @@ enum class ConditionCategoryCodes {
      * encounter.
      */
     @SerialName("encounter-diagnosis")
-    ENCOUNTER_DIAGNOSIS
+    ENCOUNTER_DIAGNOSIS,
 }

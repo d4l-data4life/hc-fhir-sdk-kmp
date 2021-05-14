@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AccountStatus
+ *
  * Indicates whether the account is available to be used.
  *
  * @see <a href="http://hl7.org/fhir/account-status">AccountStatus</a>
@@ -58,5 +60,5 @@ enum class AccountStatus {
      * The account status is unknown.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

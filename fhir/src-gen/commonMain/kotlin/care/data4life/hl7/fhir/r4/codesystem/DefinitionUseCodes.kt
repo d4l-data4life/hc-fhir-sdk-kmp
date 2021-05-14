@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DefinitionUseCodes
+ *
  * Structure Definition Use Codes / Keywords
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/definition-use">DefinitionUseCodes</a>
@@ -65,5 +67,5 @@ enum class DefinitionUseCodes {
      * This structure is a template (n.b: 'template' has many meanings)
      */
     @SerialName("template")
-    TEMPLATE
+    TEMPLATE,
 }

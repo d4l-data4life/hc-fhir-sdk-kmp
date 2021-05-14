@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EvidenceVariableType
+ *
  * The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous,
  * Descriptive).
  *
@@ -47,5 +49,5 @@ enum class EvidenceVariableType {
      * The variable is described narratively rather than quantitatively.
      */
     @SerialName("descriptive")
-    DESCRIPTIVE
+    DESCRIPTIVE,
 }

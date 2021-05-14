@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionGroupingBehavior
+ *
  * Defines organization behavior of a group
  *
  * @see <a href="http://hl7.org/fhir/action-grouping-behavior">ActionGroupingBehavior</a>
@@ -57,5 +59,5 @@ enum class ActionGroupingBehavior {
      * "ExactlyOne"
      */
     @SerialName("sentence-group")
-    SENTENCE_GROUP
+    SENTENCE_GROUP,
 }

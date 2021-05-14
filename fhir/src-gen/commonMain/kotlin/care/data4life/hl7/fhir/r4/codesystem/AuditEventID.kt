@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AuditEventID
+ *
  * Event Types for Audit Events - defined by DICOM with some FHIR specific additions.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/audit-event-type">AuditEventID</a>
@@ -33,5 +35,5 @@ enum class AuditEventID {
      * Audit Event: Execution of a RESTful operation as defined by FHIR.
      */
     @SerialName("rest")
-    REST
+    REST,
 }

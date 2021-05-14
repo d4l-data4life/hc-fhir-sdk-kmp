@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: XPathUsageType
+ *
  * How a search parameter relates to the set of elements returned by evaluating its xpath query.
  *
  * @see <a href="http://hl7.org/fhir/search-xpath-usage">XPathUsageType</a>
@@ -60,5 +62,5 @@ enum class XPathUsageType {
      * The interpretation of the xpath statement is unknown (and can't be automated).
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

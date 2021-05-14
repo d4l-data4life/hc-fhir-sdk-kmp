@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionType
+ *
  * The type of action to be performed
  *
  * @see <a href="http://hl7.org/fhir/action-type">ActionType</a>
@@ -52,5 +54,5 @@ enum class ActionType {
      * The action is to fire a specific event
      */
     @SerialName("fire-event")
-    FIRE_EVENT
+    FIRE_EVENT,
 }

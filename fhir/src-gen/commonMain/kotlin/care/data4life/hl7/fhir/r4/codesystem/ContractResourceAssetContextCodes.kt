@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceAssetContextCodes
+ *
  * This value set contract specific codes for asset context.
  *
  * @see <a href="http://hl7.org/fhir/contract-asset-context">ContractResourceAssetContextCodes</a>
@@ -34,5 +36,5 @@ enum class ContractResourceAssetContextCodes {
      * To be completed
      */
     @SerialName("custodian")
-    CUSTODIAN
+    CUSTODIAN,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CertaintySubcomponentType
+ *
  * The subcomponent classification of quality of evidence rating systems.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type">CertaintySubcomponentType</a>
@@ -76,5 +78,5 @@ enum class CertaintySubcomponentType {
      * higher certainty due to large effect size.
      */
     @SerialName("LargeEffect")
-    LARGEEFFECT
+    LARGEEFFECT,
 }

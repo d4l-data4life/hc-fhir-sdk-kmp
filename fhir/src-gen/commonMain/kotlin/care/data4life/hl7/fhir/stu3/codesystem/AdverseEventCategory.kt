@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventCategory
+ *
  * Overall categorization of the event, e.g. real or potential
  *
  * @see <a href="http://hl7.org/fhir/adverse-event-category">AdverseEventCategory</a>
@@ -40,5 +42,5 @@ enum class AdverseEventCategory {
      * PAE
      */
     @SerialName("PAE")
-    PAE
+    PAE,
 }

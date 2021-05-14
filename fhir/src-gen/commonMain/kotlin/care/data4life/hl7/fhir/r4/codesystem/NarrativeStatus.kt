@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NarrativeStatus
+ *
  * The status of a resource narrative.
  *
  * @see <a href="http://hl7.org/fhir/narrative-status">NarrativeStatus</a>
@@ -58,5 +60,5 @@ enum class NarrativeStatus {
      * provided in this case".
      */
     @SerialName("empty")
-    EMPTY
+    EMPTY,
 }

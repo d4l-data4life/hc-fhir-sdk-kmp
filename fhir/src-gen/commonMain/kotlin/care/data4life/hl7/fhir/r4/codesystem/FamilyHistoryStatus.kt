@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FamilyHistoryStatus
+ *
  * A code that identifies the status of the family history record.
  *
  * @see <a href="http://hl7.org/fhir/history-status">FamilyHistoryStatus</a>
@@ -54,5 +56,5 @@ enum class FamilyHistoryStatus {
      * Health information for this family member is unavailable/unknown.
      */
     @SerialName("health-unknown")
-    HEALTH_UNKNOWN
+    HEALTH_UNKNOWN,
 }

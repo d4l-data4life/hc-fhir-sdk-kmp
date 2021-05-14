@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BindingStrength
+ *
  * Indication of the degree of conformance expectations associated with a binding.
  *
  * @see <a href="http://hl7.org/fhir/binding-strength">BindingStrength</a>
@@ -40,7 +42,7 @@ enum class BindingStrength {
     /**
      * To be conformant, the concept in this element SHALL be from the specified value
      * set if any of the codes within the value set can apply to the concept being
-     * communicated.  If the value set does not cover the concept (based on human
+     * communicated. If the value set does not cover the concept (based on human
      * review), alternate codings (or, data type allowing, text) may be included
      * instead.
      */
@@ -56,9 +58,9 @@ enum class BindingStrength {
 
     /**
      * Instances are not expected or even encouraged to draw from the specified value
-     * set.  The value set merely provides examples of the types of concepts intended
-     * to be included.
+     * set. The value set merely provides examples of the types of concepts intended to
+     * be included.
      */
     @SerialName("example")
-    EXAMPLE
+    EXAMPLE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ListMode
+ *
  * The processing mode that applies to this list.
  *
  * @see <a href="http://hl7.org/fhir/list-mode">ListMode</a>
@@ -44,10 +46,10 @@ enum class ListMode {
     SNAPSHOT,
 
     /**
-     * A point-in-time list that shows what changes have been made or recommended.
-     * E.g. a discharge medication list showing what was added and removed during an
+     * A point-in-time list that shows what changes have been made or recommended. E.g.
+     * a discharge medication list showing what was added and removed during an
      * encounter.
      */
     @SerialName("changes")
-    CHANGES
+    CHANGES,
 }

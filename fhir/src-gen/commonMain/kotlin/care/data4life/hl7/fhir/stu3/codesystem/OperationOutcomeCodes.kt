@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: OperationOutcomeCodes
+ *
  * Operation Outcome codes used by FHIR test servers (see Implementation file translations.xml)
  *
  * @see <a href="http://hl7.org/fhir/operation-outcome">OperationOutcomeCodes</a>
@@ -328,5 +330,5 @@ enum class OperationOutcomeCodes {
      * SEARCH_NONE
      */
     @SerialName("SEARCH_NONE")
-    SEARCH_NONE
+    SEARCH_NONE,
 }

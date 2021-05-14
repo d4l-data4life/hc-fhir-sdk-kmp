@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ImmunizationOriginCodes
+ *
  * The value set to instantiate this attribute should be drawn from a terminologically robust code
  * system that consists of or contains concepts to support describing the source of the data when the
  * report of the immunization event is not based on information from the person, entity or organization
@@ -64,5 +66,5 @@ enum class ImmunizationOriginCodes {
      * system (IIS) or registry operating within the jurisdiction.
      */
     @SerialName("jurisdiction")
-    JURISDICTION
+    JURISDICTION,
 }

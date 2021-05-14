@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: LocationMode
+ *
  * Indicates whether a resource instance represents a specific location or a class of locations.
  *
  * @see <a href="http://hl7.org/fhir/location-mode">LocationMode</a>
@@ -43,5 +45,5 @@ enum class LocationMode {
      * (such as organization, or parent location, address etc.).
      */
     @SerialName("kind")
-    KIND
+    KIND,
 }

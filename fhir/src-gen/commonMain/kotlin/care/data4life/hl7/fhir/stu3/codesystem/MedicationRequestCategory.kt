@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestCategory
+ *
  * A coded concept identifying where the medication ordered is expected to be consumed or administered
  *
  * @see <a href="http://hl7.org/fhir/medication-request-category">MedicationRequestCategory</a>
@@ -50,5 +52,5 @@ enum class MedicationRequestCategory {
      * their home (this would include long term care or nursing homes, hospices, etc)
      */
     @SerialName("community")
-    COMMUNITY
+    COMMUNITY,
 }

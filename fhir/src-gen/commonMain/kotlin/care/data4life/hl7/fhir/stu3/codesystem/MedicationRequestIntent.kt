@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestIntent
+ *
  * The kind of medication order
  *
  * @see <a href="http://hl7.org/fhir/medication-request-intent">MedicationRequestIntent</a>
@@ -55,5 +57,5 @@ enum class MedicationRequestIntent {
      * medication administration record.
      */
     @SerialName("instance-order")
-    INSTANCE_ORDER
+    INSTANCE_ORDER,
 }

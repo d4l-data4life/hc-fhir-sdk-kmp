@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleClaimSubTypeCodes
+ *
  * This value set includes sample Claim SubType codes which are used to distinguish the claim types for
  * example within type institutional there may be subtypes for emergency services, bed stay and
  * transportation.
@@ -42,5 +44,5 @@ enum class ExampleClaimSubTypeCodes {
      * A claim for emergency services.
      */
     @SerialName("emergency")
-    EMERGENCY
+    EMERGENCY,
 }

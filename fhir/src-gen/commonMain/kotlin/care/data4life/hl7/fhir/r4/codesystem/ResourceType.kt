@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResourceType
+ *
  * One of the resource types defined as part of this version of FHIR.
  *
  * @see <a href="http://hl7.org/fhir/resource-types">ResourceType</a>
@@ -30,7 +32,7 @@ import kotlinx.serialization.Serializable
 enum class ResourceType {
 
     /**
-     * A financial tool for tracking value accrued for a particular purpose.  In the
+     * A financial tool for tracking value accrued for a particular purpose. In the
      * healthcare field, used to track charges for a patient, cost centers, etc.
      */
     @SerialName("Account")
@@ -44,7 +46,7 @@ enum class ResourceType {
     ACTIVITYDEFINITION,
 
     /**
-     * Actual or  potential/avoided event causing unintended physical injury resulting
+     * Actual or potential/avoided event causing unintended physical injury resulting
      * from or contributed to by medical care, a research study or other healthcare
      * setting factors that requires additional monitoring, treatment, or
      * hospitalization, or that results in death.
@@ -92,7 +94,7 @@ enum class ResourceType {
 
     /**
      * A resource that represents the data of a single raw artifact as digital content
-     * accessible in its native format.  A Binary resource can contain any content,
+     * accessible in its native format. A Binary resource can contain any content,
      * whether text, image, pdf, zip archive, etc.
      */
     @SerialName("Binary")
@@ -100,14 +102,13 @@ enum class ResourceType {
 
     /**
      * A material substance originating from a biological entity intended to be
-     * transplanted or infused
-     * into another (possibly the same) biological entity.
+     * transplanted or infused into another (possibly the same) biological entity.
      */
     @SerialName("BiologicallyDerivedProduct")
     BIOLOGICALLYDERIVEDPRODUCT,
 
     /**
-     * Record details about an anatomical structure.  This resource may be used when a
+     * Record details about an anatomical structure. This resource may be used when a
      * coded concept does not provide the necessary detail needed for the use case.
      */
     @SerialName("BodyStructure")
@@ -187,7 +188,7 @@ enum class ResourceType {
      * A record of a clinical assessment performed to determine what problem(s) may
      * affect the patient and before planning the treatments or management strategies
      * that are best to manage a patient's condition. Assessments are often 1:1 with a
-     * clinical consultation / encounter,  but this varies greatly depending on the
+     * clinical consultation / encounter, but this varies greatly depending on the
      * clinical workflow. This resource is called "ClinicalImpression" rather than
      * "ClinicalAssessment" to avoid confusion with the recording of assessment tools
      * such as Apgar score.
@@ -255,7 +256,7 @@ enum class ResourceType {
     CONDITION,
 
     /**
-     * A record of a healthcare consumer’s  choices, which permits or denies identified
+     * A record of a healthcare consumer’s choices, which permits or denies identified
      * recipient(s) or recipient role(s) to perform one or more actions within a given
      * policy context, for specific purposes and periods of time.
      */
@@ -337,7 +338,7 @@ enum class ResourceType {
     DEVICEUSESTATEMENT,
 
     /**
-     * The findings and interpretation of diagnostic  tests performed on patients,
+     * The findings and interpretation of diagnostic tests performed on patients,
      * groups of patients, devices, and locations, and/or specimens derived from these.
      * The report includes clinical context such as requesting and provider
      * information, and some mix of atomic results, images, textual and coded
@@ -506,7 +507,7 @@ enum class ResourceType {
      * Representation of the content produced in a DICOM imaging study. A study
      * comprises a set of series, each of which includes a set of Service-Object Pair
      * Instances (SOP Instances - images or other data) acquired or produced in a
-     * common context.  A series is of only one modality (e.g. X-ray, CT, MR,
+     * common context. A series is of only one modality (e.g. X-ray, CT, MR,
      * ultrasound), but a study may have multiple series of different modalities.
      */
     @SerialName("ImagingStudy")
@@ -522,7 +523,7 @@ enum class ResourceType {
     /**
      * Describes a comparison of an immunization event against published
      * recommendations to determine if the administration is "valid" in relation to
-     * those  recommendations.
+     * those recommendations.
      */
     @SerialName("ImmunizationEvaluation")
     IMMUNIZATIONEVALUATION,
@@ -616,8 +617,8 @@ enum class ResourceType {
 
     /**
      * Describes the event of a patient consuming or otherwise being administered a
-     * medication.  This may be as simple as swallowing a tablet or it may be a long
-     * running infusion.  Related resources tie this event to the authorizing
+     * medication. This may be as simple as swallowing a tablet or it may be a long
+     * running infusion. Related resources tie this event to the authorizing
      * prescription, and the specific encounter between patient and health care
      * practitioner.
      */
@@ -626,8 +627,8 @@ enum class ResourceType {
 
     /**
      * Indicates that a medication product is to be or has been dispensed for a named
-     * person/patient.  This includes a description of the medication product (supply)
-     * provided and the instructions for administering the medication.  The medication
+     * person/patient. This includes a description of the medication product (supply)
+     * provided and the instructions for administering the medication. The medication
      * dispense is the result of a pharmacy system responding to a medication order.
      */
     @SerialName("MedicationDispense")
@@ -650,27 +651,27 @@ enum class ResourceType {
     MEDICATIONREQUEST,
 
     /**
-     * A record of a medication that is being consumed by a patient.   A
+     * A record of a medication that is being consumed by a patient. A
      * MedicationStatement may indicate that the patient may be taking the medication
      * now or has taken the medication in the past or will be taking the medication in
-     * the future.  The source of this information can be the patient, significant
-     * other (such as a family member or spouse), or a clinician.  A common scenario
-     * where this information is captured is during the history taking process during a
-     * patient visit or stay.   The medication information may come from sources such
-     * as the patient's memory, from a prescription bottle,  or from a list of
-     * medications the patient, clinician or other party maintains.
-     * The primary difference between a medication statement and a medication
-     * administration is that the medication administration has complete administration
-     * information and is based on actual administration information from the person
-     * who administered the medication.  A medication statement is often, if not
-     * always, less specific.  There is no required date/time when the medication was
-     * administered, in fact we only know that a source has reported the patient is
-     * taking this medication, where details such as time, quantity, or rate or even
-     * medication product may be incomplete or missing or less precise.  As stated
-     * earlier, the medication statement information may come from the patient's
-     * memory, from a prescription bottle or from a list of medications the patient,
-     * clinician or other party maintains.  Medication administration is more formal
-     * and is not missing detailed information.
+     * the future. The source of this information can be the patient, significant other
+     * (such as a family member or spouse), or a clinician. A common scenario where
+     * this information is captured is during the history taking process during a
+     * patient visit or stay. The medication information may come from sources such as
+     * the patient's memory, from a prescription bottle, or from a list of medications
+     * the patient, clinician or other party maintains.   The primary difference
+     * between a medication statement and a medication administration is that the
+     * medication administration has complete administration information and is based
+     * on actual administration information from the person who administered the
+     * medication. A medication statement is often, if not always, less specific. There
+     * is no required date/time when the medication was administered, in fact we only
+     * know that a source has reported the patient is taking this medication, where
+     * details such as time, quantity, or rate or even medication product may be
+     * incomplete or missing or less precise. As stated earlier, the medication
+     * statement information may come from the patient's memory, from a prescription
+     * bottle or from a list of medications the patient, clinician or other party
+     * maintains. Medication administration is more formal and is not missing detailed
+     * information.
      */
     @SerialName("MedicationStatement")
     MEDICATIONSTATEMENT,
@@ -748,7 +749,7 @@ enum class ResourceType {
 
     /**
      * The header for a message exchange that is either requesting or responding to an
-     * action.  The reference(s) that are the subject of the action as well as other
+     * action. The reference(s) that are the subject of the action as well as other
      * information related to the action are typically transmitted in a bundle in which
      * the MessageHeader resource instance is the first resource in the bundle.
      */
@@ -763,7 +764,7 @@ enum class ResourceType {
 
     /**
      * A curated namespace that issues unique symbols within that namespace for the
-     * identification of concepts, people, devices, etc.  Represents a "System" used
+     * identification of concepts, people, devices, etc. Represents a "System" used
      * within the Identifier and Coding data types.
      */
     @SerialName("NamingSystem")
@@ -806,9 +807,9 @@ enum class ResourceType {
 
     /**
      * A formally or informally recognized grouping of people or organizations formed
-     * for the purpose of achieving some form of collective action.  Includes
-     * companies, institutions, corporations, departments, community groups, healthcare
-     * practice groups, payer/insurer, etc.
+     * for the purpose of achieving some form of collective action. Includes companies,
+     * institutions, corporations, departments, community groups, healthcare practice
+     * groups, payer/insurer, etc.
      */
     @SerialName("Organization")
     ORGANIZATION,
@@ -949,10 +950,10 @@ enum class ResourceType {
 
     /**
      * A process where a researcher or organization plans and then executes a series of
-     * steps intended to increase the field of healthcare-related knowledge.  This
+     * steps intended to increase the field of healthcare-related knowledge. This
      * includes studies of safety, efficacy, comparative effectiveness and other
      * information about medications, devices, therapies and other interventional and
-     * investigative techniques.  A ResearchStudy involves the gathering of information
+     * investigative techniques. A ResearchStudy involves the gathering of information
      * about human or animal subjects.
      */
     @SerialName("ResearchStudy")
@@ -1173,5 +1174,5 @@ enum class ResourceType {
      * patient.
      */
     @SerialName("VisionPrescription")
-    VISIONPRESCRIPTION
+    VISIONPRESCRIPTION,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureReportType
+ *
  * The type of the measure report
  *
  * @see <a href="http://hl7.org/fhir/measure-report-type">MeasureReportType</a>
@@ -49,5 +51,5 @@ enum class MeasureReportType {
      * for the measure
      */
     @SerialName("summary")
-    SUMMARY
+    SUMMARY,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StandardsStatus
+ *
  * HL7 Ballot/Standards status of artifact.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/standards-status">StandardsStatus</a>
@@ -60,9 +62,9 @@ enum class StandardsStatus {
      * an official standard. However, it has not yet seen widespread use in production
      * across the full spectrum of environments it is intended to be used in. In some
      * cases, there may be documented known issues that require implementation
-     * experience to determine appropriate resolutions for.
-     * Future versions of FHIR may make significant changes to Trial Use content that
-     * are not compatible with previously published content.
+     * experience to determine appropriate resolutions for.  Future versions of FHIR
+     * may make significant changes to Trial Use content that are not compatible with
+     * previously published content.
      */
     @SerialName("trial-use")
     TRIAL_USE,
@@ -90,5 +92,5 @@ enum class StandardsStatus {
      * implementer convenience.
      */
     @SerialName("external")
-    EXTERNAL
+    EXTERNAL,
 }

@@ -112,20 +112,20 @@ object FhirSerializationModule {
     fun module(): SerializersModule {
         return SerializersModule {
             polymorphic(FhirStu3::class) {
-                {%- for resource in resources %}
-                {%- if resource.name in resource_list %}
+{%- for resource in resources %}
+{%- if resource.name in resource_list %}
                 subclass({{ resource.name }}::class)
-                {%- endif %}
-                {%- endfor %}
+{%- endif %}
+{%- endfor %}
             }
             polymorphic(FhirResource::class) {
-                {%- for resource in resources %}
-                {%- if resource.name in fhir_resource_list %}
+{%- for resource in resources %}
+{%- if resource.name in fhir_resource_list %}
                 subclass({{ resource.name }}::class)
-                {%- endif %}
-                {%- endfor %}
+{%- endif %}
+{%- endfor %}
             }
         }
     }
 }
-{% if True %}{% endif %}
+{% if True %}{# ensure empty line at end of file #}{% endif %}

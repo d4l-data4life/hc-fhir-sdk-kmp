@@ -24,91 +24,152 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirFamilyMemberHistory
+ *
+ * Significant health conditions for a person related to the patient relevant in the context of care
+ * for the patient.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory">FamilyMemberHistory</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory)
+ */
 interface FhirFamilyMemberHistory : FhirDomainResource {
 
-    // External Id(s) for this record.
+    /**
+     * External Id(s) for this record.
+     */
     val identifier: List<Identifier>?
 
-    // Instantiates FHIR protocol or definition.
+    /**
+     * Instantiates FHIR protocol or definition.
+     */
     val instantiatesCanonical: List<String>?
 
-    // Instantiates external protocol or definition.
+    /**
+     * Instantiates external protocol or definition.
+     */
     val instantiatesUri: List<String>?
 
-    // A code specifying the status of the record of the family history of a specific family member.
+    /**
+     * A code specifying the status of the record of the family history of a specific
+     * family member.
+     */
     val status: FamilyHistoryStatus
 
-    // subject-unknown | withheld | unable-to-obtain | deferred.
+    /**
+     * subject-unknown | withheld | unable-to-obtain | deferred.
+     */
     val dataAbsentReason: CodeableConcept?
 
-    // Patient history is about.
+    /**
+     * Patient history is about.
+     */
     val patient: Reference
 
-    // When history was recorded or last updated.
+    /**
+     * When history was recorded or last updated.
+     */
     val date: DateTime?
 
-    // The family member described.
+    /**
+     * The family member described.
+     */
     val name: String?
 
-    // Relationship to the subject.
+    /**
+     * Relationship to the subject.
+     */
     val relationship: CodeableConcept
 
-    // male | female | other | unknown.
+    /**
+     * male | female | other | unknown.
+     */
     val sex: CodeableConcept?
 
-    // (approximate) date of birth.
+    /**
+     * (approximate) date of birth.
+     */
     val bornPeriod: Period?
 
-    // (approximate) date of birth.
+    /**
+     * (approximate) date of birth.
+     */
     val bornDate: Date?
 
-    // (approximate) date of birth.
+    /**
+     * (approximate) date of birth.
+     */
     val bornString: String?
 
-    // (approximate) age.
+    /**
+     * (approximate) age.
+     */
     val ageAge: Age?
 
-    // (approximate) age.
+    /**
+     * (approximate) age.
+     */
     val ageRange: Range?
 
-    // (approximate) age.
+    /**
+     * (approximate) age.
+     */
     val ageString: String?
 
-    // Age is estimated?.
+    /**
+     * Age is estimated?.
+     */
     val estimatedAge: Bool?
 
-    // Dead? How old/when?.
+    /**
+     * Dead? How old/when?.
+     */
     val deceasedBoolean: Bool?
 
-    // Dead? How old/when?.
+    /**
+     * Dead? How old/when?.
+     */
     val deceasedAge: Age?
 
-    // Dead? How old/when?.
+    /**
+     * Dead? How old/when?.
+     */
     val deceasedRange: Range?
 
-    // Dead? How old/when?.
+    /**
+     * Dead? How old/when?.
+     */
     val deceasedDate: Date?
 
-    // Dead? How old/when?.
+    /**
+     * Dead? How old/when?.
+     */
     val deceasedString: String?
 
-    // Why was family member history performed?.
+    /**
+     * Why was family member history performed?.
+     */
     val reasonCode: List<CodeableConcept>?
 
-    // Why was family member history performed?.
+    /**
+     * Why was family member history performed?.
+     */
     val reasonReference: List<Reference>?
 
-    // General note about related person.
+    /**
+     * General note about related person.
+     */
     val note: List<Annotation>?
 
-    // Condition that the related person had.
+    /**
+     * Condition that the related person had.
+     */
     val condition: List<FamilyMemberHistoryCondition>?
 }
 
 /**
- * ClassName: FamilyMemberHistory
- *
- * SourceFileName: FamilyMemberHistory.kt
+ * FamilyMemberHistory
  *
  * Significant health conditions for a person related to the patient relevant in the context of care
  * for the patient.
@@ -121,187 +182,178 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
 @SerialName("FamilyMemberHistory")
 data class FamilyMemberHistory(
 
-    // External Id(s) for this record.
     @SerialName("identifier")
     override val identifier: List<Identifier>? = null,
 
-    // Instantiates FHIR protocol or definition.
     @SerialName("instantiatesCanonical")
     override val instantiatesCanonical: List<String>? = null,
 
-    // Instantiates external protocol or definition.
     @SerialName("instantiatesUri")
     override val instantiatesUri: List<String>? = null,
 
-    // A code specifying the status of the record of the family history of a specific family member.
     @SerialName("status")
     override val status: FamilyHistoryStatus,
 
-    // subject-unknown | withheld | unable-to-obtain | deferred.
     @SerialName("dataAbsentReason")
     override val dataAbsentReason: CodeableConcept? = null,
 
-    // Patient history is about.
     @SerialName("patient")
     override val patient: Reference,
 
-    // When history was recorded or last updated.
     @SerialName("date")
     override val date: DateTime? = null,
 
-    // The family member described.
     @SerialName("name")
     override val name: String? = null,
 
-    // Relationship to the subject.
     @SerialName("relationship")
     override val relationship: CodeableConcept,
 
-    // male | female | other | unknown.
     @SerialName("sex")
     override val sex: CodeableConcept? = null,
 
-    // (approximate) date of birth.
     @SerialName("bornPeriod")
     override val bornPeriod: Period? = null,
 
-    // (approximate) date of birth.
     @SerialName("bornDate")
     override val bornDate: Date? = null,
 
-    // (approximate) date of birth.
     @SerialName("bornString")
     override val bornString: String? = null,
 
-    // (approximate) age.
     @SerialName("ageAge")
     override val ageAge: Age? = null,
 
-    // (approximate) age.
     @SerialName("ageRange")
     override val ageRange: Range? = null,
 
-    // (approximate) age.
     @SerialName("ageString")
     override val ageString: String? = null,
 
-    // Age is estimated?.
     @SerialName("estimatedAge")
     override val estimatedAge: Bool? = null,
 
-    // Dead? How old/when?.
     @SerialName("deceasedBoolean")
     override val deceasedBoolean: Bool? = null,
 
-    // Dead? How old/when?.
     @SerialName("deceasedAge")
     override val deceasedAge: Age? = null,
 
-    // Dead? How old/when?.
     @SerialName("deceasedRange")
     override val deceasedRange: Range? = null,
 
-    // Dead? How old/when?.
     @SerialName("deceasedDate")
     override val deceasedDate: Date? = null,
 
-    // Dead? How old/when?.
     @SerialName("deceasedString")
     override val deceasedString: String? = null,
 
-    // Why was family member history performed?.
     @SerialName("reasonCode")
     override val reasonCode: List<CodeableConcept>? = null,
 
-    // Why was family member history performed?.
     @SerialName("reasonReference")
     override val reasonReference: List<Reference>? = null,
 
-    // General note about related person.
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
-    // Condition that the related person had.
     @SerialName("condition")
     override val condition: List<FamilyMemberHistoryCondition>? = null,
 
     // # DomainResource
 
-    // Text summary of the resource, for human interpretation.
     @SerialName("text")
     override val text: Narrative? = null,
 
-    // Contained, inline Resources.
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null,
 
-    // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Resource
 
-    // Logical id of this artifact.
     @SerialName("id")
     override val id: String? = null,
 
-    // Metadata about the resource.
     @SerialName("meta")
     override val meta: Meta? = null,
 
-    // A set of rules under which this content was created.
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
 
-    // Language of the resource content.
     @SerialName("language")
     override val language: String? = null
 ) : FhirFamilyMemberHistory {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "FamilyMemberHistory"
+        fun resourceType(): String = "FamilyMemberHistory"
     }
 }
 
+/**
+ * FhirFamilyMemberHistoryCondition
+ *
+ * The significant Conditions (or condition) that the family member had. This is a repeating section to
+ * allow a system to represent more than one condition per resource, though there is nothing stopping
+ * multiple resources - one per condition.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory">FamilyMemberHistoryCondition</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory)
+ */
 interface FhirFamilyMemberHistoryCondition : FhirBackboneElement {
 
-    // Condition suffered by relation.
+    /**
+     * Condition suffered by relation.
+     */
     val code: CodeableConcept
 
-    // deceased | permanent disability | etc..
+    /**
+     * deceased | permanent disability | etc..
+     */
     val outcome: CodeableConcept?
 
-    // Whether the condition contributed to the cause of death.
+    /**
+     * Whether the condition contributed to the cause of death.
+     */
     val contributedToDeath: Bool?
 
-    // When condition first manifested.
+    /**
+     * When condition first manifested.
+     */
     val onsetAge: Age?
 
-    // When condition first manifested.
+    /**
+     * When condition first manifested.
+     */
     val onsetRange: Range?
 
-    // When condition first manifested.
+    /**
+     * When condition first manifested.
+     */
     val onsetPeriod: Period?
 
-    // When condition first manifested.
+    /**
+     * When condition first manifested.
+     */
     val onsetString: String?
 
-    // Extra information about condition.
+    /**
+     * Extra information about condition.
+     */
     val note: List<Annotation>?
 }
 
 /**
- * ClassName: FamilyMemberHistoryCondition
- *
- * SourceFileName: FamilyMemberHistory.kt
+ * FamilyMemberHistoryCondition
  *
  * The significant Conditions (or condition) that the family member had. This is a repeating section to
  * allow a system to represent more than one condition per resource, though there is nothing stopping
@@ -315,60 +367,49 @@ interface FhirFamilyMemberHistoryCondition : FhirBackboneElement {
 @SerialName("FamilyMemberHistoryCondition")
 data class FamilyMemberHistoryCondition(
 
-    // Condition suffered by relation.
     @SerialName("code")
     override val code: CodeableConcept,
 
-    // deceased | permanent disability | etc..
     @SerialName("outcome")
     override val outcome: CodeableConcept? = null,
 
-    // Whether the condition contributed to the cause of death.
     @SerialName("contributedToDeath")
     override val contributedToDeath: Bool? = null,
 
-    // When condition first manifested.
     @SerialName("onsetAge")
     override val onsetAge: Age? = null,
 
-    // When condition first manifested.
     @SerialName("onsetRange")
     override val onsetRange: Range? = null,
 
-    // When condition first manifested.
     @SerialName("onsetPeriod")
     override val onsetPeriod: Period? = null,
 
-    // When condition first manifested.
     @SerialName("onsetString")
     override val onsetString: String? = null,
 
-    // Extra information about condition.
     @SerialName("note")
     override val note: List<Annotation>? = null,
 
     // # BackboneElement
 
-    // Extensions that cannot be ignored even if unrecognized.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirFamilyMemberHistoryCondition {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "FamilyMemberHistoryCondition"
+        fun resourceType(): String = "FamilyMemberHistoryCondition"
     }
 }

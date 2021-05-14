@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RejectionCriterion
+ *
  * Criterion for rejection of the specimen by laboratory.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/rejection-criteria">RejectionCriterion</a>
@@ -58,5 +60,5 @@ enum class RejectionCriterion {
      * specimen temperature inappropriate.
      */
     @SerialName("wrong-temperature")
-    WRONG_TEMPERATURE
+    WRONG_TEMPERATURE,
 }

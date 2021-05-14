@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContainerCap
+ *
  * Color of the container cap.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/container-cap">ContainerCap</a>
@@ -100,5 +102,5 @@ enum class ContainerCap {
      * pink cap.
      */
     @SerialName("pink")
-    PINK
+    PINK,
 }

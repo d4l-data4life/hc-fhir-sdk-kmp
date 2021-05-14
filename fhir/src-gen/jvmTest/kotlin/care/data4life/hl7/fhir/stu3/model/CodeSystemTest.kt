@@ -255,8 +255,10 @@ class CodeSystemTest {
             data.version
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -355,8 +357,10 @@ class CodeSystemTest {
             data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -515,8 +519,10 @@ class CodeSystemTest {
             data.version
         )
 
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }

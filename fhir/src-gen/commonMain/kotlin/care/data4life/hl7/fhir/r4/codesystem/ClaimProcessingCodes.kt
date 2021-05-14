@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimProcessingCodes
+ *
  * This value set includes Claim Processing Outcome codes.
  *
  * @see <a href="http://hl7.org/fhir/remittance-outcome">ClaimProcessingCodes</a>
@@ -54,5 +56,5 @@ enum class ClaimProcessingCodes {
      * performed.
      */
     @SerialName("partial")
-    PARTIAL
+    PARTIAL,
 }

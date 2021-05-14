@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionClinicalStatusCodes
+ *
  * Preferred value set for Condition Clinical Status.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/condition-clinical">ConditionClinicalStatusCodes</a>
@@ -73,5 +75,5 @@ enum class ConditionClinicalStatusCodes {
      * a negligible perceived risk of the symptoms returning.
      */
     @SerialName("resolved")
-    RESOLVED
+    RESOLVED,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireItemType
+ *
  * Distinguishes groups from questions and display text and indicates data type for questions
  *
  * @see <a href="http://hl7.org/fhir/item-type">QuestionnaireItemType</a>
@@ -138,11 +140,11 @@ enum class QuestionnaireItemType {
 
     /**
      * Question with a combination of a numeric value and unit, potentially with a
-     * comparator (<, >, etc.) as an answer. (valueQuantity)
-     * There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-
-     * unit' that can be used to define what unit whould be captured (or the a unit
-     * that has a ucum conversion from the provided unit)
+     * comparator (<, >, etc.) as an answer. (valueQuantity) There is an extension
+     * 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to
+     * define what unit whould be captured (or the a unit that has a ucum conversion
+     * from the provided unit)
      */
     @SerialName("quantity")
-    QUANTITY
+    QUANTITY,
 }

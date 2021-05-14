@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PayeeResourceType
+ *
  * The type of payee Resource.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/resource-type-link">PayeeResourceType</a>
@@ -52,5 +54,5 @@ enum class PayeeResourceType {
      * RelatedPerson resource.
      */
     @SerialName("relatedperson")
-    RELATEDPERSON
+    RELATEDPERSON,
 }

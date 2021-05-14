@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NHINPurposeOfUse
+ *
  * This value set is suitable for use with the provenance resource. It is derived from, but not
  * compatible with, the HL7 v3 Purpose of use Code system.
  *
@@ -154,7 +156,7 @@ enum class NHINPurposeOfUse {
     DECEASED,
 
     /**
-     * Uses and disclosures for cadaveric organ,  eye or tissue donation purposes
+     * Uses and disclosures for cadaveric organ, eye or tissue donation purposes
      */
     @SerialName("DONATION")
     DONATION,
@@ -193,5 +195,5 @@ enum class NHINPurposeOfUse {
      * Request of the Individual
      */
     @SerialName("REQUEST")
-    REQUEST
+    REQUEST,
 }

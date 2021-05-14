@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestCourseOfTherapyCodes
+ *
  * MedicationRequest Course of Therapy Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy">MedicationRequestCourseOfTherapyCodes</a>
@@ -49,5 +51,5 @@ enum class MedicationRequestCourseOfTherapyCodes {
      * of the year
      */
     @SerialName("seasonal")
-    SEASONAL
+    SEASONAL,
 }

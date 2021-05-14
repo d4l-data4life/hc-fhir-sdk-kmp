@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ValidationProcess
+ *
  * The primary process by which the target is validated
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/validation-process">ValidationProcess</a>
@@ -64,5 +66,5 @@ enum class ValidationProcess {
      * inContext
      */
     @SerialName("in-context")
-    IN_CONTEXT
+    IN_CONTEXT,
 }

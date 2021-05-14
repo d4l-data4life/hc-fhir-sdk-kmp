@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExceptionCodes
+ *
  * This value set includes sample Exception codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/claim-exception">ExceptionCodes</a>
@@ -40,5 +42,5 @@ enum class ExceptionCodes {
      * Disabled
      */
     @SerialName("disabled")
-    DISABLED
+    DISABLED,
 }

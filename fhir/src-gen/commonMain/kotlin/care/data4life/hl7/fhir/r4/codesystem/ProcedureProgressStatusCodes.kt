@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ProcedureProgressStatusCodes
+ *
  * This value set is provided as an example. The value set to instantiate this attribute should be
  * drawn from a robust terminology code system that consists of or contains concepts to support the
  * procedure performance process.
@@ -66,5 +68,5 @@ enum class ProcedureProgressStatusCodes {
      * The patient is in the recovery room.
      */
     @SerialName("in-recovery-room")
-    IN_RECOVERY_ROOM
+    IN_RECOVERY_ROOM,
 }

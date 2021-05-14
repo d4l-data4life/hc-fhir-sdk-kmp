@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionPrecheckBehavior
+ *
  * Defines selection frequency behavior for an action or group.
  *
  * @see <a href="http://hl7.org/fhir/action-precheck-behavior">ActionPrecheckBehavior</a>
@@ -46,5 +48,5 @@ enum class ActionPrecheckBehavior {
      * action.
      */
     @SerialName("no")
-    NO
+    NO,
 }

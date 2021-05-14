@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CanonicalStatusCodesForFHIRResources
+ *
  * The master set of status codes used throughout FHIR. All status codes are mapped to one of these
  * codes.
  *
@@ -227,5 +229,5 @@ enum class CanonicalStatusCodesForFHIRResources {
      * The hardware is disconnected
      */
     @SerialName("hw-discon")
-    HW_DISCON
+    HW_DISCON,
 }

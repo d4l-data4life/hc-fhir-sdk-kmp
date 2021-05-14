@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DischargeDisposition
+ *
  * This value set defines a set of codes that can be used to where the patient left the hospital.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/discharge-disposition">DischargeDisposition</a>
@@ -99,5 +101,5 @@ enum class DischargeDisposition {
      * The discharge disposition has not otherwise defined.
      */
     @SerialName("oth")
-    OTH
+    OTH,
 }

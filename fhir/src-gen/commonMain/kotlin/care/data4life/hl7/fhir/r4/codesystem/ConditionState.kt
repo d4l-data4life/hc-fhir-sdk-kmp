@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionState
+ *
  * Enumeration indicating whether the condition is currently active, inactive, or has been resolved.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/condition-state">ConditionState</a>
@@ -46,5 +48,5 @@ enum class ConditionState {
      * The condition is resolved.
      */
     @SerialName("resolved")
-    RESOLVED
+    RESOLVED,
 }

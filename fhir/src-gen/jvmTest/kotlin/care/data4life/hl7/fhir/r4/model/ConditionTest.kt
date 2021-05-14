@@ -172,10 +172,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -317,10 +317,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -410,10 +410,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -487,10 +487,10 @@ class ConditionTest {
             data.text?.status
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -652,10 +652,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -733,10 +733,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -894,10 +894,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -987,10 +987,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -1148,10 +1148,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
@@ -1313,10 +1313,10 @@ class ConditionTest {
             data.verificationStatus?.coding?.get(0)?.system
         )
 
-        // When reverse
+        // When generating JSON from model
         val json = parser.fromFhir(data)
 
-        // Then reverse
+        // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 }

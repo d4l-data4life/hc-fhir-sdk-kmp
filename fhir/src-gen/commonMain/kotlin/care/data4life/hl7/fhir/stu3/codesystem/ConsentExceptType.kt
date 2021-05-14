@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentExceptType
+ *
  * How an exception statement is applied, such as adding additional consent or removing consent
  *
  * @see <a href="http://hl7.org/fhir/consent-except-type">ConsentExceptType</a>
@@ -40,5 +42,5 @@ enum class ConsentExceptType {
      * Consent is provided for actions meeting these rules
      */
     @SerialName("permit")
-    PERMIT
+    PERMIT,
 }

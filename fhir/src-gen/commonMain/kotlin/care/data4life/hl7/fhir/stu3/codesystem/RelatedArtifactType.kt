@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RelatedArtifactType
+ *
  * The type of relationship to the related artifact
  *
  * @see <a href="http://hl7.org/fhir/related-artifact-type">RelatedArtifactType</a>
@@ -89,5 +91,5 @@ enum class RelatedArtifactType {
      * The knowledge resource is composed of the given related artifact
      */
     @SerialName("composed-of")
-    COMPOSED_OF
+    COMPOSED_OF,
 }

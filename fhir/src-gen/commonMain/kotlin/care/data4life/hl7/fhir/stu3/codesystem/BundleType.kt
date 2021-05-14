@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BundleType
+ *
  * Indicates the purpose of a bundle - how it was intended to be used.
  *
  * @see <a href="http://hl7.org/fhir/bundle-type">BundleType</a>
@@ -88,5 +90,5 @@ enum class BundleType {
      * distribution.
      */
     @SerialName("collection")
-    COLLECTION
+    COLLECTION,
 }

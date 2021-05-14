@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EncounterType
+ *
  * This example value set defines a set of codes that can be used to indicate the type of encounter: a
  * specific code indicating type of service provided.
  *
@@ -53,5 +55,5 @@ enum class EncounterType {
      * OKI
      */
     @SerialName("OKI")
-    OKI
+    OKI,
 }

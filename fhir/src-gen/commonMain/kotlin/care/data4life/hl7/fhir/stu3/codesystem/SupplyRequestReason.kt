@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SupplyRequestReason
+ *
  * Why the supply item was requested
  *
  * @see <a href="http://hl7.org/fhir/supplyrequest-reason">SupplyRequestReason</a>
@@ -40,5 +42,5 @@ enum class SupplyRequestReason {
      * The supply has been requested for for creating or replenishing ward stock.
      */
     @SerialName("ward-stock")
-    WARD_STOCK
+    WARD_STOCK,
 }

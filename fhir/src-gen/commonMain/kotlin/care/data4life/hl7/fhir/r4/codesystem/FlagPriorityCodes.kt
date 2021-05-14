@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FlagPriorityCodes
+ *
  * This value set is provided as an exemplar. The value set is driven by IHE Table B.8-4: Abnormal
  * Flags, Alert Priority.
  *
@@ -53,5 +55,5 @@ enum class FlagPriorityCodes {
      * High priority.
      */
     @SerialName("PH")
-    PH
+    PH,
 }

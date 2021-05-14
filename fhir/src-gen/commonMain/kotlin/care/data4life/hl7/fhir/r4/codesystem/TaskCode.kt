@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TaskCode
+ *
  * Codes indicating the type of action that is expected to be performed
  *
  * @see <a href="http://hl7.org/fhir/CodeSystem/task-code">TaskCode</a>
@@ -32,16 +34,16 @@ enum class TaskCode {
 
     /**
      * Take what actions are needed to transition the focus resource from 'draft' to
-     * 'active' or 'in-progress', as appropriate for the resource type.  This may
+     * 'active' or 'in-progress', as appropriate for the resource type. This may
      * involve additing additional content, approval, validation, etc.
      */
     @SerialName("approve")
     APPROVE,
 
     /**
-     * Act to perform the actions defined in the focus request.  This might result in a
+     * Act to perform the actions defined in the focus request. This might result in a
      * 'more assertive' request (order for a plan or proposal, filler order for a
-     * placer order), but is intend to eventually result in events.  The degree of
+     * placer order), but is intend to eventually result in events. The degree of
      * fulfillment requested might be limited by Task.restriction.
      */
     @SerialName("fulfill")
@@ -78,5 +80,5 @@ enum class TaskCode {
      * appropriate for the resource type.
      */
     @SerialName("resume")
-    RESUME
+    RESUME,
 }

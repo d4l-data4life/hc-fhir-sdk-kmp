@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationStatementCategory
+ *
  * A coded concept identifying where the medication included in the medicationstatement is expected to
  * be consumed or administered
  *
@@ -58,5 +60,5 @@ enum class MedicationStatementCategory {
      * provided by the patient, agent or another provider
      */
     @SerialName("patientspecified")
-    PATIENTSPECIFIED
+    PATIENTSPECIFIED,
 }

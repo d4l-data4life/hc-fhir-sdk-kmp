@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourcePartyRoleCodes
+ *
  * This value set contract specific codes for offer party participation.
  *
  * @see <a href="http://hl7.org/fhir/contract-party-role">ContractResourcePartyRoleCodes</a>
@@ -34,5 +36,5 @@ enum class ContractResourcePartyRoleCodes {
      * To be completed
      */
     @SerialName("flunky")
-    FLUNKY
+    FLUNKY,
 }

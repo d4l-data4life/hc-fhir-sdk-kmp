@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ValidationStatus
+ *
  * Status of the validation of the target against the primary source
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/validation-status">ValidationStatus</a>
@@ -46,5 +48,5 @@ enum class ValidationStatus {
      * The validations status has not been determined yet
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

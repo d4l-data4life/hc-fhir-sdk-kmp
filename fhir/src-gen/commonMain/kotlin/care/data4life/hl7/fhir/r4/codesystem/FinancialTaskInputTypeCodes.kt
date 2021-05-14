@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FinancialTaskInputTypeCodes
+ *
  * This value set includes Financial Task Input Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/financialtaskinputtype">FinancialTaskInputTypeCodes</a>
@@ -71,5 +73,5 @@ enum class FinancialTaskInputTypeCodes {
      * as the adjudication of a claim.
      */
     @SerialName("status")
-    STATUS
+    STATUS,
 }

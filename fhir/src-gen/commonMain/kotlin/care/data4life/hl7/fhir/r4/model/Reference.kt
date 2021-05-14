@@ -20,25 +20,40 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirReference
+ *
+ * A reference from one resource to another
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Reference">Reference</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Reference)
+ */
 interface FhirReference : FhirElement {
 
-    // Literal reference, Relative, internal or absolute URL.
+    /**
+     * Literal reference, Relative, internal or absolute URL.
+     */
     val reference: String?
 
-    // Type the reference refers to (e.g. "Patient").
+    /**
+     * Type the reference refers to (e.g. "Patient").
+     */
     val type: String?
 
-    // Logical reference, when literal reference is not known.
+    /**
+     * Logical reference, when literal reference is not known.
+     */
     val identifier: Identifier?
 
-    // Text alternative for the resource.
+    /**
+     * Text alternative for the resource.
+     */
     val display: String?
 }
 
 /**
- * ClassName: Reference
- *
- * SourceFileName: Reference.kt
+ * Reference
  *
  * A reference from one resource to another
  *
@@ -50,38 +65,32 @@ interface FhirReference : FhirElement {
 @SerialName("Reference")
 data class Reference(
 
-    // Literal reference, Relative, internal or absolute URL.
     @SerialName("reference")
     override val reference: String? = null,
 
-    // Type the reference refers to (e.g. "Patient").
     @SerialName("type")
     override val type: String? = null,
 
-    // Logical reference, when literal reference is not known.
     @SerialName("identifier")
     override val identifier: Identifier? = null,
 
-    // Text alternative for the resource.
     @SerialName("display")
     override val display: String? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirReference {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Reference"
+        fun resourceType(): String = "Reference"
     }
 }

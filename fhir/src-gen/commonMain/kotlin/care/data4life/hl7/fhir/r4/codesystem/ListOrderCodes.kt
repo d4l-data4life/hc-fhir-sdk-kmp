@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ListOrderCodes
+ *
  * Base values for the order of the items in a list resource.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/list-order">ListOrderCodes</a>
@@ -83,5 +85,5 @@ enum class ListOrderCodes {
      * The list is sorted by patient, with items for each patient grouped together.
      */
     @SerialName("patient")
-    PATIENT
+    PATIENT,
 }

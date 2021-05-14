@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ImplantStatus
+ *
  * A set codes that define the functional status of an implanted device.
  *
  * @see <a href="http://hl7.org/fhir/implant-status">ImplantStatus</a>
@@ -52,5 +54,5 @@ enum class ImplantStatus {
      * the functional status of the implant has not been determined
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

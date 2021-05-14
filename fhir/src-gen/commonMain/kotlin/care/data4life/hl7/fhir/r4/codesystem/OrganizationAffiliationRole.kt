@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: OrganizationAffiliationRole
+ *
  * This example value set defines a set of codes that can be used to indicate the role of one
  * Organization in relation to another.
  *
@@ -82,5 +84,5 @@ enum class OrganizationAffiliationRole {
      * collaboration, joint ventures, etc.)
      */
     @SerialName("member")
-    MEMBER
+    MEMBER,
 }

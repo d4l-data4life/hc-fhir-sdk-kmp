@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleRelatedClaimRelationshipCodes
+ *
  * This value set includes sample Related Claim Relationship codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship">ExampleRelatedClaimRelationshipCodes</a>
@@ -41,5 +43,5 @@ enum class ExampleRelatedClaimRelationshipCodes {
      * here.
      */
     @SerialName("associated")
-    ASSOCIATED
+    ASSOCIATED,
 }

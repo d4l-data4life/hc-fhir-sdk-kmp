@@ -95,3 +95,4 @@ object FhirElementFactory {
         }
     }
 }
+{% if True %}{# ensure empty line at end of file #}{% endif %}

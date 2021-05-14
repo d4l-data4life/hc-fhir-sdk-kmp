@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleDiagnosisOnAdmissionCodes
+ *
  * This value set includes example Diagnosis on Admission codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission">ExampleDiagnosisOnAdmissionCodes</a>
@@ -54,5 +56,5 @@ enum class ExampleDiagnosisOnAdmissionCodes {
      * condition was present at the time of inpatient admission.
      */
     @SerialName("w")
-    W
+    W,
 }

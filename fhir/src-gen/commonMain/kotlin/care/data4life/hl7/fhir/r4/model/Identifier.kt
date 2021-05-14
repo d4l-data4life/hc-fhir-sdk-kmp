@@ -21,31 +21,51 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirIdentifier
+ *
+ * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for
+ * business identifiers.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Identifier">Identifier</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Identifier)
+ */
 interface FhirIdentifier : FhirElement {
 
-    // The purpose of this identifier.
+    /**
+     * The purpose of this identifier.
+     */
     val use: IdentifierUse?
 
-    // Description of identifier.
+    /**
+     * Description of identifier.
+     */
     val type: CodeableConcept?
 
-    // The namespace for the identifier value.
+    /**
+     * The namespace for the identifier value.
+     */
     val system: String?
 
-    // The value that is unique.
+    /**
+     * The value that is unique.
+     */
     val value: String?
 
-    // Time period when id is/was valid for use.
+    /**
+     * Time period when id is/was valid for use.
+     */
     val period: Period?
 
-    // Organization that issued id (may be just text).
+    /**
+     * Organization that issued id (may be just text).
+     */
     val assigner: Reference?
 }
 
 /**
- * ClassName: Identifier
- *
- * SourceFileName: Identifier.kt
+ * Identifier
  *
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for
  * business identifiers.
@@ -58,46 +78,38 @@ interface FhirIdentifier : FhirElement {
 @SerialName("Identifier")
 data class Identifier(
 
-    // The purpose of this identifier.
     @SerialName("use")
     override val use: IdentifierUse? = null,
 
-    // Description of identifier.
     @SerialName("type")
     override val type: CodeableConcept? = null,
 
-    // The namespace for the identifier value.
     @SerialName("system")
     override val system: String? = null,
 
-    // The value that is unique.
     @SerialName("value")
     override val value: String? = null,
 
-    // Time period when id is/was valid for use.
     @SerialName("period")
     override val period: Period? = null,
 
-    // Organization that issued id (may be just text).
     @SerialName("assigner")
     override val assigner: Reference? = null,
 
     // # Element
 
-    // Unique id for inter-element referencing.
     @SerialName("id")
     override val id: String? = null,
 
-    // Additional content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirIdentifier {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Identifier"
+        fun resourceType(): String = "Identifier"
     }
 }

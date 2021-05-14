@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResponseType
+ *
  * The kind of response to a message.
  *
  * @see <a href="http://hl7.org/fhir/response-code">ResponseType</a>
@@ -50,5 +52,5 @@ enum class ResponseType {
      * issue.
      */
     @SerialName("fatal-error")
-    FATAL_ERROR
+    FATAL_ERROR,
 }

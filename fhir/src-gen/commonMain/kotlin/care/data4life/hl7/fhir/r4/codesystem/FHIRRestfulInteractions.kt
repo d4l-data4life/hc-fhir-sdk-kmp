@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FHIRRestfulInteractions
+ *
  * The set of interactions defined by the RESTful part of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/restful-interaction">FHIRRestfulInteractions</a>
@@ -131,5 +133,5 @@ enum class FHIRRestfulInteractions {
      * Perform an operation as defined by an OperationDefinition.
      */
     @SerialName("operation")
-    OPERATION
+    OPERATION,
 }

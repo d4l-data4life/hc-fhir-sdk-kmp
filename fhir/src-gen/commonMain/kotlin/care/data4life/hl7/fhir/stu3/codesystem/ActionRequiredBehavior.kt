@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionRequiredBehavior
+ *
  * Defines requiredness behavior for selecting an action or an action group
  *
  * @see <a href="http://hl7.org/fhir/action-required-behavior">ActionRequiredBehavior</a>
@@ -50,5 +52,5 @@ enum class ActionRequiredBehavior {
      * was not included
      */
     @SerialName("must-unless-documented")
-    MUST_UNLESS_DOCUMENTED
+    MUST_UNLESS_DOCUMENTED,
 }

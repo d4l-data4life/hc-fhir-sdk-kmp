@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: OperationParameterUse
+ *
  * Whether an operation parameter is an input or an output parameter.
  *
  * @see <a href="http://hl7.org/fhir/operation-parameter-use">OperationParameterUse</a>
@@ -40,5 +42,5 @@ enum class OperationParameterUse {
      * This is an output parameter.
      */
     @SerialName("out")
-    OUT
+    OUT,
 }

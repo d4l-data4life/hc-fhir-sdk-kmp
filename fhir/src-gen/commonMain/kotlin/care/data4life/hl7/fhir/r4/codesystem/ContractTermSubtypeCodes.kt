@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractTermSubtypeCodes
+ *
  * This value set includes sample Contract Term SubType codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contracttermsubtypecodes">ContractTermSubtypeCodes</a>
@@ -47,5 +49,5 @@ enum class ContractTermSubtypeCodes {
      * the nature of the breach
      */
     @SerialName("innominate")
-    INNOMINATE
+    INNOMINATE,
 }

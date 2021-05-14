@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationUsageCategoryCodes
+ *
  * Medication Status Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medication-statement-category">MedicationUsageCategoryCodes</a>
@@ -57,5 +59,5 @@ enum class MedicationUsageCategoryCodes {
      * provided by the patient, agent or another provider
      */
     @SerialName("patientspecified")
-    PATIENTSPECIFIED
+    PATIENTSPECIFIED,
 }

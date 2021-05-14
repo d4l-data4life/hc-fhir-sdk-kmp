@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GraphCompartmentRule
+ *
  * How a compartment must be linked.
  *
  * @see <a href="http://hl7.org/fhir/graph-compartment-rule">GraphCompartmentRule</a>
@@ -53,5 +55,5 @@ enum class GraphCompartmentRule {
      * The compartment rule is defined in the accompanying FHIRPath expression.
      */
     @SerialName("custom")
-    CUSTOM
+    CUSTOM,
 }

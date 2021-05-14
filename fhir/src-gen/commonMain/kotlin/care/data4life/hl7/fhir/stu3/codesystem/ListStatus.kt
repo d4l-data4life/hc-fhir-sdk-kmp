@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ListStatus
+ *
  * The current state of the list
  *
  * @see <a href="http://hl7.org/fhir/list-status">ListStatus</a>
@@ -43,8 +45,8 @@ enum class ListStatus {
     RETIRED,
 
     /**
-     * The list was never accurate.  It is retained for medico-legal purposes only.
+     * The list was never accurate. It is retained for medico-legal purposes only.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TaskPerformerType
+ *
  * The type(s) of task performers allowed
  *
  * @see <a href="http://hl7.org/fhir/task-performer-type">TaskPerformerType</a>
@@ -79,5 +81,5 @@ enum class TaskPerformerType {
      * A workflow participant that reviews task inputs or outputs.
      */
     @SerialName("reviewer")
-    REVIEWER
+    REVIEWER,
 }

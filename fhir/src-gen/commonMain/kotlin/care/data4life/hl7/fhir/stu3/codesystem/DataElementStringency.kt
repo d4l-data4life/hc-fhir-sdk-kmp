@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DataElementStringency
+ *
  * Indicates the degree of precision of the data element definition.
  *
  * @see <a href="http://hl7.org/fhir/dataelement-stringency">DataElementStringency</a>
@@ -41,7 +43,7 @@ enum class DataElementStringency {
 
     /**
      * The data element is fully specified down to a single value set, single unit of
-     * measure, single data type, etc.  Multiple pieces of data associated with this
+     * measure, single data type, etc. Multiple pieces of data associated with this
      * data element are fully comparable.
      */
     @SerialName("fully-specified")
@@ -76,5 +78,5 @@ enum class DataElementStringency {
      * element is not possible.
      */
     @SerialName("flexible")
-    FLEXIBLE
+    FLEXIBLE,
 }

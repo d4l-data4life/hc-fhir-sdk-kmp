@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: LanguagePreferenceType
+ *
  * This value set defines the set of codes for describing the type or mode of the patient's preferred
  * language.
  *
@@ -40,5 +42,5 @@ enum class LanguagePreferenceType {
      * The patient prefers to communicate in writing with the associated language.
      */
     @SerialName("written")
-    WRITTEN
+    WRITTEN,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EndpointStatus
+ *
  * The status of the endpoint.
  *
  * @see <a href="http://hl7.org/fhir/endpoint-status">EndpointStatus</a>
@@ -66,5 +68,5 @@ enum class EndpointStatus {
      * This endpoint is not intended for production usage.
      */
     @SerialName("test")
-    TEST
+    TEST,
 }

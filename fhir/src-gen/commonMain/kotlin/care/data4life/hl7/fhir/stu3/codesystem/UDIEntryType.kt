@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: UDIEntryType
+ *
  * Codes to identify how UDI data was entered
  *
  * @see <a href="http://hl7.org/fhir/udi-entry-type">UDIEntryType</a>
@@ -43,7 +45,7 @@ enum class UDIEntryType {
     RFID,
 
     /**
-     * The data was read from the label by a person and manually entered. (e.g.  via a
+     * The data was read from the label by a person and manually entered. (e.g. via a
      * keyboard)
      */
     @SerialName("manual")
@@ -66,5 +68,5 @@ enum class UDIEntryType {
      * The method of data capture has not been determined
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

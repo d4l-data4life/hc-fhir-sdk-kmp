@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NetworkTypeCodes
+ *
  * This value set includes a smattering of Network type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/benefit-network">NetworkTypeCodes</a>
@@ -40,5 +42,5 @@ enum class NetworkTypeCodes {
      * Services rendered by a provider who is not in the Network
      */
     @SerialName("out")
-    OUT
+    OUT,
 }

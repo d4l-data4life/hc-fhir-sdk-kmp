@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CapabilityStatementKind
+ *
  * How a capability statement is intended to be used.
  *
  * @see <a href="http://hl7.org/fhir/capability-statement-kind">CapabilityStatementKind</a>
@@ -32,7 +34,7 @@ enum class CapabilityStatementKind {
 
     /**
      * The CapabilityStatement instance represents the present capabilities of a
-     * specific system instance.  This is the kind returned by /metadata for a FHIR
+     * specific system instance. This is the kind returned by /metadata for a FHIR
      * server end-point.
      */
     @SerialName("instance")
@@ -51,5 +53,5 @@ enum class CapabilityStatementKind {
      * proposal'.
      */
     @SerialName("requirements")
-    REQUIREMENTS
+    REQUIREMENTS,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyObjectiveType
+ *
  * Codes for the kind of study objective.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/research-study-objective-type">ResearchStudyObjectiveType</a>
@@ -49,5 +51,5 @@ enum class ResearchStudyObjectiveType {
      * Exploratory questions to be answered in the study.
      */
     @SerialName("exploratory")
-    EXPLORATORY
+    EXPLORATORY,
 }

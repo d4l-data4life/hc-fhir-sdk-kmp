@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StudyType
+ *
  * Types of research studies (types of research methods).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/study-type">StudyType</a>
@@ -70,5 +72,5 @@ enum class StudyType {
      * a combination of 1 or more types of studies.
      */
     @SerialName("mixed")
-    MIXED
+    MIXED,
 }

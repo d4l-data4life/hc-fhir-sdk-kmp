@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentScopeCodes
+ *
  * This value set includes the four Consent scope codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/consentscope">ConsentScopeCodes</a>
@@ -52,5 +54,5 @@ enum class ConsentScopeCodes {
      * Consent to undergo a specific treatment
      */
     @SerialName("treatment")
-    TREATMENT
+    TREATMENT,
 }

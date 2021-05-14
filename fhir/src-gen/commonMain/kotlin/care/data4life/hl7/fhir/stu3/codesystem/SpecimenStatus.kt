@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SpecimenStatus
+ *
  * Codes providing the status/availability of a specimen.
  *
  * @see <a href="http://hl7.org/fhir/specimen-status">SpecimenStatus</a>
@@ -53,5 +55,5 @@ enum class SpecimenStatus {
      * The specimen was entered in error and therefore nullified.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

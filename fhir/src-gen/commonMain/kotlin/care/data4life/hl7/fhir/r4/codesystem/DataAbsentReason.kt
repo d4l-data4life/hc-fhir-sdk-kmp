@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DataAbsentReason
+ *
  * Used to specify why the normally expected content of the data element is missing.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/data-absent-reason">DataAbsentReason</a>
@@ -125,5 +127,5 @@ enum class DataAbsentReason {
      * data types).
      */
     @SerialName("not-permitted")
-    NOT_PERMITTED
+    NOT_PERMITTED,
 }

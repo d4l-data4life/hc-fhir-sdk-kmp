@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RequestResourceType
+ *
  * A list of all the request resource types defined in this version of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/request-resource-types">RequestResourceType</a>
@@ -122,5 +124,5 @@ enum class RequestResourceType {
      * Prescription for vision correction products for a patient.
      */
     @SerialName("VisionPrescription")
-    VISIONPRESCRIPTION
+    VISIONPRESCRIPTION,
 }

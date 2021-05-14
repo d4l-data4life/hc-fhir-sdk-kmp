@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FHIRDefinedConceptProperties
+ *
  * A set of common concept properties for use on coded systems throughout the FHIR eco-system.
  *
  * @see <a href="http://hl7.org/fhir/concept-properties">FHIRDefinedConceptProperties</a>
@@ -68,5 +70,5 @@ enum class FHIRDefinedConceptProperties {
      * by the hierarchyMeaning attribute
      */
     @SerialName("child")
-    CHILD
+    CHILD,
 }

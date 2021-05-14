@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: UsageContextType
+ *
  * A code that specifies a type of context being specified by a usage context.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/usage-context-type">UsageContextType</a>
@@ -101,5 +103,5 @@ enum class UsageContextType {
      * A program/project of work for which this artifact is applicable.
      */
     @SerialName("program")
-    PROGRAM
+    PROGRAM,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationDispenseStatusReasonCodes
+ *
  * MedicationDispense Status Codes
  *
  * @see <a href="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-status-reason">MedicationDispenseStatusReasonCodes</a>
@@ -175,5 +177,5 @@ enum class MedicationDispenseStatusReasonCodes {
      * Drug no longer marketed Cannot supply.
      */
     @SerialName("offmarket")
-    OFFMARKET
+    OFFMARKET,
 }

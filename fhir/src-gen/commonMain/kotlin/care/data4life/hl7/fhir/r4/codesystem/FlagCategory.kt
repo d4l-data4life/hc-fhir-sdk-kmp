@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FlagCategory
+ *
  * Example list of general categories for flagged issues. (Not complete or necessarily appropriate.)
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/flag-category">FlagCategory</a>
@@ -89,5 +91,5 @@ enum class FlagCategory {
      * Flags related to safety precautions.
      */
     @SerialName("safety")
-    SAFETY
+    SAFETY,
 }

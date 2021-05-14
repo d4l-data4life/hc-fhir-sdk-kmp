@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CoverageEligibilityResponseAuthSupportCodes
+ *
  * This value set includes CoverageEligibilityResponse Auth Support codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/coverageeligibilityresponse-ex-auth-support">CoverageEligibilityResponseAuthSupportCodes</a>
@@ -78,5 +80,5 @@ enum class CoverageEligibilityResponseAuthSupportCodes {
      * A photograph of the affected area.
      */
     @SerialName("picture")
-    PICTURE
+    PICTURE,
 }

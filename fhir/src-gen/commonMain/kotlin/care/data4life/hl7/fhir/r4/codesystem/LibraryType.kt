@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: LibraryType
+ *
  * The type of knowledge asset this library contains.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/library-type">LibraryType</a>
@@ -53,5 +55,5 @@ enum class LibraryType {
      * particular module or evaluation context.
      */
     @SerialName("module-definition")
-    MODULE_DEFINITION
+    MODULE_DEFINITION,
 }

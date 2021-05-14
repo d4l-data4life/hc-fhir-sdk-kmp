@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationDispenseCategoryCodes
+ *
  * MedicationDispense Category Codes
  *
  * @see <a href="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category">MedicationDispenseCategoryCodes</a>
@@ -58,5 +60,5 @@ enum class MedicationDispenseCategoryCodes {
      * from a facility.
      */
     @SerialName("discharge")
-    DISCHARGE
+    DISCHARGE,
 }

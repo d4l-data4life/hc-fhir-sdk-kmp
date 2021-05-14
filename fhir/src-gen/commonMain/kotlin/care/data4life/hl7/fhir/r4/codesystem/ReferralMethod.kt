@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ReferralMethod
+ *
  * The methods of referral can be used when referring to a specific HealthCareService resource.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/service-referral-method">ReferralMethod</a>
@@ -62,5 +64,5 @@ enum class ReferralMethod {
      * Referrals may be accepted via regular postage (or hand delivered).
      */
     @SerialName("mail")
-    MAIL
+    MAIL,
 }

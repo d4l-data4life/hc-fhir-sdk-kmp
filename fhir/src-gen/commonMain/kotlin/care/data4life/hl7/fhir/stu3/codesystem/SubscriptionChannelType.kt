@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SubscriptionChannelType
+ *
  * The type of method used to execute a subscription.
  *
  * @see <a href="http://hl7.org/fhir/subscription-channel-type">SubscriptionChannelType</a>
@@ -64,5 +66,5 @@ enum class SubscriptionChannelType {
      * resource etc.) to the application identified in the URI.
      */
     @SerialName("message")
-    MESSAGE
+    MESSAGE,
 }

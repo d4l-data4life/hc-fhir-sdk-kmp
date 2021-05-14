@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResourceSecurityCategory
+ *
  * Provides general guidance around the kind of access Control to Read, Search, Create, Update, or
  * Delete a resource.
  *
@@ -93,5 +95,5 @@ enum class ResourceSecurityCategory {
      * describes the content in a way that can be used for Access Control decisions.
      */
     @SerialName("not-classified")
-    NOT_CLASSIFIED
+    NOT_CLASSIFIED,
 }

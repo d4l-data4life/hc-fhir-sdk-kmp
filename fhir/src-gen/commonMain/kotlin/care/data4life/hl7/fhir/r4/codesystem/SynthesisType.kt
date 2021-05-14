@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SynthesisType
+ *
  * Types of combining results from a body of evidence (eg. summary data meta-analysis).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/synthesis-type">SynthesisType</a>
@@ -69,5 +71,5 @@ enum class SynthesisType {
      * individual studies (eg 3 studies showed beneft and 2 studied found no effect).
      */
     @SerialName("classification")
-    CLASSIFICATION
+    CLASSIFICATION,
 }

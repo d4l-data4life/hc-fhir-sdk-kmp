@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CarePlanIntent
+ *
  * Codes indicating the degree of authority/intentionality associated with a care plan
  *
  * @see <a href="http://hl7.org/fhir/care-plan-intent">CarePlanIntent</a>
@@ -53,10 +55,9 @@ enum class CarePlanIntent {
     /**
      * The care plan represents a component or option for a RequestGroup that
      * establishes timing, conditionality and/or other constraints among a set of
-     * requests.
-     * Refer to [[[RequestGroup]]] for additional information on how this status is
-     * used
+     * requests.  Refer to [[[RequestGroup]]] for additional information on how this
+     * status is used
      */
     @SerialName("option")
-    OPTION
+    OPTION,
 }

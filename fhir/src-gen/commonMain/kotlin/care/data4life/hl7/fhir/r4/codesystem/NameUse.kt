@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NameUse
+ *
  * The use of a human name.
  *
  * @see <a href="http://hl7.org/fhir/name-use">NameUse</a>
@@ -78,5 +80,5 @@ enum class NameUse {
      * any particular history for a person's name.
      */
     @SerialName("maiden")
-    MAIDEN
+    MAIDEN,
 }

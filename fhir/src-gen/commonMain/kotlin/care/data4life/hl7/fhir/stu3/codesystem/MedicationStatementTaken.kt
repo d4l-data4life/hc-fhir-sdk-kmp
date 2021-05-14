@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationStatementTaken
+ *
  * A coded concept identifying level of certainty if patient has taken or has not taken the medication
  *
  * @see <a href="http://hl7.org/fhir/medication-statement-taken">MedicationStatementTaken</a>
@@ -52,5 +54,5 @@ enum class MedicationStatementTaken {
      * Patient reporting does not apply
      */
     @SerialName("na")
-    NA
+    NA,
 }

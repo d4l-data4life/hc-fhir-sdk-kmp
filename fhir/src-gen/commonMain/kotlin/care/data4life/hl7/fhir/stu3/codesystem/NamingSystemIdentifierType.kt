@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NamingSystemIdentifierType
+ *
  * Identifies the style of unique identifier used to identify a namespace.
  *
  * @see <a href="http://hl7.org/fhir/namingsystem-identifier-type">NamingSystemIdentifierType</a>
@@ -55,5 +57,5 @@ enum class NamingSystemIdentifierType {
      * LN for LOINC.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

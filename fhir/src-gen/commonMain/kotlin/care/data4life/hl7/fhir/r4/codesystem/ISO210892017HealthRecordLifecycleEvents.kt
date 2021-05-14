@@ -20,9 +20,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ISO210892017HealthRecordLifecycleEvents
+ *
  * Attached is vocabulary for the 27 record lifecycle events, as per ISO TS 21089-2017, Health
  * Informatics - Trusted End-to-End Information Flows, Section 3, Terms and Definitions (2017, at ISO
- * Central Secretariat, passed ballot and ready for publication).  This will also be included in the
+ * Central Secretariat, passed ballot and ready for publication). This will also be included in the
  * FHIR EHR Record Lifecycle Event Implementation Guide, balloted and (to be) published with FHIR
  * STU-3.
  *
@@ -227,5 +229,5 @@ enum class ISO210892017HealthRecordLifecycleEvents {
      * conditions based on organizational policy.
      */
     @SerialName("verify")
-    VERIFY
+    VERIFY,
 }

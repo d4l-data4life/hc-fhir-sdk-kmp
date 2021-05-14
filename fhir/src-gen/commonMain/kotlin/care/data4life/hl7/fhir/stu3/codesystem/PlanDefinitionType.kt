@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PlanDefinitionType
+ *
  * The type of PlanDefinition
  *
  * @see <a href="http://hl7.org/fhir/plan-definition-type">PlanDefinitionType</a>
@@ -54,5 +56,5 @@ enum class PlanDefinitionType {
      * taken whenever some condition is met in response to a particular event or events
      */
     @SerialName("eca-rule")
-    ECA_RULE
+    ECA_RULE,
 }

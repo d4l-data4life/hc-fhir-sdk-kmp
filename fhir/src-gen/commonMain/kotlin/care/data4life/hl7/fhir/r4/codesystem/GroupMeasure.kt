@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GroupMeasure
+ *
  * Possible group measure aggregates (E.g. Mean, Median).
  *
  * @see <a href="http://hl7.org/fhir/group-measure">GroupMeasure</a>
@@ -64,5 +66,5 @@ enum class GroupMeasure {
      * Aggregated using Median of study median values.
      */
     @SerialName("median-of-median")
-    MEDIAN_OF_MEDIAN
+    MEDIAN_OF_MEDIAN,
 }

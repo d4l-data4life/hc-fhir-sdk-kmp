@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ProvenanceParticipantType
+ *
  * The type of participation a provenance participant.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/provenance-participant-type">ProvenanceParticipantType</a>
@@ -96,5 +98,5 @@ enum class ProvenanceParticipantType {
      * information for the purpose of generating a new artifact.
      */
     @SerialName("composer")
-    COMPOSER
+    COMPOSER,
 }

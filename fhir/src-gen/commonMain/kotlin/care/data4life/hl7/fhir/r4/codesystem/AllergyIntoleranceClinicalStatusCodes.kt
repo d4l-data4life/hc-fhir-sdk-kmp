@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceClinicalStatusCodes
+ *
  * Preferred value set for AllergyIntolerance Clinical Status.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical">AllergyIntoleranceClinicalStatusCodes</a>
@@ -49,5 +51,5 @@ enum class AllergyIntoleranceClinicalStatusCodes {
      * accidental, unplanned, or outside of any clinical setting.
      */
     @SerialName("resolved")
-    RESOLVED
+    RESOLVED,
 }

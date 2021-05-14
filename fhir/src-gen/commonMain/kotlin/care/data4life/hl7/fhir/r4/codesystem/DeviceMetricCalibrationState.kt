@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceMetricCalibrationState
+ *
  * Describes the state of a metric calibration.
  *
  * @see <a href="http://hl7.org/fhir/metric-calibration-state">DeviceMetricCalibrationState</a>
@@ -52,5 +54,5 @@ enum class DeviceMetricCalibrationState {
      * The state of calibration of this metric is unspecified.
      */
     @SerialName("unspecified")
-    UNSPECIFIED
+    UNSPECIFIED,
 }

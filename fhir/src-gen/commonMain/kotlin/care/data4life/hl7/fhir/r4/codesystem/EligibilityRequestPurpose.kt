@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EligibilityRequestPurpose
+ *
  * A code specifying the types of information being requested.
  *
  * @see <a href="http://hl7.org/fhir/eligibilityrequest-purpose">EligibilityRequestPurpose</a>
@@ -39,8 +41,8 @@ enum class EligibilityRequestPurpose {
     AUTH_REQUIREMENTS,
 
     /**
-     * The plan benefits and optionally benefits consumed  for the listed, or
-     * discovered if specified, converages are requested.
+     * The plan benefits and optionally benefits consumed for the listed, or discovered
+     * if specified, converages are requested.
      */
     @SerialName("benefits")
     BENEFITS,
@@ -56,5 +58,5 @@ enum class EligibilityRequestPurpose {
      * A check that the specified coverages are in-force is requested.
      */
     @SerialName("validation")
-    VALIDATION
+    VALIDATION,
 }

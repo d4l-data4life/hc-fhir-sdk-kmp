@@ -20,11 +20,13 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BasicResourceTypes
+ *
  * This value set defines codes for resources not yet supported by (or which will never be supported
- * by) FHIR.  Many of the codes listed here will eventually be turned into official resources.
- * However, there is no guarantee that any particular resource will be created nor that the scope will
- * be exactly as defined by the codes presented here.  Codes in this set will be deprecated if/when
- * formal resources are defined that encompass these concepts.
+ * by) FHIR. Many of the codes listed here will eventually be turned into official resources. However,
+ * there is no guarantee that any particular resource will be created nor that the scope will be
+ * exactly as defined by the codes presented here. Codes in this set will be deprecated if/when formal
+ * resources are defined that encompass these concepts.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/basic-resource-type">BasicResourceTypes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/basic-resource-type">ValueSet</a>
@@ -43,8 +45,8 @@ enum class BasicResourceTypes {
     CONSENT,
 
     /**
-     * A request that care of a particular type be provided to a patient.  Could
-     * involve the transfer of care, a consult, etc.
+     * A request that care of a particular type be provided to a patient. Could involve
+     * the transfer of care, a consult, etc.
      */
     @SerialName("referral")
     REFERRAL,
@@ -84,7 +86,7 @@ enum class BasicResourceTypes {
     ADMINACT,
 
     /**
-     * Record of a situation where a subject was exposed to a substance.  Usually of
+     * Record of a situation where a subject was exposed to a substance. Usually of
      * interest to public health.
      */
     @SerialName("exposure")
@@ -105,7 +107,7 @@ enum class BasicResourceTypes {
     ACCOUNT,
 
     /**
-     * A request for payment for goods and/or services.  Includes the idea of a
+     * A request for payment for goods and/or services. Includes the idea of a
      * healthcare insurance claim.
      */
     @SerialName("invoice")
@@ -139,9 +141,9 @@ enum class BasicResourceTypes {
     STUDY,
 
     /**
-     * A set of (possibly conditional) steps to be taken to achieve some aim.  Includes
+     * A set of (possibly conditional) steps to be taken to achieve some aim. Includes
      * study protocols, treatment protocols, emergency protocols, etc.
      */
     @SerialName("protocol")
-    PROTOCOL
+    PROTOCOL,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractSignerTypeCodes
+ *
  * This value set includes sample Contract Signer Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contractsignertypecodes">ContractSignerTypeCodes</a>
@@ -192,7 +194,7 @@ enum class ContractSignerTypeCodes {
     EMGCON,
 
     /**
-     * A person who attests to observing an occurrence.  For example, the witness has
+     * A person who attests to observing an occurrence. For example, the witness has
      * observed a procedure and is attesting to this fact.
      */
     @SerialName("EVTWIT")
@@ -207,7 +209,7 @@ enum class ContractSignerTypeCodes {
 
     /**
      * A person who grants to another person the authority to represent or act on that
-     * person's behalf.  Examples include (1) exercising specific rights belonging to
+     * person's behalf. Examples include (1) exercising specific rights belonging to
      * the grantee; (2) performing specific duties on behalf of a grantee; and (3)
      * making specific decisions concerning a grantee.
      */
@@ -227,7 +229,7 @@ enum class ContractSignerTypeCodes {
      * A person or organization contractually recognized by the issuer as an entity
      * that has assumed fiscal responsibility (e.g., by making or giving a promise,
      * assurance, or pledge) for another entity's financial obligations by guaranteeing
-     * to pay for amounts owed to a particular account.  In a healthcare context, the
+     * to pay for amounts owed to a particular account. In a healthcare context, the
      * account may be a patient's billing account for services rendered by a provider
      * or a health plan premium account.
      */
@@ -295,8 +297,8 @@ enum class ContractSignerTypeCodes {
     /**
      * A person in the role of verifier who attests to the accuracy of information
      * content, and who has privileges to certify the legal authenticity of that
-     * content with a signature that constitutes a legal authentication.  For example,
-     * a licensed physician who signs a consult authored by a resident physician who
+     * content with a signature that constitutes a legal authentication. For example, a
+     * licensed physician who signs a consult authored by a resident physician who
      * authenticated it.
      */
     @SerialName("LEGAUTHN")
@@ -307,8 +309,8 @@ enum class ContractSignerTypeCodes {
      * losses, provides benefits for, or renders services. A named insured may be
      * either a person, non-person living subject, or an organization, or a group of
      * persons, non-person living subject that is the named insured under a
-     * comprehensive automobile, disability, or property and casualty policy.  The
-     * named insured and might or might not be the policy holder.
+     * comprehensive automobile, disability, or property and casualty policy. The named
+     * insured and might or might not be the policy holder.
      */
     @SerialName("NMDINS")
     NMDINS,
@@ -349,7 +351,7 @@ enum class ContractSignerTypeCodes {
     POWATT,
 
     /**
-     * An entity that is the primary or sole author of information content.  In the
+     * An entity that is the primary or sole author of information content. In the
      * healthcare context, there can be only one primary author of health information
      * content in a record entry or document.
      */
@@ -379,12 +381,11 @@ enum class ContractSignerTypeCodes {
 
     /**
      * A person, device, or algorithm that has used approved criteria for filtered data
-     * for inclusion into the patient record.  Examples: (1) a medical records clerk
-     * who scans a document for inclusion in the medical record, enters header
-     * information, or catalogues and classifies the data, or a combination thereof;
-     * (2) a gateway that receives data from another computer system and interprets
-     * that data or changes its format, or both, before entering it into the patient
-     * record.
+     * for inclusion into the patient record. Examples: (1) a medical records clerk who
+     * scans a document for inclusion in the medical record, enters header information,
+     * or catalogues and classifies the data, or a combination thereof; (2) a gateway
+     * that receives data from another computer system and interprets that data or
+     * changes its format, or both, before entering it into the patient record.
      */
     @SerialName("REVIEWER")
     REVIEWER,
@@ -448,5 +449,5 @@ enum class ContractSignerTypeCodes {
      * information is truthful.
      */
     @SerialName("WIT")
-    WIT
+    WIT,
 }

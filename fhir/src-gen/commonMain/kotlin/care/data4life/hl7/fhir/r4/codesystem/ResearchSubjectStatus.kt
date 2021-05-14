@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchSubjectStatus
+ *
  * Indicates the progression of a study subject through a study.
  *
  * @see <a href="http://hl7.org/fhir/research-subject-status">ResearchSubjectStatus</a>
@@ -52,8 +54,7 @@ enum class ResearchSubjectStatus {
 
     /**
      * A person who did not meet one or more criteria required for participation in a
-     * study is considered to have failed screening or
-     * is ineligible for the study.
+     * study is considered to have failed screening or is ineligible for the study.
      */
     @SerialName("ineligible")
     INELIGIBLE,
@@ -66,8 +67,8 @@ enum class ResearchSubjectStatus {
 
     /**
      * A person that has ended their participation on a study either because their
-     * treatment/observation is complete or through not
-     * responding, withdrawal, non-compliance and/or adverse event.
+     * treatment/observation is complete or through not responding, withdrawal, non-
+     * compliance and/or adverse event.
      */
     @SerialName("off-study")
     OFF_STUDY,
@@ -88,7 +89,7 @@ enum class ResearchSubjectStatus {
     /**
      * The subject is being evaluated via tests and assessments according to the study
      * calendar, but is not receiving any intervention. Note that this state is study-
-     * dependent and might not exist in all studies.  A synonym for this is "short-term
+     * dependent and might not exist in all studies. A synonym for this is "short-term
      * follow-up".
      */
     @SerialName("on-study-observation")
@@ -116,5 +117,5 @@ enum class ResearchSubjectStatus {
      * The person has withdrawn their participation in the study before registration.
      */
     @SerialName("withdrawn")
-    WITHDRAWN
+    WITHDRAWN,
 }

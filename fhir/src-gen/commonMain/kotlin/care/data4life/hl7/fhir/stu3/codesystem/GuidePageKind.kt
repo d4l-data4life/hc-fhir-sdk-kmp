@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GuidePageKind
+ *
  * The kind of an included page.
  *
  * @see <a href="http://hl7.org/fhir/guide-page-kind">GuidePageKind</a>
@@ -79,5 +81,5 @@ enum class GuidePageKind {
      * generated conformance resource presentations.
      */
     @SerialName("resource")
-    RESOURCE
+    RESOURCE,
 }

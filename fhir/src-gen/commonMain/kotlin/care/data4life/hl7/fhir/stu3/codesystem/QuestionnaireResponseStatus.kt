@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireResponseStatus
+ *
  * Lifecycle status of the questionnaire response.
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-answers-status">QuestionnaireResponseStatus</a>
@@ -63,5 +65,5 @@ enum class QuestionnaireResponseStatus {
      * made to it.
      */
     @SerialName("stopped")
-    STOPPED
+    STOPPED,
 }
