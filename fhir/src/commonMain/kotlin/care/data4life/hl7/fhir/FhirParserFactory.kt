@@ -17,11 +17,16 @@
 package care.data4life.hl7.fhir
 
 import care.data4life.hl7.fhir.parser.FhirParser
+import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 
 class FhirParserFactory {
 
     fun createStu3Parser(): FhirParser<*> {
         return FhirStu3Parser()
+    }
+
+    fun createR4Parser(): FhirParser<*> {
+        return FhirR4Parser()
     }
 }

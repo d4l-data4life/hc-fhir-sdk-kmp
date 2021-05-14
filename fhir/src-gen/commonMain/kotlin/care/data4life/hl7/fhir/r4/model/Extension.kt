@@ -16,10 +16,15 @@
 
 package care.data4life.hl7.fhir.r4.model
 
+import care.data4life.hl7.fhir.r4.primitive.Bool
 import care.data4life.hl7.fhir.r4.primitive.Date
 import care.data4life.hl7.fhir.r4.primitive.DateTime
+import care.data4life.hl7.fhir.r4.primitive.Decimal
 import care.data4life.hl7.fhir.r4.primitive.Instant
+import care.data4life.hl7.fhir.r4.primitive.Integer
+import care.data4life.hl7.fhir.r4.primitive.PositiveInteger
 import care.data4life.hl7.fhir.r4.primitive.Time
+import care.data4life.hl7.fhir.r4.primitive.UnsignedInteger
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
@@ -33,7 +38,10 @@ interface FhirExtension : FhirElement {
     val valueBase64Binary: String?
 
     // Value of extension.
-    val valueBoolean: String?
+    val valueBoolean: Bool?
+
+    // Value of extension.
+    val valueCanonical: String?
 
     // Value of extension.
     val valueCode: String?
@@ -45,7 +53,7 @@ interface FhirExtension : FhirElement {
     val valueDateTime: DateTime?
 
     // Value of extension.
-    val valueDecimal: String?
+    val valueDecimal: Decimal?
 
     // Value of extension.
     val valueId: String?
@@ -54,7 +62,7 @@ interface FhirExtension : FhirElement {
     val valueInstant: Instant?
 
     // Value of extension.
-    val valueInteger: String?
+    val valueInteger: Integer?
 
     // Value of extension.
     val valueMarkdown: String?
@@ -63,7 +71,7 @@ interface FhirExtension : FhirElement {
     val valueOid: String?
 
     // Value of extension.
-    val valuePositiveInt: String?
+    val valuePositiveInt: PositiveInteger?
 
     // Value of extension.
     val valueString: String?
@@ -72,10 +80,13 @@ interface FhirExtension : FhirElement {
     val valueTime: Time?
 
     // Value of extension.
-    val valueUnsignedInt: String?
+    val valueUnsignedInt: UnsignedInteger?
 
     // Value of extension.
     val valueUri: String?
+
+    // Value of extension.
+    val valueUrl: String?
 
     // Value of extension.
     val valueUuid: String?
@@ -105,7 +116,10 @@ data class Extension(
     override val valueBase64Binary: String? = null,
     // Value of extension.
     @SerialName("valueBoolean")
-    override val valueBoolean: String? = null,
+    override val valueBoolean: Bool? = null,
+    // Value of extension.
+    @SerialName("valueCanonical")
+    override val valueCanonical: String? = null,
     // Value of extension.
     @SerialName("valueCode")
     override val valueCode: String? = null,
@@ -117,7 +131,7 @@ data class Extension(
     override val valueDateTime: DateTime? = null,
     // Value of extension.
     @SerialName("valueDecimal")
-    override val valueDecimal: String? = null,
+    override val valueDecimal: Decimal? = null,
     // Value of extension.
     @SerialName("valueId")
     override val valueId: String? = null,
@@ -126,7 +140,7 @@ data class Extension(
     override val valueInstant: Instant? = null,
     // Value of extension.
     @SerialName("valueInteger")
-    override val valueInteger: String? = null,
+    override val valueInteger: Integer? = null,
     // Value of extension.
     @SerialName("valueMarkdown")
     override val valueMarkdown: String? = null,
@@ -135,7 +149,7 @@ data class Extension(
     override val valueOid: String? = null,
     // Value of extension.
     @SerialName("valuePositiveInt")
-    override val valuePositiveInt: String? = null,
+    override val valuePositiveInt: PositiveInteger? = null,
     // Value of extension.
     @SerialName("valueString")
     override val valueString: String? = null,
@@ -144,10 +158,13 @@ data class Extension(
     override val valueTime: Time? = null,
     // Value of extension.
     @SerialName("valueUnsignedInt")
-    override val valueUnsignedInt: String? = null,
+    override val valueUnsignedInt: UnsignedInteger? = null,
     // Value of extension.
     @SerialName("valueUri")
     override val valueUri: String? = null,
+    // Value of extension.
+    @SerialName("valueUrl")
+    override val valueUrl: String? = null,
     // Value of extension.
     @SerialName("valueUuid")
     override val valueUuid: String? = null,

@@ -25,8 +25,16 @@ object FhirSerializationModule {
     fun module(): SerializersModule {
         return SerializersModule {
             polymorphic(FhirR4::class) {
+                subclass(Coding::class)
+                subclass(DomainResource::class)
                 subclass(Element::class)
                 subclass(Extension::class)
+                subclass(Meta::class)
+                subclass(Narrative::class)
+                subclass(Resource::class)
+            }
+            polymorphic(FhirResource::class) {
+                subclass(DomainResource::class)
             }
         }
     }

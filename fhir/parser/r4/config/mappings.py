@@ -21,6 +21,8 @@ classmap = {
     'oid': 'String',  # 'URL',
     'uuid': 'String',
     'uri': 'String',  # 'URL',
+    'url': 'String',
+    'canonical': 'String',
 
     'base64Binary': 'String',
 
@@ -82,4 +84,8 @@ enum_namemap = {
     'http://hl7.org/fhir/contracttermsubtypecodes': 'ContractTermSubtypeCodes',
     'http://hl7.org/fhir/coverage-exception': 'CoverageExceptionCodes',
     'http://hl7.org/fhir/resource-type-link': 'ResourceTypeLink',
+}
+
+enum_ignore = {
+
 }
