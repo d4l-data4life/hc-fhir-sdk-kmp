@@ -77,11 +77,4 @@ object Versions {
      * [mockk](http://mockk.io)
      */
     const val testMockk = "1.11.0"
-
-    /**
-     * [Hamkrest](https://github.com/npryce/hamkrest)
-     *
-     * there is no official multi platform release yet
-     */
-    const val testHamkrest = "63c8e84dd1"
 }

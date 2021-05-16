@@ -82,14 +82,6 @@ object Dependencies {
             const val junit = "io.mockk:mockk:${Versions.testMockk}"
             const val androidTestInstrumentation = "io.mockk:mockk-android:${Versions.testMockk}"
         }
-
-        val hamkrest = Hamkrest
-
-        object Hamkrest {
-            // https://jitpack.io/com/github/npryce/hamkrest/63c8e84dd1/build.log
-            const val common = "com.github.npryce.hamkrest:hamkrest-metadata:${Versions.testHamkrest}"
-            const val android = "com.github.npryce.hamkrest:hamkrest-jvm:${Versions.testHamkrest}"
-        }
     }
 
     val test = Test
@@ -101,6 +93,7 @@ object Dependencies {
     }
 
     val android = Android
+
     object Android {
         // Kotlin
         const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
@@ -110,6 +103,7 @@ object Dependencies {
         const val desugar = "com.android.tools:desugar_jdk_libs:${Versions.androidDesugar}"
 
         val androidX = AndroidX
+
         object AndroidX {
             // AndroidX
             const val ktx = "androidx.core:core-ktx:${Versions.androidXKtx}"

@@ -1,9 +1,4 @@
 buildscript {
-    repositories {
-        mavenCentral()
-        google()
-        jcenter()
-    }
     dependencies {
         classpath(GradlePlugins.kotlin)
         classpath(GradlePlugins.android)
@@ -19,6 +14,13 @@ plugins {
     id("scripts.publishing")
     id("scripts.quality-spotless")
     id("scripts.versioning")
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
 }
 
 tasks.named<Wrapper>("wrapper") {
