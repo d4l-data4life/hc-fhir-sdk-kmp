@@ -1,6 +1,5 @@
 rootProject.name = "hc-fhir-sdk-kmp"
 
-enableFeaturePreview("GRADLE_METADATA")
 
 dependencyResolutionManagement {
     repositories {
