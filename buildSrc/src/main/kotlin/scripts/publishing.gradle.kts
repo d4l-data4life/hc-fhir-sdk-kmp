@@ -103,55 +103,82 @@ val gitPublishUpdateRelease: Task by tasks.creating() {
 // Publish tasks
 val publishToPackagesRepositoryFeature: Task by tasks.creating() {
     dependsOn(":fhir:publishAllPublicationsToFeaturePackagesRepository")
-    mustRunAfter(gitPublishUpdateFeature)
+    mustRunAfter(gitPublishCheckoutFeature, gitPublishUpdateFeature)
 }
 
 val publishToPackagesRepositorySnapshot: Task by tasks.creating() {
     dependsOn(":fhir:publishAllPublicationsToSnaphotPackagesRepository")
-    mustRunAfter(gitPublishUpdateSnapshot)
+    mustRunAfter(gitPublishCheckoutSnapshot, gitPublishUpdateSnapshot)
 }
 
 val publishToPackagesRepositoryRelease: Task by tasks.creating() {
     dependsOn(":fhir:publishAllPublicationsToReleasePackagesRepository")
-    mustRunAfter(gitPublishUpdateRelease)
+    mustRunAfter(gitPublishCheckoutRelease, gitPublishUpdateRelease)
 }
 
 // Git Commit
 val gitPublishCommitFeature: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(featureRepoName) }
-    mustRunAfter(publishToPackagesRepositoryFeature)
+    mustRunAfter(
+        gitPublishCheckoutFeature,
+        gitPublishUpdateFeature,
+        publishToPackagesRepositoryFeature,
+    )
 }
 
 val gitPublishCommitSnapshot: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(snapshotRepoName) }
-    mustRunAfter(publishToPackagesRepositorySnapshot)
+    mustRunAfter(
+        gitPublishCheckoutSnapshot,
+        gitPublishUpdateSnapshot,
+        publishToPackagesRepositorySnapshot,
+    )
 }
 
 val gitPublishCommitRelease: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(releaseRepoName) }
-    mustRunAfter(publishToPackagesRepositoryRelease)
+    mustRunAfter(
+        gitPublishCheckoutRelease,
+        gitPublishUpdateRelease,
+        publishToPackagesRepositoryRelease,
+    )
 }
 
 // Git Push
 val gitPublishPushFeature: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(featureRepoName) }
-    mustRunAfter(gitPublishCommitFeature)
+    mustRunAfter(
+        gitPublishCheckoutFeature,
+        gitPublishUpdateFeature,
+        publishToPackagesRepositoryFeature,
+        gitPublishCommitFeature,
+    )
 }
 
 val gitPublishPushSnapshot: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(snapshotRepoName) }
-    mustRunAfter(gitPublishCommitSnapshot)
+    mustRunAfter(
+        gitPublishCheckoutSnapshot,
+        gitPublishUpdateSnapshot,
+        publishToPackagesRepositorySnapshot,
+        gitPublishCommitSnapshot,
+    )
 }
 
 val gitPublishPushRelease: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(releaseRepoName) }
-    mustRunAfter(gitPublishCommitFeature)
+    mustRunAfter(
+        gitPublishCheckoutRelease,
+        gitPublishUpdateRelease,
+        publishToPackagesRepositoryRelease,
+        gitPublishCommitFeature,
+    )
 }
 
 // Git calls
