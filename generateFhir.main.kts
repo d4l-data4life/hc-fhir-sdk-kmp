@@ -97,8 +97,10 @@ for (fhirVersion in fhirVersions) {
 fun generateFhirModels(fhirVersion: FhirVersion) {
     println("Copy FHIR parser configuration")
     File(sourceParserConfig(fhirVersion)).walk()
+        .filter { !it.isDirectory }
         .forEach { it.copyTo(File("$parserPath/${it.name}")) }
     File(sourceParserTemplates(fhirVersion)).walk()
+        .filter { !it.isDirectory }
         .forEach { it.copyTo(File("$parserPath/templates/${it.name}")) }
 
     println("Copy FHIR specification")
