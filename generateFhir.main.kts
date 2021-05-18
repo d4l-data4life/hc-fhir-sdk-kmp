@@ -3,12 +3,54 @@
 import kotlin.system.exitProcess
 import java.io.File
 
-val parserPath = "fhir-spec-parser"
-val parserResourcesPath = "fhir/parser"
 val fhirSpecPath = "fhir-spec"
 
 enum class FhirVersion(val value: String) {
     FHIR3("stu3"), FHIR4("r4")
+}
+
+val parserResourcesPath = "fhir/parser"
+fun sourceParserConfig(fhirVersion: FhirVersion) =
+    "$parserResourcesPath/${fhirVersion.value}/config"
+
+fun sourceParserTemplates(fhirVersion: FhirVersion) =
+    "$parserResourcesPath/${fhirVersion.value}/templates"
+
+val parserPath = "fhir-spec-parser"
+val sourceCodesystems = "$parserPath/codesystems"
+val sourceModels = "$parserPath/models"
+val sourceTests = "$parserPath/tests"
+val sourceTestJsons = "$parserPath/downloads"
+
+fun targetCodesystems(fhirVersion: FhirVersion) =
+    "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/codesystem"
+
+fun targetModels(fhirVersion: FhirVersion) =
+    "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
+
+fun targetTests(fhirVersion: FhirVersion) =
+    "fhir/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
+
+fun targetTestJsons(fhirVersion: FhirVersion) =
+    "fhir/src-gen/jvmTest/resources/${fhirVersion.value}"
+
+fun modelExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
+    FhirVersion.FHIR4 -> listOf("")
+    FhirVersion.FHIR3 -> listOf("")
+}
+
+fun testExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
+    FhirVersion.FHIR4 -> listOf("")
+    FhirVersion.FHIR3 -> listOf("")
+}
+
+fun staticReplacementMap(fhirVersion: FhirVersion) = when (fhirVersion) {
+    FhirVersion.FHIR4 -> mapOf(
+        "MedicationStatementStatusCodes.kt" to targetCodesystems(fhirVersion),
+        "MedicationStatement.kt" to targetModels(fhirVersion),
+        "MedicationStatementTest.kt" to targetTests(fhirVersion),
+    )
+    FhirVersion.FHIR3 -> mapOf()
 }
 
 var fhirVersions = listOf(
@@ -20,8 +62,9 @@ if (args.isNotEmpty()) {
     when (args[0]) {
         "fhir4" -> fhirVersions = listOf(FhirVersion.FHIR4)
         "fhir3" -> fhirVersions = listOf(FhirVersion.FHIR3)
-        "all" -> {}
-        "-h","--help" -> printUsage()
+        "all" -> {
+        }
+        "-h", "--help" -> printUsage()
         else -> {
             println("Sorry I didn't understand ${args[0]}")
             printUsage()
@@ -53,9 +96,10 @@ for (fhirVersion in fhirVersions) {
 
 fun generateFhirModels(fhirVersion: FhirVersion) {
     println("Copy FHIR parser configuration")
-    cmd("cp $parserResourcesPath/${fhirVersion.value}/config/mappings.py $parserPath")
-    cmd("cp $parserResourcesPath/${fhirVersion.value}/config/settings.py $parserPath")
-    cmd("cp -a $parserResourcesPath/${fhirVersion.value}/templates $parserPath")
+    File(sourceParserConfig(fhirVersion)).walk()
+        .forEach { it.copyTo(File("$parserPath/${it.name}")) }
+    File(sourceParserTemplates(fhirVersion)).walk()
+        .forEach { it.copyTo(File("$parserPath/templates/${it.name}")) }
 
     println("Copy FHIR specification")
     cmd("mkdir $parserPath/downloads")
@@ -78,35 +122,45 @@ fun generateFhirModels(fhirVersion: FhirVersion) {
 }
 
 fun integrateFhirModels(fhirVersion: FhirVersion) {
-    val targetCodesystems =
-        "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/codesystem"
-    val targetModels =
-        "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
-    val targetTests =
-        "fhir/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
-    val targetTestJsons = "fhir/src-gen/jvmTest/resources/${fhirVersion.value}"
+    val targetCodesystems = targetCodesystems(fhirVersion)
+    val targetModels = targetModels(fhirVersion)
+    val targetTests = targetTests(fhirVersion)
+    val targetTestJsons = targetTestJsons(fhirVersion)
 
     // Remove old models
-    cmd("rm -rf $targetCodesystems()")
+    cmd("rm -rf $targetCodesystems")
     cmd("rm -rf $targetModels")
     cmd("rm -rf $targetTests")
     cmd("rm -rf $targetTestJsons")
 
     // Move codesystems
     cmd("mkdir $targetCodesystems")
-    cmd("cp -a $parserPath/codesystems/. $targetCodesystems")
+    cmd("cp -a $sourceCodesystems/. $targetCodesystems")
 
     // Move models
     cmd("mkdir $targetModels")
-    cmd("cp -a $parserPath/models/. $targetModels")
+    File(sourceModels)
+        .walk()
+        .forEach { file ->
+            if (!modelExclusionList(fhirVersion).contains(file.name)) {
+                file.copyTo(File("$targetModels/${file.name}"))
+            }
+        }
 
     // Move tests
     cmd("mkdir $targetTests")
-    cmd("cp -a $parserPath/tests/. $targetTests")
+    File(sourceTests)
+        .walk()
+        .forEach { file ->
+            if (!testExclusionList(fhirVersion).contains(file.name)) {
+                file.copyTo(File("$targetTests/${file.name}"))
+            }
+        }
 
     // Move JSON
     cmd("mkdir $targetTestJsons")
-    File("$parserPath/downloads").walk()
+    File(sourceTestJsons)
+        .walk()
         .forEach { file ->
             if (file.name.contains("example")) {
                 file.copyTo(File("$targetTestJsons/${file.name}"))
@@ -123,22 +177,9 @@ fun integrateFhirModels(fhirVersion: FhirVersion) {
 fun integrateStatics(fhirVersion: FhirVersion) {
     println("Include static FHIR replacements")
 
-    val targetCodesystems =
-        "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/codesystem"
-    val targetModels =
-        "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
-    val targetTests =
-        "fhir/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
+    val staticSourcePath = "fhir/parser/${fhirVersion.name}/statics"
 
-    val staticSourcePath = "fhir/parser/r4/statics"
-
-    val statics = mapOf(
-        "MedicationStatementStatusCodes.kt" to targetCodesystems,
-        "MedicationStatement.kt" to targetModels,
-        "MedicationStatementTest.kt" to targetTests,
-    )
-
-    for ((file, target) in statics) {
+    for ((file, target) in staticReplacementMap(fhirVersion)) {
         cmd("cp $staticSourcePath/$file $target")
     }
 
