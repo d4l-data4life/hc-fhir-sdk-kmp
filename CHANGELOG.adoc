@@ -39,6 +39,8 @@ toc::[]
 
 === Removed
 
+* Remove Fastlane and it's FHIR generator actions
+
 === Fixed
 
 :backtick: `
