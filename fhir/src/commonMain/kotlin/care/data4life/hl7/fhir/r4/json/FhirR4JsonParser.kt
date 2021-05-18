@@ -17,8 +17,8 @@
 package care.data4life.hl7.fhir.r4.json
 
 import care.data4life.hl7.fhir.parser.json.FhirJsonParser
+import care.data4life.hl7.fhir.r4.model.FhirHelper
 import care.data4life.hl7.fhir.r4.model.FhirR4
-import care.data4life.hl7.fhir.r4.model.FhirSerializationModule
 import kotlinx.serialization.PolymorphicSerializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
@@ -39,7 +39,7 @@ class FhirR4JsonParser(
 
     companion object {
 
-        private val fhirR4SerializersModule = FhirSerializationModule.module()
+        private val fhirR4SerializersModule = FhirHelper.FhirSerializationModule.module()
 
         fun defaultJsonReader(module: SerializersModule = fhirR4SerializersModule): Json {
             return Json {
