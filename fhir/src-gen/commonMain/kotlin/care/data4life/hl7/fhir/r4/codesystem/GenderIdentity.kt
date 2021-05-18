@@ -20,15 +20,18 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate a patient's gender identity.
+ * Code System: GenderIdentity
+ *
+ * This example value set defines a set of codes that can be used to indicate a patient's gender
+ * identity.
  *
  * @see <a href="http://hl7.org/fhir/gender-identity">GenderIdentity</a>
- *
  *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class GenderIdentity {
+
     /**
      * the patient identifies as transgender male-to-female
      */
@@ -69,5 +72,5 @@ enum class GenderIdentity {
      * the patient does not wish to disclose his gender identity
      */
     @SerialName("non-disclose")
-    NON_DISCLOSE
+    NON_DISCLOSE,
 }

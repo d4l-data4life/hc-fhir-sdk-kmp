@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimInformationCategoryCodes
+ *
  * This value set includes sample Information Category codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/claiminformationcategory">ClaimInformationCategoryCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClaimInformationCategoryCodes {
+
     /**
      * Codes conveying additional situation and condition information.
      */
@@ -72,7 +75,8 @@ enum class ClaimInformationCategoryCodes {
     ATTACHMENT,
 
     /**
-     * Teeth which are missing for any reason, for example: prior extraction, never developed.
+     * Teeth which are missing for any reason, for example: prior extraction, never
+     * developed.
      */
     @SerialName("missingtooth")
     MISSINGTOOTH,
@@ -90,13 +94,15 @@ enum class ClaimInformationCategoryCodes {
     OTHER,
 
     /**
-     * An indication that the patient was hospitalized, the period if known otherwise a Yes/No (boolean).
+     * An indication that the patient was hospitalized, the period if known otherwise a
+     * Yes/No (boolean).
      */
     @SerialName("hospitalized")
     HOSPITALIZED,
 
     /**
-     * An indication that the patient was unable to work, the period if known otherwise a Yes/No (boolean).
+     * An indication that the patient was unable to work, the period if known otherwise
+     * a Yes/No (boolean).
      */
     @SerialName("employmentimpacted")
     EMPLOYMENTIMPACTED,
@@ -111,5 +117,5 @@ enum class ClaimInformationCategoryCodes {
      * The reason for the patient visit.
      */
     @SerialName("patientreasonforvisit")
-    PATIENTREASONFORVISIT
+    PATIENTREASONFORVISIT,
 }

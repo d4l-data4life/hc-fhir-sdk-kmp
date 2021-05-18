@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: InvoicePriceComponentType
+ *
  * Codes indicating the kind of the price component.
  *
  * @see <a href="http://hl7.org/fhir/invoice-priceComponentType">InvoicePriceComponentType</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class InvoicePriceComponentType {
+
     /**
-     * the amount is the base price used for calculating the total price before applying surcharges, discount or taxes.
+     * the amount is the base price used for calculating the total price before
+     * applying surcharges, discount or taxes.
      */
     @SerialName("base")
     BASE,
@@ -60,8 +64,9 @@ enum class InvoicePriceComponentType {
     TAX,
 
     /**
-     * the amount is of informational character, it has not been applied in the calculation of the total price.
+     * the amount is of informational character, it has not been applied in the
+     * calculation of the total price.
      */
     @SerialName("informational")
-    INFORMATIONAL
+    INFORMATIONAL,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DataAbsentReason
+ *
  * Used to specify why the normally expected content of the data element is missing.
  *
  * @see <a href="http://hl7.org/fhir/data-absent-reason">DataAbsentReason</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DataAbsentReason {
+
     /**
      * The value is not known.
      */
@@ -72,20 +75,23 @@ enum class DataAbsentReason {
     ASTEXT,
 
     /**
-     * Some system or workflow process error means that the information is not available.
+     * Some system or workflow process error means that the information is not
+     * available.
      */
     @SerialName("error")
     ERROR,
 
     /**
-     * NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value.
+     * NaN, standing for not a number, is a numeric data type value representing an
+     * undefined or unrepresentable value.
      */
     @SerialName("NaN")
     NAN,
 
     /**
-     * The value is not available because the observation procedure (test, etc.) was not performed.
+     * The value is not available because the observation procedure (test, etc.) was
+     * not performed.
      */
     @SerialName("not-performed")
-    NOT_PERFORMED
+    NOT_PERFORMED,
 }

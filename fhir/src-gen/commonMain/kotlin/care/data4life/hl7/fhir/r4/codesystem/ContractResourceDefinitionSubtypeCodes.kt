@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceDefinitionSubtypeCodes
+ *
  * This value set contract specific codes for status.
  *
  * @see <a href="http://hl7.org/fhir/contract-definition-subtype">ContractResourceDefinitionSubtypeCodes</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceDefinitionSubtypeCodes {
+
     /**
      * To be completed
      */
     @SerialName("temp")
-    TEMP
+    TEMP,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CommunicationTopic
+ *
  * Codes describing the purpose or content of the communication.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/communication-topic">CommunicationTopic</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CommunicationTopic {
+
     /**
      * The purpose or content of the communication is a prescription refill request.
      */
@@ -63,5 +66,5 @@ enum class CommunicationTopic {
      * The purpose or content of the communication is a summary report.
      */
     @SerialName("summary-report")
-    SUMMARY_REPORT
+    SUMMARY_REPORT,
 }

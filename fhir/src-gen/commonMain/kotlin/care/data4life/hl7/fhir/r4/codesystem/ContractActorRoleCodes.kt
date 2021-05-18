@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractActorRoleCodes
+ *
  * This value set includes sample Contract Actor Role codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contractactorrole">ContractActorRoleCodes</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractActorRoleCodes {
+
     /**
-     * Someone who provides health care related services to people or animals including both clinical and support services.
+     * Someone who provides health care related services to people or animals including
+     * both clinical and support services.
      */
     @SerialName("practitioner")
     PRACTITIONER,
@@ -39,5 +43,5 @@ enum class ContractActorRoleCodes {
      * A receiver, human or animal, of health care related goods and services.
      */
     @SerialName("patient")
-    PATIENT
+    PATIENT,
 }

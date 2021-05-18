@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Whether the risk estimate is dichotomous, continuous or qualitative and the specific type of risk estimate (eg proportion or median).
+ * Code System: RiskEstimateType
+ *
+ * Whether the risk estimate is dichotomous, continuous or qualitative and the specific type of risk
+ * estimate (eg proportion or median).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/risk-estimate-type">RiskEstimateType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/risk-estimate-type">ValueSet</a>
@@ -29,14 +32,17 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RiskEstimateType {
+
     /**
-     * dichotomous measure (present or absent) reported as a ratio compared to the denominator of 1 (A percentage is a proportion with denominator of 100).
+     * dichotomous measure (present or absent) reported as a ratio compared to the
+     * denominator of 1 (A percentage is a proportion with denominator of 100).
      */
     @SerialName("proportion")
     PROPORTION,
 
     /**
-     * A special use case where the proportion is derived from a formula rather than derived from summary evidence.
+     * A special use case where the proportion is derived from a formula rather than
+     * derived from summary evidence.
      */
     @SerialName("derivedProportion")
     DERIVEDPROPORTION,
@@ -63,5 +69,5 @@ enum class RiskEstimateType {
      * descriptive measure reported as narrative.
      */
     @SerialName("descriptive")
-    DESCRIPTIVE
+    DESCRIPTIVE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FamilyHistoryNotDoneReason
+ *
  * Codes describing the reason why a family member history was not done.
  *
  * @see <a href="http://hl7.org/fhir/history-not-done-reason">FamilyHistoryNotDoneReason</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FamilyHistoryNotDoneReason {
+
     /**
-     * Patient does not know the subject, e.g. the biological parent of an adopted patient.
+     * Patient does not know the subject, e.g. the biological parent of an adopted
+     * patient.
      */
     @SerialName("subject-unknown")
     SUBJECT_UNKNOWN,
@@ -48,8 +52,9 @@ enum class FamilyHistoryNotDoneReason {
     UNABLE_TO_OBTAIN,
 
     /**
-     * Patient does not have the information now, but can provide the information at a later date.
+     * Patient does not have the information now, but can provide the information at a
+     * later date.
      */
     @SerialName("deferred")
-    DEFERRED
+    DEFERRED,
 }

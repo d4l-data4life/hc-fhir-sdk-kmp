@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ParticipantRequired
+ *
  * Is the Participant required to attend the appointment.
  *
  * @see <a href="http://hl7.org/fhir/participantrequired">ParticipantRequired</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ParticipantRequired {
+
     /**
      * The participant is required to attend the appointment.
      */
@@ -42,8 +45,10 @@ enum class ParticipantRequired {
     OPTIONAL,
 
     /**
-     * The participant is excluded from the appointment, and may not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
+     * The participant is excluded from the appointment, and may not be informed of the
+     * appointment taking place. (Appointment is about them, not for them - such as 2
+     * doctors discussing results about a patient's test).
      */
     @SerialName("information-only")
-    INFORMATION_ONLY
+    INFORMATION_ONLY,
 }

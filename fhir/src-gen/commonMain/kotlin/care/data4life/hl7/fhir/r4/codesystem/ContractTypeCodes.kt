@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractTypeCodes
+ *
  * This value set includes sample Contract Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contract-type">ContractTypeCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractTypeCodes {
+
     /**
      * Privacy policy.
      */
@@ -57,5 +60,5 @@ enum class ContractTypeCodes {
      * Consent Directive.
      */
     @SerialName("consent")
-    CONSENT
+    CONSENT,
 }

@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).
+ * Code System: EvidenceVariableType
+ *
+ * The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous,
+ * Descriptive).
  *
  * @see <a href="http://hl7.org/fhir/variable-type">EvidenceVariableType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/variable-type">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EvidenceVariableType {
+
     /**
      * The variable is dichotomous, such as present or absent.
      */
@@ -45,5 +49,5 @@ enum class EvidenceVariableType {
      * The variable is described narratively rather than quantitatively.
      */
     @SerialName("descriptive")
-    DESCRIPTIVE
+    DESCRIPTIVE,
 }

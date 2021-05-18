@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SequenceType
+ *
  * Type if a sequence -- DNA, RNA, or amino acid sequence.
  *
  * @see <a href="http://hl7.org/fhir/sequence-type">SequenceType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SequenceType {
+
     /**
      * Amino acid sequence.
      */
@@ -45,5 +48,5 @@ enum class SequenceType {
      * RNA Sequence.
      */
     @SerialName("rna")
-    RNA
+    RNA,
 }

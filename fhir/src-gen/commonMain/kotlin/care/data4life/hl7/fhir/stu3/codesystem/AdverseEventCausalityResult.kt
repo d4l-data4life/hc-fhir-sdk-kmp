@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventCausalityResult
+ *
  * TODO
  *
  * @see <a href="http://hl7.org/fhir/adverse-event-causality-result">AdverseEventCausalityResult</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdverseEventCausalityResult {
+
     /**
      * result1
      */
@@ -39,5 +42,5 @@ enum class AdverseEventCausalityResult {
      * result2
      */
     @SerialName("result2")
-    RESULT2
+    RESULT2,
 }

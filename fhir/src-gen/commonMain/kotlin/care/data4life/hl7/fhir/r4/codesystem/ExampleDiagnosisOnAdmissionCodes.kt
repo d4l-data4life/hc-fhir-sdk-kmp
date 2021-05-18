@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleDiagnosisOnAdmissionCodes
+ *
  * This value set includes example Diagnosis on Admission codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission">ExampleDiagnosisOnAdmissionCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleDiagnosisOnAdmissionCodes {
+
     /**
      * Diagnosis was present at time of inpatient admission.
      */
@@ -42,14 +45,16 @@ enum class ExampleDiagnosisOnAdmissionCodes {
     N,
 
     /**
-     * Documentation insufficient to determine if condition was present at the time of inpatient admission.
+     * Documentation insufficient to determine if condition was present at the time of
+     * inpatient admission.
      */
     @SerialName("u")
     U,
 
     /**
-     * Clinically undetermined. Provider unable to clinically determine whether the condition was present at the time of inpatient admission.
+     * Clinically undetermined. Provider unable to clinically determine whether the
+     * condition was present at the time of inpatient admission.
      */
     @SerialName("w")
-    W
+    W,
 }

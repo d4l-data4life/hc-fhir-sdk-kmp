@@ -20,15 +20,18 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it.
+ * Code System: MediaModality
+ *
+ * Detailed information about the type of the image - its kind, purpose, or the kind of equipment used
+ * to generate it.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/media-modality">MediaModality</a>
- *
  *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class MediaModality {
+
     /**
      * A diagram. Often used in diagnostic reports
      */
@@ -42,7 +45,8 @@ enum class MediaModality {
     FAX,
 
     /**
-     * A digital scan of a document. This is reserved for when there is not enough metadata to create a document reference
+     * A digital scan of a document. This is reserved for when there is not enough
+     * metadata to create a document reference
      */
     @SerialName("scan")
     SCAN,
@@ -75,5 +79,5 @@ enum class MediaModality {
      * A face scan used for identification purposes
      */
     @SerialName("face")
-    FACE
+    FACE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationAdministrationStatusCodes
+ *
  * MedicationAdministration Status Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medication-admin-status">MedicationAdministrationStatusCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationAdministrationStatusCodes {
+
     /**
      * The administration has started but has not yet completed.
      */
@@ -36,13 +39,15 @@ enum class MedicationAdministrationStatusCodes {
     IN_PROGRESS,
 
     /**
-     * The administration was terminated prior to any impact on the subject (though preparatory actions may have been taken)
+     * The administration was terminated prior to any impact on the subject (though
+     * preparatory actions may have been taken)
      */
     @SerialName("not-done")
     NOT_DONE,
 
     /**
-     * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called 'suspended'.
+     * Actions implied by the administration have been temporarily halted, but are
+     * expected to continue later. May also be called 'suspended'.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -60,14 +65,17 @@ enum class MedicationAdministrationStatusCodes {
     ENTERED_IN_ERROR,
 
     /**
-     * Actions implied by the administration have been permanently halted, before all of them occurred.
+     * Actions implied by the administration have been permanently halted, before all
+     * of them occurred.
      */
     @SerialName("stopped")
     STOPPED,
 
     /**
-     * The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, it's just not known which one.
+     * The authoring system does not know which of the status values currently applies
+     * for this request. Note: This concept is not to be used for 'other' - one of the
+     * listed statuses is presumed to apply, it's just not known which one.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

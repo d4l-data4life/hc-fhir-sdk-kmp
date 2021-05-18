@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AddressType
+ *
  * The type of an address (physical / postal).
  *
  * @see <a href="http://hl7.org/fhir/address-type">AddressType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AddressType {
+
     /**
      * Mailing addresses - PO Boxes and care-of addresses.
      */
@@ -45,5 +48,5 @@ enum class AddressType {
      * An address that is both physical and postal.
      */
     @SerialName("both")
-    BOTH
+    BOTH,
 }

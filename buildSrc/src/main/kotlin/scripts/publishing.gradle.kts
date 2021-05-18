@@ -65,108 +65,120 @@ val basePath = "${rootProject.buildDir}/gitPublish"
 val gitHubToken = (project.findProperty("gpr.key")
     ?: System.getenv("PACKAGE_REGISTRY_TOKEN")).toString()
 
-
-task<Exec>("publishFeature") {
-    group = taskGroup
-
-    commandLine(
-        "./gradlew",
-        "gitPublishFeatureCheckout",
-        "gitPublishFeatureUpdate",
-        "publishAllPublicationsToFeaturePackagesRepository",
-        "gitPublishFeatureCommit",
-        "gitPublishFeaturePush"
-    )
-}
-
-task<Exec>("publishSnapshot") {
-    group = taskGroup
-
-    commandLine(
-        "./gradlew",
-        "gitPublishSnapshotCheckout",
-        "gitPublishSnapshotUpdate",
-        "publishAllPublicationsToSnapshotPackagesRepository",
-        "gitPublishSnapshotCommit",
-        "gitPublishSnapshotPush"
-    )
-}
-
-task<Exec>("publishRelease") {
-    group = taskGroup
-
-    commandLine(
-        "./gradlew",
-        "gitPublishReleaseCheckout",
-        "gitPublishReleaseUpdate",
-        "publishAllPublicationsToReleasePackagesRepository",
-        "gitPublishReleaseCommit",
-        "gitPublishReleasePush"
-    )
-}
-
 // Git Checkout
-val gitPublishFeatureCheckout: Task by tasks.creating() {
+val gitPublishCheckoutFeature: Task by tasks.creating() {
     group = taskGroup
     doLast { gitClone(featureRepoName) }
 }
 
-val gitPublishSnapshotCheckout: Task by tasks.creating() {
+val gitPublishCheckoutSnapshot: Task by tasks.creating() {
     group = taskGroup
     doLast { gitClone(snapshotRepoName) }
 }
 
-val gitPublishReleaseCheckout: Task by tasks.creating() {
+val gitPublishCheckoutRelease: Task by tasks.creating() {
     group = taskGroup
     doLast { gitClone(releaseRepoName) }
 }
 
 // Git Update
-val gitPublishFeatureUpdate: Task by tasks.creating() {
+val gitPublishUpdateFeature: Task by tasks.creating() {
     group = taskGroup
     doLast { gitUpdate(featureRepoName) }
+    mustRunAfter(gitPublishCheckoutFeature)
 }
 
-val gitPublishSnapshotUpdate: Task by tasks.creating() {
+val gitPublishUpdateSnapshot: Task by tasks.creating() {
     group = taskGroup
     doLast { gitUpdate(snapshotRepoName) }
+    mustRunAfter(gitPublishCheckoutSnapshot)
 }
 
-val gitPublishReleaseUpdate: Task by tasks.creating() {
+val gitPublishUpdateRelease: Task by tasks.creating() {
     group = taskGroup
     doLast { gitUpdate(releaseRepoName) }
+    mustRunAfter(gitPublishCheckoutRelease)
+}
+
+// Publish tasks
+val publishToPackagesRepositoryFeature: Task by tasks.creating() {
+    dependsOn(":fhir:publishAllPublicationsToFeaturePackagesRepository")
+    mustRunAfter(gitPublishCheckoutFeature, gitPublishUpdateFeature)
+}
+
+val publishToPackagesRepositorySnapshot: Task by tasks.creating() {
+    dependsOn(":fhir:publishAllPublicationsToSnaphotPackagesRepository")
+    mustRunAfter(gitPublishCheckoutSnapshot, gitPublishUpdateSnapshot)
+}
+
+val publishToPackagesRepositoryRelease: Task by tasks.creating() {
+    dependsOn(":fhir:publishAllPublicationsToReleasePackagesRepository")
+    mustRunAfter(gitPublishCheckoutRelease, gitPublishUpdateRelease)
 }
 
 // Git Commit
-val gitPublishFeatureCommit: Task by tasks.creating() {
+val gitPublishCommitFeature: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(featureRepoName) }
+    mustRunAfter(
+        gitPublishCheckoutFeature,
+        gitPublishUpdateFeature,
+        publishToPackagesRepositoryFeature,
+    )
 }
 
-val gitPublishSnapshotCommit: Task by tasks.creating() {
+val gitPublishCommitSnapshot: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(snapshotRepoName) }
+    mustRunAfter(
+        gitPublishCheckoutSnapshot,
+        gitPublishUpdateSnapshot,
+        publishToPackagesRepositorySnapshot,
+    )
 }
 
-val gitPublishReleaseCommit: Task by tasks.creating() {
+val gitPublishCommitRelease: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(releaseRepoName) }
+    mustRunAfter(
+        gitPublishCheckoutRelease,
+        gitPublishUpdateRelease,
+        publishToPackagesRepositoryRelease,
+    )
 }
 
 // Git Push
-val gitPublishFeaturePush: Task by tasks.creating() {
+val gitPublishPushFeature: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(featureRepoName) }
+    mustRunAfter(
+        gitPublishCheckoutFeature,
+        gitPublishUpdateFeature,
+        publishToPackagesRepositoryFeature,
+        gitPublishCommitFeature,
+    )
 }
 
-val gitPublishSnapshotPush: Task by tasks.creating() {
+val gitPublishPushSnapshot: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(snapshotRepoName) }
+    mustRunAfter(
+        gitPublishCheckoutSnapshot,
+        gitPublishUpdateSnapshot,
+        publishToPackagesRepositorySnapshot,
+        gitPublishCommitSnapshot,
+    )
 }
 
-val gitPublishReleasePush: Task by tasks.creating() {
+val gitPublishPushRelease: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(releaseRepoName) }
+    mustRunAfter(
+        gitPublishCheckoutRelease,
+        gitPublishUpdateRelease,
+        publishToPackagesRepositoryRelease,
+        gitPublishCommitFeature,
+    )
 }
 
 // Git calls
@@ -226,4 +238,39 @@ fun gitPush(repositoryName: String) {
             }
         }
     }
+}
+
+// Publish Tasks
+
+val publishFeature: Task by tasks.creating() {
+    group = taskGroup
+    dependsOn(
+        gitPublishCheckoutFeature,
+        gitPublishUpdateFeature,
+        publishToPackagesRepositoryFeature,
+        gitPublishCommitFeature,
+        gitPublishPushFeature
+    )
+}
+
+val publishSnapshot: Task by tasks.creating() {
+    group = taskGroup
+    dependsOn(
+        gitPublishCheckoutSnapshot,
+        gitPublishUpdateSnapshot,
+        publishToPackagesRepositorySnapshot,
+        gitPublishCommitSnapshot,
+        gitPublishPushSnapshot
+    )
+}
+
+val publishRelease: Task by tasks.creating() {
+    group = taskGroup
+    dependsOn(
+        gitPublishCheckoutRelease,
+        gitPublishUpdateRelease,
+        publishToPackagesRepositoryRelease,
+        gitPublishCommitRelease,
+        gitPublishPushRelease
+    )
 }

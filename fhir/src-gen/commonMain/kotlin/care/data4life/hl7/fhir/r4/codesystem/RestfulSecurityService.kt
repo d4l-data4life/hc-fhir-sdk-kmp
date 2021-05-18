@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RestfulSecurityService
+ *
  * Types of security services used with FHIR.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/restful-security-service">RestfulSecurityService</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RestfulSecurityService {
+
     /**
      * OAuth (unspecified version see oauth.net).
      */
@@ -63,5 +66,5 @@ enum class RestfulSecurityService {
      * SSL where client must have a certificate registered with the server.
      */
     @SerialName("Certificates")
-    CERTIFICATES
+    CERTIFICATES,
 }

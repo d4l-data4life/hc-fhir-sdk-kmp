@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ListOrderCodes
+ *
  * Base values for the order of the items in a list resource.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/list-order">ListOrderCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ListOrderCodes {
+
     /**
      * The list was sorted by a user. The criteria the user used are not specified.
      */
@@ -36,37 +39,44 @@ enum class ListOrderCodes {
     USER,
 
     /**
-     * The list was sorted by the system. The criteria the user used are not specified; define additional codes to specify a particular order (or use other defined codes).
+     * The list was sorted by the system. The criteria the user used are not specified;
+     * define additional codes to specify a particular order (or use other defined
+     * codes).
      */
     @SerialName("system")
     SYSTEM,
 
     /**
-     * The list is sorted by the data of the event. This can be used when the list has items which are dates with past or future events.
+     * The list is sorted by the data of the event. This can be used when the list has
+     * items which are dates with past or future events.
      */
     @SerialName("event-date")
     EVENT_DATE,
 
     /**
-     * The list is sorted by the date the item was added to the list. Note that the date added to the list is not explicit in the list itself.
+     * The list is sorted by the date the item was added to the list. Note that the
+     * date added to the list is not explicit in the list itself.
      */
     @SerialName("entry-date")
     ENTRY_DATE,
 
     /**
-     * The list is sorted by priority. The exact method in which priority has been determined is not specified.
+     * The list is sorted by priority. The exact method in which priority has been
+     * determined is not specified.
      */
     @SerialName("priority")
     PRIORITY,
 
     /**
-     * The list is sorted alphabetically by an unspecified property of the items in the list.
+     * The list is sorted alphabetically by an unspecified property of the items in the
+     * list.
      */
     @SerialName("alphabetic")
     ALPHABETIC,
 
     /**
-     * The list is sorted categorically by an unspecified property of the items in the list.
+     * The list is sorted categorically by an unspecified property of the items in the
+     * list.
      */
     @SerialName("category")
     CATEGORY,
@@ -75,5 +85,5 @@ enum class ListOrderCodes {
      * The list is sorted by patient, with items for each patient grouped together.
      */
     @SerialName("patient")
-    PATIENT
+    PATIENT,
 }

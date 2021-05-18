@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AssertionOperatorType
+ *
  * The type of operator to use for assertion.
  *
  * @see <a href="http://hl7.org/fhir/assert-operator-codes">AssertionOperatorType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AssertionOperatorType {
+
     /**
      * Default value. Equals comparison.
      */
@@ -93,5 +96,5 @@ enum class AssertionOperatorType {
      * Evaluate the FHIRPath expression as a boolean condition.
      */
     @SerialName("eval")
-    EVAL
+    EVAL,
 }

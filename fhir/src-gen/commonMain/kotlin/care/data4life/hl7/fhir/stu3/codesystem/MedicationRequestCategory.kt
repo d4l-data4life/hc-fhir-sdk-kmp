@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestCategory
+ *
  * A coded concept identifying where the medication ordered is expected to be consumed or administered
  *
  * @see <a href="http://hl7.org/fhir/medication-request-category">MedicationRequestCategory</a>
@@ -29,21 +31,26 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestCategory {
+
     /**
-     * Includes orders for medications to be administered or consumed in an inpatient or acute care setting
+     * Includes orders for medications to be administered or consumed in an inpatient
+     * or acute care setting
      */
     @SerialName("inpatient")
     INPATIENT,
 
     /**
-     * Includes orders for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
+     * Includes orders for medications to be administered or consumed in an outpatient
+     * setting (for example, Emergency Department, Outpatient Clinic, Outpatient
+     * Surgery, Doctor's office)
      */
     @SerialName("outpatient")
     OUTPATIENT,
 
     /**
-     * Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)
+     * Includes orders for medications to be administered or consumed by the patient in
+     * their home (this would include long term care or nursing homes, hospices, etc)
      */
     @SerialName("community")
-    COMMUNITY
+    COMMUNITY,
 }

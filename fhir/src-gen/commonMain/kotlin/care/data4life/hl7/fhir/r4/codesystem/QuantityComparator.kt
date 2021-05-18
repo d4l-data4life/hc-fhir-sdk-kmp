@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuantityComparator
+ *
  * How the Quantity should be understood and represented.
  *
  * @see <a href="http://hl7.org/fhir/quantity-comparator">QuantityComparator</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuantityComparator {
+
     /**
      * The actual value is less than the given value.
      */

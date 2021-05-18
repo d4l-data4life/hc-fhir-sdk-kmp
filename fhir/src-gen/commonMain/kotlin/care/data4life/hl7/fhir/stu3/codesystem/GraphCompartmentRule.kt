@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GraphCompartmentRule
+ *
  * How a compartment must be linked
  *
  * @see <a href="http://hl7.org/fhir/graph-compartment-rule">GraphCompartmentRule</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GraphCompartmentRule {
+
     /**
      * The compartment must be identical (the same literal reference)
      */
@@ -36,7 +39,8 @@ enum class GraphCompartmentRule {
     IDENTICAL,
 
     /**
-     * The compartment must be the same - the record must be about the same patient, but the reference may be different
+     * The compartment must be the same - the record must be about the same patient,
+     * but the reference may be different
      */
     @SerialName("matching")
     MATCHING,
@@ -51,5 +55,5 @@ enum class GraphCompartmentRule {
      * The compartment rule is defined in the accompanying FHIRPath expression
      */
     @SerialName("custom")
-    CUSTOM
+    CUSTOM,
 }

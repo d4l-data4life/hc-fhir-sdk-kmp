@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestCategoryCodes
+ *
  * MedicationRequest Category Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationrequest-category">MedicationRequestCategoryCodes</a>
@@ -29,27 +31,34 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestCategoryCodes {
+
     /**
-     * Includes requests for medications to be administered or consumed in an inpatient or acute care setting
+     * Includes requests for medications to be administered or consumed in an inpatient
+     * or acute care setting
      */
     @SerialName("inpatient")
     INPATIENT,
 
     /**
-     * Includes requests for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
+     * Includes requests for medications to be administered or consumed in an
+     * outpatient setting (for example, Emergency Department, Outpatient Clinic,
+     * Outpatient Surgery, Doctor's office)
      */
     @SerialName("outpatient")
     OUTPATIENT,
 
     /**
-     * Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)
+     * Includes requests for medications to be administered or consumed by the patient
+     * in their home (this would include long term care or nursing homes, hospices,
+     * etc.)
      */
     @SerialName("community")
     COMMUNITY,
 
     /**
-     * Includes requests for medications created when the patient is being released from a facility
+     * Includes requests for medications created when the patient is being released
+     * from a facility
      */
     @SerialName("discharge")
-    DISCHARGE
+    DISCHARGE,
 }

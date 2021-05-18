@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActivityDefinitionCategory
+ *
  * High-level categorization of the type of activity.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/activity-definition-category">ActivityDefinitionCategory</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActivityDefinitionCategory {
+
     /**
      * The activity is intended to provide or is related to treatment of the patient.
      */
@@ -45,5 +48,5 @@ enum class ActivityDefinitionCategory {
      * The activity is intended to perform or is related to assessment of the patient.
      */
     @SerialName("assessment")
-    ASSESSMENT
+    ASSESSMENT,
 }

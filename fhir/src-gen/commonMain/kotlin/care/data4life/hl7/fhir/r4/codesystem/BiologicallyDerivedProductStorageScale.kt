@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BiologicallyDerivedProductStorageScale
+ *
  * BiologicallyDerived Product Storage Scale.
  *
  * @see <a href="http://hl7.org/fhir/product-storage-scale">BiologicallyDerivedProductStorageScale</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BiologicallyDerivedProductStorageScale {
+
     /**
      * Fahrenheit temperature scale.
      */
@@ -45,5 +48,5 @@ enum class BiologicallyDerivedProductStorageScale {
      * Kelvin absolute thermodynamic temperature scale.
      */
     @SerialName("kelvin")
-    KELVIN
+    KELVIN,
 }

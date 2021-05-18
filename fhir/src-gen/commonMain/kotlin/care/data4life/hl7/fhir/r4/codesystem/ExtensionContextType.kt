@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExtensionContextType
+ *
  * How an extension context is interpreted.
  *
  * @see <a href="http://hl7.org/fhir/extension-context-type">ExtensionContextType</a>
@@ -29,21 +31,27 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExtensionContextType {
+
     /**
-     * The context is all elements that match the FHIRPath query found in the expression.
+     * The context is all elements that match the FHIRPath query found in the
+     * expression.
      */
     @SerialName("fhirpath")
     FHIRPATH,
 
     /**
-     * The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers. The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification.
+     * The context is any element that has an ElementDefinition.id that matches that
+     * found in the expression. This includes ElementDefinition Ids that have slicing
+     * identifiers. The full path for the element is [url]#[elementid]. If there is no
+     * #, the Element id is one defined in the base specification.
      */
     @SerialName("element")
     ELEMENT,
 
     /**
-     * The context is a particular extension from a particular StructureDefinition, and the expression is just a uri that identifies the extension.
+     * The context is a particular extension from a particular StructureDefinition, and
+     * the expression is just a uri that identifies the extension.
      */
     @SerialName("extension")
-    EXTENSION
+    EXTENSION,
 }

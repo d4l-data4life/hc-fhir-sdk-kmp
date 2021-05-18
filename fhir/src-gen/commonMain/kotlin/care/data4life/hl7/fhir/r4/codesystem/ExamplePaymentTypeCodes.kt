@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExamplePaymentTypeCodes
+ *
  * This value set includes example Payment Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-paymenttype">ExamplePaymentTypeCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExamplePaymentTypeCodes {
+
     /**
      * Complete (final) payment of the benefit under the Claim less any adjustments.
      */
@@ -39,5 +42,5 @@ enum class ExamplePaymentTypeCodes {
      * Partial payment of the benefit under the Claim less any adjustments.
      */
     @SerialName("partial")
-    PARTIAL
+    PARTIAL,
 }

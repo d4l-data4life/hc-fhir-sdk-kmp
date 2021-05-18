@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SpecialValues
+ *
  * A set of generally useful codes defined so they can be included in value sets.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/special-values">SpecialValues</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SpecialValues {
+
     /**
      * Boolean true.
      */
@@ -48,7 +51,8 @@ enum class SpecialValues {
     TRACE,
 
     /**
-     * The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.
+     * The specific quantity is not known, but is known to be non-zero and is not
+     * specified because it makes up the bulk of the material.
      */
     @SerialName("sufficient")
     SUFFICIENT,
@@ -63,5 +67,5 @@ enum class SpecialValues {
      * The are no known applicable values in this context.
      */
     @SerialName("nil-known")
-    NIL_KNOWN
+    NIL_KNOWN,
 }

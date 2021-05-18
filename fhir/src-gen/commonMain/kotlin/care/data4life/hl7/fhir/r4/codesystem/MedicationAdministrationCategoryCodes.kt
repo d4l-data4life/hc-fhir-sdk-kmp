@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationAdministrationCategoryCodes
+ *
  * MedicationAdministration Category Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medication-admin-category">MedicationAdministrationCategoryCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationAdministrationCategoryCodes {
+
     /**
      * Includes administrations in an inpatient or acute care setting
      */
@@ -36,14 +39,16 @@ enum class MedicationAdministrationCategoryCodes {
     INPATIENT,
 
     /**
-     * Includes administrations in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
+     * Includes administrations in an outpatient setting (for example, Emergency
+     * Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
      */
     @SerialName("outpatient")
     OUTPATIENT,
 
     /**
-     * Includes administrations by the patient in their home (this would include long term care or nursing homes, hospices, etc.)
+     * Includes administrations by the patient in their home (this would include long
+     * term care or nursing homes, hospices, etc.)
      */
     @SerialName("community")
-    COMMUNITY
+    COMMUNITY,
 }

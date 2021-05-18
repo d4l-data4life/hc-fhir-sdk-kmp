@@ -16,51 +16,44 @@
 
 package care.data4life.hl7.fhir.stu3.codesystem
 
-import kotlinx.serialization.*
-
-{% if system.generate_enum %}
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+{%- set enum_replacement_dict = {
+    '=':'EQUAL',
+    '!=':'NOT_EQUAL',
+    '<':'LESS_THAN',
+    '<=':'LESS_OR_EQUAL',
+    '>':'GREATER_THAN',
+    '>=':'GREATER_OR_EQUAL',
+    '>=':'GREATER_OR_EQUAL',
+    '*':'MAX',
+} %}
 
 /**
- * {{ system.definition.description }}
+ * Code System: {{ system.name }}
+ *
+ * {{ system.definition.description | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | replace('\n\n','\n') | wordwrap(100) | replace('\n', '\n * ') }}
  *
  * @see <a href="{{ system.url }}">{{ system.name }}</a>
- * {%- if system.definition.valueSet %} @see <a href="{{ system.definition.valueSet }}">ValueSet</a> {%- endif %}
+{%- if system.definition.valueSet %}
+ * @see <a href="{{ system.definition.valueSet }}">ValueSet</a>
+{%- endif %}
  *
  * Generated from FHIR {{ info.version }}
  */
 @Serializable
 enum class {{ system.name }} {
+{%- for code in system.codes %}
 
-	{%- for code in system.codes %}
     /**
-     * {{ code.definition }}
+     * {{ code.definition | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | replace('\n\n','\n') | wordwrap(80) | replace('\n\n','\n') | replace('\n', '\n     * ') }}
      */
     @SerialName("{{code.code}}")
-    {%- if code.code == "=" %}
-    EQUAL,
-    {%- else %}
-    {%- if code.code == "<" %}
-    LESS_THAN,
-    {%- else %}
-    {%- if code.code == "<=" %}
-    LESS_OR_EQUAL,
-    {%- else %}
-    {%- if code.code == ">" %}
-    GREATER_THAN,
-    {%- else %}
-    {%- if code.code == ">=" %}
-    GREATER_OR_EQUAL,
-    {%- else %}
-    {%- if code.code == "*" %}
-    MAX,
-    {%- else %}
-    {{ code.code.upper()|replace('-', '_') }}{% if not loop.last %},{% endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endif %}
-    {%- endfor %}
+{%- if code.code in enum_replacement_dict %}
+    {{ enum_replacement_dict.get(code.code) }},
+{%- else %}
+    {{ code.code.upper() | replace('-', '_') }},
+{%- endif %}
+{%- endfor %}
 }
-{% endif %}
+{% if True %}{# ensure empty line at end of file #}{% endif %}

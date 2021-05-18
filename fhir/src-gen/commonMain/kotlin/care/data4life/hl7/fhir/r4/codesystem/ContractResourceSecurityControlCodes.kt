@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceSecurityControlCodes
+ *
  * This value set contract specific codes for security control.
  *
  * @see <a href="http://hl7.org/fhir/contract-security-control">ContractResourceSecurityControlCodes</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceSecurityControlCodes {
+
     /**
      * To be completed
      */
     @SerialName("policy")
-    POLICY
+    POLICY,
 }

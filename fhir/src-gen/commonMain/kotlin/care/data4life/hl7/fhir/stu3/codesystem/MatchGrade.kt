@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MatchGrade
+ *
  * A Master Patient Index (MPI) assessment of whether a candidate patient record is a match or not.
  *
  * @see <a href="http://hl7.org/fhir/match-grade">MatchGrade</a>
@@ -29,27 +31,33 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MatchGrade {
+
     /**
-     * This record meets the matching criteria to be automatically considered as a full match.
+     * This record meets the matching criteria to be automatically considered as a full
+     * match.
      */
     @SerialName("certain")
     CERTAIN,
 
     /**
-     * This record is a close match, but not a certain match. Additional review (e.g. by a human) may be required before using this as a match.
+     * This record is a close match, but not a certain match. Additional review (e.g.
+     * by a human) may be required before using this as a match.
      */
     @SerialName("probable")
     PROBABLE,
 
     /**
-     * This record may be a matching one. Additional review (e.g. by a human) SHOULD be performed before using this as a match.
+     * This record may be a matching one. Additional review (e.g. by a human) SHOULD be
+     * performed before using this as a match.
      */
     @SerialName("possible")
     POSSIBLE,
 
     /**
-     * This record is known not to be a match. Note that usually non-matching records are not returned, but in some cases records previously or likely considered as a match may specifically be negated by the matching engine
+     * This record is known not to be a match. Note that usually non-matching records
+     * are not returned, but in some cases records previously or likely considered as a
+     * match may specifically be negated by the matching engine
      */
     @SerialName("certainly-not")
-    CERTAINLY_NOT
+    CERTAINLY_NOT,
 }

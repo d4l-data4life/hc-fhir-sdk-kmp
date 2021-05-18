@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -20,113 +20,119 @@ import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 
+{%- set resource_list = [
+    "Address",
+    "Age",
+    "Annotation",
+    "Attachment",
+    "BackboneElement",
+    "CarePlan",
+    "CareTeam",
+    "CodeableConcept",
+    "CodeSystem",
+    "Coding",
+    "Condition",
+    "ContactDetail",
+    "ContactPoint",
+    "Count",
+    "DiagnosticReport",
+    "Distance",
+    "DocumentReference",
+    "DomainResource",
+    "Dosage",
+    "Duration",
+    "Element",
+    "Encounter",
+    "Extension",
+    "FamilyMemberHistory",
+    "Goal",
+    "HumanName",
+    "Identifier",
+    "Location",
+    "Medication",
+    "MedicationRequest",
+    "MedicationStatement",
+    "Meta",
+    "Money",
+    "Narrative",
+    "Observation",
+    "Organization",
+    "Patient",
+    "Period",
+    "Practitioner",
+    "PractitionerRole",
+    "Procedure",
+    "ProcedureRequest",
+    "Provenance",
+    "Quantity",
+    "Questionnaire",
+    "QuestionnaireResponse",
+    "Range",
+    "Ratio",
+    "Reference",
+    "ReferralRequest",
+    "Resource",
+    "SampledData",
+    "ServiceRequest",
+    "Signature",
+    "Specimen",
+    "Substance",
+    "Timing",
+    "UsageContext",
+    "ValueSet"
+] %}
+{%- set fhir_resource_list = [
+    "CarePlan",
+    "CareTeam",
+    "CodeSystem",
+    "Condition",
+    "DiagnosticReport",
+    "DocumentReference",
+    "DomainResource",
+    "Encounter",
+    "FamilyMemberHistory",
+    "Goal",
+    "Location",
+    "Medication",
+    "MedicationRequest",
+    "MedicationStatement",
+    "Observation",
+    "Organization",
+    "Patient",
+    "Practitioner",
+    "PractitionerRole",
+    "Procedure",
+    "ProcedureRequest",
+    "Provenance",
+    "Questionnaire",
+    "QuestionnaireResponse",
+    "ReferralRequest",
+    "Resource",
+    "ServiceRequest",
+    "Specimen",
+    "Substance",
+    "ValueSet",
+] %}
+
 object FhirSerializationModule {
 
-	{%- set resource_list = [
-			"Address",
-			"Age",
-			"Annotation",
-			"Attachment",
-			"BackboneElement",
-			"CarePlan",
-			"CareTeam",
-			"CodeableConcept",
-			"CodeSystem",
-			"Coding",
-			"Condition",
-			"ContactDetail",
-			"ContactPoint",
-			"Count",
-			"DiagnosticReport",
-			"Distance",
-			"DocumentReference",
-			"DomainResource",
-			"Dosage",
-			"Duration",
-			"Element",
-			"Extension",
-			"FamilyMemberHistory",
-			"Goal",
-			"HumanName",
-			"Identifier",
-			"Medication",
-			"MedicationRequest",
-			"MedicationStatement",
-			"Meta",
-			"Money",
-			"Narrative",
-			"Observation",
-			"Organization",
-			"Patient",
-			"Period",
-			"Practitioner",
-			"PractitionerRole",
-			"Procedure",
-			"ProcedureRequest",
-			"Provenance",
-			"Quantity",
-			"Questionnaire",
-			"QuestionnaireResponse",
-			"Range",
-			"Ratio",
-			"Reference",
-			"ReferralRequest",
-			"Resource",
-			"SampledData",
-			"Signature",
-			"Specimen",
-			"Substance",
-			"Timing",
-			"UsageContext",
-			"ValueSet"
-	] %}
-
-	{%- set fhir_resource_list = [
-			"CarePlan",
-			"CareTeam",
-			"CodeSystem",
-			"Condition",
-			"DiagnosticReport",
-			"DocumentReference",
-			"DomainResource",
-			"FamilyMemberHistory",
-			"Goal",
-			"Medication",
-			"MedicationRequest",
-			"MedicationStatement",
-			"Observation",
-			"Organization",
-			"Patient",
-			"Practitioner",
-			"PractitionerRole",
-			"Procedure",
-			"ProcedureRequest",
-			"Provenance",
-			"Questionnaire",
-			"QuestionnaireResponse",
-			"ReferralRequest",
-			"Resource",
-			"Specimen",
-			"Substance",
-			"ValueSet",
-	] %}
-
-	fun module(): SerializersModule {
-		return SerializersModule {
-			polymorphic(FhirR4::class) {
-				{%- for resource in resources %}
-				{%- if resource.name in resource_list %}
-				subclass({{ resource.name }}::class)
-				{%- endif %}
-				{%- endfor %}
-			}
-			polymorphic(FhirResource::class) {
-				{%- for resource in resources %}
-				{%- if resource.name in fhir_resource_list %}
-				subclass({{ resource.name }}::class)
-				{%- endif %}
-				{%- endfor %}
-			}
-		}
-	}
+    fun module(): SerializersModule {
+        return SerializersModule {
+            polymorphic(FhirR4::class) {
+{%- for resource in resources %}
+{%- if resource.name in resource_list %}
+                subclass({{ resource.name }}::class)
+{%- endif %}
+{%- endfor %}
+            }
+            polymorphic(FhirResource::class) {
+{%- for resource in resources %}
+{%- if resource.name in fhir_resource_list %}
+                subclass({{ resource.name }}::class)
+{%- endif %}
+{%- endfor %}
+            }
+        }
+    }
 }
+{% if True %}{# ensure empty line at end of file #}{% endif %}

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureScoring
+ *
  * The scoring type of the measure
  *
  * @see <a href="http://hl7.org/fhir/measure-scoring">MeasureScoring</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureScoring {
+
     /**
      * The measure score is defined using a proportion
      */
@@ -51,5 +54,5 @@ enum class MeasureScoring {
      * The measure is a cohort definition
      */
     @SerialName("cohort")
-    COHORT
+    COHORT,
 }

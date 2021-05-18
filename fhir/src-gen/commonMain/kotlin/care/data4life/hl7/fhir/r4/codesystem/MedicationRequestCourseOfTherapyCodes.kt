@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestCourseOfTherapyCodes
+ *
  * MedicationRequest Course of Therapy Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy">MedicationRequestCourseOfTherapyCodes</a>
@@ -29,21 +31,25 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestCourseOfTherapyCodes {
+
     /**
-     * A medication which is expected to be continued beyond the present order and which the patient should be assumed to be taking unless explicitly stopped.
+     * A medication which is expected to be continued beyond the present order and
+     * which the patient should be assumed to be taking unless explicitly stopped.
      */
     @SerialName("continuous")
     CONTINUOUS,
 
     /**
-     * A medication which the patient is only expected to consume for the duration of the current order and which is not expected to be renewed.
+     * A medication which the patient is only expected to consume for the duration of
+     * the current order and which is not expected to be renewed.
      */
     @SerialName("acute")
     ACUTE,
 
     /**
-     * A medication which is expected to be used on a part time basis at certain times of the year
+     * A medication which is expected to be used on a part time basis at certain times
+     * of the year
      */
     @SerialName("seasonal")
-    SEASONAL
+    SEASONAL,
 }

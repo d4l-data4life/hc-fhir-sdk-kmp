@@ -20,17 +20,21 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that can be used to indicate how an individual participates in an encounter.
+ * Code System: ParticipantType
+ *
+ * This value set defines a set of codes that can be used to indicate how an individual participates in
+ * an encounter.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/participant-type">ParticipantType</a>
- *
  *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class ParticipantType {
+
     /**
-     * A translator who is facilitating communication with the patient during the encounter.
+     * A translator who is facilitating communication with the patient during the
+     * encounter.
      */
     @SerialName("translator")
     TRANSLATOR,
@@ -39,5 +43,5 @@ enum class ParticipantType {
      * A person to be contacted in case of an emergency during the encounter.
      */
     @SerialName("emergency")
-    EMERGENCY
+    EMERGENCY,
 }

@@ -20,7 +20,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the reason why a dose is considered to be subpotent. This value set is provided as a suggestive example.
+ * Code System: ImmunizationSubpotentReason
+ *
+ * The value set to instantiate this attribute should be drawn from a terminologically robust code
+ * system that consists of or contains concepts to support describing the reason why a dose is
+ * considered to be subpotent. This value set is provided as a suggestive example.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason">ImmunizationSubpotentReason</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/immunization-subpotent-reason">ValueSet</a>
@@ -29,6 +33,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ImmunizationSubpotentReason {
+
     /**
      * The full volume of the dose was not administered to the patient.
      */
@@ -45,5 +50,5 @@ enum class ImmunizationSubpotentReason {
      * The vaccine was recalled by the manufacturer.
      */
     @SerialName("recall")
-    RECALL
+    RECALL,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DocumentMode
+ *
  * Whether the application produces or consumes documents.
  *
  * @see <a href="http://hl7.org/fhir/document-mode">DocumentMode</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DocumentMode {
+
     /**
      * The application produces documents of the specified type.
      */
@@ -39,5 +42,5 @@ enum class DocumentMode {
      * The application consumes documents of the specified type.
      */
     @SerialName("consumer")
-    CONSUMER
+    CONSUMER,
 }

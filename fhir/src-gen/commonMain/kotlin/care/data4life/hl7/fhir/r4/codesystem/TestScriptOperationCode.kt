@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that are used to indicate the supported operations of a testing engine or tool.
+ * Code System: TestScriptOperationCode
+ *
+ * This value set defines a set of codes that are used to indicate the supported operations of a
+ * testing engine or tool.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/testscript-operation-codes">TestScriptOperationCode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/testscript-operation-codes">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestScriptOperationCode {
+
     /**
      * Read the current state of the resource.
      */
@@ -138,7 +142,8 @@ enum class TestScriptOperationCode {
     CONFORMS,
 
     /**
-     * Aggregates and returns the parameters and data requirements for a resource and all its dependencies as a single module definition
+     * Aggregates and returns the parameters and data requirements for a resource and
+     * all its dependencies as a single module definition
      */
     @SerialName("data-requirements")
     DATA_REQUIREMENTS,
@@ -150,7 +155,8 @@ enum class TestScriptOperationCode {
     DOCUMENT,
 
     /**
-     * Request clinical decision support guidance based on a specific decision support module
+     * Request clinical decision support guidance based on a specific decision support
+     * module
      */
     @SerialName("evaluate")
     EVALUATE,
@@ -297,5 +303,5 @@ enum class TestScriptOperationCode {
      * ValueSet based Validation
      */
     @SerialName("validate-code")
-    VALIDATE_CODE
+    VALIDATE_CODE,
 }

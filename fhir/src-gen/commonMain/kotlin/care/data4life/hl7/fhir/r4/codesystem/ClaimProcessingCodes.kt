@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimProcessingCodes
+ *
  * This value set includes Claim Processing Outcome codes.
  *
  * @see <a href="http://hl7.org/fhir/remittance-outcome">ClaimProcessingCodes</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClaimProcessingCodes {
+
     /**
-     * The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.
+     * The Claim/Pre-authorization/Pre-determination has been received but processing
+     * has not begun.
      */
     @SerialName("queued")
     QUEUED,
@@ -48,8 +52,9 @@ enum class ClaimProcessingCodes {
     ERROR,
 
     /**
-     * No errors have been detected in the Claim and some of the adjudication has been performed.
+     * No errors have been detected in the Claim and some of the adjudication has been
+     * performed.
      */
     @SerialName("partial")
-    PARTIAL
+    PARTIAL,
 }

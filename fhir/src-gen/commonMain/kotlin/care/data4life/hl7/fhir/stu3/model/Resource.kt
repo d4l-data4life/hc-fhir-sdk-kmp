@@ -20,26 +20,42 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirResource
+ *
+ * This is the base resource type for everything.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Resource">Resource</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Resource)
+ */
 interface FhirResource : FhirStu3 {
 
-    // Logical id of this artifact.
+    /**
+     * Logical id of this artifact.
+     */
     val id: String?
 
-    // Metadata about the resource.
+    /**
+     * Metadata about the resource.
+     */
     val meta: Meta?
 
-    // A set of rules under which this content was created.
+    /**
+     * A set of rules under which this content was created.
+     */
     val implicitRules: String?
 
-    // Language of the resource content.
+    /**
+     * Language of the resource content.
+     */
     val language: String?
 }
 
 /**
- * ClassName: Resource
+ * Resource
  *
  * SourceFileName: Resource.kt
- *
  *
  * This is the base resource type for everything.
  *
@@ -51,16 +67,15 @@ interface FhirResource : FhirStu3 {
 @SerialName("Resource")
 data class Resource(
 
-    // Logical id of this artifact.
     @SerialName("id")
     override val id: String? = null,
-    // Metadata about the resource.
+
     @SerialName("meta")
     override val meta: Meta? = null,
-    // A set of rules under which this content was created.
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
-    // Language of the resource content.
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirResource {

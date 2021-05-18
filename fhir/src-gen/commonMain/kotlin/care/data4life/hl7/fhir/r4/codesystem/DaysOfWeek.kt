@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DaysOfWeek
+ *
  * The days of the week.
  *
  * @see <a href="http://hl7.org/fhir/days-of-week">DaysOfWeek</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DaysOfWeek {
+
     /**
      * Monday.
      */
@@ -69,5 +72,5 @@ enum class DaysOfWeek {
      * Sunday.
      */
     @SerialName("sun")
-    SUN
+    SUN,
 }

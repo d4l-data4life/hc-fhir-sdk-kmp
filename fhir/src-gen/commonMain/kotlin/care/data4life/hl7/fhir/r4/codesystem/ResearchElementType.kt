@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchElementType
+ *
  * The possible types of research elements (E.g. Population, Exposure, Outcome).
  *
  * @see <a href="http://hl7.org/fhir/research-element-type">ResearchElementType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchElementType {
+
     /**
      * The element defines the population that forms the basis for research.
      */
@@ -45,5 +48,5 @@ enum class ResearchElementType {
      * The element defines an outcome within the population that is being researched.
      */
     @SerialName("outcome")
-    OUTCOME
+    OUTCOME,
 }

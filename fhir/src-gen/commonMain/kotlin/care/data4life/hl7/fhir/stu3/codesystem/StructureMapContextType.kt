@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureMapContextType
+ *
  * How to interpret the context
  *
  * @see <a href="http://hl7.org/fhir/map-context-type">StructureMapContextType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapContextType {
+
     /**
      * The context specifies a type
      */
@@ -39,5 +42,5 @@ enum class StructureMapContextType {
      * The context specifies a variable
      */
     @SerialName("variable")
-    VARIABLE
+    VARIABLE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimTypeCodes
+ *
  * This value set includes Claim Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/claim-type">ClaimTypeCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClaimTypeCodes {
+
     /**
      * Hospital, clinic and typically inpatient claims.
      */
@@ -48,14 +51,16 @@ enum class ClaimTypeCodes {
     PHARMACY,
 
     /**
-     * Typically, outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speech Pathology, rehabilitative, consulting.
+     * Typically, outpatient claims from Physician, Psychological, Chiropractor,
+     * Physiotherapy, Speech Pathology, rehabilitative, consulting.
      */
     @SerialName("professional")
     PROFESSIONAL,
 
     /**
-     * Vision claims for professional services and products such as glasses and contact lenses.
+     * Vision claims for professional services and products such as glasses and contact
+     * lenses.
      */
     @SerialName("vision")
-    VISION
+    VISION,
 }

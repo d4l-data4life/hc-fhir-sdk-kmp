@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContactPointSystem
+ *
  * Telecommunications form for contact point
  *
  * @see <a href="http://hl7.org/fhir/contact-point-system">ContactPointSystem</a>
@@ -29,14 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContactPointSystem {
+
     /**
-     * The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+     * The value is a telephone number used for voice calls. Use of full international
+     * numbers starting with + is recommended to enable automatic dialing support but
+     * not required.
      */
     @SerialName("phone")
     PHONE,
 
     /**
-     * The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+     * The value is a fax machine. Use of full international numbers starting with + is
+     * recommended to enable automatic dialing support but not required.
      */
     @SerialName("fax")
     FAX,
@@ -48,26 +54,33 @@ enum class ContactPointSystem {
     EMAIL,
 
     /**
-     * The value is a pager number. These may be local pager numbers that are only usable on a particular pager system.
+     * The value is a pager number. These may be local pager numbers that are only
+     * usable on a particular pager system.
      */
     @SerialName("pager")
     PAGER,
 
     /**
-     * A contact that is not a phone, fax, pager or email address and is expressed as a URL.  This is intended for various personal contacts including blogs, Skype, Twitter, Facebook, etc. Do not use for email addresses.
+     * A contact that is not a phone, fax, pager or email address and is expressed as a
+     * URL. This is intended for various personal contacts including blogs, Skype,
+     * Twitter, Facebook, etc. Do not use for email addresses.
      */
     @SerialName("url")
     URL,
 
     /**
-     * A contact that can be used for sending an sms message (e.g. mobide phones, some landlines)
+     * A contact that can be used for sending an sms message (e.g. mobide phones, some
+     * landlines)
      */
     @SerialName("sms")
     SMS,
 
     /**
-     * A contact that is not a phone, fax, page or email address and is not expressible as a URL.  E.g. Internal mail address.  This SHOULD NOT be used for contacts that are expressible as a URL (e.g. Skype, Twitter, Facebook, etc.)  Extensions may be used to distinguish "other" contact types.
+     * A contact that is not a phone, fax, page or email address and is not expressible
+     * as a URL. E.g. Internal mail address. This SHOULD NOT be used for contacts that
+     * are expressible as a URL (e.g. Skype, Twitter, Facebook, etc.) Extensions may be
+     * used to distinguish "other" contact types.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

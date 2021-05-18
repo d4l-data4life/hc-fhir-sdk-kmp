@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExamplePharmacyServiceCodes
+ *
  * This value set includes a smattering of Pharmacy Service codes.
  *
  * @see <a href="http://hl7.org/fhir/ex-pharmaservice">ExamplePharmacyServiceCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExamplePharmacyServiceCodes {
+
     /**
      * Smoking cessation
      */
@@ -63,5 +66,5 @@ enum class ExamplePharmacyServiceCodes {
      * The professional fee charged for compounding the medication.
      */
     @SerialName("compoundfee")
-    COMPOUNDFEE
+    COMPOUNDFEE,
 }

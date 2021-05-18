@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationKnowledgeCharacteristicCodes
+ *
  * MedicationKnowledge Characteristic Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/medicationknowledge-characteristic">MedicationKnowledgeCharacteristicCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationKnowledgeCharacteristicCodes {
+
     /**
      * Identyifying marks on product
      */
@@ -69,5 +72,5 @@ enum class MedicationKnowledgeCharacteristicCodes {
      * Description of the Logo of the product
      */
     @SerialName("logo")
-    LOGO
+    LOGO,
 }

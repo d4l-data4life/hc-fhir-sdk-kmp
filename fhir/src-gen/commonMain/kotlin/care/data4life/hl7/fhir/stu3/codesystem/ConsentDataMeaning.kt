@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentDataMeaning
+ *
  * How a resource reference is interpreted when testing consent restrictions
  *
  * @see <a href="http://hl7.org/fhir/consent-data-meaning">ConsentDataMeaning</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConsentDataMeaning {
+
     /**
      * The consent applies directly to the instance of the resource
      */
@@ -36,13 +39,15 @@ enum class ConsentDataMeaning {
     INSTANCE,
 
     /**
-     * The consent applies directly to the instance of the resource and instances it refers to
+     * The consent applies directly to the instance of the resource and instances it
+     * refers to
      */
     @SerialName("related")
     RELATED,
 
     /**
-     * The consent applies directly to the instance of the resource and instances that refer to it
+     * The consent applies directly to the instance of the resource and instances that
+     * refer to it
      */
     @SerialName("dependents")
     DEPENDENTS,
@@ -51,5 +56,5 @@ enum class ConsentDataMeaning {
      * The consent applies to instances of resources that are authored by
      */
     @SerialName("authoredby")
-    AUTHOREDBY
+    AUTHOREDBY,
 }

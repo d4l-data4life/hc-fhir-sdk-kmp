@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FlagCategory
+ *
  * Example list of general categories for flagged issues. (Not complete or necessarily appropriate.)
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/flag-category">FlagCategory</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FlagCategory {
+
     /**
      * Flags related to the subject's dietary needs.
      */
@@ -42,7 +45,8 @@ enum class FlagCategory {
     DRUG,
 
     /**
-     * Flags related to performing laboratory tests and related processes (e.g. phlebotomy).
+     * Flags related to performing laboratory tests and related processes (e.g.
+     * phlebotomy).
      */
     @SerialName("lab")
     LAB,
@@ -87,5 +91,5 @@ enum class FlagCategory {
      * Flags related to safety precautions.
      */
     @SerialName("safety")
-    SAFETY
+    SAFETY,
 }

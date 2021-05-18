@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceDecisionModeCodes
+ *
  * This value set contract specific codes for decision modes.
  *
  * @see <a href="http://hl7.org/fhir/contract-decision-mode">ContractResourceDecisionModeCodes</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceDecisionModeCodes {
+
     /**
      * To be completed
      */
     @SerialName("policy")
-    POLICY
+    POLICY,
 }

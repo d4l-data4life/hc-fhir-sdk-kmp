@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalPriority
+ *
  * Indicates the level of importance associated with reaching or sustaining a goal.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/goal-priority">GoalPriority</a>
@@ -29,21 +31,27 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalPriority {
+
     /**
-     * Indicates that the goal is of considerable importance and should be a primary focus of care delivery.
+     * Indicates that the goal is of considerable importance and should be a primary
+     * focus of care delivery.
      */
     @SerialName("high-priority")
     HIGH_PRIORITY,
 
     /**
-     * Indicates that the goal has a reasonable degree of importance and that concrete action should be taken towards the goal.  Attainment is not as critical as high-priority goals.
+     * Indicates that the goal has a reasonable degree of importance and that concrete
+     * action should be taken towards the goal. Attainment is not as critical as high-
+     * priority goals.
      */
     @SerialName("medium-priority")
     MEDIUM_PRIORITY,
 
     /**
-     * The goal is desirable but is not sufficiently important to devote significant resources to.  Achievement of the goal may be sought when incidental to achieving other goals.
+     * The goal is desirable but is not sufficiently important to devote significant
+     * resources to. Achievement of the goal may be sought when incidental to achieving
+     * other goals.
      */
     @SerialName("low-priority")
-    LOW_PRIORITY
+    LOW_PRIORITY,
 }

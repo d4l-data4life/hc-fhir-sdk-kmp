@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: KnowledgeResourceType
+ *
  * A list of all the knowledge resource types defined in this version of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/knowledge-resource-types">KnowledgeResourceType</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class KnowledgeResourceType {
+
     /**
-     * The definition of a specific activity to be taken, independent of any particular patient or context.
+     * The definition of a specific activity to be taken, independent of any particular
+     * patient or context.
      */
     @SerialName("ActivityDefinition")
     ACTIVITYDEFINITION,
@@ -60,7 +64,8 @@ enum class KnowledgeResourceType {
     MEASURE,
 
     /**
-     * The definition of a plan for a series of actions, independent of any specific patient or context.
+     * The definition of a plan for a series of actions, independent of any specific
+     * patient or context.
      */
     @SerialName("PlanDefinition")
     PLANDEFINITION,
@@ -81,5 +86,5 @@ enum class KnowledgeResourceType {
      * A set of codes drawn from one or more code systems.
      */
     @SerialName("ValueSet")
-    VALUESET
+    VALUESET,
 }

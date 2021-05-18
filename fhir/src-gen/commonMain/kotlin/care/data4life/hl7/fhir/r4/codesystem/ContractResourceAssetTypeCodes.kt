@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceAssetTypeCodes
+ *
  * This value set contract specific codes for asset type.
  *
  * @see <a href="http://hl7.org/fhir/contract-asset-type">ContractResourceAssetTypeCodes</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceAssetTypeCodes {
+
     /**
      * To be completed
      */
     @SerialName("participation")
-    PARTICIPATION
+    PARTICIPATION,
 }

@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set includes a smattering of Adjudication Value codes which includes codes to indicate the amounts eligible under the plan, the amount of benefit, copays etc.
+ * Code System: AdjudicationValueCodes
+ *
+ * This value set includes a smattering of Adjudication Value codes which includes codes to indicate
+ * the amounts eligible under the plan, the amount of benefit, copays etc.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adjudication">AdjudicationValueCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/adjudication">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdjudicationValueCodes {
+
     /**
      * The total submitted amount for the claim or group or line item.
      */
@@ -75,5 +79,5 @@ enum class AdjudicationValueCodes {
      * Amount payable under the coverage
      */
     @SerialName("benefit")
-    BENEFIT
+    BENEFIT,
 }

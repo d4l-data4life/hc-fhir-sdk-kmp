@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.
+ * Code System: MessageheaderResponseRequest
+ *
+ * HL7-defined table of codes which identify conditions under which acknowledgments are required to be
+ * returned in response to a message.
  *
  * @see <a href="http://hl7.org/fhir/messageheader-response-request">MessageheaderResponseRequest</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/messageheader-response-request">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MessageheaderResponseRequest {
+
     /**
      * initiator expects a response for this message
      */
@@ -51,5 +55,5 @@ enum class MessageheaderResponseRequest {
      * initiator expects a response only if successful
      */
     @SerialName("on-success")
-    ON_SUCCESS
+    ON_SUCCESS,
 }

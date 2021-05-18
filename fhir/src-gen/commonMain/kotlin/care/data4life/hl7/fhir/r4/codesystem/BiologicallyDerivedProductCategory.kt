@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: BiologicallyDerivedProductCategory
+ *
  * Biologically Derived Product Category.
  *
  * @see <a href="http://hl7.org/fhir/product-category">BiologicallyDerivedProductCategory</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BiologicallyDerivedProductCategory {
+
     /**
      * A collection of tissues joined in a structural unit to serve a common function.
      */
@@ -36,7 +39,8 @@ enum class BiologicallyDerivedProductCategory {
     ORGAN,
 
     /**
-     * An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a specific function.
+     * An ensemble of similar cells and their extracellular matrix from the same origin
+     * that together carry out a specific function.
      */
     @SerialName("tissue")
     TISSUE,
@@ -57,5 +61,5 @@ enum class BiologicallyDerivedProductCategory {
      * Biological agent of unspecified type.
      */
     @SerialName("biologicalAgent")
-    BIOLOGICALAGENT
+    BIOLOGICALAGENT,
 }

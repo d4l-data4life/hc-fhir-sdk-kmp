@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationRequestPriority
+ *
  * Identifies the level of importance to be assigned to actioning the request
  *
  * @see <a href="http://hl7.org/fhir/medication-request-priority">MedicationRequestPriority</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestPriority {
+
     /**
      * The order has a normal priority .
      */
@@ -51,5 +54,5 @@ enum class MedicationRequestPriority {
      * The order should be acted on as soon as possible.
      */
     @SerialName("asap")
-    ASAP
+    ASAP,
 }

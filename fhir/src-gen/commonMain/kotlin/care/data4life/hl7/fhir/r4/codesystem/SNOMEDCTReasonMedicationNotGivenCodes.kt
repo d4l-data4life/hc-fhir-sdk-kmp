@@ -20,15 +20,18 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set includes all medication refused, medication not administered, and non-administration of necessary drug or medicine codes from SNOMED CT - provided as an exemplar value set.
+ * Code System: SNOMEDCTReasonMedicationNotGivenCodes
+ *
+ * This value set includes all medication refused, medication not administered, and non-administration
+ * of necessary drug or medicine codes from SNOMED CT - provided as an exemplar value set.
  *
  * @see <a href="http://hl7.org/fhir/reason-medication-not-given">SNOMEDCTReasonMedicationNotGivenCodes</a>
- *
  *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class SNOMEDCTReasonMedicationNotGivenCodes {
+
     /**
      * No reason known.
      */
@@ -51,5 +54,5 @@ enum class SNOMEDCTReasonMedicationNotGivenCodes {
      * The patient was given the medication and immediately vomited it back.
      */
     @SerialName("d")
-    D
+    D,
 }

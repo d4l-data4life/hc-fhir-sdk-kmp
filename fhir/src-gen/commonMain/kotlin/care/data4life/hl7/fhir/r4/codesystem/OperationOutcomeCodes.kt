@@ -20,15 +20,17 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: OperationOutcomeCodes
+ *
  * Operation Outcome codes used by FHIR test servers (see Implementation file translations.xml)
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/operation-outcome">OperationOutcomeCodes</a>
- *
  *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class OperationOutcomeCodes {
+
     /**
      * DELETE_MULTIPLE_MATCHES
      */
@@ -327,5 +329,5 @@ enum class OperationOutcomeCodes {
      * UPDATE_MULTIPLE_MATCHES
      */
     @SerialName("UPDATE_MULTIPLE_MATCHES")
-    UPDATE_MULTIPLE_MATCHES
+    UPDATE_MULTIPLE_MATCHES,
 }

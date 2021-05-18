@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractTermSubtypeCodes
+ *
  * This value set includes sample Contract Term SubType codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contracttermsubtypecodes">ContractTermSubtypeCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractTermSubtypeCodes {
+
     /**
      * Terms that go to the very root of a contract.
      */
@@ -42,8 +45,9 @@ enum class ContractTermSubtypeCodes {
     WARRANTY,
 
     /**
-     * Breach of which might or might not go to the root of the contract depending upon the nature of the breach
+     * Breach of which might or might not go to the root of the contract depending upon
+     * the nature of the breach
      */
     @SerialName("innominate")
-    INNOMINATE
+    INNOMINATE,
 }

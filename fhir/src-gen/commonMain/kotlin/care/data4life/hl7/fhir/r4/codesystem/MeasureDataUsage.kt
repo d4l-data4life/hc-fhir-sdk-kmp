@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureDataUsage
+ *
  * The intended usage for supplemental data elements in the measure.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/measure-data-usage">MeasureDataUsage</a>
@@ -29,15 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureDataUsage {
+
     /**
-     * The data is intended to be provided as additional information alongside the measure results.
+     * The data is intended to be provided as additional information alongside the
+     * measure results.
      */
     @SerialName("supplemental-data")
     SUPPLEMENTAL_DATA,
 
     /**
-     * The data is intended to be used to calculate and apply a risk adjustment model for the measure.
+     * The data is intended to be used to calculate and apply a risk adjustment model
+     * for the measure.
      */
     @SerialName("risk-adjustment-factor")
-    RISK_ADJUSTMENT_FACTOR
+    RISK_ADJUSTMENT_FACTOR,
 }

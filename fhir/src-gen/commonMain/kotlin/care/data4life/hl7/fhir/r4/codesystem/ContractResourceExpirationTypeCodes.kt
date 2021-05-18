@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceExpirationTypeCodes
+ *
  * This value set contract specific codes for status.
  *
  * @see <a href="http://hl7.org/fhir/contract-expiration-type">ContractResourceExpirationTypeCodes</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceExpirationTypeCodes {
+
     /**
      * To be completed
      */
     @SerialName("breach")
-    BREACH
+    BREACH,
 }

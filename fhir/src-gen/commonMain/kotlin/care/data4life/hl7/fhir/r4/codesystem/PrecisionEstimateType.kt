@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Method of reporting variability of estimates, such as confidence intervals, interquartile range or standard deviation.
+ * Code System: PrecisionEstimateType
+ *
+ * Method of reporting variability of estimates, such as confidence intervals, interquartile range or
+ * standard deviation.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/precision-estimate-type">PrecisionEstimateType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/precision-estimate-type">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PrecisionEstimateType {
+
     /**
      * confidence interval.
      */
@@ -51,5 +55,5 @@ enum class PrecisionEstimateType {
      * standard error.
      */
     @SerialName("SE")
-    SE
+    SE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionCategoryCodes
+ *
  * Preferred value set for Condition Categories.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/condition-category">ConditionCategoryCodes</a>
@@ -29,15 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConditionCategoryCodes {
+
     /**
-     * An item on a problem list that can be managed over time and can be expressed by a practitioner (e.g. physician, nurse), patient, or related person.
+     * An item on a problem list that can be managed over time and can be expressed by
+     * a practitioner (e.g. physician, nurse), patient, or related person.
      */
     @SerialName("problem-list-item")
     PROBLEM_LIST_ITEM,
 
     /**
-     * A point in time diagnosis (e.g. from a physician or nurse) in context of an encounter.
+     * A point in time diagnosis (e.g. from a physician or nurse) in context of an
+     * encounter.
      */
     @SerialName("encounter-diagnosis")
-    ENCOUNTER_DIAGNOSIS
+    ENCOUNTER_DIAGNOSIS,
 }

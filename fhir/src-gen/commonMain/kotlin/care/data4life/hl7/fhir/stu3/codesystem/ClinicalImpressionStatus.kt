@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClinicalImpressionStatus
+ *
  * The workflow state of a clinical impression.
  *
  * @see <a href="http://hl7.org/fhir/clinical-impression-status">ClinicalImpressionStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClinicalImpressionStatus {
+
     /**
      * The assessment is still on-going and results are not yet final.
      */
@@ -42,8 +45,9 @@ enum class ClinicalImpressionStatus {
     COMPLETED,
 
     /**
-     * This assessment was never actually done and the record is erroneous (e.g. Wrong patient).
+     * This assessment was never actually done and the record is erroneous (e.g. Wrong
+     * patient).
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

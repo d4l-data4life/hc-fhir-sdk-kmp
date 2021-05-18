@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * How to manage the intersection between a fixed version in a value set, and a fixed version of the system in the expansion profile
+ * Code System: SystemVersionProcessingMode
+ *
+ * How to manage the intersection between a fixed version in a value set, and a fixed version of the
+ * system in the expansion profile
  *
  * @see <a href="http://hl7.org/fhir/system-version-processing-mode">SystemVersionProcessingMode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/system-version-processing-mode">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SystemVersionProcessingMode {
+
     /**
      * Use this version of the code system if a value set doesn't specify a version
      */
@@ -36,14 +40,21 @@ enum class SystemVersionProcessingMode {
     DEFAULT,
 
     /**
-     * Use this version of the code system. If a value set specifies a different version, the expansion operation should fail
+     * Use this version of the code system. If a value set specifies a different
+     * version, the expansion operation should fail
      */
     @SerialName("check")
     CHECK,
 
     /**
-     * Use this version of the code system irrespective of which version is specified by a value set. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If a  version is override, the version used SHALL explicitly be represented in the expansion parameters
+     * Use this version of the code system irrespective of which version is specified
+     * by a value set. Note that this has obvious safety issues, in that it may result
+     * in a value set expansion giving a different list of codes that is both wrong and
+     * unsafe, and implementers should only use this capability reluctantly. It
+     * primarily exists to deal with situations where specifications have fallen into
+     * decay as time passes. If a version is override, the version used SHALL
+     * explicitly be represented in the expansion parameters
      */
     @SerialName("override")
-    OVERRIDE
+    OVERRIDE,
 }

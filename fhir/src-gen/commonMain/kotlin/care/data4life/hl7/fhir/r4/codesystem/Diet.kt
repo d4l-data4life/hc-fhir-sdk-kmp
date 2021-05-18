@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have.
+ * Code System: Diet
+ *
+ * This value set defines a set of codes that can be used to indicate dietary preferences or
+ * restrictions a patient may have.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/diet">Diet</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/encounter-diet">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class Diet {
+
     /**
      * Food without meat, poultry or seafood.
      */
@@ -54,7 +58,8 @@ enum class Diet {
     GLUTEN_FREE,
 
     /**
-     * Food without meat, poultry, seafood, eggs, dairy products and other animal-derived substances.
+     * Food without meat, poultry, seafood, eggs, dairy products and other animal-
+     * derived substances.
      */
     @SerialName("vegan")
     VEGAN,
@@ -69,5 +74,5 @@ enum class Diet {
      * Foods that conform to Jewish dietary law.
      */
     @SerialName("kosher")
-    KOSHER
+    KOSHER,
 }

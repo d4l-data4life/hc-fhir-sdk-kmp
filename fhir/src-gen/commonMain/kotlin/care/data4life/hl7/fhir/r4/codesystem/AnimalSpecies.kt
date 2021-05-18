@@ -20,15 +20,18 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate species of animal patients.
+ * Code System: AnimalSpecies
+ *
+ * This example value set defines a set of codes that can be used to indicate species of animal
+ * patients.
  *
  * @see <a href="http://hl7.org/fhir/animal-species">AnimalSpecies</a>
- *
  *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class AnimalSpecies {
+
     /**
      * Canis lupus familiaris
      */
@@ -45,5 +48,5 @@ enum class AnimalSpecies {
      * Serinus canaria domestica
      */
     @SerialName("serinuscd")
-    SERINUSCD
+    SERINUSCD,
 }

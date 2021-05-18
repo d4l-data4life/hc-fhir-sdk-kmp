@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CommonTags
+ *
  * Common Tag Codes defined by FHIR project
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/common-tags">CommonTags</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CommonTags {
+
     /**
      * This request is intended to be acted upon, not merely stored
      */
     @SerialName("actionable")
-    ACTIONABLE
+    ACTIONABLE,
 }

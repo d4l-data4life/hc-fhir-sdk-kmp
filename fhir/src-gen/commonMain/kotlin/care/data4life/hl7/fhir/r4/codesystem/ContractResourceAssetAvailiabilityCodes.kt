@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceAssetAvailiabilityCodes
+ *
  * This value set has asset availability codes.
  *
  * @see <a href="http://hl7.org/fhir/asset-availability">ContractResourceAssetAvailiabilityCodes</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceAssetAvailiabilityCodes {
+
     /**
      * To be completed
      */
     @SerialName("lease")
-    LEASE
+    LEASE,
 }

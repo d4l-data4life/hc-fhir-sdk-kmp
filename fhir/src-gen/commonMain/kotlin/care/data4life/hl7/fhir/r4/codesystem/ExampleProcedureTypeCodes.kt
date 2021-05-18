@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleProcedureTypeCodes
+ *
  * This value set includes example Procedure Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-procedure-type">ExampleProcedureTypeCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleProcedureTypeCodes {
+
     /**
      * The first procedure in a series required to produce and overall patient outcome.
      */
@@ -36,8 +39,9 @@ enum class ExampleProcedureTypeCodes {
     PRIMARY,
 
     /**
-     * The second procedure in a series required to produce and overall patient outcome.
+     * The second procedure in a series required to produce and overall patient
+     * outcome.
      */
     @SerialName("secondary")
-    SECONDARY
+    SECONDARY,
 }

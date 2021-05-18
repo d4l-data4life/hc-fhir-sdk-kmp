@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FHIRDeviceStatus
+ *
  * The availability status of the device.
  *
  * @see <a href="http://hl7.org/fhir/device-status">FHIRDeviceStatus</a>
@@ -29,14 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FHIRDeviceStatus {
+
     /**
-     * The device is available for use.  Note: For *implanted devices*  this means that the device is implanted in the patient.
+     * The device is available for use. Note: For *implanted devices* this means that
+     * the device is implanted in the patient.
      */
     @SerialName("active")
     ACTIVE,
 
     /**
-     * The device is no longer available for use (e.g. lost, expired, damaged).  Note: For *implanted devices*  this means that the device has been removed from the patient.
+     * The device is no longer available for use (e.g. lost, expired, damaged). Note:
+     * For *implanted devices* this means that the device has been removed from the
+     * patient.
      */
     @SerialName("inactive")
     INACTIVE,
@@ -51,5 +57,5 @@ enum class FHIRDeviceStatus {
      * The status of the device has not been determined.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

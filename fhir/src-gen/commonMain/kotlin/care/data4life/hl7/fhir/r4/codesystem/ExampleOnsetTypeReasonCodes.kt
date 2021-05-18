@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set includes example Onset Type codes which are used to identify the event for which the onset, starting date, is required.
+ * Code System: ExampleOnsetTypeReasonCodes
+ *
+ * This value set includes example Onset Type codes which are used to identify the event for which the
+ * onset, starting date, is required.
  *
  * @see <a href="http://hl7.org/fhir/ex-onsettype">ExampleOnsetTypeReasonCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/ex-onsettype">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleOnsetTypeReasonCodes {
+
     /**
      * Date of last examination.
      */
@@ -45,5 +49,5 @@ enum class ExampleOnsetTypeReasonCodes {
      * Start date of last menstruation.
      */
     @SerialName("lmn")
-    LMN
+    LMN,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ObservationRangeCategory
+ *
  * Codes identifying the category of observation range.
  *
  * @see <a href="http://hl7.org/fhir/observation-range-category">ObservationRangeCategory</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ObservationRangeCategory {
+
     /**
      * Reference (Normal) Range for Ordinal and Continuous Observations.
      */
@@ -42,8 +45,9 @@ enum class ObservationRangeCategory {
     CRITICAL,
 
     /**
-     * Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible.
+     * Absolute Range for Ordinal and Continuous Observations. Results outside this
+     * range are not possible.
      */
     @SerialName("absolute")
-    ABSOLUTE
+    ABSOLUTE,
 }

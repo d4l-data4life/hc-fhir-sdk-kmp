@@ -20,20 +20,32 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirElement
+ *
+ * Base definition for all elements in a resource.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Element">Element</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Element)
+ */
 interface FhirElement : FhirStu3 {
 
-    // xml:id (or equivalent in JSON).
+    /**
+     * xml:id (or equivalent in JSON).
+     */
     val id: String?
 
-    // Additional Content defined by implementations.
+    /**
+     * Additional Content defined by implementations.
+     */
     val extension: List<Extension>?
 }
 
 /**
- * ClassName: Element
+ * Element
  *
  * SourceFileName: Element.kt
- *
  *
  * Base definition for all elements in a resource.
  *
@@ -45,10 +57,9 @@ interface FhirElement : FhirStu3 {
 @SerialName("Element")
 data class Element(
 
-    // xml:id (or equivalent in JSON).
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirElement {

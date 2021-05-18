@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContributorType
+ *
  * The type of contributor.
  *
  * @see <a href="http://hl7.org/fhir/contributor-type">ContributorType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContributorType {
+
     /**
      * An author of the content of the module.
      */
@@ -51,5 +54,5 @@ enum class ContributorType {
      * An endorser of the content of the module.
      */
     @SerialName("endorser")
-    ENDORSER
+    ENDORSER,
 }

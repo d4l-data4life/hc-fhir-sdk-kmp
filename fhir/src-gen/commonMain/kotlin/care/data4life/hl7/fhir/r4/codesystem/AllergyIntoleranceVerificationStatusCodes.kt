@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceVerificationStatusCodes
+ *
  * Preferred value set for AllergyIntolerance Verification Status.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification">AllergyIntoleranceVerificationStatusCodes</a>
@@ -29,20 +31,25 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceVerificationStatusCodes {
+
     /**
-     * A low level of certainty about the propensity for a reaction to the identified substance.
+     * A low level of certainty about the propensity for a reaction to the identified
+     * substance.
      */
     @SerialName("unconfirmed")
     UNCONFIRMED,
 
     /**
-     * A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
+     * A high level of certainty about the propensity for a reaction to the identified
+     * substance, which may include clinical evidence by testing or rechallenge.
      */
     @SerialName("confirmed")
     CONFIRMED,
 
     /**
-     * A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level of clinical certainty to justify invalidating the assertion. This might or might not include testing or rechallenge.
+     * A propensity for a reaction to the identified substance has been disputed or
+     * disproven with a sufficient level of clinical certainty to justify invalidating
+     * the assertion. This might or might not include testing or rechallenge.
      */
     @SerialName("refuted")
     REFUTED,
@@ -51,5 +58,5 @@ enum class AllergyIntoleranceVerificationStatusCodes {
      * The statement was entered in error and is not valid.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

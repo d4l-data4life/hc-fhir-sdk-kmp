@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TestReportParticipantType
+ *
  * The type of participant.
  *
  * @see <a href="http://hl7.org/fhir/report-participant-type">TestReportParticipantType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestReportParticipantType {
+
     /**
      * The test execution engine.
      */
@@ -45,5 +48,5 @@ enum class TestReportParticipantType {
      * A FHIR Server.
      */
     @SerialName("server")
-    SERVER
+    SERVER,
 }

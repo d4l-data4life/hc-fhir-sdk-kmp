@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ObservationDataType
+ *
  * Permitted data type for observation value.
  *
  * @see <a href="http://hl7.org/fhir/permitted-data-type">ObservationDataType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ObservationDataType {
+
     /**
      * A measured amount.
      */
@@ -84,7 +87,8 @@ enum class ObservationDataType {
     TIME,
 
     /**
-     * A date, date-time or partial date (e.g. just year or year + month) as used in human communication.
+     * A date, date-time or partial date (e.g. just year or year + month) as used in
+     * human communication.
      */
     @SerialName("dateTime")
     DATETIME,
@@ -93,5 +97,5 @@ enum class ObservationDataType {
      * A time range defined by start and end date/time.
      */
     @SerialName("Period")
-    PERIOD
+    PERIOD,
 }

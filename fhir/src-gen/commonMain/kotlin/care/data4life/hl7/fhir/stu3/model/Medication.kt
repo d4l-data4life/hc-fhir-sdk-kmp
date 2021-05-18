@@ -23,43 +23,71 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirMedication
+ *
+ * This resource is primarily used for the identification and definition of a medication. It covers the
+ * ingredients and the packaging for a medication.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">Medication</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
+ */
 interface FhirMedication : FhirDomainResource {
 
-    // Codes that identify this medication.
+    /**
+     * Codes that identify this medication.
+     */
     val code: CodeableConcept?
 
-    // A code to indicate if the medication is in active use.
+    /**
+     * A code to indicate if the medication is in active use.
+     */
     val status: MedicationStatus?
 
-    // True if a brand.
+    /**
+     * True if a brand.
+     */
     val isBrand: Bool?
 
-    // True if medication does not require a prescription.
+    /**
+     * True if medication does not require a prescription.
+     */
     val isOverTheCounter: Bool?
 
-    // Manufacturer of the item.
+    /**
+     * Manufacturer of the item.
+     */
     val manufacturer: Reference?
 
-    // powder | tablets | capsule +.
+    /**
+     * powder | tablets | capsule +.
+     */
     val form: CodeableConcept?
 
-    // Active or inactive ingredient.
+    /**
+     * Active or inactive ingredient.
+     */
     val ingredient: List<MedicationIngredient>?
 
-    // Details about packaged medications.
-    val `package`: MedicationPackage?
+    /**
+     * Details about packaged medications.
+     */
+    val pakkage: MedicationPackage?
 
-    // Picture of the medication.
+    /**
+     * Picture of the medication.
+     */
     val image: List<Attachment>?
 }
 
 /**
- * ClassName: Medication
+ * Medication
  *
  * SourceFileName: Medication.kt
  *
- *
- * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
+ * This resource is primarily used for the identification and definition of a medication. It covers the
+ * ingredients and the packaging for a medication.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">Medication</a>
  *
@@ -69,59 +97,48 @@ interface FhirMedication : FhirDomainResource {
 @SerialName("Medication")
 data class Medication(
 
-    // Codes that identify this medication.
     @SerialName("code")
     override val code: CodeableConcept? = null,
-    // A code to indicate if the medication is in active use.
+
     @SerialName("status")
     override val status: MedicationStatus? = null,
-    // True if a brand.
+
     @SerialName("isBrand")
     override val isBrand: Bool? = null,
-    // True if medication does not require a prescription.
+
     @SerialName("isOverTheCounter")
     override val isOverTheCounter: Bool? = null,
-    // Manufacturer of the item.
+
     @SerialName("manufacturer")
     override val manufacturer: Reference? = null,
-    // powder | tablets | capsule +.
+
     @SerialName("form")
     override val form: CodeableConcept? = null,
-    // Active or inactive ingredient.
+
     @SerialName("ingredient")
     override val ingredient: List<MedicationIngredient>? = null,
-    // Details about packaged medications.
+
     @SerialName("package")
-    override val `package`: MedicationPackage? = null,
-    // Picture of the medication.
+    override val pakkage: MedicationPackage? = null,
+
     @SerialName("image")
     override val image: List<Attachment>? = null,
 
-    // # DomainResource
-    // Text summary of the resource, for human interpretation.
-    @SerialName("text")
+    // # DomainResource@SerialName("text")
     override val text: Narrative? = null,
-    // Contained, inline Resources.
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null,
-    // Extensions that cannot be ignored.
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Resource
-    // Logical id of this artifact.
-    @SerialName("id")
+    // # Resource@SerialName("id")
     override val id: String? = null,
-    // Metadata about the resource.
     @SerialName("meta")
     override val meta: Meta? = null,
-    // A set of rules under which this content was created.
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
-    // Language of the resource content.
     @SerialName("language")
     override val language: String? = null
 ) : FhirMedication {
@@ -135,26 +152,42 @@ data class Medication(
     }
 }
 
+/**
+ * FhirMedicationIngredient
+ *
+ * Identifies a particular constituent of interest in the product.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationIngredient</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
+ */
 interface FhirMedicationIngredient : FhirBackboneElement {
 
-    // The product contained.
+    /**
+     * The product contained.
+     */
     val itemCodeableConcept: CodeableConcept?
 
-    // The product contained.
+    /**
+     * The product contained.
+     */
     val itemReference: Reference?
 
-    // Active ingredient indicator.
+    /**
+     * Active ingredient indicator.
+     */
     val isActive: Bool?
 
-    // Quantity of ingredient present.
+    /**
+     * Quantity of ingredient present.
+     */
     val amount: Ratio?
 }
 
 /**
- * ClassName: MedicationIngredient
+ * MedicationIngredient
  *
  * SourceFileName: Medication.kt
- *
  *
  * Identifies a particular constituent of interest in the product.
  *
@@ -166,29 +199,23 @@ interface FhirMedicationIngredient : FhirBackboneElement {
 @SerialName("MedicationIngredient")
 data class MedicationIngredient(
 
-    // The product contained.
     @SerialName("itemCodeableConcept")
     override val itemCodeableConcept: CodeableConcept? = null,
-    // The product contained.
+
     @SerialName("itemReference")
     override val itemReference: Reference? = null,
-    // Active ingredient indicator.
+
     @SerialName("isActive")
     override val isActive: Bool? = null,
-    // Quantity of ingredient present.
+
     @SerialName("amount")
     override val amount: Ratio? = null,
 
-    // # BackboneElement
-    // Extensions that cannot be ignored.
-    @SerialName("modifierExtension")
+    // # BackboneElement@SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationIngredient {
@@ -202,23 +229,37 @@ data class MedicationIngredient(
     }
 }
 
+/**
+ * FhirMedicationPackage
+ *
+ * Information that only applies to packages (not products).
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackage</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
+ */
 interface FhirMedicationPackage : FhirBackboneElement {
 
-    // E.g. box, vial, blister-pack.
+    /**
+     * E.g. box, vial, blister-pack.
+     */
     val container: CodeableConcept?
 
-    // What is  in the package.
+    /**
+     * What is in the package.
+     */
     val content: List<MedicationPackageContent>?
 
-    // Identifies a single production run.
+    /**
+     * Identifies a single production run.
+     */
     val batch: List<MedicationPackageBatch>?
 }
 
 /**
- * ClassName: MedicationPackage
+ * MedicationPackage
  *
  * SourceFileName: Medication.kt
- *
  *
  * Information that only applies to packages (not products).
  *
@@ -230,26 +271,20 @@ interface FhirMedicationPackage : FhirBackboneElement {
 @SerialName("MedicationPackage")
 data class MedicationPackage(
 
-    // E.g. box, vial, blister-pack.
     @SerialName("container")
     override val container: CodeableConcept? = null,
-    // What is  in the package.
+
     @SerialName("content")
     override val content: List<MedicationPackageContent>? = null,
-    // Identifies a single production run.
+
     @SerialName("batch")
     override val batch: List<MedicationPackageBatch>? = null,
 
-    // # BackboneElement
-    // Extensions that cannot be ignored.
-    @SerialName("modifierExtension")
+    // # BackboneElement@SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationPackage {
@@ -263,20 +298,32 @@ data class MedicationPackage(
     }
 }
 
+/**
+ * FhirMedicationPackageBatch
+ *
+ * Information about a group of medication produced or packaged from one production run.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackageBatch</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
+ */
 interface FhirMedicationPackageBatch : FhirBackboneElement {
 
-    // Identifier assigned to batch.
+    /**
+     * Identifier assigned to batch.
+     */
     val lotNumber: String?
 
-    // When batch will expire.
+    /**
+     * When batch will expire.
+     */
     val expirationDate: DateTime?
 }
 
 /**
- * ClassName: MedicationPackageBatch
+ * MedicationPackageBatch
  *
  * SourceFileName: Medication.kt
- *
  *
  * Information about a group of medication produced or packaged from one production run.
  *
@@ -288,23 +335,17 @@ interface FhirMedicationPackageBatch : FhirBackboneElement {
 @SerialName("MedicationPackageBatch")
 data class MedicationPackageBatch(
 
-    // Identifier assigned to batch.
     @SerialName("lotNumber")
     override val lotNumber: String? = null,
-    // When batch will expire.
+
     @SerialName("expirationDate")
     override val expirationDate: DateTime? = null,
 
-    // # BackboneElement
-    // Extensions that cannot be ignored.
-    @SerialName("modifierExtension")
+    // # BackboneElement@SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationPackageBatch {
@@ -318,23 +359,37 @@ data class MedicationPackageBatch(
     }
 }
 
+/**
+ * FhirMedicationPackageContent
+ *
+ * A set of components that go to make up the described item.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackageContent</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Medication)
+ */
 interface FhirMedicationPackageContent : FhirBackboneElement {
 
-    // The item in the package.
+    /**
+     * The item in the package.
+     */
     val itemCodeableConcept: CodeableConcept?
 
-    // The item in the package.
+    /**
+     * The item in the package.
+     */
     val itemReference: Reference?
 
-    // Quantity present in the package.
+    /**
+     * Quantity present in the package.
+     */
     val amount: Quantity?
 }
 
 /**
- * ClassName: MedicationPackageContent
+ * MedicationPackageContent
  *
  * SourceFileName: Medication.kt
- *
  *
  * A set of components that go to make up the described item.
  *
@@ -346,26 +401,20 @@ interface FhirMedicationPackageContent : FhirBackboneElement {
 @SerialName("MedicationPackageContent")
 data class MedicationPackageContent(
 
-    // The item in the package.
     @SerialName("itemCodeableConcept")
     override val itemCodeableConcept: CodeableConcept? = null,
-    // The item in the package.
+
     @SerialName("itemReference")
     override val itemReference: Reference? = null,
-    // Quantity present in the package.
+
     @SerialName("amount")
     override val amount: Quantity? = null,
 
-    // # BackboneElement
-    // Extensions that cannot be ignored.
-    @SerialName("modifierExtension")
+    // # BackboneElement@SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationPackageContent {

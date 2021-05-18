@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleCoverageFinancialExceptionCodes
+ *
  * This value set includes Example Coverage Financial Exception Codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception">ExampleCoverageFinancialExceptionCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleCoverageFinancialExceptionCodes {
+
     /**
      * Retired persons have all copays and deductibles reduced.
      */
@@ -39,5 +42,5 @@ enum class ExampleCoverageFinancialExceptionCodes {
      * Children in the foster care have all copays and deductibles waived.
      */
     @SerialName("foster")
-    FOSTER
+    FOSTER,
 }

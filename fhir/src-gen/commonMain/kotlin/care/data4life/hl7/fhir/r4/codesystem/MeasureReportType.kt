@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MeasureReportType
+ *
  * The type of the measure report.
  *
  * @see <a href="http://hl7.org/fhir/measure-report-type">MeasureReportType</a>
@@ -29,20 +31,24 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureReportType {
+
     /**
-     * An individual report that provides information on the performance for a given measure with respect to a single subject.
+     * An individual report that provides information on the performance for a given
+     * measure with respect to a single subject.
      */
     @SerialName("individual")
     INDIVIDUAL,
 
     /**
-     * A subject list report that includes a listing of subjects that satisfied each population criteria in the measure.
+     * A subject list report that includes a listing of subjects that satisfied each
+     * population criteria in the measure.
      */
     @SerialName("subject-list")
     SUBJECT_LIST,
 
     /**
-     * A summary report that returns the number of members in each population criteria for the measure.
+     * A summary report that returns the number of members in each population criteria
+     * for the measure.
      */
     @SerialName("summary")
     SUMMARY,
@@ -51,5 +57,5 @@ enum class MeasureReportType {
      * A data collection report that contains data-of-interest for the measure.
      */
     @SerialName("data-collection")
-    DATA_COLLECTION
+    DATA_COLLECTION,
 }

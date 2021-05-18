@@ -20,15 +20,18 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate the role of a Practitioner.
+ * Code System: PractitionerRole
+ *
+ * This example value set defines a set of codes that can be used to indicate the role of a
+ * Practitioner.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/practitioner-role">PractitionerRole</a>
- *
  *
  * Generated from FHIR 4.0.1-9346c8cc45
  */
 @Serializable
 enum class PractitionerRole {
+
     /**
      * A qualified/registered medical practitioner
      */
@@ -63,5 +66,5 @@ enum class PractitionerRole {
      * Someone who is qualified in Information and Communication Technologies
      */
     @SerialName("ict")
-    ICT
+    ICT,
 }

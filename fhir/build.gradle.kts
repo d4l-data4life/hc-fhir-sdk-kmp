@@ -46,7 +46,6 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.testCommonAnnotations)
 
                 implementation(Dependencies.multiplatform.mockk.common)
-                implementation(Dependencies.multiplatform.hamkrest.common)
             }
         }
 
@@ -62,7 +61,6 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
 
                 implementation(Dependencies.multiplatform.mockk.junit)
-                implementation(Dependencies.multiplatform.hamkrest.android)
             }
         }
 

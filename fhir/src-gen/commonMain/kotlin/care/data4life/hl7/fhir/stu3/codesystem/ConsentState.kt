@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConsentState
+ *
  * Indicates the state of the consent
  *
  * @see <a href="http://hl7.org/fhir/consent-state-codes">ConsentState</a>
@@ -29,14 +31,17 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConsentState {
+
     /**
-     * The consent is in development or awaiting use but is not yet intended to be acted upon.
+     * The consent is in development or awaiting use but is not yet intended to be
+     * acted upon.
      */
     @SerialName("draft")
     DRAFT,
 
     /**
-     * The consent has been proposed but not yet agreed to by all parties. The negotiation stage.
+     * The consent has been proposed but not yet agreed to by all parties. The
+     * negotiation stage.
      */
     @SerialName("proposed")
     PROPOSED,
@@ -63,5 +68,5 @@ enum class ConsentState {
      * The consent was created wrongly (e.g. wrong patient) and should be ignored
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

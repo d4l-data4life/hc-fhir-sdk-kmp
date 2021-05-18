@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: QuestionnaireItemOperator
+ *
  * The criteria by which a question is enabled.
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-enable-operator">QuestionnaireItemOperator</a>
@@ -29,44 +31,52 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireItemOperator {
+
     /**
-     * True if whether an answer exists is equal to the enableWhen answer (which must be a boolean).
+     * True if whether an answer exists is equal to the enableWhen answer (which must
+     * be a boolean).
      */
     @SerialName("exists")
     EXISTS,
 
     /**
-     * True if whether at least one answer has a value that is equal to the enableWhen answer.
+     * True if whether at least one answer has a value that is equal to the enableWhen
+     * answer.
      */
     @SerialName("=")
     EQUAL,
 
     /**
-     * True if whether at least no answer has a value that is equal to the enableWhen answer.
+     * True if whether at least no answer has a value that is equal to the enableWhen
+     * answer.
      */
     @SerialName("!=")
     NOT_EQUAL,
 
     /**
-     * True if whether at least no answer has a value that is greater than the enableWhen answer.
+     * True if whether at least no answer has a value that is greater than the
+     * enableWhen answer.
      */
     @SerialName(">")
     GREATER_THAN,
 
     /**
-     * True if whether at least no answer has a value that is less than the enableWhen answer.
+     * True if whether at least no answer has a value that is less than the enableWhen
+     * answer.
      */
     @SerialName("<")
     LESS_THAN,
 
     /**
-     * True if whether at least no answer has a value that is greater or equal to the enableWhen answer.
+     * True if whether at least no answer has a value that is greater or equal to the
+     * enableWhen answer.
      */
     @SerialName(">=")
     GREATER_OR_EQUAL,
 
     /**
-     * True if whether at least no answer has a value that is less or equal to the enableWhen answer.
+     * True if whether at least no answer has a value that is less or equal to the
+     * enableWhen answer.
      */
     @SerialName("<=")
     LESS_OR_EQUAL,

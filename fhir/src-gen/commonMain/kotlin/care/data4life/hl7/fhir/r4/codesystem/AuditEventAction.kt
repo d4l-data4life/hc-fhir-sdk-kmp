@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AuditEventAction
+ *
  * Indicator for type of action performed during the event that generated the event.
  *
  * @see <a href="http://hl7.org/fhir/audit-event-action">AuditEventAction</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AuditEventAction {
+
     /**
      * Create a new database object, such as placing an order.
      */
@@ -54,8 +57,9 @@ enum class AuditEventAction {
     D,
 
     /**
-     * Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation.
+     * Perform a system or application function such as log-on, program execution or
+     * use of an object's method, or perform a query/search operation.
      */
     @SerialName("E")
-    E
+    E,
 }

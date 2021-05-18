@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TypeDerivationRule
+ *
  * How a type relates to its baseDefinition.
  *
  * @see <a href="http://hl7.org/fhir/type-derivation-rule">TypeDerivationRule</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TypeDerivationRule {
+
     /**
-     * This definition defines a new type that adds additional elements to the base type
+     * This definition defines a new type that adds additional elements to the base
+     * type
      */
     @SerialName("specialization")
     SPECIALIZATION,
@@ -39,5 +43,5 @@ enum class TypeDerivationRule {
      * This definition adds additional rules to an existing concrete type
      */
     @SerialName("constraint")
-    CONSTRAINT
+    CONSTRAINT,
 }

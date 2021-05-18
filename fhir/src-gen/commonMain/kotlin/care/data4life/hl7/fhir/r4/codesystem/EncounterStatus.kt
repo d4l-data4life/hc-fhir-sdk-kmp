@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EncounterStatus
+ *
  * Current state of the encounter.
  *
  * @see <a href="http://hl7.org/fhir/encounter-status">EncounterStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EncounterStatus {
+
     /**
      * The Encounter has not yet started.
      */
@@ -36,19 +39,22 @@ enum class EncounterStatus {
     PLANNED,
 
     /**
-     * The Patient is present for the encounter, however is not currently meeting with a practitioner.
+     * The Patient is present for the encounter, however is not currently meeting with
+     * a practitioner.
      */
     @SerialName("arrived")
     ARRIVED,
 
     /**
-     * The patient has been assessed for the priority of their treatment based on the severity of their condition.
+     * The patient has been assessed for the priority of their treatment based on the
+     * severity of their condition.
      */
     @SerialName("triaged")
     TRIAGED,
 
     /**
-     * The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
+     * The Encounter has begun and the patient is present / the practitioner and the
+     * patient are meeting.
      */
     @SerialName("in-progress")
     IN_PROGRESS,
@@ -78,8 +84,10 @@ enum class EncounterStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * The encounter status is unknown. Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+     * The encounter status is unknown. Note that "unknown" is a value of last resort
+     * and every attempt should be made to provide a meaningful value other than
+     * "unknown".
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

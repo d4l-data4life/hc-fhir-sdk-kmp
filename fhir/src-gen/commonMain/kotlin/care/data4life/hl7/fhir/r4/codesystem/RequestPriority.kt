@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RequestPriority
+ *
  * Identifies the level of importance to be assigned to actioning the request.
  *
  * @see <a href="http://hl7.org/fhir/request-priority">RequestPriority</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RequestPriority {
+
     /**
      * The request has normal priority.
      */
@@ -42,14 +45,16 @@ enum class RequestPriority {
     URGENT,
 
     /**
-     * The request should be actioned as soon as possible - higher priority than urgent.
+     * The request should be actioned as soon as possible - higher priority than
+     * urgent.
      */
     @SerialName("asap")
     ASAP,
 
     /**
-     * The request should be actioned immediately - highest possible priority.  E.g. an emergency.
+     * The request should be actioned immediately - highest possible priority. E.g. an
+     * emergency.
      */
     @SerialName("stat")
-    STAT
+    STAT,
 }

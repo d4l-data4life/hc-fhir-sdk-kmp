@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PerformerRoleCodes
+ *
  * This value set includes sample Performer Role codes.
  *
  * @see <a href="http://hl7.org/fhir/consentperformer">PerformerRoleCodes</a>
@@ -29,8 +31,11 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PerformerRoleCodes {
+
     /**
-     * An entity or an entity's delegatee who is the grantee in an agreement such as a consent for services, advanced directive, or a privacy consent directive in accordance with jurisdictional, organizational, or patient policy.
+     * An entity or an entity's delegatee who is the grantee in an agreement such as a
+     * consent for services, advanced directive, or a privacy consent directive in
+     * accordance with jurisdictional, organizational, or patient policy.
      */
     @SerialName("consenter")
     CONSENTER,
@@ -57,5 +62,5 @@ enum class PerformerRoleCodes {
      * A party that grants all or some portion its right or authority to another party.
      */
     @SerialName("delegator")
-    DELEGATOR
+    DELEGATOR,
 }

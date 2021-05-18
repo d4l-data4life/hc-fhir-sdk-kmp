@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AccountStatus
+ *
  * Indicates whether the account is available to be used.
  *
  * @see <a href="http://hl7.org/fhir/account-status">AccountStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AccountStatus {
+
     /**
      * This account is active and may be used.
      */
@@ -45,5 +48,5 @@ enum class AccountStatus {
      * This instance should not have been part of this patient's medical record.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

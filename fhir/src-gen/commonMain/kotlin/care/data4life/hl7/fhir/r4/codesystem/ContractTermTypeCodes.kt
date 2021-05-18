@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractTermTypeCodes
+ *
  * This value set includes sample Contract Term Type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/contracttermtypecodes">ContractTermTypeCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractTermTypeCodes {
+
     /**
      * Based on specialized statutes that deal with particular subjects.
      */
@@ -36,8 +39,9 @@ enum class ContractTermTypeCodes {
     STATUTORY,
 
     /**
-     * Execution of the term in the contract is conditional on the execution of other actions.
+     * Execution of the term in the contract is conditional on the execution of other
+     * actions.
      */
     @SerialName("subject-to")
-    SUBJECT_TO
+    SUBJECT_TO,
 }

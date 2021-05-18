@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PaymentAdjustmentReasonCodes
+ *
  * This value set includes smattering of Payment Adjustment Reason codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/payment-adjustment-reason">PaymentAdjustmentReasonCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PaymentAdjustmentReasonCodes {
+
     /**
      * Prior Payment Reversal
      */
@@ -39,5 +42,5 @@ enum class PaymentAdjustmentReasonCodes {
      * Prior Overpayment
      */
     @SerialName("a002")
-    A002
+    A002,
 }

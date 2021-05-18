@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: UnitTypeCodes
+ *
  * This value set includes a smattering of Unit type codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/benefit-unit">UnitTypeCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class UnitTypeCodes {
+
     /**
      * A single individual
      */
@@ -39,5 +42,5 @@ enum class UnitTypeCodes {
      * A family, typically includes self, spouse(s) and children to a defined age
      */
     @SerialName("family")
-    FAMILY
+    FAMILY,
 }

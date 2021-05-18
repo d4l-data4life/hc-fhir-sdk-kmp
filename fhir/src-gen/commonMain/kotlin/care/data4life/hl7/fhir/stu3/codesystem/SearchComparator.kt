@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SearchComparator
+ *
  * What Search Comparator Codes are supported in search
  *
  * @see <a href="http://hl7.org/fhir/search-comparator">SearchComparator</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SearchComparator {
+
     /**
      * the value for the parameter in the resource is equal to the provided value
      */
@@ -54,13 +57,15 @@ enum class SearchComparator {
     LT,
 
     /**
-     * the value for the parameter in the resource is greater or equal to the provided value
+     * the value for the parameter in the resource is greater or equal to the provided
+     * value
      */
     @SerialName("ge")
     GE,
 
     /**
-     * the value for the parameter in the resource is less or equal to the provided value
+     * the value for the parameter in the resource is less or equal to the provided
+     * value
      */
     @SerialName("le")
     LE,
@@ -78,8 +83,9 @@ enum class SearchComparator {
     EB,
 
     /**
-     * the value for the parameter in the resource is approximately the same to the provided value.
+     * the value for the parameter in the resource is approximately the same to the
+     * provided value.
      */
     @SerialName("ap")
-    AP
+    AP,
 }

@@ -20,7 +20,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.
+ * Code System: ReasonMedicationGivenCodes
+ *
+ * This value set is provided as an example. The value set to instantiate this attribute should be
+ * drawn from a robust terminology code system that consists of or contains concepts to support the
+ * medication process.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/reason-medication-given">ReasonMedicationGivenCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/reason-medication-given-codes">ValueSet</a>
@@ -29,6 +33,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ReasonMedicationGivenCodes {
+
     /**
      * No reason known.
      */
@@ -45,5 +50,5 @@ enum class ReasonMedicationGivenCodes {
      * The administration was needed to treat an emergency.
      */
     @SerialName("c")
-    C
+    C,
 }

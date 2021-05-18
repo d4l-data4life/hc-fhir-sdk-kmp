@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: Need
+ *
  * The frequency with which the target must be validated
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/need">Need</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class Need {
+
     /**
      * ***TODO***
      */
@@ -45,5 +48,5 @@ enum class Need {
      * ***TODO***
      */
     @SerialName("periodic")
-    PERIODIC
+    PERIODIC,
 }

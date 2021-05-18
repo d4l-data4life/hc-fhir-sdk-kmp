@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TriggerType
+ *
  * The type of trigger
  *
  * @see <a href="http://hl7.org/fhir/trigger-type">TriggerType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TriggerType {
+
     /**
      * The trigger occurs in response to a specific named event
      */
@@ -36,7 +39,8 @@ enum class TriggerType {
     NAMED_EVENT,
 
     /**
-     * The trigger occurs at a specific time or periodically as described by a timing or schedule
+     * The trigger occurs at a specific time or periodically as described by a timing
+     * or schedule
      */
     @SerialName("periodic")
     PERIODIC,
@@ -69,5 +73,5 @@ enum class TriggerType {
      * The trigger occurs whenever access to data of a particular type is completed
      */
     @SerialName("data-access-ended")
-    DATA_ACCESS_ENDED
+    DATA_ACCESS_ENDED,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DetectedIssueSeverity
+ *
  * Indicates the potential degree of impact of the identified issue on the patient.
  *
  * @see <a href="http://hl7.org/fhir/detectedissue-severity">DetectedIssueSeverity</a>
@@ -29,21 +31,25 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DetectedIssueSeverity {
+
     /**
-     * Indicates the issue may be life-threatening or has the potential to cause permanent injury.
+     * Indicates the issue may be life-threatening or has the potential to cause
+     * permanent injury.
      */
     @SerialName("high")
     HIGH,
 
     /**
-     * Indicates the issue may result in noticeable adverse consequences but is unlikely to be life-threatening or cause permanent injury.
+     * Indicates the issue may result in noticeable adverse consequences but is
+     * unlikely to be life-threatening or cause permanent injury.
      */
     @SerialName("moderate")
     MODERATE,
 
     /**
-     * Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subject.
+     * Indicates the issue may result in some adverse consequences but is unlikely to
+     * substantially affect the situation of the subject.
      */
     @SerialName("low")
-    LOW
+    LOW,
 }

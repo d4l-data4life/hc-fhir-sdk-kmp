@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EventResourceType
+ *
  * A list of all the event resource types defined in this version of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/event-resource-types">EventResourceType</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EventResourceType {
+
     /**
-     * Item containing charge code(s) associated with the provision of healthcare provider products.
+     * Item containing charge code(s) associated with the provision of healthcare
+     * provider products.
      */
     @SerialName("ChargeItem")
     CHARGEITEM,
@@ -42,7 +46,8 @@ enum class EventResourceType {
     CLAIMRESPONSE,
 
     /**
-     * A clinical assessment performed when planning treatments and management strategies for a patient.
+     * A clinical assessment performed when planning treatments and management
+     * strategies for a patient.
      */
     @SerialName("ClinicalImpression")
     CLINICALIMPRESSION,
@@ -54,7 +59,8 @@ enum class EventResourceType {
     COMMUNICATION,
 
     /**
-     * A set of resources composed into a single coherent clinical statement with clinical attestation.
+     * A set of resources composed into a single coherent clinical statement with
+     * clinical attestation.
      */
     @SerialName("Composition")
     COMPOSITION,
@@ -66,7 +72,8 @@ enum class EventResourceType {
     CONDITION,
 
     /**
-     * A healthcare consumer's policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time.
+     * A healthcare consumer's policy choices to permits or denies recipients or roles
+     * to perform actions for specific purposes and periods of time.
      */
     @SerialName("Consent")
     CONSENT,
@@ -84,7 +91,8 @@ enum class EventResourceType {
     DEVICEUSESTATEMENT,
 
     /**
-     * A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports.
+     * A Diagnostic report - a combination of request information, atomic results,
+     * images, interpretation, as well as formatted reports.
      */
     @SerialName("DiagnosticReport")
     DIAGNOSTICREPORT,
@@ -114,7 +122,8 @@ enum class EventResourceType {
     ENROLLMENTRESPONSE,
 
     /**
-     * An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility.
+     * An association of a Patient with an Organization and Healthcare Provider(s) for
+     * a period of time that the Organization assumes some level of responsibility.
      */
     @SerialName("EpisodeOfCare")
     EPISODEOFCARE,
@@ -138,7 +147,8 @@ enum class EventResourceType {
     GUIDANCERESPONSE,
 
     /**
-     * A set of images produced in single study (one or more series of references images).
+     * A set of images produced in single study (one or more series of references
+     * images).
      */
     @SerialName("ImagingStudy")
     IMAGINGSTUDY,
@@ -156,7 +166,8 @@ enum class EventResourceType {
     MEASUREREPORT,
 
     /**
-     * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
+     * A photo, video, or audio recording acquired or used in healthcare. The actual
+     * content may be inline or provided by direct reference.
      */
     @SerialName("Media")
     MEDIA,
@@ -231,5 +242,5 @@ enum class EventResourceType {
      * A task to be performed.
      */
     @SerialName("Task")
-    TASK
+    TASK,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PropertyRepresentation
+ *
  * How a property is represented when serialized.
  *
  * @see <a href="http://hl7.org/fhir/property-representation">PropertyRepresentation</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PropertyRepresentation {
+
     /**
      * In XML, this property is represented as an attribute not an element.
      */
@@ -57,5 +60,5 @@ enum class PropertyRepresentation {
      * The property is represented using XHTML
      */
     @SerialName("xhtml")
-    XHTML
+    XHTML,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationStatus
+ *
  * A coded concept defining if the medication is in active use
  *
  * @see <a href="http://hl7.org/fhir/medication-status">MedicationStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationStatus {
+
     /**
      * The medication is available for use
      */
@@ -45,5 +48,5 @@ enum class MedicationStatus {
      * The medication was entered in error
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

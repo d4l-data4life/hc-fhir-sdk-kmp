@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CertaintySubcomponentRating
+ *
  * The quality rating of the subcomponent of a quality of evidence rating.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating">CertaintySubcomponentRating</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CertaintySubcomponentRating {
+
     /**
      * no change to quality rating.
      */
@@ -84,14 +87,16 @@ enum class CertaintySubcomponentRating {
     CRITICAL_CONCERN,
 
     /**
-     * possible reason for increasing quality rating was checked and found to bepresent.
+     * possible reason for increasing quality rating was checked and found to
+     * bepresent.
      */
     @SerialName("present")
     PRESENT,
 
     /**
-     * possible reason for increasing quality rating was checked and found to be absent.
+     * possible reason for increasing quality rating was checked and found to be
+     * absent.
      */
     @SerialName("absent")
-    ABSENT
+    ABSENT,
 }

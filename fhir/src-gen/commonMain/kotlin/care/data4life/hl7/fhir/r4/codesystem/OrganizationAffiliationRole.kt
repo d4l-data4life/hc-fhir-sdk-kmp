@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to another.
+ * Code System: OrganizationAffiliationRole
+ *
+ * This example value set defines a set of codes that can be used to indicate the role of one
+ * Organization in relation to another.
  *
  * @see <a href="http://hl7.org/fhir/organization-role">OrganizationAffiliationRole</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/organization-role">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class OrganizationAffiliationRole {
+
     /**
      * provider
      */
@@ -36,13 +40,15 @@ enum class OrganizationAffiliationRole {
     PROVIDER,
 
     /**
-     * An organization such as a public health agency, community/social services provider, etc.
+     * An organization such as a public health agency, community/social services
+     * provider, etc.
      */
     @SerialName("agency")
     AGENCY,
 
     /**
-     * An organization providing research-related services such as conducting research, recruiting research participants, analyzing data, etc.
+     * An organization providing research-related services such as conducting research,
+     * recruiting research participants, analyzing data, etc.
      */
     @SerialName("research")
     RESEARCH,
@@ -60,20 +66,23 @@ enum class OrganizationAffiliationRole {
     DIAGNOSTICS,
 
     /**
-     * An organization that provides medical supplies (e.g. medical devices, equipment, pharmaceutical products, etc.)
+     * An organization that provides medical supplies (e.g. medical devices, equipment,
+     * pharmaceutical products, etc.)
      */
     @SerialName("supplier")
     SUPPLIER,
 
     /**
-     * An organization that facilitates electronic clinical data exchange between entities
+     * An organization that facilitates electronic clinical data exchange between
+     * entities
      */
     @SerialName("HIE/HIO")
     HIE_HIO,
 
     /**
-     * A type of non-ownership relationship between entities (encompasses partnerships, collaboration, joint ventures, etc.)
+     * A type of non-ownership relationship between entities (encompasses partnerships,
+     * collaboration, joint ventures, etc.)
      */
     @SerialName("member")
-    MEMBER
+    MEMBER,
 }

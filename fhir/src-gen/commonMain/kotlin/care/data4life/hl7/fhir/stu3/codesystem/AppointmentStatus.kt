@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AppointmentStatus
+ *
  * The free/busy status of an appointment.
  *
  * @see <a href="http://hl7.org/fhir/appointmentstatus">AppointmentStatus</a>
@@ -29,20 +31,24 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AppointmentStatus {
+
     /**
-     * None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.
+     * None of the participant(s) have finalized their acceptance of the appointment
+     * request, and the start/end time may not be set yet.
      */
     @SerialName("proposed")
     PROPOSED,
 
     /**
-     * Some or all of the participant(s) have not finalized their acceptance of the appointment request.
+     * Some or all of the participant(s) have not finalized their acceptance of the
+     * appointment request.
      */
     @SerialName("pending")
     PENDING,
 
     /**
-     * All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.
+     * All participant(s) have been considered and the appointment is confirmed to go
+     * ahead at the date/times specified.
      */
     @SerialName("booked")
     BOOKED,
@@ -66,7 +72,8 @@ enum class AppointmentStatus {
     CANCELLED,
 
     /**
-     * Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).
+     * Some or all of the participant(s) have not/did not appear for the appointment
+     * (usually the patient).
      */
     @SerialName("noshow")
     NOSHOW,
@@ -75,5 +82,5 @@ enum class AppointmentStatus {
      * This instance should not have been part of this patient's medical record.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

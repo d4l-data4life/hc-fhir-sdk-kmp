@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalAchievementStatus
+ *
  * Describes the progression, or lack thereof, towards the goal against the target.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/goal-achievement">GoalAchievementStatus</a>
@@ -29,8 +31,11 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalAchievementStatus {
+
     /**
-     * The goal is being sought but has not yet been reached. (Also applies if the goal was reached in the past but there has been regression and the goal is again being sought).
+     * The goal is being sought but has not yet been reached. (Also applies if the goal
+     * was reached in the past but there has been regression and the goal is again
+     * being sought).
      */
     @SerialName("in-progress")
     IN_PROGRESS,
@@ -60,13 +65,15 @@ enum class GoalAchievementStatus {
     ACHIEVED,
 
     /**
-     * The goal has been met, but ongoing activity is needed to sustain the goal objective.
+     * The goal has been met, but ongoing activity is needed to sustain the goal
+     * objective.
      */
     @SerialName("sustaining")
     SUSTAINING,
 
     /**
-     * The goal has not been met and there might or might not have been progress towards target.
+     * The goal has not been met and there might or might not have been progress
+     * towards target.
      */
     @SerialName("not-achieved")
     NOT_ACHIEVED,
@@ -81,5 +88,5 @@ enum class GoalAchievementStatus {
      * The goal is not possible to be met.
      */
     @SerialName("not-attainable")
-    NOT_ATTAINABLE
+    NOT_ATTAINABLE,
 }

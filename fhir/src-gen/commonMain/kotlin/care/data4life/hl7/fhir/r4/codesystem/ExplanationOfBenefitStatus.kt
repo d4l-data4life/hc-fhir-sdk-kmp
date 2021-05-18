@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExplanationOfBenefitStatus
+ *
  * A code specifying the state of the resource instance.
  *
  * @see <a href="http://hl7.org/fhir/explanationofbenefit-status">ExplanationOfBenefitStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExplanationOfBenefitStatus {
+
     /**
      * The resource instance is currently in-force.
      */
@@ -51,5 +54,5 @@ enum class ExplanationOfBenefitStatus {
      * The resource instance was entered in error.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MessageSignificanceCategory
+ *
  * The impact of the content of a message.
  *
  * @see <a href="http://hl7.org/fhir/message-significance-category">MessageSignificanceCategory</a>
@@ -29,21 +31,26 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MessageSignificanceCategory {
+
     /**
-     * The message represents/requests a change that should not be processed more than once; e.g., making a booking for an appointment.
+     * The message represents/requests a change that should not be processed more than
+     * once; e.g., making a booking for an appointment.
      */
     @SerialName("Consequence")
     CONSEQUENCE,
 
     /**
-     * The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
+     * The message represents a response to query for current information.
+     * Retrospective processing is wrong and/or wasteful.
      */
     @SerialName("Currency")
     CURRENCY,
 
     /**
-     * The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
+     * The content is not necessarily intended to be current, and it can be
+     * reprocessed, though there may be version issues created by processing old
+     * notifications.
      */
     @SerialName("Notification")
-    NOTIFICATION
+    NOTIFICATION,
 }

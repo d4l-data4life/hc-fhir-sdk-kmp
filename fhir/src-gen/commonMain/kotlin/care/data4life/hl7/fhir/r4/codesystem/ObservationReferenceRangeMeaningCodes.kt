@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population.
+ * Code System: ObservationReferenceRangeMeaningCodes
+ *
+ * This value set defines a set of codes that can be used to indicate the meaning/use of a reference
+ * range for a particular target population.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/referencerange-meaning">ObservationReferenceRangeMeaningCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/referencerange-meaning">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ObservationReferenceRangeMeaningCodes {
+
     /**
      * General types of reference range.
      */
@@ -36,7 +40,10 @@ enum class ObservationReferenceRangeMeaningCodes {
     TYPE,
 
     /**
-     * Values expected for a normal member of the relevant control population being measured. Typically each results producer such as a laboratory has specific normal ranges and they are usually defined as within two standard deviations from the mean and account for 95.45% of this population.
+     * Values expected for a normal member of the relevant control population being
+     * measured. Typically each results producer such as a laboratory has specific
+     * normal ranges and they are usually defined as within two standard deviations
+     * from the mean and account for 95.45% of this population.
      */
     @SerialName("normal")
     NORMAL,
@@ -60,13 +67,15 @@ enum class ObservationReferenceRangeMeaningCodes {
     THERAPEUTIC,
 
     /**
-     * The optimal range for best therapeutic outcomes for a specimen taken immediately before administration.
+     * The optimal range for best therapeutic outcomes for a specimen taken immediately
+     * before administration.
      */
     @SerialName("pre")
     PRE,
 
     /**
-     * The optimal range for best therapeutic outcomes for a specimen taken immediately after administration.
+     * The optimal range for best therapeutic outcomes for a specimen taken immediately
+     * after administration.
      */
     @SerialName("post")
     POST,
@@ -105,5 +114,5 @@ enum class ObservationReferenceRangeMeaningCodes {
      * An expected range in an individual post-menopause.
      */
     @SerialName("postmenopausal")
-    POSTMENOPAUSAL
+    POSTMENOPAUSAL,
 }

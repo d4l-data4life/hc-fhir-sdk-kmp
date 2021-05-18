@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalCategory
+ *
  * Example codes for grouping goals to use for filtering or presentation.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/goal-category">GoalCategory</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalCategory {
+
     /**
      * Goals related to the consumption of food and/or beverages.
      */
@@ -57,5 +60,5 @@ enum class GoalCategory {
      * Goals related to the mobility and/or motor capability of the subject.
      */
     @SerialName("physiotherapy")
-    PHYSIOTHERAPY
+    PHYSIOTHERAPY,
 }

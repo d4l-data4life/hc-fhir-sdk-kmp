@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalLifecycleStatus
+ *
  * Codes that reflect the current state of a goal and whether the goal is still being targeted.
  *
  * @see <a href="http://hl7.org/fhir/goal-status">GoalLifecycleStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalLifecycleStatus {
+
     /**
      * A goal is proposed for this patient.
      */
@@ -54,7 +57,8 @@ enum class GoalLifecycleStatus {
     ACTIVE,
 
     /**
-     * The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.
+     * The goal remains a long term objective but is no longer being actively pursued
+     * for a temporary period of time.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -81,5 +85,5 @@ enum class GoalLifecycleStatus {
      * A proposed goal was rejected.
      */
     @SerialName("rejected")
-    REJECTED
+    REJECTED,
 }

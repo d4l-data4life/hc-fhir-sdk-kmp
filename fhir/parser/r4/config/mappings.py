@@ -62,10 +62,10 @@ jsonmap_default = 'FHIRJSON'
 
 # Properties that need to be renamed because of language keyword conflicts
 reservedmap = {
-    'abstract': '`abstract`',
+    'abstract': 'abstrakt',
     'class': 'clazz',
-    'when': '`when`',
-    'package': '`package`'
+    'when': 'whenn',
+    'package': 'pakkage'
 }
 
 # For enum codes where a computer just cannot generate reasonable names

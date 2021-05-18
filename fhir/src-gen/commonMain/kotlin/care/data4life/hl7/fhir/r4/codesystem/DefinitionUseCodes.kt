@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DefinitionUseCodes
+ *
  * Structure Definition Use Codes / Keywords
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/definition-use">DefinitionUseCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DefinitionUseCodes {
+
     /**
      * This structure is defined as part of the base FHIR Specification
      */
@@ -36,7 +39,8 @@ enum class DefinitionUseCodes {
     FHIR_STRUCTURE,
 
     /**
-     * This structure is intended to be treated like a FHIR resource (e.g. on the FHIR API)
+     * This structure is intended to be treated like a FHIR resource (e.g. on the FHIR
+     * API)
      */
     @SerialName("custom-resource")
     CUSTOM_RESOURCE,
@@ -63,5 +67,5 @@ enum class DefinitionUseCodes {
      * This structure is a template (n.b: 'template' has many meanings)
      */
     @SerialName("template")
-    TEMPLATE
+    TEMPLATE,
 }

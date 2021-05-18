@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TestReportActionResult
+ *
  * The results of executing an action.
  *
  * @see <a href="http://hl7.org/fhir/report-action-result-codes">TestReportActionResult</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestReportActionResult {
+
     /**
      * The action was successful.
      */
@@ -57,5 +60,5 @@ enum class TestReportActionResult {
      * The action encountered a fatal error and the engine was unable to process.
      */
     @SerialName("error")
-    ERROR
+    ERROR,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionClinicalStatusCodes
+ *
  * Preferred value set for Condition Clinical Status.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/condition-clinical">ConditionClinicalStatusCodes</a>
@@ -29,39 +31,49 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConditionClinicalStatusCodes {
+
     /**
-     * The subject is currently experiencing the symptoms of the condition or there is evidence of the condition.
+     * The subject is currently experiencing the symptoms of the condition or there is
+     * evidence of the condition.
      */
     @SerialName("active")
     ACTIVE,
 
     /**
-     * The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis.
+     * The subject is experiencing a re-occurence or repeating of a previously resolved
+     * condition, e.g. urinary tract infection, pancreatitis, cholangitis,
+     * conjunctivitis.
      */
     @SerialName("recurrence")
     RECURRENCE,
 
     /**
-     * The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc.
+     * The subject is experiencing a return of a condition, or signs and symptoms after
+     * a period of improvement or remission, e.g. relapse of cancer, multiple
+     * sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder,
+     * [psychotic relapse of] schizophrenia, etc.
      */
     @SerialName("relapse")
     RELAPSE,
 
     /**
-     * The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition.
+     * The subject is no longer experiencing the symptoms of the condition or there is
+     * no longer evidence of the condition.
      */
     @SerialName("inactive")
     INACTIVE,
 
     /**
-     * The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.
+     * The subject is no longer experiencing the symptoms of the condition, but there
+     * is a risk of the symptoms returning.
      */
     @SerialName("remission")
     REMISSION,
 
     /**
-     * The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning.
+     * The subject is no longer experiencing the symptoms of the condition and there is
+     * a negligible perceived risk of the symptoms returning.
      */
     @SerialName("resolved")
-    RESOLVED
+    RESOLVED,
 }

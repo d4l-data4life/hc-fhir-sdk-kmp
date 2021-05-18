@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ProvenanceParticipantRole
+ *
  * The role that a provenance participant played
  *
  * @see <a href="http://hl7.org/fhir/provenance-participant-role">ProvenanceParticipantRole</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ProvenanceParticipantRole {
+
     /**
      * A person entering the data into the originating system
      */
@@ -36,13 +39,15 @@ enum class ProvenanceParticipantRole {
     ENTERER,
 
     /**
-     * A person, animal, organization or device that who actually and principally carries out the activity
+     * A person, animal, organization or device that who actually and principally
+     * carries out the activity
      */
     @SerialName("performer")
     PERFORMER,
 
     /**
-     * A party that originates the resource and therefore has responsibility for the information given in the resource and ownership of this resource
+     * A party that originates the resource and therefore has responsibility for the
+     * information given in the resource and ownership of this resource
      */
     @SerialName("author")
     AUTHOR,
@@ -54,7 +59,8 @@ enum class ProvenanceParticipantRole {
     VERIFIER,
 
     /**
-     * The person authenticated the content and accepted legal responsibility for its content
+     * The person authenticated the content and accepted legal responsibility for its
+     * content
      */
     @SerialName("legal")
     LEGAL,
@@ -72,20 +78,25 @@ enum class ProvenanceParticipantRole {
     INFORMANT,
 
     /**
-     * The entity that is accountable for maintaining a true an accurate copy of the original record
+     * The entity that is accountable for maintaining a true an accurate copy of the
+     * original record
      */
     @SerialName("custodian")
     CUSTODIAN,
 
     /**
-     * A device that operates independently of an author on custodian's algorithms for data extraction of existing information for purpose of generating a new artifact.
+     * A device that operates independently of an author on custodian's algorithms for
+     * data extraction of existing information for purpose of generating a new
+     * artifact.
      */
     @SerialName("assembler")
     ASSEMBLER,
 
     /**
-     * A device used by an author to record new information, which may also be used by the author to select existing information for aggregation with newly recorded information for the purpose of generating a new artifact.
+     * A device used by an author to record new information, which may also be used by
+     * the author to select existing information for aggregation with newly recorded
+     * information for the purpose of generating a new artifact.
      */
     @SerialName("composer")
-    COMPOSER
+    COMPOSER,
 }

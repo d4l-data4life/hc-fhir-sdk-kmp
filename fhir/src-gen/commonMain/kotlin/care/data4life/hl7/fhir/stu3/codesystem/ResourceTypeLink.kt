@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResourceTypeLink
+ *
  * The type of payee Resource
  *
  * @see <a href="http://hl7.org/fhir/resource-type-link">ResourceTypeLink</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResourceTypeLink {
+
     /**
      * Organization resource
      */
@@ -51,5 +54,5 @@ enum class ResourceTypeLink {
      * RelatedPerson resource
      */
     @SerialName("relatedperson")
-    RELATEDPERSON
+    RELATEDPERSON,
 }

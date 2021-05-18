@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionRelationshipType
+ *
  * Defines the types of relationships between actions.
  *
  * @see <a href="http://hl7.org/fhir/action-relationship-type">ActionRelationshipType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionRelationshipType {
+
     /**
      * The action must be performed before the start of the related action.
      */
@@ -81,5 +84,5 @@ enum class ActionRelationshipType {
      * The action must be performed after the end of the related action.
      */
     @SerialName("after-end")
-    AFTER_END
+    AFTER_END,
 }

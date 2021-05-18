@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SubstanceCategoryCodes
+ *
  * Substance category codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/substance-category">SubstanceCategoryCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SubstanceCategoryCodes {
+
     /**
      * A substance that causes an allergic reaction.
      */
@@ -42,13 +45,18 @@ enum class SubstanceCategoryCodes {
     BIOLOGICAL,
 
     /**
-     * A substance that comes directly from a human or an animal (e.g. blood, urine, feces, tears, etc.).
+     * A substance that comes directly from a human or an animal (e.g. blood, urine,
+     * feces, tears, etc.).
      */
     @SerialName("body")
     BODY,
 
     /**
-     * Any organic or inorganic substance of a particular molecular identity, including -- (i) any combination of such substances occurring in whole or in part as a result of a chemical reaction or occurring in nature and (ii) any element or uncombined radical (http://www.epa.gov/opptintr/import-export/pubs/importguide.pdf).
+     * Any organic or inorganic substance of a particular molecular identity, including
+     * -- (i) any combination of such substances occurring in whole or in part as a
+     * result of a chemical reaction or occurring in nature and (ii) any element or
+     * uncombined radical (http://www.epa.gov/opptintr/import-
+     * export/pubs/importguide.pdf).
      */
     @SerialName("chemical")
     CHEMICAL,
@@ -60,14 +68,17 @@ enum class SubstanceCategoryCodes {
     FOOD,
 
     /**
-     * A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease in man or other animals (Federal Food Drug and Cosmetic Act).
+     * A substance intended for use in the diagnosis, cure, mitigation, treatment, or
+     * prevention of disease in man or other animals (Federal Food Drug and Cosmetic
+     * Act).
      */
     @SerialName("drug")
     DRUG,
 
     /**
-     * A finished product which is not normally ingested, absorbed or injected (e.g. steel, iron, wood, plastic and paper).
+     * A finished product which is not normally ingested, absorbed or injected (e.g.
+     * steel, iron, wood, plastic and paper).
      */
     @SerialName("material")
-    MATERIAL
+    MATERIAL,
 }

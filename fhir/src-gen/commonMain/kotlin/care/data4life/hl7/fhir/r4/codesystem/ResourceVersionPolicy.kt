@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResourceVersionPolicy
+ *
  * How the system supports versioning for a resource.
  *
  * @see <a href="http://hl7.org/fhir/versioning-policy">ResourceVersionPolicy</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResourceVersionPolicy {
+
     /**
      * VersionId meta-property is not supported (server) or used (client).
      */
@@ -42,8 +45,9 @@ enum class ResourceVersionPolicy {
     VERSIONED,
 
     /**
-     * VersionId must be correct for updates (server) or will be specified (If-match header) for updates (client).
+     * VersionId must be correct for updates (server) or will be specified (If-match
+     * header) for updates (client).
      */
     @SerialName("versioned-update")
-    VERSIONED_UPDATE
+    VERSIONED_UPDATE,
 }

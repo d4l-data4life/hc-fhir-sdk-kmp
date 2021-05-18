@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DefinitionTopic
+ *
  * High-level categorization of the definition, used for searching, sorting, and filtering
  *
  * @see <a href="http://hl7.org/fhir/definition-topic">DefinitionTopic</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DefinitionTopic {
+
     /**
      * The definition is related to treatment of the patient
      */
@@ -45,5 +48,5 @@ enum class DefinitionTopic {
      * The definition is related to assessment of the patient
      */
     @SerialName("assessment")
-    ASSESSMENT
+    ASSESSMENT,
 }

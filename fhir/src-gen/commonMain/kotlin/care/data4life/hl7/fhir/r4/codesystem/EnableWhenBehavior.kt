@@ -20,7 +20,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
+ * Code System: EnableWhenBehavior
+ *
+ * Controls how multiple enableWhen values are interpreted - whether all or any must be true.
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-enable-behavior">EnableWhenBehavior</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior">ValueSet</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EnableWhenBehavior {
+
     /**
      * Enable the question when all the enableWhen criteria are satisfied.
      */
@@ -39,5 +42,5 @@ enum class EnableWhenBehavior {
      * Enable the question when any of the enableWhen criteria are satisfied.
      */
     @SerialName("any")
-    ANY
+    ANY,
 }

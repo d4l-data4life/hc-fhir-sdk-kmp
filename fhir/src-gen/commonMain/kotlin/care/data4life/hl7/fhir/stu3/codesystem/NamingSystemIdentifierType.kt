@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NamingSystemIdentifierType
+ *
  * Identifies the style of unique identifier used to identify a namespace.
  *
  * @see <a href="http://hl7.org/fhir/namingsystem-identifier-type">NamingSystemIdentifierType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NamingSystemIdentifierType {
+
     /**
      * An ISO object identifier; e.g. 1.2.3.4.5.
      */
@@ -36,20 +39,23 @@ enum class NamingSystemIdentifierType {
     OID,
 
     /**
-     * A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
+     * A universally unique identifier of the form
+     * a5afddf4-e880-459b-876e-e4591b0acc11.
      */
     @SerialName("uuid")
     UUID,
 
     /**
-     * A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.
+     * A uniform resource identifier (ideally a URL - uniform resource locator); e.g.
+     * http://unitsofmeasure.org.
      */
     @SerialName("uri")
     URI,
 
     /**
-     * Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.
+     * Some other type of unique identifier; e.g. HL7-assigned reserved string such as
+     * LN for LOINC.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

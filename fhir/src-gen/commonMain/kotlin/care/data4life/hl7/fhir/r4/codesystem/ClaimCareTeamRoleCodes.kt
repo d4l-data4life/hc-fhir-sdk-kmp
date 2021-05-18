@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ClaimCareTeamRoleCodes
+ *
  * This value set includes sample Claim Care Team Role codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/claimcareteamrole">ClaimCareTeamRoleCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClaimCareTeamRoleCodes {
+
     /**
      * The primary care provider.
      */
@@ -51,5 +54,5 @@ enum class ClaimCareTeamRoleCodes {
      * Other role on the care team.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

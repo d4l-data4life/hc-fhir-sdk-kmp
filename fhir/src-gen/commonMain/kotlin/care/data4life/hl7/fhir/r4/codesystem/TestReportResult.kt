@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: TestReportResult
+ *
  * The reported execution result.
  *
  * @see <a href="http://hl7.org/fhir/report-result-codes">TestReportResult</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestReportResult {
+
     /**
      * All test operations successfully passed all asserts.
      */
@@ -45,5 +48,5 @@ enum class TestReportResult {
      * One or more test operations is pending execution completion.
      */
     @SerialName("pending")
-    PENDING
+    PENDING,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationStatementStatus
+ *
  * A coded concept indicating the current status of a MedicationStatement.
  *
  * @see <a href="http://hl7.org/fhir/medication-statement-status">MedicationStatementStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationStatementStatus {
+
     /**
      * The medication is still being taken.
      */
@@ -54,14 +57,16 @@ enum class MedicationStatementStatus {
     INTENDED,
 
     /**
-     * Actions implied by the statement have been permanently halted, before all of them occurred.
+     * Actions implied by the statement have been permanently halted, before all of
+     * them occurred.
      */
     @SerialName("stopped")
     STOPPED,
 
     /**
-     * Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called "suspended".
+     * Actions implied by the statement have been temporarily halted, but are expected
+     * to continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
-    ON_HOLD
+    ON_HOLD,
 }

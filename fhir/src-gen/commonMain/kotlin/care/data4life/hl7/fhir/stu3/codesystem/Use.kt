@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: Use
+ *
  * Complete, proposed, exploratory, other
  *
  * @see <a href="http://hl7.org/fhir/claim-use">Use</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class Use {
+
     /**
      * The treatment is complete and this represents a Claim for the services.
      */
@@ -36,13 +39,15 @@ enum class Use {
     COMPLETE,
 
     /**
-     * The treatment is proposed and this represents a Pre-authorization for the services.
+     * The treatment is proposed and this represents a Pre-authorization for the
+     * services.
      */
     @SerialName("proposed")
     PROPOSED,
 
     /**
-     * The treatment is proposed and this represents a Pre-determination for the services.
+     * The treatment is proposed and this represents a Pre-determination for the
+     * services.
      */
     @SerialName("exploratory")
     EXPLORATORY,
@@ -51,5 +56,5 @@ enum class Use {
      * A locally defined or otherwise resolved status.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

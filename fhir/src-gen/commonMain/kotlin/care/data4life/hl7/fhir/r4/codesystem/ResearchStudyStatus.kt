@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyStatus
+ *
  * Codes that convey the current status of the research study.
  *
  * @see <a href="http://hl7.org/fhir/research-study-status">ResearchStudyStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyStatus {
+
     /**
      * Study is opened for accrual.
      */
@@ -36,7 +39,8 @@ enum class ResearchStudyStatus {
     ACTIVE,
 
     /**
-     * Study is completed prematurely and will not resume; patients are no longer examined nor treated.
+     * Study is completed prematurely and will not resume; patients are no longer
+     * examined nor treated.
      */
     @SerialName("administratively-completed")
     ADMINISTRATIVELY_COMPLETED,
@@ -54,14 +58,17 @@ enum class ResearchStudyStatus {
     CLOSED_TO_ACCRUAL,
 
     /**
-     * Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study.
+     * Study is closed to accrual and intervention, i.e. the study is closed to
+     * enrollment, all study subjects have completed treatment or intervention but are
+     * still being followed according to the primary objective of the study.
      */
     @SerialName("closed-to-accrual-and-intervention")
     CLOSED_TO_ACCRUAL_AND_INTERVENTION,
 
     /**
-     * Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment
-     or intervention but are still being followed according to the primary objective of the study.
+     * Study is closed to accrual and intervention, i.e. the study is closed to
+     * enrollment, all study subjects have completed treatment or intervention but are
+     * still being followed according to the primary objective of the study.
      */
     @SerialName("completed")
     COMPLETED,
@@ -79,13 +86,15 @@ enum class ResearchStudyStatus {
     IN_REVIEW,
 
     /**
-     * Study is temporarily closed for accrual; can be potentially resumed in the future; patients can be examined and treated.
+     * Study is temporarily closed for accrual; can be potentially resumed in the
+     * future; patients can be examined and treated.
      */
     @SerialName("temporarily-closed-to-accrual")
     TEMPORARILY_CLOSED_TO_ACCRUAL,
 
     /**
-     * Study is temporarily closed for accrual and intervention and potentially can be resumed in the future.
+     * Study is temporarily closed for accrual and intervention and potentially can be
+     * resumed in the future.
      */
     @SerialName("temporarily-closed-to-accrual-and-intervention")
     TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION,
@@ -94,5 +103,5 @@ enum class ResearchStudyStatus {
      * Protocol was withdrawn by the lead organization.
      */
     @SerialName("withdrawn")
-    WITHDRAWN
+    WITHDRAWN,
 }

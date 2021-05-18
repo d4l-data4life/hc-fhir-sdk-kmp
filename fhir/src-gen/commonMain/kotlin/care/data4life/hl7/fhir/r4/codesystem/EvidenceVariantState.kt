@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: EvidenceVariantState
+ *
  * Used for results by exposure in variant states such as low-risk, medium-risk and high-risk states.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/evidence-variant-state">EvidenceVariantState</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EvidenceVariantState {
+
     /**
      * low risk estimate.
      */
@@ -45,5 +48,5 @@ enum class EvidenceVariantState {
      * high risk estimate.
      */
     @SerialName("high-risk")
-    HIGH_RISK
+    HIGH_RISK,
 }

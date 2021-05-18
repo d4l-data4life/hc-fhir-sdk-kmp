@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FinancialResourceStatusCodes
+ *
  * This value set includes Status codes.
  *
  * @see <a href="http://hl7.org/fhir/fm-status">FinancialResourceStatusCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FinancialResourceStatusCodes {
+
     /**
      * The instance is currently in-force.
      */
@@ -51,5 +54,5 @@ enum class FinancialResourceStatusCodes {
      * The instance was entered in error.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

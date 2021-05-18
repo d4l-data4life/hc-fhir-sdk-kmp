@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MissingToothReasonCodes
+ *
  * This value set includes sample Missing Tooth Reason codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/missingtoothreason">MissingToothReasonCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MissingToothReasonCodes {
+
     /**
      * Extraction
      */
@@ -51,5 +54,5 @@ enum class MissingToothReasonCodes {
      * Other
      */
     @SerialName("o")
-    O
+    O,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DefinitionStatus
+ *
  * Codes identifying the lifecycle stage of a definition
  *
  * @see <a href="http://hl7.org/fhir/definition-status">DefinitionStatus</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DefinitionStatus {
+
     /**
-     * The definition is in the design stage and is not yet considered to be "ready for use"
+     * The definition is in the design stage and is not yet considered to be "ready for
+     * use"
      */
     @SerialName("draft")
     DRAFT,
@@ -48,8 +52,10 @@ enum class DefinitionStatus {
     WITHDRAWN,
 
     /**
-     * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+     * The authoring system does not know which of the status values currently applies
+     * for this request. Note: This concept is not to be used for "other" - one of the
+     * listed statuses is presumed to apply, it's just not known which one.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

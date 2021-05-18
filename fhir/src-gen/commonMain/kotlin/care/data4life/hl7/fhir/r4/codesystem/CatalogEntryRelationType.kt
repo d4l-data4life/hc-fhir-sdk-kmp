@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CatalogEntryRelationType
+ *
  * The type of relations between entries.
  *
  * @see <a href="http://hl7.org/fhir/relation-type">CatalogEntryRelationType</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CatalogEntryRelationType {
+
     /**
-     * the related entry represents an activity that may be triggered by the current item.
+     * the related entry represents an activity that may be triggered by the current
+     * item.
      */
     @SerialName("triggers")
     TRIGGERS,
@@ -39,5 +43,5 @@ enum class CatalogEntryRelationType {
      * the related entry represents an item that replaces the current retired item.
      */
     @SerialName("is-replaced-by")
-    IS_REPLACED_BY
+    IS_REPLACED_BY,
 }

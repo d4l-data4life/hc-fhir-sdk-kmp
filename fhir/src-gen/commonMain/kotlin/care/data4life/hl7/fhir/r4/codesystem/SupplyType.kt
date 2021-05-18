@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SupplyType
+ *
  * This value sets refers to a Category of supply.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/supply-kind">SupplyType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SupplyType {
+
     /**
      * Supply is stored and requested from central supply.
      */
@@ -36,8 +39,9 @@ enum class SupplyType {
     CENTRAL,
 
     /**
-     * Supply is not onsite and must be requested from an outside vendor using a non-stock requisition.
+     * Supply is not onsite and must be requested from an outside vendor using a non-
+     * stock requisition.
      */
     @SerialName("nonstock")
-    NONSTOCK
+    NONSTOCK,
 }

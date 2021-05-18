@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureMapSourceListMode
+ *
  * If field is a list, how to manage the source
  *
  * @see <a href="http://hl7.org/fhir/map-source-list-mode">StructureMapSourceListMode</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapSourceListMode {
+
     /**
      * Only process this rule for the first in the list
      */
@@ -57,5 +60,5 @@ enum class StructureMapSourceListMode {
      * Only process this rule is there is only item
      */
     @SerialName("only_one")
-    ONLY_ONE
+    ONLY_ONE,
 }

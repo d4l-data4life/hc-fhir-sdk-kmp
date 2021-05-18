@@ -20,20 +20,32 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirRange
+ *
+ * A set of ordered Quantities defined by a low and high limit.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Range">Range</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Range)
+ */
 interface FhirRange : FhirElement {
 
-    // Low limit.
+    /**
+     * Low limit.
+     */
     val low: Quantity?
 
-    // High limit.
+    /**
+     * High limit.
+     */
     val high: Quantity?
 }
 
 /**
- * ClassName: Range
+ * Range
  *
  * SourceFileName: Range.kt
- *
  *
  * A set of ordered Quantities defined by a low and high limit.
  *
@@ -45,18 +57,14 @@ interface FhirRange : FhirElement {
 @SerialName("Range")
 data class Range(
 
-    // Low limit.
     @SerialName("low")
     override val low: Quantity? = null,
-    // High limit.
+
     @SerialName("high")
     override val high: Quantity? = null,
 
-    // # Element
-    // xml:id (or equivalent in JSON).
-    @SerialName("id")
+    // # Element@SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirRange {

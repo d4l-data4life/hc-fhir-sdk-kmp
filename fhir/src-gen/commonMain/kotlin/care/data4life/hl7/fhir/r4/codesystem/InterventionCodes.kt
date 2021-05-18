@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: InterventionCodes
+ *
  * This value set includes sample Intervention codes.
  *
  * @see <a href="http://hl7.org/fhir/intervention">InterventionCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class InterventionCodes {
+
     /**
      * Unknown
      */
@@ -39,5 +42,5 @@ enum class InterventionCodes {
      * Other
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

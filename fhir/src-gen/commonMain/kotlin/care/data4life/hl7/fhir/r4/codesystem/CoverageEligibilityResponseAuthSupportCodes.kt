@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CoverageEligibilityResponseAuthSupportCodes
+ *
  * This value set includes CoverageEligibilityResponse Auth Support codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/coverageeligibilityresponse-ex-auth-support">CoverageEligibilityResponseAuthSupportCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CoverageEligibilityResponseAuthSupportCodes {
+
     /**
      * A request or authorization for laboratory diagnostic tests.
      */
@@ -54,13 +57,15 @@ enum class CoverageEligibilityResponseAuthSupportCodes {
     DIAGNOSTICIMAGEREPORT,
 
     /**
-     * A report from a licensed professional regarding the siutation, condition or proposed treatment.
+     * A report from a licensed professional regarding the siutation, condition or
+     * proposed treatment.
      */
     @SerialName("professionalreport")
     PROFESSIONALREPORT,
 
     /**
-     * A formal accident report as would be filed with police or a simlar official body.
+     * A formal accident report as would be filed with police or a simlar official
+     * body.
      */
     @SerialName("accidentreport")
     ACCIDENTREPORT,
@@ -75,5 +80,5 @@ enum class CoverageEligibilityResponseAuthSupportCodes {
      * A photograph of the affected area.
      */
     @SerialName("picture")
-    PICTURE
+    PICTURE,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SortDirection
+ *
  * The possible sort directions, ascending or descending.
  *
  * @see <a href="http://hl7.org/fhir/sort-direction">SortDirection</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SortDirection {
+
     /**
      * Sort by the value ascending, so that lower values appear first.
      */
@@ -39,5 +42,5 @@ enum class SortDirection {
      * Sort by the value descending, so that lower values appear last.
      */
     @SerialName("descending")
-    DESCENDING
+    DESCENDING,
 }

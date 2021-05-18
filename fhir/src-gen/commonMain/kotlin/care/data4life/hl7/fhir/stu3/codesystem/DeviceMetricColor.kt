@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceMetricColor
+ *
  * Describes the typical color of representation.
  *
  * @see <a href="http://hl7.org/fhir/metric-color">DeviceMetricColor</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceMetricColor {
+
     /**
      * Color for representation - black.
      */
@@ -75,5 +78,5 @@ enum class DeviceMetricColor {
      * Color for representation - white.
      */
     @SerialName("white")
-    WHITE
+    WHITE,
 }

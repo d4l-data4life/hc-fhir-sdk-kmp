@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This is an example value set defined by the FHIR project, that could be used to represent possible connection type profile values.
+ * Code System: EndpointConnectionType
+ *
+ * This is an example value set defined by the FHIR project, that could be used to represent possible
+ * connection type profile values.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/endpoint-connection-type">EndpointConnectionType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/endpoint-connection-type">ValueSet</a>
@@ -29,68 +32,82 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EndpointConnectionType {
+
     /**
-     * IHE Cross Community Patient Discovery Profile (XCPD) - http://wiki.ihe.net/index.php/Cross-Community_Patient_Discovery
+     * IHE Cross Community Patient Discovery Profile (XCPD) -
+     * http://wiki.ihe.net/index.php/Cross-Community_Patient_Discovery
      */
     @SerialName("ihe-xcpd")
     IHE_XCPD,
 
     /**
-     * IHE Cross Community Access Profile (XCA) - http://wiki.ihe.net/index.php/Cross-Community_Access
+     * IHE Cross Community Access Profile (XCA) - http://wiki.ihe.net/index.php/Cross-
+     * Community_Access
      */
     @SerialName("ihe-xca")
     IHE_XCA,
 
     /**
-     * IHE Cross-Enterprise Document Reliable Exchange (XDR) - http://wiki.ihe.net/index.php/Cross-enterprise_Document_Reliable_Interchange
+     * IHE Cross-Enterprise Document Reliable Exchange (XDR) -
+     * http://wiki.ihe.net/index.php/Cross-enterprise_Document_Reliable_Interchange
      */
     @SerialName("ihe-xdr")
     IHE_XDR,
 
     /**
-     * IHE Cross-Enterprise Document Sharing (XDS) - http://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing
+     * IHE Cross-Enterprise Document Sharing (XDS) -
+     * http://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing
      */
     @SerialName("ihe-xds")
     IHE_XDS,
 
     /**
-     * IHE Invoke Image Display (IID) - http://wiki.ihe.net/index.php/Invoke_Image_Display
+     * IHE Invoke Image Display (IID) -
+     * http://wiki.ihe.net/index.php/Invoke_Image_Display
      */
     @SerialName("ihe-iid")
     IHE_IID,
 
     /**
-     * DICOMweb RESTful Image Retrieve - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.5.html
+     * DICOMweb RESTful Image Retrieve -
+     * http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.5.html
      */
     @SerialName("dicom-wado-rs")
     DICOM_WADO_RS,
 
     /**
-     * DICOMweb RESTful Image query - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.7.html
+     * DICOMweb RESTful Image query -
+     * http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.7.html
      */
     @SerialName("dicom-qido-rs")
     DICOM_QIDO_RS,
 
     /**
-     * DICOMweb RESTful image sending and storage - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.6.html
+     * DICOMweb RESTful image sending and storage -
+     * http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.6.html
      */
     @SerialName("dicom-stow-rs")
     DICOM_STOW_RS,
 
     /**
-     * DICOMweb Image Retrieve - http://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.3.html
+     * DICOMweb Image Retrieve -
+     * http://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.3.html
      */
     @SerialName("dicom-wado-uri")
     DICOM_WADO_URI,
 
     /**
-     * Interact with the server interface using FHIR's RESTful interface. For details on its version/capabilities you should connect the value in Endpoint.address and retrieve the FHIR CapabilityStatement.
+     * Interact with the server interface using FHIR's RESTful interface. For details
+     * on its version/capabilities you should connect the value in Endpoint.address and
+     * retrieve the FHIR CapabilityStatement.
      */
     @SerialName("hl7-fhir-rest")
     HL7_FHIR_REST,
 
     /**
-     * Use the servers FHIR Messaging interface. Details can be found on the messaging.html page in the FHIR Specification. The FHIR server's base address is specified in the Endpoint.address property.
+     * Use the servers FHIR Messaging interface. Details can be found on the
+     * messaging.html page in the FHIR Specification. The FHIR server's base address is
+     * specified in the Endpoint.address property.
      */
     @SerialName("hl7-fhir-msg")
     HL7_FHIR_MSG,
@@ -102,7 +119,8 @@ enum class EndpointConnectionType {
     HL7V2_MLLP,
 
     /**
-     * Email delivery using a digital certificate to encrypt the content using the public key, receiver must have the private key to decrypt the content
+     * Email delivery using a digital certificate to encrypt the content using the
+     * public key, receiver must have the private key to decrypt the content
      */
     @SerialName("secure-email")
     SECURE_EMAIL,
@@ -111,5 +129,5 @@ enum class EndpointConnectionType {
      * Direct Project information - http://wiki.directproject.org/
      */
     @SerialName("direct-project")
-    DIRECT_PROJECT
+    DIRECT_PROJECT,
 }

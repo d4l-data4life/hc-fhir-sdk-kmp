@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set includes codes for the relationship between the Subscriber and the Beneficiary (insured/covered party/patient).
+ * Code System: SubscriberRelationshipCodes
+ *
+ * This value set includes codes for the relationship between the Subscriber and the Beneficiary
+ * (insured/covered party/patient).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/subscriber-relationship">SubscriberRelationshipCodes</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/subscriber-relationship">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SubscriberRelationshipCodes {
+
     /**
      * The Beneficiary is a child of the Subscriber
      */
@@ -69,5 +73,5 @@ enum class SubscriberRelationshipCodes {
      * The Beneficiary is covered under insurance of the subscriber due to an injury.
      */
     @SerialName("injured")
-    INJURED
+    INJURED,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionalDeleteStatus
+ *
  * A code that indicates how the server supports conditional delete.
  *
  * @see <a href="http://hl7.org/fhir/conditional-delete-status">ConditionalDeleteStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConditionalDeleteStatus {
+
     /**
      * No support for conditional deletes.
      */
@@ -42,8 +45,9 @@ enum class ConditionalDeleteStatus {
     SINGLE,
 
     /**
-     * Conditional deletes are supported, and multiple resources can be deleted in a single interaction.
+     * Conditional deletes are supported, and multiple resources can be deleted in a
+     * single interaction.
      */
     @SerialName("multiple")
-    MULTIPLE
+    MULTIPLE,
 }

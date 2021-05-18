@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MessageTransport
+ *
  * The protocol used for message transport.
  *
  * @see <a href="http://hl7.org/fhir/message-transport">MessageTransport</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MessageTransport {
+
     /**
-     * The application sends or receives messages using HTTP POST (may be over http: or https:).
+     * The application sends or receives messages using HTTP POST (may be over http: or
+     * https:).
      */
     @SerialName("http")
     HTTP,
@@ -42,8 +46,9 @@ enum class MessageTransport {
     FTP,
 
     /**
-     * The application sends or receives messages using HL7's Minimal Lower Level Protocol.
+     * The application sends or receives messages using HL7's Minimal Lower Level
+     * Protocol.
      */
     @SerialName("mllp")
-    MLLP
+    MLLP,
 }

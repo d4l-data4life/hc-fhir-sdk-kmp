@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationAdministrationPerformerFunctionCodes
+ *
  * MedicationAdministration Performer Function Codes
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/med-admin-perform-function">MedicationAdministrationPerformerFunctionCodes</a>
@@ -29,21 +31,27 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationAdministrationPerformerFunctionCodes {
+
     /**
-     * A person, non-person living subject, organization or device that who actually and principally carries out the action
+     * A person, non-person living subject, organization or device that who actually
+     * and principally carries out the action
      */
     @SerialName("performer")
     PERFORMER,
 
     /**
-     * A person who verifies the correctness and appropriateness of the service (plan, order, event, etc.) and hence takes on accountability.
+     * A person who verifies the correctness and appropriateness of the service (plan,
+     * order, event, etc.) and hence takes on accountability.
      */
     @SerialName("verifier")
     VERIFIER,
 
     /**
-     * A person witnessing the action happening without doing anything. A witness is not necessarily aware, much less approves of anything stated in the service event. Example for a witness is students watching an operation or an advanced directive witness.
+     * A person witnessing the action happening without doing anything. A witness is
+     * not necessarily aware, much less approves of anything stated in the service
+     * event. Example for a witness is students watching an operation or an advanced
+     * directive witness.
      */
     @SerialName("witness")
-    WITNESS
+    WITNESS,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionConditionKind
+ *
  * Defines the kinds of conditions that can appear on actions
  *
  * @see <a href="http://hl7.org/fhir/action-condition-kind">ActionConditionKind</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionConditionKind {
+
     /**
      * The condition describes whether or not a given action is applicable
      */
@@ -45,5 +48,5 @@ enum class ActionConditionKind {
      * The condition is a stop, or exit condition for the action
      */
     @SerialName("stop")
-    STOP
+    STOP,
 }

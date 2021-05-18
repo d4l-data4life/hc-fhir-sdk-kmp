@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventOutcome
+ *
  * TODO (and should this be required?).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adverse-event-outcome">AdverseEventOutcome</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdverseEventOutcome {
+
     /**
      * resolved
      */
@@ -63,5 +66,5 @@ enum class AdverseEventOutcome {
      * unknown
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

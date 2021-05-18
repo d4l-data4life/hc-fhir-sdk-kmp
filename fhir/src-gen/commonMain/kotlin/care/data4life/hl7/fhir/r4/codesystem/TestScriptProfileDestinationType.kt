@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the destination within a TestScript.
+ * Code System: TestScriptProfileDestinationType
+ *
+ * This value set defines a set of codes that are used to indicate the profile type of a test system
+ * when acting as the destination within a TestScript.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types">TestScriptProfileDestinationType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/testscript-profile-destination-types">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TestScriptProfileDestinationType {
+
     /**
      * General FHIR server used to respond to operations sent from a FHIR client.
      */
@@ -51,5 +55,5 @@ enum class TestScriptProfileDestinationType {
      * A FHIR server acting as a Structured Data Capture Form Receiver.
      */
     @SerialName("FHIR-SDC-FormReceiver")
-    FHIR_SDC_FORMRECEIVER
+    FHIR_SDC_FORMRECEIVER,
 }

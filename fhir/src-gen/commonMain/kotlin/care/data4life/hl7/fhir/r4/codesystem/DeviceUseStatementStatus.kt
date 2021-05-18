@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DeviceUseStatementStatus
+ *
  * A coded concept indicating the current status of the Device Usage.
  *
  * @see <a href="http://hl7.org/fhir/device-statement-status">DeviceUseStatementStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceUseStatementStatus {
+
     /**
      * The device is still being used.
      */
@@ -54,14 +57,16 @@ enum class DeviceUseStatementStatus {
     INTENDED,
 
     /**
-     * Actions implied by the statement have been permanently halted, before all of them occurred.
+     * Actions implied by the statement have been permanently halted, before all of
+     * them occurred.
      */
     @SerialName("stopped")
     STOPPED,
 
     /**
-     * Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called "suspended".
+     * Actions implied by the statement have been temporarily halted, but are expected
+     * to continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
-    ON_HOLD
+    ON_HOLD,
 }

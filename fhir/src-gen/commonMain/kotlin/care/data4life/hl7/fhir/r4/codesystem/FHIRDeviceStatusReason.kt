@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FHIRDeviceStatusReason
+ *
  * The availability status reason of the device.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/device-status-reason">FHIRDeviceStatusReason</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FHIRDeviceStatusReason {
+
     /**
      * The device is off.
      */
@@ -75,5 +78,5 @@ enum class FHIRDeviceStatusReason {
      * The device is off.
      */
     @SerialName("off")
-    OFF
+    OFF,
 }

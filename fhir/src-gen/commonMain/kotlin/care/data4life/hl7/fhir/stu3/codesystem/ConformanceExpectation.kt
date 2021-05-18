@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Indicates the degree of adherence to a specified behavior or capability expected for a system to be deemed conformant with a specification.
+ * Code System: ConformanceExpectation
+ *
+ * Indicates the degree of adherence to a specified behavior or capability expected for a system to be
+ * deemed conformant with a specification.
  *
  * @see <a href="http://hl7.org/fhir/conformance-expectation">ConformanceExpectation</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/conformance-expectation">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConformanceExpectation {
+
     /**
      * Support for the specified capability is required to be considered conformant.
      */
@@ -36,20 +40,23 @@ enum class ConformanceExpectation {
     SHALL,
 
     /**
-     * Support for the specified capability is strongly encouraged, and failure to support it should only occur after careful consideration.
+     * Support for the specified capability is strongly encouraged, and failure to
+     * support it should only occur after careful consideration.
      */
     @SerialName("SHOULD")
     SHOULD,
 
     /**
-     * Support for the specified capability is not necessary to be considered conformant, and the requirement should be considered strictly optional.
+     * Support for the specified capability is not necessary to be considered
+     * conformant, and the requirement should be considered strictly optional.
      */
     @SerialName("MAY")
     MAY,
 
     /**
-     * Support for the specified capability is strongly discouraged and should occur only after careful consideration.
+     * Support for the specified capability is strongly discouraged and should occur
+     * only after careful consideration.
      */
     @SerialName("SHOULD-NOT")
-    SHOULD_NOT
+    SHOULD_NOT,
 }

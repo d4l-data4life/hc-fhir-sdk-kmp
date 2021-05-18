@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionList
+ *
  * List of allowable action which this resource can request.
  *
  * @see <a href="http://hl7.org/fhir/actionlist">ActionList</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionList {
+
     /**
      * Cancel, reverse or nullify the target resource.
      */
@@ -51,5 +54,5 @@ enum class ActionList {
      * Retrieve the processing status of the target resource.
      */
     @SerialName("status")
-    STATUS
+    STATUS,
 }

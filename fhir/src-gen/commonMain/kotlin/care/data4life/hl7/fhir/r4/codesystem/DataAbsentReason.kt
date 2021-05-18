@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: DataAbsentReason
+ *
  * Used to specify why the normally expected content of the data element is missing.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/data-absent-reason">DataAbsentReason</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DataAbsentReason {
+
     /**
      * The value is expected to exist but is not known.
      */
@@ -66,7 +69,8 @@ enum class DataAbsentReason {
     MASKED,
 
     /**
-     * There is no proper value for this element (e.g. last menstrual period for a male).
+     * There is no proper value for this element (e.g. last menstrual period for a
+     * male).
      */
     @SerialName("not-applicable")
     NOT_APPLICABLE,
@@ -84,38 +88,44 @@ enum class DataAbsentReason {
     AS_TEXT,
 
     /**
-     * Some system or workflow process error means that the information is not available.
+     * Some system or workflow process error means that the information is not
+     * available.
      */
     @SerialName("error")
     ERROR,
 
     /**
-     * The numeric value is undefined or unrepresentable due to a floating point processing error.
+     * The numeric value is undefined or unrepresentable due to a floating point
+     * processing error.
      */
     @SerialName("not-a-number")
     NOT_A_NUMBER,
 
     /**
-     * The numeric value is excessively low and unrepresentable due to a floating point processing error.
+     * The numeric value is excessively low and unrepresentable due to a floating point
+     * processing error.
      */
     @SerialName("negative-infinity")
     NEGATIVE_INFINITY,
 
     /**
-     * The numeric value is excessively high and unrepresentable due to a floating point processing error.
+     * The numeric value is excessively high and unrepresentable due to a floating
+     * point processing error.
      */
     @SerialName("positive-infinity")
     POSITIVE_INFINITY,
 
     /**
-     * The value is not available because the observation procedure (test, etc.) was not performed.
+     * The value is not available because the observation procedure (test, etc.) was
+     * not performed.
      */
     @SerialName("not-performed")
     NOT_PERFORMED,
 
     /**
-     * The value is not permitted in this context (e.g. due to profiles, or the base data types).
+     * The value is not permitted in this context (e.g. due to profiles, or the base
+     * data types).
      */
     @SerialName("not-permitted")
-    NOT_PERMITTED
+    NOT_PERMITTED,
 }

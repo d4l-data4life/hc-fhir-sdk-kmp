@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RepositoryType
+ *
  * Type for access of external URI.
  *
  * @see <a href="http://hl7.org/fhir/repository-type">RepositoryType</a>
@@ -29,14 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RepositoryType {
+
     /**
-     * When URL is clicked, the resource can be seen directly (by webpage or by download link format).
+     * When URL is clicked, the resource can be seen directly (by webpage or by
+     * download link format).
      */
     @SerialName("directlink")
     DIRECTLINK,
 
     /**
-     * When the API method (e.g. [base_url]/[parameter]) related with the URL of the website is executed, the resource can be seen directly (usually in JSON or XML format).
+     * When the API method (e.g. [base_url]/[parameter]) related with the URL of the
+     * website is executed, the resource can be seen directly (usually in JSON or XML
+     * format).
      */
     @SerialName("openapi")
     OPENAPI,
@@ -48,7 +54,8 @@ enum class RepositoryType {
     LOGIN,
 
     /**
-     * When logged in and  follow the API in the website related with URL, the resource can be seen.
+     * When logged in and follow the API in the website related with URL, the resource
+     * can be seen.
      */
     @SerialName("oauth")
     OAUTH,
@@ -57,5 +64,5 @@ enum class RepositoryType {
      * Some other complicated or particular way to get resource from URL.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

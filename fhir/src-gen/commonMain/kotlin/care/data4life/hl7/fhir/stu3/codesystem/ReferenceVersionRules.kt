@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Whether a reference needs to be version specific or version independent, or whether either can be used
+ * Code System: ReferenceVersionRules
+ *
+ * Whether a reference needs to be version specific or version independent, or whether either can be
+ * used
  *
  * @see <a href="http://hl7.org/fhir/reference-version-rules">ReferenceVersionRules</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/reference-version-rules">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ReferenceVersionRules {
+
     /**
      * The reference may be either version independent or version specific
      */
@@ -45,5 +49,5 @@ enum class ReferenceVersionRules {
      * The reference must be version specific
      */
     @SerialName("specific")
-    SPECIFIC
+    SPECIFIC,
 }

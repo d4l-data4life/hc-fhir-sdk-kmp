@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CodeSearchSupport
+ *
  * The degree to which the server supports the code search parameter on ValueSet, if it is supported.
  *
  * @see <a href="http://hl7.org/fhir/code-search-support">CodeSearchSupport</a>
@@ -29,15 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CodeSearchSupport {
+
     /**
-     * The search for code on ValueSet only includes codes explicitly detailed on includes or expansions.
+     * The search for code on ValueSet only includes codes explicitly detailed on
+     * includes or expansions.
      */
     @SerialName("explicit")
     EXPLICIT,
 
     /**
-     * The search for code on ValueSet only includes all codes based on the expansion of the value set.
+     * The search for code on ValueSet only includes all codes based on the expansion
+     * of the value set.
      */
     @SerialName("all")
-    ALL
+    ALL,
 }

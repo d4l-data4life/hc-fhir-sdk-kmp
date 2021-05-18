@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: HandlingConditionSet
+ *
  * Set of handling instructions prior testing of the specimen.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/handling-condition">HandlingConditionSet</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class HandlingConditionSet {
+
     /**
      * room temperature.
      */
@@ -45,5 +48,5 @@ enum class HandlingConditionSet {
      * frozen temperature.
      */
     @SerialName("frozen")
-    FROZEN
+    FROZEN,
 }

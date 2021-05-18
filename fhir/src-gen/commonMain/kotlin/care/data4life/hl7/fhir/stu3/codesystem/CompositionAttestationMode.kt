@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CompositionAttestationMode
+ *
  * The way in which a person authenticated a composition.
  *
  * @see <a href="http://hl7.org/fhir/composition-attestation-mode">CompositionAttestationMode</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CompositionAttestationMode {
+
     /**
      * The person authenticated the content in their personal capacity.
      */
@@ -42,14 +45,16 @@ enum class CompositionAttestationMode {
     PROFESSIONAL,
 
     /**
-     * The person authenticated the content and accepted legal responsibility for its content.
+     * The person authenticated the content and accepted legal responsibility for its
+     * content.
      */
     @SerialName("legal")
     LEGAL,
 
     /**
-     * The organization authenticated the content as consistent with their policies and procedures.
+     * The organization authenticated the content as consistent with their policies and
+     * procedures.
      */
     @SerialName("official")
-    OFFICIAL
+    OFFICIAL,
 }

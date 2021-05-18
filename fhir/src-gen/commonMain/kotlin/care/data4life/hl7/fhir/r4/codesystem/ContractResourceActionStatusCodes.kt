@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContractResourceActionStatusCodes
+ *
  * This value set contract specific codes for action status.
  *
  * @see <a href="http://hl7.org/fhir/contract-action-status">ContractResourceActionStatusCodes</a>
@@ -29,9 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContractResourceActionStatusCodes {
+
     /**
      * To be completed
      */
     @SerialName("complete")
-    COMPLETE
+    COMPLETE,
 }

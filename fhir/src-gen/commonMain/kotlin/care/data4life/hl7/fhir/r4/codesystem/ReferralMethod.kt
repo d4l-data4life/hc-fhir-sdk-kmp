@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ReferralMethod
+ *
  * The methods of referral can be used when referring to a specific HealthCareService resource.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/service-referral-method">ReferralMethod</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ReferralMethod {
+
     /**
      * Referrals may be accepted by fax.
      */
@@ -42,13 +45,17 @@ enum class ReferralMethod {
     PHONE,
 
     /**
-     * Referrals may be accepted via a secure messaging system. To determine the types of secure messaging systems supported, refer to the identifiers collection. Callers will need to understand the specific identifier system used to know that they are able to transmit messages.
+     * Referrals may be accepted via a secure messaging system. To determine the types
+     * of secure messaging systems supported, refer to the identifiers collection.
+     * Callers will need to understand the specific identifier system used to know that
+     * they are able to transmit messages.
      */
     @SerialName("elec")
     ELEC,
 
     /**
-     * Referrals may be accepted via a secure email. To send please encrypt with the services public key.
+     * Referrals may be accepted via a secure email. To send please encrypt with the
+     * services public key.
      */
     @SerialName("semail")
     SEMAIL,
@@ -57,5 +64,5 @@ enum class ReferralMethod {
      * Referrals may be accepted via regular postage (or hand delivered).
      */
     @SerialName("mail")
-    MAIL
+    MAIL,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: StructureMapInputMode
+ *
  * Mode for this instance of data.
  *
  * @see <a href="http://hl7.org/fhir/map-input-mode">StructureMapInputMode</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapInputMode {
+
     /**
      * Names an input instance used a source for mapping.
      */
@@ -39,5 +42,5 @@ enum class StructureMapInputMode {
      * Names an instance that is being populated.
      */
     @SerialName("target")
-    TARGET
+    TARGET,
 }

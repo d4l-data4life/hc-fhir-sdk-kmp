@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CarePlanActivityStatus
+ *
  * Indicates where the activity is at in its overall life cycle.
  *
  * @see <a href="http://hl7.org/fhir/care-plan-activity-status">CarePlanActivityStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CarePlanActivityStatus {
+
     /**
      * Activity is planned but no action has yet been taken.
      */
@@ -48,7 +51,8 @@ enum class CarePlanActivityStatus {
     IN_PROGRESS,
 
     /**
-     * Activity was started but has temporarily ceased with an expectation of resumption at a future time.
+     * Activity was started but has temporarily ceased with an expectation of
+     * resumption at a future time.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -60,7 +64,8 @@ enum class CarePlanActivityStatus {
     COMPLETED,
 
     /**
-     * The activities have been ended prior to completion (perhaps even before they were started).
+     * The activities have been ended prior to completion (perhaps even before they
+     * were started).
      */
     @SerialName("cancelled")
     CANCELLED,
@@ -69,5 +74,5 @@ enum class CarePlanActivityStatus {
      * The authoring system doesn't know the current state of the activity.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: CarePlanActivityStatus
+ *
  * Codes that reflect the current state of a care plan activity within its overall life cycle.
  *
  * @see <a href="http://hl7.org/fhir/care-plan-activity-status">CarePlanActivityStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CarePlanActivityStatus {
+
     /**
      * Care plan activity is planned but no action has yet been taken.
      */
@@ -48,7 +51,8 @@ enum class CarePlanActivityStatus {
     IN_PROGRESS,
 
     /**
-     * Care plan activity was started but has temporarily ceased with an expectation of resumption at a future time.
+     * Care plan activity was started but has temporarily ceased with an expectation of
+     * resumption at a future time.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -66,13 +70,16 @@ enum class CarePlanActivityStatus {
     CANCELLED,
 
     /**
-     * The planned care plan activity has been ended prior to completion after the activity was started.
+     * The planned care plan activity has been ended prior to completion after the
+     * activity was started.
      */
     @SerialName("stopped")
     STOPPED,
 
     /**
-     * The current state of the care plan activity is not known.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which one.
+     * The current state of the care plan activity is not known. Note: This concept is
+     * not to be used for "other" - one of the listed statuses is presumed to apply,
+     * but the authoring/source system does not know which one.
      */
     @SerialName("unknown")
     UNKNOWN,
@@ -81,5 +88,5 @@ enum class CarePlanActivityStatus {
      * Care plan activity was entered in error and voided.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

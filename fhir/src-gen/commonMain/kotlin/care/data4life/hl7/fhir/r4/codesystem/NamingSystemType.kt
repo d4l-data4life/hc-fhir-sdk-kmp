@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NamingSystemType
+ *
  * Identifies the purpose of the naming system.
  *
  * @see <a href="http://hl7.org/fhir/namingsystem-type">NamingSystemType</a>
@@ -29,14 +31,17 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NamingSystemType {
+
     /**
-     * The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
+     * The naming system is used to define concepts and symbols to represent those
+     * concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
      */
     @SerialName("codesystem")
     CODESYSTEM,
 
     /**
-     * The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.).
+     * The naming system is used to manage identifiers (e.g. license numbers, order
+     * numbers, etc.).
      */
     @SerialName("identifier")
     IDENTIFIER,
@@ -45,5 +50,5 @@ enum class NamingSystemType {
      * The naming system is used as the root for other identifiers and naming systems.
      */
     @SerialName("root")
-    ROOT
+    ROOT,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyReasonStopped
+ *
  * Codes for why the study ended prematurely.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/research-study-reason-stopped">ResearchStudyReasonStopped</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyReasonStopped {
+
     /**
      * The study prematurely ended because the accrual goal was met.
      */
@@ -51,5 +54,5 @@ enum class ResearchStudyReasonStopped {
      * The study prematurely ended temporarily per study design.
      */
     @SerialName("temporarily-closed-per-study-design")
-    TEMPORARILY_CLOSED_PER_STUDY_DESIGN
+    TEMPORARILY_CLOSED_PER_STUDY_DESIGN,
 }

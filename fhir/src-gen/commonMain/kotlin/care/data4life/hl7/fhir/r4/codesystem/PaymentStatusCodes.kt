@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: PaymentStatusCodes
+ *
  * This value set includes a sample set of Payment Status codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/paymentstatus">PaymentStatusCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PaymentStatusCodes {
+
     /**
      * The payment has been sent physically or electronically.
      */
@@ -39,5 +42,5 @@ enum class PaymentStatusCodes {
      * The payment has been received by the payee.
      */
     @SerialName("cleared")
-    CLEARED
+    CLEARED,
 }

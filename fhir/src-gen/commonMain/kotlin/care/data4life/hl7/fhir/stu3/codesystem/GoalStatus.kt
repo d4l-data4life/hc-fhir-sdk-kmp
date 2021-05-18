@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: GoalStatus
+ *
  * Indicates whether the goal has been met and is still being targeted
  *
  * @see <a href="http://hl7.org/fhir/goal-status">GoalStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GoalStatus {
+
     /**
      * A goal is proposed for this patient
      */
@@ -48,7 +51,9 @@ enum class GoalStatus {
     PLANNED,
 
     /**
-     * The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)
+     * The goal is being sought but has not yet been reached. (Also applies if goal was
+     * reached in the past but there has been regression and goal is being sought
+     * again)
      */
     @SerialName("in-progress")
     IN_PROGRESS,
@@ -72,7 +77,8 @@ enum class GoalStatus {
     BEHIND_TARGET,
 
     /**
-     * The goal has been met, but ongoing activity is needed to sustain the goal objective
+     * The goal has been met, but ongoing activity is needed to sustain the goal
+     * objective
      */
     @SerialName("sustaining")
     SUSTAINING,
@@ -84,7 +90,8 @@ enum class GoalStatus {
     ACHIEVED,
 
     /**
-     * The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.
+     * The goal remains a long term objective but is no longer being actively pursued
+     * for a temporary period of time.
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -105,5 +112,5 @@ enum class GoalStatus {
      * A proposed goal was rejected
      */
     @SerialName("rejected")
-    REJECTED
+    REJECTED,
 }

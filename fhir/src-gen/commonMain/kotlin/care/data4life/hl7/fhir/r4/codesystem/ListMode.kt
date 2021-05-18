@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ListMode
+ *
  * The processing mode that applies to this list.
  *
  * @see <a href="http://hl7.org/fhir/list-mode">ListMode</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ListMode {
+
     /**
-     * This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
+     * This list is the master list, maintained in an ongoing fashion with regular
+     * updates as the real world list it is tracking changes.
      */
     @SerialName("working")
     WORKING,
@@ -42,8 +46,10 @@ enum class ListMode {
     SNAPSHOT,
 
     /**
-     * A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter.
+     * A point-in-time list that shows what changes have been made or recommended. E.g.
+     * a discharge medication list showing what was added and removed during an
+     * encounter.
      */
     @SerialName("changes")
-    CHANGES
+    CHANGES,
 }

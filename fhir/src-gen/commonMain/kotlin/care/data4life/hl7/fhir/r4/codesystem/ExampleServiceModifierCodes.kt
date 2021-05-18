@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleServiceModifierCodes
+ *
  * This value set includes sample Service Modifier codes which may support differential payment.
  *
  * @see <a href="http://hl7.org/fhir/ex-servicemodifier">ExampleServiceModifierCodes</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleServiceModifierCodes {
+
     /**
-     * Services provided on the side of the road or such other non-conventional setting.
+     * Services provided on the side of the road or such other non-conventional
+     * setting.
      */
     @SerialName("sr")
     SR,
@@ -39,5 +43,5 @@ enum class ExampleServiceModifierCodes {
      * Services provided outside or normal business hours.
      */
     @SerialName("ah")
-    AH
+    AH,
 }

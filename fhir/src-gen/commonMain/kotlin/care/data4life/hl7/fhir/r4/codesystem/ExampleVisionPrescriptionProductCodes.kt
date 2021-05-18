@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleVisionPrescriptionProductCodes
+ *
  * This value set includes a smattering of Prescription Product codes.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct">ExampleVisionPrescriptionProductCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleVisionPrescriptionProductCodes {
+
     /**
      * A lens to be fitted to a frame to comprise a pair of glasses.
      */
@@ -39,5 +42,5 @@ enum class ExampleVisionPrescriptionProductCodes {
      * A lens to be fitted for wearing directly on an eye.
      */
     @SerialName("contact")
-    CONTACT
+    CONTACT,
 }

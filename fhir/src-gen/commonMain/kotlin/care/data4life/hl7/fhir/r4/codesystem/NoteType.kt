@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NoteType
+ *
  * The presentation types of notes.
  *
  * @see <a href="http://hl7.org/fhir/note-type">NoteType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NoteType {
+
     /**
      * Display the note.
      */
@@ -45,5 +48,5 @@ enum class NoteType {
      * Print the note for the operator.
      */
     @SerialName("printoper")
-    PRINTOPER
+    PRINTOPER,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: Use
+ *
  * The purpose of the Claim: predetermination, preauthorization, claim.
  *
  * @see <a href="http://hl7.org/fhir/claim-use">Use</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class Use {
+
     /**
      * The treatment is complete and this represents a Claim for the services.
      */
@@ -36,14 +39,16 @@ enum class Use {
     CLAIM,
 
     /**
-     * The treatment is proposed and this represents a Pre-authorization for the services.
+     * The treatment is proposed and this represents a Pre-authorization for the
+     * services.
      */
     @SerialName("preauthorization")
     PREAUTHORIZATION,
 
     /**
-     * The treatment is proposed and this represents a Pre-determination for the services.
+     * The treatment is proposed and this represents a Pre-determination for the
+     * services.
      */
     @SerialName("predetermination")
-    PREDETERMINATION
+    PREDETERMINATION,
 }

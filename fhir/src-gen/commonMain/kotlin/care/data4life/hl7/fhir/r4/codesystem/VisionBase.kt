@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: VisionBase
+ *
  * A coded concept listing the base codes.
  *
  * @see <a href="http://hl7.org/fhir/vision-base-codes">VisionBase</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class VisionBase {
+
     /**
      * top.
      */
@@ -51,5 +54,5 @@ enum class VisionBase {
      * outer edge.
      */
     @SerialName("out")
-    OUT
+    OUT,
 }

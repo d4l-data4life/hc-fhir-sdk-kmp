@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: FilterOperator
+ *
  * The kind of operation to perform as a part of a property based filter.
  *
  * @see <a href="http://hl7.org/fhir/filter-operator">FilterOperator</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FilterOperator {
+
     /**
      * The specified property of the code equals the provided value.
      */
@@ -36,50 +39,62 @@ enum class FilterOperator {
     EQUAL,
 
     /**
-     * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)
+     * Includes all concept ids that have a transitive is-a relationship with the
+     * concept Id provided as the value, including the provided concept itself (i.e.
+     * include child codes)
      */
     @SerialName("is-a")
     IS_A,
 
     /**
-     * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include child codes)
+     * Includes all concept ids that have a transitive is-a relationship with the
+     * concept Id provided as the value, excluding the provided concept itself (i.e.
+     * include child codes)
      */
     @SerialName("descendent-of")
     DESCENDENT_OF,
 
     /**
-     * The specified property of the code does not have an is-a relationship with the provided value.
+     * The specified property of the code does not have an is-a relationship with the
+     * provided value.
      */
     @SerialName("is-not-a")
     IS_NOT_A,
 
     /**
-     * The specified property of the code  matches the regex specified in the provided value.
+     * The specified property of the code matches the regex specified in the provided
+     * value.
      */
     @SerialName("regex")
     REGEX,
 
     /**
-     * The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
+     * The specified property of the code is in the set of codes or concepts specified
+     * in the provided value (comma separated list).
      */
     @SerialName("in")
     IN,
 
     /**
-     * The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
+     * The specified property of the code is not in the set of codes or concepts
+     * specified in the provided value (comma separated list).
      */
     @SerialName("not-in")
     NOT_IN,
 
     /**
-     * Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)
+     * Includes all concept ids that have a transitive is-a relationship from the
+     * concept Id provided as the value, including the provided concept itself (e.g.
+     * include parent codes)
      */
     @SerialName("generalizes")
     GENERALIZES,
 
     /**
-     * The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values)
+     * The specified property of the code has at least one value (if the specified
+     * value is true; if the specified value is false, then matches when the specified
+     * property of the code has no values)
      */
     @SerialName("exists")
-    EXISTS
+    EXISTS,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ResearchStudyObjectiveType
+ *
  * Codes for the kind of study objective.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/research-study-objective-type">ResearchStudyObjectiveType</a>
@@ -29,14 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResearchStudyObjectiveType {
+
     /**
-     * The main question to be answered, and the one that drives any statistical planning for the study—e.g., calculation of the sample size to provide the appropriate power for statistical testing.
+     * The main question to be answered, and the one that drives any statistical
+     * planning for the study—e.g., calculation of the sample size to provide the
+     * appropriate power for statistical testing.
      */
     @SerialName("primary")
     PRIMARY,
 
     /**
-     * Question to be answered in the study that is of lesser importance than the primary objective.
+     * Question to be answered in the study that is of lesser importance than the
+     * primary objective.
      */
     @SerialName("secondary")
     SECONDARY,
@@ -45,5 +51,5 @@ enum class ResearchStudyObjectiveType {
      * Exploratory questions to be answered in the study.
      */
     @SerialName("exploratory")
-    EXPLORATORY
+    EXPLORATORY,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ExampleServiceProductCodes
+ *
  * This value set includes a smattering of Service/Product codes.
  *
  * @see <a href="http://hl7.org/fhir/ex-serviceproduct">ExampleServiceProductCodes</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ExampleServiceProductCodes {
+
     /**
      * Exam
      */
@@ -39,5 +42,5 @@ enum class ExampleServiceProductCodes {
      * Flu shot
      */
     @SerialName("flushot")
-    FLUSHOT
+    FLUSHOT,
 }

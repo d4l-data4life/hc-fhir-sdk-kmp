@@ -20,7 +20,12 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Attested information may be validated by process that are manual or automated. For automated processes it may accomplished by the system of record reaching out through another system's API or information may be sent to the system of record. This value set defines a set of codes to describing the process, the how, a resource or data element is validated.
+ * Code System: VerificationresultCommunicationMethod
+ *
+ * Attested information may be validated by process that are manual or automated. For automated
+ * processes it may accomplished by the system of record reaching out through another system's API or
+ * information may be sent to the system of record. This value set defines a set of codes to describing
+ * the process, the how, a resource or data element is validated.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/verificationresult-communication-method">VerificationresultCommunicationMethod</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/verificationresult-communication-method">ValueSet</a>
@@ -29,8 +34,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class VerificationresultCommunicationMethod {
+
     /**
-     * The information is submitted/retrieved manually (e.g. by phone, fax, paper-based)
+     * The information is submitted/retrieved manually (e.g. by phone, fax, paper-
+     * based)
      */
     @SerialName("manual")
     MANUAL,
@@ -48,8 +55,9 @@ enum class VerificationresultCommunicationMethod {
     PULL,
 
     /**
-     * The information is sent (i.e. pushed) from a source (e.g. over an API, asynchronously, secure messaging)
+     * The information is sent (i.e. pushed) from a source (e.g. over an API,
+     * asynchronously, secure messaging)
      */
     @SerialName("push")
-    PUSH
+    PUSH,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ContentType
+ *
  * The content or mime type.
  *
  * @see <a href="http://hl7.org/fhir/content-type">ContentType</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContentType {
+
     /**
      * XML content-type corresponding to the application/fhir+xml mime-type.
      */
@@ -51,5 +54,5 @@ enum class ContentType {
      * Prevent the use of the corresponding http header.
      */
     @SerialName("none")
-    NONE
+    NONE,
 }

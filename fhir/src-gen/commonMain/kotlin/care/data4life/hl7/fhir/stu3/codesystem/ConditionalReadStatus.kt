@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ConditionalReadStatus
+ *
  * A code that indicates how the server supports conditional read.
  *
  * @see <a href="http://hl7.org/fhir/conditional-read-status">ConditionalReadStatus</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConditionalReadStatus {
+
     /**
      * No support for conditional deletes.
      */
@@ -36,7 +39,8 @@ enum class ConditionalReadStatus {
     NOT_SUPPORTED,
 
     /**
-     * Conditional reads are supported, but only with the If-Modified-Since HTTP Header.
+     * Conditional reads are supported, but only with the If-Modified-Since HTTP
+     * Header.
      */
     @SerialName("modified-since")
     MODIFIED_SINCE,
@@ -48,8 +52,9 @@ enum class ConditionalReadStatus {
     NOT_MATCH,
 
     /**
-     * Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.
+     * Conditional reads are supported, with both If-Modified-Since and If-None-Match
+     * HTTP Headers.
      */
     @SerialName("full-support")
-    FULL_SUPPORT
+    FULL_SUPPORT,
 }

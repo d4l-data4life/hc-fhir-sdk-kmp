@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: Status
+ *
  * The validation status of the target
  *
  * @see <a href="http://hl7.org/fhir/CodeSystem/status">Status</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class Status {
+
     /**
      * ***TODO***
      */
@@ -63,5 +66,5 @@ enum class Status {
      * ***TODO***
      */
     @SerialName("reval-fail")
-    REVAL_FAIL
+    REVAL_FAIL,
 }

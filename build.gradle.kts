@@ -1,9 +1,4 @@
 buildscript {
-    repositories {
-        mavenCentral()
-        google()
-        jcenter()
-    }
     dependencies {
         classpath(GradlePlugins.kotlin)
         classpath(GradlePlugins.android)
@@ -21,7 +16,14 @@ plugins {
     id("scripts.versioning")
 }
 
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "6.8.3"
+    gradleVersion = "7.0.2"
     distributionType = Wrapper.DistributionType.ALL
 }

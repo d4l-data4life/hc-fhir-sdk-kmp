@@ -29,74 +29,275 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
+/**
+ * FhirExtension
+ *
+ * Optional Extension Element - found in all resources.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Extension">Extension</a>
+ *
+ * Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Extension)
+ */
 interface FhirExtension : FhirElement {
 
-    // identifies the meaning of the extension.
+    /**
+     * identifies the meaning of the extension.
+     */
     val url: String
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueBase64Binary: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueBoolean: Bool?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueCanonical: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueCode: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueDate: Date?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueDateTime: DateTime?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueDecimal: Decimal?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueId: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueInstant: Instant?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueInteger: Integer?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueMarkdown: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueOid: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valuePositiveInt: PositiveInteger?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueString: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueTime: Time?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueUnsignedInt: UnsignedInteger?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueUri: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueUrl: String?
 
-    // Value of extension.
+    /**
+     * Value of extension.
+     */
     val valueUuid: String?
+
+    /**
+     * Value of extension.
+     */
+    val valueAddress: Address?
+
+    /**
+     * Value of extension.
+     */
+    val valueAge: Age?
+
+    /**
+     * Value of extension.
+     */
+    val valueAnnotation: Annotation?
+
+    /**
+     * Value of extension.
+     */
+    val valueAttachment: Attachment?
+
+    /**
+     * Value of extension.
+     */
+    val valueCodeableConcept: CodeableConcept?
+
+    /**
+     * Value of extension.
+     */
+    val valueCoding: Coding?
+
+    /**
+     * Value of extension.
+     */
+    val valueContactPoint: ContactPoint?
+
+    /**
+     * Value of extension.
+     */
+    val valueCount: Count?
+
+    /**
+     * Value of extension.
+     */
+    val valueDistance: Distance?
+
+    /**
+     * Value of extension.
+     */
+    val valueDuration: Duration?
+
+    /**
+     * Value of extension.
+     */
+    val valueHumanName: HumanName?
+
+    /**
+     * Value of extension.
+     */
+    val valueIdentifier: Identifier?
+
+    /**
+     * Value of extension.
+     */
+    val valueMoney: Money?
+
+    /**
+     * Value of extension.
+     */
+    val valuePeriod: Period?
+
+    /**
+     * Value of extension.
+     */
+    val valueQuantity: Quantity?
+
+    /**
+     * Value of extension.
+     */
+    val valueRange: Range?
+
+    /**
+     * Value of extension.
+     */
+    val valueRatio: Ratio?
+
+    /**
+     * Value of extension.
+     */
+    val valueReference: Reference?
+
+    /**
+     * Value of extension.
+     */
+    val valueSampledData: SampledData?
+
+    /**
+     * Value of extension.
+     */
+    val valueSignature: Signature?
+
+    /**
+     * Value of extension.
+     */
+    val valueTiming: Timing?
+
+    /**
+     * Value of extension.
+     */
+    val valueContactDetail: ContactDetail?
+
+    /**
+     * Value of extension.
+     */
+    val valueContributor: Contributor?
+
+    /**
+     * Value of extension.
+     */
+    val valueDataRequirement: DataRequirement?
+
+    /**
+     * Value of extension.
+     */
+    val valueExpression: Expression?
+
+    /**
+     * Value of extension.
+     */
+    val valueParameterDefinition: ParameterDefinition?
+
+    /**
+     * Value of extension.
+     */
+    val valueRelatedArtifact: RelatedArtifact?
+
+    /**
+     * Value of extension.
+     */
+    val valueTriggerDefinition: TriggerDefinition?
+
+    /**
+     * Value of extension.
+     */
+    val valueUsageContext: UsageContext?
+
+    /**
+     * Value of extension.
+     */
+    val valueDosage: Dosage?
+
+    /**
+     * Value of extension.
+     */
+    val valueMeta: Meta?
 }
 
 /**
- * ClassName: Extension
- *
- * SourceFileName: Extension.kt
- *
+ * Extension
  *
  * Optional Extension Element - found in all resources.
  *
@@ -108,81 +309,173 @@ interface FhirExtension : FhirElement {
 @SerialName("Extension")
 data class Extension(
 
-    // identifies the meaning of the extension.
     @SerialName("url")
     override val url: String,
-    // Value of extension.
+
     @SerialName("valueBase64Binary")
     override val valueBase64Binary: String? = null,
-    // Value of extension.
+
     @SerialName("valueBoolean")
     override val valueBoolean: Bool? = null,
-    // Value of extension.
+
     @SerialName("valueCanonical")
     override val valueCanonical: String? = null,
-    // Value of extension.
+
     @SerialName("valueCode")
     override val valueCode: String? = null,
-    // Value of extension.
+
     @SerialName("valueDate")
     override val valueDate: Date? = null,
-    // Value of extension.
+
     @SerialName("valueDateTime")
     override val valueDateTime: DateTime? = null,
-    // Value of extension.
+
     @SerialName("valueDecimal")
     override val valueDecimal: Decimal? = null,
-    // Value of extension.
+
     @SerialName("valueId")
     override val valueId: String? = null,
-    // Value of extension.
+
     @SerialName("valueInstant")
     override val valueInstant: Instant? = null,
-    // Value of extension.
+
     @SerialName("valueInteger")
     override val valueInteger: Integer? = null,
-    // Value of extension.
+
     @SerialName("valueMarkdown")
     override val valueMarkdown: String? = null,
-    // Value of extension.
+
     @SerialName("valueOid")
     override val valueOid: String? = null,
-    // Value of extension.
+
     @SerialName("valuePositiveInt")
     override val valuePositiveInt: PositiveInteger? = null,
-    // Value of extension.
+
     @SerialName("valueString")
     override val valueString: String? = null,
-    // Value of extension.
+
     @SerialName("valueTime")
     override val valueTime: Time? = null,
-    // Value of extension.
+
     @SerialName("valueUnsignedInt")
     override val valueUnsignedInt: UnsignedInteger? = null,
-    // Value of extension.
+
     @SerialName("valueUri")
     override val valueUri: String? = null,
-    // Value of extension.
+
     @SerialName("valueUrl")
     override val valueUrl: String? = null,
-    // Value of extension.
+
     @SerialName("valueUuid")
     override val valueUuid: String? = null,
 
+    @SerialName("valueAddress")
+    override val valueAddress: Address? = null,
+
+    @SerialName("valueAge")
+    override val valueAge: Age? = null,
+
+    @SerialName("valueAnnotation")
+    override val valueAnnotation: Annotation? = null,
+
+    @SerialName("valueAttachment")
+    override val valueAttachment: Attachment? = null,
+
+    @SerialName("valueCodeableConcept")
+    override val valueCodeableConcept: CodeableConcept? = null,
+
+    @SerialName("valueCoding")
+    override val valueCoding: Coding? = null,
+
+    @SerialName("valueContactPoint")
+    override val valueContactPoint: ContactPoint? = null,
+
+    @SerialName("valueCount")
+    override val valueCount: Count? = null,
+
+    @SerialName("valueDistance")
+    override val valueDistance: Distance? = null,
+
+    @SerialName("valueDuration")
+    override val valueDuration: Duration? = null,
+
+    @SerialName("valueHumanName")
+    override val valueHumanName: HumanName? = null,
+
+    @SerialName("valueIdentifier")
+    override val valueIdentifier: Identifier? = null,
+
+    @SerialName("valueMoney")
+    override val valueMoney: Money? = null,
+
+    @SerialName("valuePeriod")
+    override val valuePeriod: Period? = null,
+
+    @SerialName("valueQuantity")
+    override val valueQuantity: Quantity? = null,
+
+    @SerialName("valueRange")
+    override val valueRange: Range? = null,
+
+    @SerialName("valueRatio")
+    override val valueRatio: Ratio? = null,
+
+    @SerialName("valueReference")
+    override val valueReference: Reference? = null,
+
+    @SerialName("valueSampledData")
+    override val valueSampledData: SampledData? = null,
+
+    @SerialName("valueSignature")
+    override val valueSignature: Signature? = null,
+
+    @SerialName("valueTiming")
+    override val valueTiming: Timing? = null,
+
+    @SerialName("valueContactDetail")
+    override val valueContactDetail: ContactDetail? = null,
+
+    @SerialName("valueContributor")
+    override val valueContributor: Contributor? = null,
+
+    @SerialName("valueDataRequirement")
+    override val valueDataRequirement: DataRequirement? = null,
+
+    @SerialName("valueExpression")
+    override val valueExpression: Expression? = null,
+
+    @SerialName("valueParameterDefinition")
+    override val valueParameterDefinition: ParameterDefinition? = null,
+
+    @SerialName("valueRelatedArtifact")
+    override val valueRelatedArtifact: RelatedArtifact? = null,
+
+    @SerialName("valueTriggerDefinition")
+    override val valueTriggerDefinition: TriggerDefinition? = null,
+
+    @SerialName("valueUsageContext")
+    override val valueUsageContext: UsageContext? = null,
+
+    @SerialName("valueDosage")
+    override val valueDosage: Dosage? = null,
+
+    @SerialName("valueMeta")
+    override val valueMeta: Meta? = null,
+
     // # Element
-    // Unique id for inter-element referencing.
+
     @SerialName("id")
     override val id: String? = null,
-    // Additional content defined by implementations.
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirExtension {
 
-    override val resourceType: kotlin.String
+    override val resourceType: String
         get() = resourceType()
 
     companion object {
         @JvmStatic
-        fun resourceType(): kotlin.String = "Extension"
+        fun resourceType(): String = "Extension"
     }
 }

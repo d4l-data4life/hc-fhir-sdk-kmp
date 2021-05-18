@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: RestfulCapabilityMode
+ *
  * The mode of a RESTful capability statement.
  *
  * @see <a href="http://hl7.org/fhir/restful-capability-mode">RestfulCapabilityMode</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RestfulCapabilityMode {
+
     /**
      * The application acts as a client for this resource.
      */
@@ -39,5 +42,5 @@ enum class RestfulCapabilityMode {
      * The application acts as a server for this resource.
      */
     @SerialName("server")
-    SERVER
+    SERVER,
 }

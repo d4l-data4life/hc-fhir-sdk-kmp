@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: ActionCardinalityBehavior
+ *
  * Defines behavior for an action or a group for how many times that item may be repeated.
  *
  * @see <a href="http://hl7.org/fhir/action-cardinality-behavior">ActionCardinalityBehavior</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionCardinalityBehavior {
+
     /**
      * The action may only be selected one time.
      */
@@ -39,5 +42,5 @@ enum class ActionCardinalityBehavior {
      * The action may be selected multiple times.
      */
     @SerialName("multiple")
-    MULTIPLE
+    MULTIPLE,
 }

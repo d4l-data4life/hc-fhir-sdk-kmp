@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdmitSource
+ *
  * This value set defines a set of codes that can be used to indicate from where the patient came in.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/admit-source">AdmitSource</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdmitSource {
+
     /**
      * The Patient has been transferred from another hospital for this encounter.
      */
@@ -36,19 +39,23 @@ enum class AdmitSource {
     HOSP_TRANS,
 
     /**
-     * The patient has been transferred from the emergency department within the hospital. This is typically used in the transition to an inpatient encounter
+     * The patient has been transferred from the emergency department within the
+     * hospital. This is typically used in the transition to an inpatient encounter
      */
     @SerialName("emd")
     EMD,
 
     /**
-     * The patient has been transferred from an outpatient department within the hospital.
+     * The patient has been transferred from an outpatient department within the
+     * hospital.
      */
     @SerialName("outp")
     OUTP,
 
     /**
-     * The patient is a newborn and the encounter will track the baby related activities (as opposed to the Mothers encounter - that may be associated using the newborn encounters partof property)
+     * The patient is a newborn and the encounter will track the baby related
+     * activities (as opposed to the Mothers encounter - that may be associated using
+     * the newborn encounters partof property)
      */
     @SerialName("born")
     BORN,
@@ -60,7 +67,8 @@ enum class AdmitSource {
     GP,
 
     /**
-     * The patient has been admitted due to a referred from a Specialist (as opposed to a General Practitioner).
+     * The patient has been admitted due to a referred from a Specialist (as opposed to
+     * a General Practitioner).
      */
     @SerialName("mp")
     MP,
@@ -87,5 +95,5 @@ enum class AdmitSource {
      * The patient has been admitted from a source otherwise not specified here.
      */
     @SerialName("other")
-    OTHER
+    OTHER,
 }

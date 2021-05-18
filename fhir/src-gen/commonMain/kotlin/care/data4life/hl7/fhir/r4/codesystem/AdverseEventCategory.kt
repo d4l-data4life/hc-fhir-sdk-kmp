@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AdverseEventCategory
+ *
  * Overall categorization of the event, e.g. product-related or situational.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/adverse-event-category">AdverseEventCategory</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AdverseEventCategory {
+
     /**
      * The adverse event pertains to a product problem.
      */
@@ -102,7 +105,8 @@ enum class AdverseEventCategory {
     MEDICAL_DEVICE_USE_ERROR,
 
     /**
-     * The adverse event pertains to a problem with a different manufacturer of the same medication.
+     * The adverse event pertains to a problem with a different manufacturer of the
+     * same medication.
      */
     @SerialName("problem-different-manufacturer")
     PROBLEM_DIFFERENT_MANUFACTURER,
@@ -111,5 +115,5 @@ enum class AdverseEventCategory {
      * The adverse event pertains to an unsafe physical environment.
      */
     @SerialName("unsafe-physical-environment")
-    UNSAFE_PHYSICAL_ENVIRONMENT
+    UNSAFE_PHYSICAL_ENVIRONMENT,
 }

@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MedicationContainer
+ *
  * A coded concept defining the kind of container a medication package is packaged in
  *
  * @see <a href="http://hl7.org/fhir/medication-package-form">MedicationContainer</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationContainer {
+
     /**
      * A sealed glass capsule containing a liquid
      */
@@ -36,19 +39,22 @@ enum class MedicationContainer {
     AMPOULE,
 
     /**
-     * A container, typically made of glass or plastic and with a narrow neck, used for storing liquids.
+     * A container, typically made of glass or plastic and with a narrow neck, used for
+     * storing liquids.
      */
     @SerialName("bottle")
     BOTTLE,
 
     /**
-     * A container with a flat base and sides, typically square or rectangular and having a lid.
+     * A container with a flat base and sides, typically square or rectangular and
+     * having a lid.
      */
     @SerialName("box")
     BOX,
 
     /**
-     * A device of various configuration and composition used with a syringe for the application of anesthetic or other materials to a patient.
+     * A device of various configuration and composition used with a syringe for the
+     * application of anesthetic or other materials to a patient.
      */
     @SerialName("cartridge")
     CARTRIDGE,
@@ -60,20 +66,23 @@ enum class MedicationContainer {
     CONTAINER,
 
     /**
-     * A long, hollow cylinder of metal, plastic, glass, etc., for holding medications, typically creams or ointments
+     * A long, hollow cylinder of metal, plastic, glass, etc., for holding medications,
+     * typically creams or ointments
      */
     @SerialName("tube")
     TUBE,
 
     /**
-     * A dose of medicine prepared in an individual package for convenience, safety or monitoring.
+     * A dose of medicine prepared in an individual package for convenience, safety or
+     * monitoring.
      */
     @SerialName("unitdose")
     UNITDOSE,
 
     /**
-     * A small container, typically cylindrical and made of glass, used especially for holding liquid medications.
+     * A small container, typically cylindrical and made of glass, used especially for
+     * holding liquid medications.
      */
     @SerialName("vial")
-    VIAL
+    VIAL,
 }

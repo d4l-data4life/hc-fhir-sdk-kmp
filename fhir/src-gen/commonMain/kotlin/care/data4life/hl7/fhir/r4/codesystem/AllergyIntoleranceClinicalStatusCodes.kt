@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: AllergyIntoleranceClinicalStatusCodes
+ *
  * Preferred value set for AllergyIntolerance Clinical Status.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical">AllergyIntoleranceClinicalStatusCodes</a>
@@ -29,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceClinicalStatusCodes {
+
     /**
-     * The subject is currently experiencing, or is at risk of, a reaction to the identified substance.
+     * The subject is currently experiencing, or is at risk of, a reaction to the
+     * identified substance.
      */
     @SerialName("active")
     ACTIVE,
@@ -42,8 +46,10 @@ enum class AllergyIntoleranceClinicalStatusCodes {
     INACTIVE,
 
     /**
-     * A reaction to the identified substance has been clinically reassessed by testing or re-exposure and is considered no longer to be present. Re-exposure could be accidental, unplanned, or outside of any clinical setting.
+     * A reaction to the identified substance has been clinically reassessed by testing
+     * or re-exposure and is considered no longer to be present. Re-exposure could be
+     * accidental, unplanned, or outside of any clinical setting.
      */
     @SerialName("resolved")
-    RESOLVED
+    RESOLVED,
 }

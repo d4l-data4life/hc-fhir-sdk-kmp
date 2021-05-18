@@ -20,7 +20,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or HGPS systems
+ * Code System: StrengthOfRecommendationRating
+ *
+ * A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or
+ * HGPS systems
  *
  * @see <a href="http://hl7.org/fhir/recommendation-strength">StrengthOfRecommendationRating</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/cqif-recommendation-strength">ValueSet</a>
@@ -29,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StrengthOfRecommendationRating {
+
     /**
      * Strong recommendation
      */
@@ -39,5 +43,5 @@ enum class StrengthOfRecommendationRating {
      * Weak recommendation
      */
     @SerialName("weak")
-    WEAK
+    WEAK,
 }

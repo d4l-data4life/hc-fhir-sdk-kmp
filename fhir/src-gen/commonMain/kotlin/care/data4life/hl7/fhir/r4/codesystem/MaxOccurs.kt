@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: MaxOccurs
+ *
  * Flags an element as having unlimited repetitions.
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/question-max-occurs">MaxOccurs</a>
@@ -29,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MaxOccurs {
+
     /**
      * Element can repeat an unlimited number of times.
      */

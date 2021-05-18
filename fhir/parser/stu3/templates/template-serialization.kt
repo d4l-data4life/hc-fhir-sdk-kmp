@@ -20,109 +20,112 @@ import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 
+{%- set resource_list = [
+    "Address",
+    "Age",
+    "Annotation",
+    "Attachment",
+    "BackboneElement",
+    "CarePlan",
+    "CareTeam",
+    "CodeableConcept",
+    "CodeSystem",
+    "Coding",
+    "Condition",
+    "ContactDetail",
+    "ContactPoint",
+    "Count",
+    "DiagnosticReport",
+    "Distance",
+    "DocumentReference",
+    "DomainResource",
+    "Dosage",
+    "Duration",
+    "Element",
+    "Extension",
+    "FamilyMemberHistory",
+    "Goal",
+    "HumanName",
+    "Identifier",
+    "Medication",
+    "MedicationRequest",
+    "Meta",
+    "Money",
+    "Narrative",
+    "Observation",
+    "Organization",
+    "Patient",
+    "Period",
+    "Practitioner",
+    "Procedure",
+    "ProcedureRequest",
+    "Provenance",
+    "Quantity",
+    "Questionnaire",
+    "QuestionnaireResponse",
+    "Range",
+    "Ratio",
+    "Reference",
+    "ReferralRequest",
+    "Resource",
+    "SampledData",
+    "ServiceRequest",
+    "Signature",
+    "Specimen",
+    "Substance",
+    "Timing",
+    "UsageContext",
+    "ValueSet"
+] %}
+
+{%- set fhir_resource_list = [
+    "CarePlan",
+    "CareTeam",
+    "CodeSystem",
+    "Condition",
+    "DiagnosticReport",
+    "DocumentReference",
+    "DomainResource",
+    "FamilyMemberHistory",
+    "Goal",
+    "Medication",
+    "MedicationRequest",
+    "Observation",
+    "Organization",
+    "Patient",
+    "Practitioner",
+    "Procedure",
+    "ProcedureRequest",
+    "Provenance",
+    "Questionnaire",
+    "QuestionnaireResponse",
+    "ReferralRequest",
+    "Resource",
+    "Specimen",
+    "ServiceRequest",
+    "Substance",
+    "ValueSet",
+] %}
+
 object FhirSerializationModule {
 
-	{%- set resource_list = [
-			"Address",
-			"Age",
-			"Annotation",
-			"Attachment",
-			"BackboneElement",
-			"CarePlan",
-			"CareTeam",
-			"CodeableConcept",
-			"CodeSystem",
-			"Coding",
-			"Condition",
-			"ContactDetail",
-			"ContactPoint",
-			"Count",
-			"DiagnosticReport",
-			"Distance",
-			"DocumentReference",
-			"DomainResource",
-			"Dosage",
-			"Duration",
-			"Element",
-			"Extension",
-			"FamilyMemberHistory",
-			"Goal",
-			"HumanName",
-			"Identifier",
-			"Medication",
-			"MedicationRequest",
-			"Meta",
-			"Money",
-			"Narrative",
-			"Observation",
-			"Organization",
-			"Patient",
-			"Period",
-			"Practitioner",
-			"Procedure",
-			"ProcedureRequest",
-			"Provenance",
-			"Quantity",
-			"Questionnaire",
-			"QuestionnaireResponse",
-			"Range",
-			"Ratio",
-			"Reference",
-			"ReferralRequest",
-			"Resource",
-			"SampledData",
-			"Signature",
-			"Specimen",
-			"Substance",
-			"Timing",
-			"UsageContext",
-			"ValueSet"
-	] %}
-
-	{%- set fhir_resource_list = [
-			"CarePlan",
-			"CareTeam",
-			"CodeSystem",
-			"Condition",
-			"DiagnosticReport",
-			"DocumentReference",
-			"DomainResource",
-			"FamilyMemberHistory",
-			"Goal",
-			"Medication",
-			"MedicationRequest",
-			"Observation",
-			"Organization",
-			"Patient",
-			"Practitioner",
-			"Procedure",
-			"ProcedureRequest",
-			"Provenance",
-			"Questionnaire",
-			"QuestionnaireResponse",
-			"ReferralRequest",
-			"Resource",
-			"Specimen",
-			"Substance",
-			"ValueSet",
-	] %}
-
-	fun module(): SerializersModule {
-		return SerializersModule {
-			polymorphic(FhirStu3::class) {
-				{%- for resource in resources %}
-				{%- if resource.name in resource_list %}
-				subclass({{ resource.name }}::class)
-				{%- endif %}
-				{%- endfor %}
-			}
-			polymorphic(FhirResource::class) {
-				{%- for resource in resources %}
-				{%- if resource.name in fhir_resource_list %}
-				subclass({{ resource.name }}::class)
-				{%- endif %}
-				{%- endfor %}
-			}
-		}
-	}
+    fun module(): SerializersModule {
+        return SerializersModule {
+            polymorphic(FhirStu3::class) {
+{%- for resource in resources %}
+{%- if resource.name in resource_list %}
+                subclass({{ resource.name }}::class)
+{%- endif %}
+{%- endfor %}
+            }
+            polymorphic(FhirResource::class) {
+{%- for resource in resources %}
+{%- if resource.name in fhir_resource_list %}
+                subclass({{ resource.name }}::class)
+{%- endif %}
+{%- endfor %}
+            }
+        }
+    }
 }
+{% if True %}{# ensure empty line at end of file #}{% endif %}

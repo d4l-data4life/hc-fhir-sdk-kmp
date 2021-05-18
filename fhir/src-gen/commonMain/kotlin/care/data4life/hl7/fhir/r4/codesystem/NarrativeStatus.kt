@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: NarrativeStatus
+ *
  * The status of a resource narrative.
  *
  * @see <a href="http://hl7.org/fhir/narrative-status">NarrativeStatus</a>
@@ -29,27 +31,34 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NarrativeStatus {
+
     /**
-     * The contents of the narrative are entirely generated from the core elements in the content.
+     * The contents of the narrative are entirely generated from the core elements in
+     * the content.
      */
     @SerialName("generated")
     GENERATED,
 
     /**
-     * The contents of the narrative are entirely generated from the core elements in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.
+     * The contents of the narrative are entirely generated from the core elements in
+     * the content and some of the content is generated from extensions. The narrative
+     * SHALL reflect the impact of all modifier extensions.
      */
     @SerialName("extensions")
     EXTENSIONS,
 
     /**
-     * The contents of the narrative may contain additional information not found in the structured data. Note that there is no computable way to determine what the extra information is, other than by human inspection.
+     * The contents of the narrative may contain additional information not found in
+     * the structured data. Note that there is no computable way to determine what the
+     * extra information is, other than by human inspection.
      */
     @SerialName("additional")
     ADDITIONAL,
 
     /**
-     * The contents of the narrative are some equivalent of "No human-readable text provided in this case".
+     * The contents of the narrative are some equivalent of "No human-readable text
+     * provided in this case".
      */
     @SerialName("empty")
-    EMPTY
+    EMPTY,
 }

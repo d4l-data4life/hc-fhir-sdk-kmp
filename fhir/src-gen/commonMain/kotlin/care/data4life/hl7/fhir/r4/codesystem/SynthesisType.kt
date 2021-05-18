@@ -20,6 +20,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
+ * Code System: SynthesisType
+ *
  * Types of combining results from a body of evidence (eg. summary data meta-analysis).
  *
  * @see <a href="http://terminology.hl7.org/CodeSystem/synthesis-type">SynthesisType</a>
@@ -29,26 +31,31 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SynthesisType {
+
     /**
-     * A meta-analysis of the summary data of estimates from individual studies or data sets.
+     * A meta-analysis of the summary data of estimates from individual studies or data
+     * sets.
      */
     @SerialName("std-MA")
     STD_MA,
 
     /**
-     * A meta-analysis of the individual participant data from individual studies or data sets.
+     * A meta-analysis of the individual participant data from individual studies or
+     * data sets.
      */
     @SerialName("IPD-MA")
     IPD_MA,
 
     /**
-     * An indirect meta-analysis derived from 2 or more direct comparisons in a network meta-analysis.
+     * An indirect meta-analysis derived from 2 or more direct comparisons in a network
+     * meta-analysis.
      */
     @SerialName("indirect-NMA")
     INDIRECT_NMA,
 
     /**
-     * An composite meta-analysis derived from direct comparisons and indirect comparisons in a network meta-analysis.
+     * An composite meta-analysis derived from direct comparisons and indirect
+     * comparisons in a network meta-analysis.
      */
     @SerialName("combined-NMA")
     COMBINED_NMA,
@@ -60,8 +67,9 @@ enum class SynthesisType {
     RANGE,
 
     /**
-     * An approach describing a body of evidence by categorically classifying individual studies (eg 3 studies showed beneft and 2 studied found no effect).
+     * An approach describing a body of evidence by categorically classifying
+     * individual studies (eg 3 studies showed beneft and 2 studied found no effect).
      */
     @SerialName("classification")
-    CLASSIFICATION
+    CLASSIFICATION,
 }
