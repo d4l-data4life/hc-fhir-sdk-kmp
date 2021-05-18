@@ -179,7 +179,7 @@ fun integrateFhirModels(fhirVersion: FhirVersion) {
 fun integrateStatics(fhirVersion: FhirVersion) {
     println("Include static FHIR replacements")
 
-    val staticSourcePath = "fhir/parser/${fhirVersion.name}/statics"
+    val staticSourcePath = "fhir/parser/${fhirVersion.value}/statics"
 
     for ((file, target) in staticReplacementMap(fhirVersion)) {
         cmd("cp $staticSourcePath/$file $target")
