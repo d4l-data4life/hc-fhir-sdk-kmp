@@ -21,68 +21,20 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import kotlin.reflect.KClass
 
-{%- set resource_list = [
-    "Address",
-    "Age",
-    "Annotation",
-    "Attachment",
-    "BackboneElement",
-    "CarePlan",
-    "CareTeam",
-    "CodeableConcept",
-    "CodeSystem",
-    "Coding",
-    "Condition",
-    "ContactDetail",
-    "ContactPoint",
-    "Count",
-    "DiagnosticReport",
-    "Distance",
-    "DocumentReference",
-    "DomainResource",
-    "Dosage",
-    "Duration",
-    "Element",
-    "Encounter",
-    "Extension",
-    "FamilyMemberHistory",
-    "FhirElementFact",
-    "Goal",
-    "HumanName",
-    "Identifier",
-    "Location",
-    "Medication",
-    "MedicationRequest",
-    "MedicationStatement",
-    "Meta",
-    "Money",
-    "Narrative",
-    "Observation",
-    "Organization",
-    "Patient",
-    "Period",
-    "Practitioner",
-    "PractitionerRole",
-    "Procedure",
-    "ProcedureRequest",
-    "Provenance",
-    "Quantity",
-    "Questionnaire",
-    "QuestionnaireResponse",
-    "Range",
-    "Ratio",
-    "Reference",
-    "ReferralRequest",
-    "Resource",
-    "SampledData",
-    "ServiceRequest",
-    "Signature",
-    "Specimen",
-    "Substance",
-    "Timing",
-    "UsageContext",
-    "ValueSet"
+{%- set exclude_resources = [
+    "ExampleScenario",
+    "TestReport",
+    "TestScript",
 ] %}
+
+{%- set exclusions = [] %}
+{%- for klass in classes %}
+{%- for exclude in exclude_resources %}
+{%- if exclude in klass.name %}
+{%- set _ = exclusions.append( klass.name ) %}
+{%- endif %}
+{%- endfor %}
+{%- endfor %}
 
 object FhirHelper {
 
@@ -91,15 +43,19 @@ object FhirHelper {
             return SerializersModule {
                 polymorphic(FhirR4::class) {
 {%- for klass in classes %}
+{%- if not klass.name in exclusions %}
                     subclass({{ klass.name }}::class)
+{%- endif %}
 {%- endfor %}
                 }
                 polymorphic(FhirResource::class) {
 {%- for klass in classes %}
 {%- if klass.resource_type %}
+{%- if not klass.name in exclusions %}
                     subclass({{ klass.name }}::class)
-{%-endif %}
-{%-endfor %}
+{%- endif %}
+{%- endif %}
+{%- endfor %}
                 }
             }
         }
@@ -111,7 +67,9 @@ object FhirHelper {
             return when (klass) {
 {%- for klass in classes %}
 {%- if klass.resource_type %}
+{%- if not klass.name in exclusions %}
                 {{ klass.name }}::class -> {{ klass.name}}.resourceType()
+{%- endif %}
 {%- endif %}
 {%- endfor %}
                 else -> throw IllegalArgumentException("FHIR class unknown: $klass")
@@ -122,7 +80,9 @@ object FhirHelper {
             return when (resourceType) {
 {%- for klass in classes %}
 {%- if klass.resource_type %}
+{%- if not klass.name in exclusions %}
                 "{{ klass.name }}" -> {{ klass.name}}::class
+{%- endif %}
 {%- endif %}
 {%- endfor %}
                 else -> throw IllegalArgumentException("FHIR resourceType unknown: $resourceType")

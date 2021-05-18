@@ -35,13 +35,21 @@ fun targetTestJsons(fhirVersion: FhirVersion) =
     "fhir/src-gen/jvmTest/resources/${fhirVersion.value}"
 
 fun modelExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
-    FhirVersion.FHIR4 -> listOf("")
-    FhirVersion.FHIR3 -> listOf("")
+    FhirVersion.FHIR4 -> listOf(
+        "ExampleScenario.kt",
+        "TestReport.kt",
+        "TestScript.kt",
+    )
+    FhirVersion.FHIR3 -> listOf()
 }
 
 fun testExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
-    FhirVersion.FHIR4 -> listOf("")
-    FhirVersion.FHIR3 -> listOf("")
+    FhirVersion.FHIR4 -> listOf(
+        "ExampleScenarioTest.kt",
+        "TestReportTest.kt",
+        "TestScriptTest.kt",
+    )
+    FhirVersion.FHIR3 -> listOf()
 }
 
 fun staticReplacementMap(fhirVersion: FhirVersion) = when (fhirVersion) {
