@@ -117,7 +117,7 @@ class {{ class.name }}Test {
         )
 {%- else %}{% if "String" == test.klass.name %}
         assertEquals(
-            "{{ test.value|replace('"', '\\"') }}",
+            "{{ test.value | replace('"', '\\"') | replace('$', '\\$') }}",
             data.{{ test.path }}
         )
 {%- else %}{% if "Decimal" == test.klass.name %}

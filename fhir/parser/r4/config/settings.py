@@ -22,10 +22,10 @@ tpl_codesystems_target = 'codesystems'                      # target directory t
 tpl_codesystems_target_ptrn = '{}.kt'                       # the filename to use for the generated code systems and value sets (in `tpl_resource_target`)
 
 # Whether and where to put the factory methods
-write_factory = False
+write_factory = True
 tpl_factory_source = 'template-elementfactory.kt'           # the template to use for factory generation
-tpl_factory_target = 'models/FhirElementFactory.kt'         # where to write the generated factory
-write_dependencies = True
+tpl_factory_target = 'models/FhirFactory.kt'         # where to write the generated factory
+write_dependencies = False
 tpl_dependencies_source = 'template-serialization.kt'       # template used to render the serialization dependency graph
 tpl_dependencies_target = 'models/FhirSerializationModule.kt'      # write serialization module
 

@@ -64,6 +64,9 @@ jsonmap_default = 'FHIRJSON'
 reservedmap = {
     'abstract': 'abstrakt',
     'class': 'clazz',
+    'fhirVersion': 'fhirVer',
+    'resourceType': 'resType',
+    'for': 'forr',
     'when': 'whenn',
     'package': 'pakkage'
 }

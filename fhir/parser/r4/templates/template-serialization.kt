@@ -114,9 +114,42 @@ import kotlinx.serialization.modules.subclass
     "ValueSet",
 ] %}
 
+{%- for klass in classes %}
+//
+// Klass: {{ klass }}
+//
+{%- endfor %}
+
+{%- for resource in resources %}
+//
+// Resource: {{ resource }}
+//
+//   Klasses
+{%- for klass in resource.imports %}
+// - {{ klass }}
+{%- endfor %}
+{%- endfor %}
+
 object FhirSerializationModule {
 
     fun module(): SerializersModule {
+        return SerializersModule {
+            polymorphic(FhirR4::class) {
+{%- for resource in resources %}
+                subclass({{ resource.name }}::class)
+{%- endfor %}
+            }
+            polymorphic(FhirResource::class) {
+{%- for resource in resources %}
+{%- if resource.type == DomainResource %}
+                subclass({{ resource.name }}::class)
+{%- endif %}
+{%- endfor %}
+            }
+        }
+    }
+
+    fun moduleOld(): SerializersModule {
         return SerializersModule {
             polymorphic(FhirR4::class) {
 {%- for resource in resources %}

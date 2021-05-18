@@ -27,6 +27,7 @@ toc::[]
 ** Base Resource types Resource, DomainResource, Coding, Meta and Narrative
 ** Json parser tests for contained resources and primitives
 ** generated FHIR R4 type system
+** generated full FHIR R4 type system
 * Add Kotlin script to generate full FHIR standard
 
 === Changed
