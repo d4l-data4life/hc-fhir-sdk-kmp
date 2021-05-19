@@ -79,9 +79,18 @@ fun printUsage() {
             Usage: ./generateFhir.main.kts [<option>]
                 all         Generates all FHIR versions. Defaults is <all>.
                 fhir3       Generate FHIR3 sources and tests
-                fhir4       Generate FHIR4 sources and tests 
+                fhir4       Generate FHIR4 sources and tests
         """.trimIndent()
     )
+}
+
+if (!File(parserPath).exists()) {
+    println("""
+        This script depends on the fhir parser: https://github.com/gesundheitscloud/fhir-parser/
+        
+        Please call git submodule update --init --recursive to ensure it's available.
+        """.trimIndent())
+    exitProcess(1)
 }
 
 for (fhirVersion in fhirVersions) {
@@ -96,6 +105,7 @@ for (fhirVersion in fhirVersions) {
 
 fun generateFhirModels(fhirVersion: FhirVersion) {
     println("Copy FHIR parser configuration")
+
     File(sourceParserConfig(fhirVersion)).walk()
         .filter { !it.isDirectory }
         .forEach { it.copyTo(File("$parserPath/${it.name}")) }
