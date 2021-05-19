@@ -45,7 +45,7 @@ interface FhirLibrary : FhirDomainResource {
     /**
      * Additional identifier for the library.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the library.
@@ -120,27 +120,27 @@ interface FhirLibrary : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for library (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * E.g. Education, Treatment, Assessment, etc.
      */
-    val topic: List<CodeableConcept>?
+    val topic: kotlin.collections.List<CodeableConcept>?
 
     /**
      * A content contributor.
      */
-    val contributor: List<Contributor>?
+    val contributor: kotlin.collections.List<Contributor>?
 
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Use and/or publishing restrictions.
@@ -150,28 +150,26 @@ interface FhirLibrary : FhirDomainResource {
     /**
      * Additional documentation, citations, etc..
      */
-    val relatedArtifact: List<RelatedArtifact>?
+    val relatedArtifact: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * Parameters defined by the library.
      */
-    val parameter: List<ParameterDefinition>?
+    val parameter: kotlin.collections.List<ParameterDefinition>?
 
     /**
      * What data is referenced by this library.
      */
-    val dataRequirement: List<DataRequirement>?
+    val dataRequirement: kotlin.collections.List<DataRequirement>?
 
     /**
      * Contents of the library, either embedded or referenced.
      */
-    val content: List<Attachment>?
+    val content: kotlin.collections.List<Attachment>?
 }
 
 /**
  * Library
- *
- * SourceFileName: Library.kt
  *
  * The Library resource is a general-purpose container for knowledge asset definitions. It can be used
  * to describe and expose existing knowledge assets such as logic libraries and information model
@@ -189,7 +187,7 @@ data class Library(
     override val url: String? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -234,34 +232,34 @@ data class Library(
     override val effectivePeriod: Period? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("topic")
-    override val topic: List<CodeableConcept>? = null,
+    override val topic: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("contributor")
-    override val contributor: List<Contributor>? = null,
+    override val contributor: kotlin.collections.List<Contributor>? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("copyright")
     override val copyright: String? = null,
 
     @SerialName("relatedArtifact")
-    override val relatedArtifact: List<RelatedArtifact>? = null,
+    override val relatedArtifact: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("parameter")
-    override val parameter: List<ParameterDefinition>? = null,
+    override val parameter: kotlin.collections.List<ParameterDefinition>? = null,
 
     @SerialName("dataRequirement")
-    override val dataRequirement: List<DataRequirement>? = null,
+    override val dataRequirement: kotlin.collections.List<DataRequirement>? = null,
 
     @SerialName("content")
-    override val content: List<Attachment>? = null,
+    override val content: kotlin.collections.List<Attachment>? = null,
 
     // # DomainResource
 
@@ -269,13 +267,13 @@ data class Library(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

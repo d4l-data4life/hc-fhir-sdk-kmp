@@ -84,7 +84,7 @@ interface FhirMeasureReport : FhirDomainResource {
     /**
      * Measure results for each group.
      */
-    val group: List<MeasureReportGroup>?
+    val group: kotlin.collections.List<MeasureReportGroup>?
 
     /**
      * What data was evaluated to produce the measure score.
@@ -94,8 +94,6 @@ interface FhirMeasureReport : FhirDomainResource {
 
 /**
  * MeasureReport
- *
- * SourceFileName: MeasureReport.kt
  *
  * The MeasureReport resource contains the results of evaluating a measure.
  *
@@ -132,7 +130,7 @@ data class MeasureReport(
     override val period: Period,
 
     @SerialName("group")
-    override val group: List<MeasureReportGroup>? = null,
+    override val group: kotlin.collections.List<MeasureReportGroup>? = null,
 
     @SerialName("evaluatedResources")
     override val evaluatedResources: Reference? = null,
@@ -143,13 +141,13 @@ data class MeasureReport(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -194,7 +192,7 @@ interface FhirMeasureReportGroup : FhirBackboneElement {
     /**
      * The populations in the group.
      */
-    val population: List<MeasureReportGroupPopulation>?
+    val population: kotlin.collections.List<MeasureReportGroupPopulation>?
 
     /**
      * What score this group achieved.
@@ -204,13 +202,11 @@ interface FhirMeasureReportGroup : FhirBackboneElement {
     /**
      * Stratification results.
      */
-    val stratifier: List<MeasureReportGroupStratifier>?
+    val stratifier: kotlin.collections.List<MeasureReportGroupStratifier>?
 }
 
 /**
  * MeasureReportGroup
- *
- * SourceFileName: MeasureReport.kt
  *
  * The results of the calculation, one for each population group in the measure.
  *
@@ -226,18 +222,18 @@ data class MeasureReportGroup(
     override val identifier: Identifier,
 
     @SerialName("population")
-    override val population: List<MeasureReportGroupPopulation>? = null,
+    override val population: kotlin.collections.List<MeasureReportGroupPopulation>? = null,
 
     @SerialName("measureScore")
     override val measureScore: Decimal? = null,
 
     @SerialName("stratifier")
-    override val stratifier: List<MeasureReportGroupStratifier>? = null,
+    override val stratifier: kotlin.collections.List<MeasureReportGroupStratifier>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -245,7 +241,7 @@ data class MeasureReportGroup(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureReportGroup {
 
     override val resourceType: kotlin.String
@@ -295,8 +291,6 @@ interface FhirMeasureReportGroupPopulation : FhirBackboneElement {
 /**
  * MeasureReportGroupPopulation
  *
- * SourceFileName: MeasureReport.kt
- *
  * The populations that make up the population group, one for each type of population appropriate for
  * the measure.
  *
@@ -323,7 +317,7 @@ data class MeasureReportGroupPopulation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -331,7 +325,7 @@ data class MeasureReportGroupPopulation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureReportGroupPopulation {
 
     override val resourceType: kotlin.String
@@ -363,13 +357,11 @@ interface FhirMeasureReportGroupStratifier : FhirBackboneElement {
     /**
      * Stratum results, one for each unique value in the stratifier.
      */
-    val stratum: List<MeasureReportGroupStratifierStratum>?
+    val stratum: kotlin.collections.List<MeasureReportGroupStratifierStratum>?
 }
 
 /**
  * MeasureReportGroupStratifier
- *
- * SourceFileName: MeasureReport.kt
  *
  * When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier
  * defined by the measure.
@@ -386,12 +378,12 @@ data class MeasureReportGroupStratifier(
     override val identifier: Identifier? = null,
 
     @SerialName("stratum")
-    override val stratum: List<MeasureReportGroupStratifierStratum>? = null,
+    override val stratum: kotlin.collections.List<MeasureReportGroupStratifierStratum>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -399,7 +391,7 @@ data class MeasureReportGroupStratifier(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureReportGroupStratifier {
 
     override val resourceType: kotlin.String
@@ -431,7 +423,7 @@ interface FhirMeasureReportGroupStratifierStratum : FhirBackboneElement {
     /**
      * Population results in this stratum.
      */
-    val population: List<MeasureReportGroupStratifierStratumPopulation>?
+    val population: kotlin.collections.List<MeasureReportGroupStratifierStratumPopulation>?
 
     /**
      * What score this stratum achieved.
@@ -441,8 +433,6 @@ interface FhirMeasureReportGroupStratifierStratum : FhirBackboneElement {
 
 /**
  * MeasureReportGroupStratifierStratum
- *
- * SourceFileName: MeasureReport.kt
  *
  * This element contains the results for a single stratum within the stratifier. For example, when
  * stratifying on administrative gender, there will be four strata, one for each possible gender value.
@@ -459,7 +449,7 @@ data class MeasureReportGroupStratifierStratum(
     override val value: String,
 
     @SerialName("population")
-    override val population: List<MeasureReportGroupStratifierStratumPopulation>? = null,
+    override val population: kotlin.collections.List<MeasureReportGroupStratifierStratumPopulation>? = null,
 
     @SerialName("measureScore")
     override val measureScore: Decimal? = null,
@@ -467,7 +457,7 @@ data class MeasureReportGroupStratifierStratum(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -475,7 +465,7 @@ data class MeasureReportGroupStratifierStratum(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureReportGroupStratifierStratum {
 
     override val resourceType: kotlin.String
@@ -525,8 +515,6 @@ interface FhirMeasureReportGroupStratifierStratumPopulation : FhirBackboneElemen
 /**
  * MeasureReportGroupStratifierStratumPopulation
  *
- * SourceFileName: MeasureReport.kt
- *
  * The populations that make up the stratum, one for each type of population appropriate to the
  * measure.
  *
@@ -553,7 +541,7 @@ data class MeasureReportGroupStratifierStratumPopulation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -561,7 +549,7 @@ data class MeasureReportGroupStratifierStratumPopulation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureReportGroupStratifierStratumPopulation {
 
     override val resourceType: kotlin.String

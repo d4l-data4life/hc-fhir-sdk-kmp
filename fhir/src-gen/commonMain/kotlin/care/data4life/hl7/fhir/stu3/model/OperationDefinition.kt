@@ -85,7 +85,7 @@ interface FhirOperationDefinition : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the operation definition.
@@ -95,12 +95,12 @@ interface FhirOperationDefinition : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for operation definition (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this operation definition is defined.
@@ -130,7 +130,7 @@ interface FhirOperationDefinition : FhirDomainResource {
     /**
      * The types on which this operation can be executed.
      */
-    val resource: List<ResourceType>?
+    val resource: kotlin.collections.List<ResourceType>?
 
     /**
      * Invoke at the system level?.
@@ -150,18 +150,16 @@ interface FhirOperationDefinition : FhirDomainResource {
     /**
      * Parameters for the operation/query.
      */
-    val parameter: List<OperationDefinitionParameter>?
+    val parameter: kotlin.collections.List<OperationDefinitionParameter>?
 
     /**
      * Define overloaded variants for when generating code.
      */
-    val overload: List<OperationDefinitionOverload>?
+    val overload: kotlin.collections.List<OperationDefinitionOverload>?
 }
 
 /**
  * OperationDefinition
- *
- * SourceFileName: OperationDefinition.kt
  *
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using
  * the search interaction).
@@ -199,16 +197,16 @@ data class OperationDefinition(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -226,7 +224,7 @@ data class OperationDefinition(
     override val base: Reference? = null,
 
     @SerialName("resource")
-    override val resource: List<ResourceType>? = null,
+    override val resource: kotlin.collections.List<ResourceType>? = null,
 
     @SerialName("system")
     override val system: Bool,
@@ -238,10 +236,10 @@ data class OperationDefinition(
     override val instance: Bool,
 
     @SerialName("parameter")
-    override val parameter: List<OperationDefinitionParameter>? = null,
+    override val parameter: kotlin.collections.List<OperationDefinitionParameter>? = null,
 
     @SerialName("overload")
-    override val overload: List<OperationDefinitionOverload>? = null,
+    override val overload: kotlin.collections.List<OperationDefinitionOverload>? = null,
 
     // # DomainResource
 
@@ -249,13 +247,13 @@ data class OperationDefinition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -296,7 +294,7 @@ interface FhirOperationDefinitionOverload : FhirBackboneElement {
     /**
      * Name of parameter to include in overload.
      */
-    val parameterName: List<String>?
+    val parameterName: kotlin.collections.List<String>?
 
     /**
      * Comments to go on overload.
@@ -306,8 +304,6 @@ interface FhirOperationDefinitionOverload : FhirBackboneElement {
 
 /**
  * OperationDefinitionOverload
- *
- * SourceFileName: OperationDefinition.kt
  *
  * Defines an appropriate combination of parameters to use when invoking this operation, to help code
  * generators when generating overloaded parameter sets for this operation.
@@ -321,7 +317,7 @@ interface FhirOperationDefinitionOverload : FhirBackboneElement {
 data class OperationDefinitionOverload(
 
     @SerialName("parameterName")
-    override val parameterName: List<String>? = null,
+    override val parameterName: kotlin.collections.List<String>? = null,
 
     @SerialName("comment")
     override val comment: String? = null,
@@ -329,7 +325,7 @@ data class OperationDefinitionOverload(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -337,7 +333,7 @@ data class OperationDefinitionOverload(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirOperationDefinitionOverload {
 
     override val resourceType: kotlin.String
@@ -409,13 +405,11 @@ interface FhirOperationDefinitionParameter : FhirBackboneElement {
     /**
      * Parts of a nested Parameter.
      */
-    val part: List<OperationDefinitionParameter>?
+    val part: kotlin.collections.List<OperationDefinitionParameter>?
 }
 
 /**
  * OperationDefinitionParameter
- *
- * SourceFileName: OperationDefinition.kt
  *
  * The parameters for the operation/query.
  *
@@ -455,12 +449,12 @@ data class OperationDefinitionParameter(
     override val binding: OperationDefinitionParameterBinding? = null,
 
     @SerialName("part")
-    override val part: List<OperationDefinitionParameter>? = null,
+    override val part: kotlin.collections.List<OperationDefinitionParameter>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -468,7 +462,7 @@ data class OperationDefinitionParameter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirOperationDefinitionParameter {
 
     override val resourceType: kotlin.String
@@ -512,8 +506,6 @@ interface FhirOperationDefinitionParameterBinding : FhirBackboneElement {
 /**
  * OperationDefinitionParameterBinding
  *
- * SourceFileName: OperationDefinition.kt
- *
  * Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/OperationDefinition">OperationDefinitionParameterBinding</a>
@@ -536,7 +528,7 @@ data class OperationDefinitionParameterBinding(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -544,7 +536,7 @@ data class OperationDefinitionParameterBinding(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirOperationDefinitionParameterBinding {
 
     override val resourceType: kotlin.String

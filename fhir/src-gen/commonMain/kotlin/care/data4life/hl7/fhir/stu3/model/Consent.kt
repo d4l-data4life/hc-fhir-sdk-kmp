@@ -50,7 +50,7 @@ interface FhirConsent : FhirDomainResource {
     /**
      * Classification of the consent statement - for indexing/retrieval.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Who the consent applies to.
@@ -70,22 +70,22 @@ interface FhirConsent : FhirDomainResource {
     /**
      * Who is agreeing to the policy and exceptions.
      */
-    val consentingParty: List<Reference>?
+    val consentingParty: kotlin.collections.List<Reference>?
 
     /**
      * Who|what controlled by this consent (or group, by role).
      */
-    val actor: List<ConsentActor>?
+    val actor: kotlin.collections.List<ConsentActor>?
 
     /**
      * Actions controlled by this consent.
      */
-    val action: List<CodeableConcept>?
+    val action: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Custodian of the consent.
      */
-    val organization: List<Reference>?
+    val organization: kotlin.collections.List<Reference>?
 
     /**
      * Source from which this consent is taken.
@@ -105,7 +105,7 @@ interface FhirConsent : FhirDomainResource {
     /**
      * Policies covered by this consent.
      */
-    val policy: List<ConsentPolicy>?
+    val policy: kotlin.collections.List<ConsentPolicy>?
 
     /**
      * Policy that this consents to.
@@ -115,12 +115,12 @@ interface FhirConsent : FhirDomainResource {
     /**
      * Security Labels that define affected resources.
      */
-    val securityLabel: List<Coding>?
+    val securityLabel: kotlin.collections.List<Coding>?
 
     /**
      * Context of activities for which the agreement is made.
      */
-    val purpose: List<Coding>?
+    val purpose: kotlin.collections.List<Coding>?
 
     /**
      * Timeframe for data controlled by this consent.
@@ -130,18 +130,16 @@ interface FhirConsent : FhirDomainResource {
     /**
      * Data controlled by this consent.
      */
-    val data: List<ConsentData>?
+    val data: kotlin.collections.List<ConsentData>?
 
     /**
      * Additional rule - addition or removal of permissions.
      */
-    val except: List<ConsentExcept>?
+    val except: kotlin.collections.List<ConsentExcept>?
 }
 
 /**
  * Consent
- *
- * SourceFileName: Consent.kt
  *
  * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s)
  * or recipient role(s) to perform one or more actions within a given policy context, for specific
@@ -162,7 +160,7 @@ data class Consent(
     override val status: ConsentState,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("patient")
     override val patient: Reference,
@@ -174,16 +172,16 @@ data class Consent(
     override val dateTime: DateTime? = null,
 
     @SerialName("consentingParty")
-    override val consentingParty: List<Reference>? = null,
+    override val consentingParty: kotlin.collections.List<Reference>? = null,
 
     @SerialName("actor")
-    override val actor: List<ConsentActor>? = null,
+    override val actor: kotlin.collections.List<ConsentActor>? = null,
 
     @SerialName("action")
-    override val action: List<CodeableConcept>? = null,
+    override val action: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("organization")
-    override val organization: List<Reference>? = null,
+    override val organization: kotlin.collections.List<Reference>? = null,
 
     @SerialName("sourceAttachment")
     override val sourceAttachment: Attachment? = null,
@@ -195,25 +193,25 @@ data class Consent(
     override val sourceReference: Reference? = null,
 
     @SerialName("policy")
-    override val policy: List<ConsentPolicy>? = null,
+    override val policy: kotlin.collections.List<ConsentPolicy>? = null,
 
     @SerialName("policyRule")
     override val policyRule: String? = null,
 
     @SerialName("securityLabel")
-    override val securityLabel: List<Coding>? = null,
+    override val securityLabel: kotlin.collections.List<Coding>? = null,
 
     @SerialName("purpose")
-    override val purpose: List<Coding>? = null,
+    override val purpose: kotlin.collections.List<Coding>? = null,
 
     @SerialName("dataPeriod")
     override val dataPeriod: Period? = null,
 
     @SerialName("data")
-    override val data: List<ConsentData>? = null,
+    override val data: kotlin.collections.List<ConsentData>? = null,
 
     @SerialName("except")
-    override val except: List<ConsentExcept>? = null,
+    override val except: kotlin.collections.List<ConsentExcept>? = null,
 
     // # DomainResource
 
@@ -221,13 +219,13 @@ data class Consent(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -279,8 +277,6 @@ interface FhirConsentActor : FhirBackboneElement {
 /**
  * ConsentActor
  *
- * SourceFileName: Consent.kt
- *
  * Who or what is controlled by this consent. Use group to identify a set of actors by some property
  * they share (e.g. 'admitting officers').
  *
@@ -301,7 +297,7 @@ data class ConsentActor(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -309,7 +305,7 @@ data class ConsentActor(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConsentActor {
 
     override val resourceType: kotlin.String
@@ -346,8 +342,6 @@ interface FhirConsentData : FhirBackboneElement {
 /**
  * ConsentData
  *
- * SourceFileName: Consent.kt
- *
  * The resources controlled by this consent, if specific resources are referenced.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Consent">ConsentData</a>
@@ -367,7 +361,7 @@ data class ConsentData(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -375,7 +369,7 @@ data class ConsentData(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConsentData {
 
     override val resourceType: kotlin.String
@@ -412,32 +406,32 @@ interface FhirConsentExcept : FhirBackboneElement {
     /**
      * Who|what controlled by this exception (or group, by role).
      */
-    val actor: List<ConsentExceptActor>?
+    val actor: kotlin.collections.List<ConsentExceptActor>?
 
     /**
      * Actions controlled by this exception.
      */
-    val action: List<CodeableConcept>?
+    val action: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Security Labels that define affected resources.
      */
-    val securityLabel: List<Coding>?
+    val securityLabel: kotlin.collections.List<Coding>?
 
     /**
      * Context of activities covered by this exception.
      */
-    val purpose: List<Coding>?
+    val purpose: kotlin.collections.List<Coding>?
 
     /**
      * e.g. Resource Type, Profile, or CDA etc.
      */
-    val clazz: List<Coding>?
+    val clazz: kotlin.collections.List<Coding>?
 
     /**
      * e.g. LOINC or SNOMED CT code, etc in the content.
      */
-    val code: List<Coding>?
+    val code: kotlin.collections.List<Coding>?
 
     /**
      * Timeframe for data controlled by this exception.
@@ -447,13 +441,11 @@ interface FhirConsentExcept : FhirBackboneElement {
     /**
      * Data controlled by this exception.
      */
-    val data: List<ConsentExceptData>?
+    val data: kotlin.collections.List<ConsentExceptData>?
 }
 
 /**
  * ConsentExcept
- *
- * SourceFileName: Consent.kt
  *
  * An exception to the base policy of this consent. An exception can be an addition or removal of
  * access permissions.
@@ -473,33 +465,33 @@ data class ConsentExcept(
     override val period: Period? = null,
 
     @SerialName("actor")
-    override val actor: List<ConsentExceptActor>? = null,
+    override val actor: kotlin.collections.List<ConsentExceptActor>? = null,
 
     @SerialName("action")
-    override val action: List<CodeableConcept>? = null,
+    override val action: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("securityLabel")
-    override val securityLabel: List<Coding>? = null,
+    override val securityLabel: kotlin.collections.List<Coding>? = null,
 
     @SerialName("purpose")
-    override val purpose: List<Coding>? = null,
+    override val purpose: kotlin.collections.List<Coding>? = null,
 
     @SerialName("class")
-    override val clazz: List<Coding>? = null,
+    override val clazz: kotlin.collections.List<Coding>? = null,
 
     @SerialName("code")
-    override val code: List<Coding>? = null,
+    override val code: kotlin.collections.List<Coding>? = null,
 
     @SerialName("dataPeriod")
     override val dataPeriod: Period? = null,
 
     @SerialName("data")
-    override val data: List<ConsentExceptData>? = null,
+    override val data: kotlin.collections.List<ConsentExceptData>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -507,7 +499,7 @@ data class ConsentExcept(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConsentExcept {
 
     override val resourceType: kotlin.String
@@ -545,8 +537,6 @@ interface FhirConsentExceptActor : FhirBackboneElement {
 /**
  * ConsentExceptActor
  *
- * SourceFileName: Consent.kt
- *
  * Who or what is controlled by this Exception. Use group to identify a set of actors by some property
  * they share (e.g. 'admitting officers').
  *
@@ -567,7 +557,7 @@ data class ConsentExceptActor(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -575,7 +565,7 @@ data class ConsentExceptActor(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConsentExceptActor {
 
     override val resourceType: kotlin.String
@@ -612,8 +602,6 @@ interface FhirConsentExceptData : FhirBackboneElement {
 /**
  * ConsentExceptData
  *
- * SourceFileName: Consent.kt
- *
  * The resources controlled by this exception, if specific resources are referenced.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Consent">ConsentExceptData</a>
@@ -633,7 +621,7 @@ data class ConsentExceptData(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -641,7 +629,7 @@ data class ConsentExceptData(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConsentExceptData {
 
     override val resourceType: kotlin.String
@@ -679,8 +667,6 @@ interface FhirConsentPolicy : FhirBackboneElement {
 /**
  * ConsentPolicy
  *
- * SourceFileName: Consent.kt
- *
  * The references to the policies that are included in this consent scope. Policies may be
  * organizational, but are often defined jurisdictionally, or in law.
  *
@@ -701,7 +687,7 @@ data class ConsentPolicy(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -709,7 +695,7 @@ data class ConsentPolicy(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConsentPolicy {
 
     override val resourceType: kotlin.String

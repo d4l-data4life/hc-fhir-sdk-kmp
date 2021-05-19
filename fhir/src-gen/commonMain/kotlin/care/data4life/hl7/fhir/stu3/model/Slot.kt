@@ -37,7 +37,7 @@ interface FhirSlot : FhirDomainResource {
     /**
      * External Ids for this item.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * A broad categorisation of the service that is to be performed during this
@@ -51,13 +51,13 @@ interface FhirSlot : FhirDomainResource {
      * itself). If provided then this overrides the value provided on the availability
      * resource.
      */
-    val serviceType: List<CodeableConcept>?
+    val serviceType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The specialty of a practitioner that would be required to perform the service
      * requested in this appointment.
      */
-    val specialty: List<CodeableConcept>?
+    val specialty: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The style of appointment or patient that may be booked in the slot (not service
@@ -101,8 +101,6 @@ interface FhirSlot : FhirDomainResource {
 /**
  * Slot
  *
- * SourceFileName: Slot.kt
- *
  * A slot of time on a schedule that may be available for booking appointments
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Slot">Slot</a>
@@ -114,16 +112,16 @@ interface FhirSlot : FhirDomainResource {
 data class Slot(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("serviceCategory")
     override val serviceCategory: CodeableConcept? = null,
 
     @SerialName("serviceType")
-    override val serviceType: List<CodeableConcept>? = null,
+    override val serviceType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("specialty")
-    override val specialty: List<CodeableConcept>? = null,
+    override val specialty: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("appointmentType")
     override val appointmentType: CodeableConcept? = null,
@@ -152,13 +150,13 @@ data class Slot(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

@@ -49,7 +49,7 @@ interface FhirImagingStudy : FhirDomainResource {
     /**
      * Other identifiers for the study.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * ONLINE | OFFLINE | NEARLINE | UNAVAILABLE.
@@ -59,7 +59,7 @@ interface FhirImagingStudy : FhirDomainResource {
     /**
      * All series modality if actual acquisition modalities.
      */
-    val modalityList: List<Coding>?
+    val modalityList: kotlin.collections.List<Coding>?
 
     /**
      * Who the images are of.
@@ -79,7 +79,7 @@ interface FhirImagingStudy : FhirDomainResource {
     /**
      * Request fulfilled.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Referring physician.
@@ -89,12 +89,12 @@ interface FhirImagingStudy : FhirDomainResource {
     /**
      * Who interpreted images.
      */
-    val interpreter: List<Reference>?
+    val interpreter: kotlin.collections.List<Reference>?
 
     /**
      * Study access endpoint.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 
     /**
      * Number of Study Related Series.
@@ -109,12 +109,12 @@ interface FhirImagingStudy : FhirDomainResource {
     /**
      * The performed Procedure reference.
      */
-    val procedureReference: List<Reference>?
+    val procedureReference: kotlin.collections.List<Reference>?
 
     /**
      * The performed procedure code.
      */
-    val procedureCode: List<CodeableConcept>?
+    val procedureCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why the study was requested.
@@ -129,13 +129,11 @@ interface FhirImagingStudy : FhirDomainResource {
     /**
      * Each study has one or more series of instances.
      */
-    val series: List<ImagingStudySeries>?
+    val series: kotlin.collections.List<ImagingStudySeries>?
 }
 
 /**
  * ImagingStudy
- *
- * SourceFileName: ImagingStudy.kt
  *
  * Representation of the content produced in a DICOM imaging study. A study comprises a set of series,
  * each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data)
@@ -157,13 +155,13 @@ data class ImagingStudy(
     override val accession: Identifier? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("availability")
     override val availability: String? = null,
 
     @SerialName("modalityList")
-    override val modalityList: List<Coding>? = null,
+    override val modalityList: kotlin.collections.List<Coding>? = null,
 
     @SerialName("patient")
     override val patient: Reference,
@@ -175,16 +173,16 @@ data class ImagingStudy(
     override val started: DateTime? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("referrer")
     override val referrer: Reference? = null,
 
     @SerialName("interpreter")
-    override val interpreter: List<Reference>? = null,
+    override val interpreter: kotlin.collections.List<Reference>? = null,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     @SerialName("numberOfSeries")
     override val numberOfSeries: UnsignedInteger? = null,
@@ -193,10 +191,10 @@ data class ImagingStudy(
     override val numberOfInstances: UnsignedInteger? = null,
 
     @SerialName("procedureReference")
-    override val procedureReference: List<Reference>? = null,
+    override val procedureReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("procedureCode")
-    override val procedureCode: List<CodeableConcept>? = null,
+    override val procedureCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reason")
     override val reason: CodeableConcept? = null,
@@ -205,7 +203,7 @@ data class ImagingStudy(
     override val description: String? = null,
 
     @SerialName("series")
-    override val series: List<ImagingStudySeries>? = null,
+    override val series: kotlin.collections.List<ImagingStudySeries>? = null,
 
     // # DomainResource
 
@@ -213,13 +211,13 @@ data class ImagingStudy(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -289,7 +287,7 @@ interface FhirImagingStudySeries : FhirBackboneElement {
     /**
      * Series access endpoint.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 
     /**
      * Body part examined.
@@ -309,18 +307,16 @@ interface FhirImagingStudySeries : FhirBackboneElement {
     /**
      * Who performed the series.
      */
-    val performer: List<Reference>?
+    val performer: kotlin.collections.List<Reference>?
 
     /**
      * A single SOP instance from the series.
      */
-    val instance: List<ImagingStudySeriesInstance>?
+    val instance: kotlin.collections.List<ImagingStudySeriesInstance>?
 }
 
 /**
  * ImagingStudySeries
- *
- * SourceFileName: ImagingStudy.kt
  *
  * Each study has one or more series of images or other content.
  *
@@ -351,7 +347,7 @@ data class ImagingStudySeries(
     override val availability: String? = null,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     @SerialName("bodySite")
     override val bodySite: Coding? = null,
@@ -363,15 +359,15 @@ data class ImagingStudySeries(
     override val started: DateTime? = null,
 
     @SerialName("performer")
-    override val performer: List<Reference>? = null,
+    override val performer: kotlin.collections.List<Reference>? = null,
 
     @SerialName("instance")
-    override val instance: List<ImagingStudySeriesInstance>? = null,
+    override val instance: kotlin.collections.List<ImagingStudySeriesInstance>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -379,7 +375,7 @@ data class ImagingStudySeries(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImagingStudySeries {
 
     override val resourceType: kotlin.String
@@ -426,8 +422,6 @@ interface FhirImagingStudySeriesInstance : FhirBackboneElement {
 /**
  * ImagingStudySeriesInstance
  *
- * SourceFileName: ImagingStudy.kt
- *
  * A single SOP instance within the series, e.g. an image, or presentation state.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ImagingStudy">ImagingStudySeriesInstance</a>
@@ -453,7 +447,7 @@ data class ImagingStudySeriesInstance(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -461,7 +455,7 @@ data class ImagingStudySeriesInstance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImagingStudySeriesInstance {
 
     override val resourceType: kotlin.String

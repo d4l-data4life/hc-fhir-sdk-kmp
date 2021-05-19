@@ -40,17 +40,17 @@ interface FhirMedicationAdministration : FhirDomainResource {
     /**
      * External identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * Part of referenced event.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * Will generally be set to show that the administration has been completed. For
@@ -88,7 +88,7 @@ interface FhirMedicationAdministration : FhirDomainResource {
     /**
      * Additional information to support administration.
      */
-    val supportingInformation: List<Reference>?
+    val supportingInformation: kotlin.collections.List<Reference>?
 
     /**
      * Start and end time of administration.
@@ -103,7 +103,7 @@ interface FhirMedicationAdministration : FhirDomainResource {
     /**
      * Who administered substance.
      */
-    val performer: List<MedicationAdministrationPerformer>?
+    val performer: kotlin.collections.List<MedicationAdministrationPerformer>?
 
     /**
      * True if medication not administered.
@@ -113,17 +113,17 @@ interface FhirMedicationAdministration : FhirDomainResource {
     /**
      * Reason administration not performed.
      */
-    val reasonNotGiven: List<CodeableConcept>?
+    val reasonNotGiven: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Reason administration performed.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Condition or Observation that supports why the medication was administered.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Request administration performed against.
@@ -133,12 +133,12 @@ interface FhirMedicationAdministration : FhirDomainResource {
     /**
      * Device used to administer.
      */
-    val device: List<Reference>?
+    val device: kotlin.collections.List<Reference>?
 
     /**
      * Information about the administration.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Details of how medication was taken.
@@ -148,13 +148,11 @@ interface FhirMedicationAdministration : FhirDomainResource {
     /**
      * A list of events of interest in the lifecycle.
      */
-    val eventHistory: List<Reference>?
+    val eventHistory: kotlin.collections.List<Reference>?
 }
 
 /**
  * MedicationAdministration
- *
- * SourceFileName: MedicationAdministration.kt
  *
  * Describes the event of a patient consuming or otherwise being administered a medication. This may be
  * as simple as swallowing a tablet or it may be a long running infusion. Related resources tie this
@@ -170,13 +168,13 @@ interface FhirMedicationAdministration : FhirDomainResource {
 data class MedicationAdministration(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: MedicationAdministrationStatus,
@@ -197,7 +195,7 @@ data class MedicationAdministration(
     override val context: Reference? = null,
 
     @SerialName("supportingInformation")
-    override val supportingInformation: List<Reference>? = null,
+    override val supportingInformation: kotlin.collections.List<Reference>? = null,
 
     @SerialName("effectiveDateTime")
     override val effectiveDateTime: DateTime? = null,
@@ -206,34 +204,34 @@ data class MedicationAdministration(
     override val effectivePeriod: Period? = null,
 
     @SerialName("performer")
-    override val performer: List<MedicationAdministrationPerformer>? = null,
+    override val performer: kotlin.collections.List<MedicationAdministrationPerformer>? = null,
 
     @SerialName("notGiven")
     override val notGiven: Bool? = null,
 
     @SerialName("reasonNotGiven")
-    override val reasonNotGiven: List<CodeableConcept>? = null,
+    override val reasonNotGiven: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("prescription")
     override val prescription: Reference? = null,
 
     @SerialName("device")
-    override val device: List<Reference>? = null,
+    override val device: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("dosage")
     override val dosage: MedicationAdministrationDosage? = null,
 
     @SerialName("eventHistory")
-    override val eventHistory: List<Reference>? = null,
+    override val eventHistory: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -241,13 +239,13 @@ data class MedicationAdministration(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -323,8 +321,6 @@ interface FhirMedicationAdministrationDosage : FhirBackboneElement {
 /**
  * MedicationAdministrationDosage
  *
- * SourceFileName: MedicationAdministration.kt
- *
  * Describes the medication dosage information details e.g. dose, rate, site, route, etc.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MedicationAdministration">MedicationAdministrationDosage</a>
@@ -359,7 +355,7 @@ data class MedicationAdministrationDosage(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -367,7 +363,7 @@ data class MedicationAdministrationDosage(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationAdministrationDosage {
 
     override val resourceType: kotlin.String
@@ -404,8 +400,6 @@ interface FhirMedicationAdministrationPerformer : FhirBackboneElement {
 /**
  * MedicationAdministrationPerformer
  *
- * SourceFileName: MedicationAdministration.kt
- *
  * The individual who was responsible for giving the medication to the patient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MedicationAdministration">MedicationAdministrationPerformer</a>
@@ -425,7 +419,7 @@ data class MedicationAdministrationPerformer(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -433,7 +427,7 @@ data class MedicationAdministrationPerformer(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationAdministrationPerformer {
 
     override val resourceType: kotlin.String

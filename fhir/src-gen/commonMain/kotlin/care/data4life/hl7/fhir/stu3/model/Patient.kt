@@ -41,7 +41,7 @@ interface FhirPatient : FhirDomainResource {
     /**
      * An identifier for this patient.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this patient's record is in active use.
@@ -51,12 +51,12 @@ interface FhirPatient : FhirDomainResource {
     /**
      * A name associated with the patient.
      */
-    val name: List<HumanName>?
+    val name: kotlin.collections.List<HumanName>?
 
     /**
      * A contact detail for the individual.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Administrative Gender - the gender that the patient is considered to have for
@@ -82,7 +82,7 @@ interface FhirPatient : FhirDomainResource {
     /**
      * Addresses for the individual.
      */
-    val address: List<Address>?
+    val address: kotlin.collections.List<Address>?
 
     /**
      * Marital (civil) status of a patient.
@@ -102,12 +102,12 @@ interface FhirPatient : FhirDomainResource {
     /**
      * Image of the patient.
      */
-    val photo: List<Attachment>?
+    val photo: kotlin.collections.List<Attachment>?
 
     /**
      * A contact party (e.g. guardian, partner, friend) for the patient.
      */
-    val contact: List<PatientContact>?
+    val contact: kotlin.collections.List<PatientContact>?
 
     /**
      * This patient is known to be an animal (non-human).
@@ -118,12 +118,12 @@ interface FhirPatient : FhirDomainResource {
      * A list of Languages which may be used to communicate with the patient about his
      * or her health.
      */
-    val communication: List<PatientCommunication>?
+    val communication: kotlin.collections.List<PatientCommunication>?
 
     /**
      * Patient's nominated primary care provider.
      */
-    val generalPractitioner: List<Reference>?
+    val generalPractitioner: kotlin.collections.List<Reference>?
 
     /**
      * Organization that is the custodian of the patient record.
@@ -133,13 +133,11 @@ interface FhirPatient : FhirDomainResource {
     /**
      * Link to another patient resource that concerns the same actual person.
      */
-    val link: List<PatientLink>?
+    val link: kotlin.collections.List<PatientLink>?
 }
 
 /**
  * Patient
- *
- * SourceFileName: Patient.kt
  *
  * Demographics and other administrative information about an individual or animal receiving care or
  * other health-related services.
@@ -153,16 +151,16 @@ interface FhirPatient : FhirDomainResource {
 data class Patient(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
 
     @SerialName("name")
-    override val name: List<HumanName>? = null,
+    override val name: kotlin.collections.List<HumanName>? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("gender")
     override val gender: AdministrativeGender? = null,
@@ -177,7 +175,7 @@ data class Patient(
     override val deceasedDateTime: DateTime? = null,
 
     @SerialName("address")
-    override val address: List<Address>? = null,
+    override val address: kotlin.collections.List<Address>? = null,
 
     @SerialName("maritalStatus")
     override val maritalStatus: CodeableConcept? = null,
@@ -189,25 +187,25 @@ data class Patient(
     override val multipleBirthInteger: Integer? = null,
 
     @SerialName("photo")
-    override val photo: List<Attachment>? = null,
+    override val photo: kotlin.collections.List<Attachment>? = null,
 
     @SerialName("contact")
-    override val contact: List<PatientContact>? = null,
+    override val contact: kotlin.collections.List<PatientContact>? = null,
 
     @SerialName("animal")
     override val animal: PatientAnimal? = null,
 
     @SerialName("communication")
-    override val communication: List<PatientCommunication>? = null,
+    override val communication: kotlin.collections.List<PatientCommunication>? = null,
 
     @SerialName("generalPractitioner")
-    override val generalPractitioner: List<Reference>? = null,
+    override val generalPractitioner: kotlin.collections.List<Reference>? = null,
 
     @SerialName("managingOrganization")
     override val managingOrganization: Reference? = null,
 
     @SerialName("link")
-    override val link: List<PatientLink>? = null,
+    override val link: kotlin.collections.List<PatientLink>? = null,
 
     // # DomainResource
 
@@ -215,13 +213,13 @@ data class Patient(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -277,8 +275,6 @@ interface FhirPatientAnimal : FhirBackboneElement {
 /**
  * PatientAnimal
  *
- * SourceFileName: Patient.kt
- *
  * This patient is known to be an animal.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientAnimal</a>
@@ -301,7 +297,7 @@ data class PatientAnimal(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -309,7 +305,7 @@ data class PatientAnimal(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPatientAnimal {
 
     override val resourceType: kotlin.String
@@ -347,8 +343,6 @@ interface FhirPatientCommunication : FhirBackboneElement {
 /**
  * PatientCommunication
  *
- * SourceFileName: Patient.kt
- *
  * Languages which may be used to communicate with the patient about his or her health.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientCommunication</a>
@@ -368,7 +362,7 @@ data class PatientCommunication(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -376,7 +370,7 @@ data class PatientCommunication(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPatientCommunication {
 
     override val resourceType: kotlin.String
@@ -402,7 +396,7 @@ interface FhirPatientContact : FhirBackboneElement {
     /**
      * The kind of relationship.
      */
-    val relationship: List<CodeableConcept>?
+    val relationship: kotlin.collections.List<CodeableConcept>?
 
     /**
      * A name associated with the contact person.
@@ -412,7 +406,7 @@ interface FhirPatientContact : FhirBackboneElement {
     /**
      * A contact detail for the person.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Address for the contact person.
@@ -440,8 +434,6 @@ interface FhirPatientContact : FhirBackboneElement {
 /**
  * PatientContact
  *
- * SourceFileName: Patient.kt
- *
  * A contact party (e.g. guardian, partner, friend) for the patient
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientContact</a>
@@ -453,13 +445,13 @@ interface FhirPatientContact : FhirBackboneElement {
 data class PatientContact(
 
     @SerialName("relationship")
-    override val relationship: List<CodeableConcept>? = null,
+    override val relationship: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("name")
     override val name: HumanName? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("address")
     override val address: Address? = null,
@@ -476,7 +468,7 @@ data class PatientContact(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -484,7 +476,7 @@ data class PatientContact(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPatientContact {
 
     override val resourceType: kotlin.String
@@ -521,8 +513,6 @@ interface FhirPatientLink : FhirBackboneElement {
 /**
  * PatientLink
  *
- * SourceFileName: Patient.kt
- *
  * Link to another patient resource that concerns the same actual patient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Patient">PatientLink</a>
@@ -542,7 +532,7 @@ data class PatientLink(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -550,7 +540,7 @@ data class PatientLink(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPatientLink {
 
     override val resourceType: kotlin.String

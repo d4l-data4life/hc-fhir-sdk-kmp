@@ -46,7 +46,7 @@ interface FhirSubscription : FhirDomainResource {
     /**
      * Contact details for source (e.g. troubleshooting).
      */
-    val contact: List<ContactPoint>?
+    val contact: kotlin.collections.List<ContactPoint>?
 
     /**
      * When to automatically delete the subscription.
@@ -76,13 +76,11 @@ interface FhirSubscription : FhirDomainResource {
     /**
      * A tag to add to matching resources.
      */
-    val tag: List<Coding>?
+    val tag: kotlin.collections.List<Coding>?
 }
 
 /**
  * Subscription
- *
- * SourceFileName: Subscription.kt
  *
  * The subscription resource is used to define a push based subscription from a server to another
  * system. Once a subscription is registered with the server, the server checks every resource that is
@@ -101,7 +99,7 @@ data class Subscription(
     override val status: SubscriptionStatus,
 
     @SerialName("contact")
-    override val contact: List<ContactPoint>? = null,
+    override val contact: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("end")
     override val end: Instant? = null,
@@ -119,7 +117,7 @@ data class Subscription(
     override val channel: SubscriptionChannel,
 
     @SerialName("tag")
-    override val tag: List<Coding>? = null,
+    override val tag: kotlin.collections.List<Coding>? = null,
 
     // # DomainResource
 
@@ -127,13 +125,13 @@ data class Subscription(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -188,13 +186,11 @@ interface FhirSubscriptionChannel : FhirBackboneElement {
     /**
      * Usage depends on the channel type.
      */
-    val header: List<String>?
+    val header: kotlin.collections.List<String>?
 }
 
 /**
  * SubscriptionChannel
- *
- * SourceFileName: Subscription.kt
  *
  * Details where to send notifications when resources are received that meet the criteria.
  *
@@ -216,12 +212,12 @@ data class SubscriptionChannel(
     override val payload: String? = null,
 
     @SerialName("header")
-    override val header: List<String>? = null,
+    override val header: kotlin.collections.List<String>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -229,7 +225,7 @@ data class SubscriptionChannel(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSubscriptionChannel {
 
     override val resourceType: kotlin.String

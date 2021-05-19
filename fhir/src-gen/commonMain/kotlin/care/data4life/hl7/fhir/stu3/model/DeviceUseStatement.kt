@@ -37,7 +37,7 @@ interface FhirDeviceUseStatement : FhirDomainResource {
     /**
      * External identifier for this record.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * A code representing the patient or other source's judgment about the state of
@@ -89,7 +89,7 @@ interface FhirDeviceUseStatement : FhirDomainResource {
     /**
      * Why device was used.
      */
-    val indication: List<CodeableConcept>?
+    val indication: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Target body site.
@@ -99,13 +99,11 @@ interface FhirDeviceUseStatement : FhirDomainResource {
     /**
      * Addition details (comments, instructions).
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * DeviceUseStatement
- *
- * SourceFileName: DeviceUseStatement.kt
  *
  * A record of a device being used by a patient where the record is the result of a report from the
  * patient or another clinician.
@@ -119,7 +117,7 @@ interface FhirDeviceUseStatement : FhirDomainResource {
 data class DeviceUseStatement(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: DeviceUseStatementStatus,
@@ -149,13 +147,13 @@ data class DeviceUseStatement(
     override val device: Reference,
 
     @SerialName("indication")
-    override val indication: List<CodeableConcept>? = null,
+    override val indication: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("bodySite")
     override val bodySite: CodeableConcept? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # DomainResource
 
@@ -163,13 +161,13 @@ data class DeviceUseStatement(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

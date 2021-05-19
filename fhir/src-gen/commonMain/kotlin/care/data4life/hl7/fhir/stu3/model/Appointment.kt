@@ -42,7 +42,7 @@ interface FhirAppointment : FhirDomainResource {
     /**
      * External Ids for this item.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The overall status of the Appointment. Each of the participants has their own
@@ -60,13 +60,13 @@ interface FhirAppointment : FhirDomainResource {
     /**
      * The specific service that is to be performed during this appointment.
      */
-    val serviceType: List<CodeableConcept>?
+    val serviceType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The specialty of a practitioner that would be required to perform the service
      * requested in this appointment.
      */
-    val specialty: List<CodeableConcept>?
+    val specialty: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The style of appointment or patient that has been booked in the slot (not
@@ -77,12 +77,12 @@ interface FhirAppointment : FhirDomainResource {
     /**
      * Reason this appointment is scheduled.
      */
-    val reason: List<CodeableConcept>?
+    val reason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Reason the appointment is to takes place (resource).
      */
-    val indication: List<Reference>?
+    val indication: kotlin.collections.List<Reference>?
 
     /**
      * Used to make informed decisions if needing to re-prioritize.
@@ -97,7 +97,7 @@ interface FhirAppointment : FhirDomainResource {
     /**
      * Additional information to support the appointment.
      */
-    val supportingInformation: List<Reference>?
+    val supportingInformation: kotlin.collections.List<Reference>?
 
     /**
      * When appointment is to take place.
@@ -117,7 +117,7 @@ interface FhirAppointment : FhirDomainResource {
     /**
      * The slots that this appointment is filling.
      */
-    val slot: List<Reference>?
+    val slot: kotlin.collections.List<Reference>?
 
     /**
      * The date that this appointment was initially created.
@@ -132,23 +132,21 @@ interface FhirAppointment : FhirDomainResource {
     /**
      * The ReferralRequest provided as information to allocate to the Encounter.
      */
-    val incomingReferral: List<Reference>?
+    val incomingReferral: kotlin.collections.List<Reference>?
 
     /**
      * Participants involved in appointment.
      */
-    val participant: List<AppointmentParticipant>
+    val participant: kotlin.collections.List<AppointmentParticipant>
 
     /**
      * Potential date/time interval(s) requested to allocate the appointment within.
      */
-    val requestedPeriod: List<Period>?
+    val requestedPeriod: kotlin.collections.List<Period>?
 }
 
 /**
  * Appointment
- *
- * SourceFileName: Appointment.kt
  *
  * A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or
  * device(s) for a specific date/time. This may result in one or more Encounter(s)
@@ -162,7 +160,7 @@ interface FhirAppointment : FhirDomainResource {
 data class Appointment(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: AppointmentStatus,
@@ -171,19 +169,19 @@ data class Appointment(
     override val serviceCategory: CodeableConcept? = null,
 
     @SerialName("serviceType")
-    override val serviceType: List<CodeableConcept>? = null,
+    override val serviceType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("specialty")
-    override val specialty: List<CodeableConcept>? = null,
+    override val specialty: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("appointmentType")
     override val appointmentType: CodeableConcept? = null,
 
     @SerialName("reason")
-    override val reason: List<CodeableConcept>? = null,
+    override val reason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("indication")
-    override val indication: List<Reference>? = null,
+    override val indication: kotlin.collections.List<Reference>? = null,
 
     @SerialName("priority")
     override val priority: UnsignedInteger? = null,
@@ -192,7 +190,7 @@ data class Appointment(
     override val description: String? = null,
 
     @SerialName("supportingInformation")
-    override val supportingInformation: List<Reference>? = null,
+    override val supportingInformation: kotlin.collections.List<Reference>? = null,
 
     @SerialName("start")
     override val start: Instant? = null,
@@ -204,7 +202,7 @@ data class Appointment(
     override val minutesDuration: PositiveInteger? = null,
 
     @SerialName("slot")
-    override val slot: List<Reference>? = null,
+    override val slot: kotlin.collections.List<Reference>? = null,
 
     @SerialName("created")
     override val created: DateTime? = null,
@@ -213,13 +211,13 @@ data class Appointment(
     override val comment: String? = null,
 
     @SerialName("incomingReferral")
-    override val incomingReferral: List<Reference>? = null,
+    override val incomingReferral: kotlin.collections.List<Reference>? = null,
 
     @SerialName("participant")
-    override val participant: List<AppointmentParticipant>,
+    override val participant: kotlin.collections.List<AppointmentParticipant>,
 
     @SerialName("requestedPeriod")
-    override val requestedPeriod: List<Period>? = null,
+    override val requestedPeriod: kotlin.collections.List<Period>? = null,
 
     // # DomainResource
 
@@ -227,13 +225,13 @@ data class Appointment(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -273,7 +271,7 @@ interface FhirAppointmentParticipant : FhirBackboneElement {
     /**
      * Role of participant in the appointment.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Person, Location/HealthcareService or Device.
@@ -296,8 +294,6 @@ interface FhirAppointmentParticipant : FhirBackboneElement {
 /**
  * AppointmentParticipant
  *
- * SourceFileName: Appointment.kt
- *
  * List of participants involved in the appointment.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Appointment">AppointmentParticipant</a>
@@ -309,7 +305,7 @@ interface FhirAppointmentParticipant : FhirBackboneElement {
 data class AppointmentParticipant(
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("actor")
     override val actor: Reference? = null,
@@ -323,7 +319,7 @@ data class AppointmentParticipant(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -331,7 +327,7 @@ data class AppointmentParticipant(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAppointmentParticipant {
 
     override val resourceType: kotlin.String

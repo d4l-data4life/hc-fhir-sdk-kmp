@@ -94,12 +94,12 @@ interface FhirGuidanceResponse : FhirDomainResource {
     /**
      * Additional notes about the response.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Messages resulting from the evaluation of the artifact or artifacts.
      */
-    val evaluationMessage: List<Reference>?
+    val evaluationMessage: kotlin.collections.List<Reference>?
 
     /**
      * The output parameters of the evaluation, if any.
@@ -114,13 +114,11 @@ interface FhirGuidanceResponse : FhirDomainResource {
     /**
      * Additional required data.
      */
-    val dataRequirement: List<DataRequirement>?
+    val dataRequirement: kotlin.collections.List<DataRequirement>?
 }
 
 /**
  * GuidanceResponse
- *
- * SourceFileName: GuidanceResponse.kt
  *
  * A guidance response is the formal response to a guidance request, including any output parameters
  * returned by the evaluation, as well as the description of any proposed actions to be taken.
@@ -164,10 +162,10 @@ data class GuidanceResponse(
     override val reasonReference: Reference? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("evaluationMessage")
-    override val evaluationMessage: List<Reference>? = null,
+    override val evaluationMessage: kotlin.collections.List<Reference>? = null,
 
     @SerialName("outputParameters")
     override val outputParameters: Reference? = null,
@@ -176,7 +174,7 @@ data class GuidanceResponse(
     override val result: Reference? = null,
 
     @SerialName("dataRequirement")
-    override val dataRequirement: List<DataRequirement>? = null,
+    override val dataRequirement: kotlin.collections.List<DataRequirement>? = null,
 
     // # DomainResource
 
@@ -184,13 +182,13 @@ data class GuidanceResponse(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

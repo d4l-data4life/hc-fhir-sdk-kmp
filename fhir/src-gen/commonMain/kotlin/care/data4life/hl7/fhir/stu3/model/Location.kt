@@ -38,7 +38,7 @@ interface FhirLocation : FhirDomainResource {
     /**
      * Unique code or number identifying the location to its users.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The status property covers the general availability of the resource, not the
@@ -61,7 +61,7 @@ interface FhirLocation : FhirDomainResource {
      * A list of alternate names that the location is known as, or was known as in the
      * past.
      */
-    val alias: List<String>?
+    val alias: kotlin.collections.List<String>?
 
     /**
      * Additional details about the location that could be displayed as further
@@ -83,7 +83,7 @@ interface FhirLocation : FhirDomainResource {
     /**
      * Contact details of the location.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Physical location.
@@ -113,13 +113,11 @@ interface FhirLocation : FhirDomainResource {
     /**
      * Technical endpoints providing access to services operated for the location.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 }
 
 /**
  * Location
- *
- * SourceFileName: Location.kt
  *
  * Details and position information for a physical place where services are provided and resources and
  * participants may be stored, found, contained or accommodated.
@@ -133,7 +131,7 @@ interface FhirLocation : FhirDomainResource {
 data class Location(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: LocationStatus? = null,
@@ -145,7 +143,7 @@ data class Location(
     override val name: String? = null,
 
     @SerialName("alias")
-    override val alias: List<String>? = null,
+    override val alias: kotlin.collections.List<String>? = null,
 
     @SerialName("description")
     override val description: String? = null,
@@ -157,7 +155,7 @@ data class Location(
     override val type: CodeableConcept? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("address")
     override val address: Address? = null,
@@ -175,7 +173,7 @@ data class Location(
     override val partOf: Reference? = null,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -183,13 +181,13 @@ data class Location(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -246,8 +244,6 @@ interface FhirLocationPosition : FhirBackboneElement {
 /**
  * LocationPosition
  *
- * SourceFileName: Location.kt
- *
  * The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same
  * co-ordinate system used in KML).
  *
@@ -271,7 +267,7 @@ data class LocationPosition(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -279,7 +275,7 @@ data class LocationPosition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirLocationPosition {
 
     override val resourceType: kotlin.String

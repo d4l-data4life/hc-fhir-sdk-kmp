@@ -78,17 +78,17 @@ interface FhirMetadataResource : FhirStu3 {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for metadata resource (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Natural language description of the metadata resource.
@@ -98,8 +98,6 @@ interface FhirMetadataResource : FhirStu3 {
 
 /**
  * MetadataResource
- *
- * SourceFileName: MetadataResource.kt
  *
  * Common Ancestor declaration for conformance and knowledge artifact resources.
  *
@@ -136,13 +134,13 @@ data class MetadataResource(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("description")
     override val description: String? = null

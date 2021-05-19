@@ -88,7 +88,7 @@ interface FhirMessageDefinition : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the message definition.
@@ -98,12 +98,12 @@ interface FhirMessageDefinition : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for message definition (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this message definition is defined.
@@ -123,12 +123,12 @@ interface FhirMessageDefinition : FhirDomainResource {
     /**
      * Protocol/workflow this is part of.
      */
-    val parent: List<Reference>?
+    val parent: kotlin.collections.List<Reference>?
 
     /**
      * Takes the place of.
      */
-    val replaces: List<Reference>?
+    val replaces: kotlin.collections.List<Reference>?
 
     /**
      * Event type.
@@ -143,7 +143,7 @@ interface FhirMessageDefinition : FhirDomainResource {
     /**
      * Resource(s) that are the subject of the event.
      */
-    val focus: List<MessageDefinitionFocus>?
+    val focus: kotlin.collections.List<MessageDefinitionFocus>?
 
     /**
      * Is a response required?.
@@ -153,13 +153,11 @@ interface FhirMessageDefinition : FhirDomainResource {
     /**
      * Responses to this message.
      */
-    val allowedResponse: List<MessageDefinitionAllowedResponse>?
+    val allowedResponse: kotlin.collections.List<MessageDefinitionAllowedResponse>?
 }
 
 /**
  * MessageDefinition
- *
- * SourceFileName: MessageDefinition.kt
  *
  * Defines the characteristics of a message that can be shared between systems, including the type of
  * event that initiates the message, the content to be transmitted and what response(s), if any, are
@@ -201,16 +199,16 @@ data class MessageDefinition(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -222,10 +220,10 @@ data class MessageDefinition(
     override val base: Reference? = null,
 
     @SerialName("parent")
-    override val parent: List<Reference>? = null,
+    override val parent: kotlin.collections.List<Reference>? = null,
 
     @SerialName("replaces")
-    override val replaces: List<Reference>? = null,
+    override val replaces: kotlin.collections.List<Reference>? = null,
 
     @SerialName("event")
     override val event: Coding,
@@ -234,13 +232,13 @@ data class MessageDefinition(
     override val category: MessageSignificanceCategory? = null,
 
     @SerialName("focus")
-    override val focus: List<MessageDefinitionFocus>? = null,
+    override val focus: kotlin.collections.List<MessageDefinitionFocus>? = null,
 
     @SerialName("responseRequired")
     override val responseRequired: Bool? = null,
 
     @SerialName("allowedResponse")
-    override val allowedResponse: List<MessageDefinitionAllowedResponse>? = null,
+    override val allowedResponse: kotlin.collections.List<MessageDefinitionAllowedResponse>? = null,
 
     // # DomainResource
 
@@ -248,13 +246,13 @@ data class MessageDefinition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -305,8 +303,6 @@ interface FhirMessageDefinitionAllowedResponse : FhirBackboneElement {
 /**
  * MessageDefinitionAllowedResponse
  *
- * SourceFileName: MessageDefinition.kt
- *
  * Indicates what types of messages may be sent as an application-level response to this message.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MessageDefinition">MessageDefinitionAllowedResponse</a>
@@ -326,7 +322,7 @@ data class MessageDefinitionAllowedResponse(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -334,7 +330,7 @@ data class MessageDefinitionAllowedResponse(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMessageDefinitionAllowedResponse {
 
     override val resourceType: kotlin.String
@@ -382,8 +378,6 @@ interface FhirMessageDefinitionFocus : FhirBackboneElement {
 /**
  * MessageDefinitionFocus
  *
- * SourceFileName: MessageDefinition.kt
- *
  * Identifies the resource (or resources) that are being addressed by the event. For example, the
  * Encounter for an admit message or two Account records for a merge.
  *
@@ -410,7 +404,7 @@ data class MessageDefinitionFocus(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -418,7 +412,7 @@ data class MessageDefinitionFocus(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMessageDefinitionFocus {
 
     override val resourceType: kotlin.String

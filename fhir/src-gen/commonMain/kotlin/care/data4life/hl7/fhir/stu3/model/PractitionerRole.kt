@@ -38,7 +38,7 @@ interface FhirPractitionerRole : FhirDomainResource {
     /**
      * Business Identifiers that are specific to a role/location.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this practitioner's record is in active use.
@@ -64,38 +64,38 @@ interface FhirPractitionerRole : FhirDomainResource {
     /**
      * Roles which this practitioner may perform.
      */
-    val code: List<CodeableConcept>?
+    val code: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Specific specialty of the practitioner.
      */
-    val specialty: List<CodeableConcept>?
+    val specialty: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The location(s) at which this practitioner provides care.
      */
-    val location: List<Reference>?
+    val location: kotlin.collections.List<Reference>?
 
     /**
      * The list of healthcare services that this worker provides for this role's
      * Organization/Location(s).
      */
-    val healthcareService: List<Reference>?
+    val healthcareService: kotlin.collections.List<Reference>?
 
     /**
      * Contact details that are specific to the role/location/service.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Times the Service Site is available.
      */
-    val availableTime: List<PractitionerRoleAvailableTime>?
+    val availableTime: kotlin.collections.List<PractitionerRoleAvailableTime>?
 
     /**
      * Not available during this time due to provided reason.
      */
-    val notAvailable: List<PractitionerRoleNotAvailable>?
+    val notAvailable: kotlin.collections.List<PractitionerRoleNotAvailable>?
 
     /**
      * Description of availability exceptions.
@@ -106,13 +106,11 @@ interface FhirPractitionerRole : FhirDomainResource {
      * Technical endpoints providing access to services operated for the practitioner
      * with this role.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 }
 
 /**
  * PractitionerRole
- *
- * SourceFileName: PractitionerRole.kt
  *
  * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an
  * organization for a period of time.
@@ -126,7 +124,7 @@ interface FhirPractitionerRole : FhirDomainResource {
 data class PractitionerRole(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
@@ -141,31 +139,31 @@ data class PractitionerRole(
     override val organization: Reference? = null,
 
     @SerialName("code")
-    override val code: List<CodeableConcept>? = null,
+    override val code: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("specialty")
-    override val specialty: List<CodeableConcept>? = null,
+    override val specialty: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("location")
-    override val location: List<Reference>? = null,
+    override val location: kotlin.collections.List<Reference>? = null,
 
     @SerialName("healthcareService")
-    override val healthcareService: List<Reference>? = null,
+    override val healthcareService: kotlin.collections.List<Reference>? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("availableTime")
-    override val availableTime: List<PractitionerRoleAvailableTime>? = null,
+    override val availableTime: kotlin.collections.List<PractitionerRoleAvailableTime>? = null,
 
     @SerialName("notAvailable")
-    override val notAvailable: List<PractitionerRoleNotAvailable>? = null,
+    override val notAvailable: kotlin.collections.List<PractitionerRoleNotAvailable>? = null,
 
     @SerialName("availabilityExceptions")
     override val availabilityExceptions: String? = null,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -173,13 +171,13 @@ data class PractitionerRole(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -219,7 +217,7 @@ interface FhirPractitionerRoleAvailableTime : FhirBackboneElement {
     /**
      * Indicates which days of the week are available between the start and end Times.
      */
-    val daysOfWeek: List<DaysOfWeek>?
+    val daysOfWeek: kotlin.collections.List<DaysOfWeek>?
 
     /**
      * Always available? e.g. 24 hour service.
@@ -240,8 +238,6 @@ interface FhirPractitionerRoleAvailableTime : FhirBackboneElement {
 /**
  * PractitionerRoleAvailableTime
  *
- * SourceFileName: PractitionerRole.kt
- *
  * A collection of times that the Service Site is available.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PractitionerRole">PractitionerRoleAvailableTime</a>
@@ -253,7 +249,7 @@ interface FhirPractitionerRoleAvailableTime : FhirBackboneElement {
 data class PractitionerRoleAvailableTime(
 
     @SerialName("daysOfWeek")
-    override val daysOfWeek: List<DaysOfWeek>? = null,
+    override val daysOfWeek: kotlin.collections.List<DaysOfWeek>? = null,
 
     @SerialName("allDay")
     override val allDay: Bool? = null,
@@ -267,7 +263,7 @@ data class PractitionerRoleAvailableTime(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -275,7 +271,7 @@ data class PractitionerRoleAvailableTime(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPractitionerRoleAvailableTime {
 
     override val resourceType: kotlin.String
@@ -312,8 +308,6 @@ interface FhirPractitionerRoleNotAvailable : FhirBackboneElement {
 /**
  * PractitionerRoleNotAvailable
  *
- * SourceFileName: PractitionerRole.kt
- *
  * The HealthcareService is not available during this period of time due to the provided reason.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PractitionerRole">PractitionerRoleNotAvailable</a>
@@ -333,7 +327,7 @@ data class PractitionerRoleNotAvailable(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -341,7 +335,7 @@ data class PractitionerRoleNotAvailable(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPractitionerRoleNotAvailable {
 
     override val resourceType: kotlin.String

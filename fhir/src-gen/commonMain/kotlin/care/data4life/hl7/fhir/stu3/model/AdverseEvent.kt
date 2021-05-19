@@ -65,7 +65,7 @@ interface FhirAdverseEvent : FhirDomainResource {
     /**
      * Adverse Reaction Events linked to exposure to substance.
      */
-    val reaction: List<Reference>?
+    val reaction: kotlin.collections.List<Reference>?
 
     /**
      * Location where adverse event occurred.
@@ -100,28 +100,26 @@ interface FhirAdverseEvent : FhirDomainResource {
     /**
      * The suspected agent causing the adverse event.
      */
-    val suspectEntity: List<AdverseEventSuspectEntity>?
+    val suspectEntity: kotlin.collections.List<AdverseEventSuspectEntity>?
 
     /**
      * AdverseEvent.subjectMedicalHistory.
      */
-    val subjectMedicalHistory: List<Reference>?
+    val subjectMedicalHistory: kotlin.collections.List<Reference>?
 
     /**
      * AdverseEvent.referenceDocument.
      */
-    val referenceDocument: List<Reference>?
+    val referenceDocument: kotlin.collections.List<Reference>?
 
     /**
      * AdverseEvent.study.
      */
-    val study: List<Reference>?
+    val study: kotlin.collections.List<Reference>?
 }
 
 /**
  * AdverseEvent
- *
- * SourceFileName: AdverseEvent.kt
  *
  * Actual or potential/avoided event causing unintended physical injury resulting from or contributed
  * to by medical care, a research study or other healthcare setting factors that requires additional
@@ -151,7 +149,7 @@ data class AdverseEvent(
     override val date: DateTime? = null,
 
     @SerialName("reaction")
-    override val reaction: List<Reference>? = null,
+    override val reaction: kotlin.collections.List<Reference>? = null,
 
     @SerialName("location")
     override val location: Reference? = null,
@@ -172,16 +170,16 @@ data class AdverseEvent(
     override val description: String? = null,
 
     @SerialName("suspectEntity")
-    override val suspectEntity: List<AdverseEventSuspectEntity>? = null,
+    override val suspectEntity: kotlin.collections.List<AdverseEventSuspectEntity>? = null,
 
     @SerialName("subjectMedicalHistory")
-    override val subjectMedicalHistory: List<Reference>? = null,
+    override val subjectMedicalHistory: kotlin.collections.List<Reference>? = null,
 
     @SerialName("referenceDocument")
-    override val referenceDocument: List<Reference>? = null,
+    override val referenceDocument: kotlin.collections.List<Reference>? = null,
 
     @SerialName("study")
-    override val study: List<Reference>? = null,
+    override val study: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -189,13 +187,13 @@ data class AdverseEvent(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -271,8 +269,6 @@ interface FhirAdverseEventSuspectEntity : FhirBackboneElement {
 /**
  * AdverseEventSuspectEntity
  *
- * SourceFileName: AdverseEvent.kt
- *
  * Describes the entity that is suspected to have caused the adverse event.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/AdverseEvent">AdverseEventSuspectEntity</a>
@@ -307,7 +303,7 @@ data class AdverseEventSuspectEntity(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -315,7 +311,7 @@ data class AdverseEventSuspectEntity(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAdverseEventSuspectEntity {
 
     override val resourceType: kotlin.String

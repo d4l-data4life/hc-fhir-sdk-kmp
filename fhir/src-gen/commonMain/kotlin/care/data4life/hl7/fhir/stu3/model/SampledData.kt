@@ -73,8 +73,6 @@ interface FhirSampledData : FhirElement {
 /**
  * SampledData
  *
- * SourceFileName: SampledData.kt
- *
  * A series of measurements taken by a device, with upper and lower limits. There may be more than one
  * dimension in the data.
  *
@@ -113,7 +111,7 @@ data class SampledData(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSampledData {
 
     override val resourceType: kotlin.String

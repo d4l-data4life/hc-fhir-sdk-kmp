@@ -79,7 +79,7 @@ interface FhirComposition : FhirDomainResource {
     /**
      * Who and/or what authored the composition.
      */
-    val author: List<Reference>
+    val author: kotlin.collections.List<Reference>
 
     /**
      * Human Readable name/title.
@@ -94,7 +94,7 @@ interface FhirComposition : FhirDomainResource {
     /**
      * Attests to accuracy of composition.
      */
-    val attester: List<CompositionAttester>?
+    val attester: kotlin.collections.List<CompositionAttester>?
 
     /**
      * Organization which maintains the composition.
@@ -104,23 +104,21 @@ interface FhirComposition : FhirDomainResource {
     /**
      * Relationships to other compositions/documents.
      */
-    val relatesTo: List<CompositionRelatesTo>?
+    val relatesTo: kotlin.collections.List<CompositionRelatesTo>?
 
     /**
      * The clinical service(s) being documented.
      */
-    val event: List<CompositionEvent>?
+    val event: kotlin.collections.List<CompositionEvent>?
 
     /**
      * Composition is broken into sections.
      */
-    val section: List<CompositionSection>?
+    val section: kotlin.collections.List<CompositionSection>?
 }
 
 /**
  * Composition
- *
- * SourceFileName: Composition.kt
  *
  * A set of healthcare-related information that is assembled together into a single logical document
  * that provides a single coherent statement of meaning, establishes its own context and that has
@@ -158,7 +156,7 @@ data class Composition(
     override val date: DateTime,
 
     @SerialName("author")
-    override val author: List<Reference>,
+    override val author: kotlin.collections.List<Reference>,
 
     @SerialName("title")
     override val title: String,
@@ -167,19 +165,19 @@ data class Composition(
     override val confidentiality: String? = null,
 
     @SerialName("attester")
-    override val attester: List<CompositionAttester>? = null,
+    override val attester: kotlin.collections.List<CompositionAttester>? = null,
 
     @SerialName("custodian")
     override val custodian: Reference? = null,
 
     @SerialName("relatesTo")
-    override val relatesTo: List<CompositionRelatesTo>? = null,
+    override val relatesTo: kotlin.collections.List<CompositionRelatesTo>? = null,
 
     @SerialName("event")
-    override val event: List<CompositionEvent>? = null,
+    override val event: kotlin.collections.List<CompositionEvent>? = null,
 
     @SerialName("section")
-    override val section: List<CompositionSection>? = null,
+    override val section: kotlin.collections.List<CompositionSection>? = null,
 
     // # DomainResource
 
@@ -187,13 +185,13 @@ data class Composition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -233,7 +231,7 @@ interface FhirCompositionAttester : FhirBackboneElement {
     /**
      * The type of attestation the authenticator offers.
      */
-    val mode: List<CompositionAttestationMode>
+    val mode: kotlin.collections.List<CompositionAttestationMode>
 
     /**
      * When the composition was attested.
@@ -249,8 +247,6 @@ interface FhirCompositionAttester : FhirBackboneElement {
 /**
  * CompositionAttester
  *
- * SourceFileName: Composition.kt
- *
  * A participant who has attested to the accuracy of the composition/document.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Composition">CompositionAttester</a>
@@ -262,7 +258,7 @@ interface FhirCompositionAttester : FhirBackboneElement {
 data class CompositionAttester(
 
     @SerialName("mode")
-    override val mode: List<CompositionAttestationMode>,
+    override val mode: kotlin.collections.List<CompositionAttestationMode>,
 
     @SerialName("time")
     override val time: DateTime? = null,
@@ -273,7 +269,7 @@ data class CompositionAttester(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -281,7 +277,7 @@ data class CompositionAttester(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCompositionAttester {
 
     override val resourceType: kotlin.String
@@ -307,7 +303,7 @@ interface FhirCompositionEvent : FhirBackboneElement {
     /**
      * Code(s) that apply to the event being documented.
      */
-    val code: List<CodeableConcept>?
+    val code: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The period covered by the documentation.
@@ -317,13 +313,11 @@ interface FhirCompositionEvent : FhirBackboneElement {
     /**
      * The event(s) being documented.
      */
-    val detail: List<Reference>?
+    val detail: kotlin.collections.List<Reference>?
 }
 
 /**
  * CompositionEvent
- *
- * SourceFileName: Composition.kt
  *
  * The clinical service, such as a colonoscopy or an appendectomy, being documented.
  *
@@ -336,18 +330,18 @@ interface FhirCompositionEvent : FhirBackboneElement {
 data class CompositionEvent(
 
     @SerialName("code")
-    override val code: List<CodeableConcept>? = null,
+    override val code: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
 
     @SerialName("detail")
-    override val detail: List<Reference>? = null,
+    override val detail: kotlin.collections.List<Reference>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -355,7 +349,7 @@ data class CompositionEvent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCompositionEvent {
 
     override val resourceType: kotlin.String
@@ -398,8 +392,6 @@ interface FhirCompositionRelatesTo : FhirBackboneElement {
 /**
  * CompositionRelatesTo
  *
- * SourceFileName: Composition.kt
- *
  * Relationships that this composition has with other compositions or documents that already exist.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Composition">CompositionRelatesTo</a>
@@ -422,7 +414,7 @@ data class CompositionRelatesTo(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -430,7 +422,7 @@ data class CompositionRelatesTo(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCompositionRelatesTo {
 
     override val resourceType: kotlin.String
@@ -484,7 +476,7 @@ interface FhirCompositionSection : FhirBackboneElement {
     /**
      * A reference to data that supports this section.
      */
-    val entry: List<Reference>?
+    val entry: kotlin.collections.List<Reference>?
 
     /**
      * Why the section is empty.
@@ -494,13 +486,11 @@ interface FhirCompositionSection : FhirBackboneElement {
     /**
      * Nested Section.
      */
-    val section: List<CompositionSection>?
+    val section: kotlin.collections.List<CompositionSection>?
 }
 
 /**
  * CompositionSection
- *
- * SourceFileName: Composition.kt
  *
  * The root of the sections that make up the composition.
  *
@@ -528,18 +518,18 @@ data class CompositionSection(
     override val orderedBy: CodeableConcept? = null,
 
     @SerialName("entry")
-    override val entry: List<Reference>? = null,
+    override val entry: kotlin.collections.List<Reference>? = null,
 
     @SerialName("emptyReason")
     override val emptyReason: CodeableConcept? = null,
 
     @SerialName("section")
-    override val section: List<CompositionSection>? = null,
+    override val section: kotlin.collections.List<CompositionSection>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -547,7 +537,7 @@ data class CompositionSection(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCompositionSection {
 
     override val resourceType: kotlin.String

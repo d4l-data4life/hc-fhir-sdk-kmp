@@ -38,7 +38,7 @@ interface FhirEncounter : FhirDomainResource {
     /**
      * Identifier(s) by which this encounter is known.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * None
@@ -48,7 +48,7 @@ interface FhirEncounter : FhirDomainResource {
     /**
      * List of past encounter statuses.
      */
-    val statusHistory: List<EncounterStatusHistory>?
+    val statusHistory: kotlin.collections.List<EncounterStatusHistory>?
 
     /**
      * inpatient | outpatient | ambulatory | emergency +.
@@ -58,12 +58,12 @@ interface FhirEncounter : FhirDomainResource {
     /**
      * List of past encounter classes.
      */
-    val classHistory: List<EncounterClassHistory>?
+    val classHistory: kotlin.collections.List<EncounterClassHistory>?
 
     /**
      * Specific type of encounter.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Indicates the urgency of the encounter.
@@ -78,17 +78,17 @@ interface FhirEncounter : FhirDomainResource {
     /**
      * Episode(s) of care that this encounter should be recorded against.
      */
-    val episodeOfCare: List<Reference>?
+    val episodeOfCare: kotlin.collections.List<Reference>?
 
     /**
      * The ReferralRequest that initiated this encounter.
      */
-    val incomingReferral: List<Reference>?
+    val incomingReferral: kotlin.collections.List<Reference>?
 
     /**
      * List of participants involved in the encounter.
      */
-    val participant: List<EncounterParticipant>?
+    val participant: kotlin.collections.List<EncounterParticipant>?
 
     /**
      * The appointment that scheduled this encounter.
@@ -108,17 +108,17 @@ interface FhirEncounter : FhirDomainResource {
     /**
      * Reason the encounter takes place (code).
      */
-    val reason: List<CodeableConcept>?
+    val reason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The list of diagnosis relevant to this encounter.
      */
-    val diagnosis: List<EncounterDiagnosis>?
+    val diagnosis: kotlin.collections.List<EncounterDiagnosis>?
 
     /**
      * The set of accounts that may be used for billing for this Encounter.
      */
-    val account: List<Reference>?
+    val account: kotlin.collections.List<Reference>?
 
     /**
      * Details about the admission to a healthcare service.
@@ -128,7 +128,7 @@ interface FhirEncounter : FhirDomainResource {
     /**
      * List of locations where the patient has been.
      */
-    val location: List<EncounterLocation>?
+    val location: kotlin.collections.List<EncounterLocation>?
 
     /**
      * The custodian organization of this Encounter record.
@@ -144,8 +144,6 @@ interface FhirEncounter : FhirDomainResource {
 /**
  * Encounter
  *
- * SourceFileName: Encounter.kt
- *
  * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare
  * service(s) or assessing the health status of a patient.
  *
@@ -158,22 +156,22 @@ interface FhirEncounter : FhirDomainResource {
 data class Encounter(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: EncounterStatus,
 
     @SerialName("statusHistory")
-    override val statusHistory: List<EncounterStatusHistory>? = null,
+    override val statusHistory: kotlin.collections.List<EncounterStatusHistory>? = null,
 
     @SerialName("class")
     override val clazz: Coding? = null,
 
     @SerialName("classHistory")
-    override val classHistory: List<EncounterClassHistory>? = null,
+    override val classHistory: kotlin.collections.List<EncounterClassHistory>? = null,
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("priority")
     override val priority: CodeableConcept? = null,
@@ -182,13 +180,13 @@ data class Encounter(
     override val subject: Reference? = null,
 
     @SerialName("episodeOfCare")
-    override val episodeOfCare: List<Reference>? = null,
+    override val episodeOfCare: kotlin.collections.List<Reference>? = null,
 
     @SerialName("incomingReferral")
-    override val incomingReferral: List<Reference>? = null,
+    override val incomingReferral: kotlin.collections.List<Reference>? = null,
 
     @SerialName("participant")
-    override val participant: List<EncounterParticipant>? = null,
+    override val participant: kotlin.collections.List<EncounterParticipant>? = null,
 
     @SerialName("appointment")
     override val appointment: Reference? = null,
@@ -200,19 +198,19 @@ data class Encounter(
     override val length: Duration? = null,
 
     @SerialName("reason")
-    override val reason: List<CodeableConcept>? = null,
+    override val reason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("diagnosis")
-    override val diagnosis: List<EncounterDiagnosis>? = null,
+    override val diagnosis: kotlin.collections.List<EncounterDiagnosis>? = null,
 
     @SerialName("account")
-    override val account: List<Reference>? = null,
+    override val account: kotlin.collections.List<Reference>? = null,
 
     @SerialName("hospitalization")
     override val hospitalization: EncounterHospitalization? = null,
 
     @SerialName("location")
-    override val location: List<EncounterLocation>? = null,
+    override val location: kotlin.collections.List<EncounterLocation>? = null,
 
     @SerialName("serviceProvider")
     override val serviceProvider: Reference? = null,
@@ -226,13 +224,13 @@ data class Encounter(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -287,8 +285,6 @@ interface FhirEncounterClassHistory : FhirBackboneElement {
 /**
  * EncounterClassHistory
  *
- * SourceFileName: Encounter.kt
- *
  * The class history permits the tracking of the encounters transitions without needing to go through
  * the resource history.  This would be used for a case where an admission starts of as an emergency
  * encounter, then transisions into an inpatient scenario. Doing this and not restarting a new
@@ -312,7 +308,7 @@ data class EncounterClassHistory(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -320,7 +316,7 @@ data class EncounterClassHistory(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEncounterClassHistory {
 
     override val resourceType: kotlin.String
@@ -363,8 +359,6 @@ interface FhirEncounterDiagnosis : FhirBackboneElement {
 /**
  * EncounterDiagnosis
  *
- * SourceFileName: Encounter.kt
- *
  * The list of diagnosis relevant to this encounter
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Encounter">EncounterDiagnosis</a>
@@ -387,7 +381,7 @@ data class EncounterDiagnosis(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -395,7 +389,7 @@ data class EncounterDiagnosis(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEncounterDiagnosis {
 
     override val resourceType: kotlin.String
@@ -442,17 +436,17 @@ interface FhirEncounterHospitalization : FhirBackboneElement {
     /**
      * Diet preferences reported by the patient.
      */
-    val dietPreference: List<CodeableConcept>?
+    val dietPreference: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Special courtesies (VIP, board member).
      */
-    val specialCourtesy: List<CodeableConcept>?
+    val specialCourtesy: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Wheelchair, translator, stretcher, etc..
      */
-    val specialArrangement: List<CodeableConcept>?
+    val specialArrangement: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Location to which the patient is discharged.
@@ -467,8 +461,6 @@ interface FhirEncounterHospitalization : FhirBackboneElement {
 
 /**
  * EncounterHospitalization
- *
- * SourceFileName: Encounter.kt
  *
  * Details about the admission to a healthcare service
  *
@@ -493,13 +485,13 @@ data class EncounterHospitalization(
     override val reAdmission: CodeableConcept? = null,
 
     @SerialName("dietPreference")
-    override val dietPreference: List<CodeableConcept>? = null,
+    override val dietPreference: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("specialCourtesy")
-    override val specialCourtesy: List<CodeableConcept>? = null,
+    override val specialCourtesy: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("specialArrangement")
-    override val specialArrangement: List<CodeableConcept>? = null,
+    override val specialArrangement: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("destination")
     override val destination: Reference? = null,
@@ -510,7 +502,7 @@ data class EncounterHospitalization(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -518,7 +510,7 @@ data class EncounterHospitalization(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEncounterHospitalization {
 
     override val resourceType: kotlin.String
@@ -562,8 +554,6 @@ interface FhirEncounterLocation : FhirBackboneElement {
 /**
  * EncounterLocation
  *
- * SourceFileName: Encounter.kt
- *
  * List of locations where the patient has been during this encounter.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Encounter">EncounterLocation</a>
@@ -586,7 +576,7 @@ data class EncounterLocation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -594,7 +584,7 @@ data class EncounterLocation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEncounterLocation {
 
     override val resourceType: kotlin.String
@@ -620,7 +610,7 @@ interface FhirEncounterParticipant : FhirBackboneElement {
     /**
      * Role of participant in encounter.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Period of time during the encounter that the participant participated.
@@ -636,8 +626,6 @@ interface FhirEncounterParticipant : FhirBackboneElement {
 /**
  * EncounterParticipant
  *
- * SourceFileName: Encounter.kt
- *
  * The list of people responsible for providing the service.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Encounter">EncounterParticipant</a>
@@ -649,7 +637,7 @@ interface FhirEncounterParticipant : FhirBackboneElement {
 data class EncounterParticipant(
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
@@ -660,7 +648,7 @@ data class EncounterParticipant(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -668,7 +656,7 @@ data class EncounterParticipant(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEncounterParticipant {
 
     override val resourceType: kotlin.String
@@ -706,8 +694,6 @@ interface FhirEncounterStatusHistory : FhirBackboneElement {
 /**
  * EncounterStatusHistory
  *
- * SourceFileName: Encounter.kt
- *
  * The status history permits the encounter resource to contain the status history without needing to
  * read through the historical versions of the resource, or even have the server store them.
  *
@@ -728,7 +714,7 @@ data class EncounterStatusHistory(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -736,7 +722,7 @@ data class EncounterStatusHistory(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEncounterStatusHistory {
 
     override val resourceType: kotlin.String

@@ -36,7 +36,7 @@ interface FhirPaymentReconciliation : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -86,7 +86,7 @@ interface FhirPaymentReconciliation : FhirDomainResource {
     /**
      * List of settlements.
      */
-    val detail: List<PaymentReconciliationDetail>?
+    val detail: kotlin.collections.List<PaymentReconciliationDetail>?
 
     /**
      * Printed Form Identifier.
@@ -101,13 +101,11 @@ interface FhirPaymentReconciliation : FhirDomainResource {
     /**
      * Processing comments.
      */
-    val processNote: List<PaymentReconciliationProcessNote>?
+    val processNote: kotlin.collections.List<PaymentReconciliationProcessNote>?
 }
 
 /**
  * PaymentReconciliation
- *
- * SourceFileName: PaymentReconciliation.kt
  *
  * This resource provides payment details and claim references supporting a bulk payment.
  *
@@ -120,7 +118,7 @@ interface FhirPaymentReconciliation : FhirDomainResource {
 data class PaymentReconciliation(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -150,7 +148,7 @@ data class PaymentReconciliation(
     override val requestOrganization: Reference? = null,
 
     @SerialName("detail")
-    override val detail: List<PaymentReconciliationDetail>? = null,
+    override val detail: kotlin.collections.List<PaymentReconciliationDetail>? = null,
 
     @SerialName("form")
     override val form: CodeableConcept? = null,
@@ -159,7 +157,7 @@ data class PaymentReconciliation(
     override val total: Money? = null,
 
     @SerialName("processNote")
-    override val processNote: List<PaymentReconciliationProcessNote>? = null,
+    override val processNote: kotlin.collections.List<PaymentReconciliationProcessNote>? = null,
 
     // # DomainResource
 
@@ -167,13 +165,13 @@ data class PaymentReconciliation(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -249,8 +247,6 @@ interface FhirPaymentReconciliationDetail : FhirBackboneElement {
 /**
  * PaymentReconciliationDetail
  *
- * SourceFileName: PaymentReconciliation.kt
- *
  * List of individual settlement amounts and the corresponding transaction.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PaymentReconciliation">PaymentReconciliationDetail</a>
@@ -285,7 +281,7 @@ data class PaymentReconciliationDetail(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -293,7 +289,7 @@ data class PaymentReconciliationDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPaymentReconciliationDetail {
 
     override val resourceType: kotlin.String
@@ -330,8 +326,6 @@ interface FhirPaymentReconciliationProcessNote : FhirBackboneElement {
 /**
  * PaymentReconciliationProcessNote
  *
- * SourceFileName: PaymentReconciliation.kt
- *
  * Suite of notes.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PaymentReconciliation">PaymentReconciliationProcessNote</a>
@@ -351,7 +345,7 @@ data class PaymentReconciliationProcessNote(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -359,7 +353,7 @@ data class PaymentReconciliationProcessNote(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPaymentReconciliationProcessNote {
 
     override val resourceType: kotlin.String

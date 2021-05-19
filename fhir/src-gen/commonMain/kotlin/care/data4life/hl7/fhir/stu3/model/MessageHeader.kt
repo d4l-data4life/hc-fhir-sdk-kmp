@@ -44,7 +44,7 @@ interface FhirMessageHeader : FhirDomainResource {
     /**
      * Message destination application(s).
      */
-    val destination: List<MessageHeaderDestination>?
+    val destination: kotlin.collections.List<MessageHeaderDestination>?
 
     /**
      * Intended "real-world" recipient for the data.
@@ -94,13 +94,11 @@ interface FhirMessageHeader : FhirDomainResource {
     /**
      * The actual content of the message.
      */
-    val focus: List<Reference>?
+    val focus: kotlin.collections.List<Reference>?
 }
 
 /**
  * MessageHeader
- *
- * SourceFileName: MessageHeader.kt
  *
  * The header for a message exchange that is either requesting or responding to an action. The
  * reference(s) that are the subject of the action as well as other information related to the action
@@ -119,7 +117,7 @@ data class MessageHeader(
     override val event: Coding,
 
     @SerialName("destination")
-    override val destination: List<MessageHeaderDestination>? = null,
+    override val destination: kotlin.collections.List<MessageHeaderDestination>? = null,
 
     @SerialName("receiver")
     override val receiver: Reference? = null,
@@ -149,7 +147,7 @@ data class MessageHeader(
     override val response: MessageHeaderResponse? = null,
 
     @SerialName("focus")
-    override val focus: List<Reference>? = null,
+    override val focus: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -157,13 +155,13 @@ data class MessageHeader(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -219,8 +217,6 @@ interface FhirMessageHeaderDestination : FhirBackboneElement {
 /**
  * MessageHeaderDestination
  *
- * SourceFileName: MessageHeader.kt
- *
  * The destination application which the message is intended for.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MessageHeader">MessageHeaderDestination</a>
@@ -243,7 +239,7 @@ data class MessageHeaderDestination(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -251,7 +247,7 @@ data class MessageHeaderDestination(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMessageHeaderDestination {
 
     override val resourceType: kotlin.String
@@ -295,8 +291,6 @@ interface FhirMessageHeaderResponse : FhirBackboneElement {
 /**
  * MessageHeaderResponse
  *
- * SourceFileName: MessageHeader.kt
- *
  * Information about the message that this message is a response to. Only present if this message is a
  * response.
  *
@@ -320,7 +314,7 @@ data class MessageHeaderResponse(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -328,7 +322,7 @@ data class MessageHeaderResponse(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMessageHeaderResponse {
 
     override val resourceType: kotlin.String
@@ -380,8 +374,6 @@ interface FhirMessageHeaderSource : FhirBackboneElement {
 /**
  * MessageHeaderSource
  *
- * SourceFileName: MessageHeader.kt
- *
  * The source application from which this message originated.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/MessageHeader">MessageHeaderSource</a>
@@ -410,7 +402,7 @@ data class MessageHeaderSource(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -418,7 +410,7 @@ data class MessageHeaderSource(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMessageHeaderSource {
 
     override val resourceType: kotlin.String

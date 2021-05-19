@@ -43,17 +43,17 @@ interface FhirMedicationRequest : FhirDomainResource {
     /**
      * External ids for this request.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * What request fulfills.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Composite request this is part of.
@@ -105,7 +105,7 @@ interface FhirMedicationRequest : FhirDomainResource {
     /**
      * Information to support ordering of the medication.
      */
-    val supportingInformation: List<Reference>?
+    val supportingInformation: kotlin.collections.List<Reference>?
 
     /**
      * When request was initially authored.
@@ -125,22 +125,22 @@ interface FhirMedicationRequest : FhirDomainResource {
     /**
      * Reason or indication for writing the prescription.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Condition or Observation that supports why the prescription is being written.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Information about the prescription.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * How the medication should be taken.
      */
-    val dosageInstruction: List<Dosage>?
+    val dosageInstruction: kotlin.collections.List<Dosage>?
 
     /**
      * Medication supply authorization.
@@ -160,18 +160,16 @@ interface FhirMedicationRequest : FhirDomainResource {
     /**
      * Clinical Issue with action.
      */
-    val detectedIssue: List<Reference>?
+    val detectedIssue: kotlin.collections.List<Reference>?
 
     /**
      * A list of events of interest in the lifecycle.
      */
-    val eventHistory: List<Reference>?
+    val eventHistory: kotlin.collections.List<Reference>?
 }
 
 /**
  * MedicationRequest
- *
- * SourceFileName: MedicationRequest.kt
  *
  * An order or request for both supply of the medication and the instructions for administration of the
  * medication to a patient. The resource is called "MedicationRequest" rather than
@@ -187,13 +185,13 @@ interface FhirMedicationRequest : FhirDomainResource {
 data class MedicationRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("groupIdentifier")
     override val groupIdentifier: Identifier? = null,
@@ -223,7 +221,7 @@ data class MedicationRequest(
     override val context: Reference? = null,
 
     @SerialName("supportingInformation")
-    override val supportingInformation: List<Reference>? = null,
+    override val supportingInformation: kotlin.collections.List<Reference>? = null,
 
     @SerialName("authoredOn")
     override val authoredOn: DateTime? = null,
@@ -235,16 +233,16 @@ data class MedicationRequest(
     override val recorder: Reference? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("dosageInstruction")
-    override val dosageInstruction: List<Dosage>? = null,
+    override val dosageInstruction: kotlin.collections.List<Dosage>? = null,
 
     @SerialName("dispenseRequest")
     override val dispenseRequest: MedicationRequestDispenseRequest? = null,
@@ -256,10 +254,10 @@ data class MedicationRequest(
     override val priorPrescription: Reference? = null,
 
     @SerialName("detectedIssue")
-    override val detectedIssue: List<Reference>? = null,
+    override val detectedIssue: kotlin.collections.List<Reference>? = null,
 
     @SerialName("eventHistory")
-    override val eventHistory: List<Reference>? = null,
+    override val eventHistory: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -267,13 +265,13 @@ data class MedicationRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -342,8 +340,6 @@ interface FhirMedicationRequestDispenseRequest : FhirBackboneElement {
 /**
  * MedicationRequestDispenseRequest
  *
- * SourceFileName: MedicationRequest.kt
- *
  * Indicates the specific details for the dispense or medication supply part of a medication request
  * (also known as a Medication Prescription or Medication Order). Note that this information is not
  * always sent with the order. There may be in some settings (e.g. hospitals) institutional or system
@@ -375,7 +371,7 @@ data class MedicationRequestDispenseRequest(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -383,7 +379,7 @@ data class MedicationRequestDispenseRequest(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationRequestDispenseRequest {
 
     override val resourceType: kotlin.String
@@ -421,8 +417,6 @@ interface FhirMedicationRequestRequester : FhirBackboneElement {
 /**
  * MedicationRequestRequester
  *
- * SourceFileName: MedicationRequest.kt
- *
  * The individual, organization or device that initiated the request and has responsibility for its
  * activation.
  *
@@ -443,7 +437,7 @@ data class MedicationRequestRequester(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -451,7 +445,7 @@ data class MedicationRequestRequester(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationRequestRequester {
 
     override val resourceType: kotlin.String
@@ -490,8 +484,6 @@ interface FhirMedicationRequestSubstitution : FhirBackboneElement {
 /**
  * MedicationRequestSubstitution
  *
- * SourceFileName: MedicationRequest.kt
- *
  * Indicates whether or not substitution can or should be part of the dispense. In some cases
  * substitution must happen, in other cases substitution must not happen. This block explains the
  * prescriber's intent. If nothing is specified substitution may be done.
@@ -513,7 +505,7 @@ data class MedicationRequestSubstitution(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -521,7 +513,7 @@ data class MedicationRequestSubstitution(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationRequestSubstitution {
 
     override val resourceType: kotlin.String

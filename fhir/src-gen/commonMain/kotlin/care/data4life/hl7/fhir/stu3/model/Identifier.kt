@@ -66,8 +66,6 @@ interface FhirIdentifier : FhirElement {
 /**
  * Identifier
  *
- * SourceFileName: Identifier.kt
- *
  * A technical identifier - identifies some entity uniquely and unambiguously.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Identifier">Identifier</a>
@@ -102,7 +100,7 @@ data class Identifier(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirIdentifier {
 
     override val resourceType: kotlin.String

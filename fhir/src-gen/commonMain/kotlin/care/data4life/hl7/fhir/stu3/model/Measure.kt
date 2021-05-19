@@ -43,7 +43,7 @@ interface FhirMeasure : FhirDomainResource {
     /**
      * Additional identifier for the measure.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the measure.
@@ -113,27 +113,27 @@ interface FhirMeasure : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for measure (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * E.g. Education, Treatment, Assessment, etc.
      */
-    val topic: List<CodeableConcept>?
+    val topic: kotlin.collections.List<CodeableConcept>?
 
     /**
      * A content contributor.
      */
-    val contributor: List<Contributor>?
+    val contributor: kotlin.collections.List<Contributor>?
 
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Use and/or publishing restrictions.
@@ -143,12 +143,12 @@ interface FhirMeasure : FhirDomainResource {
     /**
      * Additional documentation, citations, etc.
      */
-    val relatedArtifact: List<RelatedArtifact>?
+    val relatedArtifact: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * Logic used by the measure.
      */
-    val library: List<Reference>?
+    val library: kotlin.collections.List<Reference>?
 
     /**
      * Disclaimer for use of the measure or its referenced content.
@@ -168,7 +168,7 @@ interface FhirMeasure : FhirDomainResource {
     /**
      * process | outcome | structure | patient-reported-outcome | composite.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * How is risk adjustment applied for this measure.
@@ -198,7 +198,7 @@ interface FhirMeasure : FhirDomainResource {
     /**
      * Defined terms used in the measure documentation.
      */
-    val definition: List<String>?
+    val definition: kotlin.collections.List<String>?
 
     /**
      * Additional guidance for implementers.
@@ -213,18 +213,16 @@ interface FhirMeasure : FhirDomainResource {
     /**
      * Population criteria group.
      */
-    val group: List<MeasureGroup>?
+    val group: kotlin.collections.List<MeasureGroup>?
 
     /**
      * What other data should be reported with the measure.
      */
-    val supplementalData: List<MeasureSupplementalData>?
+    val supplementalData: kotlin.collections.List<MeasureSupplementalData>?
 }
 
 /**
  * Measure
- *
- * SourceFileName: Measure.kt
  *
  * The Measure resource provides the definition of a quality measure.
  *
@@ -240,7 +238,7 @@ data class Measure(
     override val url: String? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -282,28 +280,28 @@ data class Measure(
     override val effectivePeriod: Period? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("topic")
-    override val topic: List<CodeableConcept>? = null,
+    override val topic: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("contributor")
-    override val contributor: List<Contributor>? = null,
+    override val contributor: kotlin.collections.List<Contributor>? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("copyright")
     override val copyright: String? = null,
 
     @SerialName("relatedArtifact")
-    override val relatedArtifact: List<RelatedArtifact>? = null,
+    override val relatedArtifact: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("library")
-    override val library: List<Reference>? = null,
+    override val library: kotlin.collections.List<Reference>? = null,
 
     @SerialName("disclaimer")
     override val disclaimer: String? = null,
@@ -315,7 +313,7 @@ data class Measure(
     override val compositeScoring: CodeableConcept? = null,
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("riskAdjustment")
     override val riskAdjustment: String? = null,
@@ -333,7 +331,7 @@ data class Measure(
     override val improvementNotation: String? = null,
 
     @SerialName("definition")
-    override val definition: List<String>? = null,
+    override val definition: kotlin.collections.List<String>? = null,
 
     @SerialName("guidance")
     override val guidance: String? = null,
@@ -342,10 +340,10 @@ data class Measure(
     override val set: String? = null,
 
     @SerialName("group")
-    override val group: List<MeasureGroup>? = null,
+    override val group: kotlin.collections.List<MeasureGroup>? = null,
 
     @SerialName("supplementalData")
-    override val supplementalData: List<MeasureSupplementalData>? = null,
+    override val supplementalData: kotlin.collections.List<MeasureSupplementalData>? = null,
 
     // # DomainResource
 
@@ -353,13 +351,13 @@ data class Measure(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -414,18 +412,16 @@ interface FhirMeasureGroup : FhirBackboneElement {
     /**
      * Population criteria.
      */
-    val population: List<MeasureGroupPopulation>?
+    val population: kotlin.collections.List<MeasureGroupPopulation>?
 
     /**
      * Stratifier criteria for the measure.
      */
-    val stratifier: List<MeasureGroupStratifier>?
+    val stratifier: kotlin.collections.List<MeasureGroupStratifier>?
 }
 
 /**
  * MeasureGroup
- *
- * SourceFileName: Measure.kt
  *
  * A group of population criteria for the measure.
  *
@@ -447,15 +443,15 @@ data class MeasureGroup(
     override val description: String? = null,
 
     @SerialName("population")
-    override val population: List<MeasureGroupPopulation>? = null,
+    override val population: kotlin.collections.List<MeasureGroupPopulation>? = null,
 
     @SerialName("stratifier")
-    override val stratifier: List<MeasureGroupStratifier>? = null,
+    override val stratifier: kotlin.collections.List<MeasureGroupStratifier>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -463,7 +459,7 @@ data class MeasureGroup(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureGroup {
 
     override val resourceType: kotlin.String
@@ -518,8 +514,6 @@ interface FhirMeasureGroupPopulation : FhirBackboneElement {
 /**
  * MeasureGroupPopulation
  *
- * SourceFileName: Measure.kt
- *
  * A population criteria for the measure.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Measure">MeasureGroupPopulation</a>
@@ -548,7 +542,7 @@ data class MeasureGroupPopulation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -556,7 +550,7 @@ data class MeasureGroupPopulation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureGroupPopulation {
 
     override val resourceType: kotlin.String
@@ -600,8 +594,6 @@ interface FhirMeasureGroupStratifier : FhirBackboneElement {
 /**
  * MeasureGroupStratifier
  *
- * SourceFileName: Measure.kt
- *
  * The stratifier criteria for the measure report, specified as either the name of a valid CQL
  * expression defined within a referenced library, or a valid FHIR Resource Path.
  *
@@ -625,7 +617,7 @@ data class MeasureGroupStratifier(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -633,7 +625,7 @@ data class MeasureGroupStratifier(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureGroupStratifier {
 
     override val resourceType: kotlin.String
@@ -665,7 +657,7 @@ interface FhirMeasureSupplementalData : FhirBackboneElement {
     /**
      * supplemental-data | risk-adjustment-factor.
      */
-    val usage: List<CodeableConcept>?
+    val usage: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Expression describing additional data to be reported.
@@ -680,8 +672,6 @@ interface FhirMeasureSupplementalData : FhirBackboneElement {
 
 /**
  * MeasureSupplementalData
- *
- * SourceFileName: Measure.kt
  *
  * The supplemental data criteria for the measure report, specified as either the name of a valid CQL
  * expression within a referenced library, or a valid FHIR Resource Path.
@@ -698,7 +688,7 @@ data class MeasureSupplementalData(
     override val identifier: Identifier? = null,
 
     @SerialName("usage")
-    override val usage: List<CodeableConcept>? = null,
+    override val usage: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("criteria")
     override val criteria: String? = null,
@@ -709,7 +699,7 @@ data class MeasureSupplementalData(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -717,7 +707,7 @@ data class MeasureSupplementalData(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeasureSupplementalData {
 
     override val resourceType: kotlin.String

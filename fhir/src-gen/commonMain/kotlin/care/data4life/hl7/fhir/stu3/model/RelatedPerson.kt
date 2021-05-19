@@ -38,7 +38,7 @@ interface FhirRelatedPerson : FhirDomainResource {
     /**
      * A human identifier for this person.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this related person's record is in active use.
@@ -58,12 +58,12 @@ interface FhirRelatedPerson : FhirDomainResource {
     /**
      * A name associated with the person.
      */
-    val name: List<HumanName>?
+    val name: kotlin.collections.List<HumanName>?
 
     /**
      * A contact detail for the person.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Administrative Gender - the gender that the person is considered to have for
@@ -79,12 +79,12 @@ interface FhirRelatedPerson : FhirDomainResource {
     /**
      * Address where the related person can be contacted or visited.
      */
-    val address: List<Address>?
+    val address: kotlin.collections.List<Address>?
 
     /**
      * Image of the person.
      */
-    val photo: List<Attachment>?
+    val photo: kotlin.collections.List<Attachment>?
 
     /**
      * Period of time that this relationship is considered valid.
@@ -94,8 +94,6 @@ interface FhirRelatedPerson : FhirDomainResource {
 
 /**
  * RelatedPerson
- *
- * SourceFileName: RelatedPerson.kt
  *
  * Information about a person that is involved in the care for a patient, but who is not the target of
  * healthcare, nor has a formal responsibility in the care process.
@@ -109,7 +107,7 @@ interface FhirRelatedPerson : FhirDomainResource {
 data class RelatedPerson(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
@@ -121,10 +119,10 @@ data class RelatedPerson(
     override val relationship: CodeableConcept? = null,
 
     @SerialName("name")
-    override val name: List<HumanName>? = null,
+    override val name: kotlin.collections.List<HumanName>? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("gender")
     override val gender: AdministrativeGender? = null,
@@ -133,10 +131,10 @@ data class RelatedPerson(
     override val birthDate: Date? = null,
 
     @SerialName("address")
-    override val address: List<Address>? = null,
+    override val address: kotlin.collections.List<Address>? = null,
 
     @SerialName("photo")
-    override val photo: List<Attachment>? = null,
+    override val photo: kotlin.collections.List<Attachment>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
@@ -147,13 +145,13 @@ data class RelatedPerson(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

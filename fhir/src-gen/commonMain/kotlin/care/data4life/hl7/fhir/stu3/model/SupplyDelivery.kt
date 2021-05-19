@@ -41,12 +41,12 @@ interface FhirSupplyDelivery : FhirDomainResource {
     /**
      * Fulfills plan, proposal or order.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Part of referenced event.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * A code specifying the state of the dispense event.
@@ -96,13 +96,11 @@ interface FhirSupplyDelivery : FhirDomainResource {
     /**
      * Who collected the Supply.
      */
-    val receiver: List<Reference>?
+    val receiver: kotlin.collections.List<Reference>?
 }
 
 /**
  * SupplyDelivery
- *
- * SourceFileName: SupplyDelivery.kt
  *
  * Record of delivery of what is supplied.
  *
@@ -118,10 +116,10 @@ data class SupplyDelivery(
     override val identifier: Identifier? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: SupplyDeliveryStatus? = null,
@@ -151,7 +149,7 @@ data class SupplyDelivery(
     override val destination: Reference? = null,
 
     @SerialName("receiver")
-    override val receiver: List<Reference>? = null,
+    override val receiver: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -159,13 +157,13 @@ data class SupplyDelivery(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -221,8 +219,6 @@ interface FhirSupplyDeliverySuppliedItem : FhirBackboneElement {
 /**
  * SupplyDeliverySuppliedItem
  *
- * SourceFileName: SupplyDelivery.kt
- *
  * The item that is being delivered or has been supplied.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/SupplyDelivery">SupplyDeliverySuppliedItem</a>
@@ -245,7 +241,7 @@ data class SupplyDeliverySuppliedItem(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -253,7 +249,7 @@ data class SupplyDeliverySuppliedItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSupplyDeliverySuppliedItem {
 
     override val resourceType: kotlin.String

@@ -41,7 +41,7 @@ interface FhirImmunization : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Indicates the current status of the vaccination event.
@@ -123,12 +123,12 @@ interface FhirImmunization : FhirDomainResource {
     /**
      * Who performed event.
      */
-    val practitioner: List<ImmunizationPractitioner>?
+    val practitioner: kotlin.collections.List<ImmunizationPractitioner>?
 
     /**
      * Vaccination notes.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Administration/non-administration reasons.
@@ -138,18 +138,16 @@ interface FhirImmunization : FhirDomainResource {
     /**
      * Details of a reaction that follows immunization.
      */
-    val reaction: List<ImmunizationReaction>?
+    val reaction: kotlin.collections.List<ImmunizationReaction>?
 
     /**
      * What protocol was followed.
      */
-    val vaccinationProtocol: List<ImmunizationVaccinationProtocol>?
+    val vaccinationProtocol: kotlin.collections.List<ImmunizationVaccinationProtocol>?
 }
 
 /**
  * Immunization
- *
- * SourceFileName: Immunization.kt
  *
  * Describes the event of a patient being administered a vaccination or a record of a vaccination as
  * reported by a patient, a clinician or another party and may include vaccine reaction information and
@@ -164,7 +162,7 @@ interface FhirImmunization : FhirDomainResource {
 data class Immunization(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: MedicationAdministrationStatus,
@@ -212,19 +210,19 @@ data class Immunization(
     override val doseQuantity: Quantity? = null,
 
     @SerialName("practitioner")
-    override val practitioner: List<ImmunizationPractitioner>? = null,
+    override val practitioner: kotlin.collections.List<ImmunizationPractitioner>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("explanation")
     override val explanation: ImmunizationExplanation? = null,
 
     @SerialName("reaction")
-    override val reaction: List<ImmunizationReaction>? = null,
+    override val reaction: kotlin.collections.List<ImmunizationReaction>? = null,
 
     @SerialName("vaccinationProtocol")
-    override val vaccinationProtocol: List<ImmunizationVaccinationProtocol>? = null,
+    override val vaccinationProtocol: kotlin.collections.List<ImmunizationVaccinationProtocol>? = null,
 
     // # DomainResource
 
@@ -232,13 +230,13 @@ data class Immunization(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -278,18 +276,16 @@ interface FhirImmunizationExplanation : FhirBackboneElement {
     /**
      * Why immunization occurred.
      */
-    val reason: List<CodeableConcept>?
+    val reason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why immunization did not occur.
      */
-    val reasonNotGiven: List<CodeableConcept>?
+    val reasonNotGiven: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
  * ImmunizationExplanation
- *
- * SourceFileName: Immunization.kt
  *
  * Reasons why a vaccine was or was not administered.
  *
@@ -302,15 +298,15 @@ interface FhirImmunizationExplanation : FhirBackboneElement {
 data class ImmunizationExplanation(
 
     @SerialName("reason")
-    override val reason: List<CodeableConcept>? = null,
+    override val reason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonNotGiven")
-    override val reasonNotGiven: List<CodeableConcept>? = null,
+    override val reasonNotGiven: kotlin.collections.List<CodeableConcept>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -318,7 +314,7 @@ data class ImmunizationExplanation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImmunizationExplanation {
 
     override val resourceType: kotlin.String
@@ -355,8 +351,6 @@ interface FhirImmunizationPractitioner : FhirBackboneElement {
 /**
  * ImmunizationPractitioner
  *
- * SourceFileName: Immunization.kt
- *
  * Indicates who or what performed the event.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Immunization">ImmunizationPractitioner</a>
@@ -376,7 +370,7 @@ data class ImmunizationPractitioner(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -384,7 +378,7 @@ data class ImmunizationPractitioner(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImmunizationPractitioner {
 
     override val resourceType: kotlin.String
@@ -426,8 +420,6 @@ interface FhirImmunizationReaction : FhirBackboneElement {
 /**
  * ImmunizationReaction
  *
- * SourceFileName: Immunization.kt
- *
  * Categorical data indicating that an adverse event is associated in time to an immunization.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Immunization">ImmunizationReaction</a>
@@ -450,7 +442,7 @@ data class ImmunizationReaction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -458,7 +450,7 @@ data class ImmunizationReaction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImmunizationReaction {
 
     override val resourceType: kotlin.String
@@ -509,7 +501,7 @@ interface FhirImmunizationVaccinationProtocol : FhirBackboneElement {
     /**
      * Disease immunized against.
      */
-    val targetDisease: List<CodeableConcept>
+    val targetDisease: kotlin.collections.List<CodeableConcept>
 
     /**
      * Indicates if dose counts towards immunity.
@@ -524,8 +516,6 @@ interface FhirImmunizationVaccinationProtocol : FhirBackboneElement {
 
 /**
  * ImmunizationVaccinationProtocol
- *
- * SourceFileName: Immunization.kt
  *
  * Contains information about the protocol(s) under which the vaccine was administered.
  *
@@ -553,7 +543,7 @@ data class ImmunizationVaccinationProtocol(
     override val seriesDoses: PositiveInteger? = null,
 
     @SerialName("targetDisease")
-    override val targetDisease: List<CodeableConcept>,
+    override val targetDisease: kotlin.collections.List<CodeableConcept>,
 
     @SerialName("doseStatus")
     override val doseStatus: CodeableConcept,
@@ -564,7 +554,7 @@ data class ImmunizationVaccinationProtocol(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -572,7 +562,7 @@ data class ImmunizationVaccinationProtocol(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImmunizationVaccinationProtocol {
 
     override val resourceType: kotlin.String

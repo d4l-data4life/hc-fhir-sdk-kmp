@@ -39,17 +39,17 @@ interface FhirPerson : FhirDomainResource {
     /**
      * A human identifier for this person.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * A name associated with the person.
      */
-    val name: List<HumanName>?
+    val name: kotlin.collections.List<HumanName>?
 
     /**
      * A contact detail for the person.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Administrative Gender.
@@ -64,7 +64,7 @@ interface FhirPerson : FhirDomainResource {
     /**
      * One or more addresses for the person.
      */
-    val address: List<Address>?
+    val address: kotlin.collections.List<Address>?
 
     /**
      * Image of the person.
@@ -84,13 +84,11 @@ interface FhirPerson : FhirDomainResource {
     /**
      * Link to a resource that concerns the same actual person.
      */
-    val link: List<PersonLink>?
+    val link: kotlin.collections.List<PersonLink>?
 }
 
 /**
  * Person
- *
- * SourceFileName: Person.kt
  *
  * Demographics and administrative information about a person independent of a specific health-related
  * context.
@@ -104,13 +102,13 @@ interface FhirPerson : FhirDomainResource {
 data class Person(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("name")
-    override val name: List<HumanName>? = null,
+    override val name: kotlin.collections.List<HumanName>? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("gender")
     override val gender: AdministrativeGender? = null,
@@ -119,7 +117,7 @@ data class Person(
     override val birthDate: Date? = null,
 
     @SerialName("address")
-    override val address: List<Address>? = null,
+    override val address: kotlin.collections.List<Address>? = null,
 
     @SerialName("photo")
     override val photo: Attachment? = null,
@@ -131,7 +129,7 @@ data class Person(
     override val active: Bool? = null,
 
     @SerialName("link")
-    override val link: List<PersonLink>? = null,
+    override val link: kotlin.collections.List<PersonLink>? = null,
 
     // # DomainResource
 
@@ -139,13 +137,13 @@ data class Person(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -197,8 +195,6 @@ interface FhirPersonLink : FhirBackboneElement {
 /**
  * PersonLink
  *
- * SourceFileName: Person.kt
- *
  * Link to a resource that concerns the same actual person
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Person">PersonLink</a>
@@ -218,7 +214,7 @@ data class PersonLink(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -226,7 +222,7 @@ data class PersonLink(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPersonLink {
 
     override val resourceType: kotlin.String

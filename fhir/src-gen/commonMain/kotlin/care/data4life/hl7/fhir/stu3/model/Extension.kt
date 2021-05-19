@@ -239,8 +239,6 @@ interface FhirExtension : FhirElement {
 /**
  * Extension
  *
- * SourceFileName: Extension.kt
- *
  * Optional Extension Element - found in all resources.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Extension">Extension</a>
@@ -374,7 +372,7 @@ data class Extension(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExtension {
 
     override val resourceType: kotlin.String

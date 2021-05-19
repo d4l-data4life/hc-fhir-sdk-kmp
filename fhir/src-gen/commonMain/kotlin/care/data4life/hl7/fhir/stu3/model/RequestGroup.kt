@@ -46,22 +46,22 @@ interface FhirRequestGroup : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * Fulfills plan, proposal, or order.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Request(s) replaced by this request.
      */
-    val replaces: List<Reference>?
+    val replaces: kotlin.collections.List<Reference>?
 
     /**
      * Composite request this is part of.
@@ -119,18 +119,16 @@ interface FhirRequestGroup : FhirDomainResource {
     /**
      * Additional notes about the response.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Proposed actions, if any.
      */
-    val action: List<RequestGroupAction>?
+    val action: kotlin.collections.List<RequestGroupAction>?
 }
 
 /**
  * RequestGroup
- *
- * SourceFileName: RequestGroup.kt
  *
  * A group of related requests that can be used to capture intended activities that have inter-
  * dependencies such as "give this medication after that one".
@@ -144,16 +142,16 @@ interface FhirRequestGroup : FhirDomainResource {
 data class RequestGroup(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("replaces")
-    override val replaces: List<Reference>? = null,
+    override val replaces: kotlin.collections.List<Reference>? = null,
 
     @SerialName("groupIdentifier")
     override val groupIdentifier: Identifier? = null,
@@ -186,10 +184,10 @@ data class RequestGroup(
     override val reasonReference: Reference? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("action")
-    override val action: List<RequestGroupAction>? = null,
+    override val action: kotlin.collections.List<RequestGroupAction>? = null,
 
     // # DomainResource
 
@@ -197,13 +195,13 @@ data class RequestGroup(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -264,22 +262,22 @@ interface FhirRequestGroupAction : FhirBackboneElement {
     /**
      * Code representing the meaning of the action or sub-actions.
      */
-    val code: List<CodeableConcept>?
+    val code: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Supporting documentation for the intended performer of the action.
      */
-    val documentation: List<RelatedArtifact>?
+    val documentation: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * Whether or not the action is applicable.
      */
-    val condition: List<RequestGroupActionCondition>?
+    val condition: kotlin.collections.List<RequestGroupActionCondition>?
 
     /**
      * Relationship to another action.
      */
-    val relatedAction: List<RequestGroupActionRelatedAction>?
+    val relatedAction: kotlin.collections.List<RequestGroupActionRelatedAction>?
 
     /**
      * When the action should take place.
@@ -309,7 +307,7 @@ interface FhirRequestGroupAction : FhirBackboneElement {
     /**
      * Who should perform the action.
      */
-    val participant: List<Reference>?
+    val participant: kotlin.collections.List<Reference>?
 
     /**
      * create | update | remove | fire-event.
@@ -349,13 +347,11 @@ interface FhirRequestGroupAction : FhirBackboneElement {
     /**
      * Sub action.
      */
-    val action: List<RequestGroupAction>?
+    val action: kotlin.collections.List<RequestGroupAction>?
 }
 
 /**
  * RequestGroupAction
- *
- * SourceFileName: RequestGroup.kt
  *
  * The actions, if any, produced by the evaluation of the artifact.
  *
@@ -380,16 +376,16 @@ data class RequestGroupAction(
     override val textEquivalent: String? = null,
 
     @SerialName("code")
-    override val code: List<CodeableConcept>? = null,
+    override val code: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("documentation")
-    override val documentation: List<RelatedArtifact>? = null,
+    override val documentation: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("condition")
-    override val condition: List<RequestGroupActionCondition>? = null,
+    override val condition: kotlin.collections.List<RequestGroupActionCondition>? = null,
 
     @SerialName("relatedAction")
-    override val relatedAction: List<RequestGroupActionRelatedAction>? = null,
+    override val relatedAction: kotlin.collections.List<RequestGroupActionRelatedAction>? = null,
 
     @SerialName("timingDateTime")
     override val timingDateTime: DateTime? = null,
@@ -407,7 +403,7 @@ data class RequestGroupAction(
     override val timingTiming: Timing? = null,
 
     @SerialName("participant")
-    override val participant: List<Reference>? = null,
+    override val participant: kotlin.collections.List<Reference>? = null,
 
     @SerialName("type")
     override val type: Coding? = null,
@@ -431,12 +427,12 @@ data class RequestGroupAction(
     override val resource: Reference? = null,
 
     @SerialName("action")
-    override val action: List<RequestGroupAction>? = null,
+    override val action: kotlin.collections.List<RequestGroupAction>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -444,7 +440,7 @@ data class RequestGroupAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRequestGroupAction {
 
     override val resourceType: kotlin.String
@@ -491,8 +487,6 @@ interface FhirRequestGroupActionCondition : FhirBackboneElement {
 /**
  * RequestGroupActionCondition
  *
- * SourceFileName: RequestGroup.kt
- *
  * An expression that describes applicability criteria, or start/stop conditions for the action.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/RequestGroup">RequestGroupActionCondition</a>
@@ -518,7 +512,7 @@ data class RequestGroupActionCondition(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -526,7 +520,7 @@ data class RequestGroupActionCondition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRequestGroupActionCondition {
 
     override val resourceType: kotlin.String
@@ -573,8 +567,6 @@ interface FhirRequestGroupActionRelatedAction : FhirBackboneElement {
 /**
  * RequestGroupActionRelatedAction
  *
- * SourceFileName: RequestGroup.kt
- *
  * A relationship to another action such as "before" or "30-60 minutes after start of".
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/RequestGroup">RequestGroupActionRelatedAction</a>
@@ -600,7 +592,7 @@ data class RequestGroupActionRelatedAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -608,7 +600,7 @@ data class RequestGroupActionRelatedAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRequestGroupActionRelatedAction {
 
     override val resourceType: kotlin.String

@@ -39,13 +39,11 @@ interface FhirElement : FhirStu3 {
     /**
      * Additional Content defined by implementations.
      */
-    val extension: List<Extension>?
+    val extension: kotlin.collections.List<Extension>?
 }
 
 /**
  * Element
- *
- * SourceFileName: Element.kt
  *
  * Base definition for all elements in a resource.
  *
@@ -61,7 +59,7 @@ data class Element(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElement {
 
     override val resourceType: kotlin.String

@@ -94,7 +94,7 @@ interface FhirCapabilityStatement : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the capability statement.
@@ -104,12 +104,12 @@ interface FhirCapabilityStatement : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for capability statement (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this capability statement is defined.
@@ -131,7 +131,7 @@ interface FhirCapabilityStatement : FhirDomainResource {
     /**
      * Canonical URL of another capability statement this implements.
      */
-    val instantiates: List<String>?
+    val instantiates: kotlin.collections.List<String>?
 
     /**
      * Software that is covered by this capability statement.
@@ -146,7 +146,7 @@ interface FhirCapabilityStatement : FhirDomainResource {
     /**
      * FHIR Version the system uses.
      */
-    val fhirVersion: String
+    val fhirVer: String
 
     /**
      * A code that indicates whether the application accepts unknown elements or
@@ -157,43 +157,41 @@ interface FhirCapabilityStatement : FhirDomainResource {
     /**
      * formats supported (xml | json | ttl | mime type).
      */
-    val format: List<String>
+    val format: kotlin.collections.List<String>
 
     /**
      * Patch formats supported.
      */
-    val patchFormat: List<String>?
+    val patchFormat: kotlin.collections.List<String>?
 
     /**
      * Implementation guides supported.
      */
-    val implementationGuide: List<String>?
+    val implementationGuide: kotlin.collections.List<String>?
 
     /**
      * Profiles for use cases supported.
      */
-    val profile: List<Reference>?
+    val profile: kotlin.collections.List<Reference>?
 
     /**
      * If the endpoint is a RESTful one.
      */
-    val rest: List<CapabilityStatementRest>?
+    val rest: kotlin.collections.List<CapabilityStatementRest>?
 
     /**
      * If messaging is supported.
      */
-    val messaging: List<CapabilityStatementMessaging>?
+    val messaging: kotlin.collections.List<CapabilityStatementMessaging>?
 
     /**
      * Document definition.
      */
-    val document: List<CapabilityStatementDocument>?
+    val document: kotlin.collections.List<CapabilityStatementDocument>?
 }
 
 /**
  * CapabilityStatement
- *
- * SourceFileName: CapabilityStatement.kt
  *
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used
  * as a statement of actual server functionality or a statement of required or desired server
@@ -232,16 +230,16 @@ data class CapabilityStatement(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -253,7 +251,7 @@ data class CapabilityStatement(
     override val kind: CapabilityStatementKind,
 
     @SerialName("instantiates")
-    override val instantiates: List<String>? = null,
+    override val instantiates: kotlin.collections.List<String>? = null,
 
     @SerialName("software")
     override val software: CapabilityStatementSoftware? = null,
@@ -262,31 +260,31 @@ data class CapabilityStatement(
     override val implementation: CapabilityStatementImplementation? = null,
 
     @SerialName("fhirVersion")
-    override val fhirVersion: String,
+    override val fhirVer: String,
 
     @SerialName("acceptUnknown")
     override val acceptUnknown: UnknownContentCode,
 
     @SerialName("format")
-    override val format: List<String>,
+    override val format: kotlin.collections.List<String>,
 
     @SerialName("patchFormat")
-    override val patchFormat: List<String>? = null,
+    override val patchFormat: kotlin.collections.List<String>? = null,
 
     @SerialName("implementationGuide")
-    override val implementationGuide: List<String>? = null,
+    override val implementationGuide: kotlin.collections.List<String>? = null,
 
     @SerialName("profile")
-    override val profile: List<Reference>? = null,
+    override val profile: kotlin.collections.List<Reference>? = null,
 
     @SerialName("rest")
-    override val rest: List<CapabilityStatementRest>? = null,
+    override val rest: kotlin.collections.List<CapabilityStatementRest>? = null,
 
     @SerialName("messaging")
-    override val messaging: List<CapabilityStatementMessaging>? = null,
+    override val messaging: kotlin.collections.List<CapabilityStatementMessaging>? = null,
 
     @SerialName("document")
-    override val document: List<CapabilityStatementDocument>? = null,
+    override val document: kotlin.collections.List<CapabilityStatementDocument>? = null,
 
     // # DomainResource
 
@@ -294,13 +292,13 @@ data class CapabilityStatement(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -357,8 +355,6 @@ interface FhirCapabilityStatementDocument : FhirBackboneElement {
 /**
  * CapabilityStatementDocument
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * A document definition.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementDocument</a>
@@ -381,7 +377,7 @@ data class CapabilityStatementDocument(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -389,7 +385,7 @@ data class CapabilityStatementDocument(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementDocument {
 
     override val resourceType: kotlin.String
@@ -427,8 +423,6 @@ interface FhirCapabilityStatementImplementation : FhirBackboneElement {
 /**
  * CapabilityStatementImplementation
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * Identifies a specific implementation instance that is described by the capability statement - i.e. a
  * particular installation, rather than the capabilities of a software program.
  *
@@ -449,7 +443,7 @@ data class CapabilityStatementImplementation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -457,7 +451,7 @@ data class CapabilityStatementImplementation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementImplementation {
 
     override val resourceType: kotlin.String
@@ -483,7 +477,7 @@ interface FhirCapabilityStatementMessaging : FhirBackboneElement {
     /**
      * Where messages should be sent.
      */
-    val endpoint: List<CapabilityStatementMessagingEndpoint>?
+    val endpoint: kotlin.collections.List<CapabilityStatementMessagingEndpoint>?
 
     /**
      * Reliable Message Cache Length (min).
@@ -498,18 +492,16 @@ interface FhirCapabilityStatementMessaging : FhirBackboneElement {
     /**
      * Messages supported by this system.
      */
-    val supportedMessage: List<CapabilityStatementMessagingSupportedMessage>?
+    val supportedMessage: kotlin.collections.List<CapabilityStatementMessagingSupportedMessage>?
 
     /**
      * Declare support for this event.
      */
-    val event: List<CapabilityStatementMessagingEvent>?
+    val event: kotlin.collections.List<CapabilityStatementMessagingEvent>?
 }
 
 /**
  * CapabilityStatementMessaging
- *
- * SourceFileName: CapabilityStatement.kt
  *
  * A description of the messaging capabilities of the solution.
  *
@@ -522,7 +514,7 @@ interface FhirCapabilityStatementMessaging : FhirBackboneElement {
 data class CapabilityStatementMessaging(
 
     @SerialName("endpoint")
-    override val endpoint: List<CapabilityStatementMessagingEndpoint>? = null,
+    override val endpoint: kotlin.collections.List<CapabilityStatementMessagingEndpoint>? = null,
 
     @SerialName("reliableCache")
     override val reliableCache: UnsignedInteger? = null,
@@ -531,15 +523,15 @@ data class CapabilityStatementMessaging(
     override val documentation: String? = null,
 
     @SerialName("supportedMessage")
-    override val supportedMessage: List<CapabilityStatementMessagingSupportedMessage>? = null,
+    override val supportedMessage: kotlin.collections.List<CapabilityStatementMessagingSupportedMessage>? = null,
 
     @SerialName("event")
-    override val event: List<CapabilityStatementMessagingEvent>? = null,
+    override val event: kotlin.collections.List<CapabilityStatementMessagingEvent>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -547,7 +539,7 @@ data class CapabilityStatementMessaging(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementMessaging {
 
     override val resourceType: kotlin.String
@@ -584,8 +576,6 @@ interface FhirCapabilityStatementMessagingEndpoint : FhirBackboneElement {
 /**
  * CapabilityStatementMessagingEndpoint
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * An endpoint (network accessible address) to which messages and/or replies are to be sent.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementMessagingEndpoint</a>
@@ -605,7 +595,7 @@ data class CapabilityStatementMessagingEndpoint(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -613,7 +603,7 @@ data class CapabilityStatementMessagingEndpoint(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementMessagingEndpoint {
 
     override val resourceType: kotlin.String
@@ -677,8 +667,6 @@ interface FhirCapabilityStatementMessagingEvent : FhirBackboneElement {
 /**
  * CapabilityStatementMessagingEvent
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * A description of the solution's support for an event at this end-point.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementMessagingEvent</a>
@@ -713,7 +701,7 @@ data class CapabilityStatementMessagingEvent(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -721,7 +709,7 @@ data class CapabilityStatementMessagingEvent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementMessagingEvent {
 
     override val resourceType: kotlin.String
@@ -758,8 +746,6 @@ interface FhirCapabilityStatementMessagingSupportedMessage : FhirBackboneElement
 /**
  * CapabilityStatementMessagingSupportedMessage
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * References to message definitions for messages this system can send or receive.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementMessagingSupportedMessage</a>
@@ -779,7 +765,7 @@ data class CapabilityStatementMessagingSupportedMessage(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -787,7 +773,7 @@ data class CapabilityStatementMessagingSupportedMessage(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementMessagingSupportedMessage {
 
     override val resourceType: kotlin.String
@@ -829,33 +815,31 @@ interface FhirCapabilityStatementRest : FhirBackboneElement {
     /**
      * Resource served on the REST interface.
      */
-    val resource: List<CapabilityStatementRestResource>?
+    val resource: kotlin.collections.List<CapabilityStatementRestResource>?
 
     /**
      * What operations are supported?.
      */
-    val interaction: List<CapabilityStatementRestInteraction>?
+    val interaction: kotlin.collections.List<CapabilityStatementRestInteraction>?
 
     /**
      * Search parameters for searching all resources.
      */
-    val searchParam: List<CapabilityStatementRestResourceSearchParam>?
+    val searchParam: kotlin.collections.List<CapabilityStatementRestResourceSearchParam>?
 
     /**
      * Definition of an operation or a custom query.
      */
-    val operation: List<CapabilityStatementRestOperation>?
+    val operation: kotlin.collections.List<CapabilityStatementRestOperation>?
 
     /**
      * Compartments served/used by system.
      */
-    val compartment: List<String>?
+    val compartment: kotlin.collections.List<String>?
 }
 
 /**
  * CapabilityStatementRest
- *
- * SourceFileName: CapabilityStatement.kt
  *
  * A definition of the restful capabilities of the solution, if any.
  *
@@ -877,24 +861,24 @@ data class CapabilityStatementRest(
     override val security: CapabilityStatementRestSecurity? = null,
 
     @SerialName("resource")
-    override val resource: List<CapabilityStatementRestResource>? = null,
+    override val resource: kotlin.collections.List<CapabilityStatementRestResource>? = null,
 
     @SerialName("interaction")
-    override val interaction: List<CapabilityStatementRestInteraction>? = null,
+    override val interaction: kotlin.collections.List<CapabilityStatementRestInteraction>? = null,
 
     @SerialName("searchParam")
-    override val searchParam: List<CapabilityStatementRestResourceSearchParam>? = null,
+    override val searchParam: kotlin.collections.List<CapabilityStatementRestResourceSearchParam>? = null,
 
     @SerialName("operation")
-    override val operation: List<CapabilityStatementRestOperation>? = null,
+    override val operation: kotlin.collections.List<CapabilityStatementRestOperation>? = null,
 
     @SerialName("compartment")
-    override val compartment: List<String>? = null,
+    override val compartment: kotlin.collections.List<String>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -902,7 +886,7 @@ data class CapabilityStatementRest(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRest {
 
     override val resourceType: kotlin.String
@@ -941,8 +925,6 @@ interface FhirCapabilityStatementRestInteraction : FhirBackboneElement {
 /**
  * CapabilityStatementRestInteraction
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * A specification of restful operations supported by the system.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementRestInteraction</a>
@@ -962,7 +944,7 @@ data class CapabilityStatementRestInteraction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -970,7 +952,7 @@ data class CapabilityStatementRestInteraction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRestInteraction {
 
     override val resourceType: kotlin.String
@@ -1007,8 +989,6 @@ interface FhirCapabilityStatementRestOperation : FhirBackboneElement {
 /**
  * CapabilityStatementRestOperation
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * Definition of an operation or a named query together with its parameters and their meaning and type.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementRestOperation</a>
@@ -1028,7 +1008,7 @@ data class CapabilityStatementRestOperation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1036,7 +1016,7 @@ data class CapabilityStatementRestOperation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRestOperation {
 
     override val resourceType: kotlin.String
@@ -1077,7 +1057,7 @@ interface FhirCapabilityStatementRestResource : FhirBackboneElement {
     /**
      * What operations are supported?.
      */
-    val interaction: List<CapabilityStatementRestResourceInteraction>
+    val interaction: kotlin.collections.List<CapabilityStatementRestResourceInteraction>
 
     /**
      * This field is set to no-version to specify that the system does not support
@@ -1122,28 +1102,26 @@ interface FhirCapabilityStatementRestResource : FhirBackboneElement {
     /**
      * A set of flags that defines how references are supported.
      */
-    val referencePolicy: List<ReferenceHandlingPolicy>?
+    val referencePolicy: kotlin.collections.List<ReferenceHandlingPolicy>?
 
     /**
      * _include values supported by the server.
      */
-    val searchInclude: List<String>?
+    val searchInclude: kotlin.collections.List<String>?
 
     /**
      * _revinclude values supported by the server.
      */
-    val searchRevInclude: List<String>?
+    val searchRevInclude: kotlin.collections.List<String>?
 
     /**
      * Search parameters supported by implementation.
      */
-    val searchParam: List<CapabilityStatementRestResourceSearchParam>?
+    val searchParam: kotlin.collections.List<CapabilityStatementRestResourceSearchParam>?
 }
 
 /**
  * CapabilityStatementRestResource
- *
- * SourceFileName: CapabilityStatement.kt
  *
  * A specification of the restful capabilities of the solution for a specific resource type.
  *
@@ -1165,7 +1143,7 @@ data class CapabilityStatementRestResource(
     override val documentation: String? = null,
 
     @SerialName("interaction")
-    override val interaction: List<CapabilityStatementRestResourceInteraction>,
+    override val interaction: kotlin.collections.List<CapabilityStatementRestResourceInteraction>,
 
     @SerialName("versioning")
     override val versioning: ResourceVersionPolicy? = null,
@@ -1189,21 +1167,21 @@ data class CapabilityStatementRestResource(
     override val conditionalDelete: ConditionalDeleteStatus? = null,
 
     @SerialName("referencePolicy")
-    override val referencePolicy: List<ReferenceHandlingPolicy>? = null,
+    override val referencePolicy: kotlin.collections.List<ReferenceHandlingPolicy>? = null,
 
     @SerialName("searchInclude")
-    override val searchInclude: List<String>? = null,
+    override val searchInclude: kotlin.collections.List<String>? = null,
 
     @SerialName("searchRevInclude")
-    override val searchRevInclude: List<String>? = null,
+    override val searchRevInclude: kotlin.collections.List<String>? = null,
 
     @SerialName("searchParam")
-    override val searchParam: List<CapabilityStatementRestResourceSearchParam>? = null,
+    override val searchParam: kotlin.collections.List<CapabilityStatementRestResourceSearchParam>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1211,7 +1189,7 @@ data class CapabilityStatementRestResource(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRestResource {
 
     override val resourceType: kotlin.String
@@ -1250,8 +1228,6 @@ interface FhirCapabilityStatementRestResourceInteraction : FhirBackboneElement {
 /**
  * CapabilityStatementRestResourceInteraction
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * Identifies a restful operation supported by the solution.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementRestResourceInteraction</a>
@@ -1271,7 +1247,7 @@ data class CapabilityStatementRestResourceInteraction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1279,7 +1255,7 @@ data class CapabilityStatementRestResourceInteraction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRestResourceInteraction {
 
     override val resourceType: kotlin.String
@@ -1328,8 +1304,6 @@ interface FhirCapabilityStatementRestResourceSearchParam : FhirBackboneElement {
 /**
  * CapabilityStatementRestResourceSearchParam
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * Search parameters for implementations to support and/or make use of - either references to ones
  * defined in the specification, or additional ones defined for/by the implementation.
  *
@@ -1356,7 +1330,7 @@ data class CapabilityStatementRestResourceSearchParam(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1364,7 +1338,7 @@ data class CapabilityStatementRestResourceSearchParam(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRestResourceSearchParam {
 
     override val resourceType: kotlin.String
@@ -1396,7 +1370,7 @@ interface FhirCapabilityStatementRestSecurity : FhirBackboneElement {
     /**
      * OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates.
      */
-    val service: List<CodeableConcept>?
+    val service: kotlin.collections.List<CodeableConcept>?
 
     /**
      * General description of how security works.
@@ -1406,13 +1380,11 @@ interface FhirCapabilityStatementRestSecurity : FhirBackboneElement {
     /**
      * Certificates associated with security profiles.
      */
-    val certificate: List<CapabilityStatementRestSecurityCertificate>?
+    val certificate: kotlin.collections.List<CapabilityStatementRestSecurityCertificate>?
 }
 
 /**
  * CapabilityStatementRestSecurity
- *
- * SourceFileName: CapabilityStatement.kt
  *
  * Information about security implementation from an interface perspective - what a client needs to
  * know.
@@ -1429,18 +1401,18 @@ data class CapabilityStatementRestSecurity(
     override val cors: Bool? = null,
 
     @SerialName("service")
-    override val service: List<CodeableConcept>? = null,
+    override val service: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("certificate")
-    override val certificate: List<CapabilityStatementRestSecurityCertificate>? = null,
+    override val certificate: kotlin.collections.List<CapabilityStatementRestSecurityCertificate>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1448,7 +1420,7 @@ data class CapabilityStatementRestSecurity(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRestSecurity {
 
     override val resourceType: kotlin.String
@@ -1485,8 +1457,6 @@ interface FhirCapabilityStatementRestSecurityCertificate : FhirBackboneElement {
 /**
  * CapabilityStatementRestSecurityCertificate
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * Certificates associated with security profiles
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CapabilityStatement">CapabilityStatementRestSecurityCertificate</a>
@@ -1506,7 +1476,7 @@ data class CapabilityStatementRestSecurityCertificate(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1514,7 +1484,7 @@ data class CapabilityStatementRestSecurityCertificate(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementRestSecurityCertificate {
 
     override val resourceType: kotlin.String
@@ -1557,8 +1527,6 @@ interface FhirCapabilityStatementSoftware : FhirBackboneElement {
 /**
  * CapabilityStatementSoftware
  *
- * SourceFileName: CapabilityStatement.kt
- *
  * Software that is covered by this capability statement. It is used when the capability statement
  * describes the capabilities of a particular software version, independent of an installation.
  *
@@ -1582,7 +1550,7 @@ data class CapabilityStatementSoftware(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1590,7 +1558,7 @@ data class CapabilityStatementSoftware(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCapabilityStatementSoftware {
 
     override val resourceType: kotlin.String

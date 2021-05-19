@@ -66,8 +66,6 @@ interface FhirRelatedArtifact : FhirElement {
 /**
  * RelatedArtifact
  *
- * SourceFileName: RelatedArtifact.kt
- *
  * Related artifacts such as additional documentation, justification, or bibliographic references.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/RelatedArtifact">RelatedArtifact</a>
@@ -102,7 +100,7 @@ data class RelatedArtifact(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRelatedArtifact {
 
     override val resourceType: kotlin.String

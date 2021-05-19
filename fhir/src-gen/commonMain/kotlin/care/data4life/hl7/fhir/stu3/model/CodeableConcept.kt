@@ -35,7 +35,7 @@ interface FhirCodeableConcept : FhirElement {
     /**
      * Code defined by a terminology system.
      */
-    val coding: List<Coding>?
+    val coding: kotlin.collections.List<Coding>?
 
     /**
      * Plain text representation of the concept.
@@ -45,8 +45,6 @@ interface FhirCodeableConcept : FhirElement {
 
 /**
  * CodeableConcept
- *
- * SourceFileName: CodeableConcept.kt
  *
  * A concept that may be defined by a formal reference to a terminology or ontology or may be provided
  * by text.
@@ -60,7 +58,7 @@ interface FhirCodeableConcept : FhirElement {
 data class CodeableConcept(
 
     @SerialName("coding")
-    override val coding: List<Coding>? = null,
+    override val coding: kotlin.collections.List<Coding>? = null,
 
     @SerialName("text")
     override val text: String? = null,
@@ -71,7 +69,7 @@ data class CodeableConcept(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCodeableConcept {
 
     override val resourceType: kotlin.String

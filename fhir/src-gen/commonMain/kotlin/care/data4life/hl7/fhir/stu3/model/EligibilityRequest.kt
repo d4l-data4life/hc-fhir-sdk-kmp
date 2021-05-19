@@ -38,7 +38,7 @@ interface FhirEligibilityRequest : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -119,8 +119,6 @@ interface FhirEligibilityRequest : FhirDomainResource {
 /**
  * EligibilityRequest
  *
- * SourceFileName: EligibilityRequest.kt
- *
  * The EligibilityRequest provides patient and insurance coverage information to an insurer for them to
  * respond, in the form of an EligibilityResponse, with information regarding whether the stated
  * coverage is valid and in-force and optionally to provide the insurance details of the policy.
@@ -134,7 +132,7 @@ interface FhirEligibilityRequest : FhirDomainResource {
 data class EligibilityRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -187,13 +185,13 @@ data class EligibilityRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

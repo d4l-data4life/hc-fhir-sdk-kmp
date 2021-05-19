@@ -39,7 +39,7 @@ interface FhirGroup : FhirDomainResource {
     /**
      * Unique id.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this group's record is in active use.
@@ -74,18 +74,16 @@ interface FhirGroup : FhirDomainResource {
     /**
      * Trait of group members.
      */
-    val characteristic: List<GroupCharacteristic>?
+    val characteristic: kotlin.collections.List<GroupCharacteristic>?
 
     /**
      * Who or what is in group.
      */
-    val member: List<GroupMember>?
+    val member: kotlin.collections.List<GroupMember>?
 }
 
 /**
  * Group
- *
- * SourceFileName: Group.kt
  *
  * Represents a defined collection of entities that may be discussed or acted upon collectively but
  * which are not expected to act collectively and are not formally or legally recognized; i.e. a
@@ -100,7 +98,7 @@ interface FhirGroup : FhirDomainResource {
 data class Group(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
@@ -121,10 +119,10 @@ data class Group(
     override val quantity: UnsignedInteger? = null,
 
     @SerialName("characteristic")
-    override val characteristic: List<GroupCharacteristic>? = null,
+    override val characteristic: kotlin.collections.List<GroupCharacteristic>? = null,
 
     @SerialName("member")
-    override val member: List<GroupMember>? = null,
+    override val member: kotlin.collections.List<GroupMember>? = null,
 
     // # DomainResource
 
@@ -132,13 +130,13 @@ data class Group(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -214,8 +212,6 @@ interface FhirGroupCharacteristic : FhirBackboneElement {
 /**
  * GroupCharacteristic
  *
- * SourceFileName: Group.kt
- *
  * Identifies the traits shared by members of the group.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Group">GroupCharacteristic</a>
@@ -250,7 +246,7 @@ data class GroupCharacteristic(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -258,7 +254,7 @@ data class GroupCharacteristic(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirGroupCharacteristic {
 
     override val resourceType: kotlin.String
@@ -300,8 +296,6 @@ interface FhirGroupMember : FhirBackboneElement {
 /**
  * GroupMember
  *
- * SourceFileName: Group.kt
- *
  * Identifies the resource instances that are members of the group.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Group">GroupMember</a>
@@ -324,7 +318,7 @@ data class GroupMember(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -332,7 +326,7 @@ data class GroupMember(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirGroupMember {
 
     override val resourceType: kotlin.String

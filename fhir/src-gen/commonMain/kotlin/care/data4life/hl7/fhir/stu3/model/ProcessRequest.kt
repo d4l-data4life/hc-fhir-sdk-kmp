@@ -39,7 +39,7 @@ interface FhirProcessRequest : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -95,17 +95,17 @@ interface FhirProcessRequest : FhirDomainResource {
     /**
      * Items to re-adjudicate.
      */
-    val item: List<ProcessRequestItem>?
+    val item: kotlin.collections.List<ProcessRequestItem>?
 
     /**
      * Resource type(s) to include.
      */
-    val include: List<String>?
+    val include: kotlin.collections.List<String>?
 
     /**
      * Resource type(s) to exclude.
      */
-    val exclude: List<String>?
+    val exclude: kotlin.collections.List<String>?
 
     /**
      * Selection period.
@@ -115,8 +115,6 @@ interface FhirProcessRequest : FhirDomainResource {
 
 /**
  * ProcessRequest
- *
- * SourceFileName: ProcessRequest.kt
  *
  * This resource provides the target, request and response, and action details for an action to be
  * performed by the target on or about existing resources.
@@ -130,7 +128,7 @@ interface FhirProcessRequest : FhirDomainResource {
 data class ProcessRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -163,13 +161,13 @@ data class ProcessRequest(
     override val reference: String? = null,
 
     @SerialName("item")
-    override val item: List<ProcessRequestItem>? = null,
+    override val item: kotlin.collections.List<ProcessRequestItem>? = null,
 
     @SerialName("include")
-    override val include: List<String>? = null,
+    override val include: kotlin.collections.List<String>? = null,
 
     @SerialName("exclude")
-    override val exclude: List<String>? = null,
+    override val exclude: kotlin.collections.List<String>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
@@ -180,13 +178,13 @@ data class ProcessRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -233,8 +231,6 @@ interface FhirProcessRequestItem : FhirBackboneElement {
 /**
  * ProcessRequestItem
  *
- * SourceFileName: ProcessRequest.kt
- *
  * List of top level items to be re-adjudicated, if none specified then the entire submission is re-
  * adjudicated.
  *
@@ -252,7 +248,7 @@ data class ProcessRequestItem(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -260,7 +256,7 @@ data class ProcessRequestItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirProcessRequestItem {
 
     override val resourceType: kotlin.String

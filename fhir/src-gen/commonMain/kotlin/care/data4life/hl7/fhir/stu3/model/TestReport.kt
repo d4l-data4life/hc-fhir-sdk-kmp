@@ -83,7 +83,7 @@ interface FhirTestReport : FhirDomainResource {
      * A participant in the test execution, either the execution engine, a client, or a
      * server.
      */
-    val participant: List<TestReportParticipant>?
+    val participant: kotlin.collections.List<TestReportParticipant>?
 
     /**
      * The results of the series of required setup operations before the tests were
@@ -94,7 +94,7 @@ interface FhirTestReport : FhirDomainResource {
     /**
      * A test executed from the test script.
      */
-    val test: List<TestReportTest>?
+    val test: kotlin.collections.List<TestReportTest>?
 
     /**
      * The results of running the series of required clean up steps.
@@ -104,8 +104,6 @@ interface FhirTestReport : FhirDomainResource {
 
 /**
  * TestReport
- *
- * SourceFileName: TestReport.kt
  *
  * A summary of information based on the results of executing a TestScript.
  *
@@ -142,13 +140,13 @@ data class TestReport(
     override val issued: DateTime? = null,
 
     @SerialName("participant")
-    override val participant: List<TestReportParticipant>? = null,
+    override val participant: kotlin.collections.List<TestReportParticipant>? = null,
 
     @SerialName("setup")
     override val setup: TestReportSetup? = null,
 
     @SerialName("test")
-    override val test: List<TestReportTest>? = null,
+    override val test: kotlin.collections.List<TestReportTest>? = null,
 
     @SerialName("teardown")
     override val teardown: TestReportTeardown? = null,
@@ -159,13 +157,13 @@ data class TestReport(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -221,8 +219,6 @@ interface FhirTestReportParticipant : FhirBackboneElement {
 /**
  * TestReportParticipant
  *
- * SourceFileName: TestReport.kt
- *
  * A participant in the test execution, either the execution engine, a client, or a server
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestReport">TestReportParticipant</a>
@@ -245,7 +241,7 @@ data class TestReportParticipant(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -253,7 +249,7 @@ data class TestReportParticipant(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportParticipant {
 
     override val resourceType: kotlin.String
@@ -279,13 +275,11 @@ interface FhirTestReportSetup : FhirBackboneElement {
     /**
      * A setup operation or assert that was executed.
      */
-    val action: List<TestReportSetupAction>
+    val action: kotlin.collections.List<TestReportSetupAction>
 }
 
 /**
  * TestReportSetup
- *
- * SourceFileName: TestReport.kt
  *
  * The results of the series of required setup operations before the tests were executed
  *
@@ -298,12 +292,12 @@ interface FhirTestReportSetup : FhirBackboneElement {
 data class TestReportSetup(
 
     @SerialName("action")
-    override val action: List<TestReportSetupAction>,
+    override val action: kotlin.collections.List<TestReportSetupAction>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -311,7 +305,7 @@ data class TestReportSetup(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportSetup {
 
     override val resourceType: kotlin.String
@@ -348,8 +342,6 @@ interface FhirTestReportSetupAction : FhirBackboneElement {
 /**
  * TestReportSetupAction
  *
- * SourceFileName: TestReport.kt
- *
  * Action would contain either an operation or an assertion.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestReport">TestReportSetupAction</a>
@@ -369,7 +361,7 @@ data class TestReportSetupAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -377,7 +369,7 @@ data class TestReportSetupAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportSetupAction {
 
     override val resourceType: kotlin.String
@@ -419,8 +411,6 @@ interface FhirTestReportSetupActionAssert : FhirBackboneElement {
 /**
  * TestReportSetupActionAssert
  *
- * SourceFileName: TestReport.kt
- *
  * The results of the assertion performed on the previous operations.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestReport">TestReportSetupActionAssert</a>
@@ -443,7 +433,7 @@ data class TestReportSetupActionAssert(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -451,7 +441,7 @@ data class TestReportSetupActionAssert(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportSetupActionAssert {
 
     override val resourceType: kotlin.String
@@ -493,8 +483,6 @@ interface FhirTestReportSetupActionOperation : FhirBackboneElement {
 /**
  * TestReportSetupActionOperation
  *
- * SourceFileName: TestReport.kt
- *
  * The operation performed.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestReport">TestReportSetupActionOperation</a>
@@ -517,7 +505,7 @@ data class TestReportSetupActionOperation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -525,7 +513,7 @@ data class TestReportSetupActionOperation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportSetupActionOperation {
 
     override val resourceType: kotlin.String
@@ -552,13 +540,11 @@ interface FhirTestReportTeardown : FhirBackboneElement {
     /**
      * One or more teardown operations performed.
      */
-    val action: List<TestReportTeardownAction>
+    val action: kotlin.collections.List<TestReportTeardownAction>
 }
 
 /**
  * TestReportTeardown
- *
- * SourceFileName: TestReport.kt
  *
  * The results of the series of operations required to clean up after the all the tests were executed
  * (successfully or otherwise).
@@ -572,12 +558,12 @@ interface FhirTestReportTeardown : FhirBackboneElement {
 data class TestReportTeardown(
 
     @SerialName("action")
-    override val action: List<TestReportTeardownAction>,
+    override val action: kotlin.collections.List<TestReportTeardownAction>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -585,7 +571,7 @@ data class TestReportTeardown(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportTeardown {
 
     override val resourceType: kotlin.String
@@ -617,8 +603,6 @@ interface FhirTestReportTeardownAction : FhirBackboneElement {
 /**
  * TestReportTeardownAction
  *
- * SourceFileName: TestReport.kt
- *
  * The teardown action will only contain an operation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestReport">TestReportTeardownAction</a>
@@ -635,7 +619,7 @@ data class TestReportTeardownAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -643,7 +627,7 @@ data class TestReportTeardownAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportTeardownAction {
 
     override val resourceType: kotlin.String
@@ -679,13 +663,11 @@ interface FhirTestReportTest : FhirBackboneElement {
     /**
      * A test operation or assert that was performed.
      */
-    val action: List<TestReportTestAction>
+    val action: kotlin.collections.List<TestReportTestAction>
 }
 
 /**
  * TestReportTest
- *
- * SourceFileName: TestReport.kt
  *
  * A test executed from the test script
  *
@@ -704,12 +686,12 @@ data class TestReportTest(
     override val description: String? = null,
 
     @SerialName("action")
-    override val action: List<TestReportTestAction>,
+    override val action: kotlin.collections.List<TestReportTestAction>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -717,7 +699,7 @@ data class TestReportTest(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportTest {
 
     override val resourceType: kotlin.String
@@ -754,8 +736,6 @@ interface FhirTestReportTestAction : FhirBackboneElement {
 /**
  * TestReportTestAction
  *
- * SourceFileName: TestReport.kt
- *
  * Action would contain either an operation or an assertion.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestReport">TestReportTestAction</a>
@@ -775,7 +755,7 @@ data class TestReportTestAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -783,7 +763,7 @@ data class TestReportTestAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestReportTestAction {
 
     override val resourceType: kotlin.String

@@ -39,7 +39,7 @@ interface FhirClaimResponse : FhirDomainResource {
     /**
      * Response number.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -94,17 +94,17 @@ interface FhirClaimResponse : FhirDomainResource {
     /**
      * Line items.
      */
-    val item: List<ClaimResponseItem>?
+    val item: kotlin.collections.List<ClaimResponseItem>?
 
     /**
      * Insurer added line items.
      */
-    val addItem: List<ClaimResponseAddItem>?
+    val addItem: kotlin.collections.List<ClaimResponseAddItem>?
 
     /**
      * Processing errors.
      */
-    val error: List<ClaimResponseError>?
+    val error: kotlin.collections.List<ClaimResponseError>?
 
     /**
      * Total Cost of service from the Claim.
@@ -139,23 +139,21 @@ interface FhirClaimResponse : FhirDomainResource {
     /**
      * Processing notes.
      */
-    val processNote: List<ClaimResponseProcessNote>?
+    val processNote: kotlin.collections.List<ClaimResponseProcessNote>?
 
     /**
      * Request for additional information.
      */
-    val communicationRequest: List<Reference>?
+    val communicationRequest: kotlin.collections.List<Reference>?
 
     /**
      * Insurance or medical plan.
      */
-    val insurance: List<ClaimResponseInsurance>?
+    val insurance: kotlin.collections.List<ClaimResponseInsurance>?
 }
 
 /**
  * ClaimResponse
- *
- * SourceFileName: ClaimResponse.kt
  *
  * This resource provides the adjudication details from the processing of a Claim resource.
  *
@@ -168,7 +166,7 @@ interface FhirClaimResponse : FhirDomainResource {
 data class ClaimResponse(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -201,13 +199,13 @@ data class ClaimResponse(
     override val payeeType: CodeableConcept? = null,
 
     @SerialName("item")
-    override val item: List<ClaimResponseItem>? = null,
+    override val item: kotlin.collections.List<ClaimResponseItem>? = null,
 
     @SerialName("addItem")
-    override val addItem: List<ClaimResponseAddItem>? = null,
+    override val addItem: kotlin.collections.List<ClaimResponseAddItem>? = null,
 
     @SerialName("error")
-    override val error: List<ClaimResponseError>? = null,
+    override val error: kotlin.collections.List<ClaimResponseError>? = null,
 
     @SerialName("totalCost")
     override val totalCost: Money? = null,
@@ -228,13 +226,13 @@ data class ClaimResponse(
     override val form: CodeableConcept? = null,
 
     @SerialName("processNote")
-    override val processNote: List<ClaimResponseProcessNote>? = null,
+    override val processNote: kotlin.collections.List<ClaimResponseProcessNote>? = null,
 
     @SerialName("communicationRequest")
-    override val communicationRequest: List<Reference>? = null,
+    override val communicationRequest: kotlin.collections.List<Reference>? = null,
 
     @SerialName("insurance")
-    override val insurance: List<ClaimResponseInsurance>? = null,
+    override val insurance: kotlin.collections.List<ClaimResponseInsurance>? = null,
 
     // # DomainResource
 
@@ -242,13 +240,13 @@ data class ClaimResponse(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -288,7 +286,7 @@ interface FhirClaimResponseAddItem : FhirBackboneElement {
     /**
      * Service instances.
      */
-    val sequenceLinkId: List<PositiveInteger>?
+    val sequenceLinkId: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Revenue or cost center code.
@@ -308,7 +306,7 @@ interface FhirClaimResponseAddItem : FhirBackboneElement {
     /**
      * Service/Product billing modifiers.
      */
-    val modifier: List<CodeableConcept>?
+    val modifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Professional fee or Product charge.
@@ -318,23 +316,21 @@ interface FhirClaimResponseAddItem : FhirBackboneElement {
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Added items adjudication.
      */
-    val adjudication: List<ClaimResponseItemAdjudication>?
+    val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>?
 
     /**
      * Added items details.
      */
-    val detail: List<ClaimResponseAddItemDetail>?
+    val detail: kotlin.collections.List<ClaimResponseAddItemDetail>?
 }
 
 /**
  * ClaimResponseAddItem
- *
- * SourceFileName: ClaimResponse.kt
  *
  * The first tier service adjudications for payor added services.
  *
@@ -347,7 +343,7 @@ interface FhirClaimResponseAddItem : FhirBackboneElement {
 data class ClaimResponseAddItem(
 
     @SerialName("sequenceLinkId")
-    override val sequenceLinkId: List<PositiveInteger>? = null,
+    override val sequenceLinkId: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("revenue")
     override val revenue: CodeableConcept? = null,
@@ -359,24 +355,24 @@ data class ClaimResponseAddItem(
     override val service: CodeableConcept? = null,
 
     @SerialName("modifier")
-    override val modifier: List<CodeableConcept>? = null,
+    override val modifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("fee")
     override val fee: Money? = null,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ClaimResponseItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>? = null,
 
     @SerialName("detail")
-    override val detail: List<ClaimResponseAddItemDetail>? = null,
+    override val detail: kotlin.collections.List<ClaimResponseAddItemDetail>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -384,7 +380,7 @@ data class ClaimResponseAddItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseAddItem {
 
     override val resourceType: kotlin.String
@@ -425,7 +421,7 @@ interface FhirClaimResponseAddItemDetail : FhirBackboneElement {
     /**
      * Service/Product billing modifiers.
      */
-    val modifier: List<CodeableConcept>?
+    val modifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Professional fee or Product charge.
@@ -435,18 +431,16 @@ interface FhirClaimResponseAddItemDetail : FhirBackboneElement {
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Added items detail adjudication.
      */
-    val adjudication: List<ClaimResponseItemAdjudication>?
+    val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>?
 }
 
 /**
  * ClaimResponseAddItemDetail
- *
- * SourceFileName: ClaimResponse.kt
  *
  * The second tier service adjudications for payor added services.
  *
@@ -468,21 +462,21 @@ data class ClaimResponseAddItemDetail(
     override val service: CodeableConcept? = null,
 
     @SerialName("modifier")
-    override val modifier: List<CodeableConcept>? = null,
+    override val modifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("fee")
     override val fee: Money? = null,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ClaimResponseItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -490,7 +484,7 @@ data class ClaimResponseAddItemDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseAddItemDetail {
 
     override val resourceType: kotlin.String
@@ -537,8 +531,6 @@ interface FhirClaimResponseError : FhirBackboneElement {
 /**
  * ClaimResponseError
  *
- * SourceFileName: ClaimResponse.kt
- *
  * Mutually exclusive with Services Provided (Item).
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ClaimResponse">ClaimResponseError</a>
@@ -564,7 +556,7 @@ data class ClaimResponseError(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -572,7 +564,7 @@ data class ClaimResponseError(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseError {
 
     override val resourceType: kotlin.String
@@ -618,7 +610,7 @@ interface FhirClaimResponseInsurance : FhirBackboneElement {
     /**
      * Pre-Authorization/Determination Reference.
      */
-    val preAuthRef: List<String>?
+    val preAuthRef: kotlin.collections.List<String>?
 
     /**
      * Adjudication results.
@@ -628,8 +620,6 @@ interface FhirClaimResponseInsurance : FhirBackboneElement {
 
 /**
  * ClaimResponseInsurance
- *
- * SourceFileName: ClaimResponse.kt
  *
  * Financial instrument by which payment information for health care.
  *
@@ -654,7 +644,7 @@ data class ClaimResponseInsurance(
     override val businessArrangement: String? = null,
 
     @SerialName("preAuthRef")
-    override val preAuthRef: List<String>? = null,
+    override val preAuthRef: kotlin.collections.List<String>? = null,
 
     @SerialName("claimResponse")
     override val claimResponse: Reference? = null,
@@ -662,7 +652,7 @@ data class ClaimResponseInsurance(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -670,7 +660,7 @@ data class ClaimResponseInsurance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseInsurance {
 
     override val resourceType: kotlin.String
@@ -701,23 +691,21 @@ interface FhirClaimResponseItem : FhirBackboneElement {
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Adjudication details.
      */
-    val adjudication: List<ClaimResponseItemAdjudication>?
+    val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>?
 
     /**
      * Detail line items.
      */
-    val detail: List<ClaimResponseItemDetail>?
+    val detail: kotlin.collections.List<ClaimResponseItemDetail>?
 }
 
 /**
  * ClaimResponseItem
- *
- * SourceFileName: ClaimResponse.kt
  *
  * The first tier service adjudications for submitted services.
  *
@@ -733,18 +721,18 @@ data class ClaimResponseItem(
     override val sequenceLinkId: PositiveInteger,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ClaimResponseItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>? = null,
 
     @SerialName("detail")
-    override val detail: List<ClaimResponseItemDetail>? = null,
+    override val detail: kotlin.collections.List<ClaimResponseItemDetail>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -752,7 +740,7 @@ data class ClaimResponseItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseItem {
 
     override val resourceType: kotlin.String
@@ -799,8 +787,6 @@ interface FhirClaimResponseItemAdjudication : FhirBackboneElement {
 /**
  * ClaimResponseItemAdjudication
  *
- * SourceFileName: ClaimResponse.kt
- *
  * The adjudication results.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ClaimResponse">ClaimResponseItemAdjudication</a>
@@ -826,7 +812,7 @@ data class ClaimResponseItemAdjudication(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -834,7 +820,7 @@ data class ClaimResponseItemAdjudication(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseItemAdjudication {
 
     override val resourceType: kotlin.String
@@ -865,23 +851,21 @@ interface FhirClaimResponseItemDetail : FhirBackboneElement {
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Detail level adjudication details.
      */
-    val adjudication: List<ClaimResponseItemAdjudication>?
+    val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>?
 
     /**
      * Subdetail line items.
      */
-    val subDetail: List<ClaimResponseItemDetailSubDetail>?
+    val subDetail: kotlin.collections.List<ClaimResponseItemDetailSubDetail>?
 }
 
 /**
  * ClaimResponseItemDetail
- *
- * SourceFileName: ClaimResponse.kt
  *
  * The second tier service adjudications for submitted services.
  *
@@ -897,18 +881,18 @@ data class ClaimResponseItemDetail(
     override val sequenceLinkId: PositiveInteger,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ClaimResponseItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>? = null,
 
     @SerialName("subDetail")
-    override val subDetail: List<ClaimResponseItemDetailSubDetail>? = null,
+    override val subDetail: kotlin.collections.List<ClaimResponseItemDetailSubDetail>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -916,7 +900,7 @@ data class ClaimResponseItemDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseItemDetail {
 
     override val resourceType: kotlin.String
@@ -947,18 +931,16 @@ interface FhirClaimResponseItemDetailSubDetail : FhirBackboneElement {
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Subdetail level adjudication details.
      */
-    val adjudication: List<ClaimResponseItemAdjudication>?
+    val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>?
 }
 
 /**
  * ClaimResponseItemDetailSubDetail
- *
- * SourceFileName: ClaimResponse.kt
  *
  * The third tier service adjudications for submitted services.
  *
@@ -974,15 +956,15 @@ data class ClaimResponseItemDetailSubDetail(
     override val sequenceLinkId: PositiveInteger,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ClaimResponseItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ClaimResponseItemAdjudication>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -990,7 +972,7 @@ data class ClaimResponseItemDetailSubDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseItemDetailSubDetail {
 
     override val resourceType: kotlin.String
@@ -1047,8 +1029,6 @@ interface FhirClaimResponsePayment : FhirBackboneElement {
 /**
  * ClaimResponsePayment
  *
- * SourceFileName: ClaimResponse.kt
- *
  * Payment details for the claim if the claim has been paid.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ClaimResponse">ClaimResponsePayment</a>
@@ -1080,7 +1060,7 @@ data class ClaimResponsePayment(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1088,7 +1068,7 @@ data class ClaimResponsePayment(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponsePayment {
 
     override val resourceType: kotlin.String
@@ -1135,8 +1115,6 @@ interface FhirClaimResponseProcessNote : FhirBackboneElement {
 /**
  * ClaimResponseProcessNote
  *
- * SourceFileName: ClaimResponse.kt
- *
  * Note text.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ClaimResponse">ClaimResponseProcessNote</a>
@@ -1162,7 +1140,7 @@ data class ClaimResponseProcessNote(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1170,7 +1148,7 @@ data class ClaimResponseProcessNote(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClaimResponseProcessNote {
 
     override val resourceType: kotlin.String

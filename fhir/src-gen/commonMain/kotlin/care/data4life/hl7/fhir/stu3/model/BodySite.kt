@@ -36,7 +36,7 @@ interface FhirBodySite : FhirDomainResource {
     /**
      * Bodysite identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this body site record is in active use.
@@ -51,7 +51,7 @@ interface FhirBodySite : FhirDomainResource {
     /**
      * Modification to location code.
      */
-    val qualifier: List<CodeableConcept>?
+    val qualifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Anatomical location description.
@@ -61,7 +61,7 @@ interface FhirBodySite : FhirDomainResource {
     /**
      * Attached images.
      */
-    val image: List<Attachment>?
+    val image: kotlin.collections.List<Attachment>?
 
     /**
      * Who this is about.
@@ -71,8 +71,6 @@ interface FhirBodySite : FhirDomainResource {
 
 /**
  * BodySite
- *
- * SourceFileName: BodySite.kt
  *
  * Record details about the anatomical location of a specimen or body part. This resource may be used
  * when a coded concept does not provide the necessary detail needed for the use case.
@@ -86,7 +84,7 @@ interface FhirBodySite : FhirDomainResource {
 data class BodySite(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
@@ -95,13 +93,13 @@ data class BodySite(
     override val code: CodeableConcept? = null,
 
     @SerialName("qualifier")
-    override val qualifier: List<CodeableConcept>? = null,
+    override val qualifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("image")
-    override val image: List<Attachment>? = null,
+    override val image: kotlin.collections.List<Attachment>? = null,
 
     @SerialName("patient")
     override val patient: Reference,
@@ -112,13 +110,13 @@ data class BodySite(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

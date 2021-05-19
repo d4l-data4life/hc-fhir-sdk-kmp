@@ -56,7 +56,7 @@ interface FhirElementDefinition : FhirElement {
      * Codes that define how this element is represented in instances, when the
      * deviation varies from the normal case.
      */
-    val representation: List<PropertyRepresentation>?
+    val representation: kotlin.collections.List<PropertyRepresentation>?
 
     /**
      * Name for this particular element (in a set of slices).
@@ -71,7 +71,7 @@ interface FhirElementDefinition : FhirElement {
     /**
      * Corresponding codes in terminologies.
      */
-    val code: List<Coding>?
+    val code: kotlin.collections.List<Coding>?
 
     /**
      * This element is sliced - slices follow.
@@ -101,7 +101,7 @@ interface FhirElementDefinition : FhirElement {
     /**
      * Other names.
      */
-    val alias: List<String>?
+    val alias: kotlin.collections.List<String>?
 
     /**
      * Minimum Cardinality.
@@ -126,7 +126,7 @@ interface FhirElementDefinition : FhirElement {
     /**
      * Data type and Profile for this element.
      */
-    val type: List<ElementDefinitionType>?
+    val type: kotlin.collections.List<ElementDefinitionType>?
 
     /**
      * Specified value if missing from instance.
@@ -711,7 +711,7 @@ interface FhirElementDefinition : FhirElement {
     /**
      * Example value (as defined for type).
      */
-    val example: List<ElementDefinitionExample>?
+    val example: kotlin.collections.List<ElementDefinitionExample>?
 
     /**
      * Minimum Allowed Value (for some types).
@@ -811,12 +811,12 @@ interface FhirElementDefinition : FhirElement {
     /**
      * Reference to invariant about presence.
      */
-    val condition: List<String>?
+    val condition: kotlin.collections.List<String>?
 
     /**
      * Condition that must evaluate to true.
      */
-    val constraint: List<ElementDefinitionConstraint>?
+    val constraint: kotlin.collections.List<ElementDefinitionConstraint>?
 
     /**
      * If the element must supported.
@@ -841,13 +841,11 @@ interface FhirElementDefinition : FhirElement {
     /**
      * Map element to another set of definitions.
      */
-    val mapping: List<ElementDefinitionMapping>?
+    val mapping: kotlin.collections.List<ElementDefinitionMapping>?
 }
 
 /**
  * ElementDefinition
- *
- * SourceFileName: ElementDefinition.kt
  *
  * Captures constraints on each element within the resource, profile, or extension.
  *
@@ -863,7 +861,7 @@ data class ElementDefinition(
     override val path: String,
 
     @SerialName("representation")
-    override val representation: List<PropertyRepresentation>? = null,
+    override val representation: kotlin.collections.List<PropertyRepresentation>? = null,
 
     @SerialName("sliceName")
     override val sliceName: String? = null,
@@ -872,7 +870,7 @@ data class ElementDefinition(
     override val label: String? = null,
 
     @SerialName("code")
-    override val code: List<Coding>? = null,
+    override val code: kotlin.collections.List<Coding>? = null,
 
     @SerialName("slicing")
     override val slicing: ElementDefinitionSlicing? = null,
@@ -890,7 +888,7 @@ data class ElementDefinition(
     override val requirements: String? = null,
 
     @SerialName("alias")
-    override val alias: List<String>? = null,
+    override val alias: kotlin.collections.List<String>? = null,
 
     @SerialName("min")
     override val min: UnsignedInteger? = null,
@@ -905,7 +903,7 @@ data class ElementDefinition(
     override val contentReference: String? = null,
 
     @SerialName("type")
-    override val type: List<ElementDefinitionType>? = null,
+    override val type: kotlin.collections.List<ElementDefinitionType>? = null,
 
     @SerialName("defaultValueBase64Binary")
     override val defaultValueBase64Binary: String? = null,
@@ -1256,7 +1254,7 @@ data class ElementDefinition(
     override val patternMeta: Meta? = null,
 
     @SerialName("example")
-    override val example: List<ElementDefinitionExample>? = null,
+    override val example: kotlin.collections.List<ElementDefinitionExample>? = null,
 
     @SerialName("minValueDate")
     override val minValueDate: Date? = null,
@@ -1316,10 +1314,10 @@ data class ElementDefinition(
     override val maxLength: Integer? = null,
 
     @SerialName("condition")
-    override val condition: List<String>? = null,
+    override val condition: kotlin.collections.List<String>? = null,
 
     @SerialName("constraint")
-    override val constraint: List<ElementDefinitionConstraint>? = null,
+    override val constraint: kotlin.collections.List<ElementDefinitionConstraint>? = null,
 
     @SerialName("mustSupport")
     override val mustSupport: Bool? = null,
@@ -1334,7 +1332,7 @@ data class ElementDefinition(
     override val binding: ElementDefinitionBinding? = null,
 
     @SerialName("mapping")
-    override val mapping: List<ElementDefinitionMapping>? = null,
+    override val mapping: kotlin.collections.List<ElementDefinitionMapping>? = null,
 
     // # Element
 
@@ -1342,7 +1340,7 @@ data class ElementDefinition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinition {
 
     override val resourceType: kotlin.String
@@ -1387,8 +1385,6 @@ interface FhirElementDefinitionBase : FhirElement {
 /**
  * ElementDefinitionBase
  *
- * SourceFileName: ElementDefinition.kt
- *
  * Information about the base definition of the element, provided to make it unnecessary for tools to
  * trace the deviation of the element through the derived and related profiles. This information is
  * provided when the element definition is not the original definition of an element - i.g. either in a
@@ -1417,7 +1413,7 @@ data class ElementDefinitionBase(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionBase {
 
     override val resourceType: kotlin.String
@@ -1467,8 +1463,6 @@ interface FhirElementDefinitionBinding : FhirElement {
 /**
  * ElementDefinitionBinding
  *
- * SourceFileName: ElementDefinition.kt
- *
  * Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data
  * types (string, uri).
  *
@@ -1498,7 +1492,7 @@ data class ElementDefinitionBinding(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionBinding {
 
     override val resourceType: kotlin.String
@@ -1562,8 +1556,6 @@ interface FhirElementDefinitionConstraint : FhirElement {
 /**
  * ElementDefinitionConstraint
  *
- * SourceFileName: ElementDefinition.kt
- *
  * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated
  * within the context of the instance.
  *
@@ -1602,7 +1594,7 @@ data class ElementDefinitionConstraint(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionConstraint {
 
     override val resourceType: kotlin.String
@@ -1825,8 +1817,6 @@ interface FhirElementDefinitionExample : FhirElement {
 /**
  * ElementDefinitionExample
  *
- * SourceFileName: ElementDefinition.kt
- *
  * A sample value for this element demonstrating the type of information that would typically be found
  * in the element.
  *
@@ -1961,7 +1951,7 @@ data class ElementDefinitionExample(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionExample {
 
     override val resourceType: kotlin.String
@@ -2008,8 +1998,6 @@ interface FhirElementDefinitionMapping : FhirElement {
 /**
  * ElementDefinitionMapping
  *
- * SourceFileName: ElementDefinition.kt
- *
  * Identifies a concept from an external specification that roughly corresponds to this element.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ElementDefinition">ElementDefinitionMapping</a>
@@ -2038,7 +2026,7 @@ data class ElementDefinitionMapping(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionMapping {
 
     override val resourceType: kotlin.String
@@ -2068,7 +2056,7 @@ interface FhirElementDefinitionSlicing : FhirElement {
     /**
      * Element values that are used to distinguish the slices.
      */
-    val discriminator: List<ElementDefinitionSlicingDiscriminator>?
+    val discriminator: kotlin.collections.List<ElementDefinitionSlicingDiscriminator>?
 
     /**
      * Text description of how slicing works (or not).
@@ -2090,8 +2078,6 @@ interface FhirElementDefinitionSlicing : FhirElement {
 /**
  * ElementDefinitionSlicing
  *
- * SourceFileName: ElementDefinition.kt
- *
  * Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure
  * definition, there are multiple different constraints on a single element in the base resource).
  * Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource
@@ -2107,7 +2093,7 @@ interface FhirElementDefinitionSlicing : FhirElement {
 data class ElementDefinitionSlicing(
 
     @SerialName("discriminator")
-    override val discriminator: List<ElementDefinitionSlicingDiscriminator>? = null,
+    override val discriminator: kotlin.collections.List<ElementDefinitionSlicingDiscriminator>? = null,
 
     @SerialName("description")
     override val description: String? = null,
@@ -2124,7 +2110,7 @@ data class ElementDefinitionSlicing(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionSlicing {
 
     override val resourceType: kotlin.String
@@ -2164,8 +2150,6 @@ interface FhirElementDefinitionSlicingDiscriminator : FhirElement {
 /**
  * ElementDefinitionSlicingDiscriminator
  *
- * SourceFileName: ElementDefinition.kt
- *
  * Designates which child elements are used to discriminate between the slices when processing an
  * instance. If one or more discriminators are provided, the value of the child elements in the
  * instance data SHALL completely distinguish which slice the element in the resource matches based on
@@ -2191,7 +2175,7 @@ data class ElementDefinitionSlicingDiscriminator(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionSlicingDiscriminator {
 
     override val resourceType: kotlin.String
@@ -2234,7 +2218,7 @@ interface FhirElementDefinitionType : FhirElement {
      * aggregated - is it a contained resource, or a reference, and if the context is a
      * bundle, is it included in the bundle.
      */
-    val aggregation: List<AggregationMode>?
+    val aggregation: kotlin.collections.List<AggregationMode>?
 
     /**
      * Whether this reference needs to be version specific or version independent, or
@@ -2245,8 +2229,6 @@ interface FhirElementDefinitionType : FhirElement {
 
 /**
  * ElementDefinitionType
- *
- * SourceFileName: ElementDefinition.kt
  *
  * The data type or resource that the value of this element is permitted to be.
  *
@@ -2268,7 +2250,7 @@ data class ElementDefinitionType(
     override val targetProfile: String? = null,
 
     @SerialName("aggregation")
-    override val aggregation: List<AggregationMode>? = null,
+    override val aggregation: kotlin.collections.List<AggregationMode>? = null,
 
     @SerialName("versioning")
     override val versioning: ReferenceVersionRules? = null,
@@ -2279,7 +2261,7 @@ data class ElementDefinitionType(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElementDefinitionType {
 
     override val resourceType: kotlin.String

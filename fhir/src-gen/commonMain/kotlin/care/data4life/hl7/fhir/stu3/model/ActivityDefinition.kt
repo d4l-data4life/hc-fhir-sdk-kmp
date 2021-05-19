@@ -46,7 +46,7 @@ interface FhirActivityDefinition : FhirDomainResource {
     /**
      * Additional identifier for the activity definition.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the activity definition.
@@ -117,27 +117,27 @@ interface FhirActivityDefinition : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for activity definition (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * E.g. Education, Treatment, Assessment, etc.
      */
-    val topic: List<CodeableConcept>?
+    val topic: kotlin.collections.List<CodeableConcept>?
 
     /**
      * A content contributor.
      */
-    val contributor: List<Contributor>?
+    val contributor: kotlin.collections.List<Contributor>?
 
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Use and/or publishing restrictions.
@@ -147,12 +147,12 @@ interface FhirActivityDefinition : FhirDomainResource {
     /**
      * Additional documentation, citations, etc.
      */
-    val relatedArtifact: List<RelatedArtifact>?
+    val relatedArtifact: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * Logic used by the asset.
      */
-    val library: List<Reference>?
+    val library: kotlin.collections.List<Reference>?
 
     /**
      * A description of the kind of resource the activity definition is representing.
@@ -194,7 +194,7 @@ interface FhirActivityDefinition : FhirDomainResource {
     /**
      * Who should participate in the action.
      */
-    val participant: List<ActivityDefinitionParticipant>?
+    val participant: kotlin.collections.List<ActivityDefinitionParticipant>?
 
     /**
      * What's administered/supplied.
@@ -214,12 +214,12 @@ interface FhirActivityDefinition : FhirDomainResource {
     /**
      * Detailed dosage instructions.
      */
-    val dosage: List<Dosage>?
+    val dosage: kotlin.collections.List<Dosage>?
 
     /**
      * What part of body to perform on.
      */
-    val bodySite: List<CodeableConcept>?
+    val bodySite: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Transform to apply the template.
@@ -229,13 +229,11 @@ interface FhirActivityDefinition : FhirDomainResource {
     /**
      * Dynamic aspects of the definition.
      */
-    val dynamicValue: List<ActivityDefinitionDynamicValue>?
+    val dynamicValue: kotlin.collections.List<ActivityDefinitionDynamicValue>?
 }
 
 /**
  * ActivityDefinition
- *
- * SourceFileName: ActivityDefinition.kt
  *
  * This resource allows for the definition of some activity to be performed, independent of a
  * particular patient, practitioner, or other performance context.
@@ -252,7 +250,7 @@ data class ActivityDefinition(
     override val url: String? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -294,28 +292,28 @@ data class ActivityDefinition(
     override val effectivePeriod: Period? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("topic")
-    override val topic: List<CodeableConcept>? = null,
+    override val topic: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("contributor")
-    override val contributor: List<Contributor>? = null,
+    override val contributor: kotlin.collections.List<Contributor>? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("copyright")
     override val copyright: String? = null,
 
     @SerialName("relatedArtifact")
-    override val relatedArtifact: List<RelatedArtifact>? = null,
+    override val relatedArtifact: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("library")
-    override val library: List<Reference>? = null,
+    override val library: kotlin.collections.List<Reference>? = null,
 
     @SerialName("kind")
     override val kind: ResourceType? = null,
@@ -339,7 +337,7 @@ data class ActivityDefinition(
     override val location: Reference? = null,
 
     @SerialName("participant")
-    override val participant: List<ActivityDefinitionParticipant>? = null,
+    override val participant: kotlin.collections.List<ActivityDefinitionParticipant>? = null,
 
     @SerialName("productReference")
     override val productReference: Reference? = null,
@@ -351,16 +349,16 @@ data class ActivityDefinition(
     override val quantity: Quantity? = null,
 
     @SerialName("dosage")
-    override val dosage: List<Dosage>? = null,
+    override val dosage: kotlin.collections.List<Dosage>? = null,
 
     @SerialName("bodySite")
-    override val bodySite: List<CodeableConcept>? = null,
+    override val bodySite: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("transform")
     override val transform: Reference? = null,
 
     @SerialName("dynamicValue")
-    override val dynamicValue: List<ActivityDefinitionDynamicValue>? = null,
+    override val dynamicValue: kotlin.collections.List<ActivityDefinitionDynamicValue>? = null,
 
     // # DomainResource
 
@@ -368,13 +366,13 @@ data class ActivityDefinition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -438,8 +436,6 @@ interface FhirActivityDefinitionDynamicValue : FhirBackboneElement {
 /**
  * ActivityDefinitionDynamicValue
  *
- * SourceFileName: ActivityDefinition.kt
- *
  * Dynamic values that will be evaluated to produce values for elements of the resulting resource. For
  * example, if the dosage of a medication must be computed based on the patient's weight, a dynamic
  * value would be used to specify an expression that calculated the weight, and the path on the intent
@@ -468,7 +464,7 @@ data class ActivityDefinitionDynamicValue(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -476,7 +472,7 @@ data class ActivityDefinitionDynamicValue(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirActivityDefinitionDynamicValue {
 
     override val resourceType: kotlin.String
@@ -513,8 +509,6 @@ interface FhirActivityDefinitionParticipant : FhirBackboneElement {
 /**
  * ActivityDefinitionParticipant
  *
- * SourceFileName: ActivityDefinition.kt
- *
  * Indicates who should participate in performing the action described.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ActivityDefinition">ActivityDefinitionParticipant</a>
@@ -534,7 +528,7 @@ data class ActivityDefinitionParticipant(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -542,7 +536,7 @@ data class ActivityDefinitionParticipant(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirActivityDefinitionParticipant {
 
     override val resourceType: kotlin.String

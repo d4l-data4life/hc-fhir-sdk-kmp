@@ -62,7 +62,7 @@ interface FhirDeviceComponent : FhirDomainResource {
     /**
      * Current operational status of the component, for example On, Off or Standby.
      */
-    val operationalStatus: List<CodeableConcept>?
+    val operationalStatus: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Current supported parameter group.
@@ -78,7 +78,7 @@ interface FhirDeviceComponent : FhirDomainResource {
     /**
      * Specification details such as Component Revisions, or Serial Numbers.
      */
-    val productionSpecification: List<DeviceComponentProductionSpecification>?
+    val productionSpecification: kotlin.collections.List<DeviceComponentProductionSpecification>?
 
     /**
      * Language code for the human-readable text strings produced by the device.
@@ -88,8 +88,6 @@ interface FhirDeviceComponent : FhirDomainResource {
 
 /**
  * DeviceComponent
- *
- * SourceFileName: DeviceComponent.kt
  *
  * The characteristics, operational status and capabilities of a medical-related component of a medical
  * device.
@@ -118,7 +116,7 @@ data class DeviceComponent(
     override val parent: Reference? = null,
 
     @SerialName("operationalStatus")
-    override val operationalStatus: List<CodeableConcept>? = null,
+    override val operationalStatus: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("parameterGroup")
     override val parameterGroup: CodeableConcept? = null,
@@ -127,7 +125,7 @@ data class DeviceComponent(
     override val measurementPrinciple: MeasmntPrinciple? = null,
 
     @SerialName("productionSpecification")
-    override val productionSpecification: List<DeviceComponentProductionSpecification>? = null,
+    override val productionSpecification: kotlin.collections.List<DeviceComponentProductionSpecification>? = null,
 
     @SerialName("languageCode")
     override val languageCode: CodeableConcept? = null,
@@ -138,13 +136,13 @@ data class DeviceComponent(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -201,8 +199,6 @@ interface FhirDeviceComponentProductionSpecification : FhirBackboneElement {
 /**
  * DeviceComponentProductionSpecification
  *
- * SourceFileName: DeviceComponent.kt
- *
  * The production specification such as component revision, serial number, etc.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DeviceComponent">DeviceComponentProductionSpecification</a>
@@ -225,7 +221,7 @@ data class DeviceComponentProductionSpecification(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -233,7 +229,7 @@ data class DeviceComponentProductionSpecification(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDeviceComponentProductionSpecification {
 
     override val resourceType: kotlin.String

@@ -41,29 +41,27 @@ interface FhirDataRequirement : FhirElement {
     /**
      * The profile of the required data.
      */
-    val profile: List<String>?
+    val profile: kotlin.collections.List<String>?
 
     /**
      * Indicates that specific structure elements are referenced by the knowledge
      * module.
      */
-    val mustSupport: List<String>?
+    val mustSupport: kotlin.collections.List<String>?
 
     /**
      * What codes are expected.
      */
-    val codeFilter: List<DataRequirementCodeFilter>?
+    val codeFilter: kotlin.collections.List<DataRequirementCodeFilter>?
 
     /**
      * What dates/date ranges are expected.
      */
-    val dateFilter: List<DataRequirementDateFilter>?
+    val dateFilter: kotlin.collections.List<DataRequirementDateFilter>?
 }
 
 /**
  * DataRequirement
- *
- * SourceFileName: DataRequirement.kt
  *
  * Describes a required data item for evaluation in terms of the type of data, and optional code or
  * date-based filters of the data.
@@ -80,16 +78,16 @@ data class DataRequirement(
     override val type: String,
 
     @SerialName("profile")
-    override val profile: List<String>? = null,
+    override val profile: kotlin.collections.List<String>? = null,
 
     @SerialName("mustSupport")
-    override val mustSupport: List<String>? = null,
+    override val mustSupport: kotlin.collections.List<String>? = null,
 
     @SerialName("codeFilter")
-    override val codeFilter: List<DataRequirementCodeFilter>? = null,
+    override val codeFilter: kotlin.collections.List<DataRequirementCodeFilter>? = null,
 
     @SerialName("dateFilter")
-    override val dateFilter: List<DataRequirementDateFilter>? = null,
+    override val dateFilter: kotlin.collections.List<DataRequirementDateFilter>? = null,
 
     // # Element
 
@@ -97,7 +95,7 @@ data class DataRequirement(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataRequirement {
 
     override val resourceType: kotlin.String
@@ -139,23 +137,21 @@ interface FhirDataRequirementCodeFilter : FhirElement {
     /**
      * What code is expected.
      */
-    val valueCode: List<String>?
+    val valueCode: kotlin.collections.List<String>?
 
     /**
      * What Coding is expected.
      */
-    val valueCoding: List<Coding>?
+    val valueCoding: kotlin.collections.List<Coding>?
 
     /**
      * What CodeableConcept is expected.
      */
-    val valueCodeableConcept: List<CodeableConcept>?
+    val valueCodeableConcept: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
  * DataRequirementCodeFilter
- *
- * SourceFileName: DataRequirement.kt
  *
  * Code filters specify additional constraints on the data, specifying the value set of interest for a
  * particular element of the data.
@@ -178,13 +174,13 @@ data class DataRequirementCodeFilter(
     override val valueSetReference: Reference? = null,
 
     @SerialName("valueCode")
-    override val valueCode: List<String>? = null,
+    override val valueCode: kotlin.collections.List<String>? = null,
 
     @SerialName("valueCoding")
-    override val valueCoding: List<Coding>? = null,
+    override val valueCoding: kotlin.collections.List<Coding>? = null,
 
     @SerialName("valueCodeableConcept")
-    override val valueCodeableConcept: List<CodeableConcept>? = null,
+    override val valueCodeableConcept: kotlin.collections.List<CodeableConcept>? = null,
 
     // # Element
 
@@ -192,7 +188,7 @@ data class DataRequirementCodeFilter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataRequirementCodeFilter {
 
     override val resourceType: kotlin.String
@@ -240,8 +236,6 @@ interface FhirDataRequirementDateFilter : FhirElement {
 /**
  * DataRequirementDateFilter
  *
- * SourceFileName: DataRequirement.kt
- *
  * Date filters specify additional constraints on the data in terms of the applicable date range for
  * specific elements.
  *
@@ -271,7 +265,7 @@ data class DataRequirementDateFilter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataRequirementDateFilter {
 
     override val resourceType: kotlin.String

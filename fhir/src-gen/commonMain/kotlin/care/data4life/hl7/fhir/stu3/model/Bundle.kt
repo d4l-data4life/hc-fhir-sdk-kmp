@@ -55,12 +55,12 @@ interface FhirBundle : FhirResource {
     /**
      * Links related to this Bundle.
      */
-    val link: List<BundleLink>?
+    val link: kotlin.collections.List<BundleLink>?
 
     /**
      * Entry in the bundle - will have a resource, or information.
      */
-    val entry: List<BundleEntry>?
+    val entry: kotlin.collections.List<BundleEntry>?
 
     /**
      * Digital Signature.
@@ -70,8 +70,6 @@ interface FhirBundle : FhirResource {
 
 /**
  * Bundle
- *
- * SourceFileName: Bundle.kt
  *
  * A container for a collection of resources.
  *
@@ -93,10 +91,10 @@ data class Bundle(
     override val total: UnsignedInteger? = null,
 
     @SerialName("link")
-    override val link: List<BundleLink>? = null,
+    override val link: kotlin.collections.List<BundleLink>? = null,
 
     @SerialName("entry")
-    override val entry: List<BundleEntry>? = null,
+    override val entry: kotlin.collections.List<BundleEntry>? = null,
 
     @SerialName("signature")
     override val signature: Signature? = null,
@@ -140,7 +138,7 @@ interface FhirBundleEntry : FhirBackboneElement {
     /**
      * Links related to this entry.
      */
-    val link: List<BundleLink>?
+    val link: kotlin.collections.List<BundleLink>?
 
     /**
      * Absolute URL for resource (server address, or UUID/OID).
@@ -171,8 +169,6 @@ interface FhirBundleEntry : FhirBackboneElement {
 /**
  * BundleEntry
  *
- * SourceFileName: Bundle.kt
- *
  * An entry in a bundle resource - will either contain a resource, or information about a resource
  * (transactions and history only).
  *
@@ -185,7 +181,7 @@ interface FhirBundleEntry : FhirBackboneElement {
 data class BundleEntry(
 
     @SerialName("link")
-    override val link: List<BundleLink>? = null,
+    override val link: kotlin.collections.List<BundleLink>? = null,
 
     @SerialName("fullUrl")
     override val fullUrl: String? = null,
@@ -205,7 +201,7 @@ data class BundleEntry(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -213,7 +209,7 @@ data class BundleEntry(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirBundleEntry {
 
     override val resourceType: kotlin.String
@@ -271,8 +267,6 @@ interface FhirBundleEntryRequest : FhirBackboneElement {
 /**
  * BundleEntryRequest
  *
- * SourceFileName: Bundle.kt
- *
  * Additional information about how this entry should be processed as part of a transaction.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Bundle">BundleEntryRequest</a>
@@ -304,7 +298,7 @@ data class BundleEntryRequest(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -312,7 +306,7 @@ data class BundleEntryRequest(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirBundleEntryRequest {
 
     override val resourceType: kotlin.String
@@ -364,8 +358,6 @@ interface FhirBundleEntryResponse : FhirBackboneElement {
 /**
  * BundleEntryResponse
  *
- * SourceFileName: Bundle.kt
- *
  * Additional information about how this entry should be processed as part of a transaction.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Bundle">BundleEntryResponse</a>
@@ -394,7 +386,7 @@ data class BundleEntryResponse(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -402,7 +394,7 @@ data class BundleEntryResponse(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirBundleEntryResponse {
 
     override val resourceType: kotlin.String
@@ -440,8 +432,6 @@ interface FhirBundleEntrySearch : FhirBackboneElement {
 /**
  * BundleEntrySearch
  *
- * SourceFileName: Bundle.kt
- *
  * Information about the search process that lead to the creation of this entry.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Bundle">BundleEntrySearch</a>
@@ -461,7 +451,7 @@ data class BundleEntrySearch(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -469,7 +459,7 @@ data class BundleEntrySearch(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirBundleEntrySearch {
 
     override val resourceType: kotlin.String
@@ -507,8 +497,6 @@ interface FhirBundleLink : FhirBackboneElement {
 /**
  * BundleLink
  *
- * SourceFileName: Bundle.kt
- *
  * A series of links that provide context to this bundle.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Bundle">BundleLink</a>
@@ -528,7 +516,7 @@ data class BundleLink(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -536,7 +524,7 @@ data class BundleLink(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirBundleLink {
 
     override val resourceType: kotlin.String

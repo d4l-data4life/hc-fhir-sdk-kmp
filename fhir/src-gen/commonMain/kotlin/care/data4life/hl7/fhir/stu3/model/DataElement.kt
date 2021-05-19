@@ -43,7 +43,7 @@ interface FhirDataElement : FhirDomainResource {
     /**
      * Additional identifier for the data element.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the data element.
@@ -83,17 +83,17 @@ interface FhirDataElement : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for data element (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Use and/or publishing restrictions.
@@ -108,18 +108,16 @@ interface FhirDataElement : FhirDomainResource {
     /**
      * External specification mapped to.
      */
-    val mapping: List<DataElementMapping>?
+    val mapping: kotlin.collections.List<DataElementMapping>?
 
     /**
      * Definition of element.
      */
-    val element: List<ElementDefinition>
+    val element: kotlin.collections.List<ElementDefinition>
 }
 
 /**
  * DataElement
- *
- * SourceFileName: DataElement.kt
  *
  * The formal description of a single piece of information that can be gathered and reported.
  *
@@ -135,7 +133,7 @@ data class DataElement(
     override val url: String? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -159,13 +157,13 @@ data class DataElement(
     override val title: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("copyright")
     override val copyright: String? = null,
@@ -174,10 +172,10 @@ data class DataElement(
     override val stringency: DataElementStringency? = null,
 
     @SerialName("mapping")
-    override val mapping: List<DataElementMapping>? = null,
+    override val mapping: kotlin.collections.List<DataElementMapping>? = null,
 
     @SerialName("element")
-    override val element: List<ElementDefinition>,
+    override val element: kotlin.collections.List<ElementDefinition>,
 
     // # DomainResource
 
@@ -185,13 +183,13 @@ data class DataElement(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -253,8 +251,6 @@ interface FhirDataElementMapping : FhirBackboneElement {
 /**
  * DataElementMapping
  *
- * SourceFileName: DataElement.kt
- *
  * Identifies a specification (other than a terminology) that the elements which make up the
  * DataElement have some correspondence with.
  *
@@ -281,7 +277,7 @@ data class DataElementMapping(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -289,7 +285,7 @@ data class DataElementMapping(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataElementMapping {
 
     override val resourceType: kotlin.String

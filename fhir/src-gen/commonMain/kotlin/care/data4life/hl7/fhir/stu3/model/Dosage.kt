@@ -46,7 +46,7 @@ interface FhirDosage : FhirElement {
     /**
      * Supplemental instruction - e.g. "with meals".
      */
-    val additionalInstruction: List<CodeableConcept>?
+    val additionalInstruction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Patient or consumer oriented instructions.
@@ -127,8 +127,6 @@ interface FhirDosage : FhirElement {
 /**
  * Dosage
  *
- * SourceFileName: Dosage.kt
- *
  * Indicates how the medication is/was taken or should be taken by the patient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Dosage">Dosage</a>
@@ -146,7 +144,7 @@ data class Dosage(
     override val text: String? = null,
 
     @SerialName("additionalInstruction")
-    override val additionalInstruction: List<CodeableConcept>? = null,
+    override val additionalInstruction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("patientInstruction")
     override val patientInstruction: String? = null,
@@ -199,7 +197,7 @@ data class Dosage(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDosage {
 
     override val resourceType: kotlin.String

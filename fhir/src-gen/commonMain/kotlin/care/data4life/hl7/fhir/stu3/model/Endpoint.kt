@@ -37,7 +37,7 @@ interface FhirEndpoint : FhirDomainResource {
     /**
      * Identifies this endpoint across multiple systems.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | suspended | error | off | test.
@@ -63,7 +63,7 @@ interface FhirEndpoint : FhirDomainResource {
     /**
      * Contact details for source (e.g. troubleshooting).
      */
-    val contact: List<ContactPoint>?
+    val contact: kotlin.collections.List<ContactPoint>?
 
     /**
      * Interval the endpoint is expected to be operational.
@@ -74,13 +74,13 @@ interface FhirEndpoint : FhirDomainResource {
      * The type of content that may be used at this endpoint (e.g. XDS Discharge
      * summaries).
      */
-    val payloadType: List<CodeableConcept>
+    val payloadType: kotlin.collections.List<CodeableConcept>
 
     /**
      * Mimetype to send. If not specified, the content could be anything (including no
      * payload, if the connectionType defined this).
      */
-    val payloadMimeType: List<String>?
+    val payloadMimeType: kotlin.collections.List<String>?
 
     /**
      * The technical base address for connecting to this endpoint.
@@ -90,13 +90,11 @@ interface FhirEndpoint : FhirDomainResource {
     /**
      * Usage depends on the channel type.
      */
-    val header: List<String>?
+    val header: kotlin.collections.List<String>?
 }
 
 /**
  * Endpoint
- *
- * SourceFileName: Endpoint.kt
  *
  * The technical details of an endpoint that can be used for electronic services, such as for web
  * services providing XDS.b or a REST endpoint for another FHIR server. This may include any security
@@ -111,7 +109,7 @@ interface FhirEndpoint : FhirDomainResource {
 data class Endpoint(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: EndpointStatus,
@@ -126,22 +124,22 @@ data class Endpoint(
     override val managingOrganization: Reference? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactPoint>? = null,
+    override val contact: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
 
     @SerialName("payloadType")
-    override val payloadType: List<CodeableConcept>,
+    override val payloadType: kotlin.collections.List<CodeableConcept>,
 
     @SerialName("payloadMimeType")
-    override val payloadMimeType: List<String>? = null,
+    override val payloadMimeType: kotlin.collections.List<String>? = null,
 
     @SerialName("address")
     override val address: String,
 
     @SerialName("header")
-    override val header: List<String>? = null,
+    override val header: kotlin.collections.List<String>? = null,
 
     // # DomainResource
 
@@ -149,13 +147,13 @@ data class Endpoint(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

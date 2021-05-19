@@ -42,7 +42,7 @@ interface FhirAllergyIntolerance : FhirDomainResource {
     /**
      * External ids for this item.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The clinical status of the allergy or intolerance.
@@ -63,7 +63,7 @@ interface FhirAllergyIntolerance : FhirDomainResource {
     /**
      * Category of the identified substance.
      */
-    val category: List<AllergyIntoleranceCategory>?
+    val category: kotlin.collections.List<AllergyIntoleranceCategory>?
 
     /**
      * Estimate of the potential clinical harm, or seriousness, of the reaction to the
@@ -129,18 +129,16 @@ interface FhirAllergyIntolerance : FhirDomainResource {
     /**
      * Additional text not captured in other fields.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Adverse Reaction Events linked to exposure to substance.
      */
-    val reaction: List<AllergyIntoleranceReaction>?
+    val reaction: kotlin.collections.List<AllergyIntoleranceReaction>?
 }
 
 /**
  * AllergyIntolerance
- *
- * SourceFileName: AllergyIntolerance.kt
  *
  * Risk of harmful or undesirable, physiological response which is unique to an individual and
  * associated with exposure to a substance.
@@ -154,7 +152,7 @@ interface FhirAllergyIntolerance : FhirDomainResource {
 data class AllergyIntolerance(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("clinicalStatus")
     override val clinicalStatus: AllergyIntoleranceClinicalStatus? = null,
@@ -166,7 +164,7 @@ data class AllergyIntolerance(
     override val type: AllergyIntoleranceType? = null,
 
     @SerialName("category")
-    override val category: List<AllergyIntoleranceCategory>? = null,
+    override val category: kotlin.collections.List<AllergyIntoleranceCategory>? = null,
 
     @SerialName("criticality")
     override val criticality: AllergyIntoleranceCriticality? = null,
@@ -205,10 +203,10 @@ data class AllergyIntolerance(
     override val lastOccurrence: DateTime? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("reaction")
-    override val reaction: List<AllergyIntoleranceReaction>? = null,
+    override val reaction: kotlin.collections.List<AllergyIntoleranceReaction>? = null,
 
     // # DomainResource
 
@@ -216,13 +214,13 @@ data class AllergyIntolerance(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -268,7 +266,7 @@ interface FhirAllergyIntoleranceReaction : FhirBackboneElement {
     /**
      * Clinical symptoms/signs associated with the Event.
      */
-    val manifestation: List<CodeableConcept>
+    val manifestation: kotlin.collections.List<CodeableConcept>
 
     /**
      * Description of the event as a whole.
@@ -294,13 +292,11 @@ interface FhirAllergyIntoleranceReaction : FhirBackboneElement {
     /**
      * Text about event not captured in other fields.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * AllergyIntoleranceReaction
- *
- * SourceFileName: AllergyIntolerance.kt
  *
  * Details about each adverse reaction event linked to exposure to the identified substance.
  *
@@ -316,7 +312,7 @@ data class AllergyIntoleranceReaction(
     override val substance: CodeableConcept? = null,
 
     @SerialName("manifestation")
-    override val manifestation: List<CodeableConcept>,
+    override val manifestation: kotlin.collections.List<CodeableConcept>,
 
     @SerialName("description")
     override val description: String? = null,
@@ -331,12 +327,12 @@ data class AllergyIntoleranceReaction(
     override val exposureRoute: CodeableConcept? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -344,7 +340,7 @@ data class AllergyIntoleranceReaction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAllergyIntoleranceReaction {
 
     override val resourceType: kotlin.String

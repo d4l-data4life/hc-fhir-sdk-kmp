@@ -39,17 +39,17 @@ interface FhirCommunicationRequest : FhirDomainResource {
     /**
      * Unique identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Fulfills plan or proposal.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Request(s) replaced by this request.
      */
-    val replaces: List<Reference>?
+    val replaces: kotlin.collections.List<Reference>?
 
     /**
      * Composite request this is part of.
@@ -64,7 +64,7 @@ interface FhirCommunicationRequest : FhirDomainResource {
     /**
      * Message category.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Characterizes how quickly the proposed act must be initiated. Includes concepts
@@ -75,7 +75,7 @@ interface FhirCommunicationRequest : FhirDomainResource {
     /**
      * A channel of communication.
      */
-    val medium: List<CodeableConcept>?
+    val medium: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Focus of message.
@@ -85,12 +85,12 @@ interface FhirCommunicationRequest : FhirDomainResource {
     /**
      * Message recipient.
      */
-    val recipient: List<Reference>?
+    val recipient: kotlin.collections.List<Reference>?
 
     /**
      * Focal resources.
      */
-    val topic: List<Reference>?
+    val topic: kotlin.collections.List<Reference>?
 
     /**
      * Encounter or episode leading to message.
@@ -100,7 +100,7 @@ interface FhirCommunicationRequest : FhirDomainResource {
     /**
      * Message payload.
      */
-    val payload: List<CommunicationRequestPayload>?
+    val payload: kotlin.collections.List<CommunicationRequestPayload>?
 
     /**
      * When scheduled.
@@ -130,23 +130,21 @@ interface FhirCommunicationRequest : FhirDomainResource {
     /**
      * Why is communication needed?.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why is communication needed?.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Comments made about communication request.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * CommunicationRequest
- *
- * SourceFileName: CommunicationRequest.kt
  *
  * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible
  * provider, the CDS system proposes that the public health agency be notified about a reportable
@@ -161,13 +159,13 @@ interface FhirCommunicationRequest : FhirDomainResource {
 data class CommunicationRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("replaces")
-    override val replaces: List<Reference>? = null,
+    override val replaces: kotlin.collections.List<Reference>? = null,
 
     @SerialName("groupIdentifier")
     override val groupIdentifier: Identifier? = null,
@@ -176,28 +174,28 @@ data class CommunicationRequest(
     override val status: RequestStatus,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("priority")
     override val priority: RequestPriority? = null,
 
     @SerialName("medium")
-    override val medium: List<CodeableConcept>? = null,
+    override val medium: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("subject")
     override val subject: Reference? = null,
 
     @SerialName("recipient")
-    override val recipient: List<Reference>? = null,
+    override val recipient: kotlin.collections.List<Reference>? = null,
 
     @SerialName("topic")
-    override val topic: List<Reference>? = null,
+    override val topic: kotlin.collections.List<Reference>? = null,
 
     @SerialName("context")
     override val context: Reference? = null,
 
     @SerialName("payload")
-    override val payload: List<CommunicationRequestPayload>? = null,
+    override val payload: kotlin.collections.List<CommunicationRequestPayload>? = null,
 
     @SerialName("occurrenceDateTime")
     override val occurrenceDateTime: DateTime? = null,
@@ -215,13 +213,13 @@ data class CommunicationRequest(
     override val requester: CommunicationRequestRequester? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # DomainResource
 
@@ -229,13 +227,13 @@ data class CommunicationRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -291,8 +289,6 @@ interface FhirCommunicationRequestPayload : FhirBackboneElement {
 /**
  * CommunicationRequestPayload
  *
- * SourceFileName: CommunicationRequest.kt
- *
  * Text, attachment(s), or resource(s) to be communicated to the recipient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CommunicationRequest">CommunicationRequestPayload</a>
@@ -315,7 +311,7 @@ data class CommunicationRequestPayload(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -323,7 +319,7 @@ data class CommunicationRequestPayload(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCommunicationRequestPayload {
 
     override val resourceType: kotlin.String
@@ -360,8 +356,6 @@ interface FhirCommunicationRequestRequester : FhirBackboneElement {
 /**
  * CommunicationRequestRequester
  *
- * SourceFileName: CommunicationRequest.kt
- *
  * The individual who initiated the request and has responsibility for its activation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CommunicationRequest">CommunicationRequestRequester</a>
@@ -381,7 +375,7 @@ data class CommunicationRequestRequester(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -389,7 +383,7 @@ data class CommunicationRequestRequester(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCommunicationRequestRequester {
 
     override val resourceType: kotlin.String

@@ -44,13 +44,11 @@ interface FhirParameters : FhirResource {
     /**
      * Operation Parameter.
      */
-    val parameter: List<ParametersParameter>?
+    val parameter: kotlin.collections.List<ParametersParameter>?
 }
 
 /**
  * Parameters
- *
- * SourceFileName: Parameters.kt
  *
  * This special resource type is used to represent an operation request and response (operations.html).
  * It has no other use, and there is no RESTful endpoint associated with it.
@@ -64,7 +62,7 @@ interface FhirParameters : FhirResource {
 data class Parameters(
 
     @SerialName("parameter")
-    override val parameter: List<ParametersParameter>? = null,
+    override val parameter: kotlin.collections.List<ParametersParameter>? = null,
 
     // # Resource
 
@@ -304,13 +302,11 @@ interface FhirParametersParameter : FhirBackboneElement {
     /**
      * Named part of a multi-part parameter.
      */
-    val part: List<ParametersParameter>?
+    val part: kotlin.collections.List<ParametersParameter>?
 }
 
 /**
  * ParametersParameter
- *
- * SourceFileName: Parameters.kt
  *
  * A parameter passed to or received from the operation.
  *
@@ -443,12 +439,12 @@ data class ParametersParameter(
     override val resource: FhirResource? = null,
 
     @SerialName("part")
-    override val part: List<ParametersParameter>? = null,
+    override val part: kotlin.collections.List<ParametersParameter>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -456,7 +452,7 @@ data class ParametersParameter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirParametersParameter {
 
     override val resourceType: kotlin.String

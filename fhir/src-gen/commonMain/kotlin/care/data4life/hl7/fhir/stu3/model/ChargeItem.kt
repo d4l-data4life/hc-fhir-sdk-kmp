@@ -45,7 +45,7 @@ interface FhirChargeItem : FhirDomainResource {
     /**
      * Defining information about the code of this charge item.
      */
-    val definition: List<String>?
+    val definition: kotlin.collections.List<String>?
 
     /**
      * The current state of the ChargeItem.
@@ -55,7 +55,7 @@ interface FhirChargeItem : FhirDomainResource {
     /**
      * Part of referenced ChargeItem.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * A code that identifies the charge, like a billing code.
@@ -90,7 +90,7 @@ interface FhirChargeItem : FhirDomainResource {
     /**
      * Who performed charged service.
      */
-    val participant: List<ChargeItemParticipant>?
+    val participant: kotlin.collections.List<ChargeItemParticipant>?
 
     /**
      * Organization providing the charged sevice.
@@ -110,7 +110,7 @@ interface FhirChargeItem : FhirDomainResource {
     /**
      * Anatomical location, if relevant.
      */
-    val bodysite: List<CodeableConcept>?
+    val bodysite: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Factor overriding the associated rules.
@@ -140,33 +140,31 @@ interface FhirChargeItem : FhirDomainResource {
     /**
      * Why was the charged service rendered?.
      */
-    val reason: List<CodeableConcept>?
+    val reason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Which rendered service is being charged?.
      */
-    val service: List<Reference>?
+    val service: kotlin.collections.List<Reference>?
 
     /**
      * Account to place this charge.
      */
-    val account: List<Reference>?
+    val account: kotlin.collections.List<Reference>?
 
     /**
      * Comments made about the ChargeItem.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Further information supporting the this charge.
      */
-    val supportingInformation: List<Reference>?
+    val supportingInformation: kotlin.collections.List<Reference>?
 }
 
 /**
  * ChargeItem
- *
- * SourceFileName: ChargeItem.kt
  *
  * The resource ChargeItem describes the provision of healthcare provider products for a certain
  * patient, therefore referring not only to the product, but containing in addition details of the
@@ -185,13 +183,13 @@ data class ChargeItem(
     override val identifier: Identifier? = null,
 
     @SerialName("definition")
-    override val definition: List<String>? = null,
+    override val definition: kotlin.collections.List<String>? = null,
 
     @SerialName("status")
     override val status: ChargeItemStatus,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept,
@@ -212,7 +210,7 @@ data class ChargeItem(
     override val occurrenceTiming: Timing? = null,
 
     @SerialName("participant")
-    override val participant: List<ChargeItemParticipant>? = null,
+    override val participant: kotlin.collections.List<ChargeItemParticipant>? = null,
 
     @SerialName("performingOrganization")
     override val performingOrganization: Reference? = null,
@@ -224,7 +222,7 @@ data class ChargeItem(
     override val quantity: Quantity? = null,
 
     @SerialName("bodysite")
-    override val bodysite: List<CodeableConcept>? = null,
+    override val bodysite: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("factorOverride")
     override val factorOverride: Decimal? = null,
@@ -242,19 +240,19 @@ data class ChargeItem(
     override val enteredDate: DateTime? = null,
 
     @SerialName("reason")
-    override val reason: List<CodeableConcept>? = null,
+    override val reason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("service")
-    override val service: List<Reference>? = null,
+    override val service: kotlin.collections.List<Reference>? = null,
 
     @SerialName("account")
-    override val account: List<Reference>? = null,
+    override val account: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("supportingInformation")
-    override val supportingInformation: List<Reference>? = null,
+    override val supportingInformation: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -262,13 +260,13 @@ data class ChargeItem(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -319,8 +317,6 @@ interface FhirChargeItemParticipant : FhirBackboneElement {
 /**
  * ChargeItemParticipant
  *
- * SourceFileName: ChargeItem.kt
- *
  * Indicates who or what performed or participated in the charged service.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ChargeItem">ChargeItemParticipant</a>
@@ -340,7 +336,7 @@ data class ChargeItemParticipant(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -348,7 +344,7 @@ data class ChargeItemParticipant(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirChargeItemParticipant {
 
     override val resourceType: kotlin.String

@@ -37,7 +37,7 @@ interface FhirNutritionOrder : FhirDomainResource {
     /**
      * Identifiers assigned to this order.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The workflow status of the nutrition order/request.
@@ -67,17 +67,17 @@ interface FhirNutritionOrder : FhirDomainResource {
     /**
      * List of the patient's food and nutrition-related allergies and intolerances.
      */
-    val allergyIntolerance: List<Reference>?
+    val allergyIntolerance: kotlin.collections.List<Reference>?
 
     /**
      * Order-specific modifier about the type of food that should be given.
      */
-    val foodPreferenceModifier: List<CodeableConcept>?
+    val foodPreferenceModifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Order-specific modifier about the type of food that should not be given.
      */
-    val excludeFoodModifier: List<CodeableConcept>?
+    val excludeFoodModifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Oral diet components.
@@ -87,7 +87,7 @@ interface FhirNutritionOrder : FhirDomainResource {
     /**
      * Supplement components.
      */
-    val supplement: List<NutritionOrderSupplement>?
+    val supplement: kotlin.collections.List<NutritionOrderSupplement>?
 
     /**
      * Enteral formula components.
@@ -97,8 +97,6 @@ interface FhirNutritionOrder : FhirDomainResource {
 
 /**
  * NutritionOrder
- *
- * SourceFileName: NutritionOrder.kt
  *
  * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a
  * patient/resident.
@@ -112,7 +110,7 @@ interface FhirNutritionOrder : FhirDomainResource {
 data class NutritionOrder(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: NutritionOrderStatus? = null,
@@ -130,19 +128,19 @@ data class NutritionOrder(
     override val orderer: Reference? = null,
 
     @SerialName("allergyIntolerance")
-    override val allergyIntolerance: List<Reference>? = null,
+    override val allergyIntolerance: kotlin.collections.List<Reference>? = null,
 
     @SerialName("foodPreferenceModifier")
-    override val foodPreferenceModifier: List<CodeableConcept>? = null,
+    override val foodPreferenceModifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("excludeFoodModifier")
-    override val excludeFoodModifier: List<CodeableConcept>? = null,
+    override val excludeFoodModifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("oralDiet")
     override val oralDiet: NutritionOrderOralDiet? = null,
 
     @SerialName("supplement")
-    override val supplement: List<NutritionOrderSupplement>? = null,
+    override val supplement: kotlin.collections.List<NutritionOrderSupplement>? = null,
 
     @SerialName("enteralFormula")
     override val enteralFormula: NutritionOrderEnteralFormula? = null,
@@ -153,13 +151,13 @@ data class NutritionOrder(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -230,7 +228,7 @@ interface FhirNutritionOrderEnteralFormula : FhirBackboneElement {
     /**
      * Formula feeding instruction as structured data.
      */
-    val administration: List<NutritionOrderEnteralFormulaAdministration>?
+    val administration: kotlin.collections.List<NutritionOrderEnteralFormulaAdministration>?
 
     /**
      * Upper limit on formula volume per unit of time.
@@ -245,8 +243,6 @@ interface FhirNutritionOrderEnteralFormula : FhirBackboneElement {
 
 /**
  * NutritionOrderEnteralFormula
- *
- * SourceFileName: NutritionOrder.kt
  *
  * Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers
  * nutrition distal to the oral cavity.
@@ -278,7 +274,7 @@ data class NutritionOrderEnteralFormula(
     override val routeofAdministration: CodeableConcept? = null,
 
     @SerialName("administration")
-    override val administration: List<NutritionOrderEnteralFormulaAdministration>? = null,
+    override val administration: kotlin.collections.List<NutritionOrderEnteralFormulaAdministration>? = null,
 
     @SerialName("maxVolumeToDeliver")
     override val maxVolumeToDeliver: Quantity? = null,
@@ -289,7 +285,7 @@ data class NutritionOrderEnteralFormula(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -297,7 +293,7 @@ data class NutritionOrderEnteralFormula(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirNutritionOrderEnteralFormula {
 
     override val resourceType: kotlin.String
@@ -346,8 +342,6 @@ interface FhirNutritionOrderEnteralFormulaAdministration : FhirBackboneElement {
 /**
  * NutritionOrderEnteralFormulaAdministration
  *
- * SourceFileName: NutritionOrder.kt
- *
  * Formula administration instructions as structured data. This repeating structure allows for changing
  * the administration rate or volume over time for both bolus and continuous feeding. An example of
  * this would be an instruction to increase the rate of continuous feeding every 2 hours.
@@ -375,7 +369,7 @@ data class NutritionOrderEnteralFormulaAdministration(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -383,7 +377,7 @@ data class NutritionOrderEnteralFormulaAdministration(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirNutritionOrderEnteralFormulaAdministration {
 
     override val resourceType: kotlin.String
@@ -409,27 +403,27 @@ interface FhirNutritionOrderOralDiet : FhirBackboneElement {
     /**
      * Type of oral diet or diet restrictions that describe what can be consumed orally.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Scheduled frequency of diet.
      */
-    val schedule: List<Timing>?
+    val schedule: kotlin.collections.List<Timing>?
 
     /**
      * Required nutrient modifications.
      */
-    val nutrient: List<NutritionOrderOralDietNutrient>?
+    val nutrient: kotlin.collections.List<NutritionOrderOralDietNutrient>?
 
     /**
      * Required texture modifications.
      */
-    val texture: List<NutritionOrderOralDietTexture>?
+    val texture: kotlin.collections.List<NutritionOrderOralDietTexture>?
 
     /**
      * The required consistency of fluids and liquids provided to the patient.
      */
-    val fluidConsistencyType: List<CodeableConcept>?
+    val fluidConsistencyType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Instructions or additional information about the oral diet.
@@ -439,8 +433,6 @@ interface FhirNutritionOrderOralDiet : FhirBackboneElement {
 
 /**
  * NutritionOrderOralDiet
- *
- * SourceFileName: NutritionOrder.kt
  *
  * Diet given orally in contrast to enteral (tube) feeding.
  *
@@ -453,19 +445,19 @@ interface FhirNutritionOrderOralDiet : FhirBackboneElement {
 data class NutritionOrderOralDiet(
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("schedule")
-    override val schedule: List<Timing>? = null,
+    override val schedule: kotlin.collections.List<Timing>? = null,
 
     @SerialName("nutrient")
-    override val nutrient: List<NutritionOrderOralDietNutrient>? = null,
+    override val nutrient: kotlin.collections.List<NutritionOrderOralDietNutrient>? = null,
 
     @SerialName("texture")
-    override val texture: List<NutritionOrderOralDietTexture>? = null,
+    override val texture: kotlin.collections.List<NutritionOrderOralDietTexture>? = null,
 
     @SerialName("fluidConsistencyType")
-    override val fluidConsistencyType: List<CodeableConcept>? = null,
+    override val fluidConsistencyType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("instruction")
     override val instruction: String? = null,
@@ -473,7 +465,7 @@ data class NutritionOrderOralDiet(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -481,7 +473,7 @@ data class NutritionOrderOralDiet(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirNutritionOrderOralDiet {
 
     override val resourceType: kotlin.String
@@ -519,8 +511,6 @@ interface FhirNutritionOrderOralDietNutrient : FhirBackboneElement {
 /**
  * NutritionOrderOralDietNutrient
  *
- * SourceFileName: NutritionOrder.kt
- *
  * Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber
  * or sodium) required for the oral diet.
  *
@@ -541,7 +531,7 @@ data class NutritionOrderOralDietNutrient(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -549,7 +539,7 @@ data class NutritionOrderOralDietNutrient(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirNutritionOrderOralDietNutrient {
 
     override val resourceType: kotlin.String
@@ -588,8 +578,6 @@ interface FhirNutritionOrderOralDietTexture : FhirBackboneElement {
 /**
  * NutritionOrderOralDietTexture
  *
- * SourceFileName: NutritionOrder.kt
- *
  * Class that describes any texture modifications required for the patient to safely consume various
  * types of solid foods.
  *
@@ -610,7 +598,7 @@ data class NutritionOrderOralDietTexture(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -618,7 +606,7 @@ data class NutritionOrderOralDietTexture(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirNutritionOrderOralDietTexture {
 
     override val resourceType: kotlin.String
@@ -654,7 +642,7 @@ interface FhirNutritionOrderSupplement : FhirBackboneElement {
     /**
      * Scheduled frequency of supplement.
      */
-    val schedule: List<Timing>?
+    val schedule: kotlin.collections.List<Timing>?
 
     /**
      * Amount of the nutritional supplement.
@@ -669,8 +657,6 @@ interface FhirNutritionOrderSupplement : FhirBackboneElement {
 
 /**
  * NutritionOrderSupplement
- *
- * SourceFileName: NutritionOrder.kt
  *
  * Oral nutritional products given in order to add further nutritional value to the patient's diet.
  *
@@ -689,7 +675,7 @@ data class NutritionOrderSupplement(
     override val productName: String? = null,
 
     @SerialName("schedule")
-    override val schedule: List<Timing>? = null,
+    override val schedule: kotlin.collections.List<Timing>? = null,
 
     @SerialName("quantity")
     override val quantity: Quantity? = null,
@@ -700,7 +686,7 @@ data class NutritionOrderSupplement(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -708,7 +694,7 @@ data class NutritionOrderSupplement(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirNutritionOrderSupplement {
 
     override val resourceType: kotlin.String

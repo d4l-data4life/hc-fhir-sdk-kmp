@@ -37,7 +37,7 @@ interface FhirEligibilityResponse : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -87,7 +87,7 @@ interface FhirEligibilityResponse : FhirDomainResource {
     /**
      * Details by insurance coverage.
      */
-    val insurance: List<EligibilityResponseInsurance>?
+    val insurance: kotlin.collections.List<EligibilityResponseInsurance>?
 
     /**
      * Printed Form Identifier.
@@ -97,13 +97,11 @@ interface FhirEligibilityResponse : FhirDomainResource {
     /**
      * Processing errors.
      */
-    val error: List<EligibilityResponseError>?
+    val error: kotlin.collections.List<EligibilityResponseError>?
 }
 
 /**
  * EligibilityResponse
- *
- * SourceFileName: EligibilityResponse.kt
  *
  * This resource provides eligibility and plan details from the processing of an Eligibility resource.
  *
@@ -116,7 +114,7 @@ interface FhirEligibilityResponse : FhirDomainResource {
 data class EligibilityResponse(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -146,13 +144,13 @@ data class EligibilityResponse(
     override val inforce: Bool? = null,
 
     @SerialName("insurance")
-    override val insurance: List<EligibilityResponseInsurance>? = null,
+    override val insurance: kotlin.collections.List<EligibilityResponseInsurance>? = null,
 
     @SerialName("form")
     override val form: CodeableConcept? = null,
 
     @SerialName("error")
-    override val error: List<EligibilityResponseError>? = null,
+    override val error: kotlin.collections.List<EligibilityResponseError>? = null,
 
     // # DomainResource
 
@@ -160,13 +158,13 @@ data class EligibilityResponse(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -212,8 +210,6 @@ interface FhirEligibilityResponseError : FhirBackboneElement {
 /**
  * EligibilityResponseError
  *
- * SourceFileName: EligibilityResponse.kt
- *
  * Mutually exclusive with Services Provided (Item).
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/EligibilityResponse">EligibilityResponseError</a>
@@ -230,7 +226,7 @@ data class EligibilityResponseError(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -238,7 +234,7 @@ data class EligibilityResponseError(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEligibilityResponseError {
 
     override val resourceType: kotlin.String
@@ -275,13 +271,11 @@ interface FhirEligibilityResponseInsurance : FhirBackboneElement {
     /**
      * Benefits by Category.
      */
-    val benefitBalance: List<EligibilityResponseInsuranceBenefitBalance>?
+    val benefitBalance: kotlin.collections.List<EligibilityResponseInsuranceBenefitBalance>?
 }
 
 /**
  * EligibilityResponseInsurance
- *
- * SourceFileName: EligibilityResponse.kt
  *
  * The insurer may provide both the details for the requested coverage as well as details for
  * additional coverages known to the insurer.
@@ -301,12 +295,12 @@ data class EligibilityResponseInsurance(
     override val contract: Reference? = null,
 
     @SerialName("benefitBalance")
-    override val benefitBalance: List<EligibilityResponseInsuranceBenefitBalance>? = null,
+    override val benefitBalance: kotlin.collections.List<EligibilityResponseInsuranceBenefitBalance>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -314,7 +308,7 @@ data class EligibilityResponseInsurance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEligibilityResponseInsurance {
 
     override val resourceType: kotlin.String
@@ -380,13 +374,11 @@ interface FhirEligibilityResponseInsuranceBenefitBalance : FhirBackboneElement {
     /**
      * Benefit Summary.
      */
-    val financial: List<EligibilityResponseInsuranceBenefitBalanceFinancial>?
+    val financial: kotlin.collections.List<EligibilityResponseInsuranceBenefitBalanceFinancial>?
 }
 
 /**
  * EligibilityResponseInsuranceBenefitBalance
- *
- * SourceFileName: EligibilityResponse.kt
  *
  * Benefits and optionally current balances by Category.
  *
@@ -423,12 +415,12 @@ data class EligibilityResponseInsuranceBenefitBalance(
     override val term: CodeableConcept? = null,
 
     @SerialName("financial")
-    override val financial: List<EligibilityResponseInsuranceBenefitBalanceFinancial>? = null,
+    override val financial: kotlin.collections.List<EligibilityResponseInsuranceBenefitBalanceFinancial>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -436,7 +428,7 @@ data class EligibilityResponseInsuranceBenefitBalance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEligibilityResponseInsuranceBenefitBalance {
 
     override val resourceType: kotlin.String
@@ -493,8 +485,6 @@ interface FhirEligibilityResponseInsuranceBenefitBalanceFinancial : FhirBackbone
 /**
  * EligibilityResponseInsuranceBenefitBalanceFinancial
  *
- * SourceFileName: EligibilityResponse.kt
- *
  * Benefits Used to date.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/EligibilityResponse">EligibilityResponseInsuranceBenefitBalanceFinancial</a>
@@ -526,7 +516,7 @@ data class EligibilityResponseInsuranceBenefitBalanceFinancial(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -534,7 +524,7 @@ data class EligibilityResponseInsuranceBenefitBalanceFinancial(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEligibilityResponseInsuranceBenefitBalanceFinancial {
 
     override val resourceType: kotlin.String

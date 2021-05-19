@@ -39,7 +39,7 @@ interface FhirVisionPrescription : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -79,13 +79,11 @@ interface FhirVisionPrescription : FhirDomainResource {
     /**
      * Vision supply authorization.
      */
-    val dispense: List<VisionPrescriptionDispense>?
+    val dispense: kotlin.collections.List<VisionPrescriptionDispense>?
 }
 
 /**
  * VisionPrescription
- *
- * SourceFileName: VisionPrescription.kt
  *
  * An authorization for the supply of glasses and/or contact lenses to a patient.
  *
@@ -98,7 +96,7 @@ interface FhirVisionPrescription : FhirDomainResource {
 data class VisionPrescription(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -122,7 +120,7 @@ data class VisionPrescription(
     override val reasonReference: Reference? = null,
 
     @SerialName("dispense")
-    override val dispense: List<VisionPrescriptionDispense>? = null,
+    override val dispense: kotlin.collections.List<VisionPrescriptionDispense>? = null,
 
     // # DomainResource
 
@@ -130,13 +128,13 @@ data class VisionPrescription(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -246,13 +244,11 @@ interface FhirVisionPrescriptionDispense : FhirBackboneElement {
     /**
      * Notes for coatings.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * VisionPrescriptionDispense
- *
- * SourceFileName: VisionPrescription.kt
  *
  * Deals with details of the dispense part of the supply specification.
  *
@@ -307,12 +303,12 @@ data class VisionPrescriptionDispense(
     override val brand: String? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -320,7 +316,7 @@ data class VisionPrescriptionDispense(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirVisionPrescriptionDispense {
 
     override val resourceType: kotlin.String

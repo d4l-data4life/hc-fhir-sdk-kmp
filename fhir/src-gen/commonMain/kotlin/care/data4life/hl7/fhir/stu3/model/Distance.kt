@@ -36,8 +36,6 @@ interface FhirDistance : FhirQuantity
 /**
  * Distance
  *
- * SourceFileName: Distance.kt
- *
  * A length - a value with a unit that is a physical distance
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Distance">Distance</a>
@@ -71,7 +69,7 @@ data class Distance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDistance {
 
     override val resourceType: kotlin.String

@@ -80,8 +80,6 @@ interface FhirResearchSubject : FhirDomainResource {
 /**
  * ResearchSubject
  *
- * SourceFileName: ResearchSubject.kt
- *
  * A process where a researcher or organization plans and then executes a series of steps intended to
  * increase the field of healthcare-related knowledge. This includes studies of safety, efficacy,
  * comparative effectiveness and other information about medications, devices, therapies and other
@@ -126,13 +124,13 @@ data class ResearchSubject(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

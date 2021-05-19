@@ -65,8 +65,6 @@ interface FhirContactPoint : FhirElement {
 /**
  * ContactPoint
  *
- * SourceFileName: ContactPoint.kt
- *
  * Details for all kinds of technology mediated contact points for a person or organization, including
  * telephone, email, etc.
  *
@@ -99,7 +97,7 @@ data class ContactPoint(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContactPoint {
 
     override val resourceType: kotlin.String

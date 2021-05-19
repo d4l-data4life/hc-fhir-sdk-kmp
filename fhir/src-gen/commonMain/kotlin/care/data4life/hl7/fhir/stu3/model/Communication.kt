@@ -38,22 +38,22 @@ interface FhirCommunication : FhirDomainResource {
     /**
      * Unique identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * Request fulfilled by this communication.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Part of this action.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * The status of the transmission.
@@ -73,12 +73,12 @@ interface FhirCommunication : FhirDomainResource {
     /**
      * Message category.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * A channel of communication.
      */
-    val medium: List<CodeableConcept>?
+    val medium: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Focus of message.
@@ -88,12 +88,12 @@ interface FhirCommunication : FhirDomainResource {
     /**
      * Message recipient.
      */
-    val recipient: List<Reference>?
+    val recipient: kotlin.collections.List<Reference>?
 
     /**
      * Focal resources.
      */
-    val topic: List<Reference>?
+    val topic: kotlin.collections.List<Reference>?
 
     /**
      * Encounter or episode leading to message.
@@ -118,28 +118,26 @@ interface FhirCommunication : FhirDomainResource {
     /**
      * Indication for message.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why was communication done?.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Message payload.
      */
-    val payload: List<CommunicationPayload>?
+    val payload: kotlin.collections.List<CommunicationPayload>?
 
     /**
      * Comments made about the communication.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * Communication
- *
- * SourceFileName: Communication.kt
  *
  * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible
  * provider, a public health agency was notified about a reportable condition.
@@ -153,16 +151,16 @@ interface FhirCommunication : FhirDomainResource {
 data class Communication(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: EventStatus,
@@ -174,19 +172,19 @@ data class Communication(
     override val notDoneReason: CodeableConcept? = null,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("medium")
-    override val medium: List<CodeableConcept>? = null,
+    override val medium: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("subject")
     override val subject: Reference? = null,
 
     @SerialName("recipient")
-    override val recipient: List<Reference>? = null,
+    override val recipient: kotlin.collections.List<Reference>? = null,
 
     @SerialName("topic")
-    override val topic: List<Reference>? = null,
+    override val topic: kotlin.collections.List<Reference>? = null,
 
     @SerialName("context")
     override val context: Reference? = null,
@@ -201,16 +199,16 @@ data class Communication(
     override val sender: Reference? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("payload")
-    override val payload: List<CommunicationPayload>? = null,
+    override val payload: kotlin.collections.List<CommunicationPayload>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # DomainResource
 
@@ -218,13 +216,13 @@ data class Communication(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -280,8 +278,6 @@ interface FhirCommunicationPayload : FhirBackboneElement {
 /**
  * CommunicationPayload
  *
- * SourceFileName: Communication.kt
- *
  * Text, attachment(s), or resource(s) that was communicated to the recipient.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Communication">CommunicationPayload</a>
@@ -304,7 +300,7 @@ data class CommunicationPayload(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -312,7 +308,7 @@ data class CommunicationPayload(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCommunicationPayload {
 
     override val resourceType: kotlin.String

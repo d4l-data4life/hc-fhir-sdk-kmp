@@ -78,17 +78,17 @@ interface FhirSearchParameter : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for search parameter (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this search parameter is defined.
@@ -103,7 +103,7 @@ interface FhirSearchParameter : FhirDomainResource {
     /**
      * The base resource type(s) that this search parameter can be used against.
      */
-    val base: List<ResourceType>
+    val base: kotlin.collections.List<ResourceType>
 
     /**
      * The type of value a search parameter refers to, and how the content is
@@ -140,33 +140,31 @@ interface FhirSearchParameter : FhirDomainResource {
     /**
      * Types of resource (if a resource is referenced).
      */
-    val target: List<ResourceType>?
+    val target: kotlin.collections.List<ResourceType>?
 
     /**
      * Comparators supported for the search parameter.
      */
-    val comparator: List<SearchComparator>?
+    val comparator: kotlin.collections.List<SearchComparator>?
 
     /**
      * A modifier supported for the search parameter.
      */
-    val modifier: List<SearchModifierCode>?
+    val modifier: kotlin.collections.List<SearchModifierCode>?
 
     /**
      * Chained names supported.
      */
-    val chain: List<String>?
+    val chain: kotlin.collections.List<String>?
 
     /**
      * For Composite resources to define the parts.
      */
-    val component: List<SearchParameterComponent>?
+    val component: kotlin.collections.List<SearchParameterComponent>?
 }
 
 /**
  * SearchParameter
- *
- * SourceFileName: SearchParameter.kt
  *
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  *
@@ -200,13 +198,13 @@ data class SearchParameter(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -215,7 +213,7 @@ data class SearchParameter(
     override val code: String,
 
     @SerialName("base")
-    override val base: List<ResourceType>,
+    override val base: kotlin.collections.List<ResourceType>,
 
     @SerialName("type")
     override val type: SearchParamType,
@@ -236,19 +234,19 @@ data class SearchParameter(
     override val xpathUsage: XPathUsageType? = null,
 
     @SerialName("target")
-    override val target: List<ResourceType>? = null,
+    override val target: kotlin.collections.List<ResourceType>? = null,
 
     @SerialName("comparator")
-    override val comparator: List<SearchComparator>? = null,
+    override val comparator: kotlin.collections.List<SearchComparator>? = null,
 
     @SerialName("modifier")
-    override val modifier: List<SearchModifierCode>? = null,
+    override val modifier: kotlin.collections.List<SearchModifierCode>? = null,
 
     @SerialName("chain")
-    override val chain: List<String>? = null,
+    override val chain: kotlin.collections.List<String>? = null,
 
     @SerialName("component")
-    override val component: List<SearchParameterComponent>? = null,
+    override val component: kotlin.collections.List<SearchParameterComponent>? = null,
 
     // # DomainResource
 
@@ -256,13 +254,13 @@ data class SearchParameter(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -313,8 +311,6 @@ interface FhirSearchParameterComponent : FhirBackboneElement {
 /**
  * SearchParameterComponent
  *
- * SourceFileName: SearchParameter.kt
- *
  * Used to define the parts of a composite search parameter.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/SearchParameter">SearchParameterComponent</a>
@@ -334,7 +330,7 @@ data class SearchParameterComponent(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -342,7 +338,7 @@ data class SearchParameterComponent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSearchParameterComponent {
 
     override val resourceType: kotlin.String

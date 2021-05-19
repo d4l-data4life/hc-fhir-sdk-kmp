@@ -56,7 +56,7 @@ interface FhirStructureMap : FhirDomainResource {
     /**
      * Additional identifier for the structure map.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the structure map.
@@ -97,7 +97,7 @@ interface FhirStructureMap : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the structure map.
@@ -107,12 +107,12 @@ interface FhirStructureMap : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for structure map (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this structure map is defined.
@@ -127,23 +127,21 @@ interface FhirStructureMap : FhirDomainResource {
     /**
      * Structure Definition used by this map.
      */
-    val structure: List<StructureMapStructure>?
+    val structure: kotlin.collections.List<StructureMapStructure>?
 
     /**
      * Other maps used by this map (canonical URLs).
      */
-    val import: List<String>?
+    val import: kotlin.collections.List<String>?
 
     /**
      * Named sections for reader convenience.
      */
-    val group: List<StructureMapGroup>
+    val group: kotlin.collections.List<StructureMapGroup>
 }
 
 /**
  * StructureMap
- *
- * SourceFileName: StructureMap.kt
  *
  * A Map of relationships between 2 structures that can be used to transform data
  *
@@ -159,7 +157,7 @@ data class StructureMap(
     override val url: String,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -183,16 +181,16 @@ data class StructureMap(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -201,13 +199,13 @@ data class StructureMap(
     override val copyright: String? = null,
 
     @SerialName("structure")
-    override val structure: List<StructureMapStructure>? = null,
+    override val structure: kotlin.collections.List<StructureMapStructure>? = null,
 
     @SerialName("import")
-    override val import: List<String>? = null,
+    override val import: kotlin.collections.List<String>? = null,
 
     @SerialName("group")
-    override val group: List<StructureMapGroup>,
+    override val group: kotlin.collections.List<StructureMapGroup>,
 
     // # DomainResource
 
@@ -215,13 +213,13 @@ data class StructureMap(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -282,18 +280,16 @@ interface FhirStructureMapGroup : FhirBackboneElement {
     /**
      * Named instance provided when invoking the map.
      */
-    val input: List<StructureMapGroupInput>
+    val input: kotlin.collections.List<StructureMapGroupInput>
 
     /**
      * Transform Rule from source to target.
      */
-    val rule: List<StructureMapGroupRule>
+    val rule: kotlin.collections.List<StructureMapGroupRule>
 }
 
 /**
  * StructureMapGroup
- *
- * SourceFileName: StructureMap.kt
  *
  * Organizes the mapping into managable chunks for human review/ease of maintenance.
  *
@@ -318,15 +314,15 @@ data class StructureMapGroup(
     override val documentation: String? = null,
 
     @SerialName("input")
-    override val input: List<StructureMapGroupInput>,
+    override val input: kotlin.collections.List<StructureMapGroupInput>,
 
     @SerialName("rule")
-    override val rule: List<StructureMapGroupRule>,
+    override val rule: kotlin.collections.List<StructureMapGroupRule>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -334,7 +330,7 @@ data class StructureMapGroup(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapGroup {
 
     override val resourceType: kotlin.String
@@ -381,8 +377,6 @@ interface FhirStructureMapGroupInput : FhirBackboneElement {
 /**
  * StructureMapGroupInput
  *
- * SourceFileName: StructureMap.kt
- *
  * A name assigned to an instance of data. The instance must be provided when the mapping is invoked.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureMap">StructureMapGroupInput</a>
@@ -408,7 +402,7 @@ data class StructureMapGroupInput(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -416,7 +410,7 @@ data class StructureMapGroupInput(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapGroupInput {
 
     override val resourceType: kotlin.String
@@ -447,22 +441,22 @@ interface FhirStructureMapGroupRule : FhirBackboneElement {
     /**
      * Source inputs to the mapping.
      */
-    val source: List<StructureMapGroupRuleSource>
+    val source: kotlin.collections.List<StructureMapGroupRuleSource>
 
     /**
      * Content to create because of this mapping rule.
      */
-    val target: List<StructureMapGroupRuleTarget>?
+    val target: kotlin.collections.List<StructureMapGroupRuleTarget>?
 
     /**
      * Rules contained in this rule.
      */
-    val rule: List<StructureMapGroupRule>?
+    val rule: kotlin.collections.List<StructureMapGroupRule>?
 
     /**
      * Which other rules to apply in the context of this rule.
      */
-    val dependent: List<StructureMapGroupRuleDependent>?
+    val dependent: kotlin.collections.List<StructureMapGroupRuleDependent>?
 
     /**
      * Documentation for this instance of data.
@@ -472,8 +466,6 @@ interface FhirStructureMapGroupRule : FhirBackboneElement {
 
 /**
  * StructureMapGroupRule
- *
- * SourceFileName: StructureMap.kt
  *
  * Transform Rule from source to target
  *
@@ -489,16 +481,16 @@ data class StructureMapGroupRule(
     override val name: String,
 
     @SerialName("source")
-    override val source: List<StructureMapGroupRuleSource>,
+    override val source: kotlin.collections.List<StructureMapGroupRuleSource>,
 
     @SerialName("target")
-    override val target: List<StructureMapGroupRuleTarget>? = null,
+    override val target: kotlin.collections.List<StructureMapGroupRuleTarget>? = null,
 
     @SerialName("rule")
-    override val rule: List<StructureMapGroupRule>? = null,
+    override val rule: kotlin.collections.List<StructureMapGroupRule>? = null,
 
     @SerialName("dependent")
-    override val dependent: List<StructureMapGroupRuleDependent>? = null,
+    override val dependent: kotlin.collections.List<StructureMapGroupRuleDependent>? = null,
 
     @SerialName("documentation")
     override val documentation: String? = null,
@@ -506,7 +498,7 @@ data class StructureMapGroupRule(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -514,7 +506,7 @@ data class StructureMapGroupRule(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapGroupRule {
 
     override val resourceType: kotlin.String
@@ -545,13 +537,11 @@ interface FhirStructureMapGroupRuleDependent : FhirBackboneElement {
     /**
      * Variable to pass to the rule or group.
      */
-    val variable: List<String>
+    val variable: kotlin.collections.List<String>
 }
 
 /**
  * StructureMapGroupRuleDependent
- *
- * SourceFileName: StructureMap.kt
  *
  * Which other rules to apply in the context of this rule
  *
@@ -567,12 +557,12 @@ data class StructureMapGroupRuleDependent(
     override val name: String,
 
     @SerialName("variable")
-    override val variable: List<String>,
+    override val variable: kotlin.collections.List<String>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -580,7 +570,7 @@ data class StructureMapGroupRuleDependent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapGroupRuleDependent {
 
     override val resourceType: kotlin.String
@@ -843,8 +833,6 @@ interface FhirStructureMapGroupRuleSource : FhirBackboneElement {
 /**
  * StructureMapGroupRuleSource
  *
- * SourceFileName: StructureMap.kt
- *
  * Source inputs to the mapping
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureMap">StructureMapGroupRuleSource</a>
@@ -999,7 +987,7 @@ data class StructureMapGroupRuleSource(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1007,7 +995,7 @@ data class StructureMapGroupRuleSource(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapGroupRuleSource {
 
     override val resourceType: kotlin.String
@@ -1053,7 +1041,7 @@ interface FhirStructureMapGroupRuleTarget : FhirBackboneElement {
     /**
      * If field is a list, how to manage the list.
      */
-    val listMode: List<StructureMapTargetListMode>?
+    val listMode: kotlin.collections.List<StructureMapTargetListMode>?
 
     /**
      * Internal rule reference for shared list items.
@@ -1068,13 +1056,11 @@ interface FhirStructureMapGroupRuleTarget : FhirBackboneElement {
     /**
      * Parameters to the transform.
      */
-    val parameter: List<StructureMapGroupRuleTargetParameter>?
+    val parameter: kotlin.collections.List<StructureMapGroupRuleTargetParameter>?
 }
 
 /**
  * StructureMapGroupRuleTarget
- *
- * SourceFileName: StructureMap.kt
  *
  * Content to create because of this mapping rule
  *
@@ -1099,7 +1085,7 @@ data class StructureMapGroupRuleTarget(
     override val variable: String? = null,
 
     @SerialName("listMode")
-    override val listMode: List<StructureMapTargetListMode>? = null,
+    override val listMode: kotlin.collections.List<StructureMapTargetListMode>? = null,
 
     @SerialName("listRuleId")
     override val listRuleId: String? = null,
@@ -1108,12 +1094,12 @@ data class StructureMapGroupRuleTarget(
     override val transform: StructureMapTransform? = null,
 
     @SerialName("parameter")
-    override val parameter: List<StructureMapGroupRuleTargetParameter>? = null,
+    override val parameter: kotlin.collections.List<StructureMapGroupRuleTargetParameter>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1121,7 +1107,7 @@ data class StructureMapGroupRuleTarget(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapGroupRuleTarget {
 
     override val resourceType: kotlin.String
@@ -1173,8 +1159,6 @@ interface FhirStructureMapGroupRuleTargetParameter : FhirBackboneElement {
 /**
  * StructureMapGroupRuleTargetParameter
  *
- * SourceFileName: StructureMap.kt
- *
  * Parameters to the transform
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureMap">StructureMapGroupRuleTargetParameter</a>
@@ -1203,7 +1187,7 @@ data class StructureMapGroupRuleTargetParameter(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1211,7 +1195,7 @@ data class StructureMapGroupRuleTargetParameter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapGroupRuleTargetParameter {
 
     override val resourceType: kotlin.String
@@ -1259,8 +1243,6 @@ interface FhirStructureMapStructure : FhirBackboneElement {
 /**
  * StructureMapStructure
  *
- * SourceFileName: StructureMap.kt
- *
  * A structure definition used by this map. The structure definition may describe instances that are
  * converted, or the instances that are produced.
  *
@@ -1287,7 +1269,7 @@ data class StructureMapStructure(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1295,7 +1277,7 @@ data class StructureMapStructure(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureMapStructure {
 
     override val resourceType: kotlin.String

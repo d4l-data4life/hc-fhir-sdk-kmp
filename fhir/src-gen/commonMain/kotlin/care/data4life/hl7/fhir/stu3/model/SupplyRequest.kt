@@ -88,7 +88,7 @@ interface FhirSupplyRequest : FhirDomainResource {
     /**
      * Who is intended to fulfill the request.
      */
-    val supplier: List<Reference>?
+    val supplier: kotlin.collections.List<Reference>?
 
     /**
      * Why the supply item was requested.
@@ -113,8 +113,6 @@ interface FhirSupplyRequest : FhirDomainResource {
 
 /**
  * SupplyRequest
- *
- * SourceFileName: SupplyRequest.kt
  *
  * A record of a request for a medication, substance or device used in the healthcare setting.
  *
@@ -157,7 +155,7 @@ data class SupplyRequest(
     override val requester: SupplyRequestRequester? = null,
 
     @SerialName("supplier")
-    override val supplier: List<Reference>? = null,
+    override val supplier: kotlin.collections.List<Reference>? = null,
 
     @SerialName("reasonCodeableConcept")
     override val reasonCodeableConcept: CodeableConcept? = null,
@@ -177,13 +175,13 @@ data class SupplyRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -239,8 +237,6 @@ interface FhirSupplyRequestOrderedItem : FhirBackboneElement {
 /**
  * SupplyRequestOrderedItem
  *
- * SourceFileName: SupplyRequest.kt
- *
  * The item being requested
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/SupplyRequest">SupplyRequestOrderedItem</a>
@@ -263,7 +259,7 @@ data class SupplyRequestOrderedItem(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -271,7 +267,7 @@ data class SupplyRequestOrderedItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSupplyRequestOrderedItem {
 
     override val resourceType: kotlin.String
@@ -308,8 +304,6 @@ interface FhirSupplyRequestRequester : FhirBackboneElement {
 /**
  * SupplyRequestRequester
  *
- * SourceFileName: SupplyRequest.kt
- *
  * The individual who initiated the request and has responsibility for its activation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/SupplyRequest">SupplyRequestRequester</a>
@@ -329,7 +323,7 @@ data class SupplyRequestRequester(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -337,7 +331,7 @@ data class SupplyRequestRequester(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSupplyRequestRequester {
 
     override val resourceType: kotlin.String

@@ -50,8 +50,6 @@ interface FhirBinary : FhirResource {
 /**
  * Binary
  *
- * SourceFileName: Binary.kt
- *
  * A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Binary">Binary</a>

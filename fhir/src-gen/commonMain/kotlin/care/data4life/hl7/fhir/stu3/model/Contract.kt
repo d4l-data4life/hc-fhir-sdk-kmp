@@ -59,22 +59,22 @@ interface FhirContract : FhirDomainResource {
     /**
      * Contract Target Entity.
      */
-    val subject: List<Reference>?
+    val subject: kotlin.collections.List<Reference>?
 
     /**
      * Context of the Contract.
      */
-    val topic: List<Reference>?
+    val topic: kotlin.collections.List<Reference>?
 
     /**
      * Authority under which this Contract has standing.
      */
-    val authority: List<Reference>?
+    val authority: kotlin.collections.List<Reference>?
 
     /**
      * Domain in which this Contract applies.
      */
-    val domain: List<Reference>?
+    val domain: kotlin.collections.List<Reference>?
 
     /**
      * Type or form.
@@ -84,17 +84,17 @@ interface FhirContract : FhirDomainResource {
     /**
      * Subtype within the context of type.
      */
-    val subType: List<CodeableConcept>?
+    val subType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Action stipulated by this Contract.
      */
-    val action: List<CodeableConcept>?
+    val action: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Rationale for the stiplulated action.
      */
-    val actionReason: List<CodeableConcept>?
+    val actionReason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Decision by Grantor.
@@ -109,27 +109,27 @@ interface FhirContract : FhirDomainResource {
     /**
      * Security Labels that define affected resources.
      */
-    val securityLabel: List<Coding>?
+    val securityLabel: kotlin.collections.List<Coding>?
 
     /**
      * Entity being ascribed responsibility.
      */
-    val agent: List<ContractAgent>?
+    val agent: kotlin.collections.List<ContractAgent>?
 
     /**
      * Contract Signatory.
      */
-    val signer: List<ContractSigner>?
+    val signer: kotlin.collections.List<ContractSigner>?
 
     /**
      * Contract Valued Item List.
      */
-    val valuedItem: List<ContractValuedItem>?
+    val valuedItem: kotlin.collections.List<ContractValuedItem>?
 
     /**
      * Contract Term List.
      */
-    val term: List<ContractTerm>?
+    val term: kotlin.collections.List<ContractTerm>?
 
     /**
      * Binding Contract.
@@ -144,23 +144,21 @@ interface FhirContract : FhirDomainResource {
     /**
      * Contract Friendly Language.
      */
-    val friendly: List<ContractFriendly>?
+    val friendly: kotlin.collections.List<ContractFriendly>?
 
     /**
      * Contract Legal Language.
      */
-    val legal: List<ContractLegal>?
+    val legal: kotlin.collections.List<ContractLegal>?
 
     /**
      * Computable Contract Language.
      */
-    val rule: List<ContractRule>?
+    val rule: kotlin.collections.List<ContractRule>?
 }
 
 /**
  * Contract
- *
- * SourceFileName: Contract.kt
  *
  * A formal agreement between parties regarding the conduct of business, exchange of information or
  * other matters.
@@ -186,28 +184,28 @@ data class Contract(
     override val applies: Period? = null,
 
     @SerialName("subject")
-    override val subject: List<Reference>? = null,
+    override val subject: kotlin.collections.List<Reference>? = null,
 
     @SerialName("topic")
-    override val topic: List<Reference>? = null,
+    override val topic: kotlin.collections.List<Reference>? = null,
 
     @SerialName("authority")
-    override val authority: List<Reference>? = null,
+    override val authority: kotlin.collections.List<Reference>? = null,
 
     @SerialName("domain")
-    override val domain: List<Reference>? = null,
+    override val domain: kotlin.collections.List<Reference>? = null,
 
     @SerialName("type")
     override val type: CodeableConcept? = null,
 
     @SerialName("subType")
-    override val subType: List<CodeableConcept>? = null,
+    override val subType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("action")
-    override val action: List<CodeableConcept>? = null,
+    override val action: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("actionReason")
-    override val actionReason: List<CodeableConcept>? = null,
+    override val actionReason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("decisionType")
     override val decisionType: CodeableConcept? = null,
@@ -216,19 +214,19 @@ data class Contract(
     override val contentDerivative: CodeableConcept? = null,
 
     @SerialName("securityLabel")
-    override val securityLabel: List<Coding>? = null,
+    override val securityLabel: kotlin.collections.List<Coding>? = null,
 
     @SerialName("agent")
-    override val agent: List<ContractAgent>? = null,
+    override val agent: kotlin.collections.List<ContractAgent>? = null,
 
     @SerialName("signer")
-    override val signer: List<ContractSigner>? = null,
+    override val signer: kotlin.collections.List<ContractSigner>? = null,
 
     @SerialName("valuedItem")
-    override val valuedItem: List<ContractValuedItem>? = null,
+    override val valuedItem: kotlin.collections.List<ContractValuedItem>? = null,
 
     @SerialName("term")
-    override val term: List<ContractTerm>? = null,
+    override val term: kotlin.collections.List<ContractTerm>? = null,
 
     @SerialName("bindingAttachment")
     override val bindingAttachment: Attachment? = null,
@@ -237,13 +235,13 @@ data class Contract(
     override val bindingReference: Reference? = null,
 
     @SerialName("friendly")
-    override val friendly: List<ContractFriendly>? = null,
+    override val friendly: kotlin.collections.List<ContractFriendly>? = null,
 
     @SerialName("legal")
-    override val legal: List<ContractLegal>? = null,
+    override val legal: kotlin.collections.List<ContractLegal>? = null,
 
     @SerialName("rule")
-    override val rule: List<ContractRule>? = null,
+    override val rule: kotlin.collections.List<ContractRule>? = null,
 
     // # DomainResource
 
@@ -251,13 +249,13 @@ data class Contract(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -303,13 +301,11 @@ interface FhirContractAgent : FhirBackboneElement {
     /**
      * Role type of the agent.
      */
-    val role: List<CodeableConcept>?
+    val role: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
  * ContractAgent
- *
- * SourceFileName: Contract.kt
  *
  * An actor taking a role in an activity for which it can be assigned some degree of responsibility for
  * the activity taking place.
@@ -326,12 +322,12 @@ data class ContractAgent(
     override val actor: Reference,
 
     @SerialName("role")
-    override val role: List<CodeableConcept>? = null,
+    override val role: kotlin.collections.List<CodeableConcept>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -339,7 +335,7 @@ data class ContractAgent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractAgent {
 
     override val resourceType: kotlin.String
@@ -380,8 +376,6 @@ interface FhirContractFriendly : FhirBackboneElement {
 /**
  * ContractFriendly
  *
- * SourceFileName: Contract.kt
- *
  * The "patient friendly language" versionof the Contract in whole or in parts. "Patient friendly
  * language" means the representation of the Contract and Contract Provisions in a manner that is
  * readily accessible and understandable by a layperson in accordance with best practices for
@@ -405,7 +399,7 @@ data class ContractFriendly(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -413,7 +407,7 @@ data class ContractFriendly(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractFriendly {
 
     override val resourceType: kotlin.String
@@ -450,8 +444,6 @@ interface FhirContractLegal : FhirBackboneElement {
 /**
  * ContractLegal
  *
- * SourceFileName: Contract.kt
- *
  * List of Legal expressions or representations of this Contract.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Contract">ContractLegal</a>
@@ -471,7 +463,7 @@ data class ContractLegal(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -479,7 +471,7 @@ data class ContractLegal(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractLegal {
 
     override val resourceType: kotlin.String
@@ -516,8 +508,6 @@ interface FhirContractRule : FhirBackboneElement {
 /**
  * ContractRule
  *
- * SourceFileName: Contract.kt
- *
  * List of Computable Policy Rule Language Representations of this Contract.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Contract">ContractRule</a>
@@ -537,7 +527,7 @@ data class ContractRule(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -545,7 +535,7 @@ data class ContractRule(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractRule {
 
     override val resourceType: kotlin.String
@@ -583,13 +573,11 @@ interface FhirContractSigner : FhirBackboneElement {
     /**
      * Contract Documentation Signature.
      */
-    val signature: List<Signature>
+    val signature: kotlin.collections.List<Signature>
 }
 
 /**
  * ContractSigner
- *
- * SourceFileName: Contract.kt
  *
  * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and
  * grantee(s), which are any person or organization bound by the contract, and any ancillary parties,
@@ -610,12 +598,12 @@ data class ContractSigner(
     override val party: Reference,
 
     @SerialName("signature")
-    override val signature: List<Signature>,
+    override val signature: kotlin.collections.List<Signature>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -623,7 +611,7 @@ data class ContractSigner(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractSigner {
 
     override val resourceType: kotlin.String
@@ -675,27 +663,27 @@ interface FhirContractTerm : FhirBackboneElement {
     /**
      * Context of the Contract term.
      */
-    val topic: List<Reference>?
+    val topic: kotlin.collections.List<Reference>?
 
     /**
      * Contract Term Activity.
      */
-    val action: List<CodeableConcept>?
+    val action: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Purpose for the Contract Term Action.
      */
-    val actionReason: List<CodeableConcept>?
+    val actionReason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Security Labels that define affected terms.
      */
-    val securityLabel: List<Coding>?
+    val securityLabel: kotlin.collections.List<Coding>?
 
     /**
      * Contract Term Agent List.
      */
-    val agent: List<ContractTermAgent>?
+    val agent: kotlin.collections.List<ContractTermAgent>?
 
     /**
      * Human readable Contract term text.
@@ -705,18 +693,16 @@ interface FhirContractTerm : FhirBackboneElement {
     /**
      * Contract Term Valued Item List.
      */
-    val valuedItem: List<ContractTermValuedItem>?
+    val valuedItem: kotlin.collections.List<ContractTermValuedItem>?
 
     /**
      * Nested Contract Term Group.
      */
-    val group: List<ContractTerm>?
+    val group: kotlin.collections.List<ContractTerm>?
 }
 
 /**
  * ContractTerm
- *
- * SourceFileName: Contract.kt
  *
  * One or more Contract Provisions, which may be related and conveyed as a group, and may contain
  * nested groups.
@@ -745,33 +731,33 @@ data class ContractTerm(
     override val subType: CodeableConcept? = null,
 
     @SerialName("topic")
-    override val topic: List<Reference>? = null,
+    override val topic: kotlin.collections.List<Reference>? = null,
 
     @SerialName("action")
-    override val action: List<CodeableConcept>? = null,
+    override val action: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("actionReason")
-    override val actionReason: List<CodeableConcept>? = null,
+    override val actionReason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("securityLabel")
-    override val securityLabel: List<Coding>? = null,
+    override val securityLabel: kotlin.collections.List<Coding>? = null,
 
     @SerialName("agent")
-    override val agent: List<ContractTermAgent>? = null,
+    override val agent: kotlin.collections.List<ContractTermAgent>? = null,
 
     @SerialName("text")
     override val text: String? = null,
 
     @SerialName("valuedItem")
-    override val valuedItem: List<ContractTermValuedItem>? = null,
+    override val valuedItem: kotlin.collections.List<ContractTermValuedItem>? = null,
 
     @SerialName("group")
-    override val group: List<ContractTerm>? = null,
+    override val group: kotlin.collections.List<ContractTerm>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -779,7 +765,7 @@ data class ContractTerm(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractTerm {
 
     override val resourceType: kotlin.String
@@ -811,13 +797,11 @@ interface FhirContractTermAgent : FhirBackboneElement {
     /**
      * Type of the Contract Term Agent.
      */
-    val role: List<CodeableConcept>?
+    val role: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
  * ContractTermAgent
- *
- * SourceFileName: Contract.kt
  *
  * An actor taking a role in an activity for which it can be assigned some degree of responsibility for
  * the activity taking place.
@@ -834,12 +818,12 @@ data class ContractTermAgent(
     override val actor: Reference,
 
     @SerialName("role")
-    override val role: List<CodeableConcept>? = null,
+    override val role: kotlin.collections.List<CodeableConcept>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -847,7 +831,7 @@ data class ContractTermAgent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractTermAgent {
 
     override val resourceType: kotlin.String
@@ -919,8 +903,6 @@ interface FhirContractTermValuedItem : FhirBackboneElement {
 /**
  * ContractTermValuedItem
  *
- * SourceFileName: Contract.kt
- *
  * Contract Provision Valued Item List.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Contract">ContractTermValuedItem</a>
@@ -961,7 +943,7 @@ data class ContractTermValuedItem(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -969,7 +951,7 @@ data class ContractTermValuedItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractTermValuedItem {
 
     override val resourceType: kotlin.String
@@ -1041,8 +1023,6 @@ interface FhirContractValuedItem : FhirBackboneElement {
 /**
  * ContractValuedItem
  *
- * SourceFileName: Contract.kt
- *
  * Contract Valued Item List
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Contract">ContractValuedItem</a>
@@ -1083,7 +1063,7 @@ data class ContractValuedItem(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1091,7 +1071,7 @@ data class ContractValuedItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContractValuedItem {
 
     override val resourceType: kotlin.String

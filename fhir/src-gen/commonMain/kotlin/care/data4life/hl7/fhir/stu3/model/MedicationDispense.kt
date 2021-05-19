@@ -40,12 +40,12 @@ interface FhirMedicationDispense : FhirDomainResource {
     /**
      * External identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Event that dispense is part of.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * A code specifying the state of the set of dispense events.
@@ -80,17 +80,17 @@ interface FhirMedicationDispense : FhirDomainResource {
     /**
      * Information that supports the dispensing of the medication.
      */
-    val supportingInformation: List<Reference>?
+    val supportingInformation: kotlin.collections.List<Reference>?
 
     /**
      * Who performed event.
      */
-    val performer: List<MedicationDispensePerformer>?
+    val performer: kotlin.collections.List<MedicationDispensePerformer>?
 
     /**
      * Medication order that authorizes the dispense.
      */
-    val authorizingPrescription: List<Reference>?
+    val authorizingPrescription: kotlin.collections.List<Reference>?
 
     /**
      * Trial fill, partial fill, emergency fill, etc..
@@ -125,17 +125,17 @@ interface FhirMedicationDispense : FhirDomainResource {
     /**
      * Who collected the medication.
      */
-    val receiver: List<Reference>?
+    val receiver: kotlin.collections.List<Reference>?
 
     /**
      * Information about the dispense.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * How the medication is to be used by the patient or administered by the caregiver.
      */
-    val dosageInstruction: List<Dosage>?
+    val dosageInstruction: kotlin.collections.List<Dosage>?
 
     /**
      * Whether a substitution was performed on the dispense.
@@ -145,7 +145,7 @@ interface FhirMedicationDispense : FhirDomainResource {
     /**
      * Clinical issue with action.
      */
-    val detectedIssue: List<Reference>?
+    val detectedIssue: kotlin.collections.List<Reference>?
 
     /**
      * Whether the dispense was or was not performed.
@@ -165,13 +165,11 @@ interface FhirMedicationDispense : FhirDomainResource {
     /**
      * A list of releveant lifecycle events.
      */
-    val eventHistory: List<Reference>?
+    val eventHistory: kotlin.collections.List<Reference>?
 }
 
 /**
  * MedicationDispense
- *
- * SourceFileName: MedicationDispense.kt
  *
  * Indicates that a medication product is to be or has been dispensed for a named person/patient. This
  * includes a description of the medication product (supply) provided and the instructions for
@@ -187,10 +185,10 @@ interface FhirMedicationDispense : FhirDomainResource {
 data class MedicationDispense(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: MedicationDispenseStatus? = null,
@@ -211,13 +209,13 @@ data class MedicationDispense(
     override val context: Reference? = null,
 
     @SerialName("supportingInformation")
-    override val supportingInformation: List<Reference>? = null,
+    override val supportingInformation: kotlin.collections.List<Reference>? = null,
 
     @SerialName("performer")
-    override val performer: List<MedicationDispensePerformer>? = null,
+    override val performer: kotlin.collections.List<MedicationDispensePerformer>? = null,
 
     @SerialName("authorizingPrescription")
-    override val authorizingPrescription: List<Reference>? = null,
+    override val authorizingPrescription: kotlin.collections.List<Reference>? = null,
 
     @SerialName("type")
     override val type: CodeableConcept? = null,
@@ -238,19 +236,19 @@ data class MedicationDispense(
     override val destination: Reference? = null,
 
     @SerialName("receiver")
-    override val receiver: List<Reference>? = null,
+    override val receiver: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("dosageInstruction")
-    override val dosageInstruction: List<Dosage>? = null,
+    override val dosageInstruction: kotlin.collections.List<Dosage>? = null,
 
     @SerialName("substitution")
     override val substitution: MedicationDispenseSubstitution? = null,
 
     @SerialName("detectedIssue")
-    override val detectedIssue: List<Reference>? = null,
+    override val detectedIssue: kotlin.collections.List<Reference>? = null,
 
     @SerialName("notDone")
     override val notDone: Bool? = null,
@@ -262,7 +260,7 @@ data class MedicationDispense(
     override val notDoneReasonReference: Reference? = null,
 
     @SerialName("eventHistory")
-    override val eventHistory: List<Reference>? = null,
+    override val eventHistory: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -270,13 +268,13 @@ data class MedicationDispense(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -328,8 +326,6 @@ interface FhirMedicationDispensePerformer : FhirBackboneElement {
 /**
  * MedicationDispensePerformer
  *
- * SourceFileName: MedicationDispense.kt
- *
  * Indicates who or what performed the event. It should be assumed that the performer is the dispenser
  * of the medication.
  *
@@ -350,7 +346,7 @@ data class MedicationDispensePerformer(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -358,7 +354,7 @@ data class MedicationDispensePerformer(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationDispensePerformer {
 
     override val resourceType: kotlin.String
@@ -397,18 +393,16 @@ interface FhirMedicationDispenseSubstitution : FhirBackboneElement {
     /**
      * Why was substitution made.
      */
-    val reason: List<CodeableConcept>?
+    val reason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Who is responsible for the substitution.
      */
-    val responsibleParty: List<Reference>?
+    val responsibleParty: kotlin.collections.List<Reference>?
 }
 
 /**
  * MedicationDispenseSubstitution
- *
- * SourceFileName: MedicationDispense.kt
  *
  * Indicates whether or not substitution was made as part of the dispense. In some cases substitution
  * will be expected but does not happen, in other cases substitution is not expected but does happen.
@@ -430,15 +424,15 @@ data class MedicationDispenseSubstitution(
     override val type: CodeableConcept? = null,
 
     @SerialName("reason")
-    override val reason: List<CodeableConcept>? = null,
+    override val reason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("responsibleParty")
-    override val responsibleParty: List<Reference>? = null,
+    override val responsibleParty: kotlin.collections.List<Reference>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -446,7 +440,7 @@ data class MedicationDispenseSubstitution(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationDispenseSubstitution {
 
     override val resourceType: kotlin.String

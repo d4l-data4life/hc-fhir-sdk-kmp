@@ -68,7 +68,7 @@ interface FhirNamingSystem : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Who maintains system namespace?.
@@ -88,12 +88,12 @@ interface FhirNamingSystem : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for naming system (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * How/where is it used.
@@ -103,7 +103,7 @@ interface FhirNamingSystem : FhirDomainResource {
     /**
      * Unique identifiers used for system.
      */
-    val uniqueId: List<NamingSystemUniqueId>
+    val uniqueId: kotlin.collections.List<NamingSystemUniqueId>
 
     /**
      * Use this instead.
@@ -113,8 +113,6 @@ interface FhirNamingSystem : FhirDomainResource {
 
 /**
  * NamingSystem
- *
- * SourceFileName: NamingSystem.kt
  *
  * A curated namespace that issues unique symbols within that namespace for the identification of
  * concepts, people, devices, etc. Represents a "System" used within the Identifier and Coding data
@@ -144,7 +142,7 @@ data class NamingSystem(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("responsible")
     override val responsible: String? = null,
@@ -156,16 +154,16 @@ data class NamingSystem(
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("usage")
     override val usage: String? = null,
 
     @SerialName("uniqueId")
-    override val uniqueId: List<NamingSystemUniqueId>,
+    override val uniqueId: kotlin.collections.List<NamingSystemUniqueId>,
 
     @SerialName("replacedBy")
     override val replacedBy: Reference? = null,
@@ -176,13 +174,13 @@ data class NamingSystem(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -248,8 +246,6 @@ interface FhirNamingSystemUniqueId : FhirBackboneElement {
 /**
  * NamingSystemUniqueId
  *
- * SourceFileName: NamingSystem.kt
- *
  * Indicates how the system may be identified when referenced in electronic exchange.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/NamingSystem">NamingSystemUniqueId</a>
@@ -278,7 +274,7 @@ data class NamingSystemUniqueId(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -286,7 +282,7 @@ data class NamingSystemUniqueId(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirNamingSystemUniqueId {
 
     override val resourceType: kotlin.String

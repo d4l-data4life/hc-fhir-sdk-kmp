@@ -38,7 +38,7 @@ interface FhirEpisodeOfCare : FhirDomainResource {
     /**
      * Business Identifier(s) relevant for this EpisodeOfCare.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * planned | waitlist | active | onhold | finished | cancelled.
@@ -49,17 +49,17 @@ interface FhirEpisodeOfCare : FhirDomainResource {
      * Past list of status codes (the current status may be included to cover the start
      * date of the status).
      */
-    val statusHistory: List<EpisodeOfCareStatusHistory>?
+    val statusHistory: kotlin.collections.List<EpisodeOfCareStatusHistory>?
 
     /**
      * Type/class - e.g. specialist referral, disease management.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The list of diagnosis relevant to this episode of care.
      */
-    val diagnosis: List<EpisodeOfCareDiagnosis>?
+    val diagnosis: kotlin.collections.List<EpisodeOfCareDiagnosis>?
 
     /**
      * The patient who is the focus of this episode of care.
@@ -79,7 +79,7 @@ interface FhirEpisodeOfCare : FhirDomainResource {
     /**
      * Originating Referral Request(s).
      */
-    val referralRequest: List<Reference>?
+    val referralRequest: kotlin.collections.List<Reference>?
 
     /**
      * Care manager/care co-ordinator for the patient.
@@ -89,18 +89,16 @@ interface FhirEpisodeOfCare : FhirDomainResource {
     /**
      * Other practitioners facilitating this episode of care.
      */
-    val team: List<Reference>?
+    val team: kotlin.collections.List<Reference>?
 
     /**
      * The set of accounts that may be used for billing for this EpisodeOfCare.
      */
-    val account: List<Reference>?
+    val account: kotlin.collections.List<Reference>?
 }
 
 /**
  * EpisodeOfCare
- *
- * SourceFileName: EpisodeOfCare.kt
  *
  * An association between a patient and an organization / healthcare provider(s) during which time
  * encounters may occur. The managing organization assumes a level of responsibility for the patient
@@ -115,19 +113,19 @@ interface FhirEpisodeOfCare : FhirDomainResource {
 data class EpisodeOfCare(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: EpisodeOfCareStatus,
 
     @SerialName("statusHistory")
-    override val statusHistory: List<EpisodeOfCareStatusHistory>? = null,
+    override val statusHistory: kotlin.collections.List<EpisodeOfCareStatusHistory>? = null,
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("diagnosis")
-    override val diagnosis: List<EpisodeOfCareDiagnosis>? = null,
+    override val diagnosis: kotlin.collections.List<EpisodeOfCareDiagnosis>? = null,
 
     @SerialName("patient")
     override val patient: Reference,
@@ -139,16 +137,16 @@ data class EpisodeOfCare(
     override val period: Period? = null,
 
     @SerialName("referralRequest")
-    override val referralRequest: List<Reference>? = null,
+    override val referralRequest: kotlin.collections.List<Reference>? = null,
 
     @SerialName("careManager")
     override val careManager: Reference? = null,
 
     @SerialName("team")
-    override val team: List<Reference>? = null,
+    override val team: kotlin.collections.List<Reference>? = null,
 
     @SerialName("account")
-    override val account: List<Reference>? = null,
+    override val account: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -156,13 +154,13 @@ data class EpisodeOfCare(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -219,8 +217,6 @@ interface FhirEpisodeOfCareDiagnosis : FhirBackboneElement {
 /**
  * EpisodeOfCareDiagnosis
  *
- * SourceFileName: EpisodeOfCare.kt
- *
  * The list of diagnosis relevant to this episode of care
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare">EpisodeOfCareDiagnosis</a>
@@ -243,7 +239,7 @@ data class EpisodeOfCareDiagnosis(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -251,7 +247,7 @@ data class EpisodeOfCareDiagnosis(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEpisodeOfCareDiagnosis {
 
     override val resourceType: kotlin.String
@@ -289,8 +285,6 @@ interface FhirEpisodeOfCareStatusHistory : FhirBackboneElement {
 /**
  * EpisodeOfCareStatusHistory
  *
- * SourceFileName: EpisodeOfCare.kt
- *
  * The history of statuses that the EpisodeOfCare has been through (without requiring processing the
  * history of the resource).
  *
@@ -311,7 +305,7 @@ data class EpisodeOfCareStatusHistory(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -319,7 +313,7 @@ data class EpisodeOfCareStatusHistory(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirEpisodeOfCareStatusHistory {
 
     override val resourceType: kotlin.String

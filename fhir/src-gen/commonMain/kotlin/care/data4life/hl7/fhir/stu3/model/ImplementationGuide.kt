@@ -78,7 +78,7 @@ interface FhirImplementationGuide : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the implementation guide.
@@ -88,12 +88,12 @@ interface FhirImplementationGuide : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for implementation guide (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Use and/or publishing restrictions.
@@ -103,27 +103,27 @@ interface FhirImplementationGuide : FhirDomainResource {
     /**
      * FHIR Version this Implementation Guide targets.
      */
-    val fhirVersion: String?
+    val fhirVer: String?
 
     /**
      * Another Implementation guide this depends on.
      */
-    val dependency: List<ImplementationGuideDependency>?
+    val dependency: kotlin.collections.List<ImplementationGuideDependency>?
 
     /**
      * Group of resources as used in .page.package.
      */
-    val pakkage: List<ImplementationGuidePackage>?
+    val pakkage: kotlin.collections.List<ImplementationGuidePackage>?
 
     /**
      * Profiles that apply globally.
      */
-    val global: List<ImplementationGuideGlobal>?
+    val global: kotlin.collections.List<ImplementationGuideGlobal>?
 
     /**
      * Image, css, script, etc..
      */
-    val binary: List<String>?
+    val binary: kotlin.collections.List<String>?
 
     /**
      * Page/Section in the Guide.
@@ -133,8 +133,6 @@ interface FhirImplementationGuide : FhirDomainResource {
 
 /**
  * ImplementationGuide
- *
- * SourceFileName: ImplementationGuide.kt
  *
  * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather
  * all the parts of an implementation guide into a logical whole and to publish a computable definition
@@ -170,34 +168,34 @@ data class ImplementationGuide(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("copyright")
     override val copyright: String? = null,
 
     @SerialName("fhirVersion")
-    override val fhirVersion: String? = null,
+    override val fhirVer: String? = null,
 
     @SerialName("dependency")
-    override val dependency: List<ImplementationGuideDependency>? = null,
+    override val dependency: kotlin.collections.List<ImplementationGuideDependency>? = null,
 
     @SerialName("package")
-    override val pakkage: List<ImplementationGuidePackage>? = null,
+    override val pakkage: kotlin.collections.List<ImplementationGuidePackage>? = null,
 
     @SerialName("global")
-    override val global: List<ImplementationGuideGlobal>? = null,
+    override val global: kotlin.collections.List<ImplementationGuideGlobal>? = null,
 
     @SerialName("binary")
-    override val binary: List<String>? = null,
+    override val binary: kotlin.collections.List<String>? = null,
 
     @SerialName("page")
     override val page: ImplementationGuidePage? = null,
@@ -208,13 +206,13 @@ data class ImplementationGuide(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -266,8 +264,6 @@ interface FhirImplementationGuideDependency : FhirBackboneElement {
 /**
  * ImplementationGuideDependency
  *
- * SourceFileName: ImplementationGuide.kt
- *
  * Another implementation guide that this implementation depends on. Typically, an implementation guide
  * uses value sets, profiles etc.defined in other implementation guides.
  *
@@ -288,7 +284,7 @@ data class ImplementationGuideDependency(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -296,7 +292,7 @@ data class ImplementationGuideDependency(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImplementationGuideDependency {
 
     override val resourceType: kotlin.String
@@ -333,8 +329,6 @@ interface FhirImplementationGuideGlobal : FhirBackboneElement {
 /**
  * ImplementationGuideGlobal
  *
- * SourceFileName: ImplementationGuide.kt
- *
  * A set of profiles that all resources covered by this implementation guide must conform to.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ImplementationGuide">ImplementationGuideGlobal</a>
@@ -354,7 +348,7 @@ data class ImplementationGuideGlobal(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -362,7 +356,7 @@ data class ImplementationGuideGlobal(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImplementationGuideGlobal {
 
     override val resourceType: kotlin.String
@@ -398,13 +392,11 @@ interface FhirImplementationGuidePackage : FhirBackboneElement {
     /**
      * Resource in the implementation guide.
      */
-    val resource: List<ImplementationGuidePackageResource>
+    val resource: kotlin.collections.List<ImplementationGuidePackageResource>
 }
 
 /**
  * ImplementationGuidePackage
- *
- * SourceFileName: ImplementationGuide.kt
  *
  * A logical group of resources. Logical groups can be used when building pages.
  *
@@ -423,12 +415,12 @@ data class ImplementationGuidePackage(
     override val description: String? = null,
 
     @SerialName("resource")
-    override val resource: List<ImplementationGuidePackageResource>,
+    override val resource: kotlin.collections.List<ImplementationGuidePackageResource>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -436,7 +428,7 @@ data class ImplementationGuidePackage(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImplementationGuidePackage {
 
     override val resourceType: kotlin.String
@@ -500,8 +492,6 @@ interface FhirImplementationGuidePackageResource : FhirBackboneElement {
 /**
  * ImplementationGuidePackageResource
  *
- * SourceFileName: ImplementationGuide.kt
- *
  * A resource that is part of the implementation guide. Conformance resources (value set, structure
  * definition, capability statements etc.) are obvious candidates for inclusion, but any kind of
  * resource can be included as an example resource.
@@ -538,7 +528,7 @@ data class ImplementationGuidePackageResource(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -546,7 +536,7 @@ data class ImplementationGuidePackageResource(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImplementationGuidePackageResource {
 
     override val resourceType: kotlin.String
@@ -589,12 +579,12 @@ interface FhirImplementationGuidePage : FhirBackboneElement {
     /**
      * For constructed pages, what kind of resources to include in the list.
      */
-    val type: List<ResourceType>?
+    val type: kotlin.collections.List<ResourceType>?
 
     /**
      * Name of package to include.
      */
-    val pakkage: List<String>?
+    val pakkage: kotlin.collections.List<String>?
 
     /**
      * Format of the page (e.g. html, markdown, etc.).
@@ -604,13 +594,11 @@ interface FhirImplementationGuidePage : FhirBackboneElement {
     /**
      * Nested Pages / Sections.
      */
-    val page: List<ImplementationGuidePage>?
+    val page: kotlin.collections.List<ImplementationGuidePage>?
 }
 
 /**
  * ImplementationGuidePage
- *
- * SourceFileName: ImplementationGuide.kt
  *
  * A page / section in the implementation guide. The root page is the implementation guide home page.
  *
@@ -632,21 +620,21 @@ data class ImplementationGuidePage(
     override val kind: GuidePageKind,
 
     @SerialName("type")
-    override val type: List<ResourceType>? = null,
+    override val type: kotlin.collections.List<ResourceType>? = null,
 
     @SerialName("package")
-    override val pakkage: List<String>? = null,
+    override val pakkage: kotlin.collections.List<String>? = null,
 
     @SerialName("format")
     override val format: String? = null,
 
     @SerialName("page")
-    override val page: List<ImplementationGuidePage>? = null,
+    override val page: kotlin.collections.List<ImplementationGuidePage>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -654,7 +642,7 @@ data class ImplementationGuidePage(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImplementationGuidePage {
 
     override val resourceType: kotlin.String

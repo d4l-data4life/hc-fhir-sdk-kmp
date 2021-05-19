@@ -36,13 +36,11 @@ interface FhirOperationOutcome : FhirDomainResource {
     /**
      * A single issue associated with the action.
      */
-    val issue: List<OperationOutcomeIssue>
+    val issue: kotlin.collections.List<OperationOutcomeIssue>
 }
 
 /**
  * OperationOutcome
- *
- * SourceFileName: OperationOutcome.kt
  *
  * A collection of error, warning or information messages that result from a system action.
  *
@@ -55,7 +53,7 @@ interface FhirOperationOutcome : FhirDomainResource {
 data class OperationOutcome(
 
     @SerialName("issue")
-    override val issue: List<OperationOutcomeIssue>,
+    override val issue: kotlin.collections.List<OperationOutcomeIssue>,
 
     // # DomainResource
 
@@ -63,13 +61,13 @@ data class OperationOutcome(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -131,18 +129,16 @@ interface FhirOperationOutcomeIssue : FhirBackboneElement {
     /**
      * Path of element(s) related to issue.
      */
-    val location: List<String>?
+    val location: kotlin.collections.List<String>?
 
     /**
      * FHIRPath of element(s) related to issue.
      */
-    val expression: List<String>?
+    val expression: kotlin.collections.List<String>?
 }
 
 /**
  * OperationOutcomeIssue
- *
- * SourceFileName: OperationOutcome.kt
  *
  * An error, warning or information message that results from a system action.
  *
@@ -167,15 +163,15 @@ data class OperationOutcomeIssue(
     override val diagnostics: String? = null,
 
     @SerialName("location")
-    override val location: List<String>? = null,
+    override val location: kotlin.collections.List<String>? = null,
 
     @SerialName("expression")
-    override val expression: List<String>? = null,
+    override val expression: kotlin.collections.List<String>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -183,7 +179,7 @@ data class OperationOutcomeIssue(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirOperationOutcomeIssue {
 
     override val resourceType: kotlin.String

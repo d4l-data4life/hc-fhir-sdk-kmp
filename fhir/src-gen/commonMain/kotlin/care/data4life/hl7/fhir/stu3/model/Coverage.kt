@@ -35,7 +35,7 @@ interface FhirCoverage : FhirDomainResource {
     /**
      * The primary coverage ID.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -80,7 +80,7 @@ interface FhirCoverage : FhirDomainResource {
     /**
      * Identifier for the plan or agreement issuer.
      */
-    val payor: List<Reference>?
+    val payor: kotlin.collections.List<Reference>?
 
     /**
      * Additional coverage classifications.
@@ -110,13 +110,11 @@ interface FhirCoverage : FhirDomainResource {
     /**
      * Contract details.
      */
-    val contract: List<Reference>?
+    val contract: kotlin.collections.List<Reference>?
 }
 
 /**
  * Coverage
- *
- * SourceFileName: Coverage.kt
  *
  * Financial instrument which may be used to reimburse or pay for health care products and services.
  *
@@ -129,7 +127,7 @@ interface FhirCoverage : FhirDomainResource {
 data class Coverage(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -156,7 +154,7 @@ data class Coverage(
     override val period: Period? = null,
 
     @SerialName("payor")
-    override val payor: List<Reference>? = null,
+    override val payor: kotlin.collections.List<Reference>? = null,
 
     @SerialName("grouping")
     override val grouping: CoverageGrouping? = null,
@@ -174,7 +172,7 @@ data class Coverage(
     override val network: String? = null,
 
     @SerialName("contract")
-    override val contract: List<Reference>? = null,
+    override val contract: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -182,13 +180,13 @@ data class Coverage(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -290,8 +288,6 @@ interface FhirCoverageGrouping : FhirBackboneElement {
 /**
  * CoverageGrouping
  *
- * SourceFileName: Coverage.kt
- *
  * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage
  * or employer group, Policy, Plan.
  *
@@ -342,7 +338,7 @@ data class CoverageGrouping(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -350,7 +346,7 @@ data class CoverageGrouping(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCoverageGrouping {
 
     override val resourceType: kotlin.String

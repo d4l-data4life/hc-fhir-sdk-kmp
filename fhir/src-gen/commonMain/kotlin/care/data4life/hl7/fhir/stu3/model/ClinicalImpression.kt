@@ -40,7 +40,7 @@ interface FhirClinicalImpression : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Identifies the workflow status of the assessment.
@@ -95,17 +95,17 @@ interface FhirClinicalImpression : FhirDomainResource {
     /**
      * Relevant impressions of patient state.
      */
-    val problem: List<Reference>?
+    val problem: kotlin.collections.List<Reference>?
 
     /**
      * One or more sets of investigations (signs, symptions, etc.).
      */
-    val investigation: List<ClinicalImpressionInvestigation>?
+    val investigation: kotlin.collections.List<ClinicalImpressionInvestigation>?
 
     /**
      * Clinical Protocol followed.
      */
-    val protocol: List<String>?
+    val protocol: kotlin.collections.List<String>?
 
     /**
      * Summary of the assessment.
@@ -115,33 +115,31 @@ interface FhirClinicalImpression : FhirDomainResource {
     /**
      * Possible or likely findings and diagnoses.
      */
-    val finding: List<ClinicalImpressionFinding>?
+    val finding: kotlin.collections.List<ClinicalImpressionFinding>?
 
     /**
      * Estimate of likely outcome.
      */
-    val prognosisCodeableConcept: List<CodeableConcept>?
+    val prognosisCodeableConcept: kotlin.collections.List<CodeableConcept>?
 
     /**
      * RiskAssessment expressing likely outcome.
      */
-    val prognosisReference: List<Reference>?
+    val prognosisReference: kotlin.collections.List<Reference>?
 
     /**
      * Action taken as part of assessment procedure.
      */
-    val action: List<Reference>?
+    val action: kotlin.collections.List<Reference>?
 
     /**
      * Comments made about the ClinicalImpression.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * ClinicalImpression
- *
- * SourceFileName: ClinicalImpression.kt
  *
  * A record of a clinical assessment performed to determine what problem(s) may affect the patient and
  * before planning the treatments or management strategies that are best to manage a patient's
@@ -158,7 +156,7 @@ interface FhirClinicalImpression : FhirDomainResource {
 data class ClinicalImpression(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: ClinicalImpressionStatus,
@@ -191,31 +189,31 @@ data class ClinicalImpression(
     override val previous: Reference? = null,
 
     @SerialName("problem")
-    override val problem: List<Reference>? = null,
+    override val problem: kotlin.collections.List<Reference>? = null,
 
     @SerialName("investigation")
-    override val investigation: List<ClinicalImpressionInvestigation>? = null,
+    override val investigation: kotlin.collections.List<ClinicalImpressionInvestigation>? = null,
 
     @SerialName("protocol")
-    override val protocol: List<String>? = null,
+    override val protocol: kotlin.collections.List<String>? = null,
 
     @SerialName("summary")
     override val summary: String? = null,
 
     @SerialName("finding")
-    override val finding: List<ClinicalImpressionFinding>? = null,
+    override val finding: kotlin.collections.List<ClinicalImpressionFinding>? = null,
 
     @SerialName("prognosisCodeableConcept")
-    override val prognosisCodeableConcept: List<CodeableConcept>? = null,
+    override val prognosisCodeableConcept: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("prognosisReference")
-    override val prognosisReference: List<Reference>? = null,
+    override val prognosisReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("action")
-    override val action: List<Reference>? = null,
+    override val action: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # DomainResource
 
@@ -223,13 +221,13 @@ data class ClinicalImpression(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -285,8 +283,6 @@ interface FhirClinicalImpressionFinding : FhirBackboneElement {
 /**
  * ClinicalImpressionFinding
  *
- * SourceFileName: ClinicalImpression.kt
- *
  * Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ClinicalImpression">ClinicalImpressionFinding</a>
@@ -309,7 +305,7 @@ data class ClinicalImpressionFinding(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -317,7 +313,7 @@ data class ClinicalImpressionFinding(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClinicalImpressionFinding {
 
     override val resourceType: kotlin.String
@@ -351,13 +347,11 @@ interface FhirClinicalImpressionInvestigation : FhirBackboneElement {
     /**
      * Record of a specific investigation.
      */
-    val item: List<Reference>?
+    val item: kotlin.collections.List<Reference>?
 }
 
 /**
  * ClinicalImpressionInvestigation
- *
- * SourceFileName: ClinicalImpression.kt
  *
  * One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations
  * vary greatly depending on the type and context of the assessment. These investigations may include
@@ -376,12 +370,12 @@ data class ClinicalImpressionInvestigation(
     override val code: CodeableConcept,
 
     @SerialName("item")
-    override val item: List<Reference>? = null,
+    override val item: kotlin.collections.List<Reference>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -389,7 +383,7 @@ data class ClinicalImpressionInvestigation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirClinicalImpressionInvestigation {
 
     override val resourceType: kotlin.String

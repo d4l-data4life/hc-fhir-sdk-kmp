@@ -47,13 +47,11 @@ interface FhirLinkage : FhirDomainResource {
     /**
      * Item to be linked.
      */
-    val item: List<LinkageItem>
+    val item: kotlin.collections.List<LinkageItem>
 }
 
 /**
  * Linkage
- *
- * SourceFileName: Linkage.kt
  *
  * Identifies two or more records (resource instances) that are referring to the same real-world
  * "occurrence".
@@ -73,7 +71,7 @@ data class Linkage(
     override val author: Reference? = null,
 
     @SerialName("item")
-    override val item: List<LinkageItem>,
+    override val item: kotlin.collections.List<LinkageItem>,
 
     // # DomainResource
 
@@ -81,13 +79,13 @@ data class Linkage(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -140,8 +138,6 @@ interface FhirLinkageItem : FhirBackboneElement {
 /**
  * LinkageItem
  *
- * SourceFileName: Linkage.kt
- *
  * Identifies one of the records that is considered to refer to the same real-world occurrence as well
  * as how the items hould be evaluated within the collection of linked items.
  *
@@ -162,7 +158,7 @@ data class LinkageItem(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -170,7 +166,7 @@ data class LinkageItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirLinkageItem {
 
     override val resourceType: kotlin.String

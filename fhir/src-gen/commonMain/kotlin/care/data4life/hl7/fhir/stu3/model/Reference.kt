@@ -50,8 +50,6 @@ interface FhirReference : FhirElement {
 /**
  * Reference
  *
- * SourceFileName: Reference.kt
- *
  * A reference from one resource to another
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Reference">Reference</a>
@@ -77,7 +75,7 @@ data class Reference(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirReference {
 
     override val resourceType: kotlin.String

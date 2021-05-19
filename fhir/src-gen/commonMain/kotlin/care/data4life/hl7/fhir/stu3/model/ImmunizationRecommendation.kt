@@ -37,7 +37,7 @@ interface FhirImmunizationRecommendation : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Who this profile is for.
@@ -47,13 +47,11 @@ interface FhirImmunizationRecommendation : FhirDomainResource {
     /**
      * Vaccine administration recommendations.
      */
-    val recommendation: List<ImmunizationRecommendationRecommendation>
+    val recommendation: kotlin.collections.List<ImmunizationRecommendationRecommendation>
 }
 
 /**
  * ImmunizationRecommendation
- *
- * SourceFileName: ImmunizationRecommendation.kt
  *
  * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization
  * eligibility according to a published schedule) with optional supporting justification.
@@ -67,13 +65,13 @@ interface FhirImmunizationRecommendation : FhirDomainResource {
 data class ImmunizationRecommendation(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("patient")
     override val patient: Reference,
 
     @SerialName("recommendation")
-    override val recommendation: List<ImmunizationRecommendationRecommendation>,
+    override val recommendation: kotlin.collections.List<ImmunizationRecommendationRecommendation>,
 
     // # DomainResource
 
@@ -81,13 +79,13 @@ data class ImmunizationRecommendation(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -152,7 +150,7 @@ interface FhirImmunizationRecommendationRecommendation : FhirBackboneElement {
     /**
      * Dates governing proposed immunization.
      */
-    val dateCriterion: List<ImmunizationRecommendationRecommendationDateCriterion>?
+    val dateCriterion: kotlin.collections.List<ImmunizationRecommendationRecommendationDateCriterion>?
 
     /**
      * Protocol used by recommendation.
@@ -162,18 +160,16 @@ interface FhirImmunizationRecommendationRecommendation : FhirBackboneElement {
     /**
      * Past immunizations supporting recommendation.
      */
-    val supportingImmunization: List<Reference>?
+    val supportingImmunization: kotlin.collections.List<Reference>?
 
     /**
      * Patient observations supporting recommendation.
      */
-    val supportingPatientInformation: List<Reference>?
+    val supportingPatientInformation: kotlin.collections.List<Reference>?
 }
 
 /**
  * ImmunizationRecommendationRecommendation
- *
- * SourceFileName: ImmunizationRecommendation.kt
  *
  * Vaccine administration recommendations
  *
@@ -201,21 +197,21 @@ data class ImmunizationRecommendationRecommendation(
     override val forecastStatus: CodeableConcept,
 
     @SerialName("dateCriterion")
-    override val dateCriterion: List<ImmunizationRecommendationRecommendationDateCriterion>? = null,
+    override val dateCriterion: kotlin.collections.List<ImmunizationRecommendationRecommendationDateCriterion>? = null,
 
     @SerialName("protocol")
     override val protocol: ImmunizationRecommendationRecommendationProtocol? = null,
 
     @SerialName("supportingImmunization")
-    override val supportingImmunization: List<Reference>? = null,
+    override val supportingImmunization: kotlin.collections.List<Reference>? = null,
 
     @SerialName("supportingPatientInformation")
-    override val supportingPatientInformation: List<Reference>? = null,
+    override val supportingPatientInformation: kotlin.collections.List<Reference>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -223,7 +219,7 @@ data class ImmunizationRecommendationRecommendation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImmunizationRecommendationRecommendation {
 
     override val resourceType: kotlin.String
@@ -261,8 +257,6 @@ interface FhirImmunizationRecommendationRecommendationDateCriterion : FhirBackbo
 /**
  * ImmunizationRecommendationRecommendationDateCriterion
  *
- * SourceFileName: ImmunizationRecommendation.kt
- *
  * Vaccine date recommendations. For example, earliest date to administer, latest date to administer,
  * etc.
  *
@@ -283,7 +277,7 @@ data class ImmunizationRecommendationRecommendationDateCriterion(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -291,7 +285,7 @@ data class ImmunizationRecommendationRecommendationDateCriterion(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImmunizationRecommendationRecommendationDateCriterion {
 
     override val resourceType: kotlin.String
@@ -338,8 +332,6 @@ interface FhirImmunizationRecommendationRecommendationProtocol : FhirBackboneEle
 /**
  * ImmunizationRecommendationRecommendationProtocol
  *
- * SourceFileName: ImmunizationRecommendation.kt
- *
  * Contains information about the protocol under which the vaccine was administered.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation">ImmunizationRecommendationRecommendationProtocol</a>
@@ -365,7 +357,7 @@ data class ImmunizationRecommendationRecommendationProtocol(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -373,7 +365,7 @@ data class ImmunizationRecommendationRecommendationProtocol(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImmunizationRecommendationRecommendationProtocol {
 
     override val resourceType: kotlin.String

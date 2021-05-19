@@ -53,7 +53,7 @@ interface FhirPlanDefinition : FhirDomainResource {
     /**
      * Additional identifier for the plan definition.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the plan definition.
@@ -129,27 +129,27 @@ interface FhirPlanDefinition : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for plan definition (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * E.g. Education, Treatment, Assessment, etc.
      */
-    val topic: List<CodeableConcept>?
+    val topic: kotlin.collections.List<CodeableConcept>?
 
     /**
      * A content contributor.
      */
-    val contributor: List<Contributor>?
+    val contributor: kotlin.collections.List<Contributor>?
 
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Use and/or publishing restrictions.
@@ -159,28 +159,26 @@ interface FhirPlanDefinition : FhirDomainResource {
     /**
      * Related artifacts for the asset.
      */
-    val relatedArtifact: List<RelatedArtifact>?
+    val relatedArtifact: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * Logic used by the plan definition.
      */
-    val library: List<Reference>?
+    val library: kotlin.collections.List<Reference>?
 
     /**
      * What the plan is trying to accomplish.
      */
-    val goal: List<PlanDefinitionGoal>?
+    val goal: kotlin.collections.List<PlanDefinitionGoal>?
 
     /**
      * Action defined by the plan.
      */
-    val action: List<PlanDefinitionAction>?
+    val action: kotlin.collections.List<PlanDefinitionAction>?
 }
 
 /**
  * PlanDefinition
- *
- * SourceFileName: PlanDefinition.kt
  *
  * This resource allows for the definition of various types of plans as a sharable, consumable, and
  * executable artifact. The resource is general enough to support the description of a broad range of
@@ -198,7 +196,7 @@ data class PlanDefinition(
     override val url: String? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -243,34 +241,34 @@ data class PlanDefinition(
     override val effectivePeriod: Period? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("topic")
-    override val topic: List<CodeableConcept>? = null,
+    override val topic: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("contributor")
-    override val contributor: List<Contributor>? = null,
+    override val contributor: kotlin.collections.List<Contributor>? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("copyright")
     override val copyright: String? = null,
 
     @SerialName("relatedArtifact")
-    override val relatedArtifact: List<RelatedArtifact>? = null,
+    override val relatedArtifact: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("library")
-    override val library: List<Reference>? = null,
+    override val library: kotlin.collections.List<Reference>? = null,
 
     @SerialName("goal")
-    override val goal: List<PlanDefinitionGoal>? = null,
+    override val goal: kotlin.collections.List<PlanDefinitionGoal>? = null,
 
     @SerialName("action")
-    override val action: List<PlanDefinitionAction>? = null,
+    override val action: kotlin.collections.List<PlanDefinitionAction>? = null,
 
     // # DomainResource
 
@@ -278,13 +276,13 @@ data class PlanDefinition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -345,47 +343,47 @@ interface FhirPlanDefinitionAction : FhirBackboneElement {
     /**
      * Code representing the meaning of the action or sub-actions.
      */
-    val code: List<CodeableConcept>?
+    val code: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why the action should be performed.
      */
-    val reason: List<CodeableConcept>?
+    val reason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Supporting documentation for the intended performer of the action.
      */
-    val documentation: List<RelatedArtifact>?
+    val documentation: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * What goals this action supports.
      */
-    val goalId: List<String>?
+    val goalId: kotlin.collections.List<String>?
 
     /**
      * When the action should be triggered.
      */
-    val triggerDefinition: List<TriggerDefinition>?
+    val triggerDefinition: kotlin.collections.List<TriggerDefinition>?
 
     /**
      * Whether or not the action is applicable.
      */
-    val condition: List<PlanDefinitionActionCondition>?
+    val condition: kotlin.collections.List<PlanDefinitionActionCondition>?
 
     /**
      * Input data requirements.
      */
-    val input: List<DataRequirement>?
+    val input: kotlin.collections.List<DataRequirement>?
 
     /**
      * Output data definition.
      */
-    val output: List<DataRequirement>?
+    val output: kotlin.collections.List<DataRequirement>?
 
     /**
      * Relationship to another action.
      */
-    val relatedAction: List<PlanDefinitionActionRelatedAction>?
+    val relatedAction: kotlin.collections.List<PlanDefinitionActionRelatedAction>?
 
     /**
      * When the action should take place.
@@ -415,7 +413,7 @@ interface FhirPlanDefinitionAction : FhirBackboneElement {
     /**
      * Who should participate in the action.
      */
-    val participant: List<PlanDefinitionActionParticipant>?
+    val participant: kotlin.collections.List<PlanDefinitionActionParticipant>?
 
     /**
      * create | update | remove | fire-event.
@@ -460,18 +458,16 @@ interface FhirPlanDefinitionAction : FhirBackboneElement {
     /**
      * Dynamic aspects of the definition.
      */
-    val dynamicValue: List<PlanDefinitionActionDynamicValue>?
+    val dynamicValue: kotlin.collections.List<PlanDefinitionActionDynamicValue>?
 
     /**
      * A sub-action.
      */
-    val action: List<PlanDefinitionAction>?
+    val action: kotlin.collections.List<PlanDefinitionAction>?
 }
 
 /**
  * PlanDefinitionAction
- *
- * SourceFileName: PlanDefinition.kt
  *
  * An action to be taken as part of the plan.
  *
@@ -496,31 +492,31 @@ data class PlanDefinitionAction(
     override val textEquivalent: String? = null,
 
     @SerialName("code")
-    override val code: List<CodeableConcept>? = null,
+    override val code: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reason")
-    override val reason: List<CodeableConcept>? = null,
+    override val reason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("documentation")
-    override val documentation: List<RelatedArtifact>? = null,
+    override val documentation: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("goalId")
-    override val goalId: List<String>? = null,
+    override val goalId: kotlin.collections.List<String>? = null,
 
     @SerialName("triggerDefinition")
-    override val triggerDefinition: List<TriggerDefinition>? = null,
+    override val triggerDefinition: kotlin.collections.List<TriggerDefinition>? = null,
 
     @SerialName("condition")
-    override val condition: List<PlanDefinitionActionCondition>? = null,
+    override val condition: kotlin.collections.List<PlanDefinitionActionCondition>? = null,
 
     @SerialName("input")
-    override val input: List<DataRequirement>? = null,
+    override val input: kotlin.collections.List<DataRequirement>? = null,
 
     @SerialName("output")
-    override val output: List<DataRequirement>? = null,
+    override val output: kotlin.collections.List<DataRequirement>? = null,
 
     @SerialName("relatedAction")
-    override val relatedAction: List<PlanDefinitionActionRelatedAction>? = null,
+    override val relatedAction: kotlin.collections.List<PlanDefinitionActionRelatedAction>? = null,
 
     @SerialName("timingDateTime")
     override val timingDateTime: DateTime? = null,
@@ -538,7 +534,7 @@ data class PlanDefinitionAction(
     override val timingTiming: Timing? = null,
 
     @SerialName("participant")
-    override val participant: List<PlanDefinitionActionParticipant>? = null,
+    override val participant: kotlin.collections.List<PlanDefinitionActionParticipant>? = null,
 
     @SerialName("type")
     override val type: Coding? = null,
@@ -565,15 +561,15 @@ data class PlanDefinitionAction(
     override val transform: Reference? = null,
 
     @SerialName("dynamicValue")
-    override val dynamicValue: List<PlanDefinitionActionDynamicValue>? = null,
+    override val dynamicValue: kotlin.collections.List<PlanDefinitionActionDynamicValue>? = null,
 
     @SerialName("action")
-    override val action: List<PlanDefinitionAction>? = null,
+    override val action: kotlin.collections.List<PlanDefinitionAction>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -581,7 +577,7 @@ data class PlanDefinitionAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPlanDefinitionAction {
 
     override val resourceType: kotlin.String
@@ -628,8 +624,6 @@ interface FhirPlanDefinitionActionCondition : FhirBackboneElement {
 /**
  * PlanDefinitionActionCondition
  *
- * SourceFileName: PlanDefinition.kt
- *
  * An expression that describes applicability criteria, or start/stop conditions for the action.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PlanDefinition">PlanDefinitionActionCondition</a>
@@ -655,7 +649,7 @@ data class PlanDefinitionActionCondition(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -663,7 +657,7 @@ data class PlanDefinitionActionCondition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPlanDefinitionActionCondition {
 
     override val resourceType: kotlin.String
@@ -713,8 +707,6 @@ interface FhirPlanDefinitionActionDynamicValue : FhirBackboneElement {
 /**
  * PlanDefinitionActionDynamicValue
  *
- * SourceFileName: PlanDefinition.kt
- *
  * Customizations that should be applied to the statically defined resource. For example, if the dosage
  * of a medication must be computed based on the patient's weight, a customization would be used to
  * specify an expression that calculated the weight, and the path on the resource that would contain
@@ -743,7 +735,7 @@ data class PlanDefinitionActionDynamicValue(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -751,7 +743,7 @@ data class PlanDefinitionActionDynamicValue(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPlanDefinitionActionDynamicValue {
 
     override val resourceType: kotlin.String
@@ -788,8 +780,6 @@ interface FhirPlanDefinitionActionParticipant : FhirBackboneElement {
 /**
  * PlanDefinitionActionParticipant
  *
- * SourceFileName: PlanDefinition.kt
- *
  * Indicates who should participate in performing the action described.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PlanDefinition">PlanDefinitionActionParticipant</a>
@@ -809,7 +799,7 @@ data class PlanDefinitionActionParticipant(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -817,7 +807,7 @@ data class PlanDefinitionActionParticipant(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPlanDefinitionActionParticipant {
 
     override val resourceType: kotlin.String
@@ -864,8 +854,6 @@ interface FhirPlanDefinitionActionRelatedAction : FhirBackboneElement {
 /**
  * PlanDefinitionActionRelatedAction
  *
- * SourceFileName: PlanDefinition.kt
- *
  * A relationship to another action such as "before" or "30-60 minutes after start of".
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PlanDefinition">PlanDefinitionActionRelatedAction</a>
@@ -891,7 +879,7 @@ data class PlanDefinitionActionRelatedAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -899,7 +887,7 @@ data class PlanDefinitionActionRelatedAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPlanDefinitionActionRelatedAction {
 
     override val resourceType: kotlin.String
@@ -947,23 +935,21 @@ interface FhirPlanDefinitionGoal : FhirBackboneElement {
     /**
      * What does the goal address.
      */
-    val addresses: List<CodeableConcept>?
+    val addresses: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Supporting documentation for the goal.
      */
-    val documentation: List<RelatedArtifact>?
+    val documentation: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * Target outcome for the goal.
      */
-    val target: List<PlanDefinitionGoalTarget>?
+    val target: kotlin.collections.List<PlanDefinitionGoalTarget>?
 }
 
 /**
  * PlanDefinitionGoal
- *
- * SourceFileName: PlanDefinition.kt
  *
  * Goals that describe what the activities within the plan are intended to achieve. For example, weight
  * loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a
@@ -990,18 +976,18 @@ data class PlanDefinitionGoal(
     override val start: CodeableConcept? = null,
 
     @SerialName("addresses")
-    override val addresses: List<CodeableConcept>? = null,
+    override val addresses: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("documentation")
-    override val documentation: List<RelatedArtifact>? = null,
+    override val documentation: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("target")
-    override val target: List<PlanDefinitionGoalTarget>? = null,
+    override val target: kotlin.collections.List<PlanDefinitionGoalTarget>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1009,7 +995,7 @@ data class PlanDefinitionGoal(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPlanDefinitionGoal {
 
     override val resourceType: kotlin.String
@@ -1061,8 +1047,6 @@ interface FhirPlanDefinitionGoalTarget : FhirBackboneElement {
 /**
  * PlanDefinitionGoalTarget
  *
- * SourceFileName: PlanDefinition.kt
- *
  * Indicates what should be done and within what timeframe.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/PlanDefinition">PlanDefinitionGoalTarget</a>
@@ -1091,7 +1075,7 @@ data class PlanDefinitionGoalTarget(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1099,7 +1083,7 @@ data class PlanDefinitionGoalTarget(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPlanDefinitionGoalTarget {
 
     override val resourceType: kotlin.String

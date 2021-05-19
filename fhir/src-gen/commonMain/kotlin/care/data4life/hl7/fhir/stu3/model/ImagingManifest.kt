@@ -61,13 +61,11 @@ interface FhirImagingManifest : FhirDomainResource {
     /**
      * Study identity of the selected instances.
      */
-    val study: List<ImagingManifestStudy>
+    val study: kotlin.collections.List<ImagingManifestStudy>
 }
 
 /**
  * ImagingManifest
- *
- * SourceFileName: ImagingManifest.kt
  *
  * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or
  * significance of, the selection.
@@ -96,7 +94,7 @@ data class ImagingManifest(
     override val description: String? = null,
 
     @SerialName("study")
-    override val study: List<ImagingManifestStudy>,
+    override val study: kotlin.collections.List<ImagingManifestStudy>,
 
     // # DomainResource
 
@@ -104,13 +102,13 @@ data class ImagingManifest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -160,18 +158,16 @@ interface FhirImagingManifestStudy : FhirBackboneElement {
     /**
      * Study access service endpoint.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 
     /**
      * Series identity of the selected instances.
      */
-    val series: List<ImagingManifestStudySeries>
+    val series: kotlin.collections.List<ImagingManifestStudySeries>
 }
 
 /**
  * ImagingManifestStudy
- *
- * SourceFileName: ImagingManifest.kt
  *
  * Study identity and locating information of the DICOM SOP instances in the selection.
  *
@@ -190,15 +186,15 @@ data class ImagingManifestStudy(
     override val imagingStudy: Reference? = null,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     @SerialName("series")
-    override val series: List<ImagingManifestStudySeries>,
+    override val series: kotlin.collections.List<ImagingManifestStudySeries>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -206,7 +202,7 @@ data class ImagingManifestStudy(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImagingManifestStudy {
 
     override val resourceType: kotlin.String
@@ -237,18 +233,16 @@ interface FhirImagingManifestStudySeries : FhirBackboneElement {
     /**
      * Series access endpoint.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 
     /**
      * The selected instance.
      */
-    val instance: List<ImagingManifestStudySeriesInstance>
+    val instance: kotlin.collections.List<ImagingManifestStudySeriesInstance>
 }
 
 /**
  * ImagingManifestStudySeries
- *
- * SourceFileName: ImagingManifest.kt
  *
  * Series identity and locating information of the DICOM SOP instances in the selection.
  *
@@ -264,15 +258,15 @@ data class ImagingManifestStudySeries(
     override val uid: String,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     @SerialName("instance")
-    override val instance: List<ImagingManifestStudySeriesInstance>,
+    override val instance: kotlin.collections.List<ImagingManifestStudySeriesInstance>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -280,7 +274,7 @@ data class ImagingManifestStudySeries(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImagingManifestStudySeries {
 
     override val resourceType: kotlin.String
@@ -317,8 +311,6 @@ interface FhirImagingManifestStudySeriesInstance : FhirBackboneElement {
 /**
  * ImagingManifestStudySeriesInstance
  *
- * SourceFileName: ImagingManifest.kt
- *
  * Identity and locating information of the selected DICOM SOP instances.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ImagingManifest">ImagingManifestStudySeriesInstance</a>
@@ -338,7 +330,7 @@ data class ImagingManifestStudySeriesInstance(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -346,7 +338,7 @@ data class ImagingManifestStudySeriesInstance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirImagingManifestStudySeriesInstance {
 
     override val resourceType: kotlin.String

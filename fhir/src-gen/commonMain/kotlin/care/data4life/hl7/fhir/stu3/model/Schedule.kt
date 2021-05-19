@@ -35,7 +35,7 @@ interface FhirSchedule : FhirDomainResource {
     /**
      * External Ids for this item.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this schedule is in active use.
@@ -51,20 +51,20 @@ interface FhirSchedule : FhirDomainResource {
     /**
      * The specific service that is to be performed during this appointment.
      */
-    val serviceType: List<CodeableConcept>?
+    val serviceType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The specialty of a practitioner that would be required to perform the service
      * requested in this appointment.
      */
-    val specialty: List<CodeableConcept>?
+    val specialty: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The resource this Schedule resource is providing availability information for.
      * These are expected to usually be one of HealthcareService, Location,
      * Practitioner, PractitionerRole, Device, Patient or RelatedPerson.
      */
-    val actor: List<Reference>
+    val actor: kotlin.collections.List<Reference>
 
     /**
      * The period of time that the slots that are attached to this Schedule resource
@@ -85,8 +85,6 @@ interface FhirSchedule : FhirDomainResource {
 /**
  * Schedule
  *
- * SourceFileName: Schedule.kt
- *
  * A container for slots of time that may be available for booking appointments
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Schedule">Schedule</a>
@@ -98,7 +96,7 @@ interface FhirSchedule : FhirDomainResource {
 data class Schedule(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
@@ -107,13 +105,13 @@ data class Schedule(
     override val serviceCategory: CodeableConcept? = null,
 
     @SerialName("serviceType")
-    override val serviceType: List<CodeableConcept>? = null,
+    override val serviceType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("specialty")
-    override val specialty: List<CodeableConcept>? = null,
+    override val specialty: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("actor")
-    override val actor: List<Reference>,
+    override val actor: kotlin.collections.List<Reference>,
 
     @SerialName("planningHorizon")
     override val planningHorizon: Period? = null,
@@ -127,13 +125,13 @@ data class Schedule(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

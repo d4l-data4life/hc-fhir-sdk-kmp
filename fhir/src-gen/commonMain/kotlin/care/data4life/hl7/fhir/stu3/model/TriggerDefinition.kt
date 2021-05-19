@@ -73,8 +73,6 @@ interface FhirTriggerDefinition : FhirElement {
 /**
  * TriggerDefinition
  *
- * SourceFileName: TriggerDefinition.kt
- *
  * A description of a triggering event.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TriggerDefinition">TriggerDefinition</a>
@@ -112,7 +110,7 @@ data class TriggerDefinition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTriggerDefinition {
 
     override val resourceType: kotlin.String

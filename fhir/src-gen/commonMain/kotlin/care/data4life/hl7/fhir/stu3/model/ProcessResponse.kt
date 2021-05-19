@@ -35,7 +35,7 @@ interface FhirProcessResponse : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -85,23 +85,21 @@ interface FhirProcessResponse : FhirDomainResource {
     /**
      * Processing comments or additional requirements.
      */
-    val processNote: List<ProcessResponseProcessNote>?
+    val processNote: kotlin.collections.List<ProcessResponseProcessNote>?
 
     /**
      * Error code.
      */
-    val error: List<CodeableConcept>?
+    val error: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Request for additional information.
      */
-    val communicationRequest: List<Reference>?
+    val communicationRequest: kotlin.collections.List<Reference>?
 }
 
 /**
  * ProcessResponse
- *
- * SourceFileName: ProcessResponse.kt
  *
  * This resource provides processing status, errors and notes from the processing of a resource.
  *
@@ -114,7 +112,7 @@ interface FhirProcessResponse : FhirDomainResource {
 data class ProcessResponse(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -144,13 +142,13 @@ data class ProcessResponse(
     override val form: CodeableConcept? = null,
 
     @SerialName("processNote")
-    override val processNote: List<ProcessResponseProcessNote>? = null,
+    override val processNote: kotlin.collections.List<ProcessResponseProcessNote>? = null,
 
     @SerialName("error")
-    override val error: List<CodeableConcept>? = null,
+    override val error: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("communicationRequest")
-    override val communicationRequest: List<Reference>? = null,
+    override val communicationRequest: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -158,13 +156,13 @@ data class ProcessResponse(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -215,8 +213,6 @@ interface FhirProcessResponseProcessNote : FhirBackboneElement {
 /**
  * ProcessResponseProcessNote
  *
- * SourceFileName: ProcessResponse.kt
- *
  * Suite of processing notes or additional requirements if the processing has been held.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcessResponse">ProcessResponseProcessNote</a>
@@ -236,7 +232,7 @@ data class ProcessResponseProcessNote(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -244,7 +240,7 @@ data class ProcessResponseProcessNote(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirProcessResponseProcessNote {
 
     override val resourceType: kotlin.String

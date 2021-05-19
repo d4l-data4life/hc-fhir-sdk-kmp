@@ -75,7 +75,7 @@ interface FhirCompartmentDefinition : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the compartment definition.
@@ -90,12 +90,12 @@ interface FhirCompartmentDefinition : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for compartment definition (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Which compartment this definition describes.
@@ -110,13 +110,11 @@ interface FhirCompartmentDefinition : FhirDomainResource {
     /**
      * How a resource is related to the compartment.
      */
-    val resource: List<CompartmentDefinitionResource>?
+    val resource: kotlin.collections.List<CompartmentDefinitionResource>?
 }
 
 /**
  * CompartmentDefinition
- *
- * SourceFileName: CompartmentDefinition.kt
  *
  * A compartment definition that defines how resources are accessed on a server.
  *
@@ -150,7 +148,7 @@ data class CompartmentDefinition(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
@@ -159,10 +157,10 @@ data class CompartmentDefinition(
     override val purpose: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("code")
     override val code: CompartmentType,
@@ -171,7 +169,7 @@ data class CompartmentDefinition(
     override val search: Bool,
 
     @SerialName("resource")
-    override val resource: List<CompartmentDefinitionResource>? = null,
+    override val resource: kotlin.collections.List<CompartmentDefinitionResource>? = null,
 
     // # DomainResource
 
@@ -179,13 +177,13 @@ data class CompartmentDefinition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -230,7 +228,7 @@ interface FhirCompartmentDefinitionResource : FhirBackboneElement {
     /**
      * Search Parameter Name, or chained parameters.
      */
-    val param: List<String>?
+    val param: kotlin.collections.List<String>?
 
     /**
      * Additional documentation about the resource and compartment.
@@ -240,8 +238,6 @@ interface FhirCompartmentDefinitionResource : FhirBackboneElement {
 
 /**
  * CompartmentDefinitionResource
- *
- * SourceFileName: CompartmentDefinition.kt
  *
  * Information about how a resource is related to the compartment.
  *
@@ -257,7 +253,7 @@ data class CompartmentDefinitionResource(
     override val code: ResourceType,
 
     @SerialName("param")
-    override val param: List<String>? = null,
+    override val param: kotlin.collections.List<String>? = null,
 
     @SerialName("documentation")
     override val documentation: String? = null,
@@ -265,7 +261,7 @@ data class CompartmentDefinitionResource(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -273,7 +269,7 @@ data class CompartmentDefinitionResource(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCompartmentDefinitionResource {
 
     override val resourceType: kotlin.String

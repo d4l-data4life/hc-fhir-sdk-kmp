@@ -39,7 +39,7 @@ interface FhirResearchStudy : FhirDomainResource {
     /**
      * Business Identifier for study.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Name for this study.
@@ -49,12 +49,12 @@ interface FhirResearchStudy : FhirDomainResource {
     /**
      * Steps followed in executing study.
      */
-    val protocol: List<Reference>?
+    val protocol: kotlin.collections.List<Reference>?
 
     /**
      * Part of larger study.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * The current state of the study.
@@ -64,32 +64,32 @@ interface FhirResearchStudy : FhirDomainResource {
     /**
      * Classifications for the study.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Drugs, devices, conditions, etc. under study.
      */
-    val focus: List<CodeableConcept>?
+    val focus: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Contact details for the study.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * References and dependencies.
      */
-    val relatedArtifact: List<RelatedArtifact>?
+    val relatedArtifact: kotlin.collections.List<RelatedArtifact>?
 
     /**
      * Used to search for the study.
      */
-    val keyword: List<CodeableConcept>?
+    val keyword: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Geographic region(s) for study.
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * What this is study doing.
@@ -99,7 +99,7 @@ interface FhirResearchStudy : FhirDomainResource {
     /**
      * Inclusion & exclusion criteria.
      */
-    val enrollment: List<Reference>?
+    val enrollment: kotlin.collections.List<Reference>?
 
     /**
      * When the study began and ended.
@@ -119,7 +119,7 @@ interface FhirResearchStudy : FhirDomainResource {
     /**
      * Location involved in study execution.
      */
-    val site: List<Reference>?
+    val site: kotlin.collections.List<Reference>?
 
     /**
      * Reason for terminating study early.
@@ -129,18 +129,16 @@ interface FhirResearchStudy : FhirDomainResource {
     /**
      * Comments made about the event.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Defined path through the study for a subject.
      */
-    val arm: List<ResearchStudyArm>?
+    val arm: kotlin.collections.List<ResearchStudyArm>?
 }
 
 /**
  * ResearchStudy
- *
- * SourceFileName: ResearchStudy.kt
  *
  * A process where a researcher or organization plans and then executes a series of steps intended to
  * increase the field of healthcare-related knowledge. This includes studies of safety, efficacy,
@@ -157,43 +155,43 @@ interface FhirResearchStudy : FhirDomainResource {
 data class ResearchStudy(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("title")
     override val title: String? = null,
 
     @SerialName("protocol")
-    override val protocol: List<Reference>? = null,
+    override val protocol: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: ResearchStudyStatus,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("focus")
-    override val focus: List<CodeableConcept>? = null,
+    override val focus: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("relatedArtifact")
-    override val relatedArtifact: List<RelatedArtifact>? = null,
+    override val relatedArtifact: kotlin.collections.List<RelatedArtifact>? = null,
 
     @SerialName("keyword")
-    override val keyword: List<CodeableConcept>? = null,
+    override val keyword: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("enrollment")
-    override val enrollment: List<Reference>? = null,
+    override val enrollment: kotlin.collections.List<Reference>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
@@ -205,16 +203,16 @@ data class ResearchStudy(
     override val principalInvestigator: Reference? = null,
 
     @SerialName("site")
-    override val site: List<Reference>? = null,
+    override val site: kotlin.collections.List<Reference>? = null,
 
     @SerialName("reasonStopped")
     override val reasonStopped: CodeableConcept? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("arm")
-    override val arm: List<ResearchStudyArm>? = null,
+    override val arm: kotlin.collections.List<ResearchStudyArm>? = null,
 
     // # DomainResource
 
@@ -222,13 +220,13 @@ data class ResearchStudy(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -285,8 +283,6 @@ interface FhirResearchStudyArm : FhirBackboneElement {
 /**
  * ResearchStudyArm
  *
- * SourceFileName: ResearchStudy.kt
- *
  * Describes an expected sequence of events for one of the participants of a study. E.g. Exposure to
  * drug A, wash-out, exposure to drug B, wash-out, follow-up.
  *
@@ -310,7 +306,7 @@ data class ResearchStudyArm(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -318,7 +314,7 @@ data class ResearchStudyArm(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirResearchStudyArm {
 
     override val resourceType: kotlin.String

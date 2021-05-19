@@ -47,7 +47,7 @@ interface FhirStructureDefinition : FhirDomainResource {
     /**
      * Additional identifier for the structure definition.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the structure definition.
@@ -88,7 +88,7 @@ interface FhirStructureDefinition : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the structure definition.
@@ -98,12 +98,12 @@ interface FhirStructureDefinition : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for structure definition (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this structure definition is defined.
@@ -118,17 +118,17 @@ interface FhirStructureDefinition : FhirDomainResource {
     /**
      * Assist with indexing and finding.
      */
-    val keyword: List<Coding>?
+    val keyword: kotlin.collections.List<Coding>?
 
     /**
      * FHIR Version this StructureDefinition targets.
      */
-    val fhirVersion: String?
+    val fhirVer: String?
 
     /**
      * External specification that the content is mapped to.
      */
-    val mapping: List<StructureDefinitionMapping>?
+    val mapping: kotlin.collections.List<StructureDefinitionMapping>?
 
     /**
      * Defines the kind of structure that this definition is describing.
@@ -149,12 +149,12 @@ interface FhirStructureDefinition : FhirDomainResource {
     /**
      * Where the extension can be used in instances.
      */
-    val context: List<String>?
+    val context: kotlin.collections.List<String>?
 
     /**
      * FHIRPath invariants - when the extension can be used.
      */
-    val contextInvariant: List<String>?
+    val contextInvariant: kotlin.collections.List<String>?
 
     /**
      * Type defined or constrained by this structure.
@@ -185,8 +185,6 @@ interface FhirStructureDefinition : FhirDomainResource {
 /**
  * StructureDefinition
  *
- * SourceFileName: StructureDefinition.kt
- *
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data
  * types defined in FHIR, and also for describing extensions and constraints on resources and data
  * types.
@@ -203,7 +201,7 @@ data class StructureDefinition(
     override val url: String,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -227,16 +225,16 @@ data class StructureDefinition(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -245,13 +243,13 @@ data class StructureDefinition(
     override val copyright: String? = null,
 
     @SerialName("keyword")
-    override val keyword: List<Coding>? = null,
+    override val keyword: kotlin.collections.List<Coding>? = null,
 
     @SerialName("fhirVersion")
-    override val fhirVersion: String? = null,
+    override val fhirVer: String? = null,
 
     @SerialName("mapping")
-    override val mapping: List<StructureDefinitionMapping>? = null,
+    override val mapping: kotlin.collections.List<StructureDefinitionMapping>? = null,
 
     @SerialName("kind")
     override val kind: StructureDefinitionKind,
@@ -263,10 +261,10 @@ data class StructureDefinition(
     override val contextType: ExtensionContext? = null,
 
     @SerialName("context")
-    override val context: List<String>? = null,
+    override val context: kotlin.collections.List<String>? = null,
 
     @SerialName("contextInvariant")
-    override val contextInvariant: List<String>? = null,
+    override val contextInvariant: kotlin.collections.List<String>? = null,
 
     @SerialName("type")
     override val type: String,
@@ -289,13 +287,13 @@ data class StructureDefinition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -336,13 +334,11 @@ interface FhirStructureDefinitionDifferential : FhirBackboneElement {
     /**
      * Definition of elements in the resource (if no StructureDefinition).
      */
-    val element: List<ElementDefinition>
+    val element: kotlin.collections.List<ElementDefinition>
 }
 
 /**
  * StructureDefinitionDifferential
- *
- * SourceFileName: StructureDefinition.kt
  *
  * A differential view is expressed relative to the base StructureDefinition - a statement of
  * differences that it applies.
@@ -356,12 +352,12 @@ interface FhirStructureDefinitionDifferential : FhirBackboneElement {
 data class StructureDefinitionDifferential(
 
     @SerialName("element")
-    override val element: List<ElementDefinition>,
+    override val element: kotlin.collections.List<ElementDefinition>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -369,7 +365,7 @@ data class StructureDefinitionDifferential(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureDefinitionDifferential {
 
     override val resourceType: kotlin.String
@@ -416,8 +412,6 @@ interface FhirStructureDefinitionMapping : FhirBackboneElement {
 /**
  * StructureDefinitionMapping
  *
- * SourceFileName: StructureDefinition.kt
- *
  * An external specification that the content is mapped to.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinitionMapping</a>
@@ -443,7 +437,7 @@ data class StructureDefinitionMapping(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -451,7 +445,7 @@ data class StructureDefinitionMapping(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureDefinitionMapping {
 
     override val resourceType: kotlin.String
@@ -478,13 +472,11 @@ interface FhirStructureDefinitionSnapshot : FhirBackboneElement {
     /**
      * Definition of elements in the resource (if no StructureDefinition).
      */
-    val element: List<ElementDefinition>
+    val element: kotlin.collections.List<ElementDefinition>
 }
 
 /**
  * StructureDefinitionSnapshot
- *
- * SourceFileName: StructureDefinition.kt
  *
  * A snapshot view is expressed in a stand alone form that can be used and interpreted without
  * considering the base StructureDefinition.
@@ -498,12 +490,12 @@ interface FhirStructureDefinitionSnapshot : FhirBackboneElement {
 data class StructureDefinitionSnapshot(
 
     @SerialName("element")
-    override val element: List<ElementDefinition>,
+    override val element: kotlin.collections.List<ElementDefinition>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -511,7 +503,7 @@ data class StructureDefinitionSnapshot(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirStructureDefinitionSnapshot {
 
     override val resourceType: kotlin.String

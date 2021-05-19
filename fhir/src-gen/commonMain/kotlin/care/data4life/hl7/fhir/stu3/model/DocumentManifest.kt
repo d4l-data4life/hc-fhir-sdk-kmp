@@ -42,7 +42,7 @@ interface FhirDocumentManifest : FhirDomainResource {
     /**
      * Other identifiers for the manifest.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The status of this document manifest.
@@ -67,12 +67,12 @@ interface FhirDocumentManifest : FhirDomainResource {
     /**
      * Who and/or what authored the manifest.
      */
-    val author: List<Reference>?
+    val author: kotlin.collections.List<Reference>?
 
     /**
      * Intended to get notified about this set of documents.
      */
-    val recipient: List<Reference>?
+    val recipient: kotlin.collections.List<Reference>?
 
     /**
      * The source system/application/software.
@@ -87,18 +87,16 @@ interface FhirDocumentManifest : FhirDomainResource {
     /**
      * The items included.
      */
-    val content: List<DocumentManifestContent>
+    val content: kotlin.collections.List<DocumentManifestContent>
 
     /**
      * Related things.
      */
-    val related: List<DocumentManifestRelated>?
+    val related: kotlin.collections.List<DocumentManifestRelated>?
 }
 
 /**
  * DocumentManifest
- *
- * SourceFileName: DocumentManifest.kt
  *
  * A collection of documents compiled for a purpose together with metadata that applies to the
  * collection.
@@ -115,7 +113,7 @@ data class DocumentManifest(
     override val masterIdentifier: Identifier? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: DocumentReferenceStatus,
@@ -130,10 +128,10 @@ data class DocumentManifest(
     override val created: DateTime? = null,
 
     @SerialName("author")
-    override val author: List<Reference>? = null,
+    override val author: kotlin.collections.List<Reference>? = null,
 
     @SerialName("recipient")
-    override val recipient: List<Reference>? = null,
+    override val recipient: kotlin.collections.List<Reference>? = null,
 
     @SerialName("source")
     override val source: String? = null,
@@ -142,10 +140,10 @@ data class DocumentManifest(
     override val description: String? = null,
 
     @SerialName("content")
-    override val content: List<DocumentManifestContent>,
+    override val content: kotlin.collections.List<DocumentManifestContent>,
 
     @SerialName("related")
-    override val related: List<DocumentManifestRelated>? = null,
+    override val related: kotlin.collections.List<DocumentManifestRelated>? = null,
 
     // # DomainResource
 
@@ -153,13 +151,13 @@ data class DocumentManifest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -210,8 +208,6 @@ interface FhirDocumentManifestContent : FhirBackboneElement {
 /**
  * DocumentManifestContent
  *
- * SourceFileName: DocumentManifest.kt
- *
  * The list of Documents included in the manifest.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentManifest">DocumentManifestContent</a>
@@ -231,7 +227,7 @@ data class DocumentManifestContent(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -239,7 +235,7 @@ data class DocumentManifestContent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDocumentManifestContent {
 
     override val resourceType: kotlin.String
@@ -276,8 +272,6 @@ interface FhirDocumentManifestRelated : FhirBackboneElement {
 /**
  * DocumentManifestRelated
  *
- * SourceFileName: DocumentManifest.kt
- *
  * Related identifiers or resources associated with the DocumentManifest.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentManifest">DocumentManifestRelated</a>
@@ -297,7 +291,7 @@ data class DocumentManifestRelated(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -305,7 +299,7 @@ data class DocumentManifestRelated(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDocumentManifestRelated {
 
     override val resourceType: kotlin.String

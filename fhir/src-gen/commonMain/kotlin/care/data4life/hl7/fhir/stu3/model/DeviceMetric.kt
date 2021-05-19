@@ -92,13 +92,11 @@ interface FhirDeviceMetric : FhirDomainResource {
      * Describes the calibrations that have been performed or that are required to be
      * performed.
      */
-    val calibration: List<DeviceMetricCalibration>?
+    val calibration: kotlin.collections.List<DeviceMetricCalibration>?
 }
 
 /**
  * DeviceMetric
- *
- * SourceFileName: DeviceMetric.kt
  *
  * Describes a measurement, calculation or setting capability of a medical device.
  *
@@ -138,7 +136,7 @@ data class DeviceMetric(
     override val measurementPeriod: Timing? = null,
 
     @SerialName("calibration")
-    override val calibration: List<DeviceMetricCalibration>? = null,
+    override val calibration: kotlin.collections.List<DeviceMetricCalibration>? = null,
 
     // # DomainResource
 
@@ -146,13 +144,13 @@ data class DeviceMetric(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -208,8 +206,6 @@ interface FhirDeviceMetricCalibration : FhirBackboneElement {
 /**
  * DeviceMetricCalibration
  *
- * SourceFileName: DeviceMetric.kt
- *
  * Describes the calibrations that have been performed or that are required to be performed
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DeviceMetric">DeviceMetricCalibration</a>
@@ -232,7 +228,7 @@ data class DeviceMetricCalibration(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -240,7 +236,7 @@ data class DeviceMetricCalibration(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDeviceMetricCalibration {
 
     override val resourceType: kotlin.String

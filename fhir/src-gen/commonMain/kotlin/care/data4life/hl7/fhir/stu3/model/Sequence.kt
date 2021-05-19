@@ -38,7 +38,7 @@ interface FhirSequence : FhirDomainResource {
     /**
      * Unique ID for this particular sequence. This is a FHIR-defined id.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * aa | dna | rna.
@@ -85,7 +85,7 @@ interface FhirSequence : FhirDomainResource {
     /**
      * Variant in sequence.
      */
-    val variant: List<SequenceVariant>?
+    val variant: kotlin.collections.List<SequenceVariant>?
 
     /**
      * Sequence that was observed.
@@ -95,7 +95,7 @@ interface FhirSequence : FhirDomainResource {
     /**
      * An set of value as quality of sequence.
      */
-    val quality: List<SequenceQuality>?
+    val quality: kotlin.collections.List<SequenceQuality>?
 
     /**
      * Average number of reads representing a given nucleotide in the reconstructed
@@ -107,18 +107,16 @@ interface FhirSequence : FhirDomainResource {
      * External repository which contains detailed report related with observedSeq in
      * this resource.
      */
-    val repository: List<SequenceRepository>?
+    val repository: kotlin.collections.List<SequenceRepository>?
 
     /**
      * Pointer to next atomic sequence.
      */
-    val pointer: List<Reference>?
+    val pointer: kotlin.collections.List<Reference>?
 }
 
 /**
  * Sequence
- *
- * SourceFileName: Sequence.kt
  *
  * Raw data describing a biological sequence.
  *
@@ -131,7 +129,7 @@ interface FhirSequence : FhirDomainResource {
 data class Sequence(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("type")
     override val type: String? = null,
@@ -158,22 +156,22 @@ data class Sequence(
     override val referenceSeq: SequenceReferenceSeq? = null,
 
     @SerialName("variant")
-    override val variant: List<SequenceVariant>? = null,
+    override val variant: kotlin.collections.List<SequenceVariant>? = null,
 
     @SerialName("observedSeq")
     override val observedSeq: String? = null,
 
     @SerialName("quality")
-    override val quality: List<SequenceQuality>? = null,
+    override val quality: kotlin.collections.List<SequenceQuality>? = null,
 
     @SerialName("readCoverage")
     override val readCoverage: Integer? = null,
 
     @SerialName("repository")
-    override val repository: List<SequenceRepository>? = null,
+    override val repository: kotlin.collections.List<SequenceRepository>? = null,
 
     @SerialName("pointer")
-    override val pointer: List<Reference>? = null,
+    override val pointer: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -181,13 +179,13 @@ data class Sequence(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -300,8 +298,6 @@ interface FhirSequenceQuality : FhirBackboneElement {
 /**
  * SequenceQuality
  *
- * SourceFileName: Sequence.kt
- *
  * An experimental feature attribute that defines the quality of the feature in a quantitative way,
  * such as a phred quality score
  * ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
@@ -359,7 +355,7 @@ data class SequenceQuality(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -367,7 +363,7 @@ data class SequenceQuality(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSequenceQuality {
 
     override val resourceType: kotlin.String
@@ -435,8 +431,6 @@ interface FhirSequenceReferenceSeq : FhirBackboneElement {
 /**
  * SequenceReferenceSeq
  *
- * SourceFileName: Sequence.kt
- *
  * A sequence that is used as a reference to describe variants that are present in a sequence analyzed.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Sequence">SequenceReferenceSeq</a>
@@ -474,7 +468,7 @@ data class SequenceReferenceSeq(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -482,7 +476,7 @@ data class SequenceReferenceSeq(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSequenceReferenceSeq {
 
     override val resourceType: kotlin.String
@@ -541,8 +535,6 @@ interface FhirSequenceRepository : FhirBackboneElement {
 /**
  * SequenceRepository
  *
- * SourceFileName: Sequence.kt
- *
  * Configurations of the external repository. The repository shall store target's observedSeq or
  * records related with target's observedSeq.
  *
@@ -575,7 +567,7 @@ data class SequenceRepository(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -583,7 +575,7 @@ data class SequenceRepository(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSequenceRepository {
 
     override val resourceType: kotlin.String
@@ -643,8 +635,6 @@ interface FhirSequenceVariant : FhirBackboneElement {
 /**
  * SequenceVariant
  *
- * SourceFileName: Sequence.kt
- *
  * The definition of variant here originates from Sequence ontology
  * ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element
  * can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.) It can
@@ -679,7 +669,7 @@ data class SequenceVariant(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -687,7 +677,7 @@ data class SequenceVariant(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSequenceVariant {
 
     override val resourceType: kotlin.String

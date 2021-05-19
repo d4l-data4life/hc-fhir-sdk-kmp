@@ -46,7 +46,7 @@ interface FhirTask : FhirDomainResource {
     /**
      * Task Instance Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Formal definition of task.
@@ -61,7 +61,7 @@ interface FhirTask : FhirDomainResource {
     /**
      * Request fulfilled by this task.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Requisition or grouper id.
@@ -71,7 +71,7 @@ interface FhirTask : FhirDomainResource {
     /**
      * Composite task.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * The current status of the task.
@@ -118,7 +118,7 @@ interface FhirTask : FhirDomainResource {
     /**
      * Beneficiary of the Task.
      */
-    val for: Reference?
+    val forr: Reference?
 
     /**
      * Healthcare event during which this task originated.
@@ -149,7 +149,7 @@ interface FhirTask : FhirDomainResource {
      * requester | dispatcher | scheduler | performer | monitor | manager | acquirer |
      * reviewer.
      */
-    val performerType: List<CodeableConcept>?
+    val performerType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Responsible individual.
@@ -164,12 +164,12 @@ interface FhirTask : FhirDomainResource {
     /**
      * Comments made about the task.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Key events in history of the Task.
      */
-    val relevantHistory: List<Reference>?
+    val relevantHistory: kotlin.collections.List<Reference>?
 
     /**
      * Constraints on fulfillment tasks.
@@ -179,18 +179,16 @@ interface FhirTask : FhirDomainResource {
     /**
      * Information used to perform task.
      */
-    val input: List<TaskInput>?
+    val input: kotlin.collections.List<TaskInput>?
 
     /**
      * Information produced as part of task.
      */
-    val output: List<TaskOutput>?
+    val output: kotlin.collections.List<TaskOutput>?
 }
 
 /**
  * Task
- *
- * SourceFileName: Task.kt
  *
  * A task to be performed
  *
@@ -203,7 +201,7 @@ interface FhirTask : FhirDomainResource {
 data class Task(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definitionUri")
     override val definitionUri: String? = null,
@@ -212,13 +210,13 @@ data class Task(
     override val definitionReference: Reference? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("groupIdentifier")
     override val groupIdentifier: Identifier? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: TaskStatus,
@@ -245,7 +243,7 @@ data class Task(
     override val focus: Reference? = null,
 
     @SerialName("for")
-    override val for: Reference? = null,
+    override val forr: Reference? = null,
 
     @SerialName("context")
     override val context: Reference? = null,
@@ -263,7 +261,7 @@ data class Task(
     override val requester: TaskRequester? = null,
 
     @SerialName("performerType")
-    override val performerType: List<CodeableConcept>? = null,
+    override val performerType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("owner")
     override val owner: Reference? = null,
@@ -272,19 +270,19 @@ data class Task(
     override val reason: CodeableConcept? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("relevantHistory")
-    override val relevantHistory: List<Reference>? = null,
+    override val relevantHistory: kotlin.collections.List<Reference>? = null,
 
     @SerialName("restriction")
     override val restriction: TaskRestriction? = null,
 
     @SerialName("input")
-    override val input: List<TaskInput>? = null,
+    override val input: kotlin.collections.List<TaskInput>? = null,
 
     @SerialName("output")
-    override val output: List<TaskOutput>? = null,
+    override val output: kotlin.collections.List<TaskOutput>? = null,
 
     // # DomainResource
 
@@ -292,13 +290,13 @@ data class Task(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -534,8 +532,6 @@ interface FhirTaskInput : FhirBackboneElement {
 /**
  * TaskInput
  *
- * SourceFileName: Task.kt
- *
  * Additional information that may be needed in the execution of the task.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Task">TaskInput</a>
@@ -666,7 +662,7 @@ data class TaskInput(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -674,7 +670,7 @@ data class TaskInput(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTaskInput {
 
     override val resourceType: kotlin.String
@@ -896,8 +892,6 @@ interface FhirTaskOutput : FhirBackboneElement {
 /**
  * TaskOutput
  *
- * SourceFileName: Task.kt
- *
  * Outputs produced by the Task.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Task">TaskOutput</a>
@@ -1028,7 +1022,7 @@ data class TaskOutput(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1036,7 +1030,7 @@ data class TaskOutput(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTaskOutput {
 
     override val resourceType: kotlin.String
@@ -1073,8 +1067,6 @@ interface FhirTaskRequester : FhirBackboneElement {
 /**
  * TaskRequester
  *
- * SourceFileName: Task.kt
- *
  * The creator of the task.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Task">TaskRequester</a>
@@ -1094,7 +1086,7 @@ data class TaskRequester(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1102,7 +1094,7 @@ data class TaskRequester(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTaskRequester {
 
     override val resourceType: kotlin.String
@@ -1140,13 +1132,11 @@ interface FhirTaskRestriction : FhirBackboneElement {
     /**
      * For whom is fulfillment sought?.
      */
-    val recipient: List<Reference>?
+    val recipient: kotlin.collections.List<Reference>?
 }
 
 /**
  * TaskRestriction
- *
- * SourceFileName: Task.kt
  *
  * If the Task.focus is a request resource and the task is seeking fulfillment (i.e is asking for the
  * request to be actioned), this element identifies any limitations on what parts of the referenced
@@ -1167,12 +1157,12 @@ data class TaskRestriction(
     override val period: Period? = null,
 
     @SerialName("recipient")
-    override val recipient: List<Reference>? = null,
+    override val recipient: kotlin.collections.List<Reference>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1180,7 +1170,7 @@ data class TaskRestriction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTaskRestriction {
 
     override val resourceType: kotlin.String

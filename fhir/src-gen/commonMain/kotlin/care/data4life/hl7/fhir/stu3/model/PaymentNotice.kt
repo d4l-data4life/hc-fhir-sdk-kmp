@@ -37,7 +37,7 @@ interface FhirPaymentNotice : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -88,8 +88,6 @@ interface FhirPaymentNotice : FhirDomainResource {
 /**
  * PaymentNotice
  *
- * SourceFileName: PaymentNotice.kt
- *
  * This resource provides the status of the payment for goods and services rendered, and the request
  * and response resource references.
  *
@@ -102,7 +100,7 @@ interface FhirPaymentNotice : FhirDomainResource {
 data class PaymentNotice(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -137,13 +135,13 @@ data class PaymentNotice(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

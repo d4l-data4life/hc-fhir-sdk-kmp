@@ -75,7 +75,7 @@ interface FhirDetectedIssue : FhirDomainResource {
     /**
      * Problem resource.
      */
-    val implicated: List<Reference>?
+    val implicated: kotlin.collections.List<Reference>?
 
     /**
      * Description and context.
@@ -90,13 +90,11 @@ interface FhirDetectedIssue : FhirDomainResource {
     /**
      * Step taken to address.
      */
-    val mitigation: List<DetectedIssueMitigation>?
+    val mitigation: kotlin.collections.List<DetectedIssueMitigation>?
 }
 
 /**
  * DetectedIssue
- *
- * SourceFileName: DetectedIssue.kt
  *
  * Indicates an actual or potential clinical issue with or between one or more active or proposed
  * clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency,
@@ -132,7 +130,7 @@ data class DetectedIssue(
     override val author: Reference? = null,
 
     @SerialName("implicated")
-    override val implicated: List<Reference>? = null,
+    override val implicated: kotlin.collections.List<Reference>? = null,
 
     @SerialName("detail")
     override val detail: String? = null,
@@ -141,7 +139,7 @@ data class DetectedIssue(
     override val reference: String? = null,
 
     @SerialName("mitigation")
-    override val mitigation: List<DetectedIssueMitigation>? = null,
+    override val mitigation: kotlin.collections.List<DetectedIssueMitigation>? = null,
 
     // # DomainResource
 
@@ -149,13 +147,13 @@ data class DetectedIssue(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -213,8 +211,6 @@ interface FhirDetectedIssueMitigation : FhirBackboneElement {
 /**
  * DetectedIssueMitigation
  *
- * SourceFileName: DetectedIssue.kt
- *
  * Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of
  * the risk identified by the detected issue from manifesting. Can also reflect an observation of known
  * mitigating factors that may reduce/eliminate the need for any action.
@@ -239,7 +235,7 @@ data class DetectedIssueMitigation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -247,7 +243,7 @@ data class DetectedIssueMitigation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDetectedIssueMitigation {
 
     override val resourceType: kotlin.String

@@ -37,7 +37,7 @@ interface FhirHealthcareService : FhirDomainResource {
     /**
      * External identifiers for this item.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this healthcareservice is in active use.
@@ -57,17 +57,17 @@ interface FhirHealthcareService : FhirDomainResource {
     /**
      * Type of service that may be delivered or performed.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Specialties handled by the HealthcareService.
      */
-    val specialty: List<CodeableConcept>?
+    val specialty: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Location(s) where service may be provided.
      */
-    val location: List<Reference>?
+    val location: kotlin.collections.List<Reference>?
 
     /**
      * Description of service as presented to a consumer while searching.
@@ -92,17 +92,17 @@ interface FhirHealthcareService : FhirDomainResource {
     /**
      * Contacts related to the healthcare service.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Location(s) service is inteded for/available to.
      */
-    val coverageArea: List<Reference>?
+    val coverageArea: kotlin.collections.List<Reference>?
 
     /**
      * Conditions under which service is available/offered.
      */
-    val serviceProvisionCode: List<CodeableConcept>?
+    val serviceProvisionCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Specific eligibility requirements required to use the service.
@@ -117,17 +117,17 @@ interface FhirHealthcareService : FhirDomainResource {
     /**
      * Program Names that categorize the service.
      */
-    val programName: List<String>?
+    val programName: kotlin.collections.List<String>?
 
     /**
      * Collection of characteristics (attributes).
      */
-    val characteristic: List<CodeableConcept>?
+    val characteristic: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Ways that the service accepts referrals.
      */
-    val referralMethod: List<CodeableConcept>?
+    val referralMethod: kotlin.collections.List<CodeableConcept>?
 
     /**
      * If an appointment is required for access to this service.
@@ -137,12 +137,12 @@ interface FhirHealthcareService : FhirDomainResource {
     /**
      * Times the Service Site is available.
      */
-    val availableTime: List<HealthcareServiceAvailableTime>?
+    val availableTime: kotlin.collections.List<HealthcareServiceAvailableTime>?
 
     /**
      * Not available during this time due to provided reason.
      */
-    val notAvailable: List<HealthcareServiceNotAvailable>?
+    val notAvailable: kotlin.collections.List<HealthcareServiceNotAvailable>?
 
     /**
      * Description of availability exceptions.
@@ -152,13 +152,11 @@ interface FhirHealthcareService : FhirDomainResource {
     /**
      * Technical endpoints providing access to services operated for the location.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 }
 
 /**
  * HealthcareService
- *
- * SourceFileName: HealthcareService.kt
  *
  * The details of a healthcare service available at a location
  *
@@ -171,7 +169,7 @@ interface FhirHealthcareService : FhirDomainResource {
 data class HealthcareService(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
@@ -183,13 +181,13 @@ data class HealthcareService(
     override val category: CodeableConcept? = null,
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("specialty")
-    override val specialty: List<CodeableConcept>? = null,
+    override val specialty: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("location")
-    override val location: List<Reference>? = null,
+    override val location: kotlin.collections.List<Reference>? = null,
 
     @SerialName("name")
     override val name: String? = null,
@@ -204,13 +202,13 @@ data class HealthcareService(
     override val photo: Attachment? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("coverageArea")
-    override val coverageArea: List<Reference>? = null,
+    override val coverageArea: kotlin.collections.List<Reference>? = null,
 
     @SerialName("serviceProvisionCode")
-    override val serviceProvisionCode: List<CodeableConcept>? = null,
+    override val serviceProvisionCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("eligibility")
     override val eligibility: CodeableConcept? = null,
@@ -219,28 +217,28 @@ data class HealthcareService(
     override val eligibilityNote: String? = null,
 
     @SerialName("programName")
-    override val programName: List<String>? = null,
+    override val programName: kotlin.collections.List<String>? = null,
 
     @SerialName("characteristic")
-    override val characteristic: List<CodeableConcept>? = null,
+    override val characteristic: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("referralMethod")
-    override val referralMethod: List<CodeableConcept>? = null,
+    override val referralMethod: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("appointmentRequired")
     override val appointmentRequired: Bool? = null,
 
     @SerialName("availableTime")
-    override val availableTime: List<HealthcareServiceAvailableTime>? = null,
+    override val availableTime: kotlin.collections.List<HealthcareServiceAvailableTime>? = null,
 
     @SerialName("notAvailable")
-    override val notAvailable: List<HealthcareServiceNotAvailable>? = null,
+    override val notAvailable: kotlin.collections.List<HealthcareServiceNotAvailable>? = null,
 
     @SerialName("availabilityExceptions")
     override val availabilityExceptions: String? = null,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -248,13 +246,13 @@ data class HealthcareService(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -294,7 +292,7 @@ interface FhirHealthcareServiceAvailableTime : FhirBackboneElement {
     /**
      * Indicates which days of the week are available between the start and end Times.
      */
-    val daysOfWeek: List<DaysOfWeek>?
+    val daysOfWeek: kotlin.collections.List<DaysOfWeek>?
 
     /**
      * Always available? e.g. 24 hour service.
@@ -315,8 +313,6 @@ interface FhirHealthcareServiceAvailableTime : FhirBackboneElement {
 /**
  * HealthcareServiceAvailableTime
  *
- * SourceFileName: HealthcareService.kt
- *
  * A collection of times that the Service Site is available.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/HealthcareService">HealthcareServiceAvailableTime</a>
@@ -328,7 +324,7 @@ interface FhirHealthcareServiceAvailableTime : FhirBackboneElement {
 data class HealthcareServiceAvailableTime(
 
     @SerialName("daysOfWeek")
-    override val daysOfWeek: List<DaysOfWeek>? = null,
+    override val daysOfWeek: kotlin.collections.List<DaysOfWeek>? = null,
 
     @SerialName("allDay")
     override val allDay: Bool? = null,
@@ -342,7 +338,7 @@ data class HealthcareServiceAvailableTime(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -350,7 +346,7 @@ data class HealthcareServiceAvailableTime(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirHealthcareServiceAvailableTime {
 
     override val resourceType: kotlin.String
@@ -387,8 +383,6 @@ interface FhirHealthcareServiceNotAvailable : FhirBackboneElement {
 /**
  * HealthcareServiceNotAvailable
  *
- * SourceFileName: HealthcareService.kt
- *
  * The HealthcareService is not available during this period of time due to the provided reason.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/HealthcareService">HealthcareServiceNotAvailable</a>
@@ -408,7 +402,7 @@ data class HealthcareServiceNotAvailable(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -416,7 +410,7 @@ data class HealthcareServiceNotAvailable(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirHealthcareServiceNotAvailable {
 
     override val resourceType: kotlin.String

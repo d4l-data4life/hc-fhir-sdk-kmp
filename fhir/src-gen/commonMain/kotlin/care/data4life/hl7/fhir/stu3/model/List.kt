@@ -38,7 +38,7 @@ interface FhirList : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Indicates the current state of this list.
@@ -91,12 +91,12 @@ interface FhirList : FhirDomainResource {
     /**
      * Comments about the list.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Entries in the list.
      */
-    val entry: List<ListEntry>?
+    val entry: kotlin.collections.List<ListEntry>?
 
     /**
      * Why list is empty.
@@ -106,8 +106,6 @@ interface FhirList : FhirDomainResource {
 
 /**
  * List
- *
- * SourceFileName: List.kt
  *
  * A set of information summarized from a list of other resources.
  *
@@ -120,7 +118,7 @@ interface FhirList : FhirDomainResource {
 data class List(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: ListStatus,
@@ -150,10 +148,10 @@ data class List(
     override val orderedBy: CodeableConcept? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("entry")
-    override val entry: List<ListEntry>? = null,
+    override val entry: kotlin.collections.List<ListEntry>? = null,
 
     @SerialName("emptyReason")
     override val emptyReason: CodeableConcept? = null,
@@ -164,13 +162,13 @@ data class List(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -231,8 +229,6 @@ interface FhirListEntry : FhirBackboneElement {
 /**
  * ListEntry
  *
- * SourceFileName: List.kt
- *
  * Entries in this list.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/List">ListEntry</a>
@@ -258,7 +254,7 @@ data class ListEntry(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -266,7 +262,7 @@ data class ListEntry(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirListEntry {
 
     override val resourceType: kotlin.String

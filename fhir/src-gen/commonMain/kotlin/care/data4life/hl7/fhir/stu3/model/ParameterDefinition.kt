@@ -74,8 +74,6 @@ interface FhirParameterDefinition : FhirElement {
 /**
  * ParameterDefinition
  *
- * SourceFileName: ParameterDefinition.kt
- *
  * The parameters to the module. This collection specifies both the input and output parameters. Input
  * parameters are provided by the caller as part of the $evaluate operation. Output parameters are
  * included in the GuidanceResponse.
@@ -115,7 +113,7 @@ data class ParameterDefinition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirParameterDefinition {
 
     override val resourceType: kotlin.String

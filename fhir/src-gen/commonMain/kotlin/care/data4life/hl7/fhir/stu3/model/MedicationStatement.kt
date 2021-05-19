@@ -33,7 +33,7 @@ import kotlin.jvm.JvmStatic
  * information is captured is during the history taking process during a patient visit or stay. The
  * medication information may come from sources such as the patient's memory, from a prescription
  * bottle, or from a list of medications the patient, clinician or other party maintains
- * 
+ *
  * The primary difference between a medication statement and a medication administration is that the
  * medication administration has complete administration information and is based on actual
  * administration information from the person who administered the medication. A medication statement
@@ -54,17 +54,17 @@ interface FhirMedicationStatement : FhirDomainResource {
     /**
      * External identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Fulfils plan, proposal or order.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Part of referenced event.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * Encounter / Episode associated with MedicationStatement.
@@ -122,7 +122,7 @@ interface FhirMedicationStatement : FhirDomainResource {
     /**
      * Additional supporting information.
      */
-    val derivedFrom: List<Reference>?
+    val derivedFrom: kotlin.collections.List<Reference>?
 
     /**
      * Indicator of the certainty of whether the medication was taken by the patient.
@@ -132,33 +132,31 @@ interface FhirMedicationStatement : FhirDomainResource {
     /**
      * True if asserting medication was not given.
      */
-    val reasonNotTaken: List<CodeableConcept>?
+    val reasonNotTaken: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Reason for why the medication is being/was taken.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Condition or observation that supports why the medication is being/was taken.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Further information about the statement.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Details of how medication is/was taken or should be taken.
      */
-    val dosage: List<Dosage>?
+    val dosage: kotlin.collections.List<Dosage>?
 }
 
 /**
  * MedicationStatement
- *
- * SourceFileName: MedicationStatement.kt
  *
  * A record of a medication that is being consumed by a patient. A MedicationStatement may indicate
  * that the patient may be taking the medication now, or has taken the medication in the past or will
@@ -167,7 +165,7 @@ interface FhirMedicationStatement : FhirDomainResource {
  * information is captured is during the history taking process during a patient visit or stay. The
  * medication information may come from sources such as the patient's memory, from a prescription
  * bottle, or from a list of medications the patient, clinician or other party maintains
- * 
+ *
  * The primary difference between a medication statement and a medication administration is that the
  * medication administration has complete administration information and is based on actual
  * administration information from the person who administered the medication. A medication statement
@@ -188,13 +186,13 @@ interface FhirMedicationStatement : FhirDomainResource {
 data class MedicationStatement(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("context")
     override val context: Reference? = null,
@@ -227,25 +225,25 @@ data class MedicationStatement(
     override val subject: Reference,
 
     @SerialName("derivedFrom")
-    override val derivedFrom: List<Reference>? = null,
+    override val derivedFrom: kotlin.collections.List<Reference>? = null,
 
     @SerialName("taken")
     override val taken: MedicationStatementTaken,
 
     @SerialName("reasonNotTaken")
-    override val reasonNotTaken: List<CodeableConcept>? = null,
+    override val reasonNotTaken: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("dosage")
-    override val dosage: List<Dosage>? = null,
+    override val dosage: kotlin.collections.List<Dosage>? = null,
 
     // # DomainResource
 
@@ -253,13 +251,13 @@ data class MedicationStatement(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

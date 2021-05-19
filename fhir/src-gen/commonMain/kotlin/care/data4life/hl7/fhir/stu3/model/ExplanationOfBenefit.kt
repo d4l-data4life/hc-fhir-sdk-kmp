@@ -42,7 +42,7 @@ interface FhirExplanationOfBenefit : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The status of the resource instance.
@@ -57,7 +57,7 @@ interface FhirExplanationOfBenefit : FhirDomainResource {
     /**
      * Finer grained claim type information.
      */
-    val subType: List<CodeableConcept>?
+    val subType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The subject of the Products and Services.
@@ -127,7 +127,7 @@ interface FhirExplanationOfBenefit : FhirDomainResource {
     /**
      * Related Claims which may be revelant to processing this claim.
      */
-    val related: List<ExplanationOfBenefitRelated>?
+    val related: kotlin.collections.List<ExplanationOfBenefitRelated>?
 
     /**
      * Prescription authorizing services or products.
@@ -148,22 +148,22 @@ interface FhirExplanationOfBenefit : FhirDomainResource {
      * Exceptions, special considerations, the condition, situation, prior or
      * concurrent issues.
      */
-    val information: List<ExplanationOfBenefitInformation>?
+    val information: kotlin.collections.List<ExplanationOfBenefitInformation>?
 
     /**
      * Care Team members.
      */
-    val careTeam: List<ExplanationOfBenefitCareTeam>?
+    val careTeam: kotlin.collections.List<ExplanationOfBenefitCareTeam>?
 
     /**
      * List of Diagnosis.
      */
-    val diagnosis: List<ExplanationOfBenefitDiagnosis>?
+    val diagnosis: kotlin.collections.List<ExplanationOfBenefitDiagnosis>?
 
     /**
      * Procedures performed.
      */
-    val procedure: List<ExplanationOfBenefitProcedure>?
+    val procedure: kotlin.collections.List<ExplanationOfBenefitProcedure>?
 
     /**
      * Precedence (primary, secondary, etc.).
@@ -193,12 +193,12 @@ interface FhirExplanationOfBenefit : FhirDomainResource {
     /**
      * Goods and Services.
      */
-    val item: List<ExplanationOfBenefitItem>?
+    val item: kotlin.collections.List<ExplanationOfBenefitItem>?
 
     /**
      * Insurer added line items.
      */
-    val addItem: List<ExplanationOfBenefitAddItem>?
+    val addItem: kotlin.collections.List<ExplanationOfBenefitAddItem>?
 
     /**
      * Total Cost of service from the Claim.
@@ -228,18 +228,16 @@ interface FhirExplanationOfBenefit : FhirDomainResource {
     /**
      * Processing notes.
      */
-    val processNote: List<ExplanationOfBenefitProcessNote>?
+    val processNote: kotlin.collections.List<ExplanationOfBenefitProcessNote>?
 
     /**
      * Balance by Benefit Category.
      */
-    val benefitBalance: List<ExplanationOfBenefitBenefitBalance>?
+    val benefitBalance: kotlin.collections.List<ExplanationOfBenefitBenefitBalance>?
 }
 
 /**
  * ExplanationOfBenefit
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * This resource provides: the claim details; adjudication details from the processing of a Claim; and
  * optionally account balance information, for informing the subscriber of the benefits provided.
@@ -253,7 +251,7 @@ interface FhirExplanationOfBenefit : FhirDomainResource {
 data class ExplanationOfBenefit(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: ExplanationOfBenefitStatus? = null,
@@ -262,7 +260,7 @@ data class ExplanationOfBenefit(
     override val type: CodeableConcept? = null,
 
     @SerialName("subType")
-    override val subType: List<CodeableConcept>? = null,
+    override val subType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("patient")
     override val patient: Reference? = null,
@@ -304,7 +302,7 @@ data class ExplanationOfBenefit(
     override val disposition: String? = null,
 
     @SerialName("related")
-    override val related: List<ExplanationOfBenefitRelated>? = null,
+    override val related: kotlin.collections.List<ExplanationOfBenefitRelated>? = null,
 
     @SerialName("prescription")
     override val prescription: Reference? = null,
@@ -316,16 +314,16 @@ data class ExplanationOfBenefit(
     override val payee: ExplanationOfBenefitPayee? = null,
 
     @SerialName("information")
-    override val information: List<ExplanationOfBenefitInformation>? = null,
+    override val information: kotlin.collections.List<ExplanationOfBenefitInformation>? = null,
 
     @SerialName("careTeam")
-    override val careTeam: List<ExplanationOfBenefitCareTeam>? = null,
+    override val careTeam: kotlin.collections.List<ExplanationOfBenefitCareTeam>? = null,
 
     @SerialName("diagnosis")
-    override val diagnosis: List<ExplanationOfBenefitDiagnosis>? = null,
+    override val diagnosis: kotlin.collections.List<ExplanationOfBenefitDiagnosis>? = null,
 
     @SerialName("procedure")
-    override val procedure: List<ExplanationOfBenefitProcedure>? = null,
+    override val procedure: kotlin.collections.List<ExplanationOfBenefitProcedure>? = null,
 
     @SerialName("precedence")
     override val precedence: PositiveInteger? = null,
@@ -343,10 +341,10 @@ data class ExplanationOfBenefit(
     override val hospitalization: Period? = null,
 
     @SerialName("item")
-    override val item: List<ExplanationOfBenefitItem>? = null,
+    override val item: kotlin.collections.List<ExplanationOfBenefitItem>? = null,
 
     @SerialName("addItem")
-    override val addItem: List<ExplanationOfBenefitAddItem>? = null,
+    override val addItem: kotlin.collections.List<ExplanationOfBenefitAddItem>? = null,
 
     @SerialName("totalCost")
     override val totalCost: Money? = null,
@@ -364,10 +362,10 @@ data class ExplanationOfBenefit(
     override val form: CodeableConcept? = null,
 
     @SerialName("processNote")
-    override val processNote: List<ExplanationOfBenefitProcessNote>? = null,
+    override val processNote: kotlin.collections.List<ExplanationOfBenefitProcessNote>? = null,
 
     @SerialName("benefitBalance")
-    override val benefitBalance: List<ExplanationOfBenefitBenefitBalance>? = null,
+    override val benefitBalance: kotlin.collections.List<ExplanationOfBenefitBenefitBalance>? = null,
 
     // # DomainResource
 
@@ -375,13 +373,13 @@ data class ExplanationOfBenefit(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -442,8 +440,6 @@ interface FhirExplanationOfBenefitAccident : FhirBackboneElement {
 /**
  * ExplanationOfBenefitAccident
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * An accident which resulted in the need for healthcare services.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit">ExplanationOfBenefitAccident</a>
@@ -469,7 +465,7 @@ data class ExplanationOfBenefitAccident(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -477,7 +473,7 @@ data class ExplanationOfBenefitAccident(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitAccident {
 
     override val resourceType: kotlin.String
@@ -503,7 +499,7 @@ interface FhirExplanationOfBenefitAddItem : FhirBackboneElement {
     /**
      * Service instances.
      */
-    val sequenceLinkId: List<PositiveInteger>?
+    val sequenceLinkId: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Revenue or cost center code.
@@ -523,7 +519,7 @@ interface FhirExplanationOfBenefitAddItem : FhirBackboneElement {
     /**
      * Service/Product billing modifiers.
      */
-    val modifier: List<CodeableConcept>?
+    val modifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Professional fee or Product charge.
@@ -533,23 +529,21 @@ interface FhirExplanationOfBenefitAddItem : FhirBackboneElement {
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Added items adjudication.
      */
-    val adjudication: List<ExplanationOfBenefitItemAdjudication>?
+    val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>?
 
     /**
      * Added items details.
      */
-    val detail: List<ExplanationOfBenefitAddItemDetail>?
+    val detail: kotlin.collections.List<ExplanationOfBenefitAddItemDetail>?
 }
 
 /**
  * ExplanationOfBenefitAddItem
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * The first tier service adjudications for payor added services.
  *
@@ -562,7 +556,7 @@ interface FhirExplanationOfBenefitAddItem : FhirBackboneElement {
 data class ExplanationOfBenefitAddItem(
 
     @SerialName("sequenceLinkId")
-    override val sequenceLinkId: List<PositiveInteger>? = null,
+    override val sequenceLinkId: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("revenue")
     override val revenue: CodeableConcept? = null,
@@ -574,24 +568,24 @@ data class ExplanationOfBenefitAddItem(
     override val service: CodeableConcept? = null,
 
     @SerialName("modifier")
-    override val modifier: List<CodeableConcept>? = null,
+    override val modifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("fee")
     override val fee: Money? = null,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ExplanationOfBenefitItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>? = null,
 
     @SerialName("detail")
-    override val detail: List<ExplanationOfBenefitAddItemDetail>? = null,
+    override val detail: kotlin.collections.List<ExplanationOfBenefitAddItemDetail>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -599,7 +593,7 @@ data class ExplanationOfBenefitAddItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitAddItem {
 
     override val resourceType: kotlin.String
@@ -640,7 +634,7 @@ interface FhirExplanationOfBenefitAddItemDetail : FhirBackboneElement {
     /**
      * Service/Product billing modifiers.
      */
-    val modifier: List<CodeableConcept>?
+    val modifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Professional fee or Product charge.
@@ -650,18 +644,16 @@ interface FhirExplanationOfBenefitAddItemDetail : FhirBackboneElement {
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Added items detail adjudication.
      */
-    val adjudication: List<ExplanationOfBenefitItemAdjudication>?
+    val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>?
 }
 
 /**
  * ExplanationOfBenefitAddItemDetail
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * The second tier service adjudications for payor added services.
  *
@@ -683,21 +675,21 @@ data class ExplanationOfBenefitAddItemDetail(
     override val service: CodeableConcept? = null,
 
     @SerialName("modifier")
-    override val modifier: List<CodeableConcept>? = null,
+    override val modifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("fee")
     override val fee: Money? = null,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ExplanationOfBenefitItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -705,7 +697,7 @@ data class ExplanationOfBenefitAddItemDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitAddItemDetail {
 
     override val resourceType: kotlin.String
@@ -771,13 +763,11 @@ interface FhirExplanationOfBenefitBenefitBalance : FhirBackboneElement {
     /**
      * Benefit Summary.
      */
-    val financial: List<ExplanationOfBenefitBenefitBalanceFinancial>?
+    val financial: kotlin.collections.List<ExplanationOfBenefitBenefitBalanceFinancial>?
 }
 
 /**
  * ExplanationOfBenefitBenefitBalance
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * Balance by Benefit Category
  *
@@ -814,12 +804,12 @@ data class ExplanationOfBenefitBenefitBalance(
     override val term: CodeableConcept? = null,
 
     @SerialName("financial")
-    override val financial: List<ExplanationOfBenefitBenefitBalanceFinancial>? = null,
+    override val financial: kotlin.collections.List<ExplanationOfBenefitBenefitBalanceFinancial>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -827,7 +817,7 @@ data class ExplanationOfBenefitBenefitBalance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitBenefitBalance {
 
     override val resourceType: kotlin.String
@@ -884,8 +874,6 @@ interface FhirExplanationOfBenefitBenefitBalanceFinancial : FhirBackboneElement 
 /**
  * ExplanationOfBenefitBenefitBalanceFinancial
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * Benefits Used to date.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit">ExplanationOfBenefitBenefitBalanceFinancial</a>
@@ -917,7 +905,7 @@ data class ExplanationOfBenefitBenefitBalanceFinancial(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -925,7 +913,7 @@ data class ExplanationOfBenefitBenefitBalanceFinancial(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitBenefitBalanceFinancial {
 
     override val resourceType: kotlin.String
@@ -978,8 +966,6 @@ interface FhirExplanationOfBenefitCareTeam : FhirBackboneElement {
 /**
  * ExplanationOfBenefitCareTeam
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * The members of the team who provided the overall service as well as their role and whether
  * responsible and qualifications.
  *
@@ -1009,7 +995,7 @@ data class ExplanationOfBenefitCareTeam(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1017,7 +1003,7 @@ data class ExplanationOfBenefitCareTeam(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitCareTeam {
 
     override val resourceType: kotlin.String
@@ -1058,7 +1044,7 @@ interface FhirExplanationOfBenefitDiagnosis : FhirBackboneElement {
     /**
      * Timing or nature of the diagnosis.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Package billing code.
@@ -1068,8 +1054,6 @@ interface FhirExplanationOfBenefitDiagnosis : FhirBackboneElement {
 
 /**
  * ExplanationOfBenefitDiagnosis
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * Ordered list of patient diagnosis for which care is sought.
  *
@@ -1091,7 +1075,7 @@ data class ExplanationOfBenefitDiagnosis(
     override val diagnosisReference: Reference? = null,
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("packageCode")
     override val packageCode: CodeableConcept? = null,
@@ -1099,7 +1083,7 @@ data class ExplanationOfBenefitDiagnosis(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1107,7 +1091,7 @@ data class ExplanationOfBenefitDiagnosis(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitDiagnosis {
 
     override val resourceType: kotlin.String
@@ -1186,8 +1170,6 @@ interface FhirExplanationOfBenefitInformation : FhirBackboneElement {
 /**
  * ExplanationOfBenefitInformation
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * Additional information codes regarding exceptions, special considerations, the condition, situation,
  * prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are
  * required.
@@ -1233,7 +1215,7 @@ data class ExplanationOfBenefitInformation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1241,7 +1223,7 @@ data class ExplanationOfBenefitInformation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitInformation {
 
     override val resourceType: kotlin.String
@@ -1272,13 +1254,11 @@ interface FhirExplanationOfBenefitInsurance : FhirBackboneElement {
     /**
      * Pre-Authorization/Determination Reference.
      */
-    val preAuthRef: List<String>?
+    val preAuthRef: kotlin.collections.List<String>?
 }
 
 /**
  * ExplanationOfBenefitInsurance
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * Financial instrument by which payment information for health care.
  *
@@ -1294,12 +1274,12 @@ data class ExplanationOfBenefitInsurance(
     override val coverage: Reference? = null,
 
     @SerialName("preAuthRef")
-    override val preAuthRef: List<String>? = null,
+    override val preAuthRef: kotlin.collections.List<String>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1307,7 +1287,7 @@ data class ExplanationOfBenefitInsurance(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitInsurance {
 
     override val resourceType: kotlin.String
@@ -1338,22 +1318,22 @@ interface FhirExplanationOfBenefitItem : FhirBackboneElement {
     /**
      * Applicable careteam members.
      */
-    val careTeamLinkId: List<PositiveInteger>?
+    val careTeamLinkId: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Applicable diagnoses.
      */
-    val diagnosisLinkId: List<PositiveInteger>?
+    val diagnosisLinkId: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Applicable procedures.
      */
-    val procedureLinkId: List<PositiveInteger>?
+    val procedureLinkId: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Applicable exception and supporting information.
      */
-    val informationLinkId: List<PositiveInteger>?
+    val informationLinkId: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Revenue or cost center code.
@@ -1373,12 +1353,12 @@ interface FhirExplanationOfBenefitItem : FhirBackboneElement {
     /**
      * Service/Product billing modifiers.
      */
-    val modifier: List<CodeableConcept>?
+    val modifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Program specific reason for item inclusion.
      */
-    val programCode: List<CodeableConcept>?
+    val programCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Date or dates of Service.
@@ -1428,7 +1408,7 @@ interface FhirExplanationOfBenefitItem : FhirBackboneElement {
     /**
      * Unique Device Identifier.
      */
-    val udi: List<Reference>?
+    val udi: kotlin.collections.List<Reference>?
 
     /**
      * Service Location.
@@ -1438,33 +1418,31 @@ interface FhirExplanationOfBenefitItem : FhirBackboneElement {
     /**
      * Service Sub-location.
      */
-    val subSite: List<CodeableConcept>?
+    val subSite: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Encounters related to this billed item.
      */
-    val encounter: List<Reference>?
+    val encounter: kotlin.collections.List<Reference>?
 
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Adjudication details.
      */
-    val adjudication: List<ExplanationOfBenefitItemAdjudication>?
+    val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>?
 
     /**
      * Additional items.
      */
-    val detail: List<ExplanationOfBenefitItemDetail>?
+    val detail: kotlin.collections.List<ExplanationOfBenefitItemDetail>?
 }
 
 /**
  * ExplanationOfBenefitItem
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * First tier of goods and services.
  *
@@ -1480,16 +1458,16 @@ data class ExplanationOfBenefitItem(
     override val sequence: PositiveInteger,
 
     @SerialName("careTeamLinkId")
-    override val careTeamLinkId: List<PositiveInteger>? = null,
+    override val careTeamLinkId: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("diagnosisLinkId")
-    override val diagnosisLinkId: List<PositiveInteger>? = null,
+    override val diagnosisLinkId: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("procedureLinkId")
-    override val procedureLinkId: List<PositiveInteger>? = null,
+    override val procedureLinkId: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("informationLinkId")
-    override val informationLinkId: List<PositiveInteger>? = null,
+    override val informationLinkId: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("revenue")
     override val revenue: CodeableConcept? = null,
@@ -1501,10 +1479,10 @@ data class ExplanationOfBenefitItem(
     override val service: CodeableConcept? = null,
 
     @SerialName("modifier")
-    override val modifier: List<CodeableConcept>? = null,
+    override val modifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("programCode")
-    override val programCode: List<CodeableConcept>? = null,
+    override val programCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("servicedDate")
     override val servicedDate: Date? = null,
@@ -1534,30 +1512,30 @@ data class ExplanationOfBenefitItem(
     override val net: Money? = null,
 
     @SerialName("udi")
-    override val udi: List<Reference>? = null,
+    override val udi: kotlin.collections.List<Reference>? = null,
 
     @SerialName("bodySite")
     override val bodySite: CodeableConcept? = null,
 
     @SerialName("subSite")
-    override val subSite: List<CodeableConcept>? = null,
+    override val subSite: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("encounter")
-    override val encounter: List<Reference>? = null,
+    override val encounter: kotlin.collections.List<Reference>? = null,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ExplanationOfBenefitItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>? = null,
 
     @SerialName("detail")
-    override val detail: List<ExplanationOfBenefitItemDetail>? = null,
+    override val detail: kotlin.collections.List<ExplanationOfBenefitItemDetail>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1565,7 +1543,7 @@ data class ExplanationOfBenefitItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitItem {
 
     override val resourceType: kotlin.String
@@ -1612,8 +1590,6 @@ interface FhirExplanationOfBenefitItemAdjudication : FhirBackboneElement {
 /**
  * ExplanationOfBenefitItemAdjudication
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * The adjudications results.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit">ExplanationOfBenefitItemAdjudication</a>
@@ -1639,7 +1615,7 @@ data class ExplanationOfBenefitItemAdjudication(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1647,7 +1623,7 @@ data class ExplanationOfBenefitItemAdjudication(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitItemAdjudication {
 
     override val resourceType: kotlin.String
@@ -1698,12 +1674,12 @@ interface FhirExplanationOfBenefitItemDetail : FhirBackboneElement {
     /**
      * Service/Product billing modifiers.
      */
-    val modifier: List<CodeableConcept>?
+    val modifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Program specific reason for item inclusion.
      */
-    val programCode: List<CodeableConcept>?
+    val programCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Count of Products or Services.
@@ -1728,28 +1704,26 @@ interface FhirExplanationOfBenefitItemDetail : FhirBackboneElement {
     /**
      * Unique Device Identifier.
      */
-    val udi: List<Reference>?
+    val udi: kotlin.collections.List<Reference>?
 
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Detail level adjudication details.
      */
-    val adjudication: List<ExplanationOfBenefitItemAdjudication>?
+    val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>?
 
     /**
      * Additional items.
      */
-    val subDetail: List<ExplanationOfBenefitItemDetailSubDetail>?
+    val subDetail: kotlin.collections.List<ExplanationOfBenefitItemDetailSubDetail>?
 }
 
 /**
  * ExplanationOfBenefitItemDetail
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * Second tier of goods and services.
  *
@@ -1777,10 +1751,10 @@ data class ExplanationOfBenefitItemDetail(
     override val service: CodeableConcept? = null,
 
     @SerialName("modifier")
-    override val modifier: List<CodeableConcept>? = null,
+    override val modifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("programCode")
-    override val programCode: List<CodeableConcept>? = null,
+    override val programCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("quantity")
     override val quantity: Quantity? = null,
@@ -1795,21 +1769,21 @@ data class ExplanationOfBenefitItemDetail(
     override val net: Money? = null,
 
     @SerialName("udi")
-    override val udi: List<Reference>? = null,
+    override val udi: kotlin.collections.List<Reference>? = null,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ExplanationOfBenefitItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>? = null,
 
     @SerialName("subDetail")
-    override val subDetail: List<ExplanationOfBenefitItemDetailSubDetail>? = null,
+    override val subDetail: kotlin.collections.List<ExplanationOfBenefitItemDetailSubDetail>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1817,7 +1791,7 @@ data class ExplanationOfBenefitItemDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitItemDetail {
 
     override val resourceType: kotlin.String
@@ -1868,12 +1842,12 @@ interface FhirExplanationOfBenefitItemDetailSubDetail : FhirBackboneElement {
     /**
      * Service/Product billing modifiers.
      */
-    val modifier: List<CodeableConcept>?
+    val modifier: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Program specific reason for item inclusion.
      */
-    val programCode: List<CodeableConcept>?
+    val programCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Count of Products or Services.
@@ -1898,23 +1872,21 @@ interface FhirExplanationOfBenefitItemDetailSubDetail : FhirBackboneElement {
     /**
      * Unique Device Identifier.
      */
-    val udi: List<Reference>?
+    val udi: kotlin.collections.List<Reference>?
 
     /**
      * List of note numbers which apply.
      */
-    val noteNumber: List<PositiveInteger>?
+    val noteNumber: kotlin.collections.List<PositiveInteger>?
 
     /**
      * Language if different from the resource.
      */
-    val adjudication: List<ExplanationOfBenefitItemAdjudication>?
+    val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>?
 }
 
 /**
  * ExplanationOfBenefitItemDetailSubDetail
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * Third tier of goods and services.
  *
@@ -1942,10 +1914,10 @@ data class ExplanationOfBenefitItemDetailSubDetail(
     override val service: CodeableConcept? = null,
 
     @SerialName("modifier")
-    override val modifier: List<CodeableConcept>? = null,
+    override val modifier: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("programCode")
-    override val programCode: List<CodeableConcept>? = null,
+    override val programCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("quantity")
     override val quantity: Quantity? = null,
@@ -1960,18 +1932,18 @@ data class ExplanationOfBenefitItemDetailSubDetail(
     override val net: Money? = null,
 
     @SerialName("udi")
-    override val udi: List<Reference>? = null,
+    override val udi: kotlin.collections.List<Reference>? = null,
 
     @SerialName("noteNumber")
-    override val noteNumber: List<PositiveInteger>? = null,
+    override val noteNumber: kotlin.collections.List<PositiveInteger>? = null,
 
     @SerialName("adjudication")
-    override val adjudication: List<ExplanationOfBenefitItemAdjudication>? = null,
+    override val adjudication: kotlin.collections.List<ExplanationOfBenefitItemAdjudication>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1979,7 +1951,7 @@ data class ExplanationOfBenefitItemDetailSubDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitItemDetailSubDetail {
 
     override val resourceType: kotlin.String
@@ -2010,7 +1982,7 @@ interface FhirExplanationOfBenefitPayee : FhirBackboneElement {
     /**
      * organization | patient | practitioner | relatedperson.
      */
-    val resourceType: CodeableConcept?
+    val resType: CodeableConcept?
 
     /**
      * Party to receive the payable.
@@ -2020,8 +1992,6 @@ interface FhirExplanationOfBenefitPayee : FhirBackboneElement {
 
 /**
  * ExplanationOfBenefitPayee
- *
- * SourceFileName: ExplanationOfBenefit.kt
  *
  * The party to be reimbursed for the services.
  *
@@ -2037,7 +2007,7 @@ data class ExplanationOfBenefitPayee(
     override val type: CodeableConcept? = null,
 
     @SerialName("resourceType")
-    override val resourceType: CodeableConcept? = null,
+    override val resType: CodeableConcept? = null,
 
     @SerialName("party")
     override val party: Reference? = null,
@@ -2045,7 +2015,7 @@ data class ExplanationOfBenefitPayee(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2053,7 +2023,7 @@ data class ExplanationOfBenefitPayee(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitPayee {
 
     override val resourceType: kotlin.String
@@ -2110,8 +2080,6 @@ interface FhirExplanationOfBenefitPayment : FhirBackboneElement {
 /**
  * ExplanationOfBenefitPayment
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * Payment details for the claim if the claim has been paid.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit">ExplanationOfBenefitPayment</a>
@@ -2143,7 +2111,7 @@ data class ExplanationOfBenefitPayment(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2151,7 +2119,7 @@ data class ExplanationOfBenefitPayment(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitPayment {
 
     override val resourceType: kotlin.String
@@ -2198,8 +2166,6 @@ interface FhirExplanationOfBenefitProcedure : FhirBackboneElement {
 /**
  * ExplanationOfBenefitProcedure
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * Ordered list of patient procedures performed to support the adjudication.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit">ExplanationOfBenefitProcedure</a>
@@ -2225,7 +2191,7 @@ data class ExplanationOfBenefitProcedure(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2233,7 +2199,7 @@ data class ExplanationOfBenefitProcedure(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitProcedure {
 
     override val resourceType: kotlin.String
@@ -2280,8 +2246,6 @@ interface FhirExplanationOfBenefitProcessNote : FhirBackboneElement {
 /**
  * ExplanationOfBenefitProcessNote
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * Note text.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit">ExplanationOfBenefitProcessNote</a>
@@ -2307,7 +2271,7 @@ data class ExplanationOfBenefitProcessNote(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2315,7 +2279,7 @@ data class ExplanationOfBenefitProcessNote(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitProcessNote {
 
     override val resourceType: kotlin.String
@@ -2357,8 +2321,6 @@ interface FhirExplanationOfBenefitRelated : FhirBackboneElement {
 /**
  * ExplanationOfBenefitRelated
  *
- * SourceFileName: ExplanationOfBenefit.kt
- *
  * Other claims which are related to this claim such as prior claim versions or for related services.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit">ExplanationOfBenefitRelated</a>
@@ -2381,7 +2343,7 @@ data class ExplanationOfBenefitRelated(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2389,7 +2351,7 @@ data class ExplanationOfBenefitRelated(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExplanationOfBenefitRelated {
 
     override val resourceType: kotlin.String

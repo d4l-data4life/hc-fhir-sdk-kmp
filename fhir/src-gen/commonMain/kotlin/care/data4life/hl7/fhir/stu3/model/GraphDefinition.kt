@@ -79,7 +79,7 @@ interface FhirGraphDefinition : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the graph definition.
@@ -89,12 +89,12 @@ interface FhirGraphDefinition : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for graph definition (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this graph definition is defined.
@@ -114,13 +114,11 @@ interface FhirGraphDefinition : FhirDomainResource {
     /**
      * Links this graph makes rules about.
      */
-    val link: List<GraphDefinitionLink>?
+    val link: kotlin.collections.List<GraphDefinitionLink>?
 }
 
 /**
  * GraphDefinition
- *
- * SourceFileName: GraphDefinition.kt
  *
  * A formal computable definition of a graph of resources - that is, a coherent set of resources that
  * form a graph by following references. The Graph Definition resource defines a set and makes rules
@@ -156,16 +154,16 @@ data class GraphDefinition(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -177,7 +175,7 @@ data class GraphDefinition(
     override val profile: String? = null,
 
     @SerialName("link")
-    override val link: List<GraphDefinitionLink>? = null,
+    override val link: kotlin.collections.List<GraphDefinitionLink>? = null,
 
     // # DomainResource
 
@@ -185,13 +183,13 @@ data class GraphDefinition(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -256,13 +254,11 @@ interface FhirGraphDefinitionLink : FhirBackboneElement {
     /**
      * Potential target for the link.
      */
-    val target: List<GraphDefinitionLinkTarget>
+    val target: kotlin.collections.List<GraphDefinitionLinkTarget>
 }
 
 /**
  * GraphDefinitionLink
- *
- * SourceFileName: GraphDefinition.kt
  *
  * Links this graph makes rules about
  *
@@ -290,12 +286,12 @@ data class GraphDefinitionLink(
     override val description: String? = null,
 
     @SerialName("target")
-    override val target: List<GraphDefinitionLinkTarget>,
+    override val target: kotlin.collections.List<GraphDefinitionLinkTarget>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -303,7 +299,7 @@ data class GraphDefinitionLink(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirGraphDefinitionLink {
 
     override val resourceType: kotlin.String
@@ -339,18 +335,16 @@ interface FhirGraphDefinitionLinkTarget : FhirBackboneElement {
     /**
      * Compartment Consistency Rules.
      */
-    val compartment: List<GraphDefinitionLinkTargetCompartment>?
+    val compartment: kotlin.collections.List<GraphDefinitionLinkTargetCompartment>?
 
     /**
      * Additional links from target resource.
      */
-    val link: List<GraphDefinitionLink>?
+    val link: kotlin.collections.List<GraphDefinitionLink>?
 }
 
 /**
  * GraphDefinitionLinkTarget
- *
- * SourceFileName: GraphDefinition.kt
  *
  * Potential target for the link
  *
@@ -369,15 +363,15 @@ data class GraphDefinitionLinkTarget(
     override val profile: String? = null,
 
     @SerialName("compartment")
-    override val compartment: List<GraphDefinitionLinkTargetCompartment>? = null,
+    override val compartment: kotlin.collections.List<GraphDefinitionLinkTargetCompartment>? = null,
 
     @SerialName("link")
-    override val link: List<GraphDefinitionLink>? = null,
+    override val link: kotlin.collections.List<GraphDefinitionLink>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -385,7 +379,7 @@ data class GraphDefinitionLinkTarget(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirGraphDefinitionLinkTarget {
 
     override val resourceType: kotlin.String
@@ -432,8 +426,6 @@ interface FhirGraphDefinitionLinkTargetCompartment : FhirBackboneElement {
 /**
  * GraphDefinitionLinkTargetCompartment
  *
- * SourceFileName: GraphDefinition.kt
- *
  * Compartment Consistency Rules
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/GraphDefinition">GraphDefinitionLinkTargetCompartment</a>
@@ -459,7 +451,7 @@ data class GraphDefinitionLinkTargetCompartment(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -467,7 +459,7 @@ data class GraphDefinitionLinkTargetCompartment(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirGraphDefinitionLinkTargetCompartment {
 
     override val resourceType: kotlin.String

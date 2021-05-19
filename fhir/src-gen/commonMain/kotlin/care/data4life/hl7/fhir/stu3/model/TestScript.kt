@@ -89,7 +89,7 @@ interface FhirTestScript : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the test script.
@@ -99,12 +99,12 @@ interface FhirTestScript : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for test script (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this test script is defined.
@@ -119,12 +119,12 @@ interface FhirTestScript : FhirDomainResource {
     /**
      * An abstract server representing a client or sender in a message exchange.
      */
-    val origin: List<TestScriptOrigin>?
+    val origin: kotlin.collections.List<TestScriptOrigin>?
 
     /**
      * An abstract server representing a destination or receiver in a message exchange.
      */
-    val destination: List<TestScriptDestination>?
+    val destination: kotlin.collections.List<TestScriptDestination>?
 
     /**
      * Required capability that is assumed to function correctly on the FHIR server
@@ -135,27 +135,27 @@ interface FhirTestScript : FhirDomainResource {
     /**
      * Fixture in the test script - by reference (uri).
      */
-    val fixture: List<TestScriptFixture>?
+    val fixture: kotlin.collections.List<TestScriptFixture>?
 
     /**
      * Reference of the validation profile.
      */
-    val profile: List<Reference>?
+    val profile: kotlin.collections.List<Reference>?
 
     /**
      * Placeholder for evaluated elements.
      */
-    val variable: List<TestScriptVariable>?
+    val variable: kotlin.collections.List<TestScriptVariable>?
 
     /**
      * Assert rule used within the test script.
      */
-    val rule: List<TestScriptRule>?
+    val rule: kotlin.collections.List<TestScriptRule>?
 
     /**
      * Assert ruleset used within the test script.
      */
-    val ruleset: List<TestScriptRuleset>?
+    val ruleset: kotlin.collections.List<TestScriptRuleset>?
 
     /**
      * A series of required setup operations before tests are executed.
@@ -165,7 +165,7 @@ interface FhirTestScript : FhirDomainResource {
     /**
      * A test in this script.
      */
-    val test: List<TestScriptTest>?
+    val test: kotlin.collections.List<TestScriptTest>?
 
     /**
      * A series of required clean up steps.
@@ -175,8 +175,6 @@ interface FhirTestScript : FhirDomainResource {
 
 /**
  * TestScript
- *
- * SourceFileName: TestScript.kt
  *
  * A structured set of tests against a FHIR server implementation to determine compliance against the
  * FHIR specification.
@@ -217,16 +215,16 @@ data class TestScript(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -235,34 +233,34 @@ data class TestScript(
     override val copyright: String? = null,
 
     @SerialName("origin")
-    override val origin: List<TestScriptOrigin>? = null,
+    override val origin: kotlin.collections.List<TestScriptOrigin>? = null,
 
     @SerialName("destination")
-    override val destination: List<TestScriptDestination>? = null,
+    override val destination: kotlin.collections.List<TestScriptDestination>? = null,
 
     @SerialName("metadata")
     override val metadata: TestScriptMetadata? = null,
 
     @SerialName("fixture")
-    override val fixture: List<TestScriptFixture>? = null,
+    override val fixture: kotlin.collections.List<TestScriptFixture>? = null,
 
     @SerialName("profile")
-    override val profile: List<Reference>? = null,
+    override val profile: kotlin.collections.List<Reference>? = null,
 
     @SerialName("variable")
-    override val variable: List<TestScriptVariable>? = null,
+    override val variable: kotlin.collections.List<TestScriptVariable>? = null,
 
     @SerialName("rule")
-    override val rule: List<TestScriptRule>? = null,
+    override val rule: kotlin.collections.List<TestScriptRule>? = null,
 
     @SerialName("ruleset")
-    override val ruleset: List<TestScriptRuleset>? = null,
+    override val ruleset: kotlin.collections.List<TestScriptRuleset>? = null,
 
     @SerialName("setup")
     override val setup: TestScriptSetup? = null,
 
     @SerialName("test")
-    override val test: List<TestScriptTest>? = null,
+    override val test: kotlin.collections.List<TestScriptTest>? = null,
 
     @SerialName("teardown")
     override val teardown: TestScriptTeardown? = null,
@@ -273,13 +271,13 @@ data class TestScript(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -331,8 +329,6 @@ interface FhirTestScriptDestination : FhirBackboneElement {
 /**
  * TestScriptDestination
  *
- * SourceFileName: TestScript.kt
- *
  * An abstract server used in operations within this test script in the destination element.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptDestination</a>
@@ -352,7 +348,7 @@ data class TestScriptDestination(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -360,7 +356,7 @@ data class TestScriptDestination(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptDestination {
 
     override val resourceType: kotlin.String
@@ -403,8 +399,6 @@ interface FhirTestScriptFixture : FhirBackboneElement {
 /**
  * TestScriptFixture
  *
- * SourceFileName: TestScript.kt
- *
  * Fixture in the test script - by reference (uri). All fixtures are required for the test script to
  * execute.
  *
@@ -428,7 +422,7 @@ data class TestScriptFixture(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -436,7 +430,7 @@ data class TestScriptFixture(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptFixture {
 
     override val resourceType: kotlin.String
@@ -463,19 +457,17 @@ interface FhirTestScriptMetadata : FhirBackboneElement {
     /**
      * Links to the FHIR specification.
      */
-    val link: List<TestScriptMetadataLink>?
+    val link: kotlin.collections.List<TestScriptMetadataLink>?
 
     /**
      * Capabilities that are assumed to function correctly on the FHIR server being
      * tested.
      */
-    val capability: List<TestScriptMetadataCapability>
+    val capability: kotlin.collections.List<TestScriptMetadataCapability>
 }
 
 /**
  * TestScriptMetadata
- *
- * SourceFileName: TestScript.kt
  *
  * The required capability must exist and are assumed to function correctly on the FHIR server being
  * tested.
@@ -489,15 +481,15 @@ interface FhirTestScriptMetadata : FhirBackboneElement {
 data class TestScriptMetadata(
 
     @SerialName("link")
-    override val link: List<TestScriptMetadataLink>? = null,
+    override val link: kotlin.collections.List<TestScriptMetadataLink>? = null,
 
     @SerialName("capability")
-    override val capability: List<TestScriptMetadataCapability>,
+    override val capability: kotlin.collections.List<TestScriptMetadataCapability>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -505,7 +497,7 @@ data class TestScriptMetadata(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptMetadata {
 
     override val resourceType: kotlin.String
@@ -546,7 +538,7 @@ interface FhirTestScriptMetadataCapability : FhirBackboneElement {
     /**
      * Which origin server these requirements apply to.
      */
-    val origin: List<Integer>?
+    val origin: kotlin.collections.List<Integer>?
 
     /**
      * Which server these requirements apply to.
@@ -556,7 +548,7 @@ interface FhirTestScriptMetadataCapability : FhirBackboneElement {
     /**
      * Links to the FHIR specification.
      */
-    val link: List<String>?
+    val link: kotlin.collections.List<String>?
 
     /**
      * Required Capability Statement.
@@ -566,8 +558,6 @@ interface FhirTestScriptMetadataCapability : FhirBackboneElement {
 
 /**
  * TestScriptMetadataCapability
- *
- * SourceFileName: TestScript.kt
  *
  * Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
  *
@@ -589,13 +579,13 @@ data class TestScriptMetadataCapability(
     override val description: String? = null,
 
     @SerialName("origin")
-    override val origin: List<Integer>? = null,
+    override val origin: kotlin.collections.List<Integer>? = null,
 
     @SerialName("destination")
     override val destination: Integer? = null,
 
     @SerialName("link")
-    override val link: List<String>? = null,
+    override val link: kotlin.collections.List<String>? = null,
 
     @SerialName("capabilities")
     override val capabilities: Reference,
@@ -603,7 +593,7 @@ data class TestScriptMetadataCapability(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -611,7 +601,7 @@ data class TestScriptMetadataCapability(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptMetadataCapability {
 
     override val resourceType: kotlin.String
@@ -648,8 +638,6 @@ interface FhirTestScriptMetadataLink : FhirBackboneElement {
 /**
  * TestScriptMetadataLink
  *
- * SourceFileName: TestScript.kt
- *
  * A link to the FHIR specification that this test is covering.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptMetadataLink</a>
@@ -669,7 +657,7 @@ data class TestScriptMetadataLink(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -677,7 +665,7 @@ data class TestScriptMetadataLink(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptMetadataLink {
 
     override val resourceType: kotlin.String
@@ -714,8 +702,6 @@ interface FhirTestScriptOrigin : FhirBackboneElement {
 /**
  * TestScriptOrigin
  *
- * SourceFileName: TestScript.kt
- *
  * An abstract server used in operations within this test script in the origin element.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptOrigin</a>
@@ -735,7 +721,7 @@ data class TestScriptOrigin(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -743,7 +729,7 @@ data class TestScriptOrigin(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptOrigin {
 
     override val resourceType: kotlin.String
@@ -774,13 +760,11 @@ interface FhirTestScriptRule : FhirBackboneElement {
     /**
      * Rule parameter template.
      */
-    val param: List<TestScriptRuleParam>?
+    val param: kotlin.collections.List<TestScriptRuleParam>?
 }
 
 /**
  * TestScriptRule
- *
- * SourceFileName: TestScript.kt
  *
  * Assert rule to be used in one or more asserts within the test script.
  *
@@ -796,12 +780,12 @@ data class TestScriptRule(
     override val resource: Reference,
 
     @SerialName("param")
-    override val param: List<TestScriptRuleParam>? = null,
+    override val param: kotlin.collections.List<TestScriptRuleParam>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -809,7 +793,7 @@ data class TestScriptRule(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptRule {
 
     override val resourceType: kotlin.String
@@ -846,8 +830,6 @@ interface FhirTestScriptRuleParam : FhirBackboneElement {
 /**
  * TestScriptRuleParam
  *
- * SourceFileName: TestScript.kt
- *
  * Each rule template can take one or more parameters for rule evaluation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptRuleParam</a>
@@ -867,7 +849,7 @@ data class TestScriptRuleParam(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -875,7 +857,7 @@ data class TestScriptRuleParam(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptRuleParam {
 
     override val resourceType: kotlin.String
@@ -907,13 +889,11 @@ interface FhirTestScriptRuleset : FhirBackboneElement {
     /**
      * The referenced rule within the ruleset.
      */
-    val rule: List<TestScriptRulesetRule>
+    val rule: kotlin.collections.List<TestScriptRulesetRule>
 }
 
 /**
  * TestScriptRuleset
- *
- * SourceFileName: TestScript.kt
  *
  * Contains one or more rules. Offers a way to group rules so assertions could reference the group of
  * rules and have them all applied.
@@ -930,12 +910,12 @@ data class TestScriptRuleset(
     override val resource: Reference,
 
     @SerialName("rule")
-    override val rule: List<TestScriptRulesetRule>,
+    override val rule: kotlin.collections.List<TestScriptRulesetRule>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -943,7 +923,7 @@ data class TestScriptRuleset(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptRuleset {
 
     override val resourceType: kotlin.String
@@ -974,13 +954,11 @@ interface FhirTestScriptRulesetRule : FhirBackboneElement {
     /**
      * Ruleset rule parameter template.
      */
-    val param: List<TestScriptRulesetRuleParam>?
+    val param: kotlin.collections.List<TestScriptRulesetRuleParam>?
 }
 
 /**
  * TestScriptRulesetRule
- *
- * SourceFileName: TestScript.kt
  *
  * The referenced rule within the external ruleset template.
  *
@@ -996,12 +974,12 @@ data class TestScriptRulesetRule(
     override val ruleId: String,
 
     @SerialName("param")
-    override val param: List<TestScriptRulesetRuleParam>? = null,
+    override val param: kotlin.collections.List<TestScriptRulesetRuleParam>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1009,7 +987,7 @@ data class TestScriptRulesetRule(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptRulesetRule {
 
     override val resourceType: kotlin.String
@@ -1046,8 +1024,6 @@ interface FhirTestScriptRulesetRuleParam : FhirBackboneElement {
 /**
  * TestScriptRulesetRuleParam
  *
- * SourceFileName: TestScript.kt
- *
  * Each rule template can take one or more parameters for rule evaluation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptRulesetRuleParam</a>
@@ -1067,7 +1043,7 @@ data class TestScriptRulesetRuleParam(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1075,7 +1051,7 @@ data class TestScriptRulesetRuleParam(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptRulesetRuleParam {
 
     override val resourceType: kotlin.String
@@ -1101,13 +1077,11 @@ interface FhirTestScriptSetup : FhirBackboneElement {
     /**
      * A setup operation or assert to perform.
      */
-    val action: List<TestScriptSetupAction>
+    val action: kotlin.collections.List<TestScriptSetupAction>
 }
 
 /**
  * TestScriptSetup
- *
- * SourceFileName: TestScript.kt
  *
  * A series of required setup operations before tests are executed
  *
@@ -1120,12 +1094,12 @@ interface FhirTestScriptSetup : FhirBackboneElement {
 data class TestScriptSetup(
 
     @SerialName("action")
-    override val action: List<TestScriptSetupAction>,
+    override val action: kotlin.collections.List<TestScriptSetupAction>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1133,7 +1107,7 @@ data class TestScriptSetup(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetup {
 
     override val resourceType: kotlin.String
@@ -1170,8 +1144,6 @@ interface FhirTestScriptSetupAction : FhirBackboneElement {
 /**
  * TestScriptSetupAction
  *
- * SourceFileName: TestScript.kt
- *
  * Action would contain either an operation or an assertion.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptSetupAction</a>
@@ -1191,7 +1163,7 @@ data class TestScriptSetupAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1199,7 +1171,7 @@ data class TestScriptSetupAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupAction {
 
     override val resourceType: kotlin.String
@@ -1350,8 +1322,6 @@ interface FhirTestScriptSetupActionAssert : FhirBackboneElement {
 /**
  * TestScriptSetupActionAssert
  *
- * SourceFileName: TestScript.kt
- *
  * Evaluates the results of previous operations to determine if the server under test behaves
  * appropriately.
  *
@@ -1438,7 +1408,7 @@ data class TestScriptSetupActionAssert(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1446,7 +1416,7 @@ data class TestScriptSetupActionAssert(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionAssert {
 
     override val resourceType: kotlin.String
@@ -1477,13 +1447,11 @@ interface FhirTestScriptSetupActionAssertRule : FhirBackboneElement {
     /**
      * Rule parameter template.
      */
-    val param: List<TestScriptSetupActionAssertRuleParam>?
+    val param: kotlin.collections.List<TestScriptSetupActionAssertRuleParam>?
 }
 
 /**
  * TestScriptSetupActionAssertRule
- *
- * SourceFileName: TestScript.kt
  *
  * The TestScript.rule this assert will evaluate.
  *
@@ -1499,12 +1467,12 @@ data class TestScriptSetupActionAssertRule(
     override val ruleId: String,
 
     @SerialName("param")
-    override val param: List<TestScriptSetupActionAssertRuleParam>? = null,
+    override val param: kotlin.collections.List<TestScriptSetupActionAssertRuleParam>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1512,7 +1480,7 @@ data class TestScriptSetupActionAssertRule(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionAssertRule {
 
     override val resourceType: kotlin.String
@@ -1549,8 +1517,6 @@ interface FhirTestScriptSetupActionAssertRuleParam : FhirBackboneElement {
 /**
  * TestScriptSetupActionAssertRuleParam
  *
- * SourceFileName: TestScript.kt
- *
  * Each rule template can take one or more parameters for rule evaluation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptSetupActionAssertRuleParam</a>
@@ -1570,7 +1536,7 @@ data class TestScriptSetupActionAssertRuleParam(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1578,7 +1544,7 @@ data class TestScriptSetupActionAssertRuleParam(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionAssertRuleParam {
 
     override val resourceType: kotlin.String
@@ -1609,13 +1575,11 @@ interface FhirTestScriptSetupActionAssertRuleset : FhirBackboneElement {
     /**
      * The referenced rule within the ruleset.
      */
-    val rule: List<TestScriptSetupActionAssertRulesetRule>?
+    val rule: kotlin.collections.List<TestScriptSetupActionAssertRulesetRule>?
 }
 
 /**
  * TestScriptSetupActionAssertRuleset
- *
- * SourceFileName: TestScript.kt
  *
  * The TestScript.ruleset this assert will evaluate.
  *
@@ -1631,12 +1595,12 @@ data class TestScriptSetupActionAssertRuleset(
     override val rulesetId: String,
 
     @SerialName("rule")
-    override val rule: List<TestScriptSetupActionAssertRulesetRule>? = null,
+    override val rule: kotlin.collections.List<TestScriptSetupActionAssertRulesetRule>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1644,7 +1608,7 @@ data class TestScriptSetupActionAssertRuleset(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionAssertRuleset {
 
     override val resourceType: kotlin.String
@@ -1675,13 +1639,11 @@ interface FhirTestScriptSetupActionAssertRulesetRule : FhirBackboneElement {
     /**
      * Rule parameter template.
      */
-    val param: List<TestScriptSetupActionAssertRulesetRuleParam>?
+    val param: kotlin.collections.List<TestScriptSetupActionAssertRulesetRuleParam>?
 }
 
 /**
  * TestScriptSetupActionAssertRulesetRule
- *
- * SourceFileName: TestScript.kt
  *
  * The referenced rule within the external ruleset template.
  *
@@ -1697,12 +1659,12 @@ data class TestScriptSetupActionAssertRulesetRule(
     override val ruleId: String,
 
     @SerialName("param")
-    override val param: List<TestScriptSetupActionAssertRulesetRuleParam>? = null,
+    override val param: kotlin.collections.List<TestScriptSetupActionAssertRulesetRuleParam>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1710,7 +1672,7 @@ data class TestScriptSetupActionAssertRulesetRule(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionAssertRulesetRule {
 
     override val resourceType: kotlin.String
@@ -1747,8 +1709,6 @@ interface FhirTestScriptSetupActionAssertRulesetRuleParam : FhirBackboneElement 
 /**
  * TestScriptSetupActionAssertRulesetRuleParam
  *
- * SourceFileName: TestScript.kt
- *
  * Each rule template can take one or more parameters for rule evaluation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptSetupActionAssertRulesetRuleParam</a>
@@ -1768,7 +1728,7 @@ data class TestScriptSetupActionAssertRulesetRuleParam(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1776,7 +1736,7 @@ data class TestScriptSetupActionAssertRulesetRuleParam(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionAssertRulesetRuleParam {
 
     override val resourceType: kotlin.String
@@ -1854,7 +1814,7 @@ interface FhirTestScriptSetupActionOperation : FhirBackboneElement {
     /**
      * Each operation can have one or more header elements.
      */
-    val requestHeader: List<TestScriptSetupActionOperationRequestHeader>?
+    val requestHeader: kotlin.collections.List<TestScriptSetupActionOperationRequestHeader>?
 
     /**
      * Fixture Id of mapped request.
@@ -1884,8 +1844,6 @@ interface FhirTestScriptSetupActionOperation : FhirBackboneElement {
 
 /**
  * TestScriptSetupActionOperation
- *
- * SourceFileName: TestScript.kt
  *
  * The operation to perform.
  *
@@ -1928,7 +1886,7 @@ data class TestScriptSetupActionOperation(
     override val params: String? = null,
 
     @SerialName("requestHeader")
-    override val requestHeader: List<TestScriptSetupActionOperationRequestHeader>? = null,
+    override val requestHeader: kotlin.collections.List<TestScriptSetupActionOperationRequestHeader>? = null,
 
     @SerialName("requestId")
     override val requestId: String? = null,
@@ -1948,7 +1906,7 @@ data class TestScriptSetupActionOperation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -1956,7 +1914,7 @@ data class TestScriptSetupActionOperation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionOperation {
 
     override val resourceType: kotlin.String
@@ -1993,8 +1951,6 @@ interface FhirTestScriptSetupActionOperationRequestHeader : FhirBackboneElement 
 /**
  * TestScriptSetupActionOperationRequestHeader
  *
- * SourceFileName: TestScript.kt
- *
  * Header elements would be used to set HTTP headers.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptSetupActionOperationRequestHeader</a>
@@ -2014,7 +1970,7 @@ data class TestScriptSetupActionOperationRequestHeader(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2022,7 +1978,7 @@ data class TestScriptSetupActionOperationRequestHeader(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptSetupActionOperationRequestHeader {
 
     override val resourceType: kotlin.String
@@ -2049,13 +2005,11 @@ interface FhirTestScriptTeardown : FhirBackboneElement {
     /**
      * One or more teardown operations to perform.
      */
-    val action: List<TestScriptTeardownAction>
+    val action: kotlin.collections.List<TestScriptTeardownAction>
 }
 
 /**
  * TestScriptTeardown
- *
- * SourceFileName: TestScript.kt
  *
  * A series of operations required to clean up after the all the tests are executed (successfully or
  * otherwise).
@@ -2069,12 +2023,12 @@ interface FhirTestScriptTeardown : FhirBackboneElement {
 data class TestScriptTeardown(
 
     @SerialName("action")
-    override val action: List<TestScriptTeardownAction>,
+    override val action: kotlin.collections.List<TestScriptTeardownAction>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2082,7 +2036,7 @@ data class TestScriptTeardown(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptTeardown {
 
     override val resourceType: kotlin.String
@@ -2114,8 +2068,6 @@ interface FhirTestScriptTeardownAction : FhirBackboneElement {
 /**
  * TestScriptTeardownAction
  *
- * SourceFileName: TestScript.kt
- *
  * The teardown action will only contain an operation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptTeardownAction</a>
@@ -2132,7 +2084,7 @@ data class TestScriptTeardownAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2140,7 +2092,7 @@ data class TestScriptTeardownAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptTeardownAction {
 
     override val resourceType: kotlin.String
@@ -2176,13 +2128,11 @@ interface FhirTestScriptTest : FhirBackboneElement {
     /**
      * A test operation or assert to perform.
      */
-    val action: List<TestScriptTestAction>
+    val action: kotlin.collections.List<TestScriptTestAction>
 }
 
 /**
  * TestScriptTest
- *
- * SourceFileName: TestScript.kt
  *
  * A test in this script
  *
@@ -2201,12 +2151,12 @@ data class TestScriptTest(
     override val description: String? = null,
 
     @SerialName("action")
-    override val action: List<TestScriptTestAction>,
+    override val action: kotlin.collections.List<TestScriptTestAction>,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2214,7 +2164,7 @@ data class TestScriptTest(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptTest {
 
     override val resourceType: kotlin.String
@@ -2251,8 +2201,6 @@ interface FhirTestScriptTestAction : FhirBackboneElement {
 /**
  * TestScriptTestAction
  *
- * SourceFileName: TestScript.kt
- *
  * Action would contain either an operation or an assertion.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/TestScript">TestScriptTestAction</a>
@@ -2272,7 +2220,7 @@ data class TestScriptTestAction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2280,7 +2228,7 @@ data class TestScriptTestAction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptTestAction {
 
     override val resourceType: kotlin.String
@@ -2348,8 +2296,6 @@ interface FhirTestScriptVariable : FhirBackboneElement {
 /**
  * TestScriptVariable
  *
- * SourceFileName: TestScript.kt
- *
  * Variable is set based either on element value in response body or on header field value in the
  * response headers.
  *
@@ -2388,7 +2334,7 @@ data class TestScriptVariable(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -2396,7 +2342,7 @@ data class TestScriptVariable(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTestScriptVariable {
 
     override val resourceType: kotlin.String

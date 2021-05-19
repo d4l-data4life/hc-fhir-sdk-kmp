@@ -39,22 +39,22 @@ interface FhirReferralRequest : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * Request fulfilled by this request.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Request(s) replaced by this request.
      */
-    val replaces: List<Reference>?
+    val replaces: kotlin.collections.List<Reference>?
 
     /**
      * Composite request this is part of.
@@ -86,7 +86,7 @@ interface FhirReferralRequest : FhirDomainResource {
     /**
      * Actions requested as part of the referral.
      */
-    val serviceRequested: List<CodeableConcept>?
+    val serviceRequested: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Patient referred to care or transfer.
@@ -126,17 +126,17 @@ interface FhirReferralRequest : FhirDomainResource {
     /**
      * Receiver of referral / transfer of care request.
      */
-    val recipient: List<Reference>?
+    val recipient: kotlin.collections.List<Reference>?
 
     /**
      * Reason for referral / transfer of care request.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why is service needed?.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * A textual description of the referral.
@@ -146,23 +146,21 @@ interface FhirReferralRequest : FhirDomainResource {
     /**
      * Additonal information to support referral or transfer of care request.
      */
-    val supportingInfo: List<Reference>?
+    val supportingInfo: kotlin.collections.List<Reference>?
 
     /**
      * Comments made about referral request.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Key events in history of request.
      */
-    val relevantHistory: List<Reference>?
+    val relevantHistory: kotlin.collections.List<Reference>?
 }
 
 /**
  * ReferralRequest
- *
- * SourceFileName: ReferralRequest.kt
  *
  * Used to record and send details about a request for referral service or transfer of a patient to the
  * care of another provider or provider organization.
@@ -176,16 +174,16 @@ interface FhirReferralRequest : FhirDomainResource {
 data class ReferralRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("replaces")
-    override val replaces: List<Reference>? = null,
+    override val replaces: kotlin.collections.List<Reference>? = null,
 
     @SerialName("groupIdentifier")
     override val groupIdentifier: Identifier? = null,
@@ -203,7 +201,7 @@ data class ReferralRequest(
     override val priority: RequestPriority? = null,
 
     @SerialName("serviceRequested")
-    override val serviceRequested: List<CodeableConcept>? = null,
+    override val serviceRequested: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("subject")
     override val subject: Reference,
@@ -227,25 +225,25 @@ data class ReferralRequest(
     override val specialty: CodeableConcept? = null,
 
     @SerialName("recipient")
-    override val recipient: List<Reference>? = null,
+    override val recipient: kotlin.collections.List<Reference>? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("supportingInfo")
-    override val supportingInfo: List<Reference>? = null,
+    override val supportingInfo: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("relevantHistory")
-    override val relevantHistory: List<Reference>? = null,
+    override val relevantHistory: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -253,13 +251,13 @@ data class ReferralRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -310,8 +308,6 @@ interface FhirReferralRequestRequester : FhirBackboneElement {
 /**
  * ReferralRequestRequester
  *
- * SourceFileName: ReferralRequest.kt
- *
  * The individual who initiated the request and has responsibility for its activation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ReferralRequest">ReferralRequestRequester</a>
@@ -331,7 +327,7 @@ data class ReferralRequestRequester(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -339,7 +335,7 @@ data class ReferralRequestRequester(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirReferralRequestRequester {
 
     override val resourceType: kotlin.String

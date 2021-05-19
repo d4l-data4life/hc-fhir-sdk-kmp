@@ -79,7 +79,7 @@ interface FhirExpansionProfile : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the expansion profile.
@@ -89,17 +89,17 @@ interface FhirExpansionProfile : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for expansion profile (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Fix use of a code system to a particular version.
      */
-    val fixedVersion: List<ExpansionProfileFixedVersion>?
+    val fixedVersion: kotlin.collections.List<ExpansionProfileFixedVersion>?
 
     /**
      * Systems/Versions to be exclude.
@@ -158,8 +158,6 @@ interface FhirExpansionProfile : FhirDomainResource {
 /**
  * ExpansionProfile
  *
- * SourceFileName: ExpansionProfile.kt
- *
  * Resource to define constraints on the Expansion of a FHIR ValueSet.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExpansionProfile">ExpansionProfile</a>
@@ -195,19 +193,19 @@ data class ExpansionProfile(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("fixedVersion")
-    override val fixedVersion: List<ExpansionProfileFixedVersion>? = null,
+    override val fixedVersion: kotlin.collections.List<ExpansionProfileFixedVersion>? = null,
 
     @SerialName("excludedSystem")
     override val excludedSystem: ExpansionProfileExcludedSystem? = null,
@@ -245,13 +243,13 @@ data class ExpansionProfile(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -303,8 +301,6 @@ interface FhirExpansionProfileDesignation : FhirBackboneElement {
 /**
  * ExpansionProfileDesignation
  *
- * SourceFileName: ExpansionProfile.kt
- *
  * A set of criteria that provide the constraints imposed on the value set expansion by including or
  * excluding designations.
  *
@@ -325,7 +321,7 @@ data class ExpansionProfileDesignation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -333,7 +329,7 @@ data class ExpansionProfileDesignation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExpansionProfileDesignation {
 
     override val resourceType: kotlin.String
@@ -359,13 +355,11 @@ interface FhirExpansionProfileDesignationExclude : FhirBackboneElement {
     /**
      * The designation to be excluded.
      */
-    val designation: List<ExpansionProfileDesignationExcludeDesignation>?
+    val designation: kotlin.collections.List<ExpansionProfileDesignationExcludeDesignation>?
 }
 
 /**
  * ExpansionProfileDesignationExclude
- *
- * SourceFileName: ExpansionProfile.kt
  *
  * Designations to be excluded
  *
@@ -378,12 +372,12 @@ interface FhirExpansionProfileDesignationExclude : FhirBackboneElement {
 data class ExpansionProfileDesignationExclude(
 
     @SerialName("designation")
-    override val designation: List<ExpansionProfileDesignationExcludeDesignation>? = null,
+    override val designation: kotlin.collections.List<ExpansionProfileDesignationExcludeDesignation>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -391,7 +385,7 @@ data class ExpansionProfileDesignationExclude(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExpansionProfileDesignationExclude {
 
     override val resourceType: kotlin.String
@@ -428,8 +422,6 @@ interface FhirExpansionProfileDesignationExcludeDesignation : FhirBackboneElemen
 /**
  * ExpansionProfileDesignationExcludeDesignation
  *
- * SourceFileName: ExpansionProfile.kt
- *
  * A data group for each designation to be excluded.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExpansionProfile">ExpansionProfileDesignationExcludeDesignation</a>
@@ -449,7 +441,7 @@ data class ExpansionProfileDesignationExcludeDesignation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -457,7 +449,7 @@ data class ExpansionProfileDesignationExcludeDesignation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExpansionProfileDesignationExcludeDesignation {
 
     override val resourceType: kotlin.String
@@ -483,13 +475,11 @@ interface FhirExpansionProfileDesignationInclude : FhirBackboneElement {
     /**
      * The designation to be included.
      */
-    val designation: List<ExpansionProfileDesignationIncludeDesignation>?
+    val designation: kotlin.collections.List<ExpansionProfileDesignationIncludeDesignation>?
 }
 
 /**
  * ExpansionProfileDesignationInclude
- *
- * SourceFileName: ExpansionProfile.kt
  *
  * Designations to be included
  *
@@ -502,12 +492,12 @@ interface FhirExpansionProfileDesignationInclude : FhirBackboneElement {
 data class ExpansionProfileDesignationInclude(
 
     @SerialName("designation")
-    override val designation: List<ExpansionProfileDesignationIncludeDesignation>? = null,
+    override val designation: kotlin.collections.List<ExpansionProfileDesignationIncludeDesignation>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -515,7 +505,7 @@ data class ExpansionProfileDesignationInclude(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExpansionProfileDesignationInclude {
 
     override val resourceType: kotlin.String
@@ -552,8 +542,6 @@ interface FhirExpansionProfileDesignationIncludeDesignation : FhirBackboneElemen
 /**
  * ExpansionProfileDesignationIncludeDesignation
  *
- * SourceFileName: ExpansionProfile.kt
- *
  * A data group for each designation to be included.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExpansionProfile">ExpansionProfileDesignationIncludeDesignation</a>
@@ -573,7 +561,7 @@ data class ExpansionProfileDesignationIncludeDesignation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -581,7 +569,7 @@ data class ExpansionProfileDesignationIncludeDesignation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExpansionProfileDesignationIncludeDesignation {
 
     override val resourceType: kotlin.String
@@ -618,8 +606,6 @@ interface FhirExpansionProfileExcludedSystem : FhirBackboneElement {
 /**
  * ExpansionProfileExcludedSystem
  *
- * SourceFileName: ExpansionProfile.kt
- *
  * Code system, or a particular version of a code system to be excluded from value set expansions.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExpansionProfile">ExpansionProfileExcludedSystem</a>
@@ -639,7 +625,7 @@ data class ExpansionProfileExcludedSystem(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -647,7 +633,7 @@ data class ExpansionProfileExcludedSystem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExpansionProfileExcludedSystem {
 
     override val resourceType: kotlin.String
@@ -690,8 +676,6 @@ interface FhirExpansionProfileFixedVersion : FhirBackboneElement {
 /**
  * ExpansionProfileFixedVersion
  *
- * SourceFileName: ExpansionProfile.kt
- *
  * Fix use of a particular code system to a particular version.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ExpansionProfile">ExpansionProfileFixedVersion</a>
@@ -714,7 +698,7 @@ data class ExpansionProfileFixedVersion(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -722,7 +706,7 @@ data class ExpansionProfileFixedVersion(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExpansionProfileFixedVersion {
 
     override val resourceType: kotlin.String

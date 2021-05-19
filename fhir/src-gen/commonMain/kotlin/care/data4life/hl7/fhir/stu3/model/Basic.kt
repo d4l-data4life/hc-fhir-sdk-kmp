@@ -37,7 +37,7 @@ interface FhirBasic : FhirDomainResource {
     /**
      * Business identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Kind of Resource.
@@ -63,8 +63,6 @@ interface FhirBasic : FhirDomainResource {
 /**
  * Basic
  *
- * SourceFileName: Basic.kt
- *
  * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map
  * to an existing resource, and custom resources not appropriate for inclusion in the FHIR
  * specification.
@@ -78,7 +76,7 @@ interface FhirBasic : FhirDomainResource {
 data class Basic(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept,
@@ -98,13 +96,13 @@ data class Basic(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

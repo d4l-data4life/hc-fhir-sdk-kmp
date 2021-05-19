@@ -108,12 +108,12 @@ interface FhirRiskAssessment : FhirDomainResource {
     /**
      * Information used in assessment.
      */
-    val basis: List<Reference>?
+    val basis: kotlin.collections.List<Reference>?
 
     /**
      * Outcome predicted.
      */
-    val prediction: List<RiskAssessmentPrediction>?
+    val prediction: kotlin.collections.List<RiskAssessmentPrediction>?
 
     /**
      * How to reduce risk.
@@ -128,8 +128,6 @@ interface FhirRiskAssessment : FhirDomainResource {
 
 /**
  * RiskAssessment
- *
- * SourceFileName: RiskAssessment.kt
  *
  * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of
  * each outcome.
@@ -185,10 +183,10 @@ data class RiskAssessment(
     override val reasonReference: Reference? = null,
 
     @SerialName("basis")
-    override val basis: List<Reference>? = null,
+    override val basis: kotlin.collections.List<Reference>? = null,
 
     @SerialName("prediction")
-    override val prediction: List<RiskAssessmentPrediction>? = null,
+    override val prediction: kotlin.collections.List<RiskAssessmentPrediction>? = null,
 
     @SerialName("mitigation")
     override val mitigation: String? = null,
@@ -202,13 +200,13 @@ data class RiskAssessment(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -289,8 +287,6 @@ interface FhirRiskAssessmentPrediction : FhirBackboneElement {
 /**
  * RiskAssessmentPrediction
  *
- * SourceFileName: RiskAssessment.kt
- *
  * Describes the expected outcome for the subject.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/RiskAssessment">RiskAssessmentPrediction</a>
@@ -328,7 +324,7 @@ data class RiskAssessmentPrediction(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -336,7 +332,7 @@ data class RiskAssessmentPrediction(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRiskAssessmentPrediction {
 
     override val resourceType: kotlin.String

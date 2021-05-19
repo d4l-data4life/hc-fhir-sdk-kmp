@@ -45,8 +45,6 @@ interface FhirRange : FhirElement {
 /**
  * Range
  *
- * SourceFileName: Range.kt
- *
  * A set of ordered Quantities defined by a low and high limit.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Range">Range</a>
@@ -69,7 +67,7 @@ data class Range(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRange {
 
     override val resourceType: kotlin.String

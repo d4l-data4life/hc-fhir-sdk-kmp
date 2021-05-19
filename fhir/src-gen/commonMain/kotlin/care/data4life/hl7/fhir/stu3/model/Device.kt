@@ -42,7 +42,7 @@ interface FhirDevice : FhirDomainResource {
     /**
      * Instance identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Unique Device Identifier (UDI) Barcode string.
@@ -102,7 +102,7 @@ interface FhirDevice : FhirDomainResource {
     /**
      * Details for human/organization for support.
      */
-    val contact: List<ContactPoint>?
+    val contact: kotlin.collections.List<ContactPoint>?
 
     /**
      * Where the resource is found.
@@ -117,18 +117,16 @@ interface FhirDevice : FhirDomainResource {
     /**
      * Device notes and comments.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Safety Characteristics of Device.
      */
-    val safety: List<CodeableConcept>?
+    val safety: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
  * Device
- *
- * SourceFileName: Device.kt
  *
  * This resource identifies an instance or a type of a manufactured item that is used in the provision
  * of healthcare without being substantially changed through that activity. The device may be a medical
@@ -146,7 +144,7 @@ interface FhirDevice : FhirDomainResource {
 data class Device(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("udi")
     override val udi: DeviceUdi? = null,
@@ -182,7 +180,7 @@ data class Device(
     override val owner: Reference? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactPoint>? = null,
+    override val contact: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("location")
     override val location: Reference? = null,
@@ -191,10 +189,10 @@ data class Device(
     override val url: String? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("safety")
-    override val safety: List<CodeableConcept>? = null,
+    override val safety: kotlin.collections.List<CodeableConcept>? = null,
 
     // # DomainResource
 
@@ -202,13 +200,13 @@ data class Device(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -284,8 +282,6 @@ interface FhirDeviceUdi : FhirBackboneElement {
 /**
  * DeviceUdi
  *
- * SourceFileName: Device.kt
- *
  * [Unique device identifier (UDI)](device.html#5.11.3.2.2) assigned to device label or package.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Device">DeviceUdi</a>
@@ -320,7 +316,7 @@ data class DeviceUdi(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -328,7 +324,7 @@ data class DeviceUdi(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDeviceUdi {
 
     override val resourceType: kotlin.String

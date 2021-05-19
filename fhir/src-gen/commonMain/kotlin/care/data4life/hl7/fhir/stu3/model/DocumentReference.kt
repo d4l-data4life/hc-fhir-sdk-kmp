@@ -44,7 +44,7 @@ interface FhirDocumentReference : FhirDomainResource {
     /**
      * Other identifiers for the document.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The status of this document reference.
@@ -84,7 +84,7 @@ interface FhirDocumentReference : FhirDomainResource {
     /**
      * Who and/or what authored the document.
      */
-    val author: List<Reference>?
+    val author: kotlin.collections.List<Reference>?
 
     /**
      * Who/what authenticated the document.
@@ -99,7 +99,7 @@ interface FhirDocumentReference : FhirDomainResource {
     /**
      * Relationships to other documents.
      */
-    val relatesTo: List<DocumentReferenceRelatesTo>?
+    val relatesTo: kotlin.collections.List<DocumentReferenceRelatesTo>?
 
     /**
      * Human-readable description (title).
@@ -109,12 +109,12 @@ interface FhirDocumentReference : FhirDomainResource {
     /**
      * Document security-tags.
      */
-    val securityLabel: List<CodeableConcept>?
+    val securityLabel: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Document referenced.
      */
-    val content: List<DocumentReferenceContent>
+    val content: kotlin.collections.List<DocumentReferenceContent>
 
     /**
      * Clinical context of document.
@@ -124,8 +124,6 @@ interface FhirDocumentReference : FhirDomainResource {
 
 /**
  * DocumentReference
- *
- * SourceFileName: DocumentReference.kt
  *
  * A reference to a document
  *
@@ -141,7 +139,7 @@ data class DocumentReference(
     override val masterIdentifier: Identifier? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: DocumentReferenceStatus,
@@ -165,7 +163,7 @@ data class DocumentReference(
     override val indexed: Instant,
 
     @SerialName("author")
-    override val author: List<Reference>? = null,
+    override val author: kotlin.collections.List<Reference>? = null,
 
     @SerialName("authenticator")
     override val authenticator: Reference? = null,
@@ -174,16 +172,16 @@ data class DocumentReference(
     override val custodian: Reference? = null,
 
     @SerialName("relatesTo")
-    override val relatesTo: List<DocumentReferenceRelatesTo>? = null,
+    override val relatesTo: kotlin.collections.List<DocumentReferenceRelatesTo>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("securityLabel")
-    override val securityLabel: List<CodeableConcept>? = null,
+    override val securityLabel: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("content")
-    override val content: List<DocumentReferenceContent>,
+    override val content: kotlin.collections.List<DocumentReferenceContent>,
 
     @SerialName("context")
     override val context: DocumentReferenceContext? = null,
@@ -194,13 +192,13 @@ data class DocumentReference(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -252,8 +250,6 @@ interface FhirDocumentReferenceContent : FhirBackboneElement {
 /**
  * DocumentReferenceContent
  *
- * SourceFileName: DocumentReference.kt
- *
  * The document and format referenced. There may be multiple content element repetitions, each with a
  * different format.
  *
@@ -274,7 +270,7 @@ data class DocumentReferenceContent(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -282,7 +278,7 @@ data class DocumentReferenceContent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDocumentReferenceContent {
 
     override val resourceType: kotlin.String
@@ -313,7 +309,7 @@ interface FhirDocumentReferenceContext : FhirBackboneElement {
     /**
      * Main clinical acts documented.
      */
-    val event: List<CodeableConcept>?
+    val event: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Time of service that is being documented.
@@ -338,13 +334,11 @@ interface FhirDocumentReferenceContext : FhirBackboneElement {
     /**
      * Related identifiers or resources.
      */
-    val related: List<DocumentReferenceContextRelated>?
+    val related: kotlin.collections.List<DocumentReferenceContextRelated>?
 }
 
 /**
  * DocumentReferenceContext
- *
- * SourceFileName: DocumentReference.kt
  *
  * The clinical context in which the document was prepared.
  *
@@ -360,7 +354,7 @@ data class DocumentReferenceContext(
     override val encounter: Reference? = null,
 
     @SerialName("event")
-    override val event: List<CodeableConcept>? = null,
+    override val event: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
@@ -375,12 +369,12 @@ data class DocumentReferenceContext(
     override val sourcePatientInfo: Reference? = null,
 
     @SerialName("related")
-    override val related: List<DocumentReferenceContextRelated>? = null,
+    override val related: kotlin.collections.List<DocumentReferenceContextRelated>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -388,7 +382,7 @@ data class DocumentReferenceContext(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDocumentReferenceContext {
 
     override val resourceType: kotlin.String
@@ -425,8 +419,6 @@ interface FhirDocumentReferenceContextRelated : FhirBackboneElement {
 /**
  * DocumentReferenceContextRelated
  *
- * SourceFileName: DocumentReference.kt
- *
  * Related identifiers or resources associated with the DocumentReference.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentReference">DocumentReferenceContextRelated</a>
@@ -446,7 +438,7 @@ data class DocumentReferenceContextRelated(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -454,7 +446,7 @@ data class DocumentReferenceContextRelated(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDocumentReferenceContextRelated {
 
     override val resourceType: kotlin.String
@@ -491,8 +483,6 @@ interface FhirDocumentReferenceRelatesTo : FhirBackboneElement {
 /**
  * DocumentReferenceRelatesTo
  *
- * SourceFileName: DocumentReference.kt
- *
  * Relationships that this document has with other document references that already exist.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DocumentReference">DocumentReferenceRelatesTo</a>
@@ -512,7 +502,7 @@ data class DocumentReferenceRelatesTo(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -520,7 +510,7 @@ data class DocumentReferenceRelatesTo(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDocumentReferenceRelatesTo {
 
     override val resourceType: kotlin.String

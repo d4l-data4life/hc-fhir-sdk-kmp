@@ -39,12 +39,12 @@ interface FhirMedia : FhirDomainResource {
     /**
      * Identifier(s) for the image.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Procedure that caused this media to be created.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Whether the media is a photo (still image), an audio recording, or a video
@@ -90,7 +90,7 @@ interface FhirMedia : FhirDomainResource {
     /**
      * Why was event performed?.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Body part in media.
@@ -130,13 +130,11 @@ interface FhirMedia : FhirDomainResource {
     /**
      * Comments made about the media.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * Media
- *
- * SourceFileName: Media.kt
  *
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline
  * or provided by direct reference
@@ -150,10 +148,10 @@ interface FhirMedia : FhirDomainResource {
 data class Media(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("type")
     override val type: DigitalMediaType,
@@ -180,7 +178,7 @@ data class Media(
     override val operator: Reference? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("bodySite")
     override val bodySite: CodeableConcept? = null,
@@ -204,7 +202,7 @@ data class Media(
     override val content: Attachment,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # DomainResource
 
@@ -212,13 +210,13 @@ data class Media(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

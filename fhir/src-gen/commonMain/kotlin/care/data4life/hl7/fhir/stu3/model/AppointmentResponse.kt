@@ -37,7 +37,7 @@ interface FhirAppointmentResponse : FhirDomainResource {
     /**
      * External Ids for this item.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Appointment this response relates to.
@@ -57,7 +57,7 @@ interface FhirAppointmentResponse : FhirDomainResource {
     /**
      * Role of participant in the appointment.
      */
-    val participantType: List<CodeableConcept>?
+    val participantType: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Person, Location/HealthcareService or Device.
@@ -82,8 +82,6 @@ interface FhirAppointmentResponse : FhirDomainResource {
 /**
  * AppointmentResponse
  *
- * SourceFileName: AppointmentResponse.kt
- *
  * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or
  * rejection
  *
@@ -96,7 +94,7 @@ interface FhirAppointmentResponse : FhirDomainResource {
 data class AppointmentResponse(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("appointment")
     override val appointment: Reference,
@@ -108,7 +106,7 @@ data class AppointmentResponse(
     override val end: Instant? = null,
 
     @SerialName("participantType")
-    override val participantType: List<CodeableConcept>? = null,
+    override val participantType: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("actor")
     override val actor: Reference? = null,
@@ -125,13 +123,13 @@ data class AppointmentResponse(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

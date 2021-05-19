@@ -36,7 +36,7 @@ interface FhirEnrollmentRequest : FhirDomainResource {
     /**
      * Business Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | cancelled | draft | entered-in-error.
@@ -77,8 +77,6 @@ interface FhirEnrollmentRequest : FhirDomainResource {
 /**
  * EnrollmentRequest
  *
- * SourceFileName: EnrollmentRequest.kt
- *
  * This resource provides the insurance enrollment details to the insurer regarding a specified
  * coverage.
  *
@@ -91,7 +89,7 @@ interface FhirEnrollmentRequest : FhirDomainResource {
 data class EnrollmentRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: String? = null,
@@ -120,13 +118,13 @@ data class EnrollmentRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

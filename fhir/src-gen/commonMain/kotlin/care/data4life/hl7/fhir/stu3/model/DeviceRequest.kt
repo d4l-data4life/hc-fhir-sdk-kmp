@@ -38,22 +38,22 @@ interface FhirDeviceRequest : FhirDomainResource {
     /**
      * External Request identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * What request fulfills.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * What request replaces.
      */
-    val priorRequest: List<Reference>?
+    val priorRequest: kotlin.collections.List<Reference>?
 
     /**
      * Identifier of composite request.
@@ -133,33 +133,31 @@ interface FhirDeviceRequest : FhirDomainResource {
     /**
      * Coded Reason for request.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Linked Reason for request.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Additional clinical information.
      */
-    val supportingInfo: List<Reference>?
+    val supportingInfo: kotlin.collections.List<Reference>?
 
     /**
      * Notes or comments.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Request provenance.
      */
-    val relevantHistory: List<Reference>?
+    val relevantHistory: kotlin.collections.List<Reference>?
 }
 
 /**
  * DeviceRequest
- *
- * SourceFileName: DeviceRequest.kt
  *
  * Represents a request for a patient to employ a medical device. The device may be an implantable
  * device, or an external assistive device, such as a walker.
@@ -173,16 +171,16 @@ interface FhirDeviceRequest : FhirDomainResource {
 data class DeviceRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("priorRequest")
-    override val priorRequest: List<Reference>? = null,
+    override val priorRequest: kotlin.collections.List<Reference>? = null,
 
     @SerialName("groupIdentifier")
     override val groupIdentifier: Identifier? = null,
@@ -230,19 +228,19 @@ data class DeviceRequest(
     override val performer: Reference? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("supportingInfo")
-    override val supportingInfo: List<Reference>? = null,
+    override val supportingInfo: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("relevantHistory")
-    override val relevantHistory: List<Reference>? = null,
+    override val relevantHistory: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -250,13 +248,13 @@ data class DeviceRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -307,8 +305,6 @@ interface FhirDeviceRequestRequester : FhirBackboneElement {
 /**
  * DeviceRequestRequester
  *
- * SourceFileName: DeviceRequest.kt
- *
  * The individual who initiated the request and has responsibility for its activation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DeviceRequest">DeviceRequestRequester</a>
@@ -328,7 +324,7 @@ data class DeviceRequestRequester(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -336,7 +332,7 @@ data class DeviceRequestRequester(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDeviceRequestRequester {
 
     override val resourceType: kotlin.String

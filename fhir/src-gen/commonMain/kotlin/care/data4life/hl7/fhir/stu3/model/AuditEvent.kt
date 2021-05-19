@@ -43,7 +43,7 @@ interface FhirAuditEvent : FhirDomainResource {
     /**
      * More specific type/id for the event.
      */
-    val subtype: List<Coding>?
+    val subtype: kotlin.collections.List<Coding>?
 
     /**
      * Indicator for type of action performed during the event that generated the
@@ -69,12 +69,12 @@ interface FhirAuditEvent : FhirDomainResource {
     /**
      * The purposeOfUse of the event.
      */
-    val purposeOfEvent: List<CodeableConcept>?
+    val purposeOfEvent: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Actor involved in the event.
      */
-    val agent: List<AuditEventAgent>
+    val agent: kotlin.collections.List<AuditEventAgent>
 
     /**
      * Audit Event Reporter.
@@ -84,13 +84,11 @@ interface FhirAuditEvent : FhirDomainResource {
     /**
      * Data or objects used.
      */
-    val entity: List<AuditEventEntity>?
+    val entity: kotlin.collections.List<AuditEventEntity>?
 }
 
 /**
  * AuditEvent
- *
- * SourceFileName: AuditEvent.kt
  *
  * A record of an event made for purposes of maintaining a security log. Typical uses include detection
  * of intrusion attempts and monitoring for inappropriate usage.
@@ -107,7 +105,7 @@ data class AuditEvent(
     override val type: Coding,
 
     @SerialName("subtype")
-    override val subtype: List<Coding>? = null,
+    override val subtype: kotlin.collections.List<Coding>? = null,
 
     @SerialName("action")
     override val action: AuditEventAction? = null,
@@ -122,16 +120,16 @@ data class AuditEvent(
     override val outcomeDesc: String? = null,
 
     @SerialName("purposeOfEvent")
-    override val purposeOfEvent: List<CodeableConcept>? = null,
+    override val purposeOfEvent: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("agent")
-    override val agent: List<AuditEventAgent>,
+    override val agent: kotlin.collections.List<AuditEventAgent>,
 
     @SerialName("source")
     override val source: AuditEventSource,
 
     @SerialName("entity")
-    override val entity: List<AuditEventEntity>? = null,
+    override val entity: kotlin.collections.List<AuditEventEntity>? = null,
 
     // # DomainResource
 
@@ -139,13 +137,13 @@ data class AuditEvent(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -185,7 +183,7 @@ interface FhirAuditEventAgent : FhirBackboneElement {
     /**
      * Agent role in the event.
      */
-    val role: List<CodeableConcept>?
+    val role: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Direct reference to resource.
@@ -220,7 +218,7 @@ interface FhirAuditEventAgent : FhirBackboneElement {
     /**
      * Policy that authorized event.
      */
-    val policy: List<String>?
+    val policy: kotlin.collections.List<String>?
 
     /**
      * Type of media.
@@ -235,13 +233,11 @@ interface FhirAuditEventAgent : FhirBackboneElement {
     /**
      * Reason given for this user.
      */
-    val purposeOfUse: List<CodeableConcept>?
+    val purposeOfUse: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
  * AuditEventAgent
- *
- * SourceFileName: AuditEvent.kt
  *
  * An actor taking an active role in the event or activity that is logged.
  *
@@ -254,7 +250,7 @@ interface FhirAuditEventAgent : FhirBackboneElement {
 data class AuditEventAgent(
 
     @SerialName("role")
-    override val role: List<CodeableConcept>? = null,
+    override val role: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reference")
     override val reference: Reference? = null,
@@ -275,7 +271,7 @@ data class AuditEventAgent(
     override val location: Reference? = null,
 
     @SerialName("policy")
-    override val policy: List<String>? = null,
+    override val policy: kotlin.collections.List<String>? = null,
 
     @SerialName("media")
     override val media: Coding? = null,
@@ -284,12 +280,12 @@ data class AuditEventAgent(
     override val network: AuditEventAgentNetwork? = null,
 
     @SerialName("purposeOfUse")
-    override val purposeOfUse: List<CodeableConcept>? = null,
+    override val purposeOfUse: kotlin.collections.List<CodeableConcept>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -297,7 +293,7 @@ data class AuditEventAgent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAuditEventAgent {
 
     override val resourceType: kotlin.String
@@ -334,8 +330,6 @@ interface FhirAuditEventAgentNetwork : FhirBackboneElement {
 /**
  * AuditEventAgentNetwork
  *
- * SourceFileName: AuditEvent.kt
- *
  * Logical network location for application activity, if the activity has a network location.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/AuditEvent">AuditEventAgentNetwork</a>
@@ -355,7 +349,7 @@ data class AuditEventAgentNetwork(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -363,7 +357,7 @@ data class AuditEventAgentNetwork(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAuditEventAgentNetwork {
 
     override val resourceType: kotlin.String
@@ -414,7 +408,7 @@ interface FhirAuditEventEntity : FhirBackboneElement {
     /**
      * Security labels on the entity.
      */
-    val securityLabel: List<Coding>?
+    val securityLabel: kotlin.collections.List<Coding>?
 
     /**
      * Descriptor for entity.
@@ -434,13 +428,11 @@ interface FhirAuditEventEntity : FhirBackboneElement {
     /**
      * Additional Information about the entity.
      */
-    val detail: List<AuditEventEntityDetail>?
+    val detail: kotlin.collections.List<AuditEventEntityDetail>?
 }
 
 /**
  * AuditEventEntity
- *
- * SourceFileName: AuditEvent.kt
  *
  * Specific instances of data or objects that have been accessed.
  *
@@ -468,7 +460,7 @@ data class AuditEventEntity(
     override val lifecycle: Coding? = null,
 
     @SerialName("securityLabel")
-    override val securityLabel: List<Coding>? = null,
+    override val securityLabel: kotlin.collections.List<Coding>? = null,
 
     @SerialName("name")
     override val name: String? = null,
@@ -480,12 +472,12 @@ data class AuditEventEntity(
     override val query: String? = null,
 
     @SerialName("detail")
-    override val detail: List<AuditEventEntityDetail>? = null,
+    override val detail: kotlin.collections.List<AuditEventEntityDetail>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -493,7 +485,7 @@ data class AuditEventEntity(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAuditEventEntity {
 
     override val resourceType: kotlin.String
@@ -530,8 +522,6 @@ interface FhirAuditEventEntityDetail : FhirBackboneElement {
 /**
  * AuditEventEntityDetail
  *
- * SourceFileName: AuditEvent.kt
- *
  * Tagged value pairs for conveying additional information about the entity.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/AuditEvent">AuditEventEntityDetail</a>
@@ -551,7 +541,7 @@ data class AuditEventEntityDetail(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -559,7 +549,7 @@ data class AuditEventEntityDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAuditEventEntityDetail {
 
     override val resourceType: kotlin.String
@@ -595,13 +585,11 @@ interface FhirAuditEventSource : FhirBackboneElement {
     /**
      * The type of source where event originated.
      */
-    val type: List<Coding>?
+    val type: kotlin.collections.List<Coding>?
 }
 
 /**
  * AuditEventSource
- *
- * SourceFileName: AuditEvent.kt
  *
  * The system that is reporting the event.
  *
@@ -620,12 +608,12 @@ data class AuditEventSource(
     override val identifier: Identifier,
 
     @SerialName("type")
-    override val type: List<Coding>? = null,
+    override val type: kotlin.collections.List<Coding>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -633,7 +621,7 @@ data class AuditEventSource(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAuditEventSource {
 
     override val resourceType: kotlin.String

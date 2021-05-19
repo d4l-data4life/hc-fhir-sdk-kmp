@@ -85,7 +85,7 @@ interface FhirConceptMap : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the concept map.
@@ -95,12 +95,12 @@ interface FhirConceptMap : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for concept map (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this concept map is defined.
@@ -135,13 +135,11 @@ interface FhirConceptMap : FhirDomainResource {
     /**
      * Same source and target systems.
      */
-    val group: List<ConceptMapGroup>?
+    val group: kotlin.collections.List<ConceptMapGroup>?
 }
 
 /**
  * ConceptMap
- *
- * SourceFileName: ConceptMap.kt
  *
  * A statement of relationships from one set of concepts to one or more other concepts - either code
  * systems or data elements, or classes in class models.
@@ -182,16 +180,16 @@ data class ConceptMap(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -212,7 +210,7 @@ data class ConceptMap(
     override val targetReference: Reference? = null,
 
     @SerialName("group")
-    override val group: List<ConceptMapGroup>? = null,
+    override val group: kotlin.collections.List<ConceptMapGroup>? = null,
 
     // # DomainResource
 
@@ -220,13 +218,13 @@ data class ConceptMap(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -286,7 +284,7 @@ interface FhirConceptMapGroup : FhirBackboneElement {
     /**
      * Mappings for a concept from the source set.
      */
-    val element: List<ConceptMapGroupElement>
+    val element: kotlin.collections.List<ConceptMapGroupElement>
 
     /**
      * When no match in the mappings.
@@ -296,8 +294,6 @@ interface FhirConceptMapGroup : FhirBackboneElement {
 
 /**
  * ConceptMapGroup
- *
- * SourceFileName: ConceptMap.kt
  *
  * A group of mappings that all have the same source and target system.
  *
@@ -322,7 +318,7 @@ data class ConceptMapGroup(
     override val targetVersion: String? = null,
 
     @SerialName("element")
-    override val element: List<ConceptMapGroupElement>,
+    override val element: kotlin.collections.List<ConceptMapGroupElement>,
 
     @SerialName("unmapped")
     override val unmapped: ConceptMapGroupUnmapped? = null,
@@ -330,7 +326,7 @@ data class ConceptMapGroup(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -338,7 +334,7 @@ data class ConceptMapGroup(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConceptMapGroup {
 
     override val resourceType: kotlin.String
@@ -374,13 +370,11 @@ interface FhirConceptMapGroupElement : FhirBackboneElement {
     /**
      * Concept in target system for element.
      */
-    val target: List<ConceptMapGroupElementTarget>?
+    val target: kotlin.collections.List<ConceptMapGroupElementTarget>?
 }
 
 /**
  * ConceptMapGroupElement
- *
- * SourceFileName: ConceptMap.kt
  *
  * Mappings for an individual concept in the source to one or more concepts in the target.
  *
@@ -399,12 +393,12 @@ data class ConceptMapGroupElement(
     override val display: String? = null,
 
     @SerialName("target")
-    override val target: List<ConceptMapGroupElementTarget>? = null,
+    override val target: kotlin.collections.List<ConceptMapGroupElementTarget>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -412,7 +406,7 @@ data class ConceptMapGroupElement(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConceptMapGroupElement {
 
     override val resourceType: kotlin.String
@@ -460,18 +454,16 @@ interface FhirConceptMapGroupElementTarget : FhirBackboneElement {
     /**
      * Other elements required for this mapping (from context).
      */
-    val dependsOn: List<ConceptMapGroupElementTargetDependsOn>?
+    val dependsOn: kotlin.collections.List<ConceptMapGroupElementTargetDependsOn>?
 
     /**
      * Other concepts that this mapping also produces.
      */
-    val product: List<ConceptMapGroupElementTargetDependsOn>?
+    val product: kotlin.collections.List<ConceptMapGroupElementTargetDependsOn>?
 }
 
 /**
  * ConceptMapGroupElementTarget
- *
- * SourceFileName: ConceptMap.kt
  *
  * A concept from the target value set that this concept maps to.
  *
@@ -496,15 +488,15 @@ data class ConceptMapGroupElementTarget(
     override val comment: String? = null,
 
     @SerialName("dependsOn")
-    override val dependsOn: List<ConceptMapGroupElementTargetDependsOn>? = null,
+    override val dependsOn: kotlin.collections.List<ConceptMapGroupElementTargetDependsOn>? = null,
 
     @SerialName("product")
-    override val product: List<ConceptMapGroupElementTargetDependsOn>? = null,
+    override val product: kotlin.collections.List<ConceptMapGroupElementTargetDependsOn>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -512,7 +504,7 @@ data class ConceptMapGroupElementTarget(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConceptMapGroupElementTarget {
 
     override val resourceType: kotlin.String
@@ -560,8 +552,6 @@ interface FhirConceptMapGroupElementTargetDependsOn : FhirBackboneElement {
 /**
  * ConceptMapGroupElementTargetDependsOn
  *
- * SourceFileName: ConceptMap.kt
- *
  * A set of additional dependencies for this mapping to hold. This mapping is only applicable if the
  * specified element can be resolved, and it has the specified value.
  *
@@ -588,7 +578,7 @@ data class ConceptMapGroupElementTargetDependsOn(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -596,7 +586,7 @@ data class ConceptMapGroupElementTargetDependsOn(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConceptMapGroupElementTargetDependsOn {
 
     override val resourceType: kotlin.String
@@ -647,8 +637,6 @@ interface FhirConceptMapGroupUnmapped : FhirBackboneElement {
 /**
  * ConceptMapGroupUnmapped
  *
- * SourceFileName: ConceptMap.kt
- *
  * What to do when there is no match in the mappings in the group.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ConceptMap">ConceptMapGroupUnmapped</a>
@@ -674,7 +662,7 @@ data class ConceptMapGroupUnmapped(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -682,7 +670,7 @@ data class ConceptMapGroupUnmapped(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConceptMapGroupUnmapped {
 
     override val resourceType: kotlin.String

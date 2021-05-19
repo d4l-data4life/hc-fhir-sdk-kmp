@@ -38,7 +38,7 @@ interface FhirAccount : FhirDomainResource {
     /**
      * Account number.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Indicates whether the account is presently used/usable or not.
@@ -79,7 +79,7 @@ interface FhirAccount : FhirDomainResource {
      * The party(s) that are responsible for covering the payment of this account, and
      * what order should they be applied to the account.
      */
-    val coverage: List<AccountCoverage>?
+    val coverage: kotlin.collections.List<AccountCoverage>?
 
     /**
      * Who is responsible?.
@@ -94,13 +94,11 @@ interface FhirAccount : FhirDomainResource {
     /**
      * Responsible for the account.
      */
-    val guarantor: List<AccountGuarantor>?
+    val guarantor: kotlin.collections.List<AccountGuarantor>?
 }
 
 /**
  * Account
- *
- * SourceFileName: Account.kt
  *
  * A financial tool for tracking value accrued for a particular purpose. In the healthcare field, used
  * to track charges for a patient, cost centers, etc.
@@ -114,7 +112,7 @@ interface FhirAccount : FhirDomainResource {
 data class Account(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: AccountStatus? = null,
@@ -138,7 +136,7 @@ data class Account(
     override val balance: Money? = null,
 
     @SerialName("coverage")
-    override val coverage: List<AccountCoverage>? = null,
+    override val coverage: kotlin.collections.List<AccountCoverage>? = null,
 
     @SerialName("owner")
     override val owner: Reference? = null,
@@ -147,7 +145,7 @@ data class Account(
     override val description: String? = null,
 
     @SerialName("guarantor")
-    override val guarantor: List<AccountGuarantor>? = null,
+    override val guarantor: kotlin.collections.List<AccountGuarantor>? = null,
 
     // # DomainResource
 
@@ -155,13 +153,13 @@ data class Account(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -213,8 +211,6 @@ interface FhirAccountCoverage : FhirBackboneElement {
 /**
  * AccountCoverage
  *
- * SourceFileName: Account.kt
- *
  * The party(s) that are responsible for covering the payment of this account, and what order should
  * they be applied to the account
  *
@@ -235,7 +231,7 @@ data class AccountCoverage(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -243,7 +239,7 @@ data class AccountCoverage(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAccountCoverage {
 
     override val resourceType: kotlin.String
@@ -285,8 +281,6 @@ interface FhirAccountGuarantor : FhirBackboneElement {
 /**
  * AccountGuarantor
  *
- * SourceFileName: Account.kt
- *
  * Parties financially responsible for the account.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Account">AccountGuarantor</a>
@@ -309,7 +303,7 @@ data class AccountGuarantor(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -317,7 +311,7 @@ data class AccountGuarantor(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAccountGuarantor {
 
     override val resourceType: kotlin.String
