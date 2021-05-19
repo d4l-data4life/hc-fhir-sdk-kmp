@@ -83,29 +83,6 @@ object FhirHelper {
                     subclass(CareTeamParticipant::class)
                     subclass(ChargeItem::class)
                     subclass(ChargeItemParticipant::class)
-                    subclass(Claim::class)
-                    subclass(ClaimAccident::class)
-                    subclass(ClaimCareTeam::class)
-                    subclass(ClaimDiagnosis::class)
-                    subclass(ClaimInformation::class)
-                    subclass(ClaimInsurance::class)
-                    subclass(ClaimItem::class)
-                    subclass(ClaimItemDetail::class)
-                    subclass(ClaimItemDetailSubDetail::class)
-                    subclass(ClaimPayee::class)
-                    subclass(ClaimProcedure::class)
-                    subclass(ClaimRelated::class)
-                    subclass(ClaimResponse::class)
-                    subclass(ClaimResponseAddItem::class)
-                    subclass(ClaimResponseAddItemDetail::class)
-                    subclass(ClaimResponseError::class)
-                    subclass(ClaimResponseInsurance::class)
-                    subclass(ClaimResponseItem::class)
-                    subclass(ClaimResponseItemAdjudication::class)
-                    subclass(ClaimResponseItemDetail::class)
-                    subclass(ClaimResponseItemDetailSubDetail::class)
-                    subclass(ClaimResponsePayment::class)
-                    subclass(ClaimResponseProcessNote::class)
                     subclass(ClinicalImpression::class)
                     subclass(ClinicalImpressionFinding::class)
                     subclass(ClinicalImpressionInvestigation::class)
@@ -229,25 +206,6 @@ object FhirHelper {
                     subclass(ExpansionProfileDesignationIncludeDesignation::class)
                     subclass(ExpansionProfileExcludedSystem::class)
                     subclass(ExpansionProfileFixedVersion::class)
-                    subclass(ExplanationOfBenefit::class)
-                    subclass(ExplanationOfBenefitAccident::class)
-                    subclass(ExplanationOfBenefitAddItem::class)
-                    subclass(ExplanationOfBenefitAddItemDetail::class)
-                    subclass(ExplanationOfBenefitBenefitBalance::class)
-                    subclass(ExplanationOfBenefitBenefitBalanceFinancial::class)
-                    subclass(ExplanationOfBenefitCareTeam::class)
-                    subclass(ExplanationOfBenefitDiagnosis::class)
-                    subclass(ExplanationOfBenefitInformation::class)
-                    subclass(ExplanationOfBenefitInsurance::class)
-                    subclass(ExplanationOfBenefitItem::class)
-                    subclass(ExplanationOfBenefitItemAdjudication::class)
-                    subclass(ExplanationOfBenefitItemDetail::class)
-                    subclass(ExplanationOfBenefitItemDetailSubDetail::class)
-                    subclass(ExplanationOfBenefitPayee::class)
-                    subclass(ExplanationOfBenefitPayment::class)
-                    subclass(ExplanationOfBenefitProcedure::class)
-                    subclass(ExplanationOfBenefitProcessNote::class)
-                    subclass(ExplanationOfBenefitRelated::class)
                     subclass(Extension::class)
                     subclass(FamilyMemberHistory::class)
                     subclass(FamilyMemberHistoryCondition::class)
@@ -534,8 +492,6 @@ object FhirHelper {
                     subclass(CarePlan::class)
                     subclass(CareTeam::class)
                     subclass(ChargeItem::class)
-                    subclass(Claim::class)
-                    subclass(ClaimResponse::class)
                     subclass(ClinicalImpression::class)
                     subclass(CodeSystem::class)
                     subclass(Communication::class)
@@ -566,7 +522,6 @@ object FhirHelper {
                     subclass(EnrollmentResponse::class)
                     subclass(EpisodeOfCare::class)
                     subclass(ExpansionProfile::class)
-                    subclass(ExplanationOfBenefit::class)
                     subclass(FamilyMemberHistory::class)
                     subclass(Flag::class)
                     subclass(Goal::class)
@@ -662,8 +617,6 @@ object FhirHelper {
                 CarePlan::class -> CarePlan.resourceType()
                 CareTeam::class -> CareTeam.resourceType()
                 ChargeItem::class -> ChargeItem.resourceType()
-                Claim::class -> Claim.resourceType()
-                ClaimResponse::class -> ClaimResponse.resourceType()
                 ClinicalImpression::class -> ClinicalImpression.resourceType()
                 CodeSystem::class -> CodeSystem.resourceType()
                 Communication::class -> Communication.resourceType()
@@ -694,7 +647,6 @@ object FhirHelper {
                 EnrollmentResponse::class -> EnrollmentResponse.resourceType()
                 EpisodeOfCare::class -> EpisodeOfCare.resourceType()
                 ExpansionProfile::class -> ExpansionProfile.resourceType()
-                ExplanationOfBenefit::class -> ExplanationOfBenefit.resourceType()
                 FamilyMemberHistory::class -> FamilyMemberHistory.resourceType()
                 Flag::class -> Flag.resourceType()
                 Goal::class -> Goal.resourceType()
@@ -787,8 +739,6 @@ object FhirHelper {
                 "CarePlan" -> CarePlan::class
                 "CareTeam" -> CareTeam::class
                 "ChargeItem" -> ChargeItem::class
-                "Claim" -> Claim::class
-                "ClaimResponse" -> ClaimResponse::class
                 "ClinicalImpression" -> ClinicalImpression::class
                 "CodeSystem" -> CodeSystem::class
                 "Communication" -> Communication::class
@@ -819,7 +769,6 @@ object FhirHelper {
                 "EnrollmentResponse" -> EnrollmentResponse::class
                 "EpisodeOfCare" -> EpisodeOfCare::class
                 "ExpansionProfile" -> ExpansionProfile::class
-                "ExplanationOfBenefit" -> ExplanationOfBenefit::class
                 "FamilyMemberHistory" -> FamilyMemberHistory::class
                 "Flag" -> Flag::class
                 "Goal" -> Goal::class
