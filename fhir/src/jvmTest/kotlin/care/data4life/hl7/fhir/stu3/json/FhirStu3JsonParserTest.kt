@@ -16,8 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.json
 
+import care.data4life.hl7.fhir.stu3.model.FhirHelper
 import care.data4life.hl7.fhir.stu3.model.FhirResource
-import care.data4life.hl7.fhir.stu3.model.FhirSerializationModule
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
 import care.data4life.hl7.fhir.stu3.test.data.FhirContainedTestObject
 import care.data4life.hl7.fhir.stu3.test.data.FhirResourceTestObject
@@ -49,7 +49,7 @@ class FhirStu3JsonParserTest {
         }
 
         val reader = FhirStu3JsonParser.defaultJsonReader(
-            (FhirSerializationModule.module() + fhirTestSerializersModule)
+            (FhirHelper.FhirSerializationModule.module() + fhirTestSerializersModule)
         )
 
         parser = FhirStu3JsonParser(reader)

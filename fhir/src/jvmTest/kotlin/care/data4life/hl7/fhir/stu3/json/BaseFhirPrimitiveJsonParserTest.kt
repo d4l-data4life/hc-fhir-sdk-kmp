@@ -16,7 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.json
 
-import care.data4life.hl7.fhir.stu3.model.FhirSerializationModule
+import care.data4life.hl7.fhir.stu3.model.FhirHelper
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.SerializersModule
@@ -39,7 +39,7 @@ abstract class BaseFhirPrimitiveJsonParserTest {
         }
 
         val reader = FhirStu3JsonParser.defaultJsonReader(
-            (FhirSerializationModule.module() + fhirTestSerializersModule)
+            (FhirHelper.FhirSerializationModule.module() + fhirTestSerializersModule)
         )
 
         parser = FhirStu3JsonParser(reader)
