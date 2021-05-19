@@ -45,7 +45,15 @@ package care.data4life.hl7.fhir.r4.model
     'patient-example-infant-twin-1.json':'Property _birthDate is not supported yet',
     'patient-example-newborn.json':'Property _birthDate is not supported yet',
     'patient-example-b.json':'Property _gender is not supported yet',
-    'patient-example-b.json':'Property _gender is not supported yet',
+    'activitydefinition-predecessor-example.json':'Property _event is not supported yet',
+    'activitydefinition-example.json':'Property _event is not supported yet',
+    'activitydefinition-servicerequest-example.json':'Property _event is not supported yet',
+    'plandefinition-example-kdn5-simplified.json':'Property _type is not supported yet',
+    'plandefinition-example-cardiology-os.json':'Property _event is not supported yet',
+    'plandefinition-example.json':'Property _event is not supported yet',
+    'examplescenario.profile.json':'Property _baseDefinition is not supported yet',
+    'structuredefinition-example-composition.json':'Property _profile is not supported yet',
+    'relatedperson-example.json':'Property _family is not supported yet',
 } %}
 {%- set allsuperclasses = {} %}
 {%- set codesystems = {} %}
