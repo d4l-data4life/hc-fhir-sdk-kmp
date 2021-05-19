@@ -48,99 +48,142 @@ class InvoiceTest {
         val data = parser.toFhir(Invoice::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Account/example",
-            data.account?.reference
-        )
-        assertEquals(
-            "2017-01-25T08:00:00+01:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://myHospital.org/Invoices",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "654321",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://myhospital/NamingSystem/departments",
-            data.issuer?.identifier?.system
-        )
-        assertEquals(
-            "CARD_INTERMEDIATE_CARE",
-            data.issuer?.identifier?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.participant?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "17561000",
-            data.participant?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cardiologist",
-            data.participant?.get(0)?.role?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.participant?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            InvoiceStatus.ISSUED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example of Invoice</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "EUR",
-            data.totalGross?.currency
-        )
-        assertEquals(
-            "48".toDouble(),
-            data.totalGross?.value?.value
-        )
-        assertEquals(
-            "EUR",
-            data.totalNet?.currency
-        )
-        assertEquals(
-            "40".toDouble(),
-            data.totalNet?.value?.value
-        )
+        assertInvoice01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertInvoice01Step01(data: Invoice) {
+
+        assertEquals(
+            expected = "Account/example",
+            actual = data.account?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-01-25T08:00:00+01:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://myHospital.org/Invoices",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "654321",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://myhospital/NamingSystem/departments",
+            actual = data.issuer?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CARD_INTERMEDIATE_CARE",
+            actual = data.issuer?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.participant?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17561000",
+            actual = data.participant?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cardiologist",
+            actual = data.participant?.get(0)?.role?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.participant?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = InvoiceStatus.ISSUED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example of Invoice</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "EUR",
+            actual = data.totalGross?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "48".toDouble(),
+            actual = data.totalGross?.value?.value
+        )
+
+        assertEquals(
+            expected = "EUR",
+            actual = data.totalNet?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "40".toDouble(),
+            actual = data.totalNet?.value?.value
+        )
     }
 }

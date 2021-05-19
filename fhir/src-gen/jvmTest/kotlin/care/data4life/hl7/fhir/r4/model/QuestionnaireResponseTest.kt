@@ -48,140 +48,205 @@ class QuestionnaireResponseTest {
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "#questauth",
-            data.author?.reference
-        )
-        assertEquals(
-            "2013-02-19T14:15:00-05:00",
-            data.authored?.value.toString()
-        )
-        assertEquals(
-            "#order",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "patsub",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "order",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "questauth",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "3141",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/fhir/NamingSystem/questionnaire-ids",
-            data.identifier?.system
-        )
-        assertEquals(
-            "Q12349876",
-            data.identifier?.value
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "http://cancer.questionnaire.org/system/code/yesno",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.1.1.1",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "http://cancer.questionnaire.org/system/code/yesno",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.1.1.2",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "0",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "http://cancer.questionnaire.org/system/code/yesno",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.1.1.3",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "1.1.1",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://cancer.questionnaire.org/system/code/yesno",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Procedure/f201",
-            data.partOf?.get(0)?.reference
-        )
-        assertEquals(
-            QuestionnaireResponseStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "#patsub",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertQuestionnaireResponse01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaireResponse01Step01(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "#questauth",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-02-19T14:15:00-05:00",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#order",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patsub",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "order",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "questauth",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3141",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/NamingSystem/questionnaire-ids",
+            actual = data.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Q12349876",
+            actual = data.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://cancer.questionnaire.org/system/code/yesno",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://cancer.questionnaire.org/system/code/yesno",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1.2",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://cancer.questionnaire.org/system/code/yesno",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1.3",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://cancer.questionnaire.org/system/code/yesno",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Procedure/f201",
+            actual = data.partOf?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "#patsub",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -193,2228 +258,19884 @@ class QuestionnaireResponseTest {
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2008-01-17",
-            data.authored?.value.toString()
-        )
-        assertEquals(
-            "ussg-fht-answers",
-            data.id
-        )
-        assertEquals(
-            "2008-01-17",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "0.1",
-            data.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Date Done",
-            data.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "0",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54126-8",
-            data.item?.get(1)?.definition
-        )
-        assertEquals(
-            "Annie Proband",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54125-0",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "1.1.1",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "LA3-6",
-            data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Female",
-            data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54131-8",
-            data.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "1.1.2",
-            data.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "1966-04-04",
-            data.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/21112-8",
-            data.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "1.1.3",
-            data.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Date of Birth",
-            data.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54132-6",
-            data.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "1.1.4",
-            data.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Were you born a twin?",
-            data.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54128-4",
-            data.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "1.1.5",
-            data.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Were you adopted?",
-            data.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54135-9",
-            data.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "1.1.6",
-            data.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Are your parents related to each other in any way other than marriage?",
-            data.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "[in_i]",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "inches",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.1.7.1.1",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Units",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "1.1.7.1",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "63".toDouble(),
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/8302-2",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.definition
-        )
-        assertEquals(
-            "1.1.7",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.linkId
-        )
-        assertEquals(
-            "Height",
-            data.item?.get(1)?.item?.get(0)?.item?.get(6)?.text
-        )
-        assertEquals(
-            "[lb_av]",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "pounds",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.1.8.1.1",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Units",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "1.1.8.1",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "127".toDouble(),
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/29463-7",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.definition
-        )
-        assertEquals(
-            "1.1.8",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.linkId
-        )
-        assertEquals(
-            "Weight",
-            data.item?.get(1)?.item?.get(0)?.item?.get(7)?.text
-        )
-        assertEquals(
-            "22.5".toDouble(),
-            data.item?.get(1)?.item?.get(0)?.item?.get(8)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/39156-5",
-            data.item?.get(1)?.item?.get(0)?.item?.get(8)?.definition
-        )
-        assertEquals(
-            "1.1.9",
-            data.item?.get(1)?.item?.get(0)?.item?.get(8)?.linkId
-        )
-        assertEquals(
-            "Body mass index (BMI) [Ratio]",
-            data.item?.get(1)?.item?.get(0)?.item?.get(8)?.text
-        )
-        assertEquals(
-            "LA4457-3",
-            data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "White",
-            data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54134-2",
-            data.item?.get(1)?.item?.get(0)?.item?.get(9)?.definition
-        )
-        assertEquals(
-            "1.1.10",
-            data.item?.get(1)?.item?.get(0)?.item?.get(9)?.linkId
-        )
-        assertEquals(
-            "Race",
-            data.item?.get(1)?.item?.get(0)?.item?.get(9)?.text
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "1",
-            data.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Your health information",
-            data.item?.get(1)?.text
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54114-4",
-            data.item?.get(2)?.definition
-        )
-        assertEquals(
-            "LA10405-1",
-            data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Daughter",
-            data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Susan",
-            data.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA3-6",
-            data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Female",
-            data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "17".toDouble(),
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA10415-0",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Brother",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Brian",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA2-8",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Male",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "32".toDouble(),
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA10550-4",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "-- Other Cancer",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "2.1.2.1",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Disease or Condition",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "LA10397-0",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "30-39",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "2.1.2.2",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Age at Diagnosis",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1.2",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "This family member's history of disease",
-            data.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "LA10418-4",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Sister",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Janet",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA3-6",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Female",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "36".toDouble(),
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(2)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA10536-3",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "-- Breast Cancer",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "2.1.2.1",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Disease or Condition",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "LA10397-0",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "30-39",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "2.1.2.2",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Age at Diagnosis",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1.2",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "This family member's history of disease",
-            data.item?.get(2)?.item?.get(2)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "LA10419-2",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Nephew",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Ian",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA2-8",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Male",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "16".toDouble(),
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(3)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "LA10420-0",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Niece",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Helen",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA3-6",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Female",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "15".toDouble(),
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "LA10416-8",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Father",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Donald",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA2-8",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Male",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "52".toDouble(),
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(5)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "LA10425-9",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Paternal Uncle",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Eric",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA2-8",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Male",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "56".toDouble(),
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(6)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(6)?.linkId
-        )
-        assertEquals(
-            "LA10421-8",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Paternal Aunt",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Fiona",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA3-6",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Female",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "57".toDouble(),
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54141-7",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.2.2",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Age",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.1.4.2",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA33-6",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Yes",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(7)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA10543-9",
-            data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "-- Skin Cancer",
-            data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "2.1.2.1",
-            data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Disease or Condition",
-            data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "2.1.2",
-            data.item?.get(2)?.item?.get(7)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "This family member's history of disease",
-            data.item?.get(2)?.item?.get(7)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(7)?.linkId
-        )
-        assertEquals(
-            "LA10423-4",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Paternal Grandfather",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Bob",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA2-8",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Male",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "LA10537-1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "-- Colon Cancer",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54112-8",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.1.1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Cause of Death",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "LA10400-2",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "OVER 60",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54113-6",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.1.2",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Age at Death",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1.1.4.1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA10537-1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "-- Colon Cancer",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "2.1.2.1",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Disease or Condition",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "LA10400-2",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "OVER 60",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "2.1.2.2",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Age at Diagnosis",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1.2",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "This family member's history of disease",
-            data.item?.get(2)?.item?.get(8)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(8)?.linkId
-        )
-        assertEquals(
-            "LA10424-2",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Paternal Grandmother",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54136-7",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.1",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Relationship to you",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "Claire",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54138-3",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.2",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Name",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "LA3-6",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Female",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54123-5",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.definition
-        )
-        assertEquals(
-            "2.1.1.3",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Gender",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "Lou Gehrigs",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "2.1.1.4.1.1.1",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Please specify",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "LA10589-2",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "-- Other/Unexpected",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54112-8",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.1.1",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Cause of Death",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "LA10400-2",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "OVER 60",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54113-6",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
-        )
-        assertEquals(
-            "2.1.1.4.1.2",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Age at Death",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "2.1.1.4.1",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54139-1",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.definition
-        )
-        assertEquals(
-            "2.1.1.4",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Living?",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54121-9",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.definition
-        )
-        assertEquals(
-            "2.1.1.5",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Was this person born a twin?",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "LA32-8",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "http://loinc.org/fhir/DataElement/54122-7",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.definition
-        )
-        assertEquals(
-            "2.1.1.6",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.linkId
-        )
-        assertEquals(
-            "Was this person adopted?",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.text
-        )
-        assertEquals(
-            "2.1.1",
-            data.item?.get(2)?.item?.get(9)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(2)?.item?.get(9)?.linkId
-        )
-        assertEquals(
-            "2",
-            data.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Family member health information",
-            data.item?.get(2)?.text
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Questionnaire/ussg-fht",
-            data.questionnaire
-        )
-        assertEquals(
-            QuestionnaireResponseStatus.IN_PROGRESS,
-            data.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/Patient/proband",
-            data.subject?.reference
-        )
-        assertEquals(
-            "Patient",
-            data.subject?.type
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertQuestionnaireResponse02Step01(data)
+        assertQuestionnaireResponse02Step02(data)
+        assertQuestionnaireResponse02Step03(data)
+        assertQuestionnaireResponse02Step04(data)
+        assertQuestionnaireResponse02Step05(data)
+        assertQuestionnaireResponse02Step06(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaireResponse02Step01(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ussg-fht-answers",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "0.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date Done",
+            actual = data.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54126-8",
+            actual = data.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Annie Proband",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54125-0",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54131-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1966-04-04",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/21112-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date of Birth",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54132-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you born a twin?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54128-4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you adopted?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54135-9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Are your parents related to each other in any way other than marriage?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[in_i]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inches",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "63".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/8302-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Height",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pounds",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "127".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/29463-7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "22.5".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/39156-5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body mass index (BMI) [Ratio]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA4457-3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "White",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54134-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.10",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Race",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Your health information",
+            actual = data.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54114-4",
+            actual = data.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10405-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Daughter",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Susan",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17".toDouble(),
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10415-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brother",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "32".toDouble(),
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10550-4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other Cancer",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10418-4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sister",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Janet",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36".toDouble(),
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10536-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Breast Cancer",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10419-2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nephew",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ian",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16".toDouble(),
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10420-0",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Niece",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Helen",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15".toDouble(),
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10416-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Father",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Donald",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52".toDouble(),
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10425-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Uncle",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eric",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10421-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Aunt",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiona",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10543-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Skin Cancer",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10423-4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandfather",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bob",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10424-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandmother",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Claire",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lou Gehrigs",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Please specify",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10589-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other/Unexpected",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family member health information",
+            actual = data.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Questionnaire/ussg-fht",
+            actual = data.questionnaire
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Patient/proband",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.subject?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+    }
+
+    private fun assertQuestionnaireResponse02Step02(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ussg-fht-answers",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "0.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date Done",
+            actual = data.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54126-8",
+            actual = data.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Annie Proband",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54125-0",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54131-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1966-04-04",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/21112-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date of Birth",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54132-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you born a twin?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54128-4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you adopted?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54135-9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Are your parents related to each other in any way other than marriage?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[in_i]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inches",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "63".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/8302-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Height",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pounds",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "127".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/29463-7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "22.5".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/39156-5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body mass index (BMI) [Ratio]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA4457-3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "White",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54134-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.10",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Race",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Your health information",
+            actual = data.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54114-4",
+            actual = data.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10405-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Daughter",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Susan",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17".toDouble(),
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10415-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brother",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "32".toDouble(),
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10550-4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other Cancer",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10418-4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sister",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Janet",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36".toDouble(),
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10536-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Breast Cancer",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10419-2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nephew",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ian",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16".toDouble(),
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10420-0",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Niece",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Helen",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15".toDouble(),
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10416-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Father",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Donald",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52".toDouble(),
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10425-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Uncle",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eric",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10421-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Aunt",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiona",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10543-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Skin Cancer",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10423-4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandfather",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bob",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10424-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandmother",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Claire",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lou Gehrigs",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Please specify",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10589-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other/Unexpected",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family member health information",
+            actual = data.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Questionnaire/ussg-fht",
+            actual = data.questionnaire
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Patient/proband",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.subject?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+    }
+
+    private fun assertQuestionnaireResponse02Step03(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ussg-fht-answers",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "0.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date Done",
+            actual = data.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54126-8",
+            actual = data.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Annie Proband",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54125-0",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54131-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1966-04-04",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/21112-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date of Birth",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54132-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you born a twin?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54128-4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you adopted?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54135-9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Are your parents related to each other in any way other than marriage?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[in_i]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inches",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "63".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/8302-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Height",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pounds",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "127".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/29463-7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "22.5".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/39156-5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body mass index (BMI) [Ratio]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA4457-3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "White",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54134-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.10",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Race",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Your health information",
+            actual = data.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54114-4",
+            actual = data.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10405-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Daughter",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Susan",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17".toDouble(),
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10415-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brother",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "32".toDouble(),
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10550-4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other Cancer",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10418-4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sister",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Janet",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36".toDouble(),
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10536-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Breast Cancer",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10419-2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nephew",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ian",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16".toDouble(),
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10420-0",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Niece",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Helen",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15".toDouble(),
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10416-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Father",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Donald",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52".toDouble(),
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10425-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Uncle",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eric",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10421-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Aunt",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiona",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10543-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Skin Cancer",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10423-4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandfather",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bob",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10424-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandmother",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Claire",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lou Gehrigs",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Please specify",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10589-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other/Unexpected",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family member health information",
+            actual = data.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Questionnaire/ussg-fht",
+            actual = data.questionnaire
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Patient/proband",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.subject?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+    }
+
+    private fun assertQuestionnaireResponse02Step04(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ussg-fht-answers",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "0.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date Done",
+            actual = data.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54126-8",
+            actual = data.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Annie Proband",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54125-0",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54131-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1966-04-04",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/21112-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date of Birth",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54132-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you born a twin?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54128-4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you adopted?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54135-9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Are your parents related to each other in any way other than marriage?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[in_i]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inches",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "63".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/8302-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Height",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pounds",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "127".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/29463-7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "22.5".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/39156-5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body mass index (BMI) [Ratio]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA4457-3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "White",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54134-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.10",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Race",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Your health information",
+            actual = data.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54114-4",
+            actual = data.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10405-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Daughter",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Susan",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17".toDouble(),
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10415-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brother",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "32".toDouble(),
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10550-4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other Cancer",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10418-4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sister",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Janet",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36".toDouble(),
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10536-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Breast Cancer",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10419-2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nephew",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ian",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16".toDouble(),
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10420-0",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Niece",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Helen",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15".toDouble(),
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10416-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Father",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Donald",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52".toDouble(),
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10425-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Uncle",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eric",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10421-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Aunt",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiona",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10543-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Skin Cancer",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10423-4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandfather",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bob",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10424-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandmother",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Claire",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lou Gehrigs",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Please specify",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10589-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other/Unexpected",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family member health information",
+            actual = data.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Questionnaire/ussg-fht",
+            actual = data.questionnaire
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Patient/proband",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.subject?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+    }
+
+    private fun assertQuestionnaireResponse02Step05(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ussg-fht-answers",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "0.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date Done",
+            actual = data.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54126-8",
+            actual = data.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Annie Proband",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54125-0",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54131-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1966-04-04",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/21112-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date of Birth",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54132-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you born a twin?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54128-4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you adopted?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54135-9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Are your parents related to each other in any way other than marriage?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[in_i]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inches",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "63".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/8302-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Height",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pounds",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "127".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/29463-7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "22.5".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/39156-5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body mass index (BMI) [Ratio]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA4457-3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "White",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54134-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.10",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Race",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Your health information",
+            actual = data.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54114-4",
+            actual = data.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10405-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Daughter",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Susan",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17".toDouble(),
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10415-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brother",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "32".toDouble(),
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10550-4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other Cancer",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10418-4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sister",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Janet",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36".toDouble(),
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10536-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Breast Cancer",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10419-2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nephew",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ian",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16".toDouble(),
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10420-0",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Niece",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Helen",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15".toDouble(),
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10416-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Father",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Donald",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52".toDouble(),
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10425-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Uncle",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eric",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10421-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Aunt",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiona",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10543-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Skin Cancer",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10423-4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandfather",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bob",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10424-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandmother",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Claire",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lou Gehrigs",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Please specify",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10589-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other/Unexpected",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family member health information",
+            actual = data.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Questionnaire/ussg-fht",
+            actual = data.questionnaire
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Patient/proband",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.subject?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+    }
+
+    private fun assertQuestionnaireResponse02Step06(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ussg-fht-answers",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2008-01-17",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "0.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date Done",
+            actual = data.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54126-8",
+            actual = data.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Annie Proband",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54125-0",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54131-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1966-04-04",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/21112-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date of Birth",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54132-6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you born a twin?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54128-4",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Were you adopted?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54135-9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.6",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Are your parents related to each other in any way other than marriage?",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[in_i]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inches",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "63".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/8302-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Height",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(6)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pounds",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Units",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8.1",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "127".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/29463-7",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.8",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(7)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "22.5".toDouble(),
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/39156-5",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.9",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body mass index (BMI) [Ratio]",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(8)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA4457-3",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "White",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54134-2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.10",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Race",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(9)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Your health information",
+            actual = data.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54114-4",
+            actual = data.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10405-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Daughter",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Susan",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17".toDouble(),
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10415-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brother",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "32".toDouble(),
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10550-4",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other Cancer",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10418-4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sister",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Janet",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36".toDouble(),
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10536-3",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Breast Cancer",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10397-0",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30-39",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10419-2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nephew",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ian",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16".toDouble(),
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(3)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10420-0",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Niece",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Helen",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15".toDouble(),
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10416-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Father",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Donald",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52".toDouble(),
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(5)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10425-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Uncle",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eric",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(6)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(6)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10421-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Aunt",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiona",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54141-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA33-6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10543-9",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Skin Cancer",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(7)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(7)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10423-4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandfather",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bob",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA2-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10537-1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Colon Cancer",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Disease or Condition",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Diagnosis",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This family member's history of disease",
+            actual = data.item?.get(2)?.item?.get(8)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(8)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10424-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paternal Grandmother",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54136-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Relationship to you",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Claire",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54138-3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA3-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Female",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54123-5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.3",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gender",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lou Gehrigs",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Please specify",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10589-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-- Other/Unexpected",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54112-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cause of Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA10400-2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OVER 60",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54113-6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1.2",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Age at Death",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54139-1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.4",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Living?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54121-9",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.5",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person born a twin?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA32-8",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org/fhir/DataElement/54122-7",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1.6",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Was this person adopted?",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(5)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.1",
+            actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(2)?.item?.get(9)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family member health information",
+            actual = data.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Questionnaire/ussg-fht",
+            actual = data.questionnaire
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Patient/proband",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.subject?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -2426,160 +20147,234 @@ class QuestionnaireResponseTest {
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/f201",
-            data.author?.reference
-        )
-        assertEquals(
-            "2013-06-18T00:00:00+01:00",
-            data.authored?.value.toString()
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "I am allergic to house dust",
-            data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Do you have allergies?",
-            data.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Male",
-            data.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "What is your gender?",
-            data.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "1960-03-13",
-            data.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "2.2",
-            data.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "What is your date of birth?",
-            data.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "The Netherlands",
-            data.item?.get(1)?.item?.get(2)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "2.3",
-            data.item?.get(1)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "What is your country of birth?",
-            data.item?.get(1)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "married",
-            data.item?.get(1)?.item?.get(3)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "2.4",
-            data.item?.get(1)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "What is your marital status?",
-            data.item?.get(1)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "2",
-            data.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "General questions",
-            data.item?.get(1)?.text
-        )
-        assertEquals(
-            "No",
-            data.item?.get(2)?.item?.get(0)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "3.1",
-            data.item?.get(2)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Do you smoke?",
-            data.item?.get(2)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "No, but I used to drink",
-            data.item?.get(2)?.item?.get(1)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "3.2",
-            data.item?.get(2)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Do you drink alchohol?",
-            data.item?.get(2)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "3",
-            data.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Intoxications",
-            data.item?.get(2)?.text
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.source?.reference
-        )
-        assertEquals(
-            QuestionnaireResponseStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertQuestionnaireResponse03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaireResponse03Step01(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-06-18T00:00:00+01:00",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "I am allergic to house dust",
+            actual = data.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Do you have allergies?",
+            actual = data.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your gender?",
+            actual = data.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1960-03-13",
+            actual = data.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2.2",
+            actual = data.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your date of birth?",
+            actual = data.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The Netherlands",
+            actual = data.item?.get(1)?.item?.get(2)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.3",
+            actual = data.item?.get(1)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your country of birth?",
+            actual = data.item?.get(1)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "married",
+            actual = data.item?.get(1)?.item?.get(3)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.4",
+            actual = data.item?.get(1)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your marital status?",
+            actual = data.item?.get(1)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General questions",
+            actual = data.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.item?.get(2)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Do you smoke?",
+            actual = data.item?.get(2)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No, but I used to drink",
+            actual = data.item?.get(2)?.item?.get(1)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3.2",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Do you drink alchohol?",
+            actual = data.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Intoxications",
+            actual = data.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.source?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -2591,200 +20386,289 @@ class QuestionnaireResponseTest {
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "http://hl7.org/fhir/Practitioner/example",
-            data.author?.reference
-        )
-        assertEquals(
-            "Practitioner",
-            data.author?.type
-        )
-        assertEquals(
-            "2013-02-19T14:15:00+10:00",
-            data.authored?.value.toString()
-        )
-        assertEquals(
-            "bb",
-            data.id
-        )
-        assertEquals(
-            "Cathy Jones",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "nameOfChild",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Name of child",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "f",
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "sex",
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Sex",
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "group",
-            data.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "3.25".toDouble(),
-            data.item?.get(0)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "birthWeight",
-            data.item?.get(0)?.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Birth weight (kg)",
-            data.item?.get(0)?.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "44.3".toDouble(),
-            data.item?.get(0)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "birthLength",
-            data.item?.get(0)?.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Birth length (cm)",
-            data.item?.get(0)?.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "1972-11-30",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "vitaminKDose1",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "1st dose",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "1972-12-11",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "vitaminKDose2",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "2nd dose",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "vitaminKgivenDoses",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "INJECTION",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "vitaminKgiven",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Vitamin K given",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.text
-        )
-        assertEquals(
-            "1972-12-04",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "hepBgivenDate",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Date given",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.valueBoolean?.value
-        )
-        assertEquals(
-            "hepBgiven",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Hep B given y / n",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.text
-        )
-        assertEquals(
-            "Already able to speak Chinese",
-            data.item?.get(0)?.item?.get(1)?.item?.get(4)?.answer?.get(0)?.valueString
-        )
-        assertEquals(
-            "abnormalitiesAtBirth",
-            data.item?.get(0)?.item?.get(1)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Abnormalities noted at birth",
-            data.item?.get(0)?.item?.get(1)?.item?.get(4)?.text
-        )
-        assertEquals(
-            "neonatalInformation",
-            data.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Neonatal Information",
-            data.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            "birthDetails",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Birth details - To be completed by health professional",
-            data.item?.get(0)?.text
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            QuestionnaireResponseStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/Patient/1",
-            data.subject?.reference
-        )
-        assertEquals(
-            "Patient",
-            data.subject?.type
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertQuestionnaireResponse04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaireResponse04Step01(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Practitioner/example",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner",
+            actual = data.author?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-02-19T14:15:00+10:00",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "bb",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cathy Jones",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "nameOfChild",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name of child",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "sex",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sex",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "group",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3.25".toDouble(),
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "birthWeight",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Birth weight (kg)",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "44.3".toDouble(),
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(1)?.answer?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "birthLength",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Birth length (cm)",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1972-11-30",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "vitaminKDose1",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1st dose",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1972-12-11",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "vitaminKDose2",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2nd dose",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "vitaminKgivenDoses",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "INJECTION",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "vitaminKgiven",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vitamin K given",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1972-12-04",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "hepBgivenDate",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date given",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.answer?.get(0)?.valueBoolean?.value
+        )
+
+        assertEquals(
+            expected = "hepBgiven",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hep B given y / n",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Already able to speak Chinese",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(4)?.answer?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "abnormalitiesAtBirth",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(4)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Abnormalities noted at birth",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(4)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "neonatalInformation",
+            actual = data.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Neonatal Information",
+            actual = data.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "birthDetails",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Birth details - To be completed by health professional",
+            actual = data.item?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Patient/1",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.subject?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -2796,127 +20680,183 @@ class QuestionnaireResponseTest {
         val data = parser.toFhir(QuestionnaireResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-12-11T04:44:16Z",
-            data.authored?.value.toString()
-        )
-        assertEquals(
-            "gcs",
-            data.id
-        )
-        assertEquals(
-            "LA6560-2",
-            data.item?.get(0)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Confused",
-            data.item?.get(0)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-            data.item?.get(0)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "4".toDouble(),
-            data.item?.get(0)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(0)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "LA6566-9",
-            data.item?.get(1)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Localizing pain",
-            data.item?.get(1)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-            data.item?.get(1)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "5".toDouble(),
-            data.item?.get(1)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(1)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.2",
-            data.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "LA6556-0",
-            data.item?.get(2)?.answer?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "Eyes open spontaneously",
-            data.item?.get(2)?.answer?.get(0)?.valueCoding?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-            data.item?.get(2)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "4".toDouble(),
-            data.item?.get(2)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.valueDecimal?.value
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.answer?.get(0)?.valueCoding?.system
-        )
-        assertEquals(
-            "1.3",
-            data.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Questionnaire/gcs",
-            data.questionnaire
-        )
-        assertEquals(
-            "Practitioner/f007",
-            data.source?.reference
-        )
-        assertEquals(
-            QuestionnaireResponseStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertQuestionnaireResponse05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaireResponse05Step01(data: QuestionnaireResponse) {
+
+        assertEquals(
+            expected = "2014-12-11T04:44:16Z",
+            actual = data.authored?.value.toString()
+        )
+
+        assertEquals(
+            expected = "gcs",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA6560-2",
+            actual = data.item?.get(0)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Confused",
+            actual = data.item?.get(0)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+            actual = data.item?.get(0)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4".toDouble(),
+            actual = data.item?.get(0)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(0)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA6566-9",
+            actual = data.item?.get(1)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Localizing pain",
+            actual = data.item?.get(1)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+            actual = data.item?.get(1)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5".toDouble(),
+            actual = data.item?.get(1)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.2",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA6556-0",
+            actual = data.item?.get(2)?.answer?.get(0)?.valueCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eyes open spontaneously",
+            actual = data.item?.get(2)?.answer?.get(0)?.valueCoding?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+            actual = data.item?.get(2)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4".toDouble(),
+            actual = data.item?.get(2)?.answer?.get(0)?.valueCoding?.extension?.get(0)?.valueDecimal?.value
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.answer?.get(0)?.valueCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.3",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Questionnaire/gcs",
+            actual = data.questionnaire
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f007",
+            actual = data.source?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireResponseStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

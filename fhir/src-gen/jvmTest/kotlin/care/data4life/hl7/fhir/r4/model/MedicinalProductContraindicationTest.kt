@@ -47,51 +47,74 @@ class MedicinalProductContraindicationTest {
         val data = parser.toFhir(MedicinalProductContraindication::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Hepaticdisease",
-            data.comorbidity?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/comorbidity",
-            data.comorbidity?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Coagulopathiesandbleedingdiatheses(exclthrombocytopenic)",
-            data.disease?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/contraindicationsasdisease-symptom-procedure",
-            data.disease?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Hepatic disease associated with coagulopathy and clinically relevant bleeding risk",
-            data.disease?.text
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicinalProductContraindication01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductContraindication01Step01(data: MedicinalProductContraindication) {
+
+        assertEquals(
+            expected = "Hepaticdisease",
+            actual = data.comorbidity?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/comorbidity",
+            actual = data.comorbidity?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coagulopathiesandbleedingdiatheses(exclthrombocytopenic)",
+            actual = data.disease?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/contraindicationsasdisease-symptom-procedure",
+            actual = data.disease?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hepatic disease associated with coagulopathy and clinically relevant bleeding risk",
+            actual = data.disease?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

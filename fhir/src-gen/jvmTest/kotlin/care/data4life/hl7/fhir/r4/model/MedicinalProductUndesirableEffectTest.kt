@@ -46,59 +46,86 @@ class MedicinalProductUndesirableEffectTest {
         val data = parser.toFhir(MedicinalProductUndesirableEffect::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Bloodandlymphaticsystemdisorders",
-            data.classification?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/symptom-condition-effectclassification",
-            data.classification?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Common",
-            data.frequencyOfOccurrence?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/frequencyofoccurrence",
-            data.frequencyOfOccurrence?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Anaemia",
-            data.symptomConditionEffect?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/undesirableeffectassymptom-condition-effect",
-            data.symptomConditionEffect?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Prevention of\nVTE in adult\npatients who have\nundergone\nelective hip or\nknee replacement\nsurgery (VTEp)",
-            data.symptomConditionEffect?.text
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicinalProductUndesirableEffect01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductUndesirableEffect01Step01(data: MedicinalProductUndesirableEffect) {
+
+        assertEquals(
+            expected = "Bloodandlymphaticsystemdisorders",
+            actual = data.classification?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/symptom-condition-effectclassification",
+            actual = data.classification?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Common",
+            actual = data.frequencyOfOccurrence?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/frequencyofoccurrence",
+            actual = data.frequencyOfOccurrence?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Anaemia",
+            actual = data.symptomConditionEffect?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/undesirableeffectassymptom-condition-effect",
+            actual = data.symptomConditionEffect?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Prevention of VTE in adult patients who have undergone elective hip or knee replacement surgery (VTEp)",
+            actual = data.symptomConditionEffect?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

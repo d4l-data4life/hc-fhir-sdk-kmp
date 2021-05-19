@@ -50,48 +50,68 @@ class CommunicationRequestTest {
         val data = parser.toFhir(CommunicationRequest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be filled out at a later time</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCommunicationRequest01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCommunicationRequest01Step01(data: CommunicationRequest) {
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be filled out at a later time</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -103,127 +123,184 @@ class CommunicationRequestTest {
         val data = parser.toFhir(CommunicationRequest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2016-06-10T11:01:10-08:00",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "EligibilityRequest",
-            data.basedOn?.get(0)?.display
-        )
-        assertEquals(
-            "SolicitedAttachmentRequest",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://acme.org/messagetypes",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "provider",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "payor",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "requester",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "12345",
-            data.groupIdentifier?.value
-        )
-        assertEquals(
-            "fm-solicit",
-            data.id
-        )
-        assertEquals(
-            "http://www.jurisdiction.com/insurer/123456",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "ABC123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "WRITTEN",
-            data.medium?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "written",
-            data.medium?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
-            data.medium?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "written",
-            data.medium?.get(0)?.text
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2016-06-10T11:01:10-08:00",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Please provide the accident report and any associated pictures to support your Claim# DEF5647.",
-            data.payload?.get(0)?.contentString
-        )
-        assertEquals(
-            RequestPriority.ROUTINE,
-            data.priority
-        )
-        assertEquals(
-            "#provider",
-            data.recipient?.get(0)?.reference
-        )
-        assertEquals(
-            "prior CommunicationRequest",
-            data.replaces?.get(0)?.display
-        )
-        assertEquals(
-            "#requester",
-            data.requester?.reference
-        )
-        assertEquals(
-            "#payor",
-            data.sender?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Request for Accident Report</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCommunicationRequest02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCommunicationRequest02Step01(data: CommunicationRequest) {
+
+        assertEquals(
+            expected = "2016-06-10T11:01:10-08:00",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "EligibilityRequest",
+            actual = data.basedOn?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SolicitedAttachmentRequest",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.org/messagetypes",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "payor",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "requester",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.groupIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fm-solicit",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.jurisdiction.com/insurer/123456",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ABC123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "WRITTEN",
+            actual = data.medium?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "written",
+            actual = data.medium?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+            actual = data.medium?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "written",
+            actual = data.medium?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-06-10T11:01:10-08:00",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Please provide the accident report and any associated pictures to support your Claim# DEF5647.",
+            actual = data.payload?.get(0)?.contentString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestPriority.ROUTINE,
+            actual = data.priority
+        )
+
+        assertEquals(
+            expected = "#provider",
+            actual = data.recipient?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "prior CommunicationRequest",
+            actual = data.replaces?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#requester",
+            actual = data.requester?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#payor",
+            actual = data.sender?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Request for Accident Report</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

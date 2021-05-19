@@ -49,71 +49,101 @@ class EnrollmentResponseTest {
         val data = parser.toFhir(EnrollmentResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Dependant added to policy.",
-            data.disposition
-        )
-        assertEquals(
-            "ER2500",
-            data.id
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/enrollmentresponse",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "781234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/2",
-            data.organization?.reference
-        )
-        assertEquals(
-            ClaimProcessingCodes.COMPLETE,
-            data.outcome
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/eligibility/225476332402",
-            data.request?.reference
-        )
-        assertEquals(
-            "Organization/1",
-            data.requestProvider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EnrollmentResponse</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEnrollmentResponse01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEnrollmentResponse01Step01(data: EnrollmentResponse) {
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Dependant added to policy.",
+            actual = data.disposition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ER2500",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/enrollmentresponse",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "781234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.organization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ClaimProcessingCodes.COMPLETE,
+            actual = data.outcome
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/eligibility/225476332402",
+            actual = data.request?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.requestProvider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EnrollmentResponse</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

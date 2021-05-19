@@ -53,207 +53,299 @@ class ImplementationGuideTest {
         val data = parser.toFhir(ImplementationGuide::class, sourceJson)
 
         // Then
-        assertEquals(
-            "ONC",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://www.healthit.gov",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "HL7",
-            data.contact?.get(1)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(1)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(1)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "Published by ONC under the standard FHIR license (CC0)",
-            data.copyright
-        )
-        assertEquals(
-            "2015-01-01",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Base package (not broken up into multiple packages)",
-            data.definition?.grouping?.get(0)?.description
-        )
-        assertEquals(
-            "test",
-            data.definition?.grouping?.get(0)?.name
-        )
-        assertEquals(
-            GuidePageGeneration.HTML,
-            data.definition?.page?.generation
-        )
-        assertEquals(
-            "patient-example.html",
-            data.definition?.page?.nameUrl
-        )
-        assertEquals(
-            GuidePageGeneration.HTML,
-            data.definition?.page?.page?.get(0)?.generation
-        )
-        assertEquals(
-            "list.html",
-            data.definition?.page?.page?.get(0)?.nameUrl
-        )
-        assertEquals(
-            "Value Set Page",
-            data.definition?.page?.page?.get(0)?.title
-        )
-        assertEquals(
-            "Example Patient Page",
-            data.definition?.page?.title
-        )
-        assertEquals(
-            GuideParameterCode.APPLY,
-            data.definition?.parameter?.get(0)?.code
-        )
-        assertEquals(
-            "version",
-            data.definition?.parameter?.get(0)?.value
-        )
-        assertEquals(
-            "A test example to show how an implementation guide works",
-            data.definition?.resource?.get(0)?.description
-        )
-        assertEquals(
-            "http://hl7.org/fhir/us/core/StructureDefinition/patient",
-            data.definition?.resource?.get(0)?.exampleCanonical
-        )
-        assertEquals(
-            "Test Example",
-            data.definition?.resource?.get(0)?.name
-        )
-        assertEquals(
-            "Patient/test",
-            data.definition?.resource?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ImplementationGuide/uscore",
-            data.dependsOn?.get(0)?.uri
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "4.0.1",
-            data.fhirVer?.get(0)
-        )
-        assertEquals(
-            "http://hl7.org/fhir/us/core/StructureDefinition/patient",
-            data.global?.get(0)?.profile
-        )
-        assertEquals(
-            ResourceType.PATIENT,
-            data.global?.get(0)?.type
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "CC0-1.0",
-            data.license
-        )
-        assertEquals(
-            "fhir.png",
-            data.manifest?.image?.get(0)
-        )
-        assertEquals(
-            "fhir.css",
-            data.manifest?.other?.get(0)
-        )
-        assertEquals(
-            "patient-test",
-            data.manifest?.page?.get(0)?.anchor?.get(0)
-        )
-        assertEquals(
-            "tx",
-            data.manifest?.page?.get(0)?.anchor?.get(1)
-        )
-        assertEquals(
-            "uml",
-            data.manifest?.page?.get(0)?.anchor?.get(2)
-        )
-        assertEquals(
-            "patient-test.html",
-            data.manifest?.page?.get(0)?.name
-        )
-        assertEquals(
-            "Test Patient Example",
-            data.manifest?.page?.get(0)?.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/us/daf",
-            data.manifest?.rendering
-        )
-        assertEquals(
-            "http://hl7.org/fhir/us/core/StructureDefinition/patient",
-            data.manifest?.resource?.get(0)?.exampleCanonical
-        )
-        assertEquals(
-            "Patient/test",
-            data.manifest?.resource?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "patient-test.html#patient-test",
-            data.manifest?.resource?.get(0)?.relativePath
-        )
-        assertEquals(
-            "Data Access Framework (DAF)",
-            data.name
-        )
-        assertEquals(
-            "hl7.fhir.us.daf",
-            data.packageId
-        )
-        assertEquals(
-            "ONC / HL7 Joint project",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/us/daf",
-            data.url
-        )
-        assertEquals(
-            "0",
-            data.version
-        )
+        assertImplementationGuide01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImplementationGuide01Step01(data: ImplementationGuide) {
+
+        assertEquals(
+            expected = "ONC",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://www.healthit.gov",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7",
+            actual = data.contact?.get(1)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(1)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(1)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Published by ONC under the standard FHIR license (CC0)",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-01-01",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Base package (not broken up into multiple packages)",
+            actual = data.definition?.grouping?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test",
+            actual = data.definition?.grouping?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = GuidePageGeneration.HTML,
+            actual = data.definition?.page?.generation
+        )
+
+        assertEquals(
+            expected = "patient-example.html",
+            actual = data.definition?.page?.nameUrl
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = GuidePageGeneration.HTML,
+            actual = data.definition?.page?.page?.get(0)?.generation
+        )
+
+        assertEquals(
+            expected = "list.html",
+            actual = data.definition?.page?.page?.get(0)?.nameUrl
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Value Set Page",
+            actual = data.definition?.page?.page?.get(0)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Example Patient Page",
+            actual = data.definition?.page?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = GuideParameterCode.APPLY,
+            actual = data.definition?.parameter?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = "version",
+            actual = data.definition?.parameter?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "A test example to show how an implementation guide works",
+            actual = data.definition?.resource?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/us/core/StructureDefinition/patient",
+            actual = data.definition?.resource?.get(0)?.exampleCanonical
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Test Example",
+            actual = data.definition?.resource?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/test",
+            actual = data.definition?.resource?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ImplementationGuide/uscore",
+            actual = data.dependsOn?.get(0)?.uri
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.fhirVer?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/us/core/StructureDefinition/patient",
+            actual = data.global?.get(0)?.profile
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.global?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CC0-1.0",
+            actual = data.license
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fhir.png",
+            actual = data.manifest?.image?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fhir.css",
+            actual = data.manifest?.other?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-test",
+            actual = data.manifest?.page?.get(0)?.anchor?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "tx",
+            actual = data.manifest?.page?.get(0)?.anchor?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "uml",
+            actual = data.manifest?.page?.get(0)?.anchor?.get(2)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-test.html",
+            actual = data.manifest?.page?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Test Patient Example",
+            actual = data.manifest?.page?.get(0)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/us/daf",
+            actual = data.manifest?.rendering
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/us/core/StructureDefinition/patient",
+            actual = data.manifest?.resource?.get(0)?.exampleCanonical
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/test",
+            actual = data.manifest?.resource?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-test.html#patient-test",
+            actual = data.manifest?.resource?.get(0)?.relativePath
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Data Access Framework (DAF)",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "hl7.fhir.us.daf",
+            actual = data.packageId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ONC / HL7 Joint project",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/us/daf",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 }

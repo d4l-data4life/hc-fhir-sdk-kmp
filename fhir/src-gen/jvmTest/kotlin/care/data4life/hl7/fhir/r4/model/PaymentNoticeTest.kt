@@ -48,99 +48,142 @@ class PaymentNoticeTest {
         val data = parser.toFhir(PaymentNotice::class, sourceJson)
 
         // Then
-        assertEquals(
-            "USD",
-            data.amount?.currency
-        )
-        assertEquals(
-            "12500.0".toDouble(),
-            data.amount?.value?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "77654",
-            data.id
-        )
-        assertEquals(
-            "http://benefitsinc.com/paymentnotice",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "776543",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/1",
-            data.payee?.reference
-        )
-        assertEquals(
-            "PaymentReconciliation/ER2500",
-            data.payment?.reference
-        )
-        assertEquals(
-            "2014-08-15",
-            data.paymentDate?.value.toString()
-        )
-        assertEquals(
-            "paid",
-            data.paymentStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/paymentstatus",
-            data.paymentStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            "http://regulators.gov",
-            data.recipient?.identifier?.system
-        )
-        assertEquals(
-            "AB123",
-            data.recipient?.identifier?.value
-        )
-        assertEquals(
-            "http://benefitsinc.com/fhir/claim/12345",
-            data.request?.reference
-        )
-        assertEquals(
-            "http://benefitsinc.com/fhir/claimresponse/CR12345",
-            data.response?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the PaymentNotice</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPaymentNotice01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPaymentNotice01Step01(data: PaymentNotice) {
+
+        assertEquals(
+            expected = "USD",
+            actual = data.amount?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12500.0".toDouble(),
+            actual = data.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "77654",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://benefitsinc.com/paymentnotice",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "776543",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.payee?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PaymentReconciliation/ER2500",
+            actual = data.payment?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-08-15",
+            actual = data.paymentDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "paid",
+            actual = data.paymentStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/paymentstatus",
+            actual = data.paymentStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://regulators.gov",
+            actual = data.recipient?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AB123",
+            actual = data.recipient?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://benefitsinc.com/fhir/claim/12345",
+            actual = data.request?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://benefitsinc.com/fhir/claimresponse/CR12345",
+            actual = data.response?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the PaymentNotice</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

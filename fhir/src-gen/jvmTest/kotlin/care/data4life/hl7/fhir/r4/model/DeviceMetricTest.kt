@@ -51,107 +51,150 @@ class DeviceMetricTest {
         val data = parser.toFhir(DeviceMetric::class, sourceJson)
 
         // Then
-        assertEquals(
-            DeviceMetricCalibrationState.CALIBRATED,
-            data.calibration?.get(0)?.state
-        )
-        assertEquals(
-            "2016-12-28T09:03:04-05:00",
-            data.calibration?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            DeviceMetricCalibrationType.TWO_POINT,
-            data.calibration?.get(0)?.type
-        )
-        assertEquals(
-            DeviceMetricCategory.MEASUREMENT,
-            data.category
-        )
-        assertEquals(
-            DeviceMetricColor.BLUE,
-            data.color
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://goodcare.org/devicemetric/id",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "345675",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.measurementPeriod?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.measurementPeriod?.repeat?.period?.value
-        )
-        assertEquals(
-            "s",
-            data.measurementPeriod?.repeat?.periodUnit
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            DeviceMetricOperationalStatus.ON,
-            data.operationalStatus
-        )
-        assertEquals(
-            "DeviceDefinition/dc102",
-            data.parent?.reference
-        )
-        assertEquals(
-            "Device/dev1",
-            data.source?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "150456",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "MDC_PULS_OXIM_SAT_O2",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:iso:std:iso:11073:10101",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "262688",
-            data.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "MDC_DIM_PERCENT",
-            data.unit?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:iso:std:iso:11073:10101",
-            data.unit?.coding?.get(0)?.system
-        )
+        assertDeviceMetric01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDeviceMetric01Step01(data: DeviceMetric) {
+
+        assertEquals(
+            expected = DeviceMetricCalibrationState.CALIBRATED,
+            actual = data.calibration?.get(0)?.state
+        )
+
+        assertEquals(
+            expected = "2016-12-28T09:03:04-05:00",
+            actual = data.calibration?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = DeviceMetricCalibrationType.TWO_POINT,
+            actual = data.calibration?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = DeviceMetricCategory.MEASUREMENT,
+            actual = data.category
+        )
+
+        assertEquals(
+            expected = DeviceMetricColor.BLUE,
+            actual = data.color
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodcare.org/devicemetric/id",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "345675",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.measurementPeriod?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.measurementPeriod?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "s",
+            actual = data.measurementPeriod?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DeviceMetricOperationalStatus.ON,
+            actual = data.operationalStatus
+        )
+
+        assertEquals(
+            expected = "DeviceDefinition/dc102",
+            actual = data.parent?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device/dev1",
+            actual = data.source?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "150456",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MDC_PULS_OXIM_SAT_O2",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:11073:10101",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "262688",
+            actual = data.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MDC_DIM_PERCENT",
+            actual = data.unit?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:11073:10101",
+            actual = data.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

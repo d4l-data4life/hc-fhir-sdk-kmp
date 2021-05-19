@@ -54,332 +54,475 @@ class ActivityDefinitionTest {
         val data = parser.toFhir(ActivityDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2016-03-12",
-            data.approvalDate?.value.toString()
-        )
-        assertEquals(
-            "Motive Medical Intelligence",
-            data.author?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.author?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.author?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "415-362-4007",
-            data.author?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.author?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.author?.get(0)?.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "info@motivemi.com",
-            data.author?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            "306206005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Referral to service (procedure)",
-            data.code?.text
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "415-362-4007",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "info@motivemi.com",
-            data.contact?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            "© Copyright 2016 Motive Medical Intelligence. All rights reserved.",
-            data.copyright
-        )
-        assertEquals(
-            "2017-03-03T14:06:00Z",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now",
-            data.description
-        )
-        assertEquals(
-            "2017-12-31",
-            data.effectivePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2016-01-01",
-            data.effectivePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "referralPrimaryCareMentalHealth-initial",
-            data.id
-        )
-        assertEquals(
-            "http://motivemi.com/artifacts",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "referralPrimaryCareMentalHealth",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            RequestResourceType.SERVICEREQUEST,
-            data.kind
-        )
-        assertEquals(
-            "2016-08-15",
-            data.lastReviewDate?.value.toString()
-        )
-        assertEquals(
-            "ReferralPrimaryCareMentalHealth",
-            data.name
-        )
-        assertEquals(
-            ActionParticipantType.PRACTITIONER,
-            data.participant?.get(0)?.type
-        )
-        assertEquals(
-            "Motive Medical Intelligence",
-            data.publisher
-        )
-        assertEquals(
-            "Practice Guideline for the Treatment of Patients with Major Depressive Disorder",
-            data.relatedArtifact?.get(0)?.display
-        )
-        assertEquals(
-            RelatedArtifactType.CITATION,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf",
-            data.relatedArtifact?.get(0)?.url
-        )
-        assertEquals(
-            "ActivityDefinition/referralPrimaryCareMentalHealth",
-            data.relatedArtifact?.get(1)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.SUCCESSOR,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            PublicationStatus.RETIRED,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Referral to Primary Care Mental Health",
-            data.title
-        )
-        assertEquals(
-            "Mental Health Referral",
-            data.topic?.get(0)?.text
-        )
-        assertEquals(
-            "http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealth",
-            data.url
-        )
-        assertEquals(
-            "age",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "D000328",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Adult",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://meshb.nlm.nih.gov",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(1)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(1)?.code?.system
-        )
-        assertEquals(
-            "87512008",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mild major depression",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(2)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(2)?.code?.system
-        )
-        assertEquals(
-            "40379007",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Major depression, recurrent, mild",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(3)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(3)?.code?.system
-        )
-        assertEquals(
-            "225444004",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "At risk for suicide (finding)",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(4)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(4)?.code?.system
-        )
-        assertEquals(
-            "306206005",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Referral to service (procedure)",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "user",
-            data.useContext?.get(5)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(5)?.code?.system
-        )
-        assertEquals(
-            "309343006",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Physician",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "venue",
-            data.useContext?.get(6)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(6)?.code?.system
-        )
-        assertEquals(
-            "440655000",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Outpatient environment",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.0.0",
-            data.version
-        )
+        assertActivityDefinition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertActivityDefinition01Step01(data: ActivityDefinition) {
+
+        assertEquals(
+            expected = "2016-03-12",
+            actual = data.approvalDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Motive Medical Intelligence",
+            actual = data.author?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.author?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.author?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "415-362-4007",
+            actual = data.author?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.author?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.author?.get(0)?.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "info@motivemi.com",
+            actual = data.author?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306206005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral to service (procedure)",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "415-362-4007",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "info@motivemi.com",
+            actual = data.contact?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "© Copyright 2016 Motive Medical Intelligence. All rights reserved.",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-03T14:06:00Z",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-12-31",
+            actual = data.effectivePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2016-01-01",
+            actual = data.effectivePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "referralPrimaryCareMentalHealth-initial",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://motivemi.com/artifacts",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "referralPrimaryCareMentalHealth",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestResourceType.SERVICEREQUEST,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "2016-08-15",
+            actual = data.lastReviewDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ReferralPrimaryCareMentalHealth",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionParticipantType.PRACTITIONER,
+            actual = data.participant?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Motive Medical Intelligence",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practice Guideline for the Treatment of Patients with Major Depressive Disorder",
+            actual = data.relatedArtifact?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.CITATION,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf",
+            actual = data.relatedArtifact?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ActivityDefinition/referralPrimaryCareMentalHealth",
+            actual = data.relatedArtifact?.get(1)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.SUCCESSOR,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.RETIRED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Referral to Primary Care Mental Health",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mental Health Referral",
+            actual = data.topic?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealth",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "age",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "D000328",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://meshb.nlm.nih.gov",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(1)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(1)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "87512008",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mild major depression",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(2)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(2)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "40379007",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Major depression, recurrent, mild",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(3)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(3)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "225444004",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "At risk for suicide (finding)",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(4)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(4)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306206005",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral to service (procedure)",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "user",
+            actual = data.useContext?.get(5)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(5)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "309343006",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Physician",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "venue",
+            actual = data.useContext?.get(6)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(6)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "440655000",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Outpatient environment",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.0.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -391,416 +534,616 @@ class ActivityDefinitionTest {
         val data = parser.toFhir(ActivityDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2016-03-12",
-            data.approvalDate?.value.toString()
-        )
-        assertEquals(
-            "Motive Medical Intelligence",
-            data.author?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.author?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.author?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "415-362-4007",
-            data.author?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.author?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.author?.get(0)?.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "info@motivemi.com",
-            data.author?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "415-362-4007",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "info@motivemi.com",
-            data.contact?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            "citalopramMedication",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "citalopramSubstance",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "© Copyright 2016 Motive Medical Intelligence. All rights reserved.",
-            data.copyright
-        )
-        assertEquals(
-            "2015-08-15",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills",
-            data.description
-        )
-        assertEquals(
-            "{tbl}",
-            data.dosage?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.dosage?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.value?.value
-        )
-        assertEquals(
-            "ordered",
-            data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Ordered",
-            data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/dose-rate-type",
-            data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "26643006",
-            data.dosage?.get(0)?.route?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Oral route (qualifier value)",
-            data.dosage?.get(0)?.route?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "Oral route (qualifier value)",
-            data.dosage?.get(0)?.route?.text
-        )
-        assertEquals(
-            "1 tablet oral 1 time daily",
-            data.dosage?.get(0)?.text
-        )
-        assertEquals(
-            "1".toLong(),
-            data.dosage?.get(0)?.timing?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.dosage?.get(0)?.timing?.repeat?.period?.value
-        )
-        assertEquals(
-            "d",
-            data.dosage?.get(0)?.timing?.repeat?.periodUnit
-        )
-        assertEquals(
-            "dispenseRequest.numberOfRepeatsAllowed is three (3)",
-            data.dynamicValue?.get(0)?.expression?.description
-        )
-        assertEquals(
-            "3",
-            data.dynamicValue?.get(0)?.expression?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.dynamicValue?.get(0)?.expression?.language
-        )
-        assertEquals(
-            "dispenseRequest.numberOfRepeatsAllowed",
-            data.dynamicValue?.get(0)?.path
-        )
-        assertEquals(
-            "dispenseRequest.quantity is thirty (30) tablets",
-            data.dynamicValue?.get(1)?.expression?.description
-        )
-        assertEquals(
-            "30 '{tbl}'",
-            data.dynamicValue?.get(1)?.expression?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.dynamicValue?.get(1)?.expression?.language
-        )
-        assertEquals(
-            "dispenseRequest.quantity",
-            data.dynamicValue?.get(1)?.path
-        )
-        assertEquals(
-            "2017-12-31",
-            data.effectivePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2016-01-01",
-            data.effectivePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "citalopramPrescription",
-            data.id
-        )
-        assertEquals(
-            "http://motivemi.com",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "citalopramPrescription",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            RequestResourceType.MEDICATIONREQUEST,
-            data.kind
-        )
-        assertEquals(
-            "2016-08-15",
-            data.lastReviewDate?.value.toString()
-        )
-        assertEquals(
-            "CitalopramPrescription",
-            data.name
-        )
-        assertEquals(
-            "#citalopramMedication",
-            data.productReference?.reference
-        )
-        assertEquals(
-            "Motive Medical Intelligence",
-            data.publisher
-        )
-        assertEquals(
-            "Defines a guideline supported prescription for the treatment of depressive disorders",
-            data.purpose
-        )
-        assertEquals(
-            "Practice Guideline for the Treatment of Patients with Major Depressive Disorder",
-            data.relatedArtifact?.get(0)?.display
-        )
-        assertEquals(
-            RelatedArtifactType.CITATION,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf",
-            data.relatedArtifact?.get(0)?.url
-        )
-        assertEquals(
-            "#citalopramMedication",
-            data.relatedArtifact?.get(1)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Citalopram Prescription",
-            data.title
-        )
-        assertEquals(
-            "Mental Health Treatment",
-            data.topic?.get(0)?.text
-        )
-        assertEquals(
-            "http://motivemi.com/artifacts/ActivityDefinition/citalopramPrescription",
-            data.url
-        )
-        assertEquals(
-            "This activity definition is used as part of various suicide risk order sets",
-            data.usage
-        )
-        assertEquals(
-            "age",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "D000328",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Adult",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://meshb.nlm.nih.gov",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(1)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(1)?.code?.system
-        )
-        assertEquals(
-            "87512008",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mild major depression",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(2)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(2)?.code?.system
-        )
-        assertEquals(
-            "40379007",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Major depression, recurrent, mild",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(3)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(3)?.code?.system
-        )
-        assertEquals(
-            "225444004",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "At risk for suicide (finding)",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(4)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(4)?.code?.system
-        )
-        assertEquals(
-            "306206005",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Referral to service (procedure)",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "user",
-            data.useContext?.get(5)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(5)?.code?.system
-        )
-        assertEquals(
-            "309343006",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Physician",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "venue",
-            data.useContext?.get(6)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(6)?.code?.system
-        )
-        assertEquals(
-            "440655000",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Outpatient environment",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.0.0",
-            data.version
-        )
+        assertActivityDefinition02Step01(data)
+        assertActivityDefinition02Step02(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertActivityDefinition02Step01(data: ActivityDefinition) {
+
+        assertEquals(
+            expected = "2016-03-12",
+            actual = data.approvalDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Motive Medical Intelligence",
+            actual = data.author?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.author?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.author?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "415-362-4007",
+            actual = data.author?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.author?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.author?.get(0)?.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "info@motivemi.com",
+            actual = data.author?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "415-362-4007",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "info@motivemi.com",
+            actual = data.contact?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "citalopramMedication",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "citalopramSubstance",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "© Copyright 2016 Motive Medical Intelligence. All rights reserved.",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-15",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "{tbl}",
+            actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "ordered",
+            actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ordered",
+            actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+            actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "26643006",
+            actual = data.dosage?.get(0)?.route?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Oral route (qualifier value)",
+            actual = data.dosage?.get(0)?.route?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Oral route (qualifier value)",
+            actual = data.dosage?.get(0)?.route?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1 tablet oral 1 time daily",
+            actual = data.dosage?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.dosage?.get(0)?.timing?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.dosage?.get(0)?.timing?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.dosage?.get(0)?.timing?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dispenseRequest.numberOfRepeatsAllowed is three (3)",
+            actual = data.dynamicValue?.get(0)?.expression?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3",
+            actual = data.dynamicValue?.get(0)?.expression?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.dynamicValue?.get(0)?.expression?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dispenseRequest.numberOfRepeatsAllowed",
+            actual = data.dynamicValue?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dispenseRequest.quantity is thirty (30) tablets",
+            actual = data.dynamicValue?.get(1)?.expression?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30 '{tbl}'",
+            actual = data.dynamicValue?.get(1)?.expression?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.dynamicValue?.get(1)?.expression?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dispenseRequest.quantity",
+            actual = data.dynamicValue?.get(1)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-12-31",
+            actual = data.effectivePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2016-01-01",
+            actual = data.effectivePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "citalopramPrescription",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://motivemi.com",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "citalopramPrescription",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestResourceType.MEDICATIONREQUEST,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "2016-08-15",
+            actual = data.lastReviewDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "CitalopramPrescription",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#citalopramMedication",
+            actual = data.productReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Motive Medical Intelligence",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Defines a guideline supported prescription for the treatment of depressive disorders",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practice Guideline for the Treatment of Patients with Major Depressive Disorder",
+            actual = data.relatedArtifact?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.CITATION,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf",
+            actual = data.relatedArtifact?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#citalopramMedication",
+            actual = data.relatedArtifact?.get(1)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Citalopram Prescription",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mental Health Treatment",
+            actual = data.topic?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://motivemi.com/artifacts/ActivityDefinition/citalopramPrescription",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This activity definition is used as part of various suicide risk order sets",
+            actual = data.usage
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "age",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "D000328",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://meshb.nlm.nih.gov",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(1)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(1)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "87512008",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mild major depression",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(2)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(2)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "40379007",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Major depression, recurrent, mild",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(3)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(3)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "225444004",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "At risk for suicide (finding)",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(4)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(4)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306206005",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral to service (procedure)",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "user",
+            actual = data.useContext?.get(5)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(5)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "309343006",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Physician",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "venue",
+            actual = data.useContext?.get(6)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(6)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "440655000",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Outpatient environment",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.0.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
+    }
+
+    private fun assertActivityDefinition02Step02(data: ActivityDefinition) {
+
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.0.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -812,332 +1155,475 @@ class ActivityDefinitionTest {
         val data = parser.toFhir(ActivityDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2017-03-01",
-            data.approvalDate?.value.toString()
-        )
-        assertEquals(
-            "Motive Medical Intelligence",
-            data.author?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.author?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.author?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "415-362-4007",
-            data.author?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.author?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.author?.get(0)?.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "info@motivemi.com",
-            data.author?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            "306206005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Referral to service (procedure)",
-            data.code?.text
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "415-362-4007",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "info@motivemi.com",
-            data.contact?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            "© Copyright 2016 Motive Medical Intelligence. All rights reserved.",
-            data.copyright
-        )
-        assertEquals(
-            "2017-03-03T14:06:00Z",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now",
-            data.description
-        )
-        assertEquals(
-            "2017-12-31",
-            data.effectivePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-03-01",
-            data.effectivePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "referralPrimaryCareMentalHealth",
-            data.id
-        )
-        assertEquals(
-            "http://motivemi.com/artifacts",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "referralPrimaryCareMentalHealth",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            RequestResourceType.SERVICEREQUEST,
-            data.kind
-        )
-        assertEquals(
-            "2017-03-01",
-            data.lastReviewDate?.value.toString()
-        )
-        assertEquals(
-            "ReferralPrimaryCareMentalHealth",
-            data.name
-        )
-        assertEquals(
-            ActionParticipantType.PRACTITIONER,
-            data.participant?.get(0)?.type
-        )
-        assertEquals(
-            "Motive Medical Intelligence",
-            data.publisher
-        )
-        assertEquals(
-            "Practice Guideline for the Treatment of Patients with Major Depressive Disorder",
-            data.relatedArtifact?.get(0)?.display
-        )
-        assertEquals(
-            RelatedArtifactType.CITATION,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf",
-            data.relatedArtifact?.get(0)?.url
-        )
-        assertEquals(
-            "ActivityDefinition/referralPrimaryCareMentalHealth-initial",
-            data.relatedArtifact?.get(1)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.PREDECESSOR,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Referral to Primary Care Mental Health",
-            data.title
-        )
-        assertEquals(
-            "Mental Health Referral",
-            data.topic?.get(0)?.text
-        )
-        assertEquals(
-            "http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealth",
-            data.url
-        )
-        assertEquals(
-            "age",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "D000328",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Adult",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://meshb.nlm.nih.gov",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(1)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(1)?.code?.system
-        )
-        assertEquals(
-            "87512008",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mild major depression",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(2)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(2)?.code?.system
-        )
-        assertEquals(
-            "40379007",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Major depression, recurrent, mild",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(3)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(3)?.code?.system
-        )
-        assertEquals(
-            "225444004",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "At risk for suicide (finding)",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(4)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(4)?.code?.system
-        )
-        assertEquals(
-            "306206005",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Referral to service (procedure)",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "user",
-            data.useContext?.get(5)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(5)?.code?.system
-        )
-        assertEquals(
-            "309343006",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Physician",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "venue",
-            data.useContext?.get(6)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(6)?.code?.system
-        )
-        assertEquals(
-            "440655000",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Outpatient environment",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.1.0",
-            data.version
-        )
+        assertActivityDefinition03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertActivityDefinition03Step01(data: ActivityDefinition) {
+
+        assertEquals(
+            expected = "2017-03-01",
+            actual = data.approvalDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Motive Medical Intelligence",
+            actual = data.author?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.author?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.author?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "415-362-4007",
+            actual = data.author?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.author?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.author?.get(0)?.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "info@motivemi.com",
+            actual = data.author?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306206005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral to service (procedure)",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "415-362-4007",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "info@motivemi.com",
+            actual = data.contact?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "© Copyright 2016 Motive Medical Intelligence. All rights reserved.",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-03T14:06:00Z",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-12-31",
+            actual = data.effectivePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-03-01",
+            actual = data.effectivePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "referralPrimaryCareMentalHealth",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://motivemi.com/artifacts",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "referralPrimaryCareMentalHealth",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestResourceType.SERVICEREQUEST,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "2017-03-01",
+            actual = data.lastReviewDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ReferralPrimaryCareMentalHealth",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionParticipantType.PRACTITIONER,
+            actual = data.participant?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Motive Medical Intelligence",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practice Guideline for the Treatment of Patients with Major Depressive Disorder",
+            actual = data.relatedArtifact?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.CITATION,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf",
+            actual = data.relatedArtifact?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ActivityDefinition/referralPrimaryCareMentalHealth-initial",
+            actual = data.relatedArtifact?.get(1)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.PREDECESSOR,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Referral to Primary Care Mental Health",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mental Health Referral",
+            actual = data.topic?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealth",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "age",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "D000328",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://meshb.nlm.nih.gov",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(1)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(1)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "87512008",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mild major depression",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(2)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(2)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "40379007",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Major depression, recurrent, mild",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(3)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(3)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "225444004",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "At risk for suicide (finding)",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(4)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(4)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306206005",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral to service (procedure)",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "user",
+            actual = data.useContext?.get(5)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(5)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "309343006",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Physician",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "venue",
+            actual = data.useContext?.get(6)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(6)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "440655000",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Outpatient environment",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1149,148 +1635,216 @@ class ActivityDefinitionTest {
         val data = parser.toFhir(ActivityDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "17401000",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Heart valve structure",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "34068001",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Heart valve replacement",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Heart valve replacement",
-            data.description
-        )
-        assertEquals(
-            "heart-valve-replacement",
-            data.id
-        )
-        assertEquals(
-            RequestResourceType.SERVICEREQUEST,
-            data.kind
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "207RI0011X",
-            data.participant?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Interventional Cardiology",
-            data.participant?.get(0)?.role?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://nucc.org/provider-taxonomy",
-            data.participant?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Interventional Cardiology",
-            data.participant?.get(0)?.role?.text
-        )
-        assertEquals(
-            ActionParticipantType.PRACTITIONER,
-            data.participant?.get(0)?.type
-        )
-        assertEquals(
-            "Describes the proposal to perform a Heart Valve replacement.",
-            data.purpose
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "34068001",
-            data.topic?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Heart valve replacement",
-            data.topic?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.topic?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "age",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "D000328",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Adult",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://meshb.nlm.nih.gov",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "user",
-            data.useContext?.get(1)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(1)?.code?.system
-        )
-        assertEquals(
-            "309343006",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Physician",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
+        assertActivityDefinition04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertActivityDefinition04Step01(data: ActivityDefinition) {
+
+        assertEquals(
+            expected = "17401000",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Heart valve structure",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "34068001",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Heart valve replacement",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Heart valve replacement",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "heart-valve-replacement",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestResourceType.SERVICEREQUEST,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "207RI0011X",
+            actual = data.participant?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Interventional Cardiology",
+            actual = data.participant?.get(0)?.role?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://nucc.org/provider-taxonomy",
+            actual = data.participant?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Interventional Cardiology",
+            actual = data.participant?.get(0)?.role?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionParticipantType.PRACTITIONER,
+            actual = data.participant?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Describes the proposal to perform a Heart Valve replacement.",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "34068001",
+            actual = data.topic?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Heart valve replacement",
+            actual = data.topic?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.topic?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "age",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "D000328",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://meshb.nlm.nih.gov",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "user",
+            actual = data.useContext?.get(1)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(1)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "309343006",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Physician",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1302,63 +1856,89 @@ class ActivityDefinitionTest {
         val data = parser.toFhir(ActivityDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "BlueTubes",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Blood collect tubes blue cap",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "10 Blood collect tubes blue cap",
-            data.description
-        )
-        assertEquals(
-            "blood-tubes-supply",
-            data.id
-        )
-        assertEquals(
-            RequestResourceType.SUPPLYREQUEST,
-            data.kind
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Describes a request for 10 Blood collection tubes with blue caps.",
-            data.purpose
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.quantity?.value?.value
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "StructureMap/supplyrequest-transform",
-            data.transform
-        )
+        assertActivityDefinition05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertActivityDefinition05Step01(data: ActivityDefinition) {
+
+        assertEquals(
+            expected = "BlueTubes",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blood collect tubes blue cap",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "10 Blood collect tubes blue cap",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "blood-tubes-supply",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestResourceType.SUPPLYREQUEST,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Describes a request for 10 Blood collection tubes with blue caps.",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "10".toDouble(),
+            actual = data.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "StructureMap/supplyrequest-transform",
+            actual = data.transform
+                ?.replace("\n", " ")
+        )
     }
 }

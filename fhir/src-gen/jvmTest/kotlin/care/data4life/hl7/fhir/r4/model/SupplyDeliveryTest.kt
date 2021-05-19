@@ -47,84 +47,120 @@ class SupplyDeliveryTest {
         val data = parser.toFhir(SupplyDelivery::class, sourceJson)
 
         // Then
-        assertEquals(
-            "SupplyRequest/simpleorder",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "Location 1",
-            data.destination?.display
-        )
-        assertEquals(
-            "simpledelivery",
-            data.id
-        )
-        assertEquals(
-            "Order10284",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2016-12-31",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Central Supply Restock",
-            data.partOf?.get(0)?.display
-        )
-        assertEquals(
-            SupplyDeliveryStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "BlueTubes",
-            data.suppliedItem?.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Blood collect tubes blue cap",
-            data.suppliedItem?.itemCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.suppliedItem?.quantity?.value?.value
-        )
-        assertEquals(
-            "Vendor1",
-            data.supplier?.display
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "device",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/supply-item-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Blood collect tubes blue cap",
-            data.type?.text
-        )
+        assertSupplyDelivery01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSupplyDelivery01Step01(data: SupplyDelivery) {
+
+        assertEquals(
+            expected = "SupplyRequest/simpleorder",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location 1",
+            actual = data.destination?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "simpledelivery",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Order10284",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-12-31",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Central Supply Restock",
+            actual = data.partOf?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SupplyDeliveryStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "BlueTubes",
+            actual = data.suppliedItem?.itemCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blood collect tubes blue cap",
+            actual = data.suppliedItem?.itemCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "10".toDouble(),
+            actual = data.suppliedItem?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "Vendor1",
+            actual = data.supplier?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "device",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/supply-item-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blood collect tubes blue cap",
+            actual = data.type?.text
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -136,63 +172,91 @@ class SupplyDeliveryTest {
         val data = parser.toFhir(SupplyDelivery::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Home care dept",
-            data.destination?.display
-        )
-        assertEquals(
-            "pumpdelivery",
-            data.id
-        )
-        assertEquals(
-            "SupplierDeliveryNr",
-            data.identifier?.get(0)?.assigner?.display
-        )
-        assertEquals(
-            "98398459409",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Mr. Belpit",
-            data.patient?.display
-        )
-        assertEquals(
-            "Nurse Smith",
-            data.receiver?.get(0)?.display
-        )
-        assertEquals(
-            SupplyDeliveryStatus.IN_PROGRESS,
-            data.status
-        )
-        assertEquals(
-            "ACME distribution",
-            data.supplier?.display
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSupplyDelivery02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSupplyDelivery02Step01(data: SupplyDelivery) {
+
+        assertEquals(
+            expected = "Home care dept",
+            actual = data.destination?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pumpdelivery",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SupplierDeliveryNr",
+            actual = data.identifier?.get(0)?.assigner?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "98398459409",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mr. Belpit",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nurse Smith",
+            actual = data.receiver?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SupplyDeliveryStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "ACME distribution",
+            actual = data.supplier?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

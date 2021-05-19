@@ -56,152 +56,219 @@ class CompositionTest {
         val data = parser.toFhir(Composition::class, sourceJson)
 
         // Then
-        assertEquals(
-            CompositionAttestationMode.LEGAL,
-            data.attester?.get(0)?.mode
-        )
-        assertEquals(
-            "Harold Hippocrates, MD",
-            data.attester?.get(0)?.party?.display
-        )
-        assertEquals(
-            "Practitioner/xcda-author",
-            data.attester?.get(0)?.party?.reference
-        )
-        assertEquals(
-            "2012-01-04T09:10:14Z",
-            data.attester?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Harold Hippocrates, MD",
-            data.author?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/xcda-author",
-            data.author?.get(0)?.reference
-        )
-        assertEquals(
-            "LP173421-1",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Report",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "N",
-            data.confidentiality
-        )
-        assertEquals(
-            "Good Health Clinic",
-            data.custodian?.display
-        )
-        assertEquals(
-            "Organization/2.16.840.1.113883.19.5",
-            data.custodian?.reference
-        )
-        assertEquals(
-            "2018-10-30T16:56:04+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "example-mixed",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "newborn",
-            data.section?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "New Born Details",
-            data.section?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://acme.org/codes/SectionType",
-            data.section?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.section?.get(0)?.text?.status
-        )
-        assertEquals(
-            "Child's Details",
-            data.section?.get(0)?.title
-        )
-        assertEquals(
-            "mother",
-            data.section?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mother's Details",
-            data.section?.get(1)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://acme.org/codes/SectionType",
-            data.section?.get(1)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.section?.get(1)?.text?.status
-        )
-        assertEquals(
-            "Mpther's Details",
-            data.section?.get(1)?.title
-        )
-        assertEquals(
-            CompositionStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Tahlia Smith",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/newborn",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Discharge Summary (Neonatal Service)",
-            data.title
-        )
-        assertEquals(
-            "78418-1",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Neonatal perinatal medicine Discharge summary",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.type?.coding?.get(0)?.system
-        )
+        assertComposition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertComposition01Step01(data: Composition) {
+
+        assertEquals(
+            expected = CompositionAttestationMode.LEGAL,
+            actual = data.attester?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = "Harold Hippocrates, MD",
+            actual = data.attester?.get(0)?.party?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda-author",
+            actual = data.attester?.get(0)?.party?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-01-04T09:10:14Z",
+            actual = data.attester?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Harold Hippocrates, MD",
+            actual = data.author?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda-author",
+            actual = data.author?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LP173421-1",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Report",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.confidentiality
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Good Health Clinic",
+            actual = data.custodian?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2.16.840.1.113883.19.5",
+            actual = data.custodian?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-10-30T16:56:04+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example-mixed",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "newborn",
+            actual = data.section?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "New Born Details",
+            actual = data.section?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.org/codes/SectionType",
+            actual = data.section?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.section?.get(0)?.text?.status
+        )
+
+        assertEquals(
+            expected = "Child's Details",
+            actual = data.section?.get(0)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mother",
+            actual = data.section?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mother's Details",
+            actual = data.section?.get(1)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.org/codes/SectionType",
+            actual = data.section?.get(1)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.section?.get(1)?.text?.status
+        )
+
+        assertEquals(
+            expected = "Mpther's Details",
+            actual = data.section?.get(1)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CompositionStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Tahlia Smith",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/newborn",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Discharge Summary (Neonatal Service)",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "78418-1",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Neonatal perinatal medicine Discharge summary",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -213,251 +280,362 @@ class CompositionTest {
         val data = parser.toFhir(Composition::class, sourceJson)
 
         // Then
-        assertEquals(
-            CompositionAttestationMode.LEGAL,
-            data.attester?.get(0)?.mode
-        )
-        assertEquals(
-            "Harold Hippocrates, MD",
-            data.attester?.get(0)?.party?.display
-        )
-        assertEquals(
-            "Practitioner/xcda-author",
-            data.attester?.get(0)?.party?.reference
-        )
-        assertEquals(
-            "2012-01-04T09:10:14Z",
-            data.attester?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Harold Hippocrates, MD",
-            data.author?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/xcda-author",
-            data.author?.get(0)?.reference
-        )
-        assertEquals(
-            "LP173421-1",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Report",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "N",
-            data.confidentiality
-        )
-        assertEquals(
-            "Good Health Clinic",
-            data.custodian?.display
-        )
-        assertEquals(
-            "Organization/2.16.840.1.113883.19.5",
-            data.custodian?.reference
-        )
-        assertEquals(
-            "2012-01-04T09:10:14Z",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Encounter/xcda",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "HEALTHREC",
-            data.event?.get(0)?.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "health record",
-            data.event?.get(0)?.code?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.event?.get(0)?.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Observation/example",
-            data.event?.get(0)?.detail?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-11-12",
-            data.event?.get(0)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2010-07-18",
-            data.event?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://healthintersections.com.au/test",
-            data.identifier?.system
-        )
-        assertEquals(
-            "1",
-            data.identifier?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            DocumentRelationshipType.REPLACES,
-            data.relatesTo?.get(0)?.code
-        )
-        assertEquals(
-            "Composition/old-example",
-            data.relatesTo?.get(0)?.targetReference?.reference
-        )
-        assertEquals(
-            DocumentRelationshipType.APPENDS,
-            data.relatesTo?.get(1)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/NamingSystem/document-ids",
-            data.relatesTo?.get(1)?.targetIdentifier?.system
-        )
-        assertEquals(
-            "ABC123",
-            data.relatesTo?.get(1)?.targetIdentifier?.value
-        )
-        assertEquals(
-            "11348-0",
-            data.section?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "History of past illness Narrative",
-            data.section?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.section?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Condition/stroke",
-            data.section?.get(0)?.entry?.get(0)?.reference
-        )
-        assertEquals(
-            "Condition/example",
-            data.section?.get(0)?.entry?.get(1)?.reference
-        )
-        assertEquals(
-            "Condition/example2",
-            data.section?.get(0)?.entry?.get(2)?.reference
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.section?.get(0)?.mode
-        )
-        assertEquals(
-            "event-date",
-            data.section?.get(0)?.orderedBy?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Sorted by Event Date",
-            data.section?.get(0)?.orderedBy?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/list-order",
-            data.section?.get(0)?.orderedBy?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.section?.get(0)?.text?.status
-        )
-        assertEquals(
-            "History of present illness",
-            data.section?.get(0)?.title
-        )
-        assertEquals(
-            "10157-6",
-            data.section?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "History of family member diseases Narrative",
-            data.section?.get(1)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.section?.get(1)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "withheld",
-            data.section?.get(1)?.emptyReason?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Information Withheld",
-            data.section?.get(1)?.emptyReason?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/list-empty-reason",
-            data.section?.get(1)?.emptyReason?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.section?.get(1)?.mode
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.section?.get(1)?.text?.status
-        )
-        assertEquals(
-            "History of family member diseases",
-            data.section?.get(1)?.title
-        )
-        assertEquals(
-            CompositionStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Henry Levin the 7th",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/xcda",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Consultation Note",
-            data.title
-        )
-        assertEquals(
-            "11488-4",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Consult note",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.type?.coding?.get(0)?.system
-        )
+        assertComposition02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertComposition02Step01(data: Composition) {
+
+        assertEquals(
+            expected = CompositionAttestationMode.LEGAL,
+            actual = data.attester?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = "Harold Hippocrates, MD",
+            actual = data.attester?.get(0)?.party?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda-author",
+            actual = data.attester?.get(0)?.party?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-01-04T09:10:14Z",
+            actual = data.attester?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Harold Hippocrates, MD",
+            actual = data.author?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda-author",
+            actual = data.author?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LP173421-1",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Report",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.confidentiality
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Good Health Clinic",
+            actual = data.custodian?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2.16.840.1.113883.19.5",
+            actual = data.custodian?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-01-04T09:10:14Z",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Encounter/xcda",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HEALTHREC",
+            actual = data.event?.get(0)?.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "health record",
+            actual = data.event?.get(0)?.code?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.event?.get(0)?.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/example",
+            actual = data.event?.get(0)?.detail?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-11-12",
+            actual = data.event?.get(0)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2010-07-18",
+            actual = data.event?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://healthintersections.com.au/test",
+            actual = data.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DocumentRelationshipType.REPLACES,
+            actual = data.relatesTo?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = "Composition/old-example",
+            actual = data.relatesTo?.get(0)?.targetReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DocumentRelationshipType.APPENDS,
+            actual = data.relatesTo?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/NamingSystem/document-ids",
+            actual = data.relatesTo?.get(1)?.targetIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ABC123",
+            actual = data.relatesTo?.get(1)?.targetIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "11348-0",
+            actual = data.section?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History of past illness Narrative",
+            actual = data.section?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.section?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/stroke",
+            actual = data.section?.get(0)?.entry?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/example",
+            actual = data.section?.get(0)?.entry?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/example2",
+            actual = data.section?.get(0)?.entry?.get(2)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.section?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = "event-date",
+            actual = data.section?.get(0)?.orderedBy?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sorted by Event Date",
+            actual = data.section?.get(0)?.orderedBy?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/list-order",
+            actual = data.section?.get(0)?.orderedBy?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.section?.get(0)?.text?.status
+        )
+
+        assertEquals(
+            expected = "History of present illness",
+            actual = data.section?.get(0)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "10157-6",
+            actual = data.section?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History of family member diseases Narrative",
+            actual = data.section?.get(1)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.section?.get(1)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "withheld",
+            actual = data.section?.get(1)?.emptyReason?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Information Withheld",
+            actual = data.section?.get(1)?.emptyReason?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+            actual = data.section?.get(1)?.emptyReason?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.section?.get(1)?.mode
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.section?.get(1)?.text?.status
+        )
+
+        assertEquals(
+            expected = "History of family member diseases",
+            actual = data.section?.get(1)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CompositionStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Henry Levin the 7th",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/xcda",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Consultation Note",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "11488-4",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Consult note",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

@@ -51,100 +51,141 @@ class LibraryTest {
         val data = parser.toFhir(Library::class, sourceJson)
 
         // Then
-        assertEquals(
-            "text/cql",
-            data.content?.get(0)?.contentType
-        )
-        assertEquals(
-            "FHIR Helpers",
-            data.content?.get(0)?.title
-        )
-        assertEquals(
-            "library-fhir-helpers-content.cql",
-            data.content?.get(0)?.url
-        )
-        assertEquals(
-            "2016-11-14",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "FHIR Helpers",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "library-fhir-helpers-predecessor",
-            data.id
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "FHIRHelpers",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Library/fhir-model-definition",
-            data.relatedArtifact?.get(0)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.DEPENDS_ON,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            "Library/library-fhir-helpers",
-            data.relatedArtifact?.get(1)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.SUCCESSOR,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "FHIR Helpers",
-            data.title
-        )
-        assertEquals(
-            "FHIR Helpers",
-            data.topic?.get(0)?.text
-        )
-        assertEquals(
-            "logic-library",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1.6",
-            data.version
-        )
+        assertLibrary01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLibrary01Step01(data: Library) {
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.content?.get(0)?.contentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Helpers",
+            actual = data.content?.get(0)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "library-fhir-helpers-content.cql",
+            actual = data.content?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-11-14",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "FHIR Helpers",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "library-fhir-helpers-predecessor",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "FHIRHelpers",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Library/fhir-model-definition",
+            actual = data.relatedArtifact?.get(0)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DEPENDS_ON,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Library/library-fhir-helpers",
+            actual = data.relatedArtifact?.get(1)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.SUCCESSOR,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "FHIR Helpers",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Helpers",
+            actual = data.topic?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "logic-library",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.6",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -156,232 +197,341 @@ class LibraryTest {
         val data = parser.toFhir(Library::class, sourceJson)
 
         // Then
-        assertEquals(
-            "text/cql",
-            data.content?.get(0)?.contentType
-        )
-        assertEquals(
-            "library-cms146-example-content.cql",
-            data.content?.get(0)?.url
-        )
-        assertEquals(
-            "Patient",
-            data.dataRequirement?.get(0)?.type
-        )
-        assertEquals(
-            "diagnosis",
-            data.dataRequirement?.get(1)?.codeFilter?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "category",
-            data.dataRequirement?.get(1)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "confirmed",
-            data.dataRequirement?.get(1)?.codeFilter?.get(1)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "clinicalStatus",
-            data.dataRequirement?.get(1)?.codeFilter?.get(1)?.path
-        )
-        assertEquals(
-            "code",
-            data.dataRequirement?.get(1)?.codeFilter?.get(2)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011",
-            data.dataRequirement?.get(1)?.codeFilter?.get(2)?.valueSet
-        )
-        assertEquals(
-            "Condition",
-            data.dataRequirement?.get(1)?.type
-        )
-        assertEquals(
-            "diagnosis",
-            data.dataRequirement?.get(2)?.codeFilter?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "category",
-            data.dataRequirement?.get(2)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "confirmed",
-            data.dataRequirement?.get(2)?.codeFilter?.get(1)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "clinicalStatus",
-            data.dataRequirement?.get(2)?.codeFilter?.get(1)?.path
-        )
-        assertEquals(
-            "code",
-            data.dataRequirement?.get(2)?.codeFilter?.get(2)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012",
-            data.dataRequirement?.get(2)?.codeFilter?.get(2)?.valueSet
-        )
-        assertEquals(
-            "Condition",
-            data.dataRequirement?.get(2)?.type
-        )
-        assertEquals(
-            "finished",
-            data.dataRequirement?.get(3)?.codeFilter?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "status",
-            data.dataRequirement?.get(3)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "ambulatory",
-            data.dataRequirement?.get(3)?.codeFilter?.get(1)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "class",
-            data.dataRequirement?.get(3)?.codeFilter?.get(1)?.path
-        )
-        assertEquals(
-            "type",
-            data.dataRequirement?.get(3)?.codeFilter?.get(2)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061",
-            data.dataRequirement?.get(3)?.codeFilter?.get(2)?.valueSet
-        )
-        assertEquals(
-            "Encounter",
-            data.dataRequirement?.get(3)?.type
-        )
-        assertEquals(
-            "diagnosis",
-            data.dataRequirement?.get(4)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012",
-            data.dataRequirement?.get(4)?.codeFilter?.get(0)?.valueSet
-        )
-        assertEquals(
-            "DiagnosticReport",
-            data.dataRequirement?.get(4)?.type
-        )
-        assertEquals(
-            "code",
-            data.dataRequirement?.get(5)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
-            data.dataRequirement?.get(5)?.codeFilter?.get(0)?.valueSet
-        )
-        assertEquals(
-            "Medication",
-            data.dataRequirement?.get(5)?.type
-        )
-        assertEquals(
-            "active",
-            data.dataRequirement?.get(6)?.codeFilter?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "status",
-            data.dataRequirement?.get(6)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "medication.code",
-            data.dataRequirement?.get(6)?.codeFilter?.get(1)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
-            data.dataRequirement?.get(6)?.codeFilter?.get(1)?.valueSet
-        )
-        assertEquals(
-            "MedicationRequest",
-            data.dataRequirement?.get(6)?.type
-        )
-        assertEquals(
-            "completed",
-            data.dataRequirement?.get(7)?.codeFilter?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "status",
-            data.dataRequirement?.get(7)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "medication.code",
-            data.dataRequirement?.get(7)?.codeFilter?.get(1)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
-            data.dataRequirement?.get(7)?.codeFilter?.get(1)?.valueSet
-        )
-        assertEquals(
-            "MedicationStatement",
-            data.dataRequirement?.get(7)?.type
-        )
-        assertEquals(
-            "2015-07-22",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis",
-            data.description
-        )
-        assertEquals(
-            "library-cms146-example",
-            data.id
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "CMS146",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Library/library-quick-model-definition",
-            data.relatedArtifact?.get(0)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.DEPENDS_ON,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Appropriate Testing for Children with Pharyngitis",
-            data.title
-        )
-        assertEquals(
-            "logic-library",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "2.0.0",
-            data.version
-        )
+        assertLibrary02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLibrary02Step01(data: Library) {
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.content?.get(0)?.contentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "library-cms146-example-content.cql",
+            actual = data.content?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient",
+            actual = data.dataRequirement?.get(0)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "diagnosis",
+            actual = data.dataRequirement?.get(1)?.codeFilter?.get(0)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "category",
+            actual = data.dataRequirement?.get(1)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.dataRequirement?.get(1)?.codeFilter?.get(1)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "clinicalStatus",
+            actual = data.dataRequirement?.get(1)?.codeFilter?.get(1)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.dataRequirement?.get(1)?.codeFilter?.get(2)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011",
+            actual = data.dataRequirement?.get(1)?.codeFilter?.get(2)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition",
+            actual = data.dataRequirement?.get(1)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "diagnosis",
+            actual = data.dataRequirement?.get(2)?.codeFilter?.get(0)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "category",
+            actual = data.dataRequirement?.get(2)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.dataRequirement?.get(2)?.codeFilter?.get(1)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "clinicalStatus",
+            actual = data.dataRequirement?.get(2)?.codeFilter?.get(1)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.dataRequirement?.get(2)?.codeFilter?.get(2)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012",
+            actual = data.dataRequirement?.get(2)?.codeFilter?.get(2)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition",
+            actual = data.dataRequirement?.get(2)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "finished",
+            actual = data.dataRequirement?.get(3)?.codeFilter?.get(0)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "status",
+            actual = data.dataRequirement?.get(3)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulatory",
+            actual = data.dataRequirement?.get(3)?.codeFilter?.get(1)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "class",
+            actual = data.dataRequirement?.get(3)?.codeFilter?.get(1)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "type",
+            actual = data.dataRequirement?.get(3)?.codeFilter?.get(2)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061",
+            actual = data.dataRequirement?.get(3)?.codeFilter?.get(2)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter",
+            actual = data.dataRequirement?.get(3)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "diagnosis",
+            actual = data.dataRequirement?.get(4)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012",
+            actual = data.dataRequirement?.get(4)?.codeFilter?.get(0)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport",
+            actual = data.dataRequirement?.get(4)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.dataRequirement?.get(5)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
+            actual = data.dataRequirement?.get(5)?.codeFilter?.get(0)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Medication",
+            actual = data.dataRequirement?.get(5)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.dataRequirement?.get(6)?.codeFilter?.get(0)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "status",
+            actual = data.dataRequirement?.get(6)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "medication.code",
+            actual = data.dataRequirement?.get(6)?.codeFilter?.get(1)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
+            actual = data.dataRequirement?.get(6)?.codeFilter?.get(1)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicationRequest",
+            actual = data.dataRequirement?.get(6)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "completed",
+            actual = data.dataRequirement?.get(7)?.codeFilter?.get(0)?.code?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "status",
+            actual = data.dataRequirement?.get(7)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "medication.code",
+            actual = data.dataRequirement?.get(7)?.codeFilter?.get(1)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
+            actual = data.dataRequirement?.get(7)?.codeFilter?.get(1)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicationStatement",
+            actual = data.dataRequirement?.get(7)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-07-22",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "library-cms146-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "CMS146",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Library/library-quick-model-definition",
+            actual = data.relatedArtifact?.get(0)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DEPENDS_ON,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Appropriate Testing for Children with Pharyngitis",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "logic-library",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.0.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -393,96 +543,137 @@ class LibraryTest {
         val data = parser.toFhir(Library::class, sourceJson)
 
         // Then
-        assertEquals(
-            "text/cql",
-            data.content?.get(0)?.contentType
-        )
-        assertEquals(
-            "library-example-content.cql",
-            data.content?.get(0)?.url
-        )
-        assertEquals(
-            "code",
-            data.dataRequirement?.get(0)?.codeFilter?.get(0)?.path
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006",
-            data.dataRequirement?.get(0)?.codeFilter?.get(0)?.valueSet
-        )
-        assertEquals(
-            "Condition",
-            data.dataRequirement?.get(0)?.type
-        )
-        assertEquals(
-            "2015-07-22",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Common Logic for adherence to Chlamydia Screening guidelines",
-            data.description
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "ChalmydiaScreening_Common",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Library/library-quick-model-definition",
-            data.relatedArtifact?.get(0)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.DEPENDS_ON,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Chlamydia Screening Common Library",
-            data.title
-        )
-        assertEquals(
-            "Chlamydia Screening",
-            data.topic?.get(0)?.text
-        )
-        assertEquals(
-            "logic-library",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "2.0.0",
-            data.version
-        )
+        assertLibrary03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLibrary03Step01(data: Library) {
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.content?.get(0)?.contentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "library-example-content.cql",
+            actual = data.content?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.dataRequirement?.get(0)?.codeFilter?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006",
+            actual = data.dataRequirement?.get(0)?.codeFilter?.get(0)?.valueSet
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition",
+            actual = data.dataRequirement?.get(0)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-07-22",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Common Logic for adherence to Chlamydia Screening guidelines",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "ChalmydiaScreening_Common",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Library/library-quick-model-definition",
+            actual = data.relatedArtifact?.get(0)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DEPENDS_ON,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Chlamydia Screening Common Library",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chlamydia Screening",
+            actual = data.topic?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "logic-library",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.0.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -494,127 +685,178 @@ class LibraryTest {
         val data = parser.toFhir(Library::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2017-03-10",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Artifacts required for implementation of Zika Virus Management",
-            data.description
-        )
-        assertEquals(
-            "composition-example",
-            data.id
-        )
-        assertEquals(
-            "http://example.org",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "Zika Artifacts",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "ActivityDefinition/administer-zika-virus-exposure-assessment",
-            data.relatedArtifact?.get(0)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            "ActivityDefinition/order-serum-zika-dengue-virus-igm",
-            data.relatedArtifact?.get(1)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            "ActivityDefinition/provide-mosquito-prevention-advice",
-            data.relatedArtifact?.get(2)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(2)?.type
-        )
-        assertEquals(
-            "Library/zika-virus-intervention-logic",
-            data.relatedArtifact?.get(3)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(3)?.type
-        )
-        assertEquals(
-            "PlanDefinition/zika-virus-intervention",
-            data.relatedArtifact?.get(4)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(4)?.type
-        )
-        assertEquals(
-            "Questionnaire/zika-virus-exposure-assessment",
-            data.relatedArtifact?.get(5)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(5)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DERIVED_FROM,
-            data.relatedArtifact?.get(6)?.type
-        )
-        assertEquals(
-            "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w",
-            data.relatedArtifact?.get(6)?.url
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Zika Artifacts",
-            data.title
-        )
-        assertEquals(
-            "Zika Virus Management",
-            data.topic?.get(0)?.text
-        )
-        assertEquals(
-            "asset-collection",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1.0.0",
-            data.version
-        )
+        assertLibrary04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLibrary04Step01(data: Library) {
+
+        assertEquals(
+            expected = "2017-03-10",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Artifacts required for implementation of Zika Virus Management",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "composition-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Zika Artifacts",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ActivityDefinition/administer-zika-virus-exposure-assessment",
+            actual = data.relatedArtifact?.get(0)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "ActivityDefinition/order-serum-zika-dengue-virus-igm",
+            actual = data.relatedArtifact?.get(1)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "ActivityDefinition/provide-mosquito-prevention-advice",
+            actual = data.relatedArtifact?.get(2)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = "Library/zika-virus-intervention-logic",
+            actual = data.relatedArtifact?.get(3)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(3)?.type
+        )
+
+        assertEquals(
+            expected = "PlanDefinition/zika-virus-intervention",
+            actual = data.relatedArtifact?.get(4)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(4)?.type
+        )
+
+        assertEquals(
+            expected = "Questionnaire/zika-virus-exposure-assessment",
+            actual = data.relatedArtifact?.get(5)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(5)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DERIVED_FROM,
+            actual = data.relatedArtifact?.get(6)?.type
+        )
+
+        assertEquals(
+            expected = "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w",
+            actual = data.relatedArtifact?.get(6)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Zika Artifacts",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Zika Virus Management",
+            actual = data.topic?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "asset-collection",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.0.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 }

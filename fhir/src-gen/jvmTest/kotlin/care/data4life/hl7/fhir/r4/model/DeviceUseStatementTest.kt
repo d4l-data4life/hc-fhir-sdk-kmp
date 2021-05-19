@@ -48,59 +48,85 @@ class DeviceUseStatementTest {
         val data = parser.toFhir(DeviceUseStatement::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Device/example",
-            data.device?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http:goodhealth.org/identifiers",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "51ebb7a9-4e3a-4360-9a05-0cc2d869086f",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Appendectomy (surgery)",
-            data.reasonReference?.get(0)?.display
-        )
-        assertEquals(
-            "Procedure/example",
-            data.reasonReference?.get(0)?.reference
-        )
-        assertEquals(
-            DeviceUseStatementStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDeviceUseStatement01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDeviceUseStatement01Step01(data: DeviceUseStatement) {
+
+        assertEquals(
+            expected = "Device/example",
+            actual = data.device?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http:goodhealth.org/identifiers",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "51ebb7a9-4e3a-4360-9a05-0cc2d869086f",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Appendectomy (surgery)",
+            actual = data.reasonReference?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Procedure/example",
+            actual = data.reasonReference?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DeviceUseStatementStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

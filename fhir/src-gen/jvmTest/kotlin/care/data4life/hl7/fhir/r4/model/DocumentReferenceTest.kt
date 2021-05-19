@@ -52,235 +52,342 @@ class DocumentReferenceTest {
         val data = parser.toFhir(DocumentReference::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Organization/f001",
-            data.authenticator?.reference
-        )
-        assertEquals(
-            "Practitioner/xcda1",
-            data.author?.get(0)?.reference
-        )
-        assertEquals(
-            "#a2",
-            data.author?.get(1)?.reference
-        )
-        assertEquals(
-            "History and Physical",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "History and Physical",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://ihe.net/xds/connectathon/classCodes",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "a2",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "application/hl7-v3+xml",
-            data.content?.get(0)?.attachment?.contentType
-        )
-        assertEquals(
-            "2005-12-24T09:35:00+11:00",
-            data.content?.get(0)?.attachment?.creation?.value.toString()
-        )
-        assertEquals(
-            "2jmj7l5rSw0yVb/vlWAYkK/YBwk=",
-            data.content?.get(0)?.attachment?.hash
-        )
-        assertEquals(
-            "en-US",
-            data.content?.get(0)?.attachment?.language
-        )
-        assertEquals(
-            "3654".toLong(),
-            data.content?.get(0)?.attachment?.size?.value
-        )
-        assertEquals(
-            "Physical",
-            data.content?.get(0)?.attachment?.title
-        )
-        assertEquals(
-            "http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510",
-            data.content?.get(0)?.attachment?.url
-        )
-        assertEquals(
-            "urn:ihe:pcc:handp:2008",
-            data.content?.get(0)?.format?.code
-        )
-        assertEquals(
-            "History and Physical Specification",
-            data.content?.get(0)?.format?.display
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.19376.1.2.3",
-            data.content?.get(0)?.format?.system
-        )
-        assertEquals(
-            "Encounter/xcda",
-            data.context?.encounter?.get(0)?.reference
-        )
-        assertEquals(
-            "T-D8200",
-            data.context?.event?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Arm",
-            data.context?.event?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://ihe.net/xds/connectathon/eventCodes",
-            data.context?.event?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Outpatient",
-            data.context?.facilityType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Outpatient",
-            data.context?.facilityType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes",
-            data.context?.facilityType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2004-12-23T08:01:00+11:00",
-            data.context?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2004-12-23T08:00:00+11:00",
-            data.context?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "General Medicine",
-            data.context?.practiceSetting?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Medicine",
-            data.context?.practiceSetting?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://www.ihe.net/xds/connectathon/practiceSettingCodes",
-            data.context?.practiceSetting?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.context?.related?.get(0)?.identifier?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.2345",
-            data.context?.related?.get(0)?.identifier?.value
-        )
-        assertEquals(
-            "Patient/xcda",
-            data.context?.related?.get(0)?.reference
-        )
-        assertEquals(
-            "Patient/xcda",
-            data.context?.sourcePatientInfo?.reference
-        )
-        assertEquals(
-            "Organization/f001",
-            data.custodian?.reference
-        )
-        assertEquals(
-            "2005-12-24T09:43:41+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Physical",
-            data.description
-        )
-        assertEquals(
-            CompositionStatus.PRELIMINARY,
-            data.docStatus
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.masterIdentifier?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7",
-            data.masterIdentifier?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            DocumentRelationshipType.APPENDS,
-            data.relatesTo?.get(0)?.code
-        )
-        assertEquals(
-            "DocumentReference/example",
-            data.relatesTo?.get(0)?.target?.reference
-        )
-        assertEquals(
-            "V",
-            data.securityLabel?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "very restricted",
-            data.securityLabel?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
-            data.securityLabel?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            DocumentReferenceStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            "Patient/xcda",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "34108-1",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Outpatient Note",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.type?.coding?.get(0)?.system
-        )
+        assertDocumentReference01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDocumentReference01Step01(data: DocumentReference) {
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.authenticator?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda1",
+            actual = data.author?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#a2",
+            actual = data.author?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History and Physical",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History and Physical",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ihe.net/xds/connectathon/classCodes",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a2",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/hl7-v3+xml",
+            actual = data.content?.get(0)?.attachment?.contentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2005-12-24T09:35:00+11:00",
+            actual = data.content?.get(0)?.attachment?.creation?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2jmj7l5rSw0yVb/vlWAYkK/YBwk=",
+            actual = data.content?.get(0)?.attachment?.hash
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "en-US",
+            actual = data.content?.get(0)?.attachment?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3654".toLong(),
+            actual = data.content?.get(0)?.attachment?.size?.value
+        )
+
+        assertEquals(
+            expected = "Physical",
+            actual = data.content?.get(0)?.attachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510",
+            actual = data.content?.get(0)?.attachment?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ihe:pcc:handp:2008",
+            actual = data.content?.get(0)?.format?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History and Physical Specification",
+            actual = data.content?.get(0)?.format?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+            actual = data.content?.get(0)?.format?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/xcda",
+            actual = data.context?.encounter?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "T-D8200",
+            actual = data.context?.event?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Arm",
+            actual = data.context?.event?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ihe.net/xds/connectathon/eventCodes",
+            actual = data.context?.event?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Outpatient",
+            actual = data.context?.facilityType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Outpatient",
+            actual = data.context?.facilityType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes",
+            actual = data.context?.facilityType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2004-12-23T08:01:00+11:00",
+            actual = data.context?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2004-12-23T08:00:00+11:00",
+            actual = data.context?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "General Medicine",
+            actual = data.context?.practiceSetting?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Medicine",
+            actual = data.context?.practiceSetting?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.ihe.net/xds/connectathon/practiceSettingCodes",
+            actual = data.context?.practiceSetting?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.context?.related?.get(0)?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.2345",
+            actual = data.context?.related?.get(0)?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/xcda",
+            actual = data.context?.related?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/xcda",
+            actual = data.context?.sourcePatientInfo?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.custodian?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2005-12-24T09:43:41+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Physical",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CompositionStatus.PRELIMINARY,
+            actual = data.docStatus
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.masterIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7",
+            actual = data.masterIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DocumentRelationshipType.APPENDS,
+            actual = data.relatesTo?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = "DocumentReference/example",
+            actual = data.relatesTo?.get(0)?.target?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "V",
+            actual = data.securityLabel?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "very restricted",
+            actual = data.securityLabel?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+            actual = data.securityLabel?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DocumentReferenceStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/xcda",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "34108-1",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Outpatient Note",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

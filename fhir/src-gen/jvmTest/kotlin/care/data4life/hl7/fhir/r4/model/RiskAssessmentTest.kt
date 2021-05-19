@@ -49,44 +49,62 @@ class RiskAssessmentTest {
         val data = parser.toFhir(RiskAssessment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "group1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "population",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "#group1",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRiskAssessment01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRiskAssessment01Step01(data: RiskAssessment) {
+
+        assertEquals(
+            expected = "group1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "population",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "#group1",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -98,116 +116,165 @@ class RiskAssessmentTest {
         val data = parser.toFhir(RiskAssessment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Patient/pat2",
-            data.basis?.get(0)?.reference
-        )
-        assertEquals(
-            "DiagnosticReport/lipids",
-            data.basis?.get(1)?.reference
-        )
-        assertEquals(
-            "Observation/blood-pressure",
-            data.basis?.get(2)?.reference
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "cardiac",
-            data.id
-        )
-        assertEquals(
-            "http://example.org",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "risk-assessment-cardiac",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2014-07-19T16:04:00Z",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "http://cvdrisk.nhlbi.nih.gov/#cholesterol",
-            data.performer?.display
-        )
-        assertEquals(
-            "Heart Attack",
-            data.prediction?.get(0)?.outcome?.text
-        )
-        assertEquals(
-            "0.02".toDouble(),
-            data.prediction?.get(0)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(0)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(0)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(0)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "49".toDouble(),
-            data.prediction?.get(0)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(0)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(0)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(0)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "39".toDouble(),
-            data.prediction?.get(0)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/pat2",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertRiskAssessment02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRiskAssessment02Step01(data: RiskAssessment) {
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.basis?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/lipids",
+            actual = data.basis?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/blood-pressure",
+            actual = data.basis?.get(2)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "cardiac",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "risk-assessment-cardiac",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-07-19T16:04:00Z",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://cvdrisk.nhlbi.nih.gov/#cholesterol",
+            actual = data.performer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Heart Attack",
+            actual = data.prediction?.get(0)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.02".toDouble(),
+            actual = data.prediction?.get(0)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(0)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(0)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(0)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "49".toDouble(),
+            actual = data.prediction?.get(0)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(0)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(0)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(0)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "39".toDouble(),
+            actual = data.prediction?.get(0)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -219,360 +286,512 @@ class RiskAssessmentTest {
         val data = parser.toFhir(RiskAssessment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "List/prognosis",
-            data.basis?.get(0)?.reference
-        )
-        assertEquals(
-            "genetic",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "BRCAPRO",
-            data.method?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "High degree of certainty",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2006-01-13T23:01:00Z",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(0)?.outcome?.text
-        )
-        assertEquals(
-            "0.000168".toDouble(),
-            data.prediction?.get(0)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(0)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(0)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(0)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "53".toDouble(),
-            data.prediction?.get(0)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(1)?.outcome?.text
-        )
-        assertEquals(
-            "0.000368".toDouble(),
-            data.prediction?.get(1)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(1)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(1)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(1)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "57".toDouble(),
-            data.prediction?.get(1)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(1)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(1)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(1)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "54".toDouble(),
-            data.prediction?.get(1)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(2)?.outcome?.text
-        )
-        assertEquals(
-            "0.000594".toDouble(),
-            data.prediction?.get(2)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(2)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(2)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(2)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "62".toDouble(),
-            data.prediction?.get(2)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(2)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(2)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(2)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "58".toDouble(),
-            data.prediction?.get(2)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(3)?.outcome?.text
-        )
-        assertEquals(
-            "0.000838".toDouble(),
-            data.prediction?.get(3)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(3)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(3)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(3)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "67".toDouble(),
-            data.prediction?.get(3)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(3)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(3)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(3)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "63".toDouble(),
-            data.prediction?.get(3)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(4)?.outcome?.text
-        )
-        assertEquals(
-            "0.001089".toDouble(),
-            data.prediction?.get(4)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(4)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(4)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(4)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "72".toDouble(),
-            data.prediction?.get(4)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(4)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(4)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(4)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "68".toDouble(),
-            data.prediction?.get(4)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(5)?.outcome?.text
-        )
-        assertEquals(
-            "0.001327".toDouble(),
-            data.prediction?.get(5)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(5)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(5)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(5)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "77".toDouble(),
-            data.prediction?.get(5)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(5)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(5)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(5)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "73".toDouble(),
-            data.prediction?.get(5)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(6)?.outcome?.text
-        )
-        assertEquals(
-            "0.00153".toDouble(),
-            data.prediction?.get(6)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(6)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(6)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(6)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "82".toDouble(),
-            data.prediction?.get(6)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(6)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(6)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(6)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "78".toDouble(),
-            data.prediction?.get(6)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(7)?.outcome?.text
-        )
-        assertEquals(
-            "0.001663".toDouble(),
-            data.prediction?.get(7)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(7)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(7)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(7)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "88".toDouble(),
-            data.prediction?.get(7)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(7)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(7)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(7)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "83".toDouble(),
-            data.prediction?.get(7)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRiskAssessment03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRiskAssessment03Step01(data: RiskAssessment) {
+
+        assertEquals(
+            expected = "List/prognosis",
+            actual = data.basis?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "genetic",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "BRCAPRO",
+            actual = data.method?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "High degree of certainty",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2006-01-13T23:01:00Z",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(0)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.000168".toDouble(),
+            actual = data.prediction?.get(0)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(0)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(0)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(0)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "53".toDouble(),
+            actual = data.prediction?.get(0)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(1)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.000368".toDouble(),
+            actual = data.prediction?.get(1)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(1)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(1)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(1)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.prediction?.get(1)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(1)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(1)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(1)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "54".toDouble(),
+            actual = data.prediction?.get(1)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(2)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.000594".toDouble(),
+            actual = data.prediction?.get(2)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(2)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(2)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(2)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "62".toDouble(),
+            actual = data.prediction?.get(2)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(2)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(2)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(2)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "58".toDouble(),
+            actual = data.prediction?.get(2)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(3)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.000838".toDouble(),
+            actual = data.prediction?.get(3)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(3)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(3)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(3)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "67".toDouble(),
+            actual = data.prediction?.get(3)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(3)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(3)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(3)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "63".toDouble(),
+            actual = data.prediction?.get(3)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(4)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.001089".toDouble(),
+            actual = data.prediction?.get(4)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(4)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(4)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(4)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "72".toDouble(),
+            actual = data.prediction?.get(4)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(4)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(4)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(4)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "68".toDouble(),
+            actual = data.prediction?.get(4)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(5)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.001327".toDouble(),
+            actual = data.prediction?.get(5)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(5)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(5)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(5)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "77".toDouble(),
+            actual = data.prediction?.get(5)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(5)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(5)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(5)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "73".toDouble(),
+            actual = data.prediction?.get(5)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(6)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.00153".toDouble(),
+            actual = data.prediction?.get(6)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(6)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(6)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(6)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "82".toDouble(),
+            actual = data.prediction?.get(6)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(6)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(6)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(6)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "78".toDouble(),
+            actual = data.prediction?.get(6)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(7)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.001663".toDouble(),
+            actual = data.prediction?.get(7)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(7)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(7)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(7)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "88".toDouble(),
+            actual = data.prediction?.get(7)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(7)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(7)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(7)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "83".toDouble(),
+            actual = data.prediction?.get(7)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -584,148 +803,213 @@ class RiskAssessmentTest {
         val data = parser.toFhir(RiskAssessment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "ImmunizationRecommendation/example",
-            data.basedOn?.reference
-        )
-        assertEquals(
-            "DiagnosticReport/example",
-            data.basis?.get(0)?.reference
-        )
-        assertEquals(
-            "Observation/example",
-            data.basis?.get(1)?.reference
-        )
-        assertEquals(
-            "709510001",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Assessment of risk for disease (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://browser.ihtsdotools.org/",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Condition/example",
-            data.condition?.reference
-        )
-        assertEquals(
-            "Encounter with patient @example",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "riskexample",
-            data.id
-        )
-        assertEquals(
-            "http://example.org",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "risk-assessment-breastcancer1",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "This risk assessment is for reference only",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2017-10-10",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "DiagnosticReport/example",
-            data.parent?.reference
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.reference
-        )
-        assertEquals(
-            "Breast Cancer",
-            data.prediction?.get(0)?.outcome?.text
-        )
-        assertEquals(
-            "0.000368".toDouble(),
-            data.prediction?.get(0)?.probabilityDecimal?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(0)?.whenRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(0)?.whenRange?.high?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(0)?.whenRange?.high?.unit
-        )
-        assertEquals(
-            "57".toDouble(),
-            data.prediction?.get(0)?.whenRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.prediction?.get(0)?.whenRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.prediction?.get(0)?.whenRange?.low?.system
-        )
-        assertEquals(
-            "years",
-            data.prediction?.get(0)?.whenRange?.low?.unit
-        )
-        assertEquals(
-            "54".toDouble(),
-            data.prediction?.get(0)?.whenRange?.low?.value?.value
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Risk assessment for reference only</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRiskAssessment04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRiskAssessment04Step01(data: RiskAssessment) {
+
+        assertEquals(
+            expected = "ImmunizationRecommendation/example",
+            actual = data.basedOn?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/example",
+            actual = data.basis?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/example",
+            actual = data.basis?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "709510001",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Assessment of risk for disease (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://browser.ihtsdotools.org/",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/example",
+            actual = data.condition?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter with patient @example",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "riskexample",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "risk-assessment-breastcancer1",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This risk assessment is for reference only",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-10-10",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/example",
+            actual = data.parent?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Breast Cancer",
+            actual = data.prediction?.get(0)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.000368".toDouble(),
+            actual = data.prediction?.get(0)?.probabilityDecimal?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(0)?.whenRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(0)?.whenRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(0)?.whenRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57".toDouble(),
+            actual = data.prediction?.get(0)?.whenRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.prediction?.get(0)?.whenRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.prediction?.get(0)?.whenRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.prediction?.get(0)?.whenRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "54".toDouble(),
+            actual = data.prediction?.get(0)?.whenRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Risk assessment for reference only</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -737,80 +1021,115 @@ class RiskAssessmentTest {
         val data = parser.toFhir(RiskAssessment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Observation/example-genetics-brcapat",
-            data.basis?.get(0)?.reference
-        )
-        assertEquals(
-            "709510001",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Assessment of risk for disease (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://browser.ihtsdotools.org/",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "breastcancer-risk",
-            data.id
-        )
-        assertEquals(
-            "http://example.org",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "risk-assessment-breastcancer1",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "This risk assessment is based on BRCA1 and BRCA2 genetic mutation test",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.reference
-        )
-        assertEquals(
-            "Unknown risk of developing breast cancer",
-            data.prediction?.get(0)?.outcome?.text
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertRiskAssessment05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRiskAssessment05Step01(data: RiskAssessment) {
+
+        assertEquals(
+            expected = "Observation/example-genetics-brcapat",
+            actual = data.basis?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "709510001",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Assessment of risk for disease (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://browser.ihtsdotools.org/",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "breastcancer-risk",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "risk-assessment-breastcancer1",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This risk assessment is based on BRCA1 and BRCA2 genetic mutation test",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Unknown risk of developing breast cancer",
+            actual = data.prediction?.get(0)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -822,75 +1141,108 @@ class RiskAssessmentTest {
         val data = parser.toFhir(RiskAssessment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Ischemic Stroke",
-            data.condition?.display
-        )
-        assertEquals(
-            "Condition/stroke",
-            data.condition?.reference
-        )
-        assertEquals(
-            "prognosis",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2010-11-22",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "249943000:363698007=72098002,260868000=6934004",
-            data.prediction?.get(0)?.outcome?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.prediction?.get(0)?.outcome?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "permanent weakness of the left arm",
-            data.prediction?.get(0)?.outcome?.text
-        )
-        assertEquals(
-            "moderate",
-            data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "moderate likelihood",
-            data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/risk-probability",
-            data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertRiskAssessment06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRiskAssessment06Step01(data: RiskAssessment) {
+
+        assertEquals(
+            expected = "Ischemic Stroke",
+            actual = data.condition?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/stroke",
+            actual = data.condition?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "prognosis",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2010-11-22",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "249943000:363698007=72098002,260868000=6934004",
+            actual = data.prediction?.get(0)?.outcome?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.prediction?.get(0)?.outcome?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "permanent weakness of the left arm",
+            actual = data.prediction?.get(0)?.outcome?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "moderate",
+            actual = data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "moderate likelihood",
+            actual = data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/risk-probability",
+            actual = data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 }

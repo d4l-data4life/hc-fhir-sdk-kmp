@@ -44,67 +44,98 @@ class MedicinalProductPharmaceuticalTest {
         val data = parser.toFhir(MedicinalProductPharmaceutical::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Film-coatedtablet",
-            data.administrableDoseForm?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/administrabledoseform",
-            data.administrableDoseForm?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/phpididentifiersets",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "{PhPID}",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "MedicinalProductIngredient/example",
-            data.ingredient?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "OralUse",
-            data.routeOfAdministration?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/routeofadministration",
-            data.routeOfAdministration?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Tablet",
-            data.unitOfPresentation?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/unitofpresentation",
-            data.unitOfPresentation?.coding?.get(0)?.system
-        )
+        assertMedicinalProductPharmaceutical01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductPharmaceutical01Step01(data: MedicinalProductPharmaceutical) {
+
+        assertEquals(
+            expected = "Film-coatedtablet",
+            actual = data.administrableDoseForm?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/administrabledoseform",
+            actual = data.administrableDoseForm?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/phpididentifiersets",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "{PhPID}",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicinalProductIngredient/example",
+            actual = data.ingredient?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OralUse",
+            actual = data.routeOfAdministration?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/routeofadministration",
+            actual = data.routeOfAdministration?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Tablet",
+            actual = data.unitOfPresentation?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/unitofpresentation",
+            actual = data.unitOfPresentation?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

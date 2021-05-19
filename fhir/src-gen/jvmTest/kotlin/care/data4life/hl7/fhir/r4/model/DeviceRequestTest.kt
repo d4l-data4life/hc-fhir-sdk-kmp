@@ -50,132 +50,190 @@ class DeviceRequestTest {
         val data = parser.toFhir(DeviceRequest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2013-05-08T09:33:27+07:00",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "Homecare - DM follow-up",
-            data.basedOn?.get(0)?.display
-        )
-        assertEquals(
-            "43148-6",
-            data.codeCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.codeCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Insulin delivery device panel",
-            data.codeCodeableConcept?.text
-        )
-        assertEquals(
-            "Encounter 1",
-            data.encounter?.display
-        )
-        assertEquals(
-            "ip_request1",
-            data.groupIdentifier?.value
-        )
-        assertEquals(
-            "insulinpump",
-            data.id
-        )
-        assertEquals(
-            "ip_request1.1",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set",
-            data.instantiatesCanonical?.get(0)
-        )
-        assertEquals(
-            RequestIntent.INSTANCE_ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "this is the right device brand and model",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2013-05-08T09:33:27+07:00",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Nurse Rossignol",
-            data.performer?.display
-        )
-        assertEquals(
-            "Qualified nurse",
-            data.performerType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "Nurse",
-            data.performerType?.text
-        )
-        assertEquals(
-            "CGM ambulatory",
-            data.priorRequest?.get(0)?.display
-        )
-        assertEquals(
-            RequestPriority.ROUTINE,
-            data.priority
-        )
-        assertEquals(
-            "gastroparesis",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "Gastroparesis",
-            data.reasonReference?.get(0)?.display
-        )
-        assertEquals(
-            "Request for unspecified device",
-            data.relevantHistory?.get(0)?.display
-        )
-        assertEquals(
-            "Dr. Adam Careful",
-            data.requester?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.requester?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Patient/dicom",
-            data.subject?.reference
-        )
-        assertEquals(
-            "Previous results",
-            data.supportingInfo?.get(0)?.display
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDeviceRequest01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDeviceRequest01Step01(data: DeviceRequest) {
+
+        assertEquals(
+            expected = "2013-05-08T09:33:27+07:00",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Homecare - DM follow-up",
+            actual = data.basedOn?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "43148-6",
+            actual = data.codeCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.codeCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Insulin delivery device panel",
+            actual = data.codeCodeableConcept?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter 1",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ip_request1",
+            actual = data.groupIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "insulinpump",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ip_request1.1",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set",
+            actual = data.instantiatesCanonical?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.INSTANCE_ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "this is the right device brand and model",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-05-08T09:33:27+07:00",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Nurse Rossignol",
+            actual = data.performer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Qualified nurse",
+            actual = data.performerType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nurse",
+            actual = data.performerType?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CGM ambulatory",
+            actual = data.priorRequest?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestPriority.ROUTINE,
+            actual = data.priority
+        )
+
+        assertEquals(
+            expected = "gastroparesis",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gastroparesis",
+            actual = data.reasonReference?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Request for unspecified device",
+            actual = data.relevantHistory?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr. Adam Careful",
+            actual = data.requester?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.requester?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/dicom",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Previous results",
+            actual = data.supportingInfo?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -187,47 +245,66 @@ class DeviceRequestTest {
         val data = parser.toFhir(DeviceRequest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Device/example",
-            data.codeReference?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            RequestIntent.ORIGINAL_ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            RequestStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDeviceRequest02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDeviceRequest02Step01(data: DeviceRequest) {
+
+        assertEquals(
+            expected = "Device/example",
+            actual = data.codeReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORIGINAL_ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

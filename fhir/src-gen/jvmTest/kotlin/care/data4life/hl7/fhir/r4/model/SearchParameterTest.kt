@@ -53,80 +53,110 @@ class SearchParameterTest {
         val data = parser.toFhir(SearchParameter::class, sourceJson)
 
         // Then
-        assertEquals(
-            ResourceType.PATIENT,
-            data.base?.get(0)
-        )
-        assertEquals(
-            "part-agree",
-            data.code
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "Search by url for a participation agreement, which is stored in a DocumentReference",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement')",
-            data.expression
-        )
-        assertEquals(
-            "example-extension",
-            data.id
-        )
-        assertEquals(
-            "Example Search Parameter on an extension",
-            data.name
-        )
-        assertEquals(
-            "Health Level Seven International (FHIR Infrastructure)",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            ResourceType.DOCUMENTREFERENCE,
-            data.target?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            SearchParamType.REFERENCE,
-            data.type
-        )
-        assertEquals(
-            "http://hl7.org/fhir/SearchParameter/example-extension",
-            data.url
-        )
-        assertEquals(
-            "f:DocumentReference/f:extension[@url='http://example.org/fhir/StructureDefinition/participation-agreement']",
-            data.xpath
-        )
-        assertEquals(
-            XPathUsageType.NORMAL,
-            data.xpathUsage
-        )
+        assertSearchParameter01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSearchParameter01Step01(data: SearchParameter) {
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.base?.get(0)
+        )
+
+        assertEquals(
+            expected = "part-agree",
+            actual = data.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Search by url for a participation agreement, which is stored in a DocumentReference",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement')",
+            actual = data.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-extension",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Example Search Parameter on an extension",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Level Seven International (FHIR Infrastructure)",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ResourceType.DOCUMENTREFERENCE,
+            actual = data.target?.get(0)
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = SearchParamType.REFERENCE,
+            actual = data.type
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/SearchParameter/example-extension",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f:DocumentReference/f:extension[@url='http://example.org/fhir/StructureDefinition/participation-agreement']",
+            actual = data.xpath
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = XPathUsageType.NORMAL,
+            actual = data.xpathUsage
+        )
     }
 
     @Test
@@ -138,100 +168,138 @@ class SearchParameterTest {
         val data = parser.toFhir(SearchParameter::class, sourceJson)
 
         // Then
-        assertEquals(
-            ResourceType.CONDITION,
-            data.base?.get(0)
-        )
-        assertEquals(
-            "name",
-            data.chain?.get(0)
-        )
-        assertEquals(
-            "identifier",
-            data.chain?.get(1)
-        )
-        assertEquals(
-            "subject",
-            data.code
-        )
-        assertEquals(
-            "[string]",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2013-10-23",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Search by condition subject",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "Condition.subject",
-            data.expression
-        )
-        assertEquals(
-            "example-reference",
-            data.id
-        )
-        assertEquals(
-            SearchModifierCode.MISSING,
-            data.modifier?.get(0)
-        )
-        assertEquals(
-            "Example Search Parameter",
-            data.name
-        )
-        assertEquals(
-            "Health Level Seven International (FHIR Infrastructure)",
-            data.publisher
-        )
-        assertEquals(
-            "Need to search Condition by subject",
-            data.purpose
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            ResourceType.ORGANIZATION,
-            data.target?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            SearchParamType.REFERENCE,
-            data.type
-        )
-        assertEquals(
-            "http://hl7.org/fhir/SearchParameter/example-reference",
-            data.url
-        )
-        assertEquals(
-            XPathUsageType.NORMAL,
-            data.xpathUsage
-        )
+        assertSearchParameter02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSearchParameter02Step01(data: SearchParameter) {
+
+        assertEquals(
+            expected = ResourceType.CONDITION,
+            actual = data.base?.get(0)
+        )
+
+        assertEquals(
+            expected = "name",
+            actual = data.chain?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "identifier",
+            actual = data.chain?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "subject",
+            actual = data.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[string]",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-10-23",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Search by condition subject",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "Condition.subject",
+            actual = data.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-reference",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchModifierCode.MISSING,
+            actual = data.modifier?.get(0)
+        )
+
+        assertEquals(
+            expected = "Example Search Parameter",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Level Seven International (FHIR Infrastructure)",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Need to search Condition by subject",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ResourceType.ORGANIZATION,
+            actual = data.target?.get(0)
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = SearchParamType.REFERENCE,
+            actual = data.type
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/SearchParameter/example-reference",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = XPathUsageType.NORMAL,
+            actual = data.xpathUsage
+        )
     }
 
     @Test
@@ -243,127 +311,180 @@ class SearchParameterTest {
         val data = parser.toFhir(SearchParameter::class, sourceJson)
 
         // Then
-        assertEquals(
-            ResourceType.RESOURCE,
-            data.base?.get(0)
-        )
-        assertEquals(
-            "_id",
-            data.code
-        )
-        assertEquals(
-            SearchComparator.EQ,
-            data.comparator?.get(0)
-        )
-        assertEquals(
-            "[string]",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2013-10-23",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "http://hl7.org/fhir/SearchParameter/Resource-id",
-            data.derivedFrom
-        )
-        assertEquals(
-            "Search by resource identifier - e.g. same as the read interaction, but can return included resources",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "id",
-            data.expression
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "United States of America (the)",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "ID-SEARCH-PARAMETER",
-            data.name
-        )
-        assertEquals(
-            "Health Level Seven International (FHIR Infrastructure)",
-            data.publisher
-        )
-        assertEquals(
-            "Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain",
-            data.purpose
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            SearchParamType.TOKEN,
-            data.type
-        )
-        assertEquals(
-            "http://hl7.org/fhir/SearchParameter/example",
-            data.url
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "positive",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/variant-state",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1",
-            data.version
-        )
-        assertEquals(
-            "f:*/f:id",
-            data.xpath
-        )
-        assertEquals(
-            XPathUsageType.NORMAL,
-            data.xpathUsage
-        )
+        assertSearchParameter03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSearchParameter03Step01(data: SearchParameter) {
+
+        assertEquals(
+            expected = ResourceType.RESOURCE,
+            actual = data.base?.get(0)
+        )
+
+        assertEquals(
+            expected = "_id",
+            actual = data.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchComparator.EQ,
+            actual = data.comparator?.get(0)
+        )
+
+        assertEquals(
+            expected = "[string]",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-10-23",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/SearchParameter/Resource-id",
+            actual = data.derivedFrom
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Search by resource identifier - e.g. same as the read interaction, but can return included resources",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "id",
+            actual = data.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "United States of America (the)",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ID-SEARCH-PARAMETER",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Level Seven International (FHIR Infrastructure)",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = SearchParamType.TOKEN,
+            actual = data.type
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/SearchParameter/example",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "positive",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/variant-state",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f:*/f:id",
+            actual = data.xpath
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = XPathUsageType.NORMAL,
+            actual = data.xpathUsage
+        )
     }
 }

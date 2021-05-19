@@ -49,412 +49,574 @@ class MeasureReportTest {
         val data = parser.toFhir(MeasureReport::class, sourceJson)
 
         // Then
-        assertEquals(
-            "reporter",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2014-04-01",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Condition/123",
-            data.evaluatedResource?.get(0)?.reference
-        )
-        assertEquals(
-            "CMS146-group-1",
-            data.group?.get(0)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "stratifier-ages-up-to-9",
-            data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "true",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "false",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "stratifier-ages-10-plus",
-            data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "true",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "false",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "stratifier-gender",
-            data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "male",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "female",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "other",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "unknown",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
-        )
-        assertEquals(
-            "measurereport-cms146-cat1-example",
-            data.id
-        )
-        assertEquals(
-            "measurereport-cms146-cat1-example-2017-03-13",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Measure/CMS146",
-            data.measure
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2014-03-31",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-01-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "#reporter",
-            data.reporter?.reference
-        )
-        assertEquals(
-            MeasureReportStatus.COMPLETE,
-            data.status
-        )
-        assertEquals(
-            "Patient/123",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            MeasureReportType.INDIVIDUAL,
-            data.type
-        )
+        assertMeasureReport01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasureReport01Step01(data: MeasureReport) {
+
+        assertEquals(
+            expected = "reporter",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-04-01",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Condition/123",
+            actual = data.evaluatedResource?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146-group-1",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-up-to-9",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-10-plus",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-gender",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "male",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "female",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "other",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat1-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat1-example-2017-03-13",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Measure/CMS146",
+            actual = data.measure
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-03-31",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-01-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#reporter",
+            actual = data.reporter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = MeasureReportStatus.COMPLETE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/123",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = MeasureReportType.INDIVIDUAL,
+            actual = data.type
+        )
     }
 
     @Test
@@ -466,548 +628,1544 @@ class MeasureReportTest {
         val data = parser.toFhir(MeasureReport::class, sourceJson)
 
         // Then
-        assertEquals(
-            "reporter",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2014-04-01",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "CMS146-group-1",
-            data.group?.get(0)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "500".toInt(),
-            data.group?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-initial-population",
-            data.group?.get(0)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "200".toInt(),
-            data.group?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-numerator",
-            data.group?.get(0)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "500".toInt(),
-            data.group?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-denominator",
-            data.group?.get(0)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-denominator-exclusions",
-            data.group?.get(0)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "stratifier-ages-up-to-9",
-            data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-true-initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-true-numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-true-denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-true-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "true",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-false-initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-false-numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-false-denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-up-to-9-false-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "false",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "stratifier-ages-10-plus",
-            data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-true-initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-true-numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-true-denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-true-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "true",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-false-initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-false-numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-false-denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-ages-10-plus-false-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "false",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "stratifier-gender",
-            data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-male-initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-male-numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-male-denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-male-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "male",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-female-initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-female-numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-female-denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-female-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "female",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-other-initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-other-numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-other-denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-other-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "other",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-unknown-initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.subjectResults?.reference
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-unknown-numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-unknown-denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.subjectResults?.reference
-        )
-        assertEquals(
-            "denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "List/CMS146-stratifier-gender-unknown-denominator-exclusions",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.subjectResults?.reference
-        )
-        assertEquals(
-            "unknown",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
-        )
-        assertEquals(
-            "measurereport-cms146-cat2-example",
-            data.id
-        )
-        assertEquals(
-            "measurereport-cms146-cat2-example-2017-03-13",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Measure/CMS146",
-            data.measure
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2014-03-31",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-01-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "#reporter",
-            data.reporter?.reference
-        )
-        assertEquals(
-            MeasureReportStatus.COMPLETE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            MeasureReportType.SUBJECT_LIST,
-            data.type
-        )
+        assertMeasureReport02Step01(data)
+        assertMeasureReport02Step02(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasureReport02Step01(data: MeasureReport) {
+
+        assertEquals(
+            expected = "reporter",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-04-01",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "CMS146-group-1",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500".toInt(),
+            actual = data.group?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "200".toInt(),
+            actual = data.group?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-numerator",
+            actual = data.group?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500".toInt(),
+            actual = data.group?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-denominator",
+            actual = data.group?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-denominator-exclusions",
+            actual = data.group?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-up-to-9",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-10-plus",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-gender",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "male",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "female",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "other",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat2-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat2-example-2017-03-13",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Measure/CMS146",
+            actual = data.measure
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-03-31",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-01-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#reporter",
+            actual = data.reporter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = MeasureReportStatus.COMPLETE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = MeasureReportType.SUBJECT_LIST,
+            actual = data.type
+        )
+    }
+
+    private fun assertMeasureReport02Step02(data: MeasureReport) {
+
+        assertEquals(
+            expected = "reporter",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-04-01",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "CMS146-group-1",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500".toInt(),
+            actual = data.group?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "200".toInt(),
+            actual = data.group?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-numerator",
+            actual = data.group?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500".toInt(),
+            actual = data.group?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-denominator",
+            actual = data.group?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-denominator-exclusions",
+            actual = data.group?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-up-to-9",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-true-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-up-to-9-false-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-10-plus",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-true-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-ages-10-plus-false-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-gender",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-male-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "male",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-female-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "female",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-other-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "other",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "List/CMS146-stratifier-gender-unknown-denominator-exclusions",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.subjectResults?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat2-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat2-example-2017-03-13",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Measure/CMS146",
+            actual = data.measure
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-03-31",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-01-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#reporter",
+            actual = data.reporter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = MeasureReportStatus.COMPLETE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = MeasureReportType.SUBJECT_LIST,
+            actual = data.type
+        )
     }
 
     @Test
@@ -1019,403 +2177,561 @@ class MeasureReportTest {
         val data = parser.toFhir(MeasureReport::class, sourceJson)
 
         // Then
-        assertEquals(
-            "reporter",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2014-04-01",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "CMS146-group-1",
-            data.group?.get(0)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "500".toInt(),
-            data.group?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "200".toInt(),
-            data.group?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "500".toInt(),
-            data.group?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "stratifier-ages-up-to-9",
-            data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "true",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "false",
-            data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "stratifier-ages-10-plus",
-            data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "true",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "false",
-            data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "stratifier-gender",
-            data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "male",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "250".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "50".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "female",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "other",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.count?.value
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.count?.value
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.count?.value
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "0".toInt(),
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.count?.value
-        )
-        assertEquals(
-            "unknown",
-            data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
-        )
-        assertEquals(
-            "measurereport-cms146-cat3-example",
-            data.id
-        )
-        assertEquals(
-            "measurereport-cms146-cat3-example-2017-03-13",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Measure/CMS146",
-            data.measure
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2014-03-31",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-01-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "#reporter",
-            data.reporter?.reference
-        )
-        assertEquals(
-            MeasureReportStatus.COMPLETE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            MeasureReportType.SUMMARY,
-            data.type
-        )
+        assertMeasureReport03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasureReport03Step01(data: MeasureReport) {
+
+        assertEquals(
+            expected = "reporter",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-04-01",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "CMS146-group-1",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500".toInt(),
+            actual = data.group?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "200".toInt(),
+            actual = data.group?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500".toInt(),
+            actual = data.group?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-up-to-9",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-10-plus",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-gender",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "male",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "female",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "other",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.count?.value
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.count?.value
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.count?.value
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat3-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measurereport-cms146-cat3-example-2017-03-13",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Measure/CMS146",
+            actual = data.measure
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-03-31",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-01-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#reporter",
+            actual = data.reporter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = MeasureReportStatus.COMPLETE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = MeasureReportType.SUMMARY,
+            actual = data.type
+        )
     }
 }

@@ -48,63 +48,90 @@ class EventDefinitionTest {
         val data = parser.toFhir(EventDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Monitor all admissions to Emergency",
-            data.purpose
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Encounter Location = emergency (active/completed encounters, current or previous)",
-            data.trigger?.get(0)?.condition?.description
-        )
-        assertEquals(
-            "(this | %previous).location.where(location = 'Location/emergency' and status in {'active', 'completed'}).exists()",
-            data.trigger?.get(0)?.condition?.expression
-        )
-        assertEquals(
-            "text/fhirpath",
-            data.trigger?.get(0)?.condition?.language
-        )
-        assertEquals(
-            "Encounter",
-            data.trigger?.get(0)?.data?.get(0)?.type
-        )
-        assertEquals(
-            "monitor-emergency-admissions",
-            data.trigger?.get(0)?.name
-        )
-        assertEquals(
-            TriggerType.NAMED_EVENT,
-            data.trigger?.get(0)?.type
-        )
+        assertEventDefinition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEventDefinition01Step01(data: EventDefinition) {
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Monitor all admissions to Emergency",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Encounter Location = emergency (active/completed encounters, current or previous)",
+            actual = data.trigger?.get(0)?.condition?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "(this | %previous).location.where(location = 'Location/emergency' and status in {'active', 'completed'}).exists()",
+            actual = data.trigger?.get(0)?.condition?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/fhirpath",
+            actual = data.trigger?.get(0)?.condition?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter",
+            actual = data.trigger?.get(0)?.data?.get(0)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "monitor-emergency-admissions",
+            actual = data.trigger?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = TriggerType.NAMED_EVENT,
+            actual = data.trigger?.get(0)?.type
+        )
     }
 }

@@ -47,116 +47,166 @@ class OrganizationAffiliationTest {
         val data = parser.toFhir(OrganizationAffiliation::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "provider",
-            data.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/organization-role",
-            data.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Endpoint/example",
-            data.endpoint?.get(0)?.reference
-        )
-        assertEquals(
-            "HealthcareService/example",
-            data.healthcareService?.get(0)?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://www.acme.org/practitioners",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "23",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "South Wing, second floor",
-            data.location?.get(0)?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "HL7 Payer Network",
-            data.network?.get(0)?.display
-        )
-        assertEquals(
-            "Organization/hl7pay",
-            data.network?.get(0)?.reference
-        )
-        assertEquals(
-            "Organization/hl7pay",
-            data.organization?.reference
-        )
-        assertEquals(
-            "Organization/f001",
-            data.participatingOrganization?.reference
-        )
-        assertEquals(
-            "2012-03-31",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2012-01-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "408443003",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General medical practice",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.specialty?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "general.practice@example.org",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganizationAffiliation01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganizationAffiliation01Step01(data: OrganizationAffiliation) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/organization-role",
+            actual = data.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Endpoint/example",
+            actual = data.endpoint?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HealthcareService/example",
+            actual = data.healthcareService?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.acme.org/practitioners",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "23",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "South Wing, second floor",
+            actual = data.location?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 Payer Network",
+            actual = data.network?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7pay",
+            actual = data.network?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7pay",
+            actual = data.organization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.participatingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-03-31",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2012-01-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "408443003",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General medical practice",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "general.practice@example.org",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -168,100 +218,145 @@ class OrganizationAffiliationTest {
         val data = parser.toFhir(OrganizationAffiliation::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "member",
-            data.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Member",
-            data.code?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/organization-role",
-            data.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Hospital member",
-            data.code?.get(0)?.text
-        )
-        assertEquals(
-            "Founding Fathers Memorial Hospital HIE endpoint",
-            data.endpoint?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Endpoint/foundingfathersHIE",
-            data.endpoint?.get(0)?.reference
-        )
-        assertEquals(
-            "orgrole2",
-            data.id
-        )
-        assertEquals(
-            "Monument Health Information Exchange",
-            data.identifier?.get(0)?.assigner?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE",
-            data.identifier?.get(0)?.assigner?.reference
-        )
-        assertEquals(
-            "http://example.org/www.monumentHIE.com",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "member hospital",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            IdentifierUse.SECONDARY,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "hosp32",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Monument Health Information Exchange",
-            data.organization?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE",
-            data.organization?.reference
-        )
-        assertEquals(
-            "Founding Fathers Memorial Hospital",
-            data.participatingOrganization?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers",
-            data.participatingOrganization?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganizationAffiliation02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganizationAffiliation02Step01(data: OrganizationAffiliation) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Member",
+            actual = data.code?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/organization-role",
+            actual = data.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hospital member",
+            actual = data.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Founding Fathers Memorial Hospital HIE endpoint",
+            actual = data.endpoint?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Endpoint/foundingfathersHIE",
+            actual = data.endpoint?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "orgrole2",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Monument Health Information Exchange",
+            actual = data.identifier?.get(0)?.assigner?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE",
+            actual = data.identifier?.get(0)?.assigner?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/www.monumentHIE.com",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member hospital",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.SECONDARY,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "hosp32",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Monument Health Information Exchange",
+            actual = data.organization?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE",
+            actual = data.organization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Founding Fathers Memorial Hospital",
+            actual = data.participatingOrganization?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers",
+            actual = data.participatingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -273,159 +368,229 @@ class OrganizationAffiliationTest {
         val data = parser.toFhir(OrganizationAffiliation::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "provider",
-            data.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Provider",
-            data.code?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/organization-role",
-            data.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.code?.get(0)?.coding?.get(0)?.userSelected?.value
-        )
-        assertEquals(
-            "Provider of rehabilitation services",
-            data.code?.get(0)?.text
-        )
-        assertEquals(
-            "Inpatient rehabilitation services",
-            data.healthcareService?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab1",
-            data.healthcareService?.get(0)?.reference
-        )
-        assertEquals(
-            "Outpatient rehabilitation services",
-            data.healthcareService?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab2",
-            data.healthcareService?.get(1)?.reference
-        )
-        assertEquals(
-            "orgrole1",
-            data.id
-        )
-        assertEquals(
-            "Founding Fathers Memorial Hospital",
-            data.identifier?.get(0)?.assigner?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers",
-            data.identifier?.get(0)?.assigner?.reference
-        )
-        assertEquals(
-            "http://example.org/www.foundingfathersmemorial.com",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.SECONDARY,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "service002",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Founding Fathers Memorial Hospital",
-            data.location?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Location/foundingfathers1",
-            data.location?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patriot Preferred Provider Network",
-            data.network?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Network/patriotppo",
-            data.network?.get(0)?.reference
-        )
-        assertEquals(
-            "Founding Fathers Memorial Hospital",
-            data.organization?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers",
-            data.organization?.reference
-        )
-        assertEquals(
-            "Independence Rehabilitation Services, Inc.",
-            data.participatingOrganization?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ig/vhdir/Organization/independencerehab",
-            data.participatingOrganization?.reference
-        )
-        assertEquals(
-            "2022-02-01",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2018-02-09",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "394602003",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Rehabilitation - specialty",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.specialty?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Rehabilitation",
-            data.specialty?.get(0)?.text
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "202-109-8765",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganizationAffiliation03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganizationAffiliation03Step01(data: OrganizationAffiliation) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Provider",
+            actual = data.code?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/organization-role",
+            actual = data.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.code?.get(0)?.coding?.get(0)?.userSelected?.value
+        )
+
+        assertEquals(
+            expected = "Provider of rehabilitation services",
+            actual = data.code?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Inpatient rehabilitation services",
+            actual = data.healthcareService?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab1",
+            actual = data.healthcareService?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Outpatient rehabilitation services",
+            actual = data.healthcareService?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab2",
+            actual = data.healthcareService?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "orgrole1",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Founding Fathers Memorial Hospital",
+            actual = data.identifier?.get(0)?.assigner?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers",
+            actual = data.identifier?.get(0)?.assigner?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/www.foundingfathersmemorial.com",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.SECONDARY,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "service002",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Founding Fathers Memorial Hospital",
+            actual = data.location?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Location/foundingfathers1",
+            actual = data.location?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patriot Preferred Provider Network",
+            actual = data.network?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Network/patriotppo",
+            actual = data.network?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Founding Fathers Memorial Hospital",
+            actual = data.organization?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers",
+            actual = data.organization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Independence Rehabilitation Services, Inc.",
+            actual = data.participatingOrganization?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ig/vhdir/Organization/independencerehab",
+            actual = data.participatingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2022-02-01",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2018-02-09",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "394602003",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Rehabilitation - specialty",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Rehabilitation",
+            actual = data.specialty?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "202-109-8765",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

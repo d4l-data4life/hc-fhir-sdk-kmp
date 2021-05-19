@@ -51,103 +51,148 @@ class ClinicalImpressionTest {
         val data = parser.toFhir(ClinicalImpression::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.assessor?.reference
-        )
-        assertEquals(
-            "2014-12-06T22:33:00+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident",
-            data.description
-        )
-        assertEquals(
-            "2014-12-06T22:33:00+11:00",
-            data.effectivePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-12-06T20:00:00+11:00",
-            data.effectivePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "850.0",
-            data.finding?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/icd-9",
-            data.finding?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Initial Examination",
-            data.investigation?.get(0)?.code?.text
-        )
-        assertEquals(
-            "deep laceration of the scalp (left temporo-occipital)",
-            data.investigation?.get(0)?.item?.get(0)?.display
-        )
-        assertEquals(
-            "decreased level of consciousness",
-            data.investigation?.get(0)?.item?.get(1)?.display
-        )
-        assertEquals(
-            "disoriented to time and place",
-            data.investigation?.get(0)?.item?.get(2)?.display
-        )
-        assertEquals(
-            "restless",
-            data.investigation?.get(0)?.item?.get(3)?.display
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "MVA",
-            data.problem?.get(0)?.display
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "provisional diagnoses of laceration of head and traumatic brain injury (TBI)",
-            data.summary
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertClinicalImpression01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClinicalImpression01Step01(data: ClinicalImpression) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.assessor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-12-06T22:33:00+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-12-06T22:33:00+11:00",
+            actual = data.effectivePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-12-06T20:00:00+11:00",
+            actual = data.effectivePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "850.0",
+            actual = data.finding?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/icd-9",
+            actual = data.finding?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Initial Examination",
+            actual = data.investigation?.get(0)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "deep laceration of the scalp (left temporo-occipital)",
+            actual = data.investigation?.get(0)?.item?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "decreased level of consciousness",
+            actual = data.investigation?.get(0)?.item?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "disoriented to time and place",
+            actual = data.investigation?.get(0)?.item?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "restless",
+            actual = data.investigation?.get(0)?.item?.get(3)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MVA",
+            actual = data.problem?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provisional diagnoses of laceration of head and traumatic brain injury (TBI)",
+            actual = data.summary
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

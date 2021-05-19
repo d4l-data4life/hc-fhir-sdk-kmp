@@ -47,100 +47,144 @@ class FlagTest {
         val data = parser.toFhir(Flag::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Nancy Nurse",
-            data.author?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.author?.reference
-        )
-        assertEquals(
-            "safety",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Safety",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/flag-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Safety",
-            data.category?.get(0)?.text
-        )
-        assertEquals(
-            "bigdog",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Big dog",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/local",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures",
-            data.code?.text
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2016-12-01",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-01-17",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            FlagStatus.INACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Peter Patient",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Large Dog warning for Peter Patient</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertFlag01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertFlag01Step01(data: Flag) {
+
+        assertEquals(
+            expected = "Nancy Nurse",
+            actual = data.author?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "safety",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Safety",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/flag-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Safety",
+            actual = data.category?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "bigdog",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Big dog",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/local",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-12-01",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-01-17",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = FlagStatus.INACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter Patient",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Large Dog warning for Peter Patient</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -152,75 +196,109 @@ class FlagTest {
         val data = parser.toFhir(Flag::class, sourceJson)
 
         // Then
-        assertEquals(
-            "infection",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Infection Control Level",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/local",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "l3",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Follow Level 3 Protocol",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/local/if1",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "example-encounter",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            FlagStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Peter Patient",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Follow Infection Control Level 3 Protocol</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertFlag02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertFlag02Step01(data: Flag) {
+
+        assertEquals(
+            expected = "infection",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Infection Control Level",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/local",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "l3",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Follow Level 3 Protocol",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/local/if1",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-encounter",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FlagStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter Patient",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Follow Infection Control Level 3 Protocol</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

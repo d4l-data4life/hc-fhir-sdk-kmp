@@ -44,175 +44,250 @@ class MedicinalProductAuthorizationTest {
         val data = parser.toFhir(MedicinalProductAuthorization::class, sourceJson)
 
         // Then
-        assertEquals(
-            "EU",
-            data.country?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/country",
-            data.country?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2020-08-15",
-            data.dataExclusivityPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2010-08-15",
-            data.dataExclusivityPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "2010-08-15",
-            data.dateOfFirstAuthorization?.value.toString()
-        )
-        assertEquals(
-            "Organization/example",
-            data.holder?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/marketingAuthorisationNumber",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "EU/1/11/999/001",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "2010-08-15",
-            data.internationalBirthDate?.value.toString()
-        )
-        assertEquals(
-            "NO",
-            data.jurisdictionalAuthorization?.get(0)?.country?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/countryCode",
-            data.jurisdictionalAuthorization?.get(0)?.country?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1",
-            data.jurisdictionalAuthorization?.get(0)?.id
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/marketingauthorisationnumber",
-            data.jurisdictionalAuthorization?.get(0)?.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123-456-789",
-            data.jurisdictionalAuthorization?.get(0)?.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "NO",
-            data.jurisdictionalAuthorization?.get(1)?.country?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/countryCode",
-            data.jurisdictionalAuthorization?.get(1)?.country?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2",
-            data.jurisdictionalAuthorization?.get(1)?.id
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/marketingauthorisationnumber",
-            data.jurisdictionalAuthorization?.get(1)?.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123-456-123",
-            data.jurisdictionalAuthorization?.get(1)?.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2015-08-01",
-            data.procedure?.application?.get(0)?.dateDateTime?.value.toString()
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/applicationidentifier-number",
-            data.procedure?.application?.get(0)?.identifier?.system
-        )
-        assertEquals(
-            "IA38G",
-            data.procedure?.application?.get(0)?.identifier?.value
-        )
-        assertEquals(
-            "GroupTypeIAVariationNotification",
-            data.procedure?.application?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/marketingAuthorisationApplicationType",
-            data.procedure?.application?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-08-21",
-            data.procedure?.datePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-08-02",
-            data.procedure?.datePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/procedureidentifier-number",
-            data.procedure?.identifier?.system
-        )
-        assertEquals(
-            "EMEA/H/C/009999/IA/0099/G",
-            data.procedure?.identifier?.value
-        )
-        assertEquals(
-            "VariationTypeIA",
-            data.procedure?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/marketingAuthorisationProcedureType",
-            data.procedure?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/example",
-            data.regulator?.reference
-        )
-        assertEquals(
-            "active",
-            data.status?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/authorisationstatus",
-            data.status?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-01-14",
-            data.statusDate?.value.toString()
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "2020-05-20",
-            data.validityPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-08-16",
-            data.validityPeriod?.start?.value.toString()
-        )
+        assertMedicinalProductAuthorization01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductAuthorization01Step01(data: MedicinalProductAuthorization) {
+
+        assertEquals(
+            expected = "EU",
+            actual = data.country?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/country",
+            actual = data.country?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2020-08-15",
+            actual = data.dataExclusivityPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2010-08-15",
+            actual = data.dataExclusivityPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2010-08-15",
+            actual = data.dateOfFirstAuthorization?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.holder?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/marketingAuthorisationNumber",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EU/1/11/999/001",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2010-08-15",
+            actual = data.internationalBirthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "NO",
+            actual = data.jurisdictionalAuthorization?.get(0)?.country?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/countryCode",
+            actual = data.jurisdictionalAuthorization?.get(0)?.country?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.jurisdictionalAuthorization?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/marketingauthorisationnumber",
+            actual = data.jurisdictionalAuthorization?.get(0)?.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123-456-789",
+            actual = data.jurisdictionalAuthorization?.get(0)?.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "NO",
+            actual = data.jurisdictionalAuthorization?.get(1)?.country?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/countryCode",
+            actual = data.jurisdictionalAuthorization?.get(1)?.country?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.jurisdictionalAuthorization?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/marketingauthorisationnumber",
+            actual = data.jurisdictionalAuthorization?.get(1)?.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123-456-123",
+            actual = data.jurisdictionalAuthorization?.get(1)?.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-01",
+            actual = data.procedure?.application?.get(0)?.dateDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/applicationidentifier-number",
+            actual = data.procedure?.application?.get(0)?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IA38G",
+            actual = data.procedure?.application?.get(0)?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "GroupTypeIAVariationNotification",
+            actual = data.procedure?.application?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/marketingAuthorisationApplicationType",
+            actual = data.procedure?.application?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-21",
+            actual = data.procedure?.datePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-08-02",
+            actual = data.procedure?.datePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/procedureidentifier-number",
+            actual = data.procedure?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EMEA/H/C/009999/IA/0099/G",
+            actual = data.procedure?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "VariationTypeIA",
+            actual = data.procedure?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/marketingAuthorisationProcedureType",
+            actual = data.procedure?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.regulator?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.status?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/authorisationstatus",
+            actual = data.status?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-01-14",
+            actual = data.statusDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "2020-05-20",
+            actual = data.validityPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-08-16",
+            actual = data.validityPeriod?.start?.value.toString()
+        )
     }
 }

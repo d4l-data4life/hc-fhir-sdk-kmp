@@ -45,72 +45,101 @@ class SlotTest {
         val data = parser.toFhir(Slot::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Assessments should be performed before requesting appointments in this slot.",
-            data.comment
-        )
-        assertEquals(
-            "2013-12-25T09:15:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "1",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/identifiers/slots",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123132",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.overbooked?.value
-        )
-        assertEquals(
-            "Schedule/example",
-            data.schedule?.reference
-        )
-        assertEquals(
-            "17",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "2013-12-25T09:00:00Z",
-            data.start?.value.toString()
-        )
-        assertEquals(
-            SlotStatus.BUSY,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSlot01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSlot01Step01(data: Slot) {
+
+        assertEquals(
+            expected = "Assessments should be performed before requesting appointments in this slot.",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:15:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/identifiers/slots",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123132",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.overbooked?.value
+        )
+
+        assertEquals(
+            expected = "Schedule/example",
+            actual = data.schedule?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:00:00Z",
+            actual = data.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = SlotStatus.BUSY,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -122,88 +151,126 @@ class SlotTest {
         val data = parser.toFhir(Slot::class, sourceJson)
 
         // Then
-        assertEquals(
-            "WALKIN",
-            data.appointmentType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "A previously unscheduled walk-in visit",
-            data.appointmentType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0276",
-            data.appointmentType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Assessments should be performed before requesting appointments in this slot.",
-            data.comment
-        )
-        assertEquals(
-            "2013-12-25T09:30:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Schedule/example",
-            data.schedule?.reference
-        )
-        assertEquals(
-            "17",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "57",
-            data.serviceType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Immunization",
-            data.serviceType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "408480009",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Clinical immunology",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "2013-12-25T09:15:00Z",
-            data.start?.value.toString()
-        )
-        assertEquals(
-            SlotStatus.FREE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSlot02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSlot02Step01(data: Slot) {
+
+        assertEquals(
+            expected = "WALKIN",
+            actual = data.appointmentType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "A previously unscheduled walk-in visit",
+            actual = data.appointmentType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0276",
+            actual = data.appointmentType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Assessments should be performed before requesting appointments in this slot.",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:30:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Schedule/example",
+            actual = data.schedule?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Immunization",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "408480009",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical immunology",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:15:00Z",
+            actual = data.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = SlotStatus.FREE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -215,60 +282,84 @@ class SlotTest {
         val data = parser.toFhir(Slot::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Dr Careful is out of the office",
-            data.comment
-        )
-        assertEquals(
-            "2013-12-25T09:45:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "3",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Schedule/example",
-            data.schedule?.reference
-        )
-        assertEquals(
-            "17",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "2013-12-25T09:30:00Z",
-            data.start?.value.toString()
-        )
-        assertEquals(
-            SlotStatus.BUSY_UNAVAILABLE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSlot03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSlot03Step01(data: Slot) {
+
+        assertEquals(
+            expected = "Dr Careful is out of the office",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:45:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Schedule/example",
+            actual = data.schedule?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:30:00Z",
+            actual = data.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = SlotStatus.BUSY_UNAVAILABLE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -280,59 +371,83 @@ class SlotTest {
         val data = parser.toFhir(Slot::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Dr Careful is out of the office",
-            data.comment
-        )
-        assertEquals(
-            "2013-12-25T10:00:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "2",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Schedule/example",
-            data.schedule?.reference
-        )
-        assertEquals(
-            "17",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "2013-12-25T09:45:00Z",
-            data.start?.value.toString()
-        )
-        assertEquals(
-            SlotStatus.BUSY_TENTATIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSlot04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSlot04Step01(data: Slot) {
+
+        assertEquals(
+            expected = "Dr Careful is out of the office",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T10:00:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Schedule/example",
+            actual = data.schedule?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:45:00Z",
+            actual = data.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = SlotStatus.BUSY_TENTATIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

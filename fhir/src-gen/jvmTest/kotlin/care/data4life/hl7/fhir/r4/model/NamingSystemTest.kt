@@ -52,128 +52,181 @@ class NamingSystemTest {
         val data = parser.toFhir(NamingSystem::class, sourceJson)
 
         // Then
-        assertEquals(
-            "HL7 Australia FHIR Team",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7-australia.wikispaces.com/FHIR+Australia",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2015-08-31",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Australian HI Identifier as established by relevant regulations etc.",
-            data.description
-        )
-        assertEquals(
-            "example-id",
-            data.id
-        )
-        assertEquals(
-            "AU",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NamingSystemType.IDENTIFIER,
-            data.kind
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Austalian Healthcare Identifier - Individual",
-            data.name
-        )
-        assertEquals(
-            "HL7 Australia on behalf of NEHTA",
-            data.publisher
-        )
-        assertEquals(
-            "HI Service Operator / NEHTA",
-            data.responsible
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "NI",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "National unique individual identifier",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0203",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "IHI",
-            data.type?.text
-        )
-        assertEquals(
-            "This value is used in Australian CDA documents",
-            data.uniqueId?.get(0)?.comment
-        )
-        assertEquals(
-            NamingSystemIdentifierType.OID,
-            data.uniqueId?.get(0)?.type
-        )
-        assertEquals(
-            "1.2.36.1.2001.1003.0",
-            data.uniqueId?.get(0)?.value
-        )
-        assertEquals(
-            "2015-08-21",
-            data.uniqueId?.get(1)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.uniqueId?.get(1)?.preferred?.value
-        )
-        assertEquals(
-            NamingSystemIdentifierType.URI,
-            data.uniqueId?.get(1)?.type
-        )
-        assertEquals(
-            "http://ns.electronichealth.net.au/id/hi/ihi/1.0",
-            data.uniqueId?.get(1)?.value
-        )
-        assertEquals(
-            "Used in Australia for identifying patients",
-            data.usage
-        )
+        assertNamingSystem01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNamingSystem01Step01(data: NamingSystem) {
+
+        assertEquals(
+            expected = "HL7 Australia FHIR Team",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7-australia.wikispaces.com/FHIR+Australia",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-31",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Australian HI Identifier as established by relevant regulations etc.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-id",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AU",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NamingSystemType.IDENTIFIER,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Austalian Healthcare Identifier - Individual",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 Australia on behalf of NEHTA",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HI Service Operator / NEHTA",
+            actual = data.responsible
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "NI",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "National unique individual identifier",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0203",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IHI",
+            actual = data.type?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This value is used in Australian CDA documents",
+            actual = data.uniqueId?.get(0)?.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NamingSystemIdentifierType.OID,
+            actual = data.uniqueId?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "1.2.36.1.2001.1003.0",
+            actual = data.uniqueId?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-21",
+            actual = data.uniqueId?.get(1)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.uniqueId?.get(1)?.preferred?.value
+        )
+
+        assertEquals(
+            expected = NamingSystemIdentifierType.URI,
+            actual = data.uniqueId?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "http://ns.electronichealth.net.au/id/hi/ihi/1.0",
+            actual = data.uniqueId?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Used in Australia for identifying patients",
+            actual = data.usage
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -185,87 +238,121 @@ class NamingSystemTest {
         val data = parser.toFhir(NamingSystem::class, sourceJson)
 
         // Then
-        assertEquals(
-            "FHIR project team",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2014-12-13",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            NamingSystemType.CODESYSTEM,
-            data.kind
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "SNOMED CT",
-            data.name
-        )
-        assertEquals(
-            "HL7 International on behalf of IHTSDO",
-            data.publisher
-        )
-        assertEquals(
-            "IHTSDO & affiliates",
-            data.responsible
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            NamingSystemIdentifierType.OID,
-            data.uniqueId?.get(0)?.type
-        )
-        assertEquals(
-            "2.16.840.1.113883.6.96",
-            data.uniqueId?.get(0)?.value
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.uniqueId?.get(1)?.preferred?.value
-        )
-        assertEquals(
-            NamingSystemIdentifierType.URI,
-            data.uniqueId?.get(1)?.type
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.uniqueId?.get(1)?.value
-        )
+        assertNamingSystem02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNamingSystem02Step01(data: NamingSystem) {
+
+        assertEquals(
+            expected = "FHIR project team",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-12-13",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NamingSystemType.CODESYSTEM,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SNOMED CT",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 International on behalf of IHTSDO",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IHTSDO & affiliates",
+            actual = data.responsible
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = NamingSystemIdentifierType.OID,
+            actual = data.uniqueId?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "2.16.840.1.113883.6.96",
+            actual = data.uniqueId?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.uniqueId?.get(1)?.preferred?.value
+        )
+
+        assertEquals(
+            expected = NamingSystemIdentifierType.URI,
+            actual = data.uniqueId?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.uniqueId?.get(1)?.value
+                ?.replace("\n", " ")
+        )
     }
 }

@@ -47,67 +47,98 @@ class MedicinalProductInteractionTest {
         val data = parser.toFhir(MedicinalProductInteraction::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Increasedplasmaconcentrations",
-            data.effect?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/interactionseffect",
-            data.effect?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "ketoconazole",
-            data.interactant?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/interactant",
-            data.interactant?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "itraconazole",
-            data.interactant?.get(1)?.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/interactant",
-            data.interactant?.get(1)?.itemCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Coadministration not recommended in patients receiving concomitant systemic treatment strong inhibitors of both CYP3A4 and P-gp",
-            data.management?.text
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "StrongInhibitorofCYP3A4",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/interactionsType",
-            data.type?.coding?.get(0)?.system
-        )
+        assertMedicinalProductInteraction01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductInteraction01Step01(data: MedicinalProductInteraction) {
+
+        assertEquals(
+            expected = "Increasedplasmaconcentrations",
+            actual = data.effect?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/interactionseffect",
+            actual = data.effect?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ketoconazole",
+            actual = data.interactant?.get(0)?.itemCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/interactant",
+            actual = data.interactant?.get(0)?.itemCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "itraconazole",
+            actual = data.interactant?.get(1)?.itemCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/interactant",
+            actual = data.interactant?.get(1)?.itemCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coadministration not recommended in patients receiving concomitant systemic treatment strong inhibitors of both CYP3A4 and P-gp",
+            actual = data.management?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "StrongInhibitorofCYP3A4",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/interactionsType",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

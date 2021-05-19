@@ -47,59 +47,84 @@ class LinkageTest {
         val data = parser.toFhir(Linkage::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/f201",
-            data.author?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "Severe burn of left ear (Date: 24-May 2012)",
-            data.item?.get(0)?.resource?.display
-        )
-        assertEquals(
-            "Condition/example",
-            data.item?.get(0)?.resource?.reference
-        )
-        assertEquals(
-            LinkageType.SOURCE,
-            data.item?.get(0)?.type
-        )
-        assertEquals(
-            "Severe burn of left ear (Date: 24-May 2012)",
-            data.item?.get(1)?.resource?.display
-        )
-        assertEquals(
-            "Condition/condition-example",
-            data.item?.get(1)?.resource?.reference
-        )
-        assertEquals(
-            LinkageType.ALTERNATE,
-            data.item?.get(1)?.type
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertLinkage01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLinkage01Step01(data: Linkage) {
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Severe burn of left ear (Date: 24-May 2012)",
+            actual = data.item?.get(0)?.resource?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/example",
+            actual = data.item?.get(0)?.resource?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LinkageType.SOURCE,
+            actual = data.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Severe burn of left ear (Date: 24-May 2012)",
+            actual = data.item?.get(1)?.resource?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/condition-example",
+            actual = data.item?.get(1)?.resource?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LinkageType.ALTERNATE,
+            actual = data.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

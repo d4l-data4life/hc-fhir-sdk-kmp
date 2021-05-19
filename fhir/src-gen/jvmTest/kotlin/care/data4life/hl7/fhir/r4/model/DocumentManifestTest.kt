@@ -48,103 +48,150 @@ class DocumentManifestTest {
         val data = parser.toFhir(DocumentManifest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "#a1",
-            data.author?.get(0)?.reference
-        )
-        assertEquals(
-            "a1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "DocumentReference/example",
-            data.content?.get(0)?.reference
-        )
-        assertEquals(
-            "2004-12-25T23:50:50-05:00",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Physical",
-            data.description
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/documents",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "23425234234-2347",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://example.org/documents",
-            data.masterIdentifier?.system
-        )
-        assertEquals(
-            "23425234234-2346",
-            data.masterIdentifier?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/xcda1",
-            data.recipient?.get(0)?.reference
-        )
-        assertEquals(
-            "http://example.org/documents",
-            data.related?.get(0)?.identifier?.system
-        )
-        assertEquals(
-            "23425234234-9999",
-            data.related?.get(0)?.identifier?.value
-        )
-        assertEquals(
-            "DocumentReference/example",
-            data.related?.get(0)?.ref?.reference
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2009.1.2.1",
-            data.source
-        )
-        assertEquals(
-            DocumentReferenceStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            "Patient/xcda",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Text</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "History and Physical",
-            data.type?.text
-        )
+        assertDocumentManifest01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDocumentManifest01Step01(data: DocumentManifest) {
+
+        assertEquals(
+            expected = "#a1",
+            actual = data.author?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DocumentReference/example",
+            actual = data.content?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2004-12-25T23:50:50-05:00",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Physical",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/documents",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "23425234234-2347",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/documents",
+            actual = data.masterIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "23425234234-2346",
+            actual = data.masterIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda1",
+            actual = data.recipient?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/documents",
+            actual = data.related?.get(0)?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "23425234234-9999",
+            actual = data.related?.get(0)?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DocumentReference/example",
+            actual = data.related?.get(0)?.ref?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2009.1.2.1",
+            actual = data.source
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DocumentReferenceStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/xcda",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Text</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "History and Physical",
+            actual = data.type?.text
+                ?.replace("\n", " ")
+        )
     }
 }

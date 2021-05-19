@@ -53,128 +53,181 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "359615001",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Partial lobectomy of lung",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.SERVICEREQUEST,
-            data.activity?.get(0)?.detail?.kind
-        )
-        assertEquals(
-            "M.I.M. Versteegh",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/f003",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "2011-07-07T09:30:10+01:00",
-            data.activity?.get(0)?.detail?.scheduledString
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "?????",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "Condition/f201",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "#careteam",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "careteam",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "goal",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "#goal",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "f002",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/careplans",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "CP2934",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-07-07",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2011-07-06",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            RequestStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCarePlan01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan01Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "359615001",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Partial lobectomy of lung",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.SERVICEREQUEST,
+            actual = data.activity?.get(0)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "M.I.M. Versteegh",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f003",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-07-07T09:30:10+01:00",
+            actual = data.activity?.get(0)?.detail?.scheduledString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "?????",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/f201",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#careteam",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "careteam",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#goal",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f002",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/careplans",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "CP2934",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-07-07",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2011-07-06",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -186,124 +239,178 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "367336001",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chemotherapy",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.SERVICEREQUEST,
-            data.activity?.get(0)?.detail?.kind
-        )
-        assertEquals(
-            "#tpf",
-            data.activity?.get(0)?.detail?.productReference?.reference
-        )
-        assertEquals(
-            CarePlanActivityStatus.IN_PROGRESS,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "Roel's Chemotherapy",
-            data.activity?.get(0)?.outcomeReference?.get(0)?.display
-        )
-        assertEquals(
-            "Procedure/f201",
-            data.activity?.get(0)?.outcomeReference?.get(0)?.reference
-        )
-        assertEquals(
-            "Roel's head-neck tumor",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "Condition/f202",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "#careteam",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "doce",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "cisp",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "fluo",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "tpf",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "careteam",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "goal",
-            data.contained?.get(5)?.id
-        )
-        assertEquals(
-            "#goal",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "f202",
-            data.id
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCarePlan02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan02Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "367336001",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chemotherapy",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.SERVICEREQUEST,
+            actual = data.activity?.get(0)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "#tpf",
+            actual = data.activity?.get(0)?.detail?.productReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Roel's Chemotherapy",
+            actual = data.activity?.get(0)?.outcomeReference?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Procedure/f201",
+            actual = data.activity?.get(0)?.outcomeReference?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel's head-neck tumor",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/f202",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#careteam",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "doce",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "cisp",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fluo",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "tpf",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "careteam",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#goal",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f202",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -315,48 +422,67 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "obesity-narrative",
-            data.id
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertCarePlan03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan03Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "obesity-narrative",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -368,196 +494,283 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "3141-9",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Weight Measured",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "27113001",
-            data.activity?.get(0)?.detail?.code?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Body weight",
-            data.activity?.get(0)?.detail?.code?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.detail?.code?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "Patient's home",
-            data.activity?.get(0)?.detail?.location?.display
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.activity?.get(0)?.detail?.scheduledTiming?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.activity?.get(0)?.detail?.scheduledTiming?.repeat?.period?.value
-        )
-        assertEquals(
-            "d",
-            data.activity?.get(0)?.detail?.scheduledTiming?.repeat?.periodUnit
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "Achieved weight loss to mitigate diabetes risk.",
-            data.activity?.get(0)?.detail?.statusReason?.text
-        )
-        assertEquals(
-            "161832001",
-            data.activity?.get(0)?.outcomeCodeableConcept?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Progressive weight loss",
-            data.activity?.get(0)?.outcomeCodeableConcept?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.outcomeCodeableConcept?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Weight Measured",
-            data.activity?.get(0)?.outcomeReference?.get(0)?.display
-        )
-        assertEquals(
-            "Observation/example",
-            data.activity?.get(0)?.outcomeReference?.get(0)?.reference
-        )
-        assertEquals(
-            "obesity",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "#p1",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.author?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.author?.reference
-        )
-        assertEquals(
-            "Management of Type 2 Diabetes",
-            data.basedOn?.get(0)?.display
-        )
-        assertEquals(
-            "CareTeam/example",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "Weight management plan",
-            data.category?.get(0)?.text
-        )
-        assertEquals(
-            "p1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2016-01-01",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Manage obesity and weight loss",
-            data.description
-        )
-        assertEquals(
-            "Encounter/home",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "Goal/example",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://example.org/protocol-for-obesity",
-            data.instantiatesUri?.get(0)
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Overall wellness plan",
-            data.partOf?.get(0)?.display
-        )
-        assertEquals(
-            "2017-06-01",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "Plan from urgent care clinic",
-            data.replaces?.get(0)?.display
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertCarePlan04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan04Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "3141-9",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight Measured",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "27113001",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body weight",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "Patient's home",
+            actual = data.activity?.get(0)?.detail?.location?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.activity?.get(0)?.detail?.scheduledTiming?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.activity?.get(0)?.detail?.scheduledTiming?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.activity?.get(0)?.detail?.scheduledTiming?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Achieved weight loss to mitigate diabetes risk.",
+            actual = data.activity?.get(0)?.detail?.statusReason?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "161832001",
+            actual = data.activity?.get(0)?.outcomeCodeableConcept?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Progressive weight loss",
+            actual = data.activity?.get(0)?.outcomeCodeableConcept?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.outcomeCodeableConcept?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight Measured",
+            actual = data.activity?.get(0)?.outcomeReference?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/example",
+            actual = data.activity?.get(0)?.outcomeReference?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "obesity",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p1",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.author?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Management of Type 2 Diabetes",
+            actual = data.basedOn?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CareTeam/example",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight management plan",
+            actual = data.category?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-01-01",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Manage obesity and weight loss",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/home",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Goal/example",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/protocol-for-obesity",
+            actual = data.instantiatesUri?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Overall wellness plan",
+            actual = data.partOf?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-06-01",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Plan from urgent care clinic",
+            actual = data.replaces?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -569,156 +782,220 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "284093001",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Potassium supplementation",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "258718000",
-            data.activity?.get(0)?.detail?.dailyAmount?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.detail?.dailyAmount?.system
-        )
-        assertEquals(
-            "mmol",
-            data.activity?.get(0)?.detail?.dailyAmount?.unit
-        )
-        assertEquals(
-            "80".toDouble(),
-            data.activity?.get(0)?.detail?.dailyAmount?.value?.value
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.NUTRITIONORDER,
-            data.activity?.get(0)?.detail?.kind
-        )
-        assertEquals(
-            "Potassium",
-            data.activity?.get(0)?.detail?.productReference?.display
-        )
-        assertEquals(
-            "Substance/f203",
-            data.activity?.get(0)?.detail?.productReference?.reference
-        )
-        assertEquals(
-            "daily",
-            data.activity?.get(0)?.detail?.scheduledString
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "306005",
-            data.activity?.get(1)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Echography of kidney",
-            data.activity?.get(1)?.detail?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(1)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(1)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.SERVICEREQUEST,
-            data.activity?.get(1)?.detail?.kind
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(1)?.detail?.status
-        )
-        assertEquals(
-            "Roel's renal insufficiency",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "Condition/f204",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "#careteam",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "careteam",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "goal",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "#goal",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            RequestIntent.PROPOSAL,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-03-13",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-03-11",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            RequestStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCarePlan05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan05Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "284093001",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Potassium supplementation",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "258718000",
+            actual = data.activity?.get(0)?.detail?.dailyAmount?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.detail?.dailyAmount?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mmol",
+            actual = data.activity?.get(0)?.detail?.dailyAmount?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "80".toDouble(),
+            actual = data.activity?.get(0)?.detail?.dailyAmount?.value?.value
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.NUTRITIONORDER,
+            actual = data.activity?.get(0)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "Potassium",
+            actual = data.activity?.get(0)?.detail?.productReference?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Substance/f203",
+            actual = data.activity?.get(0)?.detail?.productReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "daily",
+            actual = data.activity?.get(0)?.detail?.scheduledString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "306005",
+            actual = data.activity?.get(1)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Echography of kidney",
+            actual = data.activity?.get(1)?.detail?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(1)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(1)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.SERVICEREQUEST,
+            actual = data.activity?.get(1)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(1)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Roel's renal insufficiency",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/f204",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#careteam",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "careteam",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#goal",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PROPOSAL,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-13",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-11",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -730,156 +1007,220 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "nursecon",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/local",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Nurse Consultation",
-            data.activity?.get(0)?.detail?.code?.text
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.APPOINTMENT,
-            data.activity?.get(0)?.detail?.kind
-        )
-        assertEquals(
-            "Nurse Nancy",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/13",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "2013-01-01T10:50:00+00:00",
-            data.activity?.get(0)?.detail?.scheduledPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-01-01T10:38:00+00:00",
-            data.activity?.get(0)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "Encounter/example",
-            data.activity?.get(0)?.outcomeReference?.get(0)?.reference
-        )
-        assertEquals(
-            "doccon",
-            data.activity?.get(1)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/local",
-            data.activity?.get(1)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Doctor Consultation",
-            data.activity?.get(1)?.detail?.code?.text
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(1)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.APPOINTMENT,
-            data.activity?.get(1)?.detail?.kind
-        )
-        assertEquals(
-            "Doctor Dave",
-            data.activity?.get(1)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/14",
-            data.activity?.get(1)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            CarePlanActivityStatus.SCHEDULED,
-            data.activity?.get(1)?.detail?.status
-        )
-        assertEquals(
-            "obesity",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "#p1",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "#careteam",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "p1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "careteam",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "goal",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "#goal",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "gpvisit",
-            data.id
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-01-01T10:30:00+00:00",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/100",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertCarePlan06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan06Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "nursecon",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/local",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nurse Consultation",
+            actual = data.activity?.get(0)?.detail?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.APPOINTMENT,
+            actual = data.activity?.get(0)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "Nurse Nancy",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/13",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-01T10:50:00+00:00",
+            actual = data.activity?.get(0)?.detail?.scheduledPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-01-01T10:38:00+00:00",
+            actual = data.activity?.get(0)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.activity?.get(0)?.outcomeReference?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "doccon",
+            actual = data.activity?.get(1)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/local",
+            actual = data.activity?.get(1)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Doctor Consultation",
+            actual = data.activity?.get(1)?.detail?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(1)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.APPOINTMENT,
+            actual = data.activity?.get(1)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "Doctor Dave",
+            actual = data.activity?.get(1)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/14",
+            actual = data.activity?.get(1)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.SCHEDULED,
+            actual = data.activity?.get(1)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "obesity",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p1",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#careteam",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "careteam",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#goal",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "gpvisit",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-01T10:30:00+00:00",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/100",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -891,500 +1232,1374 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Eve will review photos of high and low density foods and share with her parents",
-            data.activity?.get(0)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(0)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(0)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g1",
-            data.activity?.get(0)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(0)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.NOT_STARTED,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "Eve eats one meal a day with her parents",
-            data.activity?.get(0)?.progress?.get(0)?.text
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(0)?.progress?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve will ask her dad to asist her to put the head of her bed on blocks",
-            data.activity?.get(1)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(1)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(1)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(1)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g1",
-            data.activity?.get(1)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            ResourceType.COMMUNICATIONREQUEST,
-            data.activity?.get(1)?.detail?.kind
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(1)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.NOT_STARTED,
-            data.activity?.get(1)?.detail?.status
-        )
-        assertEquals(
-            "Eve will sleep in her bed more often than the couch",
-            data.activity?.get(1)?.progress?.get(0)?.text
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(1)?.progress?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve will reduce her intake of coffee and chocolate",
-            data.activity?.get(2)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(2)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(2)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(2)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g2",
-            data.activity?.get(2)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(2)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.IN_PROGRESS,
-            data.activity?.get(2)?.detail?.status
-        )
-        assertEquals(
-            "Eve will walk her friend's dog up and down a big hill 15-30 minutes 3 days a week",
-            data.activity?.get(3)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(3)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(3)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(3)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g3",
-            data.activity?.get(3)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-08-27",
-            data.activity?.get(3)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.IN_PROGRESS,
-            data.activity?.get(3)?.detail?.status
-        )
-        assertEquals(
-            "Eve would like to try for 5 days a week.",
-            data.activity?.get(3)?.progress?.get(0)?.text
-        )
-        assertEquals(
-            "2012-08-27",
-            data.activity?.get(3)?.progress?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve is still walking the dogs.",
-            data.activity?.get(3)?.progress?.get(1)?.text
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(3)?.progress?.get(1)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve will walk 3 blocks to her parents house twice a week",
-            data.activity?.get(4)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(4)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(4)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(4)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g3",
-            data.activity?.get(4)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-07-23",
-            data.activity?.get(4)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.IN_PROGRESS,
-            data.activity?.get(4)?.detail?.status
-        )
-        assertEquals(
-            "Eve walked 4 times the last week.",
-            data.activity?.get(4)?.progress?.get(0)?.text
-        )
-        assertEquals(
-            "2012-08-13",
-            data.activity?.get(4)?.progress?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve did not walk to her parents the last week, but has plans to start again",
-            data.activity?.get(4)?.progress?.get(1)?.text
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(4)?.progress?.get(1)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve will use a calendar to check off after medications are taken",
-            data.activity?.get(5)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(5)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(5)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-08-13",
-            data.activity?.get(5)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g4",
-            data.activity?.get(5)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-07-23",
-            data.activity?.get(5)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.IN_PROGRESS,
-            data.activity?.get(5)?.detail?.status
-        )
-        assertEquals(
-            "Eve will use her lights MWF after her shower for 3 minutes",
-            data.activity?.get(6)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(6)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(6)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-08-27",
-            data.activity?.get(6)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g5",
-            data.activity?.get(6)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-07-23",
-            data.activity?.get(6)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.IN_PROGRESS,
-            data.activity?.get(6)?.detail?.status
-        )
-        assertEquals(
-            "After restarting the vinegar soaks the psoriasis is improved and Eve plans to treat the remainder with light treatments.  She plans to start this week.",
-            data.activity?.get(6)?.progress?.get(0)?.text
-        )
-        assertEquals(
-            "2012-08-13",
-            data.activity?.get(6)?.progress?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Since her skin is improved Eve has not been using the light treatment as often, maybe once a week.  She would like to increase to 3 times a week again",
-            data.activity?.get(6)?.progress?.get(1)?.text
-        )
-        assertEquals(
-            "2012-08-27",
-            data.activity?.get(6)?.progress?.get(1)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve will use a calendar of a chart to help her remember when to take her medications",
-            data.activity?.get(7)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(7)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(7)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-09-10",
-            data.activity?.get(7)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g4",
-            data.activity?.get(7)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-07-10",
-            data.activity?.get(7)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.IN_PROGRESS,
-            data.activity?.get(7)?.detail?.status
-        )
-        assertEquals(
-            "Eve created a chart as a reminer to take the medications that do not fit in her pill box",
-            data.activity?.get(7)?.progress?.get(0)?.text
-        )
-        assertEquals(
-            "2012-07-23",
-            data.activity?.get(7)?.progress?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve will start using stretch bands and one step 2 days a week Mon/Wed 6-7am and maybe Friday afternoon",
-            data.activity?.get(8)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(8)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(8)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-08-23",
-            data.activity?.get(8)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g3",
-            data.activity?.get(8)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-07-23",
-            data.activity?.get(8)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.ON_HOLD,
-            data.activity?.get(8)?.detail?.status
-        )
-        assertEquals(
-            "Will be able to esume exercise.",
-            data.activity?.get(8)?.progress?.get(0)?.text
-        )
-        assertEquals(
-            "2012-07-30",
-            data.activity?.get(8)?.progress?.get(0)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve prefers to focus on walking at this time",
-            data.activity?.get(8)?.progress?.get(1)?.text
-        )
-        assertEquals(
-            "2012-08-13",
-            data.activity?.get(8)?.progress?.get(1)?.time?.value.toString()
-        )
-        assertEquals(
-            "Eve will match a printed medication worksheet with the medication bottles at home",
-            data.activity?.get(9)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(9)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/RevisionDate",
-            data.activity?.get(9)?.detail?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2012-07-23",
-            data.activity?.get(9)?.detail?.extension?.get(0)?.valueDate?.value.toString()
-        )
-        assertEquals(
-            "#g4",
-            data.activity?.get(9)?.detail?.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "2012-07-10",
-            data.activity?.get(9)?.detail?.scheduledPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(9)?.detail?.status
-        )
-        assertEquals(
-            "GERDS",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "#p1",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "Obesity",
-            data.addresses?.get(1)?.display
-        )
-        assertEquals(
-            "#p2",
-            data.addresses?.get(1)?.reference
-        )
-        assertEquals(
-            "Psoriasis",
-            data.addresses?.get(2)?.display
-        )
-        assertEquals(
-            "#p3",
-            data.addresses?.get(2)?.reference
-        )
-        assertEquals(
-            "p1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "p2",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "p3",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "g1",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "g2",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "g3",
-            data.contained?.get(5)?.id
-        )
-        assertEquals(
-            "g4",
-            data.contained?.get(6)?.id
-        )
-        assertEquals(
-            "g5",
-            data.contained?.get(7)?.id
-        )
-        assertEquals(
-            "#g1",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "#g2",
-            data.goal?.get(1)?.reference
-        )
-        assertEquals(
-            "#g3",
-            data.goal?.get(2)?.reference
-        )
-        assertEquals(
-            "#g4",
-            data.goal?.get(3)?.reference
-        )
-        assertEquals(
-            "#g5",
-            data.goal?.get(4)?.reference
-        )
-        assertEquals(
-            "integrate",
-            data.id
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient family is not ready to commit to goal setting at this time.  Goal setting will be addressed in the future",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Eve Everywoman",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/1",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCarePlan07Step01(data)
+        assertCarePlan07Step02(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan07Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "Eve will review photos of high and low density foods and share with her parents",
+            actual = data.activity?.get(0)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(0)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(0)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g1",
+            actual = data.activity?.get(0)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(0)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.NOT_STARTED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve eats one meal a day with her parents",
+            actual = data.activity?.get(0)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(0)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will ask her dad to asist her to put the head of her bed on blocks",
+            actual = data.activity?.get(1)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(1)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(1)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(1)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g1",
+            actual = data.activity?.get(1)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.COMMUNICATIONREQUEST,
+            actual = data.activity?.get(1)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(1)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.NOT_STARTED,
+            actual = data.activity?.get(1)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve will sleep in her bed more often than the couch",
+            actual = data.activity?.get(1)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(1)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will reduce her intake of coffee and chocolate",
+            actual = data.activity?.get(2)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(2)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(2)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(2)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g2",
+            actual = data.activity?.get(2)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(2)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(2)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve will walk her friend's dog up and down a big hill 15-30 minutes 3 days a week",
+            actual = data.activity?.get(3)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(3)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(3)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(3)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.activity?.get(3)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(3)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(3)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve would like to try for 5 days a week.",
+            actual = data.activity?.get(3)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(3)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve is still walking the dogs.",
+            actual = data.activity?.get(3)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(3)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will walk 3 blocks to her parents house twice a week",
+            actual = data.activity?.get(4)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(4)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(4)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(4)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.activity?.get(4)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(4)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(4)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve walked 4 times the last week.",
+            actual = data.activity?.get(4)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(4)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve did not walk to her parents the last week, but has plans to start again",
+            actual = data.activity?.get(4)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(4)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will use a calendar to check off after medications are taken",
+            actual = data.activity?.get(5)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(5)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(5)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(5)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.activity?.get(5)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(5)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(5)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve will use her lights MWF after her shower for 3 minutes",
+            actual = data.activity?.get(6)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(6)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(6)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(6)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g5",
+            actual = data.activity?.get(6)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(6)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(6)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "After restarting the vinegar soaks the psoriasis is improved and Eve plans to treat the remainder with light treatments.  She plans to start this week.",
+            actual = data.activity?.get(6)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(6)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Since her skin is improved Eve has not been using the light treatment as often, maybe once a week.  She would like to increase to 3 times a week again",
+            actual = data.activity?.get(6)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(6)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will use a calendar of a chart to help her remember when to take her medications",
+            actual = data.activity?.get(7)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(7)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(7)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(7)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.activity?.get(7)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-10",
+            actual = data.activity?.get(7)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(7)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve created a chart as a reminer to take the medications that do not fit in her pill box",
+            actual = data.activity?.get(7)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(7)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will start using stretch bands and one step 2 days a week Mon/Wed 6-7am and maybe Friday afternoon",
+            actual = data.activity?.get(8)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(8)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(8)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-23",
+            actual = data.activity?.get(8)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.activity?.get(8)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(8)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.ON_HOLD,
+            actual = data.activity?.get(8)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Will be able to esume exercise.",
+            actual = data.activity?.get(8)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-30",
+            actual = data.activity?.get(8)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve prefers to focus on walking at this time",
+            actual = data.activity?.get(8)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(8)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will match a printed medication worksheet with the medication bottles at home",
+            actual = data.activity?.get(9)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(9)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(9)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(9)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.activity?.get(9)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-10",
+            actual = data.activity?.get(9)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(9)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "GERDS",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p1",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Obesity",
+            actual = data.addresses?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p2",
+            actual = data.addresses?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Psoriasis",
+            actual = data.addresses?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p3",
+            actual = data.addresses?.get(2)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p3",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g1",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g2",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g3",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g4",
+            actual = data.contained?.get(6)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g5",
+            actual = data.contained?.get(7)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g1",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g2",
+            actual = data.goal?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.goal?.get(2)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.goal?.get(3)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g5",
+            actual = data.goal?.get(4)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "integrate",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient family is not ready to commit to goal setting at this time.  Goal setting will be addressed in the future",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Eve Everywoman",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+    }
+
+    private fun assertCarePlan07Step02(data: CarePlan) {
+
+        assertEquals(
+            expected = "Eve will review photos of high and low density foods and share with her parents",
+            actual = data.activity?.get(0)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(0)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(0)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g1",
+            actual = data.activity?.get(0)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(0)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.NOT_STARTED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve eats one meal a day with her parents",
+            actual = data.activity?.get(0)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(0)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will ask her dad to asist her to put the head of her bed on blocks",
+            actual = data.activity?.get(1)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(1)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(1)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(1)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g1",
+            actual = data.activity?.get(1)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.COMMUNICATIONREQUEST,
+            actual = data.activity?.get(1)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(1)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.NOT_STARTED,
+            actual = data.activity?.get(1)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve will sleep in her bed more often than the couch",
+            actual = data.activity?.get(1)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(1)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will reduce her intake of coffee and chocolate",
+            actual = data.activity?.get(2)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(2)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(2)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(2)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g2",
+            actual = data.activity?.get(2)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(2)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(2)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve will walk her friend's dog up and down a big hill 15-30 minutes 3 days a week",
+            actual = data.activity?.get(3)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(3)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(3)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(3)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.activity?.get(3)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(3)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(3)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve would like to try for 5 days a week.",
+            actual = data.activity?.get(3)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(3)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve is still walking the dogs.",
+            actual = data.activity?.get(3)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(3)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will walk 3 blocks to her parents house twice a week",
+            actual = data.activity?.get(4)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(4)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(4)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(4)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.activity?.get(4)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(4)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(4)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve walked 4 times the last week.",
+            actual = data.activity?.get(4)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(4)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve did not walk to her parents the last week, but has plans to start again",
+            actual = data.activity?.get(4)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(4)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will use a calendar to check off after medications are taken",
+            actual = data.activity?.get(5)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(5)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(5)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(5)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.activity?.get(5)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(5)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(5)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve will use her lights MWF after her shower for 3 minutes",
+            actual = data.activity?.get(6)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(6)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(6)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(6)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g5",
+            actual = data.activity?.get(6)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(6)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(6)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "After restarting the vinegar soaks the psoriasis is improved and Eve plans to treat the remainder with light treatments.  She plans to start this week.",
+            actual = data.activity?.get(6)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(6)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Since her skin is improved Eve has not been using the light treatment as often, maybe once a week.  She would like to increase to 3 times a week again",
+            actual = data.activity?.get(6)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-27",
+            actual = data.activity?.get(6)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will use a calendar of a chart to help her remember when to take her medications",
+            actual = data.activity?.get(7)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(7)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(7)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-09-10",
+            actual = data.activity?.get(7)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.activity?.get(7)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-10",
+            actual = data.activity?.get(7)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.IN_PROGRESS,
+            actual = data.activity?.get(7)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Eve created a chart as a reminer to take the medications that do not fit in her pill box",
+            actual = data.activity?.get(7)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(7)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will start using stretch bands and one step 2 days a week Mon/Wed 6-7am and maybe Friday afternoon",
+            actual = data.activity?.get(8)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(8)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(8)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-23",
+            actual = data.activity?.get(8)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.activity?.get(8)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(8)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.ON_HOLD,
+            actual = data.activity?.get(8)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "Will be able to esume exercise.",
+            actual = data.activity?.get(8)?.progress?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-30",
+            actual = data.activity?.get(8)?.progress?.get(0)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve prefers to focus on walking at this time",
+            actual = data.activity?.get(8)?.progress?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-08-13",
+            actual = data.activity?.get(8)?.progress?.get(1)?.time?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eve will match a printed medication worksheet with the medication bottles at home",
+            actual = data.activity?.get(9)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(9)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/RevisionDate",
+            actual = data.activity?.get(9)?.detail?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-23",
+            actual = data.activity?.get(9)?.detail?.extension?.get(0)?.valueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.activity?.get(9)?.detail?.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-07-10",
+            actual = data.activity?.get(9)?.detail?.scheduledPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(9)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "GERDS",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p1",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Obesity",
+            actual = data.addresses?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p2",
+            actual = data.addresses?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Psoriasis",
+            actual = data.addresses?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p3",
+            actual = data.addresses?.get(2)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p3",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g1",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g2",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g3",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g4",
+            actual = data.contained?.get(6)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g5",
+            actual = data.contained?.get(7)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g1",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g2",
+            actual = data.goal?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g3",
+            actual = data.goal?.get(2)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g4",
+            actual = data.goal?.get(3)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#g5",
+            actual = data.goal?.get(4)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "integrate",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient family is not ready to commit to goal setting at this time.  Goal setting will be addressed in the future",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Eve Everywoman",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1396,128 +2611,181 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "172960003",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Incision of retropharyngeal abscess",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.SERVICEREQUEST,
-            data.activity?.get(0)?.detail?.kind
-        )
-        assertEquals(
-            "E.M. van den broek",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/f001",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "2011-06-27T09:30:10+01:00",
-            data.activity?.get(0)?.detail?.scheduledString
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "?????",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "Condition/f201",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "#careteam",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "careteam",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "goal",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "#goal",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "f003",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/careplans",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "CP3953",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-03-08T09:30:10+01:00",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-03-08T09:00:10+01:00",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            RequestStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCarePlan08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan08Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "172960003",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Incision of retropharyngeal abscess",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.SERVICEREQUEST,
+            actual = data.activity?.get(0)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "E.M. van den broek",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f001",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-06-27T09:30:10+01:00",
+            actual = data.activity?.get(0)?.detail?.scheduledString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "?????",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/f201",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#careteam",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "careteam",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#goal",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f003",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/careplans",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "CP3953",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-08T09:30:10+01:00",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-08T09:00:10+01:00",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1529,128 +2797,181 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "64915003",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Operation on heart",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.activity?.get(0)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.SERVICEREQUEST,
-            data.activity?.get(0)?.detail?.kind
-        )
-        assertEquals(
-            "P. Voigt",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/f002",
-            data.activity?.get(0)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "2011-06-27T09:30:10+01:00",
-            data.activity?.get(0)?.detail?.scheduledString
-        )
-        assertEquals(
-            CarePlanActivityStatus.COMPLETED,
-            data.activity?.get(0)?.detail?.status
-        )
-        assertEquals(
-            "?????",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "Condition/f201",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "#careteam",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "careteam",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "goal",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "#goal",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "f001",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/careplans",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "CP2903",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2011-06-27",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2011-06-26",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            RequestStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCarePlan09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan09Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "64915003",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Operation on heart",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.activity?.get(0)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.SERVICEREQUEST,
+            actual = data.activity?.get(0)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "P. Voigt",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f002",
+            actual = data.activity?.get(0)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-06-27T09:30:10+01:00",
+            actual = data.activity?.get(0)?.detail?.scheduledString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.COMPLETED,
+            actual = data.activity?.get(0)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "?????",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/f201",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#careteam",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "careteam",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#goal",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f001",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/careplans",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "CP2903",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-06-27",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2011-06-26",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1662,243 +2983,342 @@ class CarePlanTest {
         val data = parser.toFhir(CarePlan::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Prenatal vitamin MedicationRequest",
-            data.activity?.get(0)?.reference?.display
-        )
-        assertEquals(
-            "1an",
-            data.activity?.get(1)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/mySystem",
-            data.activity?.get(1)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "First Antenatal encounter",
-            data.activity?.get(1)?.detail?.code?.text
-        )
-        assertEquals(
-            "The first antenatal encounter. This is where a detailed physical examination is performed.             and the pregnanacy discussed with the mother-to-be.",
-            data.activity?.get(1)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(1)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.APPOINTMENT,
-            data.activity?.get(1)?.detail?.kind
-        )
-        assertEquals(
-            "Mavis Midwife",
-            data.activity?.get(1)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "#pr1",
-            data.activity?.get(1)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "2013-02-28",
-            data.activity?.get(1)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-02-14",
-            data.activity?.get(1)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.SCHEDULED,
-            data.activity?.get(1)?.detail?.status
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/careplan#andetails",
-            data.activity?.get(1)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "http://orionhealth.com/fhir/careplan/1andetails",
-            data.activity?.get(1)?.extension?.get(0)?.valueUri
-        )
-        assertEquals(
-            "an",
-            data.activity?.get(2)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/mySystem",
-            data.activity?.get(2)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Follow-up Antenatal encounter",
-            data.activity?.get(2)?.detail?.code?.text
-        )
-        assertEquals(
-            "The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter",
-            data.activity?.get(2)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(2)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.APPOINTMENT,
-            data.activity?.get(2)?.detail?.kind
-        )
-        assertEquals(
-            "Mavis Midwife",
-            data.activity?.get(2)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "#pr1",
-            data.activity?.get(2)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "2013-03-14",
-            data.activity?.get(2)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-03-01",
-            data.activity?.get(2)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.NOT_STARTED,
-            data.activity?.get(2)?.detail?.status
-        )
-        assertEquals(
-            "del",
-            data.activity?.get(3)?.detail?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/mySystem",
-            data.activity?.get(3)?.detail?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Delivery",
-            data.activity?.get(3)?.detail?.code?.text
-        )
-        assertEquals(
-            "The delivery.",
-            data.activity?.get(3)?.detail?.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.activity?.get(3)?.detail?.doNotPerform?.value
-        )
-        assertEquals(
-            ResourceType.APPOINTMENT,
-            data.activity?.get(3)?.detail?.kind
-        )
-        assertEquals(
-            "Mavis Midwife",
-            data.activity?.get(3)?.detail?.performer?.get(0)?.display
-        )
-        assertEquals(
-            "#pr1",
-            data.activity?.get(3)?.detail?.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "2013-09-14",
-            data.activity?.get(3)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-09-01",
-            data.activity?.get(3)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            CarePlanActivityStatus.NOT_STARTED,
-            data.activity?.get(3)?.detail?.status
-        )
-        assertEquals(
-            "pregnancy",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "#p1",
-            data.addresses?.get(0)?.reference
-        )
-        assertEquals(
-            "#careteam",
-            data.careTeam?.get(0)?.reference
-        )
-        assertEquals(
-            "p1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "pr1",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "pr2",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "careteam",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "goal",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "http://example.org/fhir/StructureDefinition/careplan#lmp",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2013-01-01",
-            data.extension?.get(0)?.valueDateTime?.value.toString()
-        )
-        assertEquals(
-            "#goal",
-            data.goal?.get(0)?.reference
-        )
-        assertEquals(
-            "preg",
-            data.id
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-10-01",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-01-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Eve Everywoman",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/1",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertCarePlan10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCarePlan10Step01(data: CarePlan) {
+
+        assertEquals(
+            expected = "Prenatal vitamin MedicationRequest",
+            actual = data.activity?.get(0)?.reference?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1an",
+            actual = data.activity?.get(1)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/mySystem",
+            actual = data.activity?.get(1)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "First Antenatal encounter",
+            actual = data.activity?.get(1)?.detail?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The first antenatal encounter. This is where a detailed physical examination is performed.             and the pregnanacy discussed with the mother-to-be.",
+            actual = data.activity?.get(1)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(1)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.APPOINTMENT,
+            actual = data.activity?.get(1)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "Mavis Midwife",
+            actual = data.activity?.get(1)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#pr1",
+            actual = data.activity?.get(1)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-02-28",
+            actual = data.activity?.get(1)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-02-14",
+            actual = data.activity?.get(1)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.SCHEDULED,
+            actual = data.activity?.get(1)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/careplan#andetails",
+            actual = data.activity?.get(1)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://orionhealth.com/fhir/careplan/1andetails",
+            actual = data.activity?.get(1)?.extension?.get(0)?.valueUri
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "an",
+            actual = data.activity?.get(2)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/mySystem",
+            actual = data.activity?.get(2)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Follow-up Antenatal encounter",
+            actual = data.activity?.get(2)?.detail?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter",
+            actual = data.activity?.get(2)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(2)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.APPOINTMENT,
+            actual = data.activity?.get(2)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "Mavis Midwife",
+            actual = data.activity?.get(2)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#pr1",
+            actual = data.activity?.get(2)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-14",
+            actual = data.activity?.get(2)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-01",
+            actual = data.activity?.get(2)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.NOT_STARTED,
+            actual = data.activity?.get(2)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "del",
+            actual = data.activity?.get(3)?.detail?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/mySystem",
+            actual = data.activity?.get(3)?.detail?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Delivery",
+            actual = data.activity?.get(3)?.detail?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The delivery.",
+            actual = data.activity?.get(3)?.detail?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.activity?.get(3)?.detail?.doNotPerform?.value
+        )
+
+        assertEquals(
+            expected = ResourceType.APPOINTMENT,
+            actual = data.activity?.get(3)?.detail?.kind
+        )
+
+        assertEquals(
+            expected = "Mavis Midwife",
+            actual = data.activity?.get(3)?.detail?.performer?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#pr1",
+            actual = data.activity?.get(3)?.detail?.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-09-14",
+            actual = data.activity?.get(3)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-09-01",
+            actual = data.activity?.get(3)?.detail?.scheduledTiming?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = CarePlanActivityStatus.NOT_STARTED,
+            actual = data.activity?.get(3)?.detail?.status
+        )
+
+        assertEquals(
+            expected = "pregnancy",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p1",
+            actual = data.addresses?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#careteam",
+            actual = data.careTeam?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "p1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pr1",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pr2",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "careteam",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/StructureDefinition/careplan#lmp",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-01",
+            actual = data.extension?.get(0)?.valueDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#goal",
+            actual = data.goal?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "preg",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-10-01",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-01-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Eve Everywoman",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 }

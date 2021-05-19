@@ -50,84 +50,118 @@ class CoverageEligibilityResponseTest {
         val data = parser.toFhir(CoverageEligibilityResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Policy is currently in-force.",
-            data.disposition
-        )
-        assertEquals(
-            "E2500",
-            data.id
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "881234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.inforce?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ClaimProcessingCodes.COMPLETE,
-            data.outcome
-        )
-        assertEquals(
-            "Patient/pat1",
-            data.patient?.reference
-        )
-        assertEquals(
-            EligibilityResponsePurpose.VALIDATION,
-            data.purpose?.get(0)
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityrequest/225476332402",
-            data.request?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCoverageEligibilityResponse01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCoverageEligibilityResponse01Step01(data: CoverageEligibilityResponse) {
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Policy is currently in-force.",
+            actual = data.disposition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "E2500",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "881234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.inforce?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ClaimProcessingCodes.COMPLETE,
+            actual = data.outcome
+        )
+
+        assertEquals(
+            expected = "Patient/pat1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EligibilityResponsePurpose.VALIDATION,
+            actual = data.purpose?.get(0)
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityrequest/225476332402",
+            actual = data.request?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -139,100 +173,143 @@ class CoverageEligibilityResponseTest {
         val data = parser.toFhir(CoverageEligibilityResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-09-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Eligibiliy request could not be processed, please address errors before submitting.",
-            data.disposition
-        )
-        assertEquals(
-            "a001",
-            data.error?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/adjudication-error",
-            data.error?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "ELRSP/2017/01",
-            data.form?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://national.org/form",
-            data.form?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "E2503",
-            data.id
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "8812343",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ClaimProcessingCodes.ERROR,
-            data.outcome
-        )
-        assertEquals(
-            "Patient/f201",
-            data.patient?.reference
-        )
-        assertEquals(
-            EligibilityResponsePurpose.VALIDATION,
-            data.purpose?.get(0)
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse/225476332406",
-            data.request?.reference
-        )
-        assertEquals(
-            "http://national.org/clinic",
-            data.requestor?.identifier?.system
-        )
-        assertEquals(
-            "OR1234",
-            data.requestor?.identifier?.value
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCoverageEligibilityResponse02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCoverageEligibilityResponse02Step01(data: CoverageEligibilityResponse) {
+
+        assertEquals(
+            expected = "2014-09-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Eligibiliy request could not be processed, please address errors before submitting.",
+            actual = data.disposition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a001",
+            actual = data.error?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/adjudication-error",
+            actual = data.error?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ELRSP/2017/01",
+            actual = data.form?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://national.org/form",
+            actual = data.form?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "E2503",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8812343",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ClaimProcessingCodes.ERROR,
+            actual = data.outcome
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EligibilityResponsePurpose.VALIDATION,
+            actual = data.purpose?.get(0)
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse/225476332406",
+            actual = data.request?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://national.org/clinic",
+            actual = data.requestor?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OR1234",
+            actual = data.requestor?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -244,304 +321,440 @@ class CoverageEligibilityResponseTest {
         val data = parser.toFhir(CoverageEligibilityResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "coverage-1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2014-09-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Policy is currently in-force.",
-            data.disposition
-        )
-        assertEquals(
-            "ELRSP/2017/01",
-            data.form?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://national.org/form",
-            data.form?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "E2502",
-            data.id
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "8812342",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "#coverage-1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.inforce?.value
-        )
-        assertEquals(
-            "USD",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "500000".toDouble(),
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "USD",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.usedMoney?.currency
-        )
-        assertEquals(
-            "3748.0".toDouble(),
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.usedMoney?.value?.value
-        )
-        assertEquals(
-            "USD",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "100".toDouble(),
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "copay-maximum",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "20".toLong(),
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.allowedUnsignedInt?.value
-        )
-        assertEquals(
-            "copay-percent",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "30",
-            data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Health Benefit Plan Coverage",
-            data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "annual",
-            data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "15000".toDouble(),
-            data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "69",
-            data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Maternity",
-            data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "annual",
-            data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "2000".toDouble(),
-            data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "F3",
-            data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Dental Coverage",
-            data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "annual",
-            data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "F6",
-            data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Vision products and services such as exams, glasses and contact lenses.",
-            data.insurance?.get(0)?.item?.get(3)?.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.item?.get(3)?.excluded?.value
-        )
-        assertEquals(
-            "Vision",
-            data.insurance?.get(0)?.item?.get(3)?.name
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ClaimProcessingCodes.COMPLETE,
-            data.outcome
-        )
-        assertEquals(
-            "Patient/f201",
-            data.patient?.reference
-        )
-        assertEquals(
-            EligibilityResponsePurpose.VALIDATION,
-            data.purpose?.get(0)
-        )
-        assertEquals(
-            EligibilityResponsePurpose.BENEFITS,
-            data.purpose?.get(1)
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityrequest/225476332405",
-            data.request?.reference
-        )
-        assertEquals(
-            "http://national.org/clinic",
-            data.requestor?.identifier?.system
-        )
-        assertEquals(
-            "OR1234",
-            data.requestor?.identifier?.value
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCoverageEligibilityResponse03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCoverageEligibilityResponse03Step01(data: CoverageEligibilityResponse) {
+
+        assertEquals(
+            expected = "coverage-1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Policy is currently in-force.",
+            actual = data.disposition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ELRSP/2017/01",
+            actual = data.form?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://national.org/form",
+            actual = data.form?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "E2502",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8812342",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#coverage-1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.inforce?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500000".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.usedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3748.0".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.usedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "copay-maximum",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20".toLong(),
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.allowedUnsignedInt?.value
+        )
+
+        assertEquals(
+            expected = "copay-percent",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30",
+            actual = data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Benefit Plan Coverage",
+            actual = data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "annual",
+            actual = data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15000".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "69",
+            actual = data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Maternity",
+            actual = data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "annual",
+            actual = data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2000".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "F3",
+            actual = data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dental Coverage",
+            actual = data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "annual",
+            actual = data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision products and services such as exams, glasses and contact lenses.",
+            actual = data.insurance?.get(0)?.item?.get(3)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.item?.get(3)?.excluded?.value
+        )
+
+        assertEquals(
+            expected = "Vision",
+            actual = data.insurance?.get(0)?.item?.get(3)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ClaimProcessingCodes.COMPLETE,
+            actual = data.outcome
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EligibilityResponsePurpose.VALIDATION,
+            actual = data.purpose?.get(0)
+        )
+
+        assertEquals(
+            expected = EligibilityResponsePurpose.BENEFITS,
+            actual = data.purpose?.get(1)
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityrequest/225476332405",
+            actual = data.request?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://national.org/clinic",
+            actual = data.requestor?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OR1234",
+            actual = data.requestor?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -553,359 +766,522 @@ class CoverageEligibilityResponseTest {
         val data = parser.toFhir(CoverageEligibilityResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Policy is currently in-force.",
-            data.disposition
-        )
-        assertEquals(
-            "E2501",
-            data.id
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "881234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.inforce?.value
-        )
-        assertEquals(
-            "SAR",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "500000".toDouble(),
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "SAR",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "100".toDouble(),
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "copay-maximum",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "20".toLong(),
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.allowedUnsignedInt?.value
-        )
-        assertEquals(
-            "copay-percent",
-            data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "30",
-            data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Health Benefit Plan Coverage",
-            data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "annual",
-            data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SAR",
-            data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "15000".toDouble(),
-            data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "69",
-            data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Maternity",
-            data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "annual",
-            data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SAR",
-            data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "2000".toDouble(),
-            data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "F3",
-            data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Dental Coverage",
-            data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "annual",
-            data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SAR",
-            data.insurance?.get(0)?.item?.get(3)?.benefit?.get(0)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "400".toDouble(),
-            data.insurance?.get(0)?.item?.get(3)?.benefit?.get(0)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(3)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "F6",
-            data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(3)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(3)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "annual",
-            data.insurance?.get(0)?.item?.get(3)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(3)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(3)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(3)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "shared",
-            data.insurance?.get(0)?.item?.get(4)?.benefit?.get(0)?.allowedString
-        )
-        assertEquals(
-            "room",
-            data.insurance?.get(0)?.item?.get(4)?.benefit?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "SAR",
-            data.insurance?.get(0)?.item?.get(4)?.benefit?.get(1)?.allowedMoney?.currency
-        )
-        assertEquals(
-            "600".toDouble(),
-            data.insurance?.get(0)?.item?.get(4)?.benefit?.get(1)?.allowedMoney?.value?.value
-        )
-        assertEquals(
-            "benefit",
-            data.insurance?.get(0)?.item?.get(4)?.benefit?.get(1)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "49",
-            data.insurance?.get(0)?.item?.get(4)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Hospital Room and Board",
-            data.insurance?.get(0)?.item?.get(4)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.insurance?.get(0)?.item?.get(4)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "in",
-            data.insurance?.get(0)?.item?.get(4)?.network?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-network",
-            data.insurance?.get(0)?.item?.get(4)?.network?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "day",
-            data.insurance?.get(0)?.item?.get(4)?.term?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-term",
-            data.insurance?.get(0)?.item?.get(4)?.term?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "individual",
-            data.insurance?.get(0)?.item?.get(4)?.unit?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/benefit-unit",
-            data.insurance?.get(0)?.item?.get(4)?.unit?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ClaimProcessingCodes.COMPLETE,
-            data.outcome
-        )
-        assertEquals(
-            "Patient/pat1",
-            data.patient?.reference
-        )
-        assertEquals(
-            EligibilityResponsePurpose.VALIDATION,
-            data.purpose?.get(0)
-        )
-        assertEquals(
-            EligibilityResponsePurpose.BENEFITS,
-            data.purpose?.get(1)
-        )
-        assertEquals(
-            "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse/225476332402",
-            data.request?.reference
-        )
-        assertEquals(
-            "2014-09-17",
-            data.servicedDate?.value.toString()
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCoverageEligibilityResponse04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCoverageEligibilityResponse04Step01(data: CoverageEligibilityResponse) {
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Policy is currently in-force.",
+            actual = data.disposition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "E2501",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "881234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.inforce?.value
+        )
+
+        assertEquals(
+            expected = "SAR",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500000".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SAR",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "copay-maximum",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(1)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20".toLong(),
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.allowedUnsignedInt?.value
+        )
+
+        assertEquals(
+            expected = "copay-percent",
+            actual = data.insurance?.get(0)?.item?.get(0)?.benefit?.get(2)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30",
+            actual = data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Benefit Plan Coverage",
+            actual = data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(0)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "annual",
+            actual = data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(0)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(0)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SAR",
+            actual = data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15000".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(1)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "69",
+            actual = data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Maternity",
+            actual = data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(1)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "annual",
+            actual = data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(1)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(1)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SAR",
+            actual = data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2000".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(2)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "F3",
+            actual = data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dental Coverage",
+            actual = data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(2)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(2)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "annual",
+            actual = data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(2)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(2)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SAR",
+            actual = data.insurance?.get(0)?.item?.get(3)?.benefit?.get(0)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "400".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(3)?.benefit?.get(0)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(3)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(3)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(3)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(3)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "annual",
+            actual = data.insurance?.get(0)?.item?.get(3)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(3)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(3)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(3)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "shared",
+            actual = data.insurance?.get(0)?.item?.get(4)?.benefit?.get(0)?.allowedString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "room",
+            actual = data.insurance?.get(0)?.item?.get(4)?.benefit?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SAR",
+            actual = data.insurance?.get(0)?.item?.get(4)?.benefit?.get(1)?.allowedMoney?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "600".toDouble(),
+            actual = data.insurance?.get(0)?.item?.get(4)?.benefit?.get(1)?.allowedMoney?.value?.value
+        )
+
+        assertEquals(
+            expected = "benefit",
+            actual = data.insurance?.get(0)?.item?.get(4)?.benefit?.get(1)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "49",
+            actual = data.insurance?.get(0)?.item?.get(4)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hospital Room and Board",
+            actual = data.insurance?.get(0)?.item?.get(4)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.insurance?.get(0)?.item?.get(4)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.insurance?.get(0)?.item?.get(4)?.network?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-network",
+            actual = data.insurance?.get(0)?.item?.get(4)?.network?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "day",
+            actual = data.insurance?.get(0)?.item?.get(4)?.term?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-term",
+            actual = data.insurance?.get(0)?.item?.get(4)?.term?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "individual",
+            actual = data.insurance?.get(0)?.item?.get(4)?.unit?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/benefit-unit",
+            actual = data.insurance?.get(0)?.item?.get(4)?.unit?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ClaimProcessingCodes.COMPLETE,
+            actual = data.outcome
+        )
+
+        assertEquals(
+            expected = "Patient/pat1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EligibilityResponsePurpose.VALIDATION,
+            actual = data.purpose?.get(0)
+        )
+
+        assertEquals(
+            expected = EligibilityResponsePurpose.BENEFITS,
+            actual = data.purpose?.get(1)
+        )
+
+        assertEquals(
+            expected = "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse/225476332402",
+            actual = data.request?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

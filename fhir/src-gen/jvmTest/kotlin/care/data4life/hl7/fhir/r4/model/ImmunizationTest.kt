@@ -48,192 +48,277 @@ class ImmunizationTest {
         val data = parser.toFhir(Immunization::class, sourceJson)
 
         // Then
-        assertEquals(
-            "mg",
-            data.doseQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.doseQuantity?.system
-        )
-        assertEquals(
-            "5".toDouble(),
-            data.doseQuantity?.value?.value
-        )
-        assertEquals(
-            "253088698300010311120702",
-            data.education?.get(0)?.documentType
-        )
-        assertEquals(
-            "2013-01-10",
-            data.education?.get(0)?.presentationDate?.value.toString()
-        )
-        assertEquals(
-            "2012-07-02",
-            data.education?.get(0)?.publicationDate?.value.toString()
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "2015-02-15",
-            data.expirationDate?.value.toString()
-        )
-        assertEquals(
-            "private",
-            data.fundingSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
-            data.fundingSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.isSubpotent?.value
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "AAJN11K",
-            data.lotNumber
-        )
-        assertEquals(
-            "Organization/hl7",
-            data.manufacturer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Notes on adminstration of vaccine",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2013-01-10",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "OP",
-            data.performer?.get(0)?.function?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0443",
-            data.performer?.get(0)?.function?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(1)?.actor?.reference
-        )
-        assertEquals(
-            "AP",
-            data.performer?.get(1)?.function?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0443",
-            data.performer?.get(1)?.function?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.primarySource?.value
-        )
-        assertEquals(
-            "ineligible",
-            data.programEligibility?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
-            data.programEligibility?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "429060002",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "IM",
-            data.route?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Injection, intramuscular",
-            data.route?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
-            data.route?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "LA",
-            data.site?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "left arm",
-            data.site?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActSite",
-            data.site?.coding?.get(0)?.system
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "FLUVAX",
-            data.vaccineCode?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:oid:1.2.36.1.2001.1005.17",
-            data.vaccineCode?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Fluvax (Influenza)",
-            data.vaccineCode?.text
-        )
+        assertImmunization01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImmunization01Step01(data: Immunization) {
+
+        assertEquals(
+            expected = "mg",
+            actual = data.doseQuantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.doseQuantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5".toDouble(),
+            actual = data.doseQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "253088698300010311120702",
+            actual = data.education?.get(0)?.documentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-10",
+            actual = data.education?.get(0)?.presentationDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2012-07-02",
+            actual = data.education?.get(0)?.publicationDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-15",
+            actual = data.expirationDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "private",
+            actual = data.fundingSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
+            actual = data.fundingSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.isSubpotent?.value
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AAJN11K",
+            actual = data.lotNumber
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.manufacturer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Notes on adminstration of vaccine",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-10",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OP",
+            actual = data.performer?.get(0)?.function?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0443",
+            actual = data.performer?.get(0)?.function?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(1)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AP",
+            actual = data.performer?.get(1)?.function?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0443",
+            actual = data.performer?.get(1)?.function?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.primarySource?.value
+        )
+
+        assertEquals(
+            expected = "ineligible",
+            actual = data.programEligibility?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
+            actual = data.programEligibility?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "429060002",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IM",
+            actual = data.route?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Injection, intramuscular",
+            actual = data.route?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+            actual = data.route?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA",
+            actual = data.site?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "left arm",
+            actual = data.site?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActSite",
+            actual = data.site?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "FLUVAX",
+            actual = data.vaccineCode?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.36.1.2001.1005.17",
+            actual = data.vaccineCode?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fluvax (Influenza)",
+            actual = data.vaccineCode?.text
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -245,88 +330,127 @@ class ImmunizationTest {
         val data = parser.toFhir(Immunization::class, sourceJson)
 
         // Then
-        assertEquals(
-            "historical",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Notes on adminstration of a historical vaccine",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "January 2012",
-            data.occurrenceString
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.primarySource?.value
-        )
-        assertEquals(
-            "record",
-            data.reportOrigin?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-origin",
-            data.reportOrigin?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Written Record",
-            data.reportOrigin?.text
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "GNFLU",
-            data.vaccineCode?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:oid:1.2.36.1.2001.1005.17",
-            data.vaccineCode?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Influenza",
-            data.vaccineCode?.text
-        )
+        assertImmunization02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImmunization02Step01(data: Immunization) {
+
+        assertEquals(
+            expected = "historical",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Notes on adminstration of a historical vaccine",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "January 2012",
+            actual = data.occurrenceString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.primarySource?.value
+        )
+
+        assertEquals(
+            expected = "record",
+            actual = data.reportOrigin?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-origin",
+            actual = data.reportOrigin?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Written Record",
+            actual = data.reportOrigin?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "GNFLU",
+            actual = data.vaccineCode?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.36.1.2001.1005.17",
+            actual = data.vaccineCode?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Influenza",
+            actual = data.vaccineCode?.text
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -338,200 +462,289 @@ class ImmunizationTest {
         val data = parser.toFhir(Immunization::class, sourceJson)
 
         // Then
-        assertEquals(
-            "mg",
-            data.doseQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.doseQuantity?.system
-        )
-        assertEquals(
-            "5".toDouble(),
-            data.doseQuantity?.value?.value
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "2018-12-15",
-            data.expirationDate?.value.toString()
-        )
-        assertEquals(
-            "private",
-            data.fundingSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
-            data.fundingSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "protocol",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.isSubpotent?.value
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "PT123F",
-            data.lotNumber
-        )
-        assertEquals(
-            "Organization/hl7",
-            data.manufacturer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2018-06-18",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "OP",
-            data.performer?.get(0)?.function?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0443",
-            data.performer?.get(0)?.function?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(1)?.actor?.reference
-        )
-        assertEquals(
-            "AP",
-            data.performer?.get(1)?.function?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0443",
-            data.performer?.get(1)?.function?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.primarySource?.value
-        )
-        assertEquals(
-            "ineligible",
-            data.programEligibility?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
-            data.programEligibility?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.protocolApplied?.get(0)?.doseNumberPositiveInt?.value
-        )
-        assertEquals(
-            "2-dose",
-            data.protocolApplied?.get(0)?.series
-        )
-        assertEquals(
-            "40468003",
-            data.protocolApplied?.get(0)?.targetDisease?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.protocolApplied?.get(0)?.targetDisease?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.protocolApplied?.get(1)?.doseNumberPositiveInt?.value
-        )
-        assertEquals(
-            "3-dose",
-            data.protocolApplied?.get(1)?.series
-        )
-        assertEquals(
-            "66071002",
-            data.protocolApplied?.get(1)?.targetDisease?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.protocolApplied?.get(1)?.targetDisease?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "IM",
-            data.route?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Injection, intramuscular",
-            data.route?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
-            data.route?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "LA",
-            data.site?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "left arm",
-            data.site?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActSite",
-            data.site?.coding?.get(0)?.system
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "104",
-            data.vaccineCode?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/cvx",
-            data.vaccineCode?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Twinrix (HepA/HepB)",
-            data.vaccineCode?.text
-        )
+        assertImmunization03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImmunization03Step01(data: Immunization) {
+
+        assertEquals(
+            expected = "mg",
+            actual = data.doseQuantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.doseQuantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5".toDouble(),
+            actual = data.doseQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-12-15",
+            actual = data.expirationDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "private",
+            actual = data.fundingSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
+            actual = data.fundingSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "protocol",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.isSubpotent?.value
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PT123F",
+            actual = data.lotNumber
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.manufacturer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-06-18",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OP",
+            actual = data.performer?.get(0)?.function?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0443",
+            actual = data.performer?.get(0)?.function?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(1)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AP",
+            actual = data.performer?.get(1)?.function?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0443",
+            actual = data.performer?.get(1)?.function?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.primarySource?.value
+        )
+
+        assertEquals(
+            expected = "ineligible",
+            actual = data.programEligibility?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
+            actual = data.programEligibility?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.protocolApplied?.get(0)?.doseNumberPositiveInt?.value
+        )
+
+        assertEquals(
+            expected = "2-dose",
+            actual = data.protocolApplied?.get(0)?.series
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "40468003",
+            actual = data.protocolApplied?.get(0)?.targetDisease?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.protocolApplied?.get(0)?.targetDisease?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.protocolApplied?.get(1)?.doseNumberPositiveInt?.value
+        )
+
+        assertEquals(
+            expected = "3-dose",
+            actual = data.protocolApplied?.get(1)?.series
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "66071002",
+            actual = data.protocolApplied?.get(1)?.targetDisease?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.protocolApplied?.get(1)?.targetDisease?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IM",
+            actual = data.route?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Injection, intramuscular",
+            actual = data.route?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+            actual = data.route?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA",
+            actual = data.site?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "left arm",
+            actual = data.site?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActSite",
+            actual = data.site?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "104",
+            actual = data.vaccineCode?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/cvx",
+            actual = data.vaccineCode?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Twinrix (HepA/HepB)",
+            actual = data.vaccineCode?.text
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -543,72 +756,102 @@ class ImmunizationTest {
         val data = parser.toFhir(Immunization::class, sourceJson)
 
         // Then
-        assertEquals(
-            "notGiven",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-01-10",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.primarySource?.value
-        )
-        assertEquals(
-            EventStatus.NOT_DONE,
-            data.status
-        )
-        assertEquals(
-            "MEDPREC",
-            data.statusReason?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "medical precaution",
-            data.statusReason?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.statusReason?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "01",
-            data.vaccineCode?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "DTP",
-            data.vaccineCode?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/cvx",
-            data.vaccineCode?.coding?.get(0)?.system
-        )
+        assertImmunization04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImmunization04Step01(data: Immunization) {
+
+        assertEquals(
+            expected = "notGiven",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-10",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.primarySource?.value
+        )
+
+        assertEquals(
+            expected = EventStatus.NOT_DONE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "MEDPREC",
+            actual = data.statusReason?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "medical precaution",
+            actual = data.statusReason?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.statusReason?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "01",
+            actual = data.vaccineCode?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DTP",
+            actual = data.vaccineCode?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/cvx",
+            actual = data.vaccineCode?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -620,191 +863,276 @@ class ImmunizationTest {
         val data = parser.toFhir(Immunization::class, sourceJson)
 
         // Then
-        assertEquals(
-            "ml",
-            data.doseQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.doseQuantity?.system
-        )
-        assertEquals(
-            "0.5".toDouble(),
-            data.doseQuantity?.value?.value
-        )
-        assertEquals(
-            "253088698300010311120702",
-            data.education?.get(0)?.documentType
-        )
-        assertEquals(
-            "2013-01-10",
-            data.education?.get(0)?.presentationDate?.value.toString()
-        )
-        assertEquals(
-            "2012-07-02",
-            data.education?.get(0)?.publicationDate?.value.toString()
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "2015-02-28",
-            data.expirationDate?.value.toString()
-        )
-        assertEquals(
-            "private",
-            data.fundingSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
-            data.fundingSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "subpotent",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.isSubpotent?.value
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "AAJN11K",
-            data.lotNumber
-        )
-        assertEquals(
-            "Organization/hl7",
-            data.manufacturer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Notes on adminstration of vaccine",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2015-01-15",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "OP",
-            data.performer?.get(0)?.function?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0443",
-            data.performer?.get(0)?.function?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(1)?.actor?.reference
-        )
-        assertEquals(
-            "AP",
-            data.performer?.get(1)?.function?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0443",
-            data.performer?.get(1)?.function?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.primarySource?.value
-        )
-        assertEquals(
-            "ineligible",
-            data.programEligibility?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
-            data.programEligibility?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "IM",
-            data.route?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Injection, intramuscular",
-            data.route?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
-            data.route?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "LT",
-            data.site?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "left thigh",
-            data.site?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActSite",
-            data.site?.coding?.get(0)?.system
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "partial",
-            data.subpotentReason?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
-            data.subpotentReason?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "GNHEP",
-            data.vaccineCode?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:oid:1.2.36.1.2001.1005.17",
-            data.vaccineCode?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Hepatitis B",
-            data.vaccineCode?.text
-        )
+        assertImmunization05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImmunization05Step01(data: Immunization) {
+
+        assertEquals(
+            expected = "ml",
+            actual = data.doseQuantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.doseQuantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.5".toDouble(),
+            actual = data.doseQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "253088698300010311120702",
+            actual = data.education?.get(0)?.documentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-10",
+            actual = data.education?.get(0)?.presentationDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2012-07-02",
+            actual = data.education?.get(0)?.publicationDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-28",
+            actual = data.expirationDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "private",
+            actual = data.fundingSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
+            actual = data.fundingSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "subpotent",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.isSubpotent?.value
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AAJN11K",
+            actual = data.lotNumber
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.manufacturer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Notes on adminstration of vaccine",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-01-15",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OP",
+            actual = data.performer?.get(0)?.function?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0443",
+            actual = data.performer?.get(0)?.function?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(1)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AP",
+            actual = data.performer?.get(1)?.function?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0443",
+            actual = data.performer?.get(1)?.function?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.primarySource?.value
+        )
+
+        assertEquals(
+            expected = "ineligible",
+            actual = data.programEligibility?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
+            actual = data.programEligibility?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IM",
+            actual = data.route?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Injection, intramuscular",
+            actual = data.route?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+            actual = data.route?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LT",
+            actual = data.site?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "left thigh",
+            actual = data.site?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActSite",
+            actual = data.site?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "partial",
+            actual = data.subpotentReason?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+            actual = data.subpotentReason?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "GNHEP",
+            actual = data.vaccineCode?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.36.1.2001.1005.17",
+            actual = data.vaccineCode?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hepatitis B",
+            actual = data.vaccineCode?.text
+                ?.replace("\n", " ")
+        )
     }
 }

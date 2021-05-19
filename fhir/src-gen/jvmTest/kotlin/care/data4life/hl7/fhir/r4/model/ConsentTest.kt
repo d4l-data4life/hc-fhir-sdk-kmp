@@ -51,88 +51,126 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-11-18",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-notThis",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ConsentDataMeaning.RELATED,
-            data.provision?.data?.get(0)?.meaning
-        )
-        assertEquals(
-            "Task/example3",
-            data.provision?.data?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The terms of the consent in lawyer speak.",
-            data.sourceAttachment?.title
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent01Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-11-18",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-notThis",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentDataMeaning.RELATED,
+            actual = data.provision?.data?.get(0)?.meaning
+        )
+
+        assertEquals(
+            expected = "Task/example3",
+            actual = data.provision?.data?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The terms of the consent in lawyer speak.",
+            actual = data.sourceAttachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -144,104 +182,148 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-06-23T17:02:33+10:00",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-smartonfhir",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "Patient/xcda",
-            data.patient?.reference
-        )
-        assertEquals(
-            "RelatedPerson/peter",
-            data.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-06-23T17:32:33+10:00",
-            data.provision?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2016-06-23T17:02:33+10:00",
-            data.provision?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "MedicationRequest",
-            data.provision?.provision?.get(0)?.clazz?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/resource-types",
-            data.provision?.provision?.get(0)?.clazz?.get(0)?.system
-        )
-        assertEquals(
-            ConsentProvisionType.PERMIT,
-            data.provision?.provision?.get(0)?.type
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent02Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-06-23T17:02:33+10:00",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-smartonfhir",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/xcda",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "RelatedPerson/peter",
+            actual = data.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-06-23T17:32:33+10:00",
+            actual = data.provision?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2016-06-23T17:02:33+10:00",
+            actual = data.provision?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicationRequest",
+            actual = data.provision?.provision?.get(0)?.clazz?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/resource-types",
+            actual = data.provision?.provision?.get(0)?.clazz?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentProvisionType.PERMIT,
+            actual = data.provision?.provision?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -253,92 +335,133 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-11-18",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-notAuthor",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "CST",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The terms of the consent in lawyer speak.",
-            data.sourceAttachment?.title
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent03Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-11-18",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-notAuthor",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CST",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The terms of the consent in lawyer speak.",
+            actual = data.sourceAttachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -350,88 +473,125 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-11-18",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-notTime",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-02-01",
-            data.provision?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-01-01",
-            data.provision?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The terms of the consent in lawyer speak.",
-            data.sourceAttachment?.title
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent04Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-11-18",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-notTime",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-01",
+            actual = data.provision?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-01-01",
+            actual = data.provision?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The terms of the consent in lawyer speak.",
+            actual = data.sourceAttachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -443,144 +603,208 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "npp",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-05-26T00:41:10-04:00",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-signature",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.72.5.9.1",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "494e0c7a-a69e-4fb4-9d02-6aae747790d7",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "Patient/72",
-            data.patient?.reference
-        )
-        assertEquals(
-            "Patient/72",
-            data.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/13",
-            data.provision?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-10-10",
-            data.provision?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-10-10",
-            data.provision?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/xcda-author",
-            data.provision?.provision?.get(0)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "AUT",
-            data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "application/hl7-cda+xml",
-            data.provision?.provision?.get(0)?.clazz?.get(0)?.code
-        )
-        assertEquals(
-            "urn:ietf:bcp:13",
-            data.provision?.provision?.get(0)?.clazz?.get(0)?.system
-        )
-        assertEquals(
-            "34133-9",
-            data.provision?.provision?.get(0)?.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.provision?.provision?.get(0)?.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "18842-5",
-            data.provision?.provision?.get(0)?.code?.get(1)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.provision?.provision?.get(0)?.code?.get(1)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ConsentProvisionType.PERMIT,
-            data.provision?.provision?.get(0)?.type
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent05Step01(data: Consent) {
+
+        assertEquals(
+            expected = "npp",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-05-26T00:41:10-04:00",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-signature",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.72.5.9.1",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "494e0c7a-a69e-4fb4-9d02-6aae747790d7",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/72",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/72",
+            actual = data.performer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/13",
+            actual = data.provision?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-10-10",
+            actual = data.provision?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-10-10",
+            actual = data.provision?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda-author",
+            actual = data.provision?.provision?.get(0)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AUT",
+            actual = data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/hl7-cda+xml",
+            actual = data.provision?.provision?.get(0)?.clazz?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:bcp:13",
+            actual = data.provision?.provision?.get(0)?.clazz?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "34133-9",
+            actual = data.provision?.provision?.get(0)?.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.provision?.provision?.get(0)?.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "18842-5",
+            actual = data.provision?.provision?.get(0)?.code?.get(1)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.provision?.provision?.get(0)?.code?.get(1)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentProvisionType.PERMIT,
+            actual = data.provision?.provision?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -592,112 +816,163 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-11-18",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-notThem",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "correct",
-            data.provision?.action?.get(1)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.action?.get(1)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Fictive Nurse",
-            data.provision?.actor?.get(0)?.reference?.display
-        )
-        assertEquals(
-            "Practitioner/f204",
-            data.provision?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The terms of the consent in lawyer speak.",
-            data.sourceAttachment?.title
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent06Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-11-18",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-notThem",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "correct",
+            actual = data.provision?.action?.get(1)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.action?.get(1)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fictive Nurse",
+            actual = data.provision?.actor?.get(0)?.reference?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f204",
+            actual = data.provision?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The terms of the consent in lawyer speak.",
+            actual = data.sourceAttachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -709,116 +984,169 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "INFAO",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-11-18",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-grantor",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTOUT",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "CST",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Good Health Clinic",
-            data.provision?.actor?.get(1)?.reference?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.provision?.actor?.get(1)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.actor?.get(1)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.actor?.get(1)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The terms of the consent in lawyer speak.",
-            data.sourceAttachment?.title
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent07Step01(data: Consent) {
+
+        assertEquals(
+            expected = "INFAO",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-11-18",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-grantor",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTOUT",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CST",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Good Health Clinic",
+            actual = data.provision?.actor?.get(1)?.reference?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.provision?.actor?.get(1)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.actor?.get(1)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.actor?.get(1)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The terms of the consent in lawyer speak.",
+            actual = data.sourceAttachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -830,112 +1158,162 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-11-18",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-notOrg",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "correct",
-            data.provision?.action?.get(1)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.action?.get(1)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ConsentProvisionType.DENY,
-            data.provision?.type
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The terms of the consent in lawyer speak.",
-            data.sourceAttachment?.title
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent08Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-11-18",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-notOrg",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "correct",
+            actual = data.provision?.action?.get(1)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.action?.get(1)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentProvisionType.DENY,
+            actual = data.provision?.type
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The terms of the consent in lawyer speak.",
+            actual = data.sourceAttachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -947,384 +1325,571 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-06-16",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-pkb",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "...example patient...",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTOUT",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(0)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "PSY",
-            data.provision?.provision?.get(0)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(0)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(1)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(1)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(1)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(1)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(1)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SPI",
-            data.provision?.provision?.get(1)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(1)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(2)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(2)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(2)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(2)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(2)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "N",
-            data.provision?.provision?.get(2)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
-            data.provision?.provision?.get(2)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(3)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(3)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(3)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(3)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(3)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "PSY",
-            data.provision?.provision?.get(3)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(3)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(4)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(4)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(4)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(4)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(4)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SPI",
-            data.provision?.provision?.get(4)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(4)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(5)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(5)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(5)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(5)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(5)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SEX",
-            data.provision?.provision?.get(5)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(5)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(6)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(6)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(6)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(6)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(6)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "N",
-            data.provision?.provision?.get(6)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
-            data.provision?.provision?.get(6)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(7)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(7)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(7)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(7)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(7)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "PSY",
-            data.provision?.provision?.get(7)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(7)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(8)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(8)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(8)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(8)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(8)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SPI",
-            data.provision?.provision?.get(8)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(8)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "access",
-            data.provision?.provision?.get(9)?.action?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentaction",
-            data.provision?.provision?.get(9)?.action?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.provision?.provision?.get(9)?.actor?.get(0)?.reference?.reference
-        )
-        assertEquals(
-            "PRCP",
-            data.provision?.provision?.get(9)?.actor?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.provision?.provision?.get(9)?.actor?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "SEX",
-            data.provision?.provision?.get(9)?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.provision?.provision?.get(9)?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "N",
-            data.provision?.securityLabel?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
-            data.provision?.securityLabel?.get(0)?.system
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent09Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-06-16",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-pkb",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "...example patient...",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTOUT",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(0)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(0)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(0)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PSY",
+            actual = data.provision?.provision?.get(0)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(0)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(1)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(1)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(1)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(1)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(1)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SPI",
+            actual = data.provision?.provision?.get(1)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(1)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(2)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(2)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(2)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(2)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(2)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.provision?.provision?.get(2)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+            actual = data.provision?.provision?.get(2)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(3)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(3)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(3)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(3)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(3)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PSY",
+            actual = data.provision?.provision?.get(3)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(3)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(4)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(4)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(4)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(4)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(4)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SPI",
+            actual = data.provision?.provision?.get(4)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(4)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(5)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(5)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(5)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(5)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(5)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SEX",
+            actual = data.provision?.provision?.get(5)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(5)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(6)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(6)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(6)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(6)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(6)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.provision?.provision?.get(6)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+            actual = data.provision?.provision?.get(6)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(7)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(7)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(7)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(7)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(7)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PSY",
+            actual = data.provision?.provision?.get(7)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(7)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(8)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(8)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(8)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(8)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(8)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SPI",
+            actual = data.provision?.provision?.get(8)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(8)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "access",
+            actual = data.provision?.provision?.get(9)?.action?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentaction",
+            actual = data.provision?.provision?.get(9)?.action?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.provision?.provision?.get(9)?.actor?.get(0)?.reference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRCP",
+            actual = data.provision?.provision?.get(9)?.actor?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.provision?.provision?.get(9)?.actor?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SEX",
+            actual = data.provision?.provision?.get(9)?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.provision?.provision?.get(9)?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.provision?.securityLabel?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+            actual = data.provision?.securityLabel?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1336,87 +1901,124 @@ class ConsentTest {
         val data = parser.toFhir(Consent::class, sourceJson)
 
         // Then
-        assertEquals(
-            "59284-0",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-05-11",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "consent-example-basic",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.get(0)?.reference
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "OPTIN",
-            data.policyRule?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.policyRule?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-01-01",
-            data.provision?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "1964-01-01",
-            data.provision?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "patient-privacy",
-            data.scope?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/consentscope",
-            data.scope?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The terms of the consent in lawyer speak.",
-            data.sourceAttachment?.title
-        )
-        assertEquals(
-            ConsentState.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertConsent10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertConsent10Step01(data: Consent) {
+
+        assertEquals(
+            expected = "59284-0",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-05-11",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "consent-example-basic",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPTIN",
+            actual = data.policyRule?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.policyRule?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-01-01",
+            actual = data.provision?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "1964-01-01",
+            actual = data.provision?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "patient-privacy",
+            actual = data.scope?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/consentscope",
+            actual = data.scope?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The terms of the consent in lawyer speak.",
+            actual = data.sourceAttachment?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ConsentState.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

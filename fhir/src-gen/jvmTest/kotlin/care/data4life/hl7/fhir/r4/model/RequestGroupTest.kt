@@ -56,180 +56,253 @@ class RequestGroupTest {
         val data = parser.toFhir(RequestGroup::class, sourceJson)
 
         // Then
-        assertEquals(
-            "day",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "1".toInt(),
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(0)?.valueInteger?.value
-        )
-        assertEquals(
-            "day",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "8".toInt(),
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(1)?.valueInteger?.value
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "action-1",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.id
-        )
-        assertEquals(
-            "#1111",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.resource?.reference
-        )
-        assertEquals(
-            "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.textEquivalent
-        )
-        assertEquals(
-            "day",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.extension?.get(0)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "1".toInt(),
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.extension?.get(0)?.extension?.get(0)?.valueInteger?.value
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "action-2",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.id
-        )
-        assertEquals(
-            "action-1",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.actionId
-        )
-        assertEquals(
-            ActionRelationshipType.CONCURRENT_WITH_START,
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.relationship
-        )
-        assertEquals(
-            "#2222",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.resource?.reference
-        )
-        assertEquals(
-            "CARBOplatin AUC 5 IV over 30 minutes on Day 1",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.textEquivalent
-        )
-        assertEquals(
-            "cycle-definition-1",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.id
-        )
-        assertEquals(
-            "21-day cycle for 6 cycles",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.textEquivalent
-        )
-        assertEquals(
-            "6".toLong(),
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.timingTiming?.repeat?.count?.value
-        )
-        assertEquals(
-            "21".toDouble(),
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.timingTiming?.repeat?.duration?.value
-        )
-        assertEquals(
-            "d",
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.timingTiming?.repeat?.durationUnit
-        )
-        assertEquals(
-            ActionGroupingBehavior.SENTENCE_GROUP,
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.groupingBehavior
-        )
-        assertEquals(
-            ActionSelectionBehavior.EXACTLY_ONE,
-            data.action?.get(0)?.action?.get(0)?.action?.get(0)?.selectionBehavior
-        )
-        assertEquals(
-            ActionSelectionBehavior.ALL,
-            data.action?.get(0)?.action?.get(0)?.selectionBehavior
-        )
-        assertEquals(
-            ActionSelectionBehavior.EXACTLY_ONE,
-            data.action?.get(0)?.selectionBehavior
-        )
-        assertEquals(
-            "Practitioner/1",
-            data.author?.reference
-        )
-        assertEquals(
-            "2017-03-06T17:31:00Z",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "1111",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2222",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "kdn5-example",
-            data.id
-        )
-        assertEquals(
-            "requestgroup-kdn5",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "PlanDefinition/KDN5",
-            data.instantiatesCanonical?.get(0)
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            RequestPriority.ROUTINE,
-            data.priority
-        )
-        assertEquals(
-            RequestStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Administer gemcitabine and carboplatin.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRequestGroup01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRequestGroup01Step01(data: RequestGroup) {
+
+        assertEquals(
+            expected = "day",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(0)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "day",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8".toInt(),
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(1)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "action-1",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#1111",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.resource?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.textEquivalent
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "day",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.extension?.get(0)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.extension?.get(0)?.extension?.get(0)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "action-2",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "action-1",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.actionId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionRelationshipType.CONCURRENT_WITH_START,
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.relationship
+        )
+
+        assertEquals(
+            expected = "#2222",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.resource?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CARBOplatin AUC 5 IV over 30 minutes on Day 1",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(1)?.textEquivalent
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "cycle-definition-1",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "21-day cycle for 6 cycles",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.textEquivalent
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6".toLong(),
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.timingTiming?.repeat?.count?.value
+        )
+
+        assertEquals(
+            expected = "21".toDouble(),
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.timingTiming?.repeat?.duration?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.timingTiming?.repeat?.durationUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionGroupingBehavior.SENTENCE_GROUP,
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.groupingBehavior
+        )
+
+        assertEquals(
+            expected = ActionSelectionBehavior.EXACTLY_ONE,
+            actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.selectionBehavior
+        )
+
+        assertEquals(
+            expected = ActionSelectionBehavior.ALL,
+            actual = data.action?.get(0)?.action?.get(0)?.selectionBehavior
+        )
+
+        assertEquals(
+            expected = ActionSelectionBehavior.EXACTLY_ONE,
+            actual = data.action?.get(0)?.selectionBehavior
+        )
+
+        assertEquals(
+            expected = "Practitioner/1",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-06T17:31:00Z",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "1111",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2222",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "kdn5-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "requestgroup-kdn5",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PlanDefinition/KDN5",
+            actual = data.instantiatesCanonical?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestPriority.ROUTINE,
+            actual = data.priority
+        )
+
+        assertEquals(
+            expected = RequestStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Administer gemcitabine and carboplatin.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -241,183 +314,260 @@ class RequestGroupTest {
         val data = parser.toFhir(RequestGroup::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Administer medication 1",
-            data.action?.get(0)?.action?.get(0)?.description
-        )
-        assertEquals(
-            "medication-action-1",
-            data.action?.get(0)?.action?.get(0)?.id
-        )
-        assertEquals(
-            "#medicationrequest-1",
-            data.action?.get(0)?.action?.get(0)?.resource?.reference
-        )
-        assertEquals(
-            "create",
-            data.action?.get(0)?.action?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Administer medication 2",
-            data.action?.get(0)?.action?.get(1)?.description
-        )
-        assertEquals(
-            "medication-action-2",
-            data.action?.get(0)?.action?.get(1)?.id
-        )
-        assertEquals(
-            "medication-action-1",
-            data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.actionId
-        )
-        assertEquals(
-            "h",
-            data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.offsetDuration?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.offsetDuration?.value?.value
-        )
-        assertEquals(
-            ActionRelationshipType.AFTER_END,
-            data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.relationship
-        )
-        assertEquals(
-            "#medicationrequest-2",
-            data.action?.get(0)?.action?.get(1)?.resource?.reference
-        )
-        assertEquals(
-            "create",
-            data.action?.get(0)?.action?.get(1)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            ActionCardinalityBehavior.SINGLE,
-            data.action?.get(0)?.cardinalityBehavior
-        )
-        assertEquals(
-            "Administer medications at the appropriate time",
-            data.action?.get(0)?.description
-        )
-        assertEquals(
-            ActionGroupingBehavior.LOGICAL_GROUP,
-            data.action?.get(0)?.groupingBehavior
-        )
-        assertEquals(
-            "Practitioner/1",
-            data.action?.get(0)?.participant?.get(0)?.reference
-        )
-        assertEquals(
-            ActionPrecheckBehavior.YES,
-            data.action?.get(0)?.precheckBehavior
-        )
-        assertEquals(
-            "1",
-            data.action?.get(0)?.prefix
-        )
-        assertEquals(
-            ActionRequiredBehavior.MUST,
-            data.action?.get(0)?.requiredBehavior
-        )
-        assertEquals(
-            ActionSelectionBehavior.ALL,
-            data.action?.get(0)?.selectionBehavior
-        )
-        assertEquals(
-            "Administer medication 1, followed an hour later by medication 2",
-            data.action?.get(0)?.textEquivalent
-        )
-        assertEquals(
-            "2017-03-06T19:00:00Z",
-            data.action?.get(0)?.timingDateTime?.value.toString()
-        )
-        assertEquals(
-            "Administer Medications",
-            data.action?.get(0)?.title
-        )
-        assertEquals(
-            "Practitioner/1",
-            data.author?.reference
-        )
-        assertEquals(
-            "2017-03-06T17:31:00Z",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "medicationrequest-1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "medicationrequest-2",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "http://example.org/treatment-group",
-            data.groupIdentifier?.system
-        )
-        assertEquals(
-            "00001",
-            data.groupIdentifier?.value
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "requestgroup-1",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.PLAN,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Additional notes about the request group",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            RequestPriority.ROUTINE,
-            data.priority
-        )
-        assertEquals(
-            "Treatment",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            RequestStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example RequestGroup illustrating related actions to administer medications in sequence with time delay.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRequestGroup02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRequestGroup02Step01(data: RequestGroup) {
+
+        assertEquals(
+            expected = "Administer medication 1",
+            actual = data.action?.get(0)?.action?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "medication-action-1",
+            actual = data.action?.get(0)?.action?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#medicationrequest-1",
+            actual = data.action?.get(0)?.action?.get(0)?.resource?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "create",
+            actual = data.action?.get(0)?.action?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Administer medication 2",
+            actual = data.action?.get(0)?.action?.get(1)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "medication-action-2",
+            actual = data.action?.get(0)?.action?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "medication-action-1",
+            actual = data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.actionId
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "h",
+            actual = data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.offsetDuration?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.offsetDuration?.value?.value
+        )
+
+        assertEquals(
+            expected = ActionRelationshipType.AFTER_END,
+            actual = data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.relationship
+        )
+
+        assertEquals(
+            expected = "#medicationrequest-2",
+            actual = data.action?.get(0)?.action?.get(1)?.resource?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "create",
+            actual = data.action?.get(0)?.action?.get(1)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionCardinalityBehavior.SINGLE,
+            actual = data.action?.get(0)?.cardinalityBehavior
+        )
+
+        assertEquals(
+            expected = "Administer medications at the appropriate time",
+            actual = data.action?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionGroupingBehavior.LOGICAL_GROUP,
+            actual = data.action?.get(0)?.groupingBehavior
+        )
+
+        assertEquals(
+            expected = "Practitioner/1",
+            actual = data.action?.get(0)?.participant?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionPrecheckBehavior.YES,
+            actual = data.action?.get(0)?.precheckBehavior
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.action?.get(0)?.prefix
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ActionRequiredBehavior.MUST,
+            actual = data.action?.get(0)?.requiredBehavior
+        )
+
+        assertEquals(
+            expected = ActionSelectionBehavior.ALL,
+            actual = data.action?.get(0)?.selectionBehavior
+        )
+
+        assertEquals(
+            expected = "Administer medication 1, followed an hour later by medication 2",
+            actual = data.action?.get(0)?.textEquivalent
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-06T19:00:00Z",
+            actual = data.action?.get(0)?.timingDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Administer Medications",
+            actual = data.action?.get(0)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/1",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-06T17:31:00Z",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "medicationrequest-1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "medicationrequest-2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/treatment-group",
+            actual = data.groupIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "00001",
+            actual = data.groupIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "requestgroup-1",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.PLAN,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Additional notes about the request group",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestPriority.ROUTINE,
+            actual = data.priority
+        )
+
+        assertEquals(
+            expected = "Treatment",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example RequestGroup illustrating related actions to administer medications in sequence with time delay.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

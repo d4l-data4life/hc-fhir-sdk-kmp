@@ -51,272 +51,393 @@ class ImagingStudyTest {
         val data = parser.toFhir(ImagingStudy::class, sourceJson)
 
         // Then
-        assertEquals(
-            "ServiceRequest/example",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "Endpoint/example-wadors",
-            data.endpoint?.get(0)?.reference
-        )
-        assertEquals(
-            "example-xr",
-            data.id
-        )
-        assertEquals(
-            "urn:dicom:uid",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/dicom-organization",
-            data.identifier?.get(1)?.assigner?.reference
-        )
-        assertEquals(
-            "ACSN",
-            data.identifier?.get(1)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0203",
-            data.identifier?.get(1)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(1)?.use
-        )
-        assertEquals(
-            "W12342398",
-            data.identifier?.get(1)?.value
-        )
-        assertEquals(
-            "Organization/dicom-organization",
-            data.identifier?.get(2)?.assigner?.reference
-        )
-        assertEquals(
-            IdentifierUse.SECONDARY,
-            data.identifier?.get(2)?.use
-        )
-        assertEquals(
-            "55551234",
-            data.identifier?.get(2)?.value
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.interpreter?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "DX",
-            data.modality?.get(0)?.code
-        )
-        assertEquals(
-            "http://dicom.nema.org/resources/ontology/DCM",
-            data.modality?.get(0)?.system
-        )
-        assertEquals(
-            "XR Wrist 3+ Views",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2".toLong(),
-            data.numberOfInstances?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.numberOfSeries?.value
-        )
-        assertEquals(
-            "RPID2589",
-            data.procedureCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "XR Wrist 3+ Views",
-            data.procedureCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://www.radlex.org",
-            data.procedureCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "XR Wrist 3+ Views",
-            data.procedureCode?.get(0)?.text
-        )
-        assertEquals(
-            "Procedure/example",
-            data.procedureReference?.reference
-        )
-        assertEquals(
-            "357009",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Closed fracture of trapezoidal bone of wrist",
-            data.reasonCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.referrer?.reference
-        )
-        assertEquals(
-            "T-15460",
-            data.series?.get(0)?.bodySite?.code
-        )
-        assertEquals(
-            "Wrist Joint",
-            data.series?.get(0)?.bodySite?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.series?.get(0)?.bodySite?.system
-        )
-        assertEquals(
-            "XR Wrist 3+ Views",
-            data.series?.get(0)?.description
-        )
-        assertEquals(
-            "Endpoint/example-wadors",
-            data.series?.get(0)?.endpoint?.get(0)?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.series?.get(0)?.instance?.get(0)?.number?.value
-        )
-        assertEquals(
-            "urn:oid:1.2.840.10008.5.1.4.1.1.2",
-            data.series?.get(0)?.instance?.get(0)?.sopClass?.code
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.series?.get(0)?.instance?.get(0)?.sopClass?.system
-        )
-        assertEquals(
-            "PA VIEW",
-            data.series?.get(0)?.instance?.get(0)?.title
-        )
-        assertEquals(
-            "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1",
-            data.series?.get(0)?.instance?.get(0)?.uid
-        )
-        assertEquals(
-            "2".toLong(),
-            data.series?.get(0)?.instance?.get(1)?.number?.value
-        )
-        assertEquals(
-            "urn:oid:1.2.840.10008.5.1.4.1.1.2",
-            data.series?.get(0)?.instance?.get(1)?.sopClass?.code
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.series?.get(0)?.instance?.get(1)?.sopClass?.system
-        )
-        assertEquals(
-            "LL VIEW",
-            data.series?.get(0)?.instance?.get(1)?.title
-        )
-        assertEquals(
-            "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2",
-            data.series?.get(0)?.instance?.get(1)?.uid
-        )
-        assertEquals(
-            "419161000",
-            data.series?.get(0)?.laterality?.code
-        )
-        assertEquals(
-            "Unilateral left",
-            data.series?.get(0)?.laterality?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.series?.get(0)?.laterality?.system
-        )
-        assertEquals(
-            "DX",
-            data.series?.get(0)?.modality?.code
-        )
-        assertEquals(
-            "http://dicom.nema.org/resources/ontology/DCM",
-            data.series?.get(0)?.modality?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.series?.get(0)?.number?.value
-        )
-        assertEquals(
-            "2".toLong(),
-            data.series?.get(0)?.numberOfInstances?.value
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.series?.get(0)?.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "PRF",
-            data.series?.get(0)?.performer?.get(0)?.function?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.series?.get(0)?.performer?.get(0)?.function?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2011-01-01T11:01:20+03:00",
-            data.series?.get(0)?.started?.value.toString()
-        )
-        assertEquals(
-            "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1",
-            data.series?.get(0)?.uid
-        )
-        assertEquals(
-            "2017-01-01T11:01:20+03:00",
-            data.started?.value.toString()
-        )
-        assertEquals(
-            ImagingStudyStatus.AVAILABLE,
-            data.status
-        )
-        assertEquals(
-            "Patient/dicom",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">XR Wrist 3+ Views. John Smith (MRN: 09236). Accession: W12342398. Performed: 2017-01-01. 1 series, 2 images.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertImagingStudy01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImagingStudy01Step01(data: ImagingStudy) {
+
+        assertEquals(
+            expected = "ServiceRequest/example",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Endpoint/example-wadors",
+            actual = data.endpoint?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-xr",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:dicom:uid",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/dicom-organization",
+            actual = data.identifier?.get(1)?.assigner?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACSN",
+            actual = data.identifier?.get(1)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0203",
+            actual = data.identifier?.get(1)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "W12342398",
+            actual = data.identifier?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/dicom-organization",
+            actual = data.identifier?.get(2)?.assigner?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.SECONDARY,
+            actual = data.identifier?.get(2)?.use
+        )
+
+        assertEquals(
+            expected = "55551234",
+            actual = data.identifier?.get(2)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.interpreter?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DX",
+            actual = data.modality?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://dicom.nema.org/resources/ontology/DCM",
+            actual = data.modality?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "XR Wrist 3+ Views",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.numberOfInstances?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.numberOfSeries?.value
+        )
+
+        assertEquals(
+            expected = "RPID2589",
+            actual = data.procedureCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "XR Wrist 3+ Views",
+            actual = data.procedureCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.radlex.org",
+            actual = data.procedureCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "XR Wrist 3+ Views",
+            actual = data.procedureCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Procedure/example",
+            actual = data.procedureReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "357009",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Closed fracture of trapezoidal bone of wrist",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.referrer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "T-15460",
+            actual = data.series?.get(0)?.bodySite?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Wrist Joint",
+            actual = data.series?.get(0)?.bodySite?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.series?.get(0)?.bodySite?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "XR Wrist 3+ Views",
+            actual = data.series?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Endpoint/example-wadors",
+            actual = data.series?.get(0)?.endpoint?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.series?.get(0)?.instance?.get(0)?.number?.value
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.840.10008.5.1.4.1.1.2",
+            actual = data.series?.get(0)?.instance?.get(0)?.sopClass?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.series?.get(0)?.instance?.get(0)?.sopClass?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PA VIEW",
+            actual = data.series?.get(0)?.instance?.get(0)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1",
+            actual = data.series?.get(0)?.instance?.get(0)?.uid
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.series?.get(0)?.instance?.get(1)?.number?.value
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.840.10008.5.1.4.1.1.2",
+            actual = data.series?.get(0)?.instance?.get(1)?.sopClass?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.series?.get(0)?.instance?.get(1)?.sopClass?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LL VIEW",
+            actual = data.series?.get(0)?.instance?.get(1)?.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2",
+            actual = data.series?.get(0)?.instance?.get(1)?.uid
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "419161000",
+            actual = data.series?.get(0)?.laterality?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Unilateral left",
+            actual = data.series?.get(0)?.laterality?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.series?.get(0)?.laterality?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DX",
+            actual = data.series?.get(0)?.modality?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://dicom.nema.org/resources/ontology/DCM",
+            actual = data.series?.get(0)?.modality?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.series?.get(0)?.number?.value
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.series?.get(0)?.numberOfInstances?.value
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.series?.get(0)?.performer?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRF",
+            actual = data.series?.get(0)?.performer?.get(0)?.function?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.series?.get(0)?.performer?.get(0)?.function?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-01-01T11:01:20+03:00",
+            actual = data.series?.get(0)?.started?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1",
+            actual = data.series?.get(0)?.uid
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-01-01T11:01:20+03:00",
+            actual = data.started?.value.toString()
+        )
+
+        assertEquals(
+            expected = ImagingStudyStatus.AVAILABLE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/dicom",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">XR Wrist 3+ Views. John Smith (MRN: 09236). Accession: W12342398. Performed: 2017-01-01. 1 series, 2 images.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -328,115 +449,163 @@ class ImagingStudyTest {
         val data = parser.toFhir(ImagingStudy::class, sourceJson)
 
         // Then
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "urn:dicom:uid",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.numberOfInstances?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.numberOfSeries?.value
-        )
-        assertEquals(
-            "67734004",
-            data.series?.get(0)?.bodySite?.code
-        )
-        assertEquals(
-            "Upper Trunk Structure",
-            data.series?.get(0)?.bodySite?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.series?.get(0)?.bodySite?.system
-        )
-        assertEquals(
-            "CT Surview 180",
-            data.series?.get(0)?.description
-        )
-        assertEquals(
-            "1".toLong(),
-            data.series?.get(0)?.instance?.get(0)?.number?.value
-        )
-        assertEquals(
-            "urn:oid:1.2.840.10008.5.1.4.1.1.2",
-            data.series?.get(0)?.instance?.get(0)?.sopClass?.code
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.series?.get(0)?.instance?.get(0)?.sopClass?.system
-        )
-        assertEquals(
-            "2.16.124.113543.6003.189642796.63084.16748.2599092903",
-            data.series?.get(0)?.instance?.get(0)?.uid
-        )
-        assertEquals(
-            "CT",
-            data.series?.get(0)?.modality?.code
-        )
-        assertEquals(
-            "http://dicom.nema.org/resources/ontology/DCM",
-            data.series?.get(0)?.modality?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.series?.get(0)?.number?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.series?.get(0)?.numberOfInstances?.value
-        )
-        assertEquals(
-            "2.16.124.113543.6003.2588828330.45298.17418.2723805630",
-            data.series?.get(0)?.uid
-        )
-        assertEquals(
-            "2011-01-01T11:01:20+03:00",
-            data.started?.value.toString()
-        )
-        assertEquals(
-            ImagingStudyStatus.AVAILABLE,
-            data.status
-        )
-        assertEquals(
-            "Patient/dicom",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertImagingStudy02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImagingStudy02Step01(data: ImagingStudy) {
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:dicom:uid",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.numberOfInstances?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.numberOfSeries?.value
+        )
+
+        assertEquals(
+            expected = "67734004",
+            actual = data.series?.get(0)?.bodySite?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Upper Trunk Structure",
+            actual = data.series?.get(0)?.bodySite?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.series?.get(0)?.bodySite?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CT Surview 180",
+            actual = data.series?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.series?.get(0)?.instance?.get(0)?.number?.value
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.840.10008.5.1.4.1.1.2",
+            actual = data.series?.get(0)?.instance?.get(0)?.sopClass?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.series?.get(0)?.instance?.get(0)?.sopClass?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.16.124.113543.6003.189642796.63084.16748.2599092903",
+            actual = data.series?.get(0)?.instance?.get(0)?.uid
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CT",
+            actual = data.series?.get(0)?.modality?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://dicom.nema.org/resources/ontology/DCM",
+            actual = data.series?.get(0)?.modality?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.series?.get(0)?.number?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.series?.get(0)?.numberOfInstances?.value
+        )
+
+        assertEquals(
+            expected = "2.16.124.113543.6003.2588828330.45298.17418.2723805630",
+            actual = data.series?.get(0)?.uid
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-01-01T11:01:20+03:00",
+            actual = data.started?.value.toString()
+        )
+
+        assertEquals(
+            expected = ImagingStudyStatus.AVAILABLE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/dicom",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

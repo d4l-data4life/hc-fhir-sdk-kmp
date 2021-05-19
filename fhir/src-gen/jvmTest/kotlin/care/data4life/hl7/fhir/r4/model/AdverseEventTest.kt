@@ -49,111 +49,162 @@ class AdverseEventTest {
         val data = parser.toFhir(AdverseEvent::class, sourceJson)
 
         // Then
-        assertEquals(
-            AdverseEventActuality.ACTUAL,
-            data.actuality
-        )
-        assertEquals(
-            "product-use-error",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Product Use Error",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/adverse-event-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2017-01-29T12:34:56+00:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "304386008",
-            data.event?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "O/E - itchy rash",
-            data.event?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.event?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "This was a mild rash on the left forearm",
-            data.event?.text
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://acme.com/ids/patients/risks",
-            data.identifier?.system
-        )
-        assertEquals(
-            "49476534",
-            data.identifier?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.recorder?.reference
-        )
-        assertEquals(
-            "Non-serious",
-            data.seriousness?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Non-serious",
-            data.seriousness?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/adverse-event-seriousness",
-            data.seriousness?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mild",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mild",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/adverse-event-severity",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "Medication/example",
-            data.suspectEntity?.get(0)?.instance?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertAdverseEvent01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertAdverseEvent01Step01(data: AdverseEvent) {
+
+        assertEquals(
+            expected = AdverseEventActuality.ACTUAL,
+            actual = data.actuality
+        )
+
+        assertEquals(
+            expected = "product-use-error",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Product Use Error",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/adverse-event-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-01-29T12:34:56+00:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "304386008",
+            actual = data.event?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "O/E - itchy rash",
+            actual = data.event?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.event?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This was a mild rash on the left forearm",
+            actual = data.event?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/ids/patients/risks",
+            actual = data.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "49476534",
+            actual = data.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.recorder?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Non-serious",
+            actual = data.seriousness?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Non-serious",
+            actual = data.seriousness?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/adverse-event-seriousness",
+            actual = data.seriousness?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mild",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mild",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/adverse-event-severity",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Medication/example",
+            actual = data.suspectEntity?.get(0)?.instance?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

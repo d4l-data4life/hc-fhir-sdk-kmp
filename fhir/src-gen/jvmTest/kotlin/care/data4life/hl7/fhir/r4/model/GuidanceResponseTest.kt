@@ -48,83 +48,120 @@ class GuidanceResponseTest {
         val data = parser.toFhir(GuidanceResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "outputParameters1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://example.org",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "guidanceResponse1",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html",
-            data.moduleUri
-        )
-        assertEquals(
-            "2017-03-10T16:02:00Z",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            "#outputParameters1",
-            data.outputParameters?.reference
-        )
-        assertEquals(
-            "Device/software",
-            data.performer?.reference
-        )
-        assertEquals(
-            "Guideline Appropriate Ordering Assessment",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "http://example.org",
-            data.requestIdentifier?.system
-        )
-        assertEquals(
-            "guidanceRequest1",
-            data.requestIdentifier?.value
-        )
-        assertEquals(
-            GuidanceResponseStatus.SUCCESS,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertGuidanceResponse01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertGuidanceResponse01Step01(data: GuidanceResponse) {
+
+        assertEquals(
+            expected = "outputParameters1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "guidanceResponse1",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html",
+            actual = data.moduleUri
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-10T16:02:00Z",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "#outputParameters1",
+            actual = data.outputParameters?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device/software",
+            actual = data.performer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Guideline Appropriate Ordering Assessment",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org",
+            actual = data.requestIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "guidanceRequest1",
+            actual = data.requestIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = GuidanceResponseStatus.SUCCESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

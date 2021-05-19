@@ -51,136 +51,194 @@ class ChargeItemDefinitionTest {
         val data = parser.toFhir(ChargeItemDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Verify ChargeItem pertains to Device 12345",
-            data.applicability?.get(0)?.description
-        )
-        assertEquals(
-            "%context.service.suppliedItem='Device/12345'",
-            data.applicability?.get(0)?.expression
-        )
-        assertEquals(
-            "text/fhirpath",
-            data.applicability?.get(0)?.language
-        )
-        assertEquals(
-            "Financial details for  custom made device",
-            data.description
-        )
-        assertEquals(
-            "device",
-            data.id
-        )
-        assertEquals(
-            "Device/12345",
-            data.instance?.get(0)?.reference
-        )
-        assertEquals(
-            "EUR",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.currency
-        )
-        assertEquals(
-            "67.44".toDouble(),
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.value?.value
-        )
-        assertEquals(
-            "VK",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Verkaufspreis (netto)",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://fhir.de/CodeSystem/billing-attributes",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            InvoicePriceComponentType.BASE,
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.type
-        )
-        assertEquals(
-            "Gültigkeit Steuersatz",
-            data.propertyGroup?.get(1)?.applicability?.get(0)?.description
-        )
-        assertEquals(
-            "%context.occurenceDateTime > '2018-04-01'",
-            data.propertyGroup?.get(1)?.applicability?.get(0)?.expression
-        )
-        assertEquals(
-            "text/fhirpath",
-            data.propertyGroup?.get(1)?.applicability?.get(0)?.language
-        )
-        assertEquals(
-            "MWST",
-            data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mehrwersteuersatz",
-            data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://fhir.de/CodeSystem/billing-attributes",
-            data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.19".toDouble(),
-            data.propertyGroup?.get(1)?.priceComponent?.get(0)?.factor?.value
-        )
-        assertEquals(
-            InvoicePriceComponentType.TAX,
-            data.propertyGroup?.get(1)?.priceComponent?.get(0)?.type
-        )
-        assertEquals(
-            "Gültigkeit Steuersatz",
-            data.propertyGroup?.get(2)?.applicability?.get(0)?.description
-        )
-        assertEquals(
-            "%context.occurenceDateTime <= '2018-04-01'",
-            data.propertyGroup?.get(2)?.applicability?.get(0)?.expression
-        )
-        assertEquals(
-            "text/fhirpath",
-            data.propertyGroup?.get(2)?.applicability?.get(0)?.language
-        )
-        assertEquals(
-            "MWST",
-            data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mehrwersteuersatz",
-            data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://fhir.de/CodeSystem/billing-attributes",
-            data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.07".toDouble(),
-            data.propertyGroup?.get(2)?.priceComponent?.get(0)?.factor?.value
-        )
-        assertEquals(
-            InvoicePriceComponentType.TAX,
-            data.propertyGroup?.get(2)?.priceComponent?.get(0)?.type
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://sap.org/ChargeItemDefinition/device-123",
-            data.url
-        )
+        assertChargeItemDefinition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertChargeItemDefinition01Step01(data: ChargeItemDefinition) {
+
+        assertEquals(
+            expected = "Verify ChargeItem pertains to Device 12345",
+            actual = data.applicability?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "%context.service.suppliedItem='Device/12345'",
+            actual = data.applicability?.get(0)?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/fhirpath",
+            actual = data.applicability?.get(0)?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Financial details for  custom made device",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "device",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device/12345",
+            actual = data.instance?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EUR",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "67.44".toDouble(),
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "VK",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Verkaufspreis (netto)",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fhir.de/CodeSystem/billing-attributes",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = InvoicePriceComponentType.BASE,
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Gültigkeit Steuersatz",
+            actual = data.propertyGroup?.get(1)?.applicability?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "%context.occurenceDateTime > '2018-04-01'",
+            actual = data.propertyGroup?.get(1)?.applicability?.get(0)?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/fhirpath",
+            actual = data.propertyGroup?.get(1)?.applicability?.get(0)?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MWST",
+            actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mehrwersteuersatz",
+            actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fhir.de/CodeSystem/billing-attributes",
+            actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.19".toDouble(),
+            actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.factor?.value
+        )
+
+        assertEquals(
+            expected = InvoicePriceComponentType.TAX,
+            actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Gültigkeit Steuersatz",
+            actual = data.propertyGroup?.get(2)?.applicability?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "%context.occurenceDateTime <= '2018-04-01'",
+            actual = data.propertyGroup?.get(2)?.applicability?.get(0)?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/fhirpath",
+            actual = data.propertyGroup?.get(2)?.applicability?.get(0)?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MWST",
+            actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mehrwersteuersatz",
+            actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fhir.de/CodeSystem/billing-attributes",
+            actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.07".toDouble(),
+            actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.factor?.value
+        )
+
+        assertEquals(
+            expected = InvoicePriceComponentType.TAX,
+            actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://sap.org/ChargeItemDefinition/device-123",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -192,123 +250,175 @@ class ChargeItemDefinitionTest {
         val data = parser.toFhir(ChargeItemDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Excludes billing code 13250 for same Encounter",
-            data.applicability?.get(0)?.description
-        )
-        assertEquals(
-            "[some CQL expression]",
-            data.applicability?.get(0)?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.applicability?.get(0)?.language
-        )
-        assertEquals(
-            "Applies only once per Encounter",
-            data.applicability?.get(1)?.description
-        )
-        assertEquals(
-            "[some CQL expression]",
-            data.applicability?.get(1)?.expression
-        )
-        assertEquals(
-            "text/CQL",
-            data.applicability?.get(1)?.language
-        )
-        assertEquals(
-            "30110",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Allergologiediagnostik I",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://fhir.de/CodingSystem/kbv/ebm",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten",
-            data.description
-        )
-        assertEquals(
-            "2018-06-30",
-            data.effectivePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2018-04-01",
-            data.effectivePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "ebm",
-            data.id
-        )
-        assertEquals(
-            "EUR",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.currency
-        )
-        assertEquals(
-            "67.44".toDouble(),
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.value?.value
-        )
-        assertEquals(
-            "gesamt-euro",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Gesamt (Euro)",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://fhir.de/CodeSystem/kbv/ebm-attribute",
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            InvoicePriceComponentType.BASE,
-            data.propertyGroup?.get(0)?.priceComponent?.get(0)?.type
-        )
-        assertEquals(
-            "gesamt-punkte",
-            data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Gesamt (Punkte)",
-            data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://fhir.de/CodeSystem/kbv/ebm-attribute",
-            data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "633".toDouble(),
-            data.propertyGroup?.get(0)?.priceComponent?.get(1)?.factor?.value
-        )
-        assertEquals(
-            InvoicePriceComponentType.INFORMATIONAL,
-            data.propertyGroup?.get(0)?.priceComponent?.get(1)?.type
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://fhir.de/ChargeItemDefinition/kbv/ebm-30110",
-            data.url
-        )
-        assertEquals(
-            "2-2018",
-            data.version
-        )
+        assertChargeItemDefinition02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertChargeItemDefinition02Step01(data: ChargeItemDefinition) {
+
+        assertEquals(
+            expected = "Excludes billing code 13250 for same Encounter",
+            actual = data.applicability?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[some CQL expression]",
+            actual = data.applicability?.get(0)?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.applicability?.get(0)?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Applies only once per Encounter",
+            actual = data.applicability?.get(1)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[some CQL expression]",
+            actual = data.applicability?.get(1)?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/CQL",
+            actual = data.applicability?.get(1)?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30110",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Allergologiediagnostik I",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fhir.de/CodingSystem/kbv/ebm",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-06-30",
+            actual = data.effectivePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2018-04-01",
+            actual = data.effectivePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ebm",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EUR",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "67.44".toDouble(),
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "gesamt-euro",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gesamt (Euro)",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fhir.de/CodeSystem/kbv/ebm-attribute",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = InvoicePriceComponentType.BASE,
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "gesamt-punkte",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gesamt (Punkte)",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fhir.de/CodeSystem/kbv/ebm-attribute",
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "633".toDouble(),
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.factor?.value
+        )
+
+        assertEquals(
+            expected = InvoicePriceComponentType.INFORMATIONAL,
+            actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://fhir.de/ChargeItemDefinition/kbv/ebm-30110",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2-2018",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 }

@@ -51,56 +51,80 @@ class EndpointTest {
         val data = parser.toFhir(Endpoint::class, sourceJson)
 
         // Then
-        assertEquals(
-            "https://pacs.hospital.org/IHEInvokeImageDisplay",
-            data.address
-        )
-        assertEquals(
-            "ihe-iid",
-            data.connectionType?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
-            data.connectionType?.system
-        )
-        assertEquals(
-            "example-iid",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "PACS Hospital Invoke Image Display endpoint",
-            data.name
-        )
-        assertEquals(
-            "DICOM IID",
-            data.payloadType?.get(0)?.text
-        )
-        assertEquals(
-            EndpointStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEndpoint01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEndpoint01Step01(data: Endpoint) {
+
+        assertEquals(
+            expected = "https://pacs.hospital.org/IHEInvokeImageDisplay",
+            actual = data.address
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ihe-iid",
+            actual = data.connectionType?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+            actual = data.connectionType?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-iid",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PACS Hospital Invoke Image Display endpoint",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DICOM IID",
+            actual = data.payloadType?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EndpointStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -112,60 +136,86 @@ class EndpointTest {
         val data = parser.toFhir(Endpoint::class, sourceJson)
 
         // Then
-        assertEquals(
-            "mailto:MARTIN.SMIETANKA@directnppes.com",
-            data.address
-        )
-        assertEquals(
-            "direct-project",
-            data.connectionType?.code
-        )
-        assertEquals(
-            "direct-endpoint",
-            data.id
-        )
-        assertEquals(
-            "Organization/299",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "MARTIN SMIETANKA",
-            data.name
-        )
-        assertEquals(
-            "urn:hl7-org:sdwg:ccda-structuredBody:1.1",
-            data.payloadType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.19376.1.2.3",
-            data.payloadType?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            EndpointStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEndpoint02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEndpoint02Step01(data: Endpoint) {
+
+        assertEquals(
+            expected = "mailto:MARTIN.SMIETANKA@directnppes.com",
+            actual = data.address
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "direct-project",
+            actual = data.connectionType?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "direct-endpoint",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/299",
+            actual = data.managingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MARTIN SMIETANKA",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:hl7-org:sdwg:ccda-structuredBody:1.1",
+            actual = data.payloadType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+            actual = data.payloadType?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EndpointStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -177,60 +227,86 @@ class EndpointTest {
         val data = parser.toFhir(Endpoint::class, sourceJson)
 
         // Then
-        assertEquals(
-            "https://pacs.hospital.org/wado-rs",
-            data.address
-        )
-        assertEquals(
-            "dicom-wado-rs",
-            data.connectionType?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
-            data.connectionType?.system
-        )
-        assertEquals(
-            "example-wadors",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "PACS Hospital DICOM WADO-RS endpoint",
-            data.name
-        )
-        assertEquals(
-            "application/dicom",
-            data.payloadMimeType?.get(0)
-        )
-        assertEquals(
-            "DICOM WADO-RS",
-            data.payloadType?.get(0)?.text
-        )
-        assertEquals(
-            EndpointStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEndpoint03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEndpoint03Step01(data: Endpoint) {
+
+        assertEquals(
+            expected = "https://pacs.hospital.org/wado-rs",
+            actual = data.address
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dicom-wado-rs",
+            actual = data.connectionType?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+            actual = data.connectionType?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-wadors",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PACS Hospital DICOM WADO-RS endpoint",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/dicom",
+            actual = data.payloadMimeType?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DICOM WADO-RS",
+            actual = data.payloadType?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EndpointStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -242,95 +318,136 @@ class EndpointTest {
         val data = parser.toFhir(Endpoint::class, sourceJson)
 
         // Then
-        assertEquals(
-            "http://fhir3.healthintersections.com.au/open/CarePlan",
-            data.address
-        )
-        assertEquals(
-            "hl7-fhir-rest",
-            data.connectionType?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
-            data.connectionType?.system
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.use
-        )
-        assertEquals(
-            "endpointmanager@example.org",
-            data.contact?.get(0)?.value
-        )
-        assertEquals(
-            "bearer-code BASGS534s4",
-            data.header?.get(0)
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/enpoint-identifier",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "epcp12",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/hl7",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Health Intersections CarePlan Hub",
-            data.name
-        )
-        assertEquals(
-            "application/fhir+xml",
-            data.payloadMimeType?.get(0)
-        )
-        assertEquals(
-            "CarePlan",
-            data.payloadType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/resource-types",
-            data.payloadType?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2014-09-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            EndpointStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEndpoint04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEndpoint04Step01(data: Endpoint) {
+
+        assertEquals(
+            expected = "http://fhir3.healthintersections.com.au/open/CarePlan",
+            actual = data.address
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "hl7-fhir-rest",
+            actual = data.connectionType?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+            actual = data.connectionType?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "endpointmanager@example.org",
+            actual = data.contact?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "bearer-code BASGS534s4",
+            actual = data.header?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/enpoint-identifier",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "epcp12",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.managingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Intersections CarePlan Hub",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/fhir+xml",
+            actual = data.payloadMimeType?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CarePlan",
+            actual = data.payloadType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/resource-types",
+            actual = data.payloadType?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EndpointStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

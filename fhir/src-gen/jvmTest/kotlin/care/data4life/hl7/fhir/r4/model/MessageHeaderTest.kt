@@ -51,115 +51,168 @@ class MessageHeaderTest {
         val data = parser.toFhir(MessageHeader::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.author?.reference
-        )
-        assertEquals(
-            "http:////acme.com/ehr/fhir/messagedefinition/patientrequest",
-            data.definition
-        )
-        assertEquals(
-            "llp:10.11.12.14:5432",
-            data.destination?.get(0)?.endpoint
-        )
-        assertEquals(
-            "Acme Message Gateway",
-            data.destination?.get(0)?.name
-        )
-        assertEquals(
-            "http://acme.com/ehr/fhir/Practitioner/2323-33-4",
-            data.destination?.get(0)?.receiver?.reference
-        )
-        assertEquals(
-            "Device/example",
-            data.destination?.get(0)?.target?.reference
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.enterer?.reference
-        )
-        assertEquals(
-            "admin-notify",
-            data.eventCoding?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/message-events",
-            data.eventCoding?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.focus?.get(0)?.reference
-        )
-        assertEquals(
-            "1cbdfb97-5859-48a4-8301-d54eab818d68",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "admit",
-            data.reason?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/message-reasons-encounter",
-            data.reason?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ResponseType.OK,
-            data.response?.code
-        )
-        assertEquals(
-            "5015fe84-8e76-4526-89d8-44b322e8d4fb",
-            data.response?.identifier
-        )
-        assertEquals(
-            "Organization/1",
-            data.sender?.reference
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.source?.contact?.system
-        )
-        assertEquals(
-            "+1 (555) 123 4567",
-            data.source?.contact?.value
-        )
-        assertEquals(
-            "llp:10.11.12.13:5432",
-            data.source?.endpoint
-        )
-        assertEquals(
-            "Acme Central Patient Registry",
-            data.source?.name
-        )
-        assertEquals(
-            "FooBar Patient Manager",
-            data.source?.software
-        )
-        assertEquals(
-            "3.1.45.AABB",
-            data.source?.version
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMessageHeader01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMessageHeader01Step01(data: MessageHeader) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http:////acme.com/ehr/fhir/messagedefinition/patientrequest",
+            actual = data.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "llp:10.11.12.14:5432",
+            actual = data.destination?.get(0)?.endpoint
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Message Gateway",
+            actual = data.destination?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/ehr/fhir/Practitioner/2323-33-4",
+            actual = data.destination?.get(0)?.receiver?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device/example",
+            actual = data.destination?.get(0)?.target?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.enterer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "admin-notify",
+            actual = data.eventCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/message-events",
+            actual = data.eventCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.focus?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1cbdfb97-5859-48a4-8301-d54eab818d68",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "admit",
+            actual = data.reason?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/message-reasons-encounter",
+            actual = data.reason?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResponseType.OK,
+            actual = data.response?.code
+        )
+
+        assertEquals(
+            expected = "5015fe84-8e76-4526-89d8-44b322e8d4fb",
+            actual = data.response?.identifier
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.sender?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.source?.contact?.system
+        )
+
+        assertEquals(
+            expected = "+1 (555) 123 4567",
+            actual = data.source?.contact?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "llp:10.11.12.13:5432",
+            actual = data.source?.endpoint
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Central Patient Registry",
+            actual = data.source?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FooBar Patient Manager",
+            actual = data.source?.software
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3.1.45.AABB",
+            actual = data.source?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

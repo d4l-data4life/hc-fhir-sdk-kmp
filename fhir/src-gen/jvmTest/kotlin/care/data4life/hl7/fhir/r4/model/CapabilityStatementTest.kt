@@ -60,340 +60,478 @@ class CapabilityStatementTest {
         val data = parser.toFhir(CapabilityStatement::class, sourceJson)
 
         // Then
-        assertEquals(
-            "System Administrator",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "wile@acme.org",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "Copyright © Acme Healthcare and GoodCorp EHR Systems",
-            data.copyright
-        )
-        assertEquals(
-            "2012-01-04",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface",
-            data.description
-        )
-        assertEquals(
-            "Basic rules for all documents in the EHR system",
-            data.document?.get(0)?.documentation
-        )
-        assertEquals(
-            DocumentMode.CONSUMER,
-            data.document?.get(0)?.mode
-        )
-        assertEquals(
-            "http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796",
-            data.document?.get(0)?.profile
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "4.0.1",
-            data.fhirVer
-        )
-        assertEquals(
-            "xml",
-            data.format?.get(0)
-        )
-        assertEquals(
-            "json",
-            data.format?.get(1)
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "main EHR at ACME",
-            data.implementation?.description
-        )
-        assertEquals(
-            "http://10.2.3.4/fhir",
-            data.implementation?.url
-        )
-        assertEquals(
-            "http://hl7.org/fhir/us/lab",
-            data.implementationGuide?.get(0)
-        )
-        assertEquals(
-            "http://ihe.org/fhir/CapabilityStatement/pixm-client",
-            data.instantiates?.get(0)
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "United States of America (the)",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            CapabilityStatementKind.INSTANCE,
-            data.kind
-        )
-        assertEquals(
-            "ADT A08 equivalent for external system notifications",
-            data.messaging?.get(0)?.documentation
-        )
-        assertEquals(
-            "mllp:10.1.1.10:9234",
-            data.messaging?.get(0)?.endpoint?.get(0)?.address
-        )
-        assertEquals(
-            "mllp",
-            data.messaging?.get(0)?.endpoint?.get(0)?.protocol?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/message-transport",
-            data.messaging?.get(0)?.endpoint?.get(0)?.protocol?.system
-        )
-        assertEquals(
-            "30".toLong(),
-            data.messaging?.get(0)?.reliableCache?.value
-        )
-        assertEquals(
-            "MessageDefinition/example",
-            data.messaging?.get(0)?.supportedMessage?.get(0)?.definition
-        )
-        assertEquals(
-            EventCapabilityMode.RECEIVER,
-            data.messaging?.get(0)?.supportedMessage?.get(0)?.mode
-        )
-        assertEquals(
-            "ACME-EHR",
-            data.name
-        )
-        assertEquals(
-            "application/xml-patch+xml",
-            data.patchFormat?.get(0)
-        )
-        assertEquals(
-            "application/json-patch+json",
-            data.patchFormat?.get(1)
-        )
-        assertEquals(
-            "ACME Corporation",
-            data.publisher
-        )
-        assertEquals(
-            "Main EHR capability statement, published for contracting and operational support",
-            data.purpose
-        )
-        assertEquals(
-            "http://hl7.org/fhir/CompartmentDefinition/patient",
-            data.rest?.get(0)?.compartment?.get(0)
-        )
-        assertEquals(
-            "Main FHIR endpoint for acem health",
-            data.rest?.get(0)?.documentation
-        )
-        assertEquals(
-            FHIRRestfulInteractions.TRANSACTION,
-            data.rest?.get(0)?.interaction?.get(0)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.HISTORY_SYSTEM,
-            data.rest?.get(0)?.interaction?.get(1)?.code
-        )
-        assertEquals(
-            RestfulCapabilityMode.SERVER,
-            data.rest?.get(0)?.mode
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.rest?.get(0)?.resource?.get(0)?.conditionalCreate?.value
-        )
-        assertEquals(
-            ConditionalDeleteStatus.NOT_SUPPORTED,
-            data.rest?.get(0)?.resource?.get(0)?.conditionalDelete
-        )
-        assertEquals(
-            ConditionalReadStatus.FULL_SUPPORT,
-            data.rest?.get(0)?.resource?.get(0)?.conditionalRead
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.rest?.get(0)?.resource?.get(0)?.conditionalUpdate?.value
-        )
-        assertEquals(
-            "This server does not let the clients create identities.",
-            data.rest?.get(0)?.resource?.get(0)?.documentation
-        )
-        assertEquals(
-            FHIRRestfulInteractions.READ,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(0)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.VREAD,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.code
-        )
-        assertEquals(
-            "Only supported for patient records since 12-Dec 2012",
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.documentation
-        )
-        assertEquals(
-            FHIRRestfulInteractions.UPDATE,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(2)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.HISTORY_INSTANCE,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(3)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.CREATE,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(4)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.HISTORY_TYPE,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(5)?.code
-        )
-        assertEquals(
-            "http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416",
-            data.rest?.get(0)?.resource?.get(0)?.profile
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.rest?.get(0)?.resource?.get(0)?.readHistory?.value
-        )
-        assertEquals(
-            "Organization",
-            data.rest?.get(0)?.resource?.get(0)?.searchInclude?.get(0)
-        )
-        assertEquals(
-            "http://hl7.org/fhir/SearchParameter/Patient-identifier",
-            data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.definition
-        )
-        assertEquals(
-            "Only supports search by institution MRN",
-            data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.documentation
-        )
-        assertEquals(
-            "identifier",
-            data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.name
-        )
-        assertEquals(
-            SearchParamType.TOKEN,
-            data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.type
-        )
-        assertEquals(
-            "http://hl7.org/fhir/SearchParameter/Patient-general-practitioner",
-            data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.definition
-        )
-        assertEquals(
-            "general-practitioner",
-            data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.name
-        )
-        assertEquals(
-            SearchParamType.REFERENCE,
-            data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.type
-        )
-        assertEquals(
-            "Person",
-            data.rest?.get(0)?.resource?.get(0)?.searchRevInclude?.get(0)
-        )
-        assertEquals(
-            "http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347",
-            data.rest?.get(0)?.resource?.get(0)?.supportedProfile?.get(0)
-        )
-        assertEquals(
-            ResourceType.PATIENT,
-            data.rest?.get(0)?.resource?.get(0)?.type
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.rest?.get(0)?.resource?.get(0)?.updateCreate?.value
-        )
-        assertEquals(
-            ResourceVersionPolicy.VERSIONED_UPDATE,
-            data.rest?.get(0)?.resource?.get(0)?.versioning
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.rest?.get(0)?.security?.cors?.value
-        )
-        assertEquals(
-            "See Smart on FHIR documentation",
-            data.rest?.get(0)?.security?.description
-        )
-        assertEquals(
-            "SMART-on-FHIR",
-            data.rest?.get(0)?.security?.service?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/restful-security-service",
-            data.rest?.get(0)?.security?.service?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "EHR",
-            data.software?.name
-        )
-        assertEquals(
-            "2012-01-04",
-            data.software?.releaseDate?.value.toString()
-        )
-        assertEquals(
-            "0.00.020.2134",
-            data.software?.version
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "ACME EHR capability statement",
-            data.title
-        )
-        assertEquals(
-            "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311",
-            data.url
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "positive",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/variant-state",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "20130510",
-            data.version
-        )
+        assertCapabilityStatement01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCapabilityStatement01Step01(data: CapabilityStatement) {
+
+        assertEquals(
+            expected = "System Administrator",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "wile@acme.org",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Copyright © Acme Healthcare and GoodCorp EHR Systems",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-01-04",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Basic rules for all documents in the EHR system",
+            actual = data.document?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = DocumentMode.CONSUMER,
+            actual = data.document?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = "http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796",
+            actual = data.document?.get(0)?.profile
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.fhirVer
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "xml",
+            actual = data.format?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "json",
+            actual = data.format?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "main EHR at ACME",
+            actual = data.implementation?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://10.2.3.4/fhir",
+            actual = data.implementation?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/us/lab",
+            actual = data.implementationGuide?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ihe.org/fhir/CapabilityStatement/pixm-client",
+            actual = data.instantiates?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "United States of America (the)",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CapabilityStatementKind.INSTANCE,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "ADT A08 equivalent for external system notifications",
+            actual = data.messaging?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mllp:10.1.1.10:9234",
+            actual = data.messaging?.get(0)?.endpoint?.get(0)?.address
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mllp",
+            actual = data.messaging?.get(0)?.endpoint?.get(0)?.protocol?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/message-transport",
+            actual = data.messaging?.get(0)?.endpoint?.get(0)?.protocol?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30".toLong(),
+            actual = data.messaging?.get(0)?.reliableCache?.value
+        )
+
+        assertEquals(
+            expected = "MessageDefinition/example",
+            actual = data.messaging?.get(0)?.supportedMessage?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EventCapabilityMode.RECEIVER,
+            actual = data.messaging?.get(0)?.supportedMessage?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = "ACME-EHR",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/xml-patch+xml",
+            actual = data.patchFormat?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/json-patch+json",
+            actual = data.patchFormat?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACME Corporation",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Main EHR capability statement, published for contracting and operational support",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/CompartmentDefinition/patient",
+            actual = data.rest?.get(0)?.compartment?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Main FHIR endpoint for acem health",
+            actual = data.rest?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.TRANSACTION,
+            actual = data.rest?.get(0)?.interaction?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.HISTORY_SYSTEM,
+            actual = data.rest?.get(0)?.interaction?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = RestfulCapabilityMode.SERVER,
+            actual = data.rest?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.rest?.get(0)?.resource?.get(0)?.conditionalCreate?.value
+        )
+
+        assertEquals(
+            expected = ConditionalDeleteStatus.NOT_SUPPORTED,
+            actual = data.rest?.get(0)?.resource?.get(0)?.conditionalDelete
+        )
+
+        assertEquals(
+            expected = ConditionalReadStatus.FULL_SUPPORT,
+            actual = data.rest?.get(0)?.resource?.get(0)?.conditionalRead
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.rest?.get(0)?.resource?.get(0)?.conditionalUpdate?.value
+        )
+
+        assertEquals(
+            expected = "This server does not let the clients create identities.",
+            actual = data.rest?.get(0)?.resource?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.READ,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.VREAD,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = "Only supported for patient records since 12-Dec 2012",
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.UPDATE,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(2)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.HISTORY_INSTANCE,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(3)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.CREATE,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(4)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.HISTORY_TYPE,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(5)?.code
+        )
+
+        assertEquals(
+            expected = "http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416",
+            actual = data.rest?.get(0)?.resource?.get(0)?.profile
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.rest?.get(0)?.resource?.get(0)?.readHistory?.value
+        )
+
+        assertEquals(
+            expected = "Organization",
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchInclude?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/SearchParameter/Patient-identifier",
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Only supports search by institution MRN",
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "identifier",
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchParamType.TOKEN,
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/SearchParameter/Patient-general-practitioner",
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.definition
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "general-practitioner",
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchParamType.REFERENCE,
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "Person",
+            actual = data.rest?.get(0)?.resource?.get(0)?.searchRevInclude?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347",
+            actual = data.rest?.get(0)?.resource?.get(0)?.supportedProfile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.rest?.get(0)?.resource?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.rest?.get(0)?.resource?.get(0)?.updateCreate?.value
+        )
+
+        assertEquals(
+            expected = ResourceVersionPolicy.VERSIONED_UPDATE,
+            actual = data.rest?.get(0)?.resource?.get(0)?.versioning
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.rest?.get(0)?.security?.cors?.value
+        )
+
+        assertEquals(
+            expected = "See Smart on FHIR documentation",
+            actual = data.rest?.get(0)?.security?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SMART-on-FHIR",
+            actual = data.rest?.get(0)?.security?.service?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/restful-security-service",
+            actual = data.rest?.get(0)?.security?.service?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EHR",
+            actual = data.software?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-01-04",
+            actual = data.software?.releaseDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "0.00.020.2134",
+            actual = data.software?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "ACME EHR capability statement",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "positive",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/variant-state",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20130510",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -405,191 +543,263 @@ class CapabilityStatementTest {
         val data = parser.toFhir(CapabilityStatement::class, sourceJson)
 
         // Then
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2013-06-18",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Prototype Capability Statement for September 2013 Connectathon",
-            data.description
-        )
-        assertEquals(
-            "4.0.1",
-            data.fhirVer
-        )
-        assertEquals(
-            "json",
-            data.format?.get(0)
-        )
-        assertEquals(
-            "xml",
-            data.format?.get(1)
-        )
-        assertEquals(
-            "phr",
-            data.id
-        )
-        assertEquals(
-            CapabilityStatementKind.CAPABILITY,
-            data.kind
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "PHR Template",
-            data.name
-        )
-        assertEquals(
-            "FHIR Project",
-            data.publisher
-        )
-        assertEquals(
-            "Protoype server Capability Statement for September 2013 Connectathon",
-            data.rest?.get(0)?.documentation
-        )
-        assertEquals(
-            RestfulCapabilityMode.SERVER,
-            data.rest?.get(0)?.mode
-        )
-        assertEquals(
-            FHIRRestfulInteractions.READ,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(0)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.SEARCH_TYPE,
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.code
-        )
-        assertEquals(
-            "When a client searches patients with no search criteria, they get a list of all patients they have access too. Servers may elect to offer additional search parameters, but this is not required",
-            data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.documentation
-        )
-        assertEquals(
-            ResourceType.PATIENT,
-            data.rest?.get(0)?.resource?.get(0)?.type
-        )
-        assertEquals(
-            FHIRRestfulInteractions.READ,
-            data.rest?.get(0)?.resource?.get(1)?.interaction?.get(0)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.SEARCH_TYPE,
-            data.rest?.get(0)?.resource?.get(1)?.interaction?.get(1)?.code
-        )
-        assertEquals(
-            "_id parameter always supported. For the connectathon, servers may elect which search parameters are supported",
-            data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.documentation
-        )
-        assertEquals(
-            "_id",
-            data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.name
-        )
-        assertEquals(
-            SearchParamType.TOKEN,
-            data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.type
-        )
-        assertEquals(
-            ResourceType.DOCUMENTREFERENCE,
-            data.rest?.get(0)?.resource?.get(1)?.type
-        )
-        assertEquals(
-            FHIRRestfulInteractions.READ,
-            data.rest?.get(0)?.resource?.get(2)?.interaction?.get(0)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.SEARCH_TYPE,
-            data.rest?.get(0)?.resource?.get(2)?.interaction?.get(1)?.code
-        )
-        assertEquals(
-            "Standard _id parameter",
-            data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.documentation
-        )
-        assertEquals(
-            "_id",
-            data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.name
-        )
-        assertEquals(
-            SearchParamType.TOKEN,
-            data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.type
-        )
-        assertEquals(
-            ResourceType.CONDITION,
-            data.rest?.get(0)?.resource?.get(2)?.type
-        )
-        assertEquals(
-            FHIRRestfulInteractions.READ,
-            data.rest?.get(0)?.resource?.get(3)?.interaction?.get(0)?.code
-        )
-        assertEquals(
-            FHIRRestfulInteractions.SEARCH_TYPE,
-            data.rest?.get(0)?.resource?.get(3)?.interaction?.get(1)?.code
-        )
-        assertEquals(
-            "Standard _id parameter",
-            data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.documentation
-        )
-        assertEquals(
-            "_id",
-            data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.name
-        )
-        assertEquals(
-            SearchParamType.TOKEN,
-            data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.type
-        )
-        assertEquals(
-            "which diagnostic discipline/department created the report",
-            data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.documentation
-        )
-        assertEquals(
-            "service",
-            data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.name
-        )
-        assertEquals(
-            SearchParamType.TOKEN,
-            data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.type
-        )
-        assertEquals(
-            ResourceType.DIAGNOSTICREPORT,
-            data.rest?.get(0)?.resource?.get(3)?.type
-        )
-        assertEquals(
-            "OAuth",
-            data.rest?.get(0)?.security?.service?.get(0)?.text
-        )
-        assertEquals(
-            "ACME PHR Server",
-            data.software?.name
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCapabilityStatement02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCapabilityStatement02Step01(data: CapabilityStatement) {
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-06-18",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Prototype Capability Statement for September 2013 Connectathon",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.fhirVer
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "json",
+            actual = data.format?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "xml",
+            actual = data.format?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "phr",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CapabilityStatementKind.CAPABILITY,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PHR Template",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Project",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Protoype server Capability Statement for September 2013 Connectathon",
+            actual = data.rest?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RestfulCapabilityMode.SERVER,
+            actual = data.rest?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.READ,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.SEARCH_TYPE,
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = "When a client searches patients with no search criteria, they get a list of all patients they have access too. Servers may elect to offer additional search parameters, but this is not required",
+            actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.rest?.get(0)?.resource?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.READ,
+            actual = data.rest?.get(0)?.resource?.get(1)?.interaction?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.SEARCH_TYPE,
+            actual = data.rest?.get(0)?.resource?.get(1)?.interaction?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = "_id parameter always supported. For the connectathon, servers may elect which search parameters are supported",
+            actual = data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "_id",
+            actual = data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchParamType.TOKEN,
+            actual = data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = ResourceType.DOCUMENTREFERENCE,
+            actual = data.rest?.get(0)?.resource?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.READ,
+            actual = data.rest?.get(0)?.resource?.get(2)?.interaction?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.SEARCH_TYPE,
+            actual = data.rest?.get(0)?.resource?.get(2)?.interaction?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = "Standard _id parameter",
+            actual = data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "_id",
+            actual = data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchParamType.TOKEN,
+            actual = data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = ResourceType.CONDITION,
+            actual = data.rest?.get(0)?.resource?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.READ,
+            actual = data.rest?.get(0)?.resource?.get(3)?.interaction?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = FHIRRestfulInteractions.SEARCH_TYPE,
+            actual = data.rest?.get(0)?.resource?.get(3)?.interaction?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = "Standard _id parameter",
+            actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "_id",
+            actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchParamType.TOKEN,
+            actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "which diagnostic discipline/department created the report",
+            actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "service",
+            actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SearchParamType.TOKEN,
+            actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = ResourceType.DIAGNOSTICREPORT,
+            actual = data.rest?.get(0)?.resource?.get(3)?.type
+        )
+
+        assertEquals(
+            expected = "OAuth",
+            actual = data.rest?.get(0)?.security?.service?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACME PHR Server",
+            actual = data.software?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

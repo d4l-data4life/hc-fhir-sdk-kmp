@@ -48,95 +48,135 @@ class SupplyRequestTest {
         val data = parser.toFhir(SupplyRequest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2016-12-31",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "central",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Central Stock Resupply",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "Location 1",
-            data.deliverFrom?.display
-        )
-        assertEquals(
-            "GoodHealth Clinic Receiving",
-            data.deliverTo?.display
-        )
-        assertEquals(
-            "simpleorder",
-            data.id
-        )
-        assertEquals(
-            "Order10284",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "BlueTubes",
-            data.itemCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Blood collect tubes blue cap",
-            data.itemCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2016-12-31",
-            data.occurrenceDateTime?.value.toString()
-        )
-        assertEquals(
-            RequestPriority.ASAP,
-            data.priority
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.quantity?.value?.value
-        )
-        assertEquals(
-            "stock_low",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Refill due to low stock",
-            data.reasonCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "Henry Seven",
-            data.requester?.display
-        )
-        assertEquals(
-            SupplyRequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Vendor1",
-            data.supplier?.get(0)?.display
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSupplyRequest01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSupplyRequest01Step01(data: SupplyRequest) {
+
+        assertEquals(
+            expected = "2016-12-31",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "central",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Central Stock Resupply",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location 1",
+            actual = data.deliverFrom?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "GoodHealth Clinic Receiving",
+            actual = data.deliverTo?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "simpleorder",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Order10284",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "BlueTubes",
+            actual = data.itemCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blood collect tubes blue cap",
+            actual = data.itemCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-12-31",
+            actual = data.occurrenceDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestPriority.ASAP,
+            actual = data.priority
+        )
+
+        assertEquals(
+            expected = "10".toDouble(),
+            actual = data.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "stock_low",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Refill due to low stock",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Henry Seven",
+            actual = data.requester?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SupplyRequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Vendor1",
+            actual = data.supplier?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

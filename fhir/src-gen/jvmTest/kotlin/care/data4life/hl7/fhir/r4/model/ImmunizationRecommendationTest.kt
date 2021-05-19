@@ -47,144 +47,207 @@ class ImmunizationRecommendationTest {
         val data = parser.toFhir(ImmunizationRecommendation::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Organization/hl7",
-            data.authority?.reference
-        )
-        assertEquals(
-            "2015-02-09T11:04:15.817-05:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "earliest",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Earliest Date",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-12-01T00:00:00-05:00",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.value?.value.toString()
-        )
-        assertEquals(
-            "recommended",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Recommended",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-12-01T00:00:00-05:00",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.value?.value.toString()
-        )
-        assertEquals(
-            "overdue",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Past Due Date",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-12-28T00:00:00-05:00",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.value?.value.toString()
-        )
-        assertEquals(
-            "First sequence in protocol",
-            data.recommendation?.get(0)?.description
-        )
-        assertEquals(
-            "1".toLong(),
-            data.recommendation?.get(0)?.doseNumberPositiveInt?.value
-        )
-        assertEquals(
-            "Not Complete",
-            data.recommendation?.get(0)?.forecastStatus?.text
-        )
-        assertEquals(
-            "Vaccination Series 1",
-            data.recommendation?.get(0)?.series
-        )
-        assertEquals(
-            "3".toLong(),
-            data.recommendation?.get(0)?.seriesDosesPositiveInt?.value
-        )
-        assertEquals(
-            "Immunization/example",
-            data.recommendation?.get(0)?.supportingImmunization?.get(0)?.reference
-        )
-        assertEquals(
-            "Observation/example",
-            data.recommendation?.get(0)?.supportingPatientInformation?.get(0)?.reference
-        )
-        assertEquals(
-            "14745005",
-            data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Hepatitis A vaccine",
-            data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertImmunizationRecommendation01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImmunizationRecommendation01Step01(data: ImmunizationRecommendation) {
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.authority?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-09T11:04:15.817-05:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "earliest",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Earliest Date",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-12-01T00:00:00-05:00",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.value?.value.toString()
+        )
+
+        assertEquals(
+            expected = "recommended",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Recommended",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-12-01T00:00:00-05:00",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.value?.value.toString()
+        )
+
+        assertEquals(
+            expected = "overdue",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Past Due Date",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-12-28T00:00:00-05:00",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.value?.value.toString()
+        )
+
+        assertEquals(
+            expected = "First sequence in protocol",
+            actual = data.recommendation?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.recommendation?.get(0)?.doseNumberPositiveInt?.value
+        )
+
+        assertEquals(
+            expected = "Not Complete",
+            actual = data.recommendation?.get(0)?.forecastStatus?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vaccination Series 1",
+            actual = data.recommendation?.get(0)?.series
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.recommendation?.get(0)?.seriesDosesPositiveInt?.value
+        )
+
+        assertEquals(
+            expected = "Immunization/example",
+            actual = data.recommendation?.get(0)?.supportingImmunization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/example",
+            actual = data.recommendation?.get(0)?.supportingPatientInformation?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "14745005",
+            actual = data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hepatitis A vaccine",
+            actual = data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -196,139 +259,200 @@ class ImmunizationRecommendationTest {
         val data = parser.toFhir(ImmunizationRecommendation::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Organization/hl7",
-            data.authority?.reference
-        )
-        assertEquals(
-            "2015-02-09T11:04:15.817-05:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "30981-5",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Earliest date to give",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-12-01T00:00:00-05:00",
-            data.recommendation?.get(0)?.dateCriterion?.get(0)?.value?.value.toString()
-        )
-        assertEquals(
-            "recommended",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Recommended",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-12-01T00:00:00-05:00",
-            data.recommendation?.get(0)?.dateCriterion?.get(1)?.value?.value.toString()
-        )
-        assertEquals(
-            "overdue",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Past Due Date",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-12-28T00:00:00-05:00",
-            data.recommendation?.get(0)?.dateCriterion?.get(2)?.value?.value.toString()
-        )
-        assertEquals(
-            "First sequence in protocol",
-            data.recommendation?.get(0)?.description
-        )
-        assertEquals(
-            "1".toLong(),
-            data.recommendation?.get(0)?.doseNumberPositiveInt?.value
-        )
-        assertEquals(
-            "Not Complete",
-            data.recommendation?.get(0)?.forecastStatus?.text
-        )
-        assertEquals(
-            "Vaccination Series 1",
-            data.recommendation?.get(0)?.series
-        )
-        assertEquals(
-            "3".toLong(),
-            data.recommendation?.get(0)?.seriesDosesPositiveInt?.value
-        )
-        assertEquals(
-            "Immunization/example",
-            data.recommendation?.get(0)?.supportingImmunization?.get(0)?.reference
-        )
-        assertEquals(
-            "Observation/example",
-            data.recommendation?.get(0)?.supportingPatientInformation?.get(0)?.reference
-        )
-        assertEquals(
-            "40468003",
-            data.recommendation?.get(0)?.targetDisease?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.recommendation?.get(0)?.targetDisease?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertImmunizationRecommendation02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertImmunizationRecommendation02Step01(data: ImmunizationRecommendation) {
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.authority?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-09T11:04:15.817-05:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30981-5",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Earliest date to give",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-12-01T00:00:00-05:00",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.value?.value.toString()
+        )
+
+        assertEquals(
+            expected = "recommended",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Recommended",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-12-01T00:00:00-05:00",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.value?.value.toString()
+        )
+
+        assertEquals(
+            expected = "overdue",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Past Due Date",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-12-28T00:00:00-05:00",
+            actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.value?.value.toString()
+        )
+
+        assertEquals(
+            expected = "First sequence in protocol",
+            actual = data.recommendation?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.recommendation?.get(0)?.doseNumberPositiveInt?.value
+        )
+
+        assertEquals(
+            expected = "Not Complete",
+            actual = data.recommendation?.get(0)?.forecastStatus?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vaccination Series 1",
+            actual = data.recommendation?.get(0)?.series
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.recommendation?.get(0)?.seriesDosesPositiveInt?.value
+        )
+
+        assertEquals(
+            expected = "Immunization/example",
+            actual = data.recommendation?.get(0)?.supportingImmunization?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/example",
+            actual = data.recommendation?.get(0)?.supportingPatientInformation?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "40468003",
+            actual = data.recommendation?.get(0)?.targetDisease?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.recommendation?.get(0)?.targetDisease?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

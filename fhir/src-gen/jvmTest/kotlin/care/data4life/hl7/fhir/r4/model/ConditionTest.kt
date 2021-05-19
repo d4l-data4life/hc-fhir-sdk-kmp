@@ -47,136 +47,199 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "P. van de Heuvel",
-            data.asserter?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.asserter?.reference
-        )
-        assertEquals(
-            "280193007",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Entire retropharyngeal area",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "439401001",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "diagnosis",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "active",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "18099001",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Retropharyngeal abscess",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Encounter/f003",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "169068008",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "CT of neck",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f003",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2012-02-27",
-            data.onsetDateTime?.value.toString()
-        )
-        assertEquals(
-            "2012-02-20",
-            data.recordedDate?.value.toString()
-        )
-        assertEquals(
-            "371923003",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mild to moderate",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "confirmed",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition01Step01(data: Condition) {
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.asserter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.asserter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "280193007",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Entire retropharyngeal area",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "439401001",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "diagnosis",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "18099001",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Retropharyngeal abscess",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f003",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "169068008",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CT of neck",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f003",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-02-27",
+            actual = data.onsetDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2012-02-20",
+            actual = data.recordedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "371923003",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mild to moderate",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -188,140 +251,205 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/f201",
-            data.asserter?.reference
-        )
-        assertEquals(
-            "281158006",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Pulmonary vascular structure",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "55607006",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Problem",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "problem-list-item",
-            data.category?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-category",
-            data.category?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "active",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "10001005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Bacterial sepsis",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Roel's encounter on March elevanth",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/f203",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "Diagnostic report for Roel's sepsis",
-            data.evidence?.get(0)?.detail?.get(0)?.display
-        )
-        assertEquals(
-            "DiagnosticReport/f202",
-            data.evidence?.get(0)?.detail?.get(0)?.reference
-        )
-        assertEquals(
-            "f203",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-03-08",
-            data.onsetDateTime?.value.toString()
-        )
-        assertEquals(
-            "2013-03-11",
-            data.recordedDate?.value.toString()
-        )
-        assertEquals(
-            "371924009",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Moderate to severe",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "confirmed",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition02Step01(data: Condition) {
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.asserter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "281158006",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pulmonary vascular structure",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "55607006",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Problem",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "problem-list-item",
+            actual = data.category?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-category",
+            actual = data.category?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "10001005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bacterial sepsis",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel's encounter on March elevanth",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f203",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Diagnostic report for Roel's sepsis",
+            actual = data.evidence?.get(0)?.detail?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/f202",
+            actual = data.evidence?.get(0)?.detail?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f203",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-08",
+            actual = data.onsetDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-11",
+            actual = data.recordedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "371924009",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Moderate to severe",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -333,88 +461,128 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "encounter-diagnosis",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Encounter Diagnosis",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "active",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "422504002",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Ischemic stroke (disorder)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Stroke",
-            data.code?.text
-        )
-        assertEquals(
-            "stroke",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2010-07-18",
-            data.onsetDateTime?.value.toString()
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Ischemic stroke, July 18, 2010</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "confirmed",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition03Step01(data: Condition) {
+
+        assertEquals(
+            expected = "encounter-diagnosis",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter Diagnosis",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "422504002",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ischemic stroke (disorder)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Stroke",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stroke",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2010-07-18",
+            actual = data.onsetDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Ischemic stroke, July 18, 2010</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -426,72 +594,105 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "problem-list-item",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Problem List Item",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "active",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "312824007",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Family history of cancer of colon",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "family-history",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Family history of cancer of colon</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCondition04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition04Step01(data: Condition) {
+
+        assertEquals(
+            expected = "problem-list-item",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Problem List Item",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "312824007",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family history of cancer of colon",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "family-history",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Family history of cancer of colon</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -503,160 +704,235 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "P. van de Heuvel",
-            data.asserter?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.asserter?.reference
-        )
-        assertEquals(
-            "51185008",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Thorax",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "439401001",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "diagnosis",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "active",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "254637007",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "NSCLC - Non-small cell lung cancer",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Encounter/f002",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "169069000",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "CT of thorax",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f002",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2011-05-05",
-            data.onsetDateTime?.value.toString()
-        )
-        assertEquals(
-            "2012-06-03",
-            data.recordedDate?.value.toString()
-        )
-        assertEquals(
-            "24484000",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Severe",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "258219007",
-            data.stage?.get(0)?.summary?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "stage II",
-            data.stage?.get(0)?.summary?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.stage?.get(0)?.summary?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "260998006",
-            data.stage?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Clinical staging (qualifier value)",
-            data.stage?.get(0)?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.stage?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "confirmed",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition05Step01(data: Condition) {
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.asserter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.asserter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "51185008",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Thorax",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "439401001",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "diagnosis",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "254637007",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "NSCLC - Non-small cell lung cancer",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f002",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "169069000",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CT of thorax",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f002",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-05-05",
+            actual = data.onsetDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2012-06-03",
+            actual = data.recordedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "24484000",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Severe",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "258219007",
+            actual = data.stage?.get(0)?.summary?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stage II",
+            actual = data.stage?.get(0)?.summary?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.stage?.get(0)?.summary?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "260998006",
+            actual = data.stage?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical staging (qualifier value)",
+            actual = data.stage?.get(0)?.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.stage?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -668,76 +944,110 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/f201",
-            data.asserter?.reference
-        )
-        assertEquals(
-            "active",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "87628006",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Bacterial infectious disease",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f205",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-04-04",
-            data.recordedDate?.value.toString()
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "differential",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition06Step01(data: Condition) {
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.asserter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "87628006",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bacterial infectious disease",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f205",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-04-04",
+            actual = data.recordedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "differential",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -749,156 +1059,228 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2013-03-20",
-            data.abatementDateTime?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.asserter?.reference
-        )
-        assertEquals(
-            "181414000",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Kidney",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "55607006",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Problem",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "problem-list-item",
-            data.category?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-category",
-            data.category?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "inactive",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "36225005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Acute renal insufficiency specified as due to procedure",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Roel's encounter on March elevanth",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/f203",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "f204",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "The patient is anuric.",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2013-03-11",
-            data.onsetDateTime?.value.toString()
-        )
-        assertEquals(
-            "2013-03-11",
-            data.recordedDate?.value.toString()
-        )
-        assertEquals(
-            "24484000",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Severe",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Genetic analysis master panel",
-            data.stage?.get(0)?.assessment?.get(0)?.display
-        )
-        assertEquals(
-            "14803004",
-            data.stage?.get(0)?.summary?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Temporary",
-            data.stage?.get(0)?.summary?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.stage?.get(0)?.summary?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "differential",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition07Step01(data: Condition) {
+
+        assertEquals(
+            expected = "2013-03-20",
+            actual = data.abatementDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.asserter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "181414000",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Kidney",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "55607006",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Problem",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "problem-list-item",
+            actual = data.category?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-category",
+            actual = data.category?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inactive",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36225005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acute renal insufficiency specified as due to procedure",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel's encounter on March elevanth",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f203",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f204",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The patient is anuric.",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-11",
+            actual = data.onsetDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-11",
+            actual = data.recordedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "24484000",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Severe",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Genetic analysis master panel",
+            actual = data.stage?.get(0)?.assessment?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "14803004",
+            actual = data.stage?.get(0)?.summary?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Temporary",
+            actual = data.stage?.get(0)?.summary?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.stage?.get(0)?.summary?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "differential",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -910,88 +1292,129 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "problem-list-item",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Problem List Item",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "active",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Asthma",
-            data.code?.text
-        )
-        assertEquals(
-            "example2",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "approximately November 2012",
-            data.onsetString
-        )
-        assertEquals(
-            "255604002",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mild",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mild Asthma (Date: 12-Nov 2012)</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "confirmed",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition08Step01(data: Condition) {
+
+        assertEquals(
+            expected = "problem-list-item",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Problem List Item",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "active",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Asthma",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example2",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "approximately November 2012",
+            actual = data.onsetString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "255604002",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mild",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mild Asthma (Date: 12-Nov 2012)</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1003,156 +1426,228 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "a",
-            data.abatementAge?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.abatementAge?.system
-        )
-        assertEquals(
-            "years",
-            data.abatementAge?.unit
-        )
-        assertEquals(
-            "54".toDouble(),
-            data.abatementAge?.value?.value
-        )
-        assertEquals(
-            "361355005",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Entire head and neck",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "encounter-diagnosis",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "resolved",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "363346000",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Malignant neoplastic disease",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Erasmus' diagnostic report of Roel's tumor",
-            data.evidence?.get(0)?.detail?.get(0)?.display
-        )
-        assertEquals(
-            "DiagnosticReport/f201",
-            data.evidence?.get(0)?.detail?.get(0)?.reference
-        )
-        assertEquals(
-            "f202",
-            data.id
-        )
-        assertEquals(
-            "TBOO",
-            data.meta?.security?.get(0)?.code
-        )
-        assertEquals(
-            "taboo",
-            data.meta?.security?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.meta?.security?.get(0)?.system
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "a",
-            data.onsetAge?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.onsetAge?.system
-        )
-        assertEquals(
-            "years",
-            data.onsetAge?.unit
-        )
-        assertEquals(
-            "52".toDouble(),
-            data.onsetAge?.value?.value
-        )
-        assertEquals(
-            "2012-12-01",
-            data.recordedDate?.value.toString()
-        )
-        assertEquals(
-            "24484000",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Severe",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "confirmed",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition09Step01(data: Condition) {
+
+        assertEquals(
+            expected = "a",
+            actual = data.abatementAge?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.abatementAge?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.abatementAge?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "54".toDouble(),
+            actual = data.abatementAge?.value?.value
+        )
+
+        assertEquals(
+            expected = "361355005",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Entire head and neck",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "encounter-diagnosis",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "resolved",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "363346000",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Malignant neoplastic disease",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Erasmus' diagnostic report of Roel's tumor",
+            actual = data.evidence?.get(0)?.detail?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/f201",
+            actual = data.evidence?.get(0)?.detail?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f202",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "TBOO",
+            actual = data.meta?.security?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "taboo",
+            actual = data.meta?.security?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.meta?.security?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.onsetAge?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.onsetAge?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "years",
+            actual = data.onsetAge?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52".toDouble(),
+            actual = data.onsetAge?.value?.value
+        )
+
+        assertEquals(
+            expected = "2012-12-01",
+            actual = data.recordedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "24484000",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Severe",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1164,159 +1659,234 @@ class ConditionTest {
         val data = parser.toFhir(Condition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "around April 9, 2013",
-            data.abatementString
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.asserter?.reference
-        )
-        assertEquals(
-            "38266002",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Entire body as a whole",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "55607006",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Problem",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "problem-list-item",
-            data.category?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-category",
-            data.category?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "resolved",
-            data.clinicalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            data.clinicalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "386661006",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Fever",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Encounter/f201",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "258710007",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "degrees C",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Temperature",
-            data.evidence?.get(0)?.detail?.get(0)?.display
-        )
-        assertEquals(
-            "Observation/f202",
-            data.evidence?.get(0)?.detail?.get(0)?.reference
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-04-02",
-            data.onsetDateTime?.value.toString()
-        )
-        assertEquals(
-            "2013-04-04",
-            data.recordedDate?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.recorder?.reference
-        )
-        assertEquals(
-            "255604002",
-            data.severity?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mild",
-            data.severity?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.severity?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "confirmed",
-            data.verificationStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            data.verificationStatus?.coding?.get(0)?.system
-        )
+        assertCondition10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCondition10Step01(data: Condition) {
+
+        assertEquals(
+            expected = "around April 9, 2013",
+            actual = data.abatementString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.asserter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "38266002",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Entire body as a whole",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "55607006",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Problem",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "problem-list-item",
+            actual = data.category?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-category",
+            actual = data.category?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "resolved",
+            actual = data.clinicalStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            actual = data.clinicalStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "386661006",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fever",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f201",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "258710007",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "degrees C",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.evidence?.get(0)?.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Temperature",
+            actual = data.evidence?.get(0)?.detail?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/f202",
+            actual = data.evidence?.get(0)?.detail?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-04-02",
+            actual = data.onsetDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-04-04",
+            actual = data.recordedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.recorder?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "255604002",
+            actual = data.severity?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mild",
+            actual = data.severity?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.severity?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "confirmed",
+            actual = data.verificationStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            actual = data.verificationStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

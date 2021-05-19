@@ -50,119 +50,168 @@ class CompartmentDefinitionTest {
         val data = parser.toFhir(CompartmentDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            CompartmentType.DEVICE,
-            data.code
-        )
-        assertEquals(
-            "[string]",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2017-02-24",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "EXAMPLE",
-            data.name
-        )
-        assertEquals(
-            "Health Level Seven International (FHIR Infrastructure)",
-            data.publisher
-        )
-        assertEquals(
-            "Provides an example of a FHIR compartment definition based on the Device resource type.",
-            data.purpose
-        )
-        assertEquals(
-            ResourceType.COMMUNICATION,
-            data.resource?.get(0)?.code
-        )
-        assertEquals(
-            "The device used as the message sender and recipient",
-            data.resource?.get(0)?.documentation
-        )
-        assertEquals(
-            "sender",
-            data.resource?.get(0)?.param?.get(0)
-        )
-        assertEquals(
-            "recipient",
-            data.resource?.get(0)?.param?.get(1)
-        )
-        assertEquals(
-            ResourceType.COMMUNICATIONREQUEST,
-            data.resource?.get(1)?.code
-        )
-        assertEquals(
-            "The device used as the message sender and recipient",
-            data.resource?.get(1)?.documentation
-        )
-        assertEquals(
-            "sender",
-            data.resource?.get(1)?.param?.get(0)
-        )
-        assertEquals(
-            "recipient",
-            data.resource?.get(1)?.param?.get(1)
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.search?.value
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/CompartmentDefinition/example",
-            data.url
-        )
-        assertEquals(
-            "focus",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "Device",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/resource-types",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
+        assertCompartmentDefinition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCompartmentDefinition01Step01(data: CompartmentDefinition) {
+
+        assertEquals(
+            expected = CompartmentType.DEVICE,
+            actual = data.code
+        )
+
+        assertEquals(
+            expected = "[string]",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-24",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EXAMPLE",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Level Seven International (FHIR Infrastructure)",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Provides an example of a FHIR compartment definition based on the Device resource type.",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.COMMUNICATION,
+            actual = data.resource?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = "The device used as the message sender and recipient",
+            actual = data.resource?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "sender",
+            actual = data.resource?.get(0)?.param?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "recipient",
+            actual = data.resource?.get(0)?.param?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.COMMUNICATIONREQUEST,
+            actual = data.resource?.get(1)?.code
+        )
+
+        assertEquals(
+            expected = "The device used as the message sender and recipient",
+            actual = data.resource?.get(1)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "sender",
+            actual = data.resource?.get(1)?.param?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "recipient",
+            actual = data.resource?.get(1)?.param?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.search?.value
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/CompartmentDefinition/example",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/resource-types",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

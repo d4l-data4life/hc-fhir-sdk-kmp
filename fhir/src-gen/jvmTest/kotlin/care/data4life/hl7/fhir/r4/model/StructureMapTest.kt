@@ -50,135 +50,193 @@ class StructureMapTest {
         val data = parser.toFhir(StructureMap::class, sourceJson)
 
         // Then
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2017-03-09",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Example Structure Map",
-            data.description
-        )
-        assertEquals(
-            "test -> testValue",
-            data.group?.get(0)?.documentation
-        )
-        assertEquals(
-            StructureMapInputMode.SOURCE,
-            data.group?.get(0)?.input?.get(0)?.mode
-        )
-        assertEquals(
-            "test",
-            data.group?.get(0)?.input?.get(0)?.name
-        )
-        assertEquals(
-            "Examples",
-            data.group?.get(0)?.name
-        )
-        assertEquals(
-            "rule1",
-            data.group?.get(0)?.rule?.get(0)?.name
-        )
-        assertEquals(
-            "Source",
-            data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.context
-        )
-        assertEquals(
-            "test",
-            data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.element
-        )
-        assertEquals(
-            "SourceClassA",
-            data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.type
-        )
-        assertEquals(
-            "t",
-            data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.variable
-        )
-        assertEquals(
-            "Destination",
-            data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.context
-        )
-        assertEquals(
-            StructureMapContextType.VARIABLE,
-            data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.contextType
-        )
-        assertEquals(
-            "testValue",
-            data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.element
-        )
-        assertEquals(
-            StructureMapTransform.COPY,
-            data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.transform
-        )
-        assertEquals(
-            StructureMapGroupTypeMode.NONE,
-            data.group?.get(0)?.typeMode
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:37843577-95fb-4adb-84c0-8837188a7bf3",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "009",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Oceania",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://unstats.un.org/unsd/methods/m49/m49.htm",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "ExampleMap",
-            data.name
-        )
-        assertEquals(
-            "HL7 FHIR Standard",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Example Map",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureMap/example",
-            data.url
-        )
-        assertEquals(
-            "0.1",
-            data.version
-        )
+        assertStructureMap01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertStructureMap01Step01(data: StructureMap) {
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-09",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Example Structure Map",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test -> testValue",
+            actual = data.group?.get(0)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = StructureMapInputMode.SOURCE,
+            actual = data.group?.get(0)?.input?.get(0)?.mode
+        )
+
+        assertEquals(
+            expected = "test",
+            actual = data.group?.get(0)?.input?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Examples",
+            actual = data.group?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "rule1",
+            actual = data.group?.get(0)?.rule?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Source",
+            actual = data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.context
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test",
+            actual = data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.element
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SourceClassA",
+            actual = data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "t",
+            actual = data.group?.get(0)?.rule?.get(0)?.source?.get(0)?.variable
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Destination",
+            actual = data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.context
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = StructureMapContextType.VARIABLE,
+            actual = data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.contextType
+        )
+
+        assertEquals(
+            expected = "testValue",
+            actual = data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.element
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = StructureMapTransform.COPY,
+            actual = data.group?.get(0)?.rule?.get(0)?.target?.get(0)?.transform
+        )
+
+        assertEquals(
+            expected = StructureMapGroupTypeMode.NONE,
+            actual = data.group?.get(0)?.typeMode
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:37843577-95fb-4adb-84c0-8837188a7bf3",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "009",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Oceania",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unstats.un.org/unsd/methods/m49/m49.htm",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ExampleMap",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 FHIR Standard",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Example Map",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureMap/example",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 }

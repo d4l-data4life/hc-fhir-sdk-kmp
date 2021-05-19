@@ -47,59 +47,86 @@ class ParametersTest {
         val data = parser.toFhir(Parameters::class, sourceJson)
 
         // Then
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "exact",
-            data.parameter?.get(0)?.name
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.parameter?.get(0)?.valueBoolean?.value
-        )
-        assertEquals(
-            "property",
-            data.parameter?.get(1)?.name
-        )
-        assertEquals(
-            "code",
-            data.parameter?.get(1)?.part?.get(0)?.name
-        )
-        assertEquals(
-            "focus",
-            data.parameter?.get(1)?.part?.get(0)?.valueCode
-        )
-        assertEquals(
-            "value",
-            data.parameter?.get(1)?.part?.get(1)?.name
-        )
-        assertEquals(
-            "top",
-            data.parameter?.get(1)?.part?.get(1)?.valueCode
-        )
-        assertEquals(
-            "patient",
-            data.parameter?.get(2)?.name
-        )
-        assertEquals(
-            "example",
-            data.parameter?.get(2)?.resource?.id
-        )
+        assertParameters01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertParameters01Step01(data: Parameters) {
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exact",
+            actual = data.parameter?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.parameter?.get(0)?.valueBoolean?.value
+        )
+
+        assertEquals(
+            expected = "property",
+            actual = data.parameter?.get(1)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.parameter?.get(1)?.part?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "focus",
+            actual = data.parameter?.get(1)?.part?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "value",
+            actual = data.parameter?.get(1)?.part?.get(1)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "top",
+            actual = data.parameter?.get(1)?.part?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient",
+            actual = data.parameter?.get(2)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.parameter?.get(2)?.resource?.id
+                ?.replace("\n", " ")
+        )
     }
 }

@@ -42,9 +42,10 @@ package care.data4life.hl7.fhir.r4.model
 } %}
 {%- set test_exclusion_dict = {
     'examplescenario-questionnaire.json':'ExampleScenario contains an item that is just an extension and fails with linkId required',
-    'patient-example-infant-twin-1.json':'Property _birthDate is not supported',
-    'patient-example-newborn.json':'Property _birthDate is not supported',
-    'patient-example-b.json':'Property _gender is not supported',
+    'patient-example-infant-twin-1.json':'Property _birthDate is not supported yet',
+    'patient-example-newborn.json':'Property _birthDate is not supported yet',
+    'patient-example-b.json':'Property _gender is not supported yet',
+    'patient-example-b.json':'Property _gender is not supported yet',
 } %}
 {%- set allsuperclasses = {} %}
 {%- set codesystems = {} %}
@@ -89,14 +90,21 @@ class {{ class.name }}Test {
     val parser = FhirR4Parser()
 
 {%- for tcase in tests %}
+{%- set test_case_number = loop.index %}
+{%- if tcase.filename in test_exclusion_dict %}
+
+    @Test
+    fun test{{ class.name }}{{ '%02d' % test_case_number }}() {
+        // FIXME Test disabled due to issues with {{ tcase.filename }}
+        // REASON - {{ test_exclusion_dict.get(tcase.filename) }}
+        assertEquals(expected = true, actual = true)
+    }
+{%- else %}
+{%- set test_count = tcase.tests | length %}
+{%- set assertion_steps = ((test_count / 100) | round(0, 'ceil')) | int %}
 
     @Test
     fun test{{ class.name }}{{ '%02d' % loop.index }}() {
-{%- if tcase.filename in test_exclusion_dict %}
-        // FIXME Test disabled due to issues with {{ tcase.filename }}
-        // REASON - {{ test_exclusion_dict.get(tcase.filename) }}
-        assertEquals(true, true)
-{%- else %}
         // Given
         val sourceJson = loadAsString("r4/{{ tcase.filename }}")
 
@@ -104,70 +112,8 @@ class {{ class.name }}Test {
         val data = parser.toFhir({{ class.name }}::class, sourceJson)
 
         // Then
-{%- for test in tcase.tests %}
-{%- if test.enum %}
-        assertEquals(
-            {{ test.enum }}.
-{%- if test.value in enum_replacement_dict -%}
-            {{ enum_replacement_dict.get(test.value) }}
-{%- else -%}
-            {{ test.value.upper() | replace('-', '_') }}
-{%- endif %},
-            data.{{ test.path }}
-        )
-{%- else %}{% if "String" == test.klass.name %}
-        assertEquals(
-            "{{ test.value | replace('"', '\\"') | replace('$', '\\$') }}",
-            data.{{ test.path }}
-        )
-{%- else %}{% if "Decimal" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}".toDouble(),
-            data.{{ test.path }}?.value
-        )
-{%- else %}{% if "Integer" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}".toInt(),
-            data.{{ test.path }}?.value
-        )
-{%- else %}{% if "PositiveInteger" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}".toLong(),
-            data.{{ test.path }}?.value
-        )
-{%- else %}{% if "UnsignedInteger" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}".toLong(),
-            data.{{ test.path }}?.value
-        )
-{%- else %}{% if "Bool" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}".toBoolean(),
-            data.{{ test.path }}?.value
-        )
-{%- else %}{% if "Date" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}",
-            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
-        )
-{%- else %}{% if "DateTime" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}",
-            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
-        )
-{%- else %}{% if "Instant" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}",
-            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
-        )
-{%- else %}{% if "Time" == test.klass.name %}
-        assertEquals(
-            "{{ test.value }}",
-            data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
-        )
-{%- else %}
-        //FIXME Don't know how to create unit test for "{{ test.path }}", which is a {{ test.klass.name }}
-{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+{%- for assert_cycle in range(assertion_steps) %}
+        assert{{ class.name }}{{ '%02d' % test_case_number }}Step{{ '%02d' % loop.index }}(data)
 {%- endfor %}
 
         // When generating JSON from model
@@ -175,8 +121,83 @@ class {{ class.name }}Test {
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
-{%- endif %}
     }
+
+{%- for assert_cycle in range(assertion_steps) %}
+{%- set assert_step = loop.index %}
+{%- set assert_step_start_index = (assert_step -1) * 100  %}
+{%- set assert_step_stop_index = ((assert_step) * 100) - 1 %}
+
+    private fun assert{{ class.name }}{{ '%02d' % test_case_number }}Step{{ '%02d' % assert_step }}(data: {{ class.name }}) {
+{%- for test in tcase.tests[assert_step_start_index:assert_step_stop_index] %}
+{% if test.enum %}
+        assertEquals(
+            expected = {{ test.enum }}.
+{%- if test.value in enum_replacement_dict -%}
+            {{ enum_replacement_dict.get(test.value) }}
+{%- else -%}
+            {{ test.value.upper() | replace('-', '_') }}
+{%- endif %},
+            actual = data.{{ test.path }}
+        )
+{%- else %}{% if "String" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value | replace('"', '\\"') | replace('$', '\\$') | replace('\\n',' ') }}",
+            actual = data.{{ test.path }}
+                ?.replace("\n", " ")
+        )
+{%- else %}{% if "Decimal" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}".toDouble(),
+            actual = data.{{ test.path }}?.value
+        )
+{%- else %}{% if "Integer" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}".toInt(),
+            actual = data.{{ test.path }}?.value
+        )
+{%- else %}{% if "PositiveInteger" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}".toLong(),
+            actual = data.{{ test.path }}?.value
+        )
+{%- else %}{% if "UnsignedInteger" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}".toLong(),
+            actual = data.{{ test.path }}?.value
+        )
+{%- else %}{% if "Bool" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}".toBoolean(),
+            actual = data.{{ test.path }}?.value
+        )
+{%- else %}{% if "Date" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}",
+            actual = data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}{% if "DateTime" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}",
+            actual = data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}{% if "Instant" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}",
+            actual = data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}{% if "Time" == test.klass.name %}
+        assertEquals(
+            expected = "{{ test.value }}",
+            actual = data.{{ test.path }}{% if not test.array_item %}?{% endif %}.value.toString()
+        )
+{%- else %}
+        //FIXME Don't know how to create unit test for "{{ test.path }}", which is a {{ test.klass.name }}
+{%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+{%- endfor %}
+    }
+{%- endfor %}
+{%- endif %}
 {%- endfor %}
 }
 {% if True %}{# ensure empty line at end of file #}{% endif %}

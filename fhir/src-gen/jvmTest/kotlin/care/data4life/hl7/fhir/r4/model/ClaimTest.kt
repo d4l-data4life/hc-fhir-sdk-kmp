@@ -49,292 +49,412 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-07-09",
-            data.accident?.date?.value.toString()
-        )
-        assertEquals(
-            "Grouse Mountain Ski Hill",
-            data.accident?.locationAddress?.text
-        )
-        assertEquals(
-            "SPT",
-            data.accident?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Sporting Accident",
-            data.accident?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode",
-            data.accident?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2014-08-16",
-            data.billablePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-08-15",
-            data.billablePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "physician",
-            data.careTeam?.get(0)?.qualification?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/provider-qualification",
-            data.careTeam?.get(0)?.qualification?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.careTeam?.get(0)?.responsible?.value
-        )
-        assertEquals(
-            "primary",
-            data.careTeam?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/claim-careteamrole",
-            data.careTeam?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "654456",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "400",
-            data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Head trauma - concussion",
-            data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup",
-            data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "admitting",
-            data.diagnosis?.get(0)?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-diagnosistype",
-            data.diagnosis?.get(0)?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://jurisdiction.org/facilities/HOSP1234/users",
-            data.enterer?.identifier?.system
-        )
-        assertEquals(
-            "UC1234",
-            data.enterer?.identifier?.value
-        )
-        assertEquals(
-            "http://jurisdiction.org/facilities",
-            data.facility?.identifier?.system
-        )
-        assertEquals(
-            "HOSP1234",
-            data.facility?.identifier?.value
-        )
-        assertEquals(
-            "960151",
-            data.id
-        )
-        assertEquals(
-            "http://happyhospital.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "96123451",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "BA987123",
-            data.insurance?.get(0)?.businessArrangement
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "PA2014G56473",
-            data.insurance?.get(0)?.preAuthRef?.get(0)
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "125.0".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "exam",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ex-serviceproduct",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "125.0".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://npid.org/providerid",
-            data.provider?.identifier?.system
-        )
-        assertEquals(
-            "NJ12345",
-            data.provider?.identifier?.value
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "employmentimpacted",
-            data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
-            data.supportingInfo?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.supportingInfo?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.supportingInfo?.get(0)?.timingPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-08-16",
-            data.supportingInfo?.get(0)?.timingPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "hospitalized",
-            data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
-            data.supportingInfo?.get(1)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.supportingInfo?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.supportingInfo?.get(1)?.timingPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-08-15",
-            data.supportingInfo?.get(1)?.timingPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "USD",
-            data.total?.currency
-        )
-        assertEquals(
-            "125.0".toDouble(),
-            data.total?.value?.value
-        )
-        assertEquals(
-            "institutional",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim01Step01(data: Claim) {
+
+        assertEquals(
+            expected = "2014-07-09",
+            actual = data.accident?.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Grouse Mountain Ski Hill",
+            actual = data.accident?.locationAddress?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SPT",
+            actual = data.accident?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sporting Accident",
+            actual = data.accident?.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode",
+            actual = data.accident?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.billablePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-08-15",
+            actual = data.billablePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "physician",
+            actual = data.careTeam?.get(0)?.qualification?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/provider-qualification",
+            actual = data.careTeam?.get(0)?.qualification?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.careTeam?.get(0)?.responsible?.value
+        )
+
+        assertEquals(
+            expected = "primary",
+            actual = data.careTeam?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/claim-careteamrole",
+            actual = data.careTeam?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "654456",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "400",
+            actual = data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Head trauma - concussion",
+            actual = data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup",
+            actual = data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "admitting",
+            actual = data.diagnosis?.get(0)?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-diagnosistype",
+            actual = data.diagnosis?.get(0)?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://jurisdiction.org/facilities/HOSP1234/users",
+            actual = data.enterer?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "UC1234",
+            actual = data.enterer?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://jurisdiction.org/facilities",
+            actual = data.facility?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HOSP1234",
+            actual = data.facility?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "960151",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyhospital.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "96123451",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "BA987123",
+            actual = data.insurance?.get(0)?.businessArrangement
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "PA2014G56473",
+            actual = data.insurance?.get(0)?.preAuthRef?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "exam",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ex-serviceproduct",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125.0".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://npid.org/providerid",
+            actual = data.provider?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "NJ12345",
+            actual = data.provider?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "employmentimpacted",
+            actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
+            actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.supportingInfo?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.supportingInfo?.get(0)?.timingPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.supportingInfo?.get(0)?.timingPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "hospitalized",
+            actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
+            actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.supportingInfo?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.supportingInfo?.get(1)?.timingPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-08-15",
+            actual = data.supportingInfo?.get(1)?.timingPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.total?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125.0".toDouble(),
+            actual = data.total?.value?.value
+        )
+
+        assertEquals(
+            expected = "institutional",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -346,148 +466,207 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "654456",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "860150",
-            data.id
-        )
-        assertEquals(
-            "http://happypdocs.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "8612345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "75.0".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "exam",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ex-serviceproduct",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "75.0".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "professional",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim02Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "654456",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "860150",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happypdocs.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8612345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "75.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "exam",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ex-serviceproduct",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "75.0".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "professional",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -499,152 +678,213 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "123456",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "100150",
-            data.id
-        )
-        assertEquals(
-            "http://happyvalley.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "http://happyvalley.com/claim",
-            data.insurance?.get(0)?.identifier?.system
-        )
-        assertEquals(
-            "12345",
-            data.insurance?.get(0)?.identifier?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "135.57".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "1200",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "135.57".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "oral",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim03Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "123456",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "100150",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyvalley.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "http://happyvalley.com/claim",
+            actual = data.insurance?.get(0)?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.insurance?.get(0)?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "135.57".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "1200",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "135.57".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "oral",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -656,148 +896,207 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "654321",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "660150",
-            data.id
-        )
-        assertEquals(
-            "http://happysight.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "6612345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "80.0".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "exam",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "80.0".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Vision Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "vision",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim04Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "654321",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "660150",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happysight.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6612345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "80.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "exam",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "80.0".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Vision Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "vision",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -809,628 +1108,1784 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "device-frame",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "device-lens",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "654321",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "660152",
-            data.id
-        )
-        assertEquals(
-            "http://happysight.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "6612347",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "ClaimResponse/R3500",
-            data.insurance?.get(0)?.claimResponse?.reference
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "PR7652387237",
-            data.insurance?.get(0)?.preAuthRef?.get(0)
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(1)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(1)?.focal?.value
-        )
-        assertEquals(
-            "AB543GTD7567",
-            data.insurance?.get(1)?.preAuthRef?.get(0)
-        )
-        assertEquals(
-            "2".toLong(),
-            data.insurance?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "F6",
-            data.item?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.item?.get(0)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/benefit-subcategory",
-            data.item?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "F6",
-            data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/benefit-subcategory",
-            data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.1".toDouble(),
-            data.item?.get(0)?.detail?.get(0)?.factor?.value
-        )
-        assertEquals(
-            "rooh",
-            data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/modifiers",
-            data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "110.0".toDouble(),
-            data.item?.get(0)?.detail?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "frame",
-            data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "0010",
-            data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Clinic",
-            data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
-            data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.detail?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "#device-frame",
-            data.item?.get(0)?.detail?.get(0)?.udi?.get(0)?.reference
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "100.0".toDouble(),
-            data.item?.get(0)?.detail?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "F6",
-            data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/benefit-subcategory",
-            data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.net?.currency
-        )
-        assertEquals(
-            "110.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.net?.value?.value
-        )
-        assertEquals(
-            "lens",
-            data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "none",
-            data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-programcode",
-            data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.quantity?.value?.value
-        )
-        assertEquals(
-            "0010",
-            data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Clinic",
-            data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
-            data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(0)?.detail?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "F6",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/benefit-subcategory",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.1".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.factor?.value
-        )
-        assertEquals(
-            "rooh",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/modifiers",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "66.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "lens",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "none",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-programcode",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "0010",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Clinic",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "#device-lens",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.udi?.get(0)?.reference
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "30.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "F6",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/benefit-subcategory",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.1".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.factor?.value
-        )
-        assertEquals(
-            "rooh",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/modifiers",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.net?.currency
-        )
-        assertEquals(
-            "33.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.net?.value?.value
-        )
-        assertEquals(
-            "hardening",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.quantity?.value?.value
-        )
-        assertEquals(
-            "0010",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Clinic",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.unitPrice?.currency
-        )
-        assertEquals(
-            "15.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "F6",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/benefit-subcategory",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1.1".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.factor?.value
-        )
-        assertEquals(
-            "rooh",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/modifiers",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.net?.currency
-        )
-        assertEquals(
-            "11.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.net?.value?.value
-        )
-        assertEquals(
-            "UV coating",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.quantity?.value?.value
-        )
-        assertEquals(
-            "0010",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Clinic",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.unitPrice?.currency
-        )
-        assertEquals(
-            "5.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
-        )
-        assertEquals(
-            "55.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "F6",
-            data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Coverage",
-            data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/benefit-subcategory",
-            data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "0.07".toDouble(),
-            data.item?.get(0)?.detail?.get(2)?.factor?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(2)?.net?.currency
-        )
-        assertEquals(
-            "15.4".toDouble(),
-            data.item?.get(0)?.detail?.get(2)?.net?.value?.value
-        )
-        assertEquals(
-            "fst",
-            data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "0010",
-            data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Clinic",
-            data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
-            data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.item?.get(0)?.detail?.get(2)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
-        )
-        assertEquals(
-            "220.0".toDouble(),
-            data.item?.get(0)?.detail?.get(2)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "rooh",
-            data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/modifiers",
-            data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "235.4".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "glasses",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/ex-visionservice",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "none",
-            data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-programcode",
-            data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "0010",
-            data.item?.get(0)?.revenue?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vision Clinic",
-            data.item?.get(0)?.revenue?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
-            data.item?.get(0)?.revenue?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "235.4".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://www.optdocs.com/prescription/12345",
-            data.prescription?.reference
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Vision Claim for Glasses</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "vision",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim05Step01(data)
+        assertClaim05Step02(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim05Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "device-frame",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "device-lens",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "654321",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "660152",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happysight.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6612347",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ClaimResponse/R3500",
+            actual = data.insurance?.get(0)?.claimResponse?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "PR7652387237",
+            actual = data.insurance?.get(0)?.preAuthRef?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(1)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(1)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "AB543GTD7567",
+            actual = data.insurance?.get(1)?.preAuthRef?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.insurance?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "110.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "frame",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.detail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "#device-frame",
+            actual = data.item?.get(0)?.detail?.get(0)?.udi?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "110.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "lens",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "none",
+            actual = data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
+            actual = data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "66.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "lens",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "none",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "#device-lens",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.udi?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "33.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "hardening",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "11.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "UV coating",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "55.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.07".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15.4".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "fst",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.detail?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "220.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "235.4".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "glasses",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "none",
+            actual = data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
+            actual = data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "235.4".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.optdocs.com/prescription/12345",
+            actual = data.prescription?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Vision Claim for Glasses</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "vision",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
+    }
+
+    private fun assertClaim05Step02(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "device-frame",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "device-lens",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "654321",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "660152",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happysight.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6612347",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ClaimResponse/R3500",
+            actual = data.insurance?.get(0)?.claimResponse?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "PR7652387237",
+            actual = data.insurance?.get(0)?.preAuthRef?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(1)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(1)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "AB543GTD7567",
+            actual = data.insurance?.get(1)?.preAuthRef?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.insurance?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "110.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "frame",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.detail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "#device-frame",
+            actual = data.item?.get(0)?.detail?.get(0)?.udi?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "110.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "lens",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "none",
+            actual = data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
+            actual = data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "66.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "lens",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "none",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "#device-lens",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.udi?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "30.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "33.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "hardening",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "11.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "UV coating",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "55.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "F6",
+            actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Coverage",
+            actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
+            actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.07".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.factor?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15.4".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "fst",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.detail?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "220.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "rooh",
+            actual = data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/modifiers",
+            actual = data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "235.4".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "glasses",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "none",
+            actual = data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
+            actual = data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0010",
+            actual = data.item?.get(0)?.revenue?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vision Clinic",
+            actual = data.item?.get(0)?.revenue?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
+            actual = data.item?.get(0)?.revenue?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "235.4".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.optdocs.com/prescription/12345",
+            actual = data.prescription?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Vision Claim for Glasses</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "vision",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -1442,208 +2897,294 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "654456",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "http://jurisdiction.org/facilities/HOSP1234/users",
-            data.enterer?.identifier?.system
-        )
-        assertEquals(
-            "UC1234",
-            data.enterer?.identifier?.value
-        )
-        assertEquals(
-            "http://jurisdiction.org/facilities",
-            data.facility?.identifier?.system
-        )
-        assertEquals(
-            "HOSP1234",
-            data.facility?.identifier?.value
-        )
-        assertEquals(
-            "960150",
-            data.id
-        )
-        assertEquals(
-            "http://happyhospital.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "9612345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "Encounter/example",
-            data.item?.get(0)?.encounter?.get(0)?.reference
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "125.0".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "exam",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ex-serviceproduct",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "125.0".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "2014-08-16",
-            data.procedure?.get(0)?.date?.value.toString()
-        )
-        assertEquals(
-            "SDI9901",
-            data.procedure?.get(0)?.procedureCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Subcutaneous diagnostic implant",
-            data.procedure?.get(0)?.procedureCodeableConcept?.text
-        )
-        assertEquals(
-            "1".toLong(),
-            data.procedure?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "primary",
-            data.procedure?.get(0)?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Device/example",
-            data.procedure?.get(0)?.udi?.get(0)?.reference
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "emergency",
-            data.subType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-claimsubtype",
-            data.subType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "USD",
-            data.total?.currency
-        )
-        assertEquals(
-            "125.0".toDouble(),
-            data.total?.value?.value
-        )
-        assertEquals(
-            "institutional",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim06Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "654456",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "http://jurisdiction.org/facilities/HOSP1234/users",
+            actual = data.enterer?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "UC1234",
+            actual = data.enterer?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://jurisdiction.org/facilities",
+            actual = data.facility?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HOSP1234",
+            actual = data.facility?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "960150",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyhospital.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9612345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.item?.get(0)?.encounter?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "exam",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ex-serviceproduct",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125.0".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.procedure?.get(0)?.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "SDI9901",
+            actual = data.procedure?.get(0)?.procedureCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Subcutaneous diagnostic implant",
+            actual = data.procedure?.get(0)?.procedureCodeableConcept?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.procedure?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "primary",
+            actual = data.procedure?.get(0)?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device/example",
+            actual = data.procedure?.get(0)?.udi?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "emergency",
+            actual = data.subType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-claimsubtype",
+            actual = data.subType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.total?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125.0".toDouble(),
+            actual = data.total?.value?.value
+        )
+
+        assertEquals(
+            expected = "institutional",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -1655,164 +3196,231 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "#provider-1",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "org-insurer",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "org-org",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "provider-1",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "patient-1",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "coverage-1",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "123456",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "100152",
-            data.id
-        )
-        assertEquals(
-            "http://happyvalley.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "12347",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "#coverage-1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "#org-insurer",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "135.57".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "1200",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "135.57".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "#patient-1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "#org-org",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "oral",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim07Step01(data: Claim) {
+
+        assertEquals(
+            expected = "#provider-1",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "org-insurer",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "org-org",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider-1",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "patient-1",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "coverage-1",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "123456",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "100152",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyvalley.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12347",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#coverage-1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "#org-insurer",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "135.57".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "1200",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "135.57".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#patient-1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#org-org",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "oral",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -1824,304 +3432,426 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "654456",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "760151",
-            data.id
-        )
-        assertEquals(
-            "http://happypharma.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "7612345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "45.0".toDouble(),
-            data.item?.get(0)?.detail?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "drugcost",
-            data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ex-pharmaservice",
-            data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.detail?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.net?.currency
-        )
-        assertEquals(
-            "9.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.net?.value?.value
-        )
-        assertEquals(
-            "markup",
-            data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ex-pharmaservice",
-            data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(0)?.detail?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(2)?.net?.currency
-        )
-        assertEquals(
-            "36.0".toDouble(),
-            data.item?.get(0)?.detail?.get(2)?.net?.value?.value
-        )
-        assertEquals(
-            "dispensefee",
-            data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ex-pharmaservice",
-            data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.item?.get(0)?.detail?.get(2)?.sequence?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.informationSequence?.get(0)?.value
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(0)?.informationSequence?.get(1)?.value
-        )
-        assertEquals(
-            "3".toLong(),
-            data.item?.get(0)?.informationSequence?.get(2)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "90.0".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "562721",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Alprazolam 0.25mg (Xanax)",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://www.nlm.nih.gov/research/umls/rxnorm",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "TAB",
-            data.item?.get(0)?.quantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.item?.get(0)?.quantity?.system
-        )
-        assertEquals(
-            "TAB",
-            data.item?.get(0)?.quantity?.unit
-        )
-        assertEquals(
-            "90".toDouble(),
-            data.item?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "http://pharmacy.org/MedicationRequest/AB1202B",
-            data.originalPrescription?.reference
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://pharmacy.org/MedicationRequest/AB1234G",
-            data.prescription?.reference
-        )
-        assertEquals(
-            "stat",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "pharmacyrefill",
-            data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "new",
-            data.supportingInfo?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/pharmacy-refill",
-            data.supportingInfo?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.supportingInfo?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "pharmacyinformation",
-            data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "refillsremaining",
-            data.supportingInfo?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/pharmacy-information",
-            data.supportingInfo?.get(1)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.supportingInfo?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "2".toDouble(),
-            data.supportingInfo?.get(1)?.valueQuantity?.value?.value
-        )
-        assertEquals(
-            "pharmacyinformation",
-            data.supportingInfo?.get(2)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "dayssupply",
-            data.supportingInfo?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/pharmacy-information",
-            data.supportingInfo?.get(2)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.supportingInfo?.get(2)?.sequence?.value
-        )
-        assertEquals(
-            "90".toDouble(),
-            data.supportingInfo?.get(2)?.valueQuantity?.value?.value
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Pharmacy Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "USD",
-            data.total?.currency
-        )
-        assertEquals(
-            "90.0".toDouble(),
-            data.total?.value?.value
-        )
-        assertEquals(
-            "pharmacy",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim08Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "654456",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "760151",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happypharma.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "7612345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "45.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "drugcost",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ex-pharmaservice",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.detail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "markup",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ex-pharmaservice",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "36.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "dispensefee",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ex-pharmaservice",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.detail?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.informationSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.informationSequence?.get(1)?.value
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.informationSequence?.get(2)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "90.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "562721",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Alprazolam 0.25mg (Xanax)",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.nlm.nih.gov/research/umls/rxnorm",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "TAB",
+            actual = data.item?.get(0)?.quantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.item?.get(0)?.quantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "TAB",
+            actual = data.item?.get(0)?.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "90".toDouble(),
+            actual = data.item?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://pharmacy.org/MedicationRequest/AB1202B",
+            actual = data.originalPrescription?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://pharmacy.org/MedicationRequest/AB1234G",
+            actual = data.prescription?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stat",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "pharmacyrefill",
+            actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "new",
+            actual = data.supportingInfo?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/pharmacy-refill",
+            actual = data.supportingInfo?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.supportingInfo?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "pharmacyinformation",
+            actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "refillsremaining",
+            actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/pharmacy-information",
+            actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.supportingInfo?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.supportingInfo?.get(1)?.valueQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "pharmacyinformation",
+            actual = data.supportingInfo?.get(2)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dayssupply",
+            actual = data.supportingInfo?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/pharmacy-information",
+            actual = data.supportingInfo?.get(2)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.supportingInfo?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "90".toDouble(),
+            actual = data.supportingInfo?.get(2)?.valueQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Pharmacy Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.total?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "90.0".toDouble(),
+            actual = data.total?.value?.value
+        )
+
+        assertEquals(
+            expected = "pharmacy",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 
     @Test
@@ -2133,444 +3863,1226 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2015-03-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "123457",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/icd-10",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "provider",
-            data.fundsReserve?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "100153",
-            data.id
-        )
-        assertEquals(
-            "http://happyvalley.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "12355",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "1000.0".toDouble(),
-            data.item?.get(0)?.detail?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "ORTHOEXAM",
-            data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.detail?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "1000.0".toDouble(),
-            data.item?.get(0)?.detail?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.net?.currency
-        )
-        assertEquals(
-            "1500.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.net?.value?.value
-        )
-        assertEquals(
-            "ORTHODIAG",
-            data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(0)?.detail?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
-        )
-        assertEquals(
-            "1500.0".toDouble(),
-            data.item?.get(0)?.detail?.get(1)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(2)?.net?.currency
-        )
-        assertEquals(
-            "500.0".toDouble(),
-            data.item?.get(0)?.detail?.get(2)?.net?.value?.value
-        )
-        assertEquals(
-            "ORTHOINITIAL",
-            data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.item?.get(0)?.detail?.get(2)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
-        )
-        assertEquals(
-            "500.0".toDouble(),
-            data.item?.get(0)?.detail?.get(2)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "ORTHOMONTHS",
-            data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "24".toDouble(),
-            data.item?.get(0)?.detail?.get(3)?.quantity?.value?.value
-        )
-        assertEquals(
-            "4".toLong(),
-            data.item?.get(0)?.detail?.get(3)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(4)?.net?.currency
-        )
-        assertEquals(
-            "250.0".toDouble(),
-            data.item?.get(0)?.detail?.get(4)?.net?.value?.value
-        )
-        assertEquals(
-            "ORTHOPERIODIC",
-            data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "24".toDouble(),
-            data.item?.get(0)?.detail?.get(4)?.quantity?.value?.value
-        )
-        assertEquals(
-            "5".toLong(),
-            data.item?.get(0)?.detail?.get(4)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.detail?.get(4)?.unitPrice?.currency
-        )
-        assertEquals(
-            "250.0".toDouble(),
-            data.item?.get(0)?.detail?.get(4)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.diagnosisSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "9000.0".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "ORTHPLAN",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2015-05-16",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "9000.0".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "21",
-            data.item?.get(1)?.bodySite?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://fdi.org/fhir/oraltoothcodes",
-            data.item?.get(1)?.bodySite?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(1)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(1)?.net?.currency
-        )
-        assertEquals(
-            "105.0".toDouble(),
-            data.item?.get(1)?.net?.value?.value
-        )
-        assertEquals(
-            "21211",
-            data.item?.get(1)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(1)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(1)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "L",
-            data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://fdi.org/fhir/oralsurfacecodes",
-            data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(1)?.unitPrice?.currency
-        )
-        assertEquals(
-            "105.0".toDouble(),
-            data.item?.get(1)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "36",
-            data.item?.get(2)?.bodySite?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://fdi.org/fhir/oraltoothcodes",
-            data.item?.get(2)?.bodySite?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(2)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(2)?.detail?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "750.0".toDouble(),
-            data.item?.get(2)?.detail?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "27211",
-            data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(2)?.detail?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(2)?.detail?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "750.0".toDouble(),
-            data.item?.get(2)?.detail?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(2)?.detail?.get(1)?.net?.currency
-        )
-        assertEquals(
-            "350.0".toDouble(),
-            data.item?.get(2)?.detail?.get(1)?.net?.value?.value
-        )
-        assertEquals(
-            "lab",
-            data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(2)?.detail?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(2)?.detail?.get(1)?.unitPrice?.currency
-        )
-        assertEquals(
-            "350.0".toDouble(),
-            data.item?.get(2)?.detail?.get(1)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(2)?.net?.currency
-        )
-        assertEquals(
-            "1100.0".toDouble(),
-            data.item?.get(2)?.net?.value?.value
-        )
-        assertEquals(
-            "27211",
-            data.item?.get(2)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/oralservicecodes",
-            data.item?.get(2)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.item?.get(2)?.sequence?.value
-        )
-        assertEquals(
-            "2014-08-16",
-            data.item?.get(2)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(2)?.unitPrice?.currency
-        )
-        assertEquals(
-            "1100.0".toDouble(),
-            data.item?.get(2)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "oral",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.PREAUTHORIZATION,
-            data.use
-        )
+        assertClaim09Step01(data)
+        assertClaim09Step02(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim09Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2015-03-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "123457",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/icd-10",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.fundsReserve?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100153",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyvalley.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12355",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1000.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOEXAM",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.detail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1000.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHODIAG",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOINITIAL",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.detail?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOMONTHS",
+            actual = data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "24".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(3)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "4".toLong(),
+            actual = data.item?.get(0)?.detail?.get(3)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(4)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(4)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOPERIODIC",
+            actual = data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "24".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(4)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "5".toLong(),
+            actual = data.item?.get(0)?.detail?.get(4)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(4)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(4)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.diagnosisSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9000.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHPLAN",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2015-05-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9000.0".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "21",
+            actual = data.item?.get(1)?.bodySite?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fdi.org/fhir/oraltoothcodes",
+            actual = data.item?.get(1)?.bodySite?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(1)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "105.0".toDouble(),
+            actual = data.item?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "21211",
+            actual = data.item?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(1)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "L",
+            actual = data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fdi.org/fhir/oralsurfacecodes",
+            actual = data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "105.0".toDouble(),
+            actual = data.item?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "36",
+            actual = data.item?.get(2)?.bodySite?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fdi.org/fhir/oraltoothcodes",
+            actual = data.item?.get(2)?.bodySite?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(2)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "750.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "27211",
+            actual = data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(2)?.detail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "750.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "350.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "lab",
+            actual = data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(2)?.detail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "350.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1100.0".toDouble(),
+            actual = data.item?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "27211",
+            actual = data.item?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(2)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1100.0".toDouble(),
+            actual = data.item?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "oral",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.PREAUTHORIZATION,
+            actual = data.use
+        )
+    }
+
+    private fun assertClaim09Step02(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2015-03-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "123457",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/icd-10",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.fundsReserve?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100153",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyvalley.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12355",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1000.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOEXAM",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.detail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1000.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHODIAG",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.detail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOINITIAL",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(0)?.detail?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "500.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOMONTHS",
+            actual = data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "24".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(3)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "4".toLong(),
+            actual = data.item?.get(0)?.detail?.get(3)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(4)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(4)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHOPERIODIC",
+            actual = data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "24".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(4)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "5".toLong(),
+            actual = data.item?.get(0)?.detail?.get(4)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.detail?.get(4)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "250.0".toDouble(),
+            actual = data.item?.get(0)?.detail?.get(4)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.diagnosisSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9000.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "ORTHPLAN",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2015-05-16",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9000.0".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "21",
+            actual = data.item?.get(1)?.bodySite?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fdi.org/fhir/oraltoothcodes",
+            actual = data.item?.get(1)?.bodySite?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(1)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "105.0".toDouble(),
+            actual = data.item?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "21211",
+            actual = data.item?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(1)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "L",
+            actual = data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fdi.org/fhir/oralsurfacecodes",
+            actual = data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "105.0".toDouble(),
+            actual = data.item?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "36",
+            actual = data.item?.get(2)?.bodySite?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://fdi.org/fhir/oraltoothcodes",
+            actual = data.item?.get(2)?.bodySite?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(2)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "750.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "27211",
+            actual = data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(2)?.detail?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "750.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(1)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "350.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(1)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "lab",
+            actual = data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(2)?.detail?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.detail?.get(1)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "350.0".toDouble(),
+            actual = data.item?.get(2)?.detail?.get(1)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1100.0".toDouble(),
+            actual = data.item?.get(2)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "27211",
+            actual = data.item?.get(2)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/oralservicecodes",
+            actual = data.item?.get(2)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.item?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.item?.get(2)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(2)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1100.0".toDouble(),
+            actual = data.item?.get(2)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "oral",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.PREAUTHORIZATION,
+            actual = data.use
+        )
     }
 
     @Test
@@ -2582,323 +5094,459 @@ class ClaimTest {
         val data = parser.toFhir(Claim::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.careTeam?.get(0)?.provider?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.careTeam?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "patient-1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "coverage-1",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "2015-10-16T00:00:00-07:00",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "M96.1",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Postlaminectomy syndrome",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/icd-10",
-            data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "G89.4",
-            data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chronic pain syndrome",
-            data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/icd-10",
-            data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.diagnosis?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "M53.88",
-            data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Other specified dorsopathies, sacral and sacrococcygeal region",
-            data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/icd-10",
-            data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3".toLong(),
-            data.diagnosis?.get(2)?.sequence?.value
-        )
-        assertEquals(
-            "M47.816",
-            data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Spondylosis without myelopathy or radiculopathy, lumbar region",
-            data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/icd-10",
-            data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "4".toLong(),
-            data.diagnosis?.get(3)?.sequence?.value
-        )
-        assertEquals(
-            "MED-00050",
-            data.id
-        )
-        assertEquals(
-            "http://CedarArmsMedicalCenter.com/claim",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "MED-00050",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "#coverage-1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "http://CedarArmsMedicalCenter.com/claim",
-            data.insurance?.get(0)?.identifier?.system
-        )
-        assertEquals(
-            "MED-00050",
-            data.insurance?.get(0)?.identifier?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.insurance?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Humana Inc.",
-            data.insurer?.display
-        )
-        assertEquals(
-            "http://www.bindb.com/bin",
-            data.insurer?.identifier?.system
-        )
-        assertEquals(
-            "123456",
-            data.insurer?.identifier?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.careTeamSequence?.get(0)?.value
-        )
-        assertEquals(
-            "2".toLong(),
-            data.item?.get(0)?.diagnosisSequence?.get(0)?.value
-        )
-        assertEquals(
-            "4".toLong(),
-            data.item?.get(0)?.diagnosisSequence?.get(1)?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.informationSequence?.get(0)?.value
-        )
-        assertEquals(
-            "24",
-            data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Ambulatory Surgical Center",
-            data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html",
-            data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.net?.currency
-        )
-        assertEquals(
-            "12500.0".toDouble(),
-            data.item?.get(0)?.net?.value?.value
-        )
-        assertEquals(
-            "62264",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Surgical Procedures on the Spine and Spinal Cord",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://www.ama-assn.org/go/cpt",
-            data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.item?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2015-10-13",
-            data.item?.get(0)?.servicedDate?.value.toString()
-        )
-        assertEquals(
-            "USD",
-            data.item?.get(0)?.unitPrice?.currency
-        )
-        assertEquals(
-            "12500.0".toDouble(),
-            data.item?.get(0)?.unitPrice?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "#patient-1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "Organization/1",
-            data.payee?.party?.reference
-        )
-        assertEquals(
-            "provider",
-            data.payee?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/payeetype",
-            data.payee?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "831",
-            data.subType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "https://www.cms.gov/codes/billtype",
-            data.subType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "hospitalized",
-            data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
-            data.supportingInfo?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toLong(),
-            data.supportingInfo?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "2015-10-05T00:00:00-07:00",
-            data.supportingInfo?.get(0)?.timingPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-10-01T00:00:00-07:00",
-            data.supportingInfo?.get(0)?.timingPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "discharge",
-            data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
-            data.supportingInfo?.get(1)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "01",
-            data.supportingInfo?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Discharge to Home or Self Care",
-            data.supportingInfo?.get(1)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf",
-            data.supportingInfo?.get(1)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2".toLong(),
-            data.supportingInfo?.get(1)?.sequence?.value
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of a CMS 1500 Claim</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "USD",
-            data.total?.currency
-        )
-        assertEquals(
-            "12500.0".toDouble(),
-            data.total?.value?.value
-        )
-        assertEquals(
-            "institutional",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/claim-type",
-            data.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            Use.CLAIM,
-            data.use
-        )
+        assertClaim10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertClaim10Step01(data: Claim) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.careTeam?.get(0)?.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.careTeam?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "patient-1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "coverage-1",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-10-16T00:00:00-07:00",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "M96.1",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Postlaminectomy syndrome",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/icd-10",
+            actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "G89.4",
+            actual = data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chronic pain syndrome",
+            actual = data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/icd-10",
+            actual = data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.diagnosis?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "M53.88",
+            actual = data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Other specified dorsopathies, sacral and sacrococcygeal region",
+            actual = data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/icd-10",
+            actual = data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.diagnosis?.get(2)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "M47.816",
+            actual = data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Spondylosis without myelopathy or radiculopathy, lumbar region",
+            actual = data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/icd-10",
+            actual = data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4".toLong(),
+            actual = data.diagnosis?.get(3)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "MED-00050",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://CedarArmsMedicalCenter.com/claim",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MED-00050",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#coverage-1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "http://CedarArmsMedicalCenter.com/claim",
+            actual = data.insurance?.get(0)?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MED-00050",
+            actual = data.insurance?.get(0)?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.insurance?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Humana Inc.",
+            actual = data.insurer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bindb.com/bin",
+            actual = data.insurer?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123456",
+            actual = data.insurer?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.careTeamSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.item?.get(0)?.diagnosisSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "4".toLong(),
+            actual = data.item?.get(0)?.diagnosisSequence?.get(1)?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.informationSequence?.get(0)?.value
+        )
+
+        assertEquals(
+            expected = "24",
+            actual = data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ambulatory Surgical Center",
+            actual = data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html",
+            actual = data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.net?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12500.0".toDouble(),
+            actual = data.item?.get(0)?.net?.value?.value
+        )
+
+        assertEquals(
+            expected = "62264",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Surgical Procedures on the Spine and Spinal Cord",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.ama-assn.org/go/cpt",
+            actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.item?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2015-10-13",
+            actual = data.item?.get(0)?.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.item?.get(0)?.unitPrice?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12500.0".toDouble(),
+            actual = data.item?.get(0)?.unitPrice?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#patient-1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.payee?.party?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "provider",
+            actual = data.payee?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/payeetype",
+            actual = data.payee?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "831",
+            actual = data.subType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://www.cms.gov/codes/billtype",
+            actual = data.subType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "hospitalized",
+            actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
+            actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.supportingInfo?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "2015-10-05T00:00:00-07:00",
+            actual = data.supportingInfo?.get(0)?.timingPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-10-01T00:00:00-07:00",
+            actual = data.supportingInfo?.get(0)?.timingPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "discharge",
+            actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
+            actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "01",
+            actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Discharge to Home or Self Care",
+            actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf",
+            actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.supportingInfo?.get(1)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of a CMS 1500 Claim</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "USD",
+            actual = data.total?.currency
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12500.0".toDouble(),
+            actual = data.total?.value?.value
+        )
+
+        assertEquals(
+            expected = "institutional",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/claim-type",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = Use.CLAIM,
+            actual = data.use
+        )
     }
 }

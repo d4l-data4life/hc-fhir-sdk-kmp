@@ -51,80 +51,113 @@ class CoverageEligibilityRequestTest {
         val data = parser.toFhir(CoverageEligibilityRequest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "52345",
-            data.id
-        )
-        assertEquals(
-            "http://happyvalley.com/coverageelegibilityrequest",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "52345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.insurance?.get(0)?.focal?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/pat1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            EligibilityRequestPurpose.VALIDATION,
-            data.purpose?.get(0)
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityRequest</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCoverageEligibilityRequest01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCoverageEligibilityRequest01Step01(data: CoverageEligibilityRequest) {
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "52345",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyvalley.com/coverageelegibilityrequest",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.insurance?.get(0)?.focal?.value
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EligibilityRequestPurpose.VALIDATION,
+            actual = data.purpose?.get(0)
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityRequest</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -136,115 +169,165 @@ class CoverageEligibilityRequestTest {
         val data = parser.toFhir(CoverageEligibilityRequest::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-08-16",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "http://happyvalleyclinic.com/staff",
-            data.enterer?.identifier?.system
-        )
-        assertEquals(
-            "14",
-            data.enterer?.identifier?.value
-        )
-        assertEquals(
-            "http://statecliniclicensor.com/clinicid",
-            data.facility?.identifier?.system
-        )
-        assertEquals(
-            "G35B9",
-            data.facility?.identifier?.value
-        )
-        assertEquals(
-            "52346",
-            data.id
-        )
-        assertEquals(
-            "http://happyvalley.com/coverageelegibilityrequest",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "52346",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "NB8742",
-            data.insurance?.get(0)?.businessArrangement
-        )
-        assertEquals(
-            "Coverage/9876B1",
-            data.insurance?.get(0)?.coverage?.reference
-        )
-        assertEquals(
-            "Organization/2",
-            data.insurer?.reference
-        )
-        assertEquals(
-            "69",
-            data.item?.get(0)?.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Maternity",
-            data.item?.get(0)?.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
-            data.item?.get(0)?.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/pat1",
-            data.patient?.reference
-        )
-        assertEquals(
-            "normal",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Organization/1",
-            data.provider?.reference
-        )
-        assertEquals(
-            EligibilityRequestPurpose.VALIDATION,
-            data.purpose?.get(0)
-        )
-        assertEquals(
-            EligibilityRequestPurpose.BENEFITS,
-            data.purpose?.get(1)
-        )
-        assertEquals(
-            "2014-09-17",
-            data.servicedDate?.value.toString()
-        )
-        assertEquals(
-            FinancialResourceStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityRequest</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCoverageEligibilityRequest02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCoverageEligibilityRequest02Step01(data: CoverageEligibilityRequest) {
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://happyvalleyclinic.com/staff",
+            actual = data.enterer?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "14",
+            actual = data.enterer?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://statecliniclicensor.com/clinicid",
+            actual = data.facility?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "G35B9",
+            actual = data.facility?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52346",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://happyvalley.com/coverageelegibilityrequest",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52346",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "NB8742",
+            actual = data.insurance?.get(0)?.businessArrangement
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Coverage/9876B1",
+            actual = data.insurance?.get(0)?.coverage?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.insurer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "69",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Maternity",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/ex-benefitcategory",
+            actual = data.item?.get(0)?.category?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat1",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.provider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EligibilityRequestPurpose.VALIDATION,
+            actual = data.purpose?.get(0)
+        )
+
+        assertEquals(
+            expected = EligibilityRequestPurpose.BENEFITS,
+            actual = data.purpose?.get(1)
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.servicedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = FinancialResourceStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityRequest</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

@@ -50,175 +50,242 @@ class PractitionerRoleTest {
         val data = parser.toFhir(PractitionerRole::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Adam is generally unavailable on public holidays and during the Christmas/New Year break",
-            data.availabilityExceptions
-        )
-        assertEquals(
-            "16:30:00",
-            data.availableTime?.get(0)?.availableEndTime?.value.toString()
-        )
-        assertEquals(
-            "09:00:00",
-            data.availableTime?.get(0)?.availableStartTime?.value.toString()
-        )
-        assertEquals(
-            DaysOfWeek.MON,
-            data.availableTime?.get(0)?.daysOfWeek?.get(0)
-        )
-        assertEquals(
-            DaysOfWeek.TUE,
-            data.availableTime?.get(0)?.daysOfWeek?.get(1)
-        )
-        assertEquals(
-            DaysOfWeek.WED,
-            data.availableTime?.get(0)?.daysOfWeek?.get(2)
-        )
-        assertEquals(
-            "12:00:00",
-            data.availableTime?.get(1)?.availableEndTime?.value.toString()
-        )
-        assertEquals(
-            "09:00:00",
-            data.availableTime?.get(1)?.availableStartTime?.value.toString()
-        )
-        assertEquals(
-            DaysOfWeek.THU,
-            data.availableTime?.get(1)?.daysOfWeek?.get(0)
-        )
-        assertEquals(
-            DaysOfWeek.FRI,
-            data.availableTime?.get(1)?.daysOfWeek?.get(1)
-        )
-        assertEquals(
-            "RP",
-            data.code?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0286",
-            data.code?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Endpoint/example",
-            data.endpoint?.get(0)?.reference
-        )
-        assertEquals(
-            "HealthcareService/example",
-            data.healthcareService?.get(0)?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://www.acme.org/practitioners",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "23",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "South Wing, second floor",
-            data.location?.get(0)?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Adam will be on extended leave during May 2017",
-            data.notAvailable?.get(0)?.description
-        )
-        assertEquals(
-            "2017-05-20",
-            data.notAvailable?.get(0)?.during?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-05-01",
-            data.notAvailable?.get(0)?.during?.start?.value.toString()
-        )
-        assertEquals(
-            "Organization/f001",
-            data.organization?.reference
-        )
-        assertEquals(
-            "2012-03-31",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2012-01-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.practitioner?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.practitioner?.reference
-        )
-        assertEquals(
-            "408443003",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General medical practice",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.specialty?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "(03) 5555 6473",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "adam.southern@example.org",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPractitionerRole01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPractitionerRole01Step01(data: PractitionerRole) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Adam is generally unavailable on public holidays and during the Christmas/New Year break",
+            actual = data.availabilityExceptions
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16:30:00",
+            actual = data.availableTime?.get(0)?.availableEndTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "09:00:00",
+            actual = data.availableTime?.get(0)?.availableStartTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = DaysOfWeek.MON,
+            actual = data.availableTime?.get(0)?.daysOfWeek?.get(0)
+        )
+
+        assertEquals(
+            expected = DaysOfWeek.TUE,
+            actual = data.availableTime?.get(0)?.daysOfWeek?.get(1)
+        )
+
+        assertEquals(
+            expected = DaysOfWeek.WED,
+            actual = data.availableTime?.get(0)?.daysOfWeek?.get(2)
+        )
+
+        assertEquals(
+            expected = "12:00:00",
+            actual = data.availableTime?.get(1)?.availableEndTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "09:00:00",
+            actual = data.availableTime?.get(1)?.availableStartTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = DaysOfWeek.THU,
+            actual = data.availableTime?.get(1)?.daysOfWeek?.get(0)
+        )
+
+        assertEquals(
+            expected = DaysOfWeek.FRI,
+            actual = data.availableTime?.get(1)?.daysOfWeek?.get(1)
+        )
+
+        assertEquals(
+            expected = "RP",
+            actual = data.code?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0286",
+            actual = data.code?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Endpoint/example",
+            actual = data.endpoint?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HealthcareService/example",
+            actual = data.healthcareService?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.acme.org/practitioners",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "23",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "South Wing, second floor",
+            actual = data.location?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adam will be on extended leave during May 2017",
+            actual = data.notAvailable?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-05-20",
+            actual = data.notAvailable?.get(0)?.during?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-05-01",
+            actual = data.notAvailable?.get(0)?.during?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.organization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-03-31",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2012-01-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.practitioner?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.practitioner?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "408443003",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General medical practice",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "(03) 5555 6473",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "adam.southern@example.org",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

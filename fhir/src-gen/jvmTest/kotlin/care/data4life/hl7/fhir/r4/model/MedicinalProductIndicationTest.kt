@@ -46,63 +46,91 @@ class MedicinalProductIndicationTest {
         val data = parser.toFhir(MedicinalProductIndication::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Hipsurgery",
-            data.comorbidity?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/comorbidity",
-            data.comorbidity?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Venousthromboembolismprophylaxis",
-            data.diseaseSymptomProcedure?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/indicationasdisease-symptom-procedure",
-            data.diseaseSymptomProcedure?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "PRYLX",
-            data.intendedEffect?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/intendedeffect",
-            data.intendedEffect?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "a",
-            data.population?.get(0)?.ageRange?.low?.unit
-        )
-        assertEquals(
-            "18".toDouble(),
-            data.population?.get(0)?.ageRange?.low?.value?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicinalProductIndication01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductIndication01Step01(data: MedicinalProductIndication) {
+
+        assertEquals(
+            expected = "Hipsurgery",
+            actual = data.comorbidity?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/comorbidity",
+            actual = data.comorbidity?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Venousthromboembolismprophylaxis",
+            actual = data.diseaseSymptomProcedure?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/indicationasdisease-symptom-procedure",
+            actual = data.diseaseSymptomProcedure?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PRYLX",
+            actual = data.intendedEffect?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/intendedeffect",
+            actual = data.intendedEffect?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.population?.get(0)?.ageRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "18".toDouble(),
+            actual = data.population?.get(0)?.ageRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

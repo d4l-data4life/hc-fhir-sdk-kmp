@@ -48,108 +48,156 @@ class BasicTest {
         val data = parser.toFhir(Basic::class, sourceJson)
 
         // Then
-        assertEquals(
-            "UMLCLASSMODEL",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-codes#resourceTypes",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "name",
-            data.extension?.get(0)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "Class1",
-            data.extension?.get(0)?.extension?.get(0)?.valueString
-        )
-        assertEquals(
-            "name",
-            data.extension?.get(0)?.extension?.get(1)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "attribute1",
-            data.extension?.get(0)?.extension?.get(1)?.extension?.get(0)?.valueString
-        )
-        assertEquals(
-            "minOccurs",
-            data.extension?.get(0)?.extension?.get(1)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "1".toInt(),
-            data.extension?.get(0)?.extension?.get(1)?.extension?.get(1)?.valueInteger?.value
-        )
-        assertEquals(
-            "maxOccurs",
-            data.extension?.get(0)?.extension?.get(1)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "*",
-            data.extension?.get(0)?.extension?.get(1)?.extension?.get(2)?.valueCode
-        )
-        assertEquals(
-            "attribute",
-            data.extension?.get(0)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "name",
-            data.extension?.get(0)?.extension?.get(2)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "attribute2",
-            data.extension?.get(0)?.extension?.get(2)?.extension?.get(0)?.valueString
-        )
-        assertEquals(
-            "minOccurs",
-            data.extension?.get(0)?.extension?.get(2)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "0".toInt(),
-            data.extension?.get(0)?.extension?.get(2)?.extension?.get(1)?.valueInteger?.value
-        )
-        assertEquals(
-            "maxOccurs",
-            data.extension?.get(0)?.extension?.get(2)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "1".toInt(),
-            data.extension?.get(0)?.extension?.get(2)?.extension?.get(2)?.valueInteger?.value
-        )
-        assertEquals(
-            "attribute",
-            data.extension?.get(0)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-extensions/UMLclass",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "classModel",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertBasic01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertBasic01Step01(data: Basic) {
+
+        assertEquals(
+            expected = "UMLCLASSMODEL",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-codes#resourceTypes",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "name",
+            actual = data.extension?.get(0)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Class1",
+            actual = data.extension?.get(0)?.extension?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "name",
+            actual = data.extension?.get(0)?.extension?.get(1)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "attribute1",
+            actual = data.extension?.get(0)?.extension?.get(1)?.extension?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "minOccurs",
+            actual = data.extension?.get(0)?.extension?.get(1)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.extension?.get(0)?.extension?.get(1)?.extension?.get(1)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "maxOccurs",
+            actual = data.extension?.get(0)?.extension?.get(1)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "*",
+            actual = data.extension?.get(0)?.extension?.get(1)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "attribute",
+            actual = data.extension?.get(0)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "name",
+            actual = data.extension?.get(0)?.extension?.get(2)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "attribute2",
+            actual = data.extension?.get(0)?.extension?.get(2)?.extension?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "minOccurs",
+            actual = data.extension?.get(0)?.extension?.get(2)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.extension?.get(0)?.extension?.get(2)?.extension?.get(1)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "maxOccurs",
+            actual = data.extension?.get(0)?.extension?.get(2)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.extension?.get(0)?.extension?.get(2)?.extension?.get(2)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "attribute",
+            actual = data.extension?.get(0)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-extensions/UMLclass",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "classModel",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -161,36 +209,51 @@ class BasicTest {
         val data = parser.toFhir(Basic::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Example Narrative Tester",
-            data.code?.text
-        )
-        assertEquals(
-            "basic-example-narrative",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertBasic02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertBasic02Step01(data: Basic) {
+
+        assertEquals(
+            expected = "Example Narrative Tester",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "basic-example-narrative",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -202,127 +265,185 @@ class BasicTest {
         val data = parser.toFhir(Basic::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Practitioner/example",
-            data.author?.reference
-        )
-        assertEquals(
-            "referral",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/basic-resource-type",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2013-05-14",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "Dokter Bronsig",
-            data.extension?.get(0)?.valueReference?.display
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.extension?.get(0)?.valueReference?.reference
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-extensions/referral#notes",
-            data.extension?.get(1)?.url
-        )
-        assertEquals(
-            "The patient had fever peaks over the last couple of days. He is worried about these peaks.",
-            data.extension?.get(1)?.valueString
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter",
-            data.extension?.get(2)?.url
-        )
-        assertEquals(
-            "Encounter/f201",
-            data.extension?.get(2)?.valueReference?.reference
-        )
-        assertEquals(
-            "referral",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealth.org/basic/identifiers",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "19283746",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-extensions/referral#referredForService",
-            data.modifierExtension?.get(0)?.url
-        )
-        assertEquals(
-            "11429006",
-            data.modifierExtension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Consultation",
-            data.modifierExtension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.modifierExtension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-extensions/referral#targetDate",
-            data.modifierExtension?.get(1)?.url
-        )
-        assertEquals(
-            "2013-04-15",
-            data.modifierExtension?.get(1)?.valuePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-04-01",
-            data.modifierExtension?.get(1)?.valuePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "http://example.org/do-not-use/fhir-extensions/referral#status",
-            data.modifierExtension?.get(2)?.url
-        )
-        assertEquals(
-            "complete",
-            data.modifierExtension?.get(2)?.valueCode
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertBasic03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertBasic03Step01(data: Basic) {
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "referral",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/basic-resource-type",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-05-14",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dokter Bronsig",
+            actual = data.extension?.get(0)?.valueReference?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.extension?.get(0)?.valueReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-extensions/referral#notes",
+            actual = data.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The patient had fever peaks over the last couple of days. He is worried about these peaks.",
+            actual = data.extension?.get(1)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter",
+            actual = data.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f201",
+            actual = data.extension?.get(2)?.valueReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "referral",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealth.org/basic/identifiers",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "19283746",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-extensions/referral#referredForService",
+            actual = data.modifierExtension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "11429006",
+            actual = data.modifierExtension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Consultation",
+            actual = data.modifierExtension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.modifierExtension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-extensions/referral#targetDate",
+            actual = data.modifierExtension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-04-15",
+            actual = data.modifierExtension?.get(1)?.valuePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-04-01",
+            actual = data.modifierExtension?.get(1)?.valuePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://example.org/do-not-use/fhir-extensions/referral#status",
+            actual = data.modifierExtension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "complete",
+            actual = data.modifierExtension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

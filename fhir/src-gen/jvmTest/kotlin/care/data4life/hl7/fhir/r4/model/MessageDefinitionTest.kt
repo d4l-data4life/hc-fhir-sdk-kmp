@@ -51,75 +51,105 @@ class MessageDefinitionTest {
         val data = parser.toFhir(MessageDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            MessageSignificanceCategory.NOTIFICATION,
-            data.category
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2016-11-09",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "admin-notify",
-            data.eventCoding?.code
-        )
-        assertEquals(
-            "http://example.org/fhir/message-events",
-            data.eventCoding?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "EXAMPLE",
-            data.name
-        )
-        assertEquals(
-            "Health Level Seven, Int'l",
-            data.publisher
-        )
-        assertEquals(
-            "Defines a base example for other MessageDefinition instances.",
-            data.purpose
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Message definition base example</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Message definition base example",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/MessageDefinition/example",
-            data.url
-        )
+        assertMessageDefinition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMessageDefinition01Step01(data: MessageDefinition) {
+
+        assertEquals(
+            expected = MessageSignificanceCategory.NOTIFICATION,
+            actual = data.category
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-11-09",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "admin-notify",
+            actual = data.eventCoding?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/message-events",
+            actual = data.eventCoding?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EXAMPLE",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Level Seven, Int'l",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Defines a base example for other MessageDefinition instances.",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Message definition base example</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Message definition base example",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/MessageDefinition/example",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
     }
 }

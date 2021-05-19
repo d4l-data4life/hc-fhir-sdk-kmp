@@ -44,135 +44,199 @@ class MedicinalProductTest {
         val data = parser.toFhir(MedicinalProduct::class, sourceJson)
 
         // Then
-        assertEquals(
-            "DocumentReference/example",
-            data.attachedDocument?.get(0)?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/MPID",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "{mpid}",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber",
-            data.manufacturingBusinessOperation?.get(0)?.authorisationReferenceNumber?.system
-        )
-        assertEquals(
-            "1324TZ",
-            data.manufacturingBusinessOperation?.get(0)?.authorisationReferenceNumber?.value
-        )
-        assertEquals(
-            "2013-03-15",
-            data.manufacturingBusinessOperation?.get(0)?.effectiveDate?.value.toString()
-        )
-        assertEquals(
-            "Organization/example",
-            data.manufacturingBusinessOperation?.get(0)?.manufacturer?.get(0)?.reference
-        )
-        assertEquals(
-            "Batchrelease",
-            data.manufacturingBusinessOperation?.get(0)?.operationType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/manufacturingOperationType",
-            data.manufacturingBusinessOperation?.get(0)?.operationType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/example",
-            data.manufacturingBusinessOperation?.get(0)?.regulator?.reference
-        )
-        assertEquals(
-            "DocumentReference/example",
-            data.masterFile?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "EU",
-            data.name?.get(0)?.countryLanguage?.get(0)?.country?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/countryCode",
-            data.name?.get(0)?.countryLanguage?.get(0)?.country?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "EU",
-            data.name?.get(0)?.countryLanguage?.get(0)?.jurisdiction?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/jurisdictionCode",
-            data.name?.get(0)?.countryLanguage?.get(0)?.jurisdiction?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "EN",
-            data.name?.get(0)?.countryLanguage?.get(0)?.language?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/languageCode",
-            data.name?.get(0)?.countryLanguage?.get(0)?.language?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Equilidem",
-            data.name?.get(0)?.namePart?.get(0)?.part
-        )
-        assertEquals(
-            "INV",
-            data.name?.get(0)?.namePart?.get(0)?.type?.code
-        )
-        assertEquals(
-            "2.5 mg",
-            data.name?.get(0)?.namePart?.get(1)?.part
-        )
-        assertEquals(
-            "STR",
-            data.name?.get(0)?.namePart?.get(1)?.type?.code
-        )
-        assertEquals(
-            "film-coated tablets",
-            data.name?.get(0)?.namePart?.get(2)?.part
-        )
-        assertEquals(
-            "FRM",
-            data.name?.get(0)?.namePart?.get(2)?.type?.code
-        )
-        assertEquals(
-            "Equilidem 2.5 mg film-coated tablets",
-            data.name?.get(0)?.productName
-        )
-        assertEquals(
-            "WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02",
-            data.productClassification?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem",
-            data.productClassification?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicinalProduct01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProduct01Step01(data: MedicinalProduct) {
+
+        assertEquals(
+            expected = "DocumentReference/example",
+            actual = data.attachedDocument?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/MPID",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "{mpid}",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber",
+            actual = data.manufacturingBusinessOperation?.get(0)?.authorisationReferenceNumber?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1324TZ",
+            actual = data.manufacturingBusinessOperation?.get(0)?.authorisationReferenceNumber?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-15",
+            actual = data.manufacturingBusinessOperation?.get(0)?.effectiveDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.manufacturingBusinessOperation?.get(0)?.manufacturer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Batchrelease",
+            actual = data.manufacturingBusinessOperation?.get(0)?.operationType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/manufacturingOperationType",
+            actual = data.manufacturingBusinessOperation?.get(0)?.operationType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.manufacturingBusinessOperation?.get(0)?.regulator?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DocumentReference/example",
+            actual = data.masterFile?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EU",
+            actual = data.name?.get(0)?.countryLanguage?.get(0)?.country?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/countryCode",
+            actual = data.name?.get(0)?.countryLanguage?.get(0)?.country?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EU",
+            actual = data.name?.get(0)?.countryLanguage?.get(0)?.jurisdiction?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/jurisdictionCode",
+            actual = data.name?.get(0)?.countryLanguage?.get(0)?.jurisdiction?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EN",
+            actual = data.name?.get(0)?.countryLanguage?.get(0)?.language?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/languageCode",
+            actual = data.name?.get(0)?.countryLanguage?.get(0)?.language?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Equilidem",
+            actual = data.name?.get(0)?.namePart?.get(0)?.part
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "INV",
+            actual = data.name?.get(0)?.namePart?.get(0)?.type?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.5 mg",
+            actual = data.name?.get(0)?.namePart?.get(1)?.part
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "STR",
+            actual = data.name?.get(0)?.namePart?.get(1)?.type?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "film-coated tablets",
+            actual = data.name?.get(0)?.namePart?.get(2)?.part
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FRM",
+            actual = data.name?.get(0)?.namePart?.get(2)?.type?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Equilidem 2.5 mg film-coated tablets",
+            actual = data.name?.get(0)?.productName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02",
+            actual = data.productClassification?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem",
+            actual = data.productClassification?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

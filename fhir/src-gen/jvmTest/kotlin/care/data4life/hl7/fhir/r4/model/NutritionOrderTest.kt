@@ -49,176 +49,253 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Cashew Nuts",
-            data.allergyIntolerance?.get(0)?.display
-        )
-        assertEquals(
-            "AllergyIntolerance/example",
-            data.allergyIntolerance?.get(0)?.reference
-        )
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "227493005",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cashew Nut",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "20140730",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
-        )
-        assertEquals(
-            "kosher",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diet",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "diabeticsupplement",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/nutrition-requests",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Glucerna",
-            data.supplement?.get(0)?.productName
-        )
-        assertEquals(
-            "8 oz bottle",
-            data.supplement?.get(0)?.quantity?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.supplement?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "2015-02-10T15:00:00Z",
-            data.supplement?.get(0)?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "1".toLong(),
-            data.supplement?.get(0)?.schedule?.get(0)?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "24".toDouble(),
-            data.supplement?.get(0)?.schedule?.get(0)?.repeat?.period?.value
-        )
-        assertEquals(
-            "h",
-            data.supplement?.get(0)?.schedule?.get(0)?.repeat?.periodUnit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.supplement?.get(0)?.schedule?.get(1)?.repeat?.duration?.value
-        )
-        assertEquals(
-            "h",
-            data.supplement?.get(0)?.schedule?.get(1)?.repeat?.durationUnit
-        )
-        assertEquals(
-            "HS",
-            data.supplement?.get(0)?.schedule?.get(1)?.repeat?.whenn?.get(0)
-        )
-        assertEquals(
-            "443051000124104",
-            data.supplement?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Adult diabetes specialty formula",
-            data.supplement?.get(0)?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.supplement?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1010",
-            data.supplement?.get(0)?.type?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Adult diabetic formula",
-            data.supplement?.get(0)?.type?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/supplement-type-codes",
-            data.supplement?.get(0)?.type?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Adult diabetic formula",
-            data.supplement?.get(0)?.type?.text
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder01Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "Cashew Nuts",
+            actual = data.allergyIntolerance?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/example",
+            actual = data.allergyIntolerance?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "227493005",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cashew Nut",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20140730",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "kosher",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diet",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "diabeticsupplement",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/nutrition-requests",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Glucerna",
+            actual = data.supplement?.get(0)?.productName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8 oz bottle",
+            actual = data.supplement?.get(0)?.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.supplement?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "2015-02-10T15:00:00Z",
+            actual = data.supplement?.get(0)?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.supplement?.get(0)?.schedule?.get(0)?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "24".toDouble(),
+            actual = data.supplement?.get(0)?.schedule?.get(0)?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "h",
+            actual = data.supplement?.get(0)?.schedule?.get(0)?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.supplement?.get(0)?.schedule?.get(1)?.repeat?.duration?.value
+        )
+
+        assertEquals(
+            expected = "h",
+            actual = data.supplement?.get(0)?.schedule?.get(1)?.repeat?.durationUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HS",
+            actual = data.supplement?.get(0)?.schedule?.get(1)?.repeat?.whenn?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "443051000124104",
+            actual = data.supplement?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult diabetes specialty formula",
+            actual = data.supplement?.get(0)?.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.supplement?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1010",
+            actual = data.supplement?.get(0)?.type?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult diabetic formula",
+            actual = data.supplement?.get(0)?.type?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/supplement-type-codes",
+            actual = data.supplement?.get(0)?.type?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult diabetic formula",
+            actual = data.supplement?.get(0)?.type?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -230,220 +307,318 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Cashew Nuts",
-            data.allergyIntolerance?.get(0)?.display
-        )
-        assertEquals(
-            "AllergyIntolerance/example",
-            data.allergyIntolerance?.get(0)?.reference
-        )
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "Acme Lipid Additive",
-            data.enteralFormula?.additiveProductName
-        )
-        assertEquals(
-            "lipid",
-            data.enteralFormula?.additiveType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Lipid",
-            data.enteralFormula?.additiveType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/entformula-additive",
-            data.enteralFormula?.additiveType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mL",
-            data.enteralFormula?.administration?.get(0)?.quantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.administration?.get(0)?.quantity?.system
-        )
-        assertEquals(
-            "milliliters",
-            data.enteralFormula?.administration?.get(0)?.quantity?.unit
-        )
-        assertEquals(
-            "240".toDouble(),
-            data.enteralFormula?.administration?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "2014-09-17T16:00:00Z",
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "1".toLong(),
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "4".toDouble(),
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.period?.value
-        )
-        assertEquals(
-            "h",
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.periodUnit
-        )
-        assertEquals(
-            "240 mls every 4hrs ",
-            data.enteralFormula?.administrationInstruction
-        )
-        assertEquals(
-            "Acme High Protein Formula",
-            data.enteralFormula?.baseFormulaProductName
-        )
-        assertEquals(
-            "442991000124104",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Adult high protein formula",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "cal/mL",
-            data.enteralFormula?.caloricDensity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.caloricDensity?.system
-        )
-        assertEquals(
-            "calories per milliliter",
-            data.enteralFormula?.caloricDensity?.unit
-        )
-        assertEquals(
-            "1.5".toDouble(),
-            data.enteralFormula?.caloricDensity?.value?.value
-        )
-        assertEquals(
-            "mL/d",
-            data.enteralFormula?.maxVolumeToDeliver?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.maxVolumeToDeliver?.system
-        )
-        assertEquals(
-            "milliliter/day",
-            data.enteralFormula?.maxVolumeToDeliver?.unit
-        )
-        assertEquals(
-            "1440".toDouble(),
-            data.enteralFormula?.maxVolumeToDeliver?.value?.value
-        )
-        assertEquals(
-            "GT",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Instillation, gastrostomy tube",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "227493005",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cashew Nut",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "20140730",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
-        )
-        assertEquals(
-            "dairy-free",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diet",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "enteralbolus",
-            data.id
-        )
-        assertEquals(
-            "http://www.acme.org/nutritionorders",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder02Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "Cashew Nuts",
+            actual = data.allergyIntolerance?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/example",
+            actual = data.allergyIntolerance?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Lipid Additive",
+            actual = data.enteralFormula?.additiveProductName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lipid",
+            actual = data.enteralFormula?.additiveType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lipid",
+            actual = data.enteralFormula?.additiveType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/entformula-additive",
+            actual = data.enteralFormula?.additiveType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL",
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "milliliters",
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "240".toDouble(),
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "2014-09-17T16:00:00Z",
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "4".toDouble(),
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "h",
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "240 mls every 4hrs ",
+            actual = data.enteralFormula?.administrationInstruction
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme High Protein Formula",
+            actual = data.enteralFormula?.baseFormulaProductName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "442991000124104",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult high protein formula",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "cal/mL",
+            actual = data.enteralFormula?.caloricDensity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.caloricDensity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "calories per milliliter",
+            actual = data.enteralFormula?.caloricDensity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.5".toDouble(),
+            actual = data.enteralFormula?.caloricDensity?.value?.value
+        )
+
+        assertEquals(
+            expected = "mL/d",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "milliliter/day",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1440".toDouble(),
+            actual = data.enteralFormula?.maxVolumeToDeliver?.value?.value
+        )
+
+        assertEquals(
+            expected = "GT",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Instillation, gastrostomy tube",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "227493005",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cashew Nut",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20140730",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dairy-free",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diet",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "enteralbolus",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.acme.org/nutritionorders",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -455,208 +630,302 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Cashew Nuts",
-            data.allergyIntolerance?.get(0)?.display
-        )
-        assertEquals(
-            "AllergyIntolerance/example",
-            data.allergyIntolerance?.get(0)?.reference
-        )
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "227493005",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cashew Nut",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "20140730",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
-        )
-        assertEquals(
-            "dairy-free",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diet",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "fiberrestricteddiet",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/nutrition-requests",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "g",
-            data.oralDiet?.nutrient?.get(0)?.amount?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.oralDiet?.nutrient?.get(0)?.amount?.system
-        )
-        assertEquals(
-            "grams",
-            data.oralDiet?.nutrient?.get(0)?.amount?.unit
-        )
-        assertEquals(
-            "50".toDouble(),
-            data.oralDiet?.nutrient?.get(0)?.amount?.value?.value
-        )
-        assertEquals(
-            "256674009",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Fat",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-02-10",
-            data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "3".toLong(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
-        )
-        assertEquals(
-            "d",
-            data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
-        )
-        assertEquals(
-            "15108003",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Restricted fiber diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1000",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Fiber restricted",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Fiber restricted diet",
-            data.oralDiet?.type?.get(0)?.text
-        )
-        assertEquals(
-            "16208003",
-            data.oralDiet?.type?.get(1)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Low fat diet",
-            data.oralDiet?.type?.get(1)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(1)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1100",
-            data.oralDiet?.type?.get(1)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Low Fat",
-            data.oralDiet?.type?.get(1)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(1)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Low fat diet",
-            data.oralDiet?.type?.get(1)?.text
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder03Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "Cashew Nuts",
+            actual = data.allergyIntolerance?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/example",
+            actual = data.allergyIntolerance?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "227493005",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cashew Nut",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20140730",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dairy-free",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diet",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fiberrestricteddiet",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/nutrition-requests",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "grams",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toDouble(),
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "256674009",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fat",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-10",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15108003",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Restricted fiber diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1000",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiber restricted",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fiber restricted diet",
+            actual = data.oralDiet?.type?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "16208003",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Low fat diet",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1100",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Low Fat",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Low fat diet",
+            actual = data.oralDiet?.type?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -668,144 +937,207 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "texturemodified",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/nutrition-requests",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2015-02-10",
-            data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "3".toLong(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
-        )
-        assertEquals(
-            "d",
-            data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
-        )
-        assertEquals(
-            "28647000",
-            data.oralDiet?.texture?.get(0)?.foodType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Meat",
-            data.oralDiet?.texture?.get(0)?.foodType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.texture?.get(0)?.foodType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Regular, Chopped Meat",
-            data.oralDiet?.texture?.get(0)?.foodType?.text
-        )
-        assertEquals(
-            "228049004",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chopped food",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Regular, Chopped Meat",
-            data.oralDiet?.texture?.get(0)?.modifier?.text
-        )
-        assertEquals(
-            "435801000124108",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Texture modified diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1010",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Texture modified diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Texture modified diet",
-            data.oralDiet?.type?.get(0)?.text
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder04Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "texturemodified",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/nutrition-requests",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-10",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "28647000",
+            actual = data.oralDiet?.texture?.get(0)?.foodType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Meat",
+            actual = data.oralDiet?.texture?.get(0)?.foodType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.texture?.get(0)?.foodType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Regular, Chopped Meat",
+            actual = data.oralDiet?.texture?.get(0)?.foodType?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "228049004",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chopped food",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Regular, Chopped Meat",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "435801000124108",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Texture modified diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1010",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Texture modified diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Texture modified diet",
+            actual = data.oralDiet?.type?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -817,180 +1149,261 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "pureeddiet-simple",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/nutrition-requests",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "439021000124105",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Dietary liquid consistency - nectar thick liquid",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Nectar thick liquids",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.text
-        )
-        assertEquals(
-            "2015-02-10",
-            data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "3".toLong(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
-        )
-        assertEquals(
-            "d",
-            data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
-        )
-        assertEquals(
-            "228055009",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Liquidized food",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Pureed",
-            data.oralDiet?.texture?.get(0)?.modifier?.text
-        )
-        assertEquals(
-            "226211001",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Pureed diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1010",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Pureed diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Pureed diet",
-            data.oralDiet?.type?.get(0)?.text
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Ensure Pudding at breakfast, lunch, supper",
-            data.supplement?.get(0)?.instruction
-        )
-        assertEquals(
-            "Ensure Pudding 4 oz container",
-            data.supplement?.get(0)?.productName
-        )
-        assertEquals(
-            "442971000124100",
-            data.supplement?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Adult high energy formula",
-            data.supplement?.get(0)?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.supplement?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1040",
-            data.supplement?.get(0)?.type?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Adult high energy pudding",
-            data.supplement?.get(0)?.type?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/supplement-type-codes",
-            data.supplement?.get(0)?.type?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Adult high energy pudding",
-            data.supplement?.get(0)?.type?.text
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder05Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "pureeddiet-simple",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/nutrition-requests",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "439021000124105",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dietary liquid consistency - nectar thick liquid",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nectar thick liquids",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-10",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "228055009",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Liquidized food",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "226211001",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1010",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed diet",
+            actual = data.oralDiet?.type?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Ensure Pudding at breakfast, lunch, supper",
+            actual = data.supplement?.get(0)?.instruction
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ensure Pudding 4 oz container",
+            actual = data.supplement?.get(0)?.productName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "442971000124100",
+            actual = data.supplement?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult high energy formula",
+            actual = data.supplement?.get(0)?.type?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.supplement?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1040",
+            actual = data.supplement?.get(0)?.type?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult high energy pudding",
+            actual = data.supplement?.get(0)?.type?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/supplement-type-codes",
+            actual = data.supplement?.get(0)?.type?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Adult high energy pudding",
+            actual = data.supplement?.get(0)?.type?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1002,192 +1415,275 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "Acme High Carbohydrate Additive",
-            data.enteralFormula?.additiveProductName
-        )
-        assertEquals(
-            "carbohydrate",
-            data.enteralFormula?.additiveType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Carbohydrate",
-            data.enteralFormula?.additiveType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/entformula-additive",
-            data.enteralFormula?.additiveType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "[foz_us]",
-            data.enteralFormula?.administration?.get(0)?.quantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.administration?.get(0)?.quantity?.system
-        )
-        assertEquals(
-            "ounces",
-            data.enteralFormula?.administration?.get(0)?.quantity?.unit
-        )
-        assertEquals(
-            "4".toDouble(),
-            data.enteralFormula?.administration?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "2014-09-17",
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "1".toLong(),
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "3".toDouble(),
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.period?.value
-        )
-        assertEquals(
-            "h",
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.periodUnit
-        )
-        assertEquals(
-            "Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz.",
-            data.enteralFormula?.administrationInstruction
-        )
-        assertEquals(
-            "Acme Infant Formula + Iron",
-            data.enteralFormula?.baseFormulaProductName
-        )
-        assertEquals(
-            "412414007",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "infant formula + iron",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "cal/[foz_us]",
-            data.enteralFormula?.caloricDensity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.caloricDensity?.system
-        )
-        assertEquals(
-            "calories per ounce",
-            data.enteralFormula?.caloricDensity?.unit
-        )
-        assertEquals(
-            "20".toDouble(),
-            data.enteralFormula?.caloricDensity?.value?.value
-        )
-        assertEquals(
-            "[foz_us]",
-            data.enteralFormula?.maxVolumeToDeliver?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.maxVolumeToDeliver?.system
-        )
-        assertEquals(
-            "ounces",
-            data.enteralFormula?.maxVolumeToDeliver?.unit
-        )
-        assertEquals(
-            "32".toDouble(),
-            data.enteralFormula?.maxVolumeToDeliver?.value?.value
-        )
-        assertEquals(
-            "PO",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Swallow, oral",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.userSelected?.value
-        )
-        assertEquals(
-            "infantenteral",
-            data.id
-        )
-        assertEquals(
-            "http://www.acme.org/nutritionorders",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder06Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme High Carbohydrate Additive",
+            actual = data.enteralFormula?.additiveProductName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "carbohydrate",
+            actual = data.enteralFormula?.additiveType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Carbohydrate",
+            actual = data.enteralFormula?.additiveType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/entformula-additive",
+            actual = data.enteralFormula?.additiveType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[foz_us]",
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ounces",
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4".toDouble(),
+            actual = data.enteralFormula?.administration?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "3".toDouble(),
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "h",
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz.",
+            actual = data.enteralFormula?.administrationInstruction
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Infant Formula + Iron",
+            actual = data.enteralFormula?.baseFormulaProductName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "412414007",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "infant formula + iron",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "cal/[foz_us]",
+            actual = data.enteralFormula?.caloricDensity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.caloricDensity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "calories per ounce",
+            actual = data.enteralFormula?.caloricDensity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20".toDouble(),
+            actual = data.enteralFormula?.caloricDensity?.value?.value
+        )
+
+        assertEquals(
+            expected = "[foz_us]",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ounces",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "32".toDouble(),
+            actual = data.enteralFormula?.maxVolumeToDeliver?.value?.value
+        )
+
+        assertEquals(
+            expected = "PO",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Swallow, oral",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.userSelected?.value
+        )
+
+        assertEquals(
+            expected = "infantenteral",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.acme.org/nutritionorders",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1199,200 +1695,286 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "mL/h",
-            data.enteralFormula?.administration?.get(0)?.rateQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.administration?.get(0)?.rateQuantity?.system
-        )
-        assertEquals(
-            "ml/hr",
-            data.enteralFormula?.administration?.get(0)?.rateQuantity?.unit
-        )
-        assertEquals(
-            "60".toDouble(),
-            data.enteralFormula?.administration?.get(0)?.rateQuantity?.value?.value
-        )
-        assertEquals(
-            "2014-09-17T07:00:00Z",
-            data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "mL/h",
-            data.enteralFormula?.administration?.get(1)?.rateQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.administration?.get(1)?.rateQuantity?.system
-        )
-        assertEquals(
-            "ml/hr",
-            data.enteralFormula?.administration?.get(1)?.rateQuantity?.unit
-        )
-        assertEquals(
-            "80".toDouble(),
-            data.enteralFormula?.administration?.get(1)?.rateQuantity?.value?.value
-        )
-        assertEquals(
-            "2014-09-17T11:00:00Z",
-            data.enteralFormula?.administration?.get(1)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "mL/h",
-            data.enteralFormula?.administration?.get(2)?.rateQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.administration?.get(2)?.rateQuantity?.system
-        )
-        assertEquals(
-            "ml/hr",
-            data.enteralFormula?.administration?.get(2)?.rateQuantity?.unit
-        )
-        assertEquals(
-            "100".toDouble(),
-            data.enteralFormula?.administration?.get(2)?.rateQuantity?.value?.value
-        )
-        assertEquals(
-            "2014-09-17T15:00:00Z",
-            data.enteralFormula?.administration?.get(2)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL",
-            data.enteralFormula?.administrationInstruction
-        )
-        assertEquals(
-            " Acme Diabetes Formula",
-            data.enteralFormula?.baseFormulaProductName
-        )
-        assertEquals(
-            "6547210000124112",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Diabetic specialty enteral formula",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.enteralFormula?.baseFormulaType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "cal/mL",
-            data.enteralFormula?.caloricDensity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.caloricDensity?.system
-        )
-        assertEquals(
-            "calories per milliliter",
-            data.enteralFormula?.caloricDensity?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.enteralFormula?.caloricDensity?.value?.value
-        )
-        assertEquals(
-            "mL/d",
-            data.enteralFormula?.maxVolumeToDeliver?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.enteralFormula?.maxVolumeToDeliver?.system
-        )
-        assertEquals(
-            "milliliter/day",
-            data.enteralFormula?.maxVolumeToDeliver?.unit
-        )
-        assertEquals(
-            "880".toDouble(),
-            data.enteralFormula?.maxVolumeToDeliver?.value?.value
-        )
-        assertEquals(
-            "NGT",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Instillation, nasogastric tube",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
-            data.enteralFormula?.routeofAdministration?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "enteralcontinuous",
-            data.id
-        )
-        assertEquals(
-            "http://www.acme.org/nutritionorders",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder07Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL/h",
+            actual = data.enteralFormula?.administration?.get(0)?.rateQuantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.administration?.get(0)?.rateQuantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ml/hr",
+            actual = data.enteralFormula?.administration?.get(0)?.rateQuantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "60".toDouble(),
+            actual = data.enteralFormula?.administration?.get(0)?.rateQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "2014-09-17T07:00:00Z",
+            actual = data.enteralFormula?.administration?.get(0)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "mL/h",
+            actual = data.enteralFormula?.administration?.get(1)?.rateQuantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.administration?.get(1)?.rateQuantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ml/hr",
+            actual = data.enteralFormula?.administration?.get(1)?.rateQuantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "80".toDouble(),
+            actual = data.enteralFormula?.administration?.get(1)?.rateQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "2014-09-17T11:00:00Z",
+            actual = data.enteralFormula?.administration?.get(1)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "mL/h",
+            actual = data.enteralFormula?.administration?.get(2)?.rateQuantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.administration?.get(2)?.rateQuantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ml/hr",
+            actual = data.enteralFormula?.administration?.get(2)?.rateQuantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toDouble(),
+            actual = data.enteralFormula?.administration?.get(2)?.rateQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "2014-09-17T15:00:00Z",
+            actual = data.enteralFormula?.administration?.get(2)?.schedule?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL",
+            actual = data.enteralFormula?.administrationInstruction
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = " Acme Diabetes Formula",
+            actual = data.enteralFormula?.baseFormulaProductName
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6547210000124112",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Diabetic specialty enteral formula",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.enteralFormula?.baseFormulaType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "cal/mL",
+            actual = data.enteralFormula?.caloricDensity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.caloricDensity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "calories per milliliter",
+            actual = data.enteralFormula?.caloricDensity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.enteralFormula?.caloricDensity?.value?.value
+        )
+
+        assertEquals(
+            expected = "mL/d",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "milliliter/day",
+            actual = data.enteralFormula?.maxVolumeToDeliver?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "880".toDouble(),
+            actual = data.enteralFormula?.maxVolumeToDeliver?.value?.value
+        )
+
+        assertEquals(
+            expected = "NGT",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Instillation, nasogastric tube",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+            actual = data.enteralFormula?.routeofAdministration?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "enteralcontinuous",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.acme.org/nutritionorders",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1404,224 +1986,328 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Cashew Nuts",
-            data.allergyIntolerance?.get(0)?.display
-        )
-        assertEquals(
-            "AllergyIntolerance/example",
-            data.allergyIntolerance?.get(0)?.reference
-        )
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "227493005",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cashew Nut",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "20140730",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
-        )
-        assertEquals(
-            "dairy-free",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diet",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "cardiacdiet",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/nutrition-requests",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Starting on 2/10 breakfast, maximum 400 ml fluids per meal",
-            data.oralDiet?.instruction
-        )
-        assertEquals(
-            "g",
-            data.oralDiet?.nutrient?.get(0)?.amount?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.oralDiet?.nutrient?.get(0)?.amount?.system
-        )
-        assertEquals(
-            "grams",
-            data.oralDiet?.nutrient?.get(0)?.amount?.unit
-        )
-        assertEquals(
-            "2".toDouble(),
-            data.oralDiet?.nutrient?.get(0)?.amount?.value?.value
-        )
-        assertEquals(
-            "39972003",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Sodium",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mL",
-            data.oralDiet?.nutrient?.get(1)?.amount?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.oralDiet?.nutrient?.get(1)?.amount?.system
-        )
-        assertEquals(
-            "milliliter",
-            data.oralDiet?.nutrient?.get(1)?.amount?.unit
-        )
-        assertEquals(
-            "1500".toDouble(),
-            data.oralDiet?.nutrient?.get(1)?.amount?.value?.value
-        )
-        assertEquals(
-            "33463005",
-            data.oralDiet?.nutrient?.get(1)?.modifier?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Fluid",
-            data.oralDiet?.nutrient?.get(1)?.modifier?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.nutrient?.get(1)?.modifier?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "386619000",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Low sodium diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1040",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Low Sodium Diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Low sodium diet",
-            data.oralDiet?.type?.get(0)?.text
-        )
-        assertEquals(
-            "226208002",
-            data.oralDiet?.type?.get(1)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Fluid restricted diet",
-            data.oralDiet?.type?.get(1)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(1)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1040",
-            data.oralDiet?.type?.get(1)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Fluid restricted diet",
-            data.oralDiet?.type?.get(1)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(1)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Fluid restricted diet",
-            data.oralDiet?.type?.get(1)?.text
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder08Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "Cashew Nuts",
+            actual = data.allergyIntolerance?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/example",
+            actual = data.allergyIntolerance?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "227493005",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cashew Nut",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20140730",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dairy-free",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diet",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "cardiacdiet",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/nutrition-requests",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Starting on 2/10 breakfast, maximum 400 ml fluids per meal",
+            actual = data.oralDiet?.instruction
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "grams",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toDouble(),
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "39972003",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sodium",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL",
+            actual = data.oralDiet?.nutrient?.get(1)?.amount?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.oralDiet?.nutrient?.get(1)?.amount?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "milliliter",
+            actual = data.oralDiet?.nutrient?.get(1)?.amount?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1500".toDouble(),
+            actual = data.oralDiet?.nutrient?.get(1)?.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "33463005",
+            actual = data.oralDiet?.nutrient?.get(1)?.modifier?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fluid",
+            actual = data.oralDiet?.nutrient?.get(1)?.modifier?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.nutrient?.get(1)?.modifier?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "386619000",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Low sodium diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1040",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Low Sodium Diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Low sodium diet",
+            actual = data.oralDiet?.type?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "226208002",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fluid restricted diet",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1040",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fluid restricted diet",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(1)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fluid restricted diet",
+            actual = data.oralDiet?.type?.get(1)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1633,184 +2319,267 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Cashew Nuts",
-            data.allergyIntolerance?.get(0)?.display
-        )
-        assertEquals(
-            "AllergyIntolerance/example",
-            data.allergyIntolerance?.get(0)?.reference
-        )
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "227493005",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cashew Nut",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "20140730",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
-        )
-        assertEquals(
-            "dairy-free",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diet",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "pureeddiet",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/nutrition-requests",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "439021000124105",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Dietary liquid consistency - nectar thick liquid",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Nectar thick liquids",
-            data.oralDiet?.fluidConsistencyType?.get(0)?.text
-        )
-        assertEquals(
-            "2015-02-10",
-            data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "3".toLong(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
-        )
-        assertEquals(
-            "d",
-            data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
-        )
-        assertEquals(
-            "228055009",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Liquidized food",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Pureed",
-            data.oralDiet?.texture?.get(0)?.modifier?.text
-        )
-        assertEquals(
-            "226211001",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Pureed diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1010",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Pureed diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "Pureed diet",
-            data.oralDiet?.type?.get(0)?.text
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder09Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "Cashew Nuts",
+            actual = data.allergyIntolerance?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/example",
+            actual = data.allergyIntolerance?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "227493005",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cashew Nut",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20140730",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dairy-free",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diet",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "pureeddiet",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/nutrition-requests",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "439021000124105",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dietary liquid consistency - nectar thick liquid",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nectar thick liquids",
+            actual = data.oralDiet?.fluidConsistencyType?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-10",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "228055009",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Liquidized food",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed",
+            actual = data.oralDiet?.texture?.get(0)?.modifier?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "226211001",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1010",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pureed diet",
+            actual = data.oralDiet?.type?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1822,179 +2591,259 @@ class NutritionOrderTest {
         val data = parser.toFhir(NutritionOrder::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Cashew Nuts",
-            data.allergyIntolerance?.get(0)?.display
-        )
-        assertEquals(
-            "AllergyIntolerance/example",
-            data.allergyIntolerance?.get(0)?.reference
-        )
-        assertEquals(
-            "2014-09-17",
-            data.dateTime?.value.toString()
-        )
-        assertEquals(
-            "Inpatient",
-            data.encounter?.display
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "227493005",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cashew Nut",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "20140730",
-            data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
-        )
-        assertEquals(
-            "dairy-free",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diet",
-            data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "diabeticdiet",
-            data.id
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/nutrition-requests",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "g",
-            data.oralDiet?.nutrient?.get(0)?.amount?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.oralDiet?.nutrient?.get(0)?.amount?.system
-        )
-        assertEquals(
-            "grams",
-            data.oralDiet?.nutrient?.get(0)?.amount?.unit
-        )
-        assertEquals(
-            "75".toDouble(),
-            data.oralDiet?.nutrient?.get(0)?.amount?.value?.value
-        )
-        assertEquals(
-            "2331003",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Carbohydrate",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-02-10",
-            data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "3".toLong(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
-        )
-        assertEquals(
-            "d",
-            data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
-        )
-        assertEquals(
-            "160670007",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Diabetic diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1030",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "DD - Diabetic diet",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://goodhealthhospital.org/diet-type-codes",
-            data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "DD - Diabetic diet",
-            data.oralDiet?.type?.get(0)?.text
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.orderer?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.orderer?.reference
-        )
-        assertEquals(
-            "Peter Chalmers",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertNutritionOrder10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertNutritionOrder10Step01(data: NutritionOrder) {
+
+        assertEquals(
+            expected = "Cashew Nuts",
+            actual = data.allergyIntolerance?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/example",
+            actual = data.allergyIntolerance?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-17",
+            actual = data.dateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Inpatient",
+            actual = data.encounter?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "227493005",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cashew Nut",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20140730",
+            actual = data.excludeFoodModifier?.get(0)?.coding?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dairy-free",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diet",
+            actual = data.foodPreferenceModifier?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "diabeticdiet",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/nutrition-requests",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "g",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "grams",
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "75".toDouble(),
+            actual = data.oralDiet?.nutrient?.get(0)?.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "2331003",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Carbohydrate",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.nutrient?.get(0)?.modifier?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-02-10",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.boundsPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3".toLong(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.frequency?.value
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.period?.value
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.oralDiet?.schedule?.get(0)?.repeat?.periodUnit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "160670007",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Diabetic diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1030",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DD - Diabetic diet",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://goodhealthhospital.org/diet-type-codes",
+            actual = data.oralDiet?.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DD - Diabetic diet",
+            actual = data.oralDiet?.type?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.orderer?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.orderer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Chalmers",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

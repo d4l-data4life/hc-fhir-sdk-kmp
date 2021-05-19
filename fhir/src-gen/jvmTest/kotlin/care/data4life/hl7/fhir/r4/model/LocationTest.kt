@@ -52,160 +52,224 @@ class LocationTest {
         val data = parser.toFhir(Location::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Den Burg",
-            data.address?.city
-        )
-        assertEquals(
-            "NLD",
-            data.address?.country
-        )
-        assertEquals(
-            "Galapagosweg 91, Building A",
-            data.address?.line?.get(0)
-        )
-        assertEquals(
-            "9105 PZ",
-            data.address?.postalCode
-        )
-        assertEquals(
-            AddressUse.WORK,
-            data.address?.use
-        )
-        assertEquals(
-            "BU MC, SW, F2",
-            data.alias?.get(0)
-        )
-        assertEquals(
-            "Burgers University Medical Center, South Wing, second floor",
-            data.alias?.get(1)
-        )
-        assertEquals(
-            "Second floor of the Old South Wing, formerly in use by Psychiatry",
-            data.description
-        )
-        assertEquals(
-            "Endpoint/example",
-            data.endpoint?.get(0)?.reference
-        )
-        assertEquals(
-            "1",
-            data.id
-        )
-        assertEquals(
-            "B1-S.F2",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/f001",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            LocationMode.INSTANCE,
-            data.mode
-        )
-        assertEquals(
-            "South Wing, second floor",
-            data.name
-        )
-        assertEquals(
-            "wi",
-            data.physicalType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Wing",
-            data.physicalType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/location-physical-type",
-            data.physicalType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "0".toDouble(),
-            data.position?.altitude?.value
-        )
-        assertEquals(
-            "42.25475478".toDouble(),
-            data.position?.latitude?.value
-        )
-        assertEquals(
-            "-83.6945691".toDouble(),
-            data.position?.longitude?.value
-        )
-        assertEquals(
-            LocationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "2328",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.FAX,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "2329",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(2)?.system
-        )
-        assertEquals(
-            "second wing admissions",
-            data.telecom?.get(2)?.value
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.telecom?.get(3)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(3)?.use
-        )
-        assertEquals(
-            "http://sampleorg.com/southwing",
-            data.telecom?.get(3)?.value
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Burgers UMC, South Wing, second floor</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertLocation01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLocation01Step01(data: Location) {
+
+        assertEquals(
+            expected = "Den Burg",
+            actual = data.address?.city
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.address?.country
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Galapagosweg 91, Building A",
+            actual = data.address?.line?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9105 PZ",
+            actual = data.address?.postalCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.WORK,
+            actual = data.address?.use
+        )
+
+        assertEquals(
+            expected = "BU MC, SW, F2",
+            actual = data.alias?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Center, South Wing, second floor",
+            actual = data.alias?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Second floor of the Old South Wing, formerly in use by Psychiatry",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Endpoint/example",
+            actual = data.endpoint?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "B1-S.F2",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.managingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationMode.INSTANCE,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "South Wing, second floor",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "wi",
+            actual = data.physicalType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Wing",
+            actual = data.physicalType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            actual = data.physicalType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toDouble(),
+            actual = data.position?.altitude?.value
+        )
+
+        assertEquals(
+            expected = "42.25475478".toDouble(),
+            actual = data.position?.latitude?.value
+        )
+
+        assertEquals(
+            expected = "-83.6945691".toDouble(),
+            actual = data.position?.longitude?.value
+        )
+
+        assertEquals(
+            expected = LocationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "2328",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.FAX,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "2329",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(2)?.system
+        )
+
+        assertEquals(
+            expected = "second wing admissions",
+            actual = data.telecom?.get(2)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.telecom?.get(3)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(3)?.use
+        )
+
+        assertEquals(
+            expected = "http://sampleorg.com/southwing",
+            actual = data.telecom?.get(3)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Burgers UMC, South Wing, second floor</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -217,116 +281,168 @@ class LocationTest {
         val data = parser.toFhir(Location::class, sourceJson)
 
         // Then
-        assertEquals(
-            "South Wing OR 5",
-            data.alias?.get(0)
-        )
-        assertEquals(
-            "Main Wing OR 2",
-            data.alias?.get(1)
-        )
-        assertEquals(
-            "Old South Wing, Neuro Radiology Operation Room 1 on second floor",
-            data.description
-        )
-        assertEquals(
-            "2",
-            data.id
-        )
-        assertEquals(
-            "B1-S.F2.1.00",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/f001",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            LocationMode.INSTANCE,
-            data.mode
-        )
-        assertEquals(
-            "South Wing Neuro OR 1",
-            data.name
-        )
-        assertEquals(
-            "H",
-            data.operationalStatus?.code
-        )
-        assertEquals(
-            "Housekeeping",
-            data.operationalStatus?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0116",
-            data.operationalStatus?.system
-        )
-        assertEquals(
-            "Location/1",
-            data.partOf?.reference
-        )
-        assertEquals(
-            "ro",
-            data.physicalType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Room",
-            data.physicalType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/location-physical-type",
-            data.physicalType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            LocationStatus.SUSPENDED,
-            data.status
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "2329",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "RNEU",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Neuroradiology unit",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertLocation02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLocation02Step01(data: Location) {
+
+        assertEquals(
+            expected = "South Wing OR 5",
+            actual = data.alias?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Main Wing OR 2",
+            actual = data.alias?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Old South Wing, Neuro Radiology Operation Room 1 on second floor",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "B1-S.F2.1.00",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.managingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationMode.INSTANCE,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "South Wing Neuro OR 1",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "H",
+            actual = data.operationalStatus?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Housekeeping",
+            actual = data.operationalStatus?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0116",
+            actual = data.operationalStatus?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.partOf?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ro",
+            actual = data.physicalType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Room",
+            actual = data.physicalType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            actual = data.physicalType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationStatus.SUSPENDED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "2329",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "RNEU",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Neuroradiology unit",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -338,92 +454,131 @@ class LocationTest {
         val data = parser.toFhir(Location::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Ambulance provided by Burgers University Medical Center",
-            data.description
-        )
-        assertEquals(
-            "amb",
-            data.id
-        )
-        assertEquals(
-            "Organization/f001",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            LocationMode.KIND,
-            data.mode
-        )
-        assertEquals(
-            "BUMC Ambulance",
-            data.name
-        )
-        assertEquals(
-            "ve",
-            data.physicalType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vehicle",
-            data.physicalType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/location-physical-type",
-            data.physicalType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            LocationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.MOBILE,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "2329",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mobile Clinic</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "AMB",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Ambulance",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertLocation03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLocation03Step01(data: Location) {
+
+        assertEquals(
+            expected = "Ambulance provided by Burgers University Medical Center",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "amb",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.managingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationMode.KIND,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "BUMC Ambulance",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ve",
+            actual = data.physicalType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vehicle",
+            actual = data.physicalType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            actual = data.physicalType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.MOBILE,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "2329",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mobile Clinic</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "AMB",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ambulance",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -435,76 +590,109 @@ class LocationTest {
         val data = parser.toFhir(Location::class, sourceJson)
 
         // Then
-        assertEquals(
-            "All Pharmacies in the United Kingdom covered by the National Pharmacy Association",
-            data.description
-        )
-        assertEquals(
-            "ukp",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            LocationMode.KIND,
-            data.mode
-        )
-        assertEquals(
-            "UK Pharmacies",
-            data.name
-        )
-        assertEquals(
-            "jdn",
-            data.physicalType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Jurisdiction",
-            data.physicalType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/location-physical-type",
-            data.physicalType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            LocationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">UK Pharmacies</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "PHARM",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Pharmacy",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertLocation04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLocation04Step01(data: Location) {
+
+        assertEquals(
+            expected = "All Pharmacies in the United Kingdom covered by the National Pharmacy Association",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ukp",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationMode.KIND,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "UK Pharmacies",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "jdn",
+            actual = data.physicalType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Jurisdiction",
+            actual = data.physicalType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            actual = data.physicalType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">UK Pharmacies</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "PHARM",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pharmacy",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -516,80 +704,115 @@ class LocationTest {
         val data = parser.toFhir(Location::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Patient's Home",
-            data.description
-        )
-        assertEquals(
-            "ph",
-            data.id
-        )
-        assertEquals(
-            "Organization/f001",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            LocationMode.KIND,
-            data.mode
-        )
-        assertEquals(
-            "Patient's Home",
-            data.name
-        )
-        assertEquals(
-            "ho",
-            data.physicalType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "House",
-            data.physicalType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/location-physical-type",
-            data.physicalType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            LocationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient's Home</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "PTRES",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Patient's Residence",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertLocation05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLocation05Step01(data: Location) {
+
+        assertEquals(
+            expected = "Patient's Home",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ph",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.managingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationMode.KIND,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "Patient's Home",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ho",
+            actual = data.physicalType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "House",
+            actual = data.physicalType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            actual = data.physicalType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient's Home</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "PTRES",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient's Residence",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -601,123 +824,175 @@ class LocationTest {
         val data = parser.toFhir(Location::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Ann Arbor",
-            data.address?.city
-        )
-        assertEquals(
-            "USA",
-            data.address?.country
-        )
-        assertEquals(
-            "3300 Washtenaw Avenue, Suite 227",
-            data.address?.line?.get(0)
-        )
-        assertEquals(
-            "48104",
-            data.address?.postalCode
-        )
-        assertEquals(
-            "MI",
-            data.address?.state
-        )
-        assertEquals(
-            "HL7 Headquarters",
-            data.description
-        )
-        assertEquals(
-            "hl7",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            LocationMode.INSTANCE,
-            data.mode
-        )
-        assertEquals(
-            "Health Level Seven International",
-            data.name
-        )
-        assertEquals(
-            "bu",
-            data.physicalType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Building",
-            data.physicalType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/location-physical-type",
-            data.physicalType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "-83.69471".toDouble(),
-            data.position?.latitude?.value
-        )
-        assertEquals(
-            "42.2565".toDouble(),
-            data.position?.longitude?.value
-        )
-        assertEquals(
-            LocationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "(+1) 734-677-7777",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.FAX,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            "(+1) 734-677-6622",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(2)?.system
-        )
-        assertEquals(
-            "hq@HL7.org",
-            data.telecom?.get(2)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "SLEEP",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Sleep disorders unit",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertLocation06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertLocation06Step01(data: Location) {
+
+        assertEquals(
+            expected = "Ann Arbor",
+            actual = data.address?.city
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USA",
+            actual = data.address?.country
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3300 Washtenaw Avenue, Suite 227",
+            actual = data.address?.line?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "48104",
+            actual = data.address?.postalCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MI",
+            actual = data.address?.state
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 Headquarters",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "hl7",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = LocationMode.INSTANCE,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "Health Level Seven International",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "bu",
+            actual = data.physicalType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Building",
+            actual = data.physicalType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            actual = data.physicalType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "-83.69471".toDouble(),
+            actual = data.position?.latitude?.value
+        )
+
+        assertEquals(
+            expected = "42.2565".toDouble(),
+            actual = data.position?.longitude?.value
+        )
+
+        assertEquals(
+            expected = LocationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "(+1) 734-677-7777",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.FAX,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = "(+1) 734-677-6622",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(2)?.system
+        )
+
+        assertEquals(
+            expected = "hq@HL7.org",
+            actual = data.telecom?.get(2)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "SLEEP",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sleep disorders unit",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

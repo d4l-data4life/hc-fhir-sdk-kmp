@@ -48,59 +48,85 @@ class ResearchSubjectTest {
         val data = parser.toFhir(ResearchSubject::class, sourceJson)
 
         // Then
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/studysubjectids",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "Subject id",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Patient/example",
-            data.individual?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ResearchSubjectStatus.CANDIDATE,
-            data.status
-        )
-        assertEquals(
-            "ResearchStudy/example",
-            data.study?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertResearchSubject01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertResearchSubject01Step01(data: ResearchSubject) {
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/studysubjectids",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Subject id",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResearchSubjectStatus.CANDIDATE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "ResearchStudy/example",
+            actual = data.study?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

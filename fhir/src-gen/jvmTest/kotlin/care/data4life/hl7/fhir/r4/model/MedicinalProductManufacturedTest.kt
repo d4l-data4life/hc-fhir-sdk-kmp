@@ -44,75 +44,109 @@ class MedicinalProductManufacturedTest {
         val data = parser.toFhir(MedicinalProductManufactured::class, sourceJson)
 
         // Then
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "MedicinalProductIngredient/example",
-            data.ingredient?.get(0)?.reference
-        )
-        assertEquals(
-            "Film-coatedtablet",
-            data.manufacturedDoseForm?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/manufactureddoseform",
-            data.manufacturedDoseForm?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/example",
-            data.manufacturer?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Pink",
-            data.physicalCharacteristics?.color?.get(0)
-        )
-        assertEquals(
-            "894",
-            data.physicalCharacteristics?.imprint?.get(0)
-        )
-        assertEquals(
-            "Oval",
-            data.physicalCharacteristics?.shape
-        )
-        assertEquals(
-            "1",
-            data.quantity?.unit
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.quantity?.value?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Tablet",
-            data.unitOfPresentation?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/unitofpresentation",
-            data.unitOfPresentation?.coding?.get(0)?.system
-        )
+        assertMedicinalProductManufactured01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductManufactured01Step01(data: MedicinalProductManufactured) {
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicinalProductIngredient/example",
+            actual = data.ingredient?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Film-coatedtablet",
+            actual = data.manufacturedDoseForm?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/manufactureddoseform",
+            actual = data.manufacturedDoseForm?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.manufacturer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pink",
+            actual = data.physicalCharacteristics?.color?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "894",
+            actual = data.physicalCharacteristics?.imprint?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Oval",
+            actual = data.physicalCharacteristics?.shape
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "10".toDouble(),
+            actual = data.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Tablet",
+            actual = data.unitOfPresentation?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/unitofpresentation",
+            actual = data.unitOfPresentation?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

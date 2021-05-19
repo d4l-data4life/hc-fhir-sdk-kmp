@@ -44,195 +44,281 @@ class MedicinalProductPackagedTest {
         val data = parser.toFhir(MedicinalProductPackaged::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2016-06-06",
-            data.batchIdentifier?.get(0)?.outerPackaging?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/baid1",
-            data.batchIdentifier?.get(0)?.outerPackaging?.system
-        )
-        assertEquals(
-            "AAF5699",
-            data.batchIdentifier?.get(0)?.outerPackaging?.value
-        )
-        assertEquals(
-            "ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS. ",
-            data.description
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/pcid",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "{PCID}",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/example",
-            data.packageItem?.get(0)?.manufacturer?.get(0)?.reference
-        )
-        assertEquals(
-            "PVC",
-            data.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/packageItemContainerMaterial",
-            data.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "PVDC",
-            data.packageItem?.get(0)?.material?.get(1)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/packageItemContainerMaterial",
-            data.packageItem?.get(0)?.material?.get(1)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "alu",
-            data.packageItem?.get(0)?.material?.get(2)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/packageItemContainerMaterial",
-            data.packageItem?.get(0)?.material?.get(2)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "MedicinalProductManufactured/example",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.manufacturedItem?.get(0)?.reference
-        )
-        assertEquals(
-            "Organization/example",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.manufacturer?.get(0)?.reference
-        )
-        assertEquals(
-            "Paperboard",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/packageItemContainerMaterial",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mm",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.height?.unit
-        )
-        assertEquals(
-            "125".toDouble(),
-            data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.height?.value?.value
-        )
-        assertEquals(
-            "mm",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.width?.unit
-        )
-        assertEquals(
-            "45".toDouble(),
-            data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.width?.value?.value
-        )
-        assertEquals(
-            "1",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.quantity?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.packageItem?.get(0)?.packageItem?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.period?.unit
-        )
-        assertEquals(
-            "3".toDouble(),
-            data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.period?.value?.value
-        )
-        assertEquals(
-            "Thismedicinalproductdoesnotrequireanyspecialstoragecondition.",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.specialPrecautionsForStorage?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/specialprecautionsforstorage",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.specialPrecautionsForStorage?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "ShelfLifeofPackagedMedicinalProduct",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/shelfLifeTypePlaceHolder",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Blister",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/packageitemcontainertype",
-            data.packageItem?.get(0)?.packageItem?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mm",
-            data.packageItem?.get(0)?.physicalCharacteristics?.depth?.unit
-        )
-        assertEquals(
-            "23.5".toDouble(),
-            data.packageItem?.get(0)?.physicalCharacteristics?.depth?.value?.value
-        )
-        assertEquals(
-            "mm",
-            data.packageItem?.get(0)?.physicalCharacteristics?.height?.unit
-        )
-        assertEquals(
-            "50".toDouble(),
-            data.packageItem?.get(0)?.physicalCharacteristics?.height?.value?.value
-        )
-        assertEquals(
-            "mm",
-            data.packageItem?.get(0)?.physicalCharacteristics?.width?.unit
-        )
-        assertEquals(
-            "136".toDouble(),
-            data.packageItem?.get(0)?.physicalCharacteristics?.width?.value?.value
-        )
-        assertEquals(
-            "1",
-            data.packageItem?.get(0)?.quantity?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.packageItem?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "Carton",
-            data.packageItem?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/packageitemcontainertype",
-            data.packageItem?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicinalProductPackaged01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductPackaged01Step01(data: MedicinalProductPackaged) {
+
+        assertEquals(
+            expected = "2016-06-06",
+            actual = data.batchIdentifier?.get(0)?.outerPackaging?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/baid1",
+            actual = data.batchIdentifier?.get(0)?.outerPackaging?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AAF5699",
+            actual = data.batchIdentifier?.get(0)?.outerPackaging?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS. ",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/pcid",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "{PCID}",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.packageItem?.get(0)?.manufacturer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PVC",
+            actual = data.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
+            actual = data.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PVDC",
+            actual = data.packageItem?.get(0)?.material?.get(1)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
+            actual = data.packageItem?.get(0)?.material?.get(1)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "alu",
+            actual = data.packageItem?.get(0)?.material?.get(2)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
+            actual = data.packageItem?.get(0)?.material?.get(2)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicinalProductManufactured/example",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.manufacturedItem?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.manufacturer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Paperboard",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mm",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.height?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125".toDouble(),
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.height?.value?.value
+        )
+
+        assertEquals(
+            expected = "mm",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.width?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "45".toDouble(),
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.width?.value?.value
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.period?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toDouble(),
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.period?.value?.value
+        )
+
+        assertEquals(
+            expected = "Thismedicinalproductdoesnotrequireanyspecialstoragecondition.",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.specialPrecautionsForStorage?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/specialprecautionsforstorage",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.specialPrecautionsForStorage?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ShelfLifeofPackagedMedicinalProduct",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/shelfLifeTypePlaceHolder",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blister",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/packageitemcontainertype",
+            actual = data.packageItem?.get(0)?.packageItem?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mm",
+            actual = data.packageItem?.get(0)?.physicalCharacteristics?.depth?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "23.5".toDouble(),
+            actual = data.packageItem?.get(0)?.physicalCharacteristics?.depth?.value?.value
+        )
+
+        assertEquals(
+            expected = "mm",
+            actual = data.packageItem?.get(0)?.physicalCharacteristics?.height?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toDouble(),
+            actual = data.packageItem?.get(0)?.physicalCharacteristics?.height?.value?.value
+        )
+
+        assertEquals(
+            expected = "mm",
+            actual = data.packageItem?.get(0)?.physicalCharacteristics?.width?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "136".toDouble(),
+            actual = data.packageItem?.get(0)?.physicalCharacteristics?.width?.value?.value
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.packageItem?.get(0)?.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.packageItem?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "Carton",
+            actual = data.packageItem?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/packageitemcontainertype",
+            actual = data.packageItem?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

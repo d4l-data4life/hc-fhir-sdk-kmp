@@ -49,156 +49,225 @@ class GoalTest {
         val data = parser.toFhir(Goal::class, sourceJson)
 
         // Then
-        assertEquals(
-            "obesity condition",
-            data.addresses?.get(0)?.display
-        )
-        assertEquals(
-            "dietary",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/goal-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Target weight is 160 to 180 lbs.",
-            data.description?.text
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.expressedBy?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.expressedBy?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            GoalLifecycleStatus.ON_HOLD,
-            data.lifecycleStatus
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Body Weight Measured",
-            data.outcomeReference?.get(0)?.display
-        )
-        assertEquals(
-            "Observation/example",
-            data.outcomeReference?.get(0)?.reference
-        )
-        assertEquals(
-            "high-priority",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "High Priority",
-            data.priority?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/goal-priority",
-            data.priority?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "high",
-            data.priority?.text
-        )
-        assertEquals(
-            "2015-04-05",
-            data.startDate?.value.toString()
-        )
-        assertEquals(
-            "2016-02-14",
-            data.statusDate?.value.toString()
-        )
-        assertEquals(
-            "Patient wants to defer weight loss until after honeymoon.",
-            data.statusReason
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "[lb_av]",
-            data.target?.get(0)?.detailRange?.high?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.target?.get(0)?.detailRange?.high?.system
-        )
-        assertEquals(
-            "lbs",
-            data.target?.get(0)?.detailRange?.high?.unit
-        )
-        assertEquals(
-            "180".toDouble(),
-            data.target?.get(0)?.detailRange?.high?.value?.value
-        )
-        assertEquals(
-            "[lb_av]",
-            data.target?.get(0)?.detailRange?.low?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.target?.get(0)?.detailRange?.low?.system
-        )
-        assertEquals(
-            "lbs",
-            data.target?.get(0)?.detailRange?.low?.unit
-        )
-        assertEquals(
-            "160".toDouble(),
-            data.target?.get(0)?.detailRange?.low?.value?.value
-        )
-        assertEquals(
-            "2016-04-05",
-            data.target?.get(0)?.dueDate?.value.toString()
-        )
-        assertEquals(
-            "3141-9",
-            data.target?.get(0)?.measure?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Weight Measured",
-            data.target?.get(0)?.measure?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.target?.get(0)?.measure?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertGoal01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertGoal01Step01(data: Goal) {
+
+        assertEquals(
+            expected = "obesity condition",
+            actual = data.addresses?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "dietary",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/goal-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Target weight is 160 to 180 lbs.",
+            actual = data.description?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.expressedBy?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.expressedBy?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = GoalLifecycleStatus.ON_HOLD,
+            actual = data.lifecycleStatus
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body Weight Measured",
+            actual = data.outcomeReference?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/example",
+            actual = data.outcomeReference?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "high-priority",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "High Priority",
+            actual = data.priority?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/goal-priority",
+            actual = data.priority?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "high",
+            actual = data.priority?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-04-05",
+            actual = data.startDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2016-02-14",
+            actual = data.statusDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Patient wants to defer weight loss until after honeymoon.",
+            actual = data.statusReason
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.target?.get(0)?.detailRange?.high?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.target?.get(0)?.detailRange?.high?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lbs",
+            actual = data.target?.get(0)?.detailRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "180".toDouble(),
+            actual = data.target?.get(0)?.detailRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.target?.get(0)?.detailRange?.low?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.target?.get(0)?.detailRange?.low?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lbs",
+            actual = data.target?.get(0)?.detailRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "160".toDouble(),
+            actual = data.target?.get(0)?.detailRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "2016-04-05",
+            actual = data.target?.get(0)?.dueDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3141-9",
+            actual = data.target?.get(0)?.measure?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Weight Measured",
+            actual = data.target?.get(0)?.measure?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.target?.get(0)?.measure?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -210,87 +279,126 @@ class GoalTest {
         val data = parser.toFhir(Goal::class, sourceJson)
 
         // Then
-        assertEquals(
-            "achieved",
-            data.achievementStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Achieved",
-            data.achievementStatus?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/goal-achievement",
-            data.achievementStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Achieved",
-            data.achievementStatus?.text
-        )
-        assertEquals(
-            "Stop smoking",
-            data.description?.text
-        )
-        assertEquals(
-            "stop-smoking",
-            data.id
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            GoalLifecycleStatus.COMPLETED,
-            data.lifecycleStatus
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "8517006",
-            data.outcomeCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Ex-smoker (finding)",
-            data.outcomeCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.outcomeCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Former smoker",
-            data.outcomeCode?.get(0)?.text
-        )
-        assertEquals(
-            "2015-04-05",
-            data.startDate?.value.toString()
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertGoal02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertGoal02Step01(data: Goal) {
+
+        assertEquals(
+            expected = "achieved",
+            actual = data.achievementStatus?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Achieved",
+            actual = data.achievementStatus?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/goal-achievement",
+            actual = data.achievementStatus?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Achieved",
+            actual = data.achievementStatus?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Stop smoking",
+            actual = data.description?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stop-smoking",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = GoalLifecycleStatus.COMPLETED,
+            actual = data.lifecycleStatus
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8517006",
+            actual = data.outcomeCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ex-smoker (finding)",
+            actual = data.outcomeCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.outcomeCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Former smoker",
+            actual = data.outcomeCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-04-05",
+            actual = data.startDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 }

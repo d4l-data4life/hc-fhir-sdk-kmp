@@ -51,40 +51,56 @@ class DetectedIssueTest {
         val data = parser.toFhir(DetectedIssue::class, sourceJson)
 
         // Then
-        assertEquals(
-            "allergy",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDetectedIssue01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDetectedIssue01Step01(data: DetectedIssue) {
+
+        assertEquals(
+            expected = "allergy",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -96,96 +112,138 @@ class DetectedIssueTest {
         val data = parser.toFhir(DetectedIssue::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Device/software",
-            data.author?.reference
-        )
-        assertEquals(
-            "DUPTHPY",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Duplicate Therapy Alert",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Similar test was performed within the past 14 days",
-            data.detail
-        )
-        assertEquals(
-            "duplicate",
-            data.id
-        )
-        assertEquals(
-            "2013-05-08",
-            data.identifiedDateTime?.value.toString()
-        )
-        assertEquals(
-            "http://example.org",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Chest CT - ordered May 8, 2013 by Dr. Adam Careful",
-            data.implicated?.get(0)?.display
-        )
-        assertEquals(
-            "ServiceRequest/di",
-            data.implicated?.get(0)?.reference
-        )
-        assertEquals(
-            "Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM",
-            data.implicated?.get(1)?.display
-        )
-        assertEquals(
-            "ImagingStudy/example",
-            data.implicated?.get(1)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/dicom",
-            data.patient?.reference
-        )
-        assertEquals(
-            "http://www.tmhp.com/RadiologyClinicalDecisionSupport/2011/CHEST%20IMAGING%20GUIDELINES%202011.pdf",
-            data.reference
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDetectedIssue02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDetectedIssue02Step01(data: DetectedIssue) {
+
+        assertEquals(
+            expected = "Device/software",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DUPTHPY",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Duplicate Therapy Alert",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Similar test was performed within the past 14 days",
+            actual = data.detail
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "duplicate",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-05-08",
+            actual = data.identifiedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://example.org",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chest CT - ordered May 8, 2013 by Dr. Adam Careful",
+            actual = data.implicated?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ServiceRequest/di",
+            actual = data.implicated?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM",
+            actual = data.implicated?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ImagingStudy/example",
+            actual = data.implicated?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/dicom",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.tmhp.com/RadiologyClinicalDecisionSupport/2011/CHEST%20IMAGING%20GUIDELINES%202011.pdf",
+            actual = data.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -197,104 +255,149 @@ class DetectedIssueTest {
         val data = parser.toFhir(DetectedIssue::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Device/software",
-            data.author?.reference
-        )
-        assertEquals(
-            "DRG",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Drug Interaction Alert",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "ddi",
-            data.id
-        )
-        assertEquals(
-            "2014-01-05",
-            data.identifiedDateTime?.value.toString()
-        )
-        assertEquals(
-            "500 mg Acetaminophen tablet 1/day, PRN since 2010",
-            data.implicated?.get(0)?.display
-        )
-        assertEquals(
-            "MedicationStatement/example001",
-            data.implicated?.get(0)?.reference
-        )
-        assertEquals(
-            "Warfarin 1 MG TAB prescribed Jan. 15, 2015",
-            data.implicated?.get(1)?.display
-        )
-        assertEquals(
-            "MedicationRequest/medrx0331",
-            data.implicated?.get(1)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "13",
-            data.mitigation?.get(0)?.action?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Stopped Concurrent Therapy",
-            data.mitigation?.get(0)?.action?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.mitigation?.get(0)?.action?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Asked patient to discontinue regular use of Tylenol and to consult with clinician if they need to resume to allow appropriate INR monitoring",
-            data.mitigation?.get(0)?.action?.text
-        )
-        assertEquals(
-            "Dr. Adam Careful",
-            data.mitigation?.get(0)?.author?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.mitigation?.get(0)?.author?.reference
-        )
-        assertEquals(
-            "2014-01-05",
-            data.mitigation?.get(0)?.date?.value.toString()
-        )
-        assertEquals(
-            DetectedIssueSeverity.HIGH,
-            data.severity
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDetectedIssue03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDetectedIssue03Step01(data: DetectedIssue) {
+
+        assertEquals(
+            expected = "Device/software",
+            actual = data.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DRG",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Drug Interaction Alert",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ddi",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-01-05",
+            actual = data.identifiedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "500 mg Acetaminophen tablet 1/day, PRN since 2010",
+            actual = data.implicated?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicationStatement/example001",
+            actual = data.implicated?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Warfarin 1 MG TAB prescribed Jan. 15, 2015",
+            actual = data.implicated?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MedicationRequest/medrx0331",
+            actual = data.implicated?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "13",
+            actual = data.mitigation?.get(0)?.action?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Stopped Concurrent Therapy",
+            actual = data.mitigation?.get(0)?.action?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.mitigation?.get(0)?.action?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Asked patient to discontinue regular use of Tylenol and to consult with clinician if they need to resume to allow appropriate INR monitoring",
+            actual = data.mitigation?.get(0)?.action?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr. Adam Careful",
+            actual = data.mitigation?.get(0)?.author?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.mitigation?.get(0)?.author?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-01-05",
+            actual = data.mitigation?.get(0)?.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = DetectedIssueSeverity.HIGH,
+            actual = data.severity
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -306,39 +409,55 @@ class DetectedIssueTest {
         val data = parser.toFhir(DetectedIssue::class, sourceJson)
 
         // Then
-        assertEquals(
-            "lab",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDetectedIssue04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDetectedIssue04Step01(data: DetectedIssue) {
+
+        assertEquals(
+            expected = "lab",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

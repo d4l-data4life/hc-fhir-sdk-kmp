@@ -50,84 +50,122 @@ class MeasureTest {
         val data = parser.toFhir(Measure::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Main",
-            data.group?.get(0)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Initial Population",
-            data.group?.get(0)?.population?.get(0)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(0)?.criteria?.language
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Denominator",
-            data.group?.get(0)?.population?.get(1)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(1)?.criteria?.language
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Numerator",
-            data.group?.get(0)?.population?.get(2)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(2)?.criteria?.language
-        )
-        assertEquals(
-            "component-b-example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "proportion",
-            data.scoring?.coding?.get(0)?.code
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Screening for Depression",
-            data.title
-        )
+        assertMeasure01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasure01Step01(data: Measure) {
+
+        assertEquals(
+            expected = "Main",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Initial Population",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Denominator",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Numerator",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "component-b-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "proportion",
+            actual = data.scoring?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Screening for Depression",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -139,244 +177,350 @@ class MeasureTest {
         val data = parser.toFhir(Measure::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2014-03-08",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns.",
-            data.description
-        )
-        assertEquals(
-            "PopulationGroup1",
-            data.group?.get(0)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "InitialPopulation1",
-            data.group?.get(0)?.population?.get(0)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(0)?.criteria?.language
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Denominator1",
-            data.group?.get(0)?.population?.get(1)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(1)?.criteria?.language
-        )
-        assertEquals(
-            "denominator-exclusions",
-            data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "DenominatorExclusions1",
-            data.group?.get(0)?.population?.get(2)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(2)?.criteria?.language
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Numerator1",
-            data.group?.get(0)?.population?.get(3)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(3)?.criteria?.language
-        )
-        assertEquals(
-            "PopulationGroup2",
-            data.group?.get(1)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "InitialPopulation2",
-            data.group?.get(1)?.population?.get(0)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(1)?.population?.get(0)?.criteria?.language
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Denominator2",
-            data.group?.get(1)?.population?.get(1)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(1)?.population?.get(1)?.criteria?.language
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "DenominatorExclusions2",
-            data.group?.get(1)?.population?.get(2)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(1)?.population?.get(2)?.criteria?.language
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Numerator2",
-            data.group?.get(1)?.population?.get(3)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(1)?.population?.get(3)?.criteria?.language
-        )
-        assertEquals(
-            "measure-predecessor-example",
-            data.id
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "exclusive-breastfeeding-measure",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "increase",
-            data.improvementNotation?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
-            data.improvementNotation?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Library/library-exclusive-breastfeeding-cqm-logic",
-            data.library?.get(0)
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Measure of newborns who were fed breast milk only since birth",
-            data.purpose
-        )
-        assertEquals(
-            "American Academy of Pediatrics. (2005). Section on Breastfeeding. Policy Statement:Breastfeeding and the Use of Human Milk. Pediatrics.115:496-506.",
-            data.relatedArtifact?.get(0)?.citation
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(2)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(3)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(4)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(5)?.type
-        )
-        assertEquals(
-            "Kramer, M.S. & Kakuma, R. (2002).Optimal duration of exclusive breastfeeding. [107 refs] Cochrane Database of Systematic Reviews. (1):CD003517.",
-            data.relatedArtifact?.get(6)?.citation
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(6)?.type
-        )
-        assertEquals(
-            "Petrova, A., Hegyi, T., & Mehta, R. (2007). Maternal race/ethnicity and one-month exclusive breastfeeding in association with the in-hospital feeding modality. Breastfeeding Medicine. 2(2):92-8.",
-            data.relatedArtifact?.get(7)?.citation
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(7)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(8)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(9)?.type
-        )
-        assertEquals(
-            "proportion",
-            data.scoring?.coding?.get(0)?.code
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Exclusive Breastfeeding Measure",
-            data.title
-        )
-        assertEquals(
-            "Exclusive Breastfeeding",
-            data.topic?.get(0)?.text
-        )
-        assertEquals(
-            "process",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "4.0.1",
-            data.version
-        )
+        assertMeasure02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasure02Step01(data: Measure) {
+
+        assertEquals(
+            expected = "2014-03-08",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PopulationGroup1",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "InitialPopulation1",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Denominator1",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusions",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DenominatorExclusions1",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Numerator1",
+            actual = data.group?.get(0)?.population?.get(3)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(3)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PopulationGroup2",
+            actual = data.group?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "InitialPopulation2",
+            actual = data.group?.get(1)?.population?.get(0)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(1)?.population?.get(0)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Denominator2",
+            actual = data.group?.get(1)?.population?.get(1)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(1)?.population?.get(1)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DenominatorExclusions2",
+            actual = data.group?.get(1)?.population?.get(2)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(1)?.population?.get(2)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Numerator2",
+            actual = data.group?.get(1)?.population?.get(3)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(1)?.population?.get(3)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measure-predecessor-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "exclusive-breastfeeding-measure",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "increase",
+            actual = data.improvementNotation?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+            actual = data.improvementNotation?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Library/library-exclusive-breastfeeding-cqm-logic",
+            actual = data.library?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Measure of newborns who were fed breast milk only since birth",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "American Academy of Pediatrics. (2005). Section on Breastfeeding. Policy Statement:Breastfeeding and the Use of Human Milk. Pediatrics.115:496-506.",
+            actual = data.relatedArtifact?.get(0)?.citation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(3)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(4)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(5)?.type
+        )
+
+        assertEquals(
+            expected = "Kramer, M.S. & Kakuma, R. (2002).Optimal duration of exclusive breastfeeding. [107 refs] Cochrane Database of Systematic Reviews. (1):CD003517.",
+            actual = data.relatedArtifact?.get(6)?.citation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(6)?.type
+        )
+
+        assertEquals(
+            expected = "Petrova, A., Hegyi, T., & Mehta, R. (2007). Maternal race/ethnicity and one-month exclusive breastfeeding in association with the in-hospital feeding modality. Breastfeeding Medicine. 2(2):92-8.",
+            actual = data.relatedArtifact?.get(7)?.citation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(7)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(8)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(9)?.type
+        )
+
+        assertEquals(
+            expected = "proportion",
+            actual = data.scoring?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Exclusive Breastfeeding Measure",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Exclusive Breastfeeding",
+            actual = data.topic?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "process",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -388,316 +532,456 @@ class MeasureTest {
         val data = parser.toFhir(Measure::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2016-01-01",
-            data.approvalDate?.value.toString()
-        )
-        assertEquals(
-            "National Committee for Quality Assurance",
-            data.author?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://www.ncqa.org/",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2017-03-10",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.",
-            data.description
-        )
-        assertEquals(
-            "2017-12-31",
-            data.effectivePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-01-01",
-            data.effectivePeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "CMS146-group-1",
-            data.group?.get(0)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "CMS146.InInitialPopulation",
-            data.group?.get(0)?.population?.get(0)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(0)?.criteria?.language
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "CMS146.InNumerator",
-            data.group?.get(0)?.population?.get(1)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(1)?.criteria?.language
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "CMS146.InDenominator",
-            data.group?.get(0)?.population?.get(2)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(2)?.criteria?.language
-        )
-        assertEquals(
-            "denominator-exclusion",
-            data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "CMS146.InDenominatorExclusions",
-            data.group?.get(0)?.population?.get(3)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(3)?.criteria?.language
-        )
-        assertEquals(
-            "stratifier-ages-up-to-9",
-            data.group?.get(0)?.stratifier?.get(0)?.code?.text
-        )
-        assertEquals(
-            "CMS146.AgesUpToNine",
-            data.group?.get(0)?.stratifier?.get(0)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.stratifier?.get(0)?.criteria?.language
-        )
-        assertEquals(
-            "stratifier-ages-10-plus",
-            data.group?.get(0)?.stratifier?.get(1)?.code?.text
-        )
-        assertEquals(
-            "CMS146.AgesTenPlus",
-            data.group?.get(0)?.stratifier?.get(1)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.stratifier?.get(1)?.criteria?.language
-        )
-        assertEquals(
-            "stratifier-gender",
-            data.group?.get(0)?.stratifier?.get(2)?.code?.text
-        )
-        assertEquals(
-            "Patient.gender",
-            data.group?.get(0)?.stratifier?.get(2)?.criteria?.expression
-        )
-        assertEquals(
-            "text/fhirpath",
-            data.group?.get(0)?.stratifier?.get(2)?.criteria?.language
-        )
-        assertEquals(
-            "This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure",
-            data.guidance
-        )
-        assertEquals(
-            "measure-cms146-example",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "146",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf",
-            data.identifier?.get(1)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(1)?.use
-        )
-        assertEquals(
-            "0002",
-            data.identifier?.get(1)?.value
-        )
-        assertEquals(
-            "increase",
-            data.improvementNotation?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
-            data.improvementNotation?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-09-01",
-            data.lastReviewDate?.value.toString()
-        )
-        assertEquals(
-            "Library/library-cms146-example",
-            data.library?.get(0)
-        )
-        assertEquals(
-            "CMS146",
-            data.name
-        )
-        assertEquals(
-            "National Committee for Quality Assurance",
-            data.publisher
-        )
-        assertEquals(
-            "Measure of children with a group A streptococcus test in the 7-day period from 3 days prior through 3 days after the diagnosis of pharyngitis",
-            data.purpose
-        )
-        assertEquals(
-            "Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. _Antibiotic treatment of children with sore throat._ JAMA 294(18):2315-2322. ",
-            data.relatedArtifact?.get(0)?.citation
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            "Infectious Diseases Society of America. 2012. _Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update._ ",
-            data.relatedArtifact?.get(1)?.citation
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            RelatedArtifactType.DOCUMENTATION,
-            data.relatedArtifact?.get(2)?.type
-        )
-        assertEquals(
-            "proportion",
-            data.scoring?.coding?.get(0)?.code
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "supplemental-data-gender",
-            data.supplementalData?.get(0)?.code?.text
-        )
-        assertEquals(
-            "Patient.gender",
-            data.supplementalData?.get(0)?.criteria?.expression
-        )
-        assertEquals(
-            "text/fhirpath",
-            data.supplementalData?.get(0)?.criteria?.language
-        )
-        assertEquals(
-            "supplemental-data-deceased",
-            data.supplementalData?.get(1)?.code?.text
-        )
-        assertEquals(
-            "deceasedBoolean",
-            data.supplementalData?.get(1)?.criteria?.expression
-        )
-        assertEquals(
-            "text/fhirpath",
-            data.supplementalData?.get(1)?.criteria?.language
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
-        assertEquals(
-            "Appropriate Testing for Children with Pharyngitis",
-            data.title
-        )
-        assertEquals(
-            "57024-2",
-            data.topic?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.topic?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "process",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/Measure/measure-cms146-example",
-            data.url
-        )
-        assertEquals(
-            "program",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "eligibile-provider",
-            data.useContext?.get(0)?.valueCodeableConcept?.text
-        )
-        assertEquals(
-            "age",
-            data.useContext?.get(1)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(1)?.code?.system
-        )
-        assertEquals(
-            "a",
-            data.useContext?.get(1)?.valueRange?.high?.unit
-        )
-        assertEquals(
-            "18".toDouble(),
-            data.useContext?.get(1)?.valueRange?.high?.value?.value
-        )
-        assertEquals(
-            "a",
-            data.useContext?.get(1)?.valueRange?.low?.unit
-        )
-        assertEquals(
-            "3".toDouble(),
-            data.useContext?.get(1)?.valueRange?.low?.value?.value
-        )
-        assertEquals(
-            "1.0.0",
-            data.version
-        )
+        assertMeasure03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasure03Step01(data: Measure) {
+
+        assertEquals(
+            expected = "2016-01-01",
+            actual = data.approvalDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "National Committee for Quality Assurance",
+            actual = data.author?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://www.ncqa.org/",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-10",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-12-31",
+            actual = data.effectivePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-01-01",
+            actual = data.effectivePeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "CMS146-group-1",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146.InInitialPopulation",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146.InNumerator",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146.InDenominator",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator-exclusion",
+            actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146.InDenominatorExclusions",
+            actual = data.group?.get(0)?.population?.get(3)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(3)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-up-to-9",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146.AgesUpToNine",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.stratifier?.get(0)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-ages-10-plus",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146.AgesTenPlus",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.stratifier?.get(1)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "stratifier-gender",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient.gender",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/fhirpath",
+            actual = data.group?.get(0)?.stratifier?.get(2)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure",
+            actual = data.guidance
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "measure-cms146-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "146",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf",
+            actual = data.identifier?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "0002",
+            actual = data.identifier?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "increase",
+            actual = data.improvementNotation?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+            actual = data.improvementNotation?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-09-01",
+            actual = data.lastReviewDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Library/library-cms146-example",
+            actual = data.library?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CMS146",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "National Committee for Quality Assurance",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Measure of children with a group A streptococcus test in the 7-day period from 3 days prior through 3 days after the diagnosis of pharyngitis",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. _Antibiotic treatment of children with sore throat._ JAMA 294(18):2315-2322. ",
+            actual = data.relatedArtifact?.get(0)?.citation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Infectious Diseases Society of America. 2012. _Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update._ ",
+            actual = data.relatedArtifact?.get(1)?.citation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.DOCUMENTATION,
+            actual = data.relatedArtifact?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = "proportion",
+            actual = data.scoring?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "supplemental-data-gender",
+            actual = data.supplementalData?.get(0)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient.gender",
+            actual = data.supplementalData?.get(0)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/fhirpath",
+            actual = data.supplementalData?.get(0)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "supplemental-data-deceased",
+            actual = data.supplementalData?.get(1)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "deceasedBoolean",
+            actual = data.supplementalData?.get(1)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/fhirpath",
+            actual = data.supplementalData?.get(1)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Appropriate Testing for Children with Pharyngitis",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57024-2",
+            actual = data.topic?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.topic?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "process",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Measure/measure-cms146-example",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "program",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "eligibile-provider",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "age",
+            actual = data.useContext?.get(1)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(1)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.useContext?.get(1)?.valueRange?.high?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "18".toDouble(),
+            actual = data.useContext?.get(1)?.valueRange?.high?.value?.value
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.useContext?.get(1)?.valueRange?.low?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3".toDouble(),
+            actual = data.useContext?.get(1)?.valueRange?.low?.value?.value
+        )
+
+        assertEquals(
+            expected = "1.0.0",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -709,84 +993,122 @@ class MeasureTest {
         val data = parser.toFhir(Measure::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Main",
-            data.group?.get(0)?.id
-        )
-        assertEquals(
-            "initial-population",
-            data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Initial Population",
-            data.group?.get(0)?.population?.get(0)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(0)?.criteria?.language
-        )
-        assertEquals(
-            "denominator",
-            data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Denominator",
-            data.group?.get(0)?.population?.get(1)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(1)?.criteria?.language
-        )
-        assertEquals(
-            "numerator",
-            data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Numerator",
-            data.group?.get(0)?.population?.get(2)?.criteria?.expression
-        )
-        assertEquals(
-            "text/cql",
-            data.group?.get(0)?.population?.get(2)?.criteria?.language
-        )
-        assertEquals(
-            "component-a-example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "proportion",
-            data.scoring?.coding?.get(0)?.code
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Screening for Alcohol Misuse",
-            data.title
-        )
+        assertMeasure04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasure04Step01(data: Measure) {
+
+        assertEquals(
+            expected = "Main",
+            actual = data.group?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "initial-population",
+            actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Initial Population",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "denominator",
+            actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Denominator",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "numerator",
+            actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Numerator",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "text/cql",
+            actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "component-a-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "proportion",
+            actual = data.scoring?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Screening for Alcohol Misuse",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -798,63 +1120,89 @@ class MeasureTest {
         val data = parser.toFhir(Measure::class, sourceJson)
 
         // Then
-        assertEquals(
-            "opportunity",
-            data.compositeScoring?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "composite-example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Measure/component-a-example",
-            data.relatedArtifact?.get(0)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(0)?.type
-        )
-        assertEquals(
-            "Measure/component-b-example",
-            data.relatedArtifact?.get(1)?.resource
-        )
-        assertEquals(
-            RelatedArtifactType.COMPOSED_OF,
-            data.relatedArtifact?.get(1)?.type
-        )
-        assertEquals(
-            "proportion",
-            data.scoring?.coding?.get(0)?.code
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Behavioral Assessment Composite Measure",
-            data.title
-        )
+        assertMeasure05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMeasure05Step01(data: Measure) {
+
+        assertEquals(
+            expected = "opportunity",
+            actual = data.compositeScoring?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "composite-example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Measure/component-a-example",
+            actual = data.relatedArtifact?.get(0)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Measure/component-b-example",
+            actual = data.relatedArtifact?.get(1)?.resource
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = RelatedArtifactType.COMPOSED_OF,
+            actual = data.relatedArtifact?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "proportion",
+            actual = data.scoring?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Behavioral Assessment Composite Measure",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
     }
 }

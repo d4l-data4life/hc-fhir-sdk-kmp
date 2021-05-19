@@ -48,124 +48,179 @@ class FamilyMemberHistoryTest {
         val data = parser.toFhir(FamilyMemberHistory::class, sourceJson)
 
         // Then
-        assertEquals(
-            "315619001",
-            data.condition?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Myocardial Infarction",
-            data.condition?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.condition?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Heart Attack",
-            data.condition?.get(0)?.code?.text
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.condition?.get(0)?.contributedToDeath?.value
-        )
-        assertEquals(
-            "Was fishing at the time. At least he went doing someting he loved.",
-            data.condition?.get(0)?.note?.get(0)?.text
-        )
-        assertEquals(
-            "a",
-            data.condition?.get(0)?.onsetAge?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.condition?.get(0)?.onsetAge?.system
-        )
-        assertEquals(
-            "yr",
-            data.condition?.get(0)?.onsetAge?.unit
-        )
-        assertEquals(
-            "74".toDouble(),
-            data.condition?.get(0)?.onsetAge?.value?.value
-        )
-        assertEquals(
-            "2011-03-18",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "father",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://example.org/family-member-history-questionnaire",
-            data.instantiatesUri?.get(0)
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Peter Patient",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "FTH",
-            data.relationship?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "father",
-            data.relationship?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.relationship?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "male",
-            data.sex?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Male",
-            data.sex?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/administrative-gender",
-            data.sex?.coding?.get(0)?.system
-        )
-        assertEquals(
-            FamilyHistoryStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Father died of a heart attack aged 74</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertFamilyMemberHistory01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertFamilyMemberHistory01Step01(data: FamilyMemberHistory) {
+
+        assertEquals(
+            expected = "315619001",
+            actual = data.condition?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Myocardial Infarction",
+            actual = data.condition?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.condition?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Heart Attack",
+            actual = data.condition?.get(0)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.condition?.get(0)?.contributedToDeath?.value
+        )
+
+        assertEquals(
+            expected = "Was fishing at the time. At least he went doing someting he loved.",
+            actual = data.condition?.get(0)?.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.condition?.get(0)?.onsetAge?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.condition?.get(0)?.onsetAge?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "yr",
+            actual = data.condition?.get(0)?.onsetAge?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "74".toDouble(),
+            actual = data.condition?.get(0)?.onsetAge?.value?.value
+        )
+
+        assertEquals(
+            expected = "2011-03-18",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "father",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/family-member-history-questionnaire",
+            actual = data.instantiatesUri?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Patient",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FTH",
+            actual = data.relationship?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "father",
+            actual = data.relationship?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.relationship?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "male",
+            actual = data.sex?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Male",
+            actual = data.sex?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/administrative-gender",
+            actual = data.sex?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FamilyHistoryStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Father died of a heart attack aged 74</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -177,91 +232,132 @@ class FamilyMemberHistoryTest {
         val data = parser.toFhir(FamilyMemberHistory::class, sourceJson)
 
         // Then
-        assertEquals(
-            "371041009",
-            data.condition?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Embolic Stroke",
-            data.condition?.get(0)?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.condition?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Stroke",
-            data.condition?.get(0)?.code?.text
-        )
-        assertEquals(
-            "a",
-            data.condition?.get(0)?.onsetAge?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.condition?.get(0)?.onsetAge?.system
-        )
-        assertEquals(
-            "yr",
-            data.condition?.get(0)?.onsetAge?.unit
-        )
-        assertEquals(
-            "56".toDouble(),
-            data.condition?.get(0)?.onsetAge?.value?.value
-        )
-        assertEquals(
-            "mother",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Peter Patient",
-            data.patient?.display
-        )
-        assertEquals(
-            "Patient/100",
-            data.patient?.reference
-        )
-        assertEquals(
-            "MTH",
-            data.relationship?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "mother",
-            data.relationship?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.relationship?.coding?.get(0)?.system
-        )
-        assertEquals(
-            FamilyHistoryStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mother died of a stroke aged 56</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertFamilyMemberHistory02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertFamilyMemberHistory02Step01(data: FamilyMemberHistory) {
+
+        assertEquals(
+            expected = "371041009",
+            actual = data.condition?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Embolic Stroke",
+            actual = data.condition?.get(0)?.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.condition?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Stroke",
+            actual = data.condition?.get(0)?.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.condition?.get(0)?.onsetAge?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.condition?.get(0)?.onsetAge?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "yr",
+            actual = data.condition?.get(0)?.onsetAge?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.condition?.get(0)?.onsetAge?.value?.value
+        )
+
+        assertEquals(
+            expected = "mother",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter Patient",
+            actual = data.patient?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/100",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "MTH",
+            actual = data.relationship?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mother",
+            actual = data.relationship?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.relationship?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FamilyHistoryStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mother died of a stroke aged 56</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

@@ -45,96 +45,139 @@ class SubstanceTest {
         val data = parser.toFhir(Substance::class, sourceJson)
 
         // Then
-        assertEquals(
-            "chemical",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chemical",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/substance-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "333346007",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Silver nitrate 20% solution (product)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Solution for silver nitrate stain",
-            data.description
-        )
-        assertEquals(
-            "f204",
-            data.id
-        )
-        assertEquals(
-            "http://acme.org/identifiers/substances",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "15970",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "2018-01-01",
-            data.instance?.get(0)?.expiry?.value.toString()
-        )
-        assertEquals(
-            "http://acme.org/identifiers/substances/lot",
-            data.instance?.get(0)?.identifier?.system
-        )
-        assertEquals(
-            "AB94687",
-            data.instance?.get(0)?.identifier?.value
-        )
-        assertEquals(
-            "mL",
-            data.instance?.get(0)?.quantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.instance?.get(0)?.quantity?.system
-        )
-        assertEquals(
-            "mL",
-            data.instance?.get(0)?.quantity?.unit
-        )
-        assertEquals(
-            "100".toDouble(),
-            data.instance?.get(0)?.quantity?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubstance01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubstance01Step01(data: Substance) {
+
+        assertEquals(
+            expected = "chemical",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chemical",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/substance-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "333346007",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Silver nitrate 20% solution (product)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Solution for silver nitrate stain",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f204",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.org/identifiers/substances",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15970",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-01-01",
+            actual = data.instance?.get(0)?.expiry?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://acme.org/identifiers/substances/lot",
+            actual = data.instance?.get(0)?.identifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AB94687",
+            actual = data.instance?.get(0)?.identifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL",
+            actual = data.instance?.get(0)?.quantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.instance?.get(0)?.quantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL",
+            actual = data.instance?.get(0)?.quantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "100".toDouble(),
+            actual = data.instance?.get(0)?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -146,140 +189,203 @@ class SubstanceTest {
         val data = parser.toFhir(Substance::class, sourceJson)
 
         // Then
-        assertEquals(
-            "drug",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Drug or Medicament",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/substance-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "392259005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "ingr1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "ingr2",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "Augmentin 875",
-            data.description
-        )
-        assertEquals(
-            "f205",
-            data.id
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(0)?.quantity?.denominator?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.ingredient?.get(0)?.quantity?.denominator?.system
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(0)?.quantity?.denominator?.unit
-        )
-        assertEquals(
-            "1000".toDouble(),
-            data.ingredient?.get(0)?.quantity?.denominator?.value?.value
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(0)?.quantity?.numerator?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.ingredient?.get(0)?.quantity?.numerator?.system
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(0)?.quantity?.numerator?.unit
-        )
-        assertEquals(
-            "875".toDouble(),
-            data.ingredient?.get(0)?.quantity?.numerator?.value?.value
-        )
-        assertEquals(
-            "#ingr1",
-            data.ingredient?.get(0)?.substanceReference?.reference
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(1)?.quantity?.denominator?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.ingredient?.get(1)?.quantity?.denominator?.system
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(1)?.quantity?.denominator?.unit
-        )
-        assertEquals(
-            "1000".toDouble(),
-            data.ingredient?.get(1)?.quantity?.denominator?.value?.value
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(1)?.quantity?.numerator?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.ingredient?.get(1)?.quantity?.numerator?.system
-        )
-        assertEquals(
-            "mg",
-            data.ingredient?.get(1)?.quantity?.numerator?.unit
-        )
-        assertEquals(
-            "125".toDouble(),
-            data.ingredient?.get(1)?.quantity?.numerator?.value?.value
-        )
-        assertEquals(
-            "#ingr2",
-            data.ingredient?.get(1)?.substanceReference?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubstance02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubstance02Step01(data: Substance) {
+
+        assertEquals(
+            expected = "drug",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Drug or Medicament",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/substance-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "392259005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ingr1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ingr2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Augmentin 875",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f205",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(0)?.quantity?.denominator?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.ingredient?.get(0)?.quantity?.denominator?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(0)?.quantity?.denominator?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1000".toDouble(),
+            actual = data.ingredient?.get(0)?.quantity?.denominator?.value?.value
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(0)?.quantity?.numerator?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.ingredient?.get(0)?.quantity?.numerator?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(0)?.quantity?.numerator?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "875".toDouble(),
+            actual = data.ingredient?.get(0)?.quantity?.numerator?.value?.value
+        )
+
+        assertEquals(
+            expected = "#ingr1",
+            actual = data.ingredient?.get(0)?.substanceReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(1)?.quantity?.denominator?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.ingredient?.get(1)?.quantity?.denominator?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(1)?.quantity?.denominator?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1000".toDouble(),
+            actual = data.ingredient?.get(1)?.quantity?.denominator?.value?.value
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(1)?.quantity?.numerator?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.ingredient?.get(1)?.quantity?.numerator?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.ingredient?.get(1)?.quantity?.numerator?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "125".toDouble(),
+            actual = data.ingredient?.get(1)?.quantity?.numerator?.value?.value
+        )
+
+        assertEquals(
+            expected = "#ingr2",
+            actual = data.ingredient?.get(1)?.substanceReference?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -291,64 +397,93 @@ class SubstanceTest {
         val data = parser.toFhir(Substance::class, sourceJson)
 
         // Then
-        assertEquals(
-            "chemical",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chemical",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/substance-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "88480006",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Potassium",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f203",
-            data.id
-        )
-        assertEquals(
-            "http://acme.org/identifiers/substances",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "1234",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubstance03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubstance03Step01(data: Substance) {
+
+        assertEquals(
+            expected = "chemical",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chemical",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/substance-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "88480006",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Potassium",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f203",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.org/identifiers/substances",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1234",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -360,44 +495,63 @@ class SubstanceTest {
         val data = parser.toFhir(Substance::class, sourceJson)
 
         // Then
-        assertEquals(
-            "406466009",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "House dust allergen",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubstance04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubstance04Step01(data: Substance) {
+
+        assertEquals(
+            expected = "406466009",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "House dust allergen",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -409,60 +563,86 @@ class SubstanceTest {
         val data = parser.toFhir(Substance::class, sourceJson)
 
         // Then
-        assertEquals(
-            "allergen",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Allergen",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/substance-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "apitoxin (Honey Bee Venom)",
-            data.code?.text
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://acme.org/identifiers/substances",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "1463",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            FHIRSubstanceStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubstance05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubstance05Step01(data: Substance) {
+
+        assertEquals(
+            expected = "allergen",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Allergen",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/substance-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "apitoxin (Honey Bee Venom)",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.org/identifiers/substances",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1463",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FHIRSubstanceStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -474,43 +654,62 @@ class SubstanceTest {
         val data = parser.toFhir(Substance::class, sourceJson)
 
         // Then
-        assertEquals(
-            "3092008",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Staphylococcus Aureus",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f202",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubstance06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubstance06Step01(data: Substance) {
+
+        assertEquals(
+            expected = "3092008",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Staphylococcus Aureus",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f202",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

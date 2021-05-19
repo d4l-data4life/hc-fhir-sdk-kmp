@@ -52,211 +52,300 @@ class OperationDefinitionTest {
         val data = parser.toFhir(OperationDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            "OperationDefinition/Questionnaire-populate",
-            data.base
-        )
-        assertEquals(
-            "populate",
-            data.code
-        )
-        assertEquals(
-            "Only implemented for Labs and Medications so far",
-            data.comment
-        )
-        assertEquals(
-            "System Administrator",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "beep@coyote.acme.com",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2015-08-04",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Limited implementation of the Populate Questionnaire implementation",
-            data.description
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.instance?.value
-        )
-        assertEquals(
-            "GB",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "United Kingdom of Great Britain and Northern Ireland (the)",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            OperationKind.OPERATION,
-            data.kind
-        )
-        assertEquals(
-            "Populate Questionnaire",
-            data.name
-        )
-        assertEquals(
-            "subject",
-            data.overload?.get(0)?.parameterName?.get(0)
-        )
-        assertEquals(
-            "local",
-            data.overload?.get(0)?.parameterName?.get(1)
-        )
-        assertEquals(
-            "local defaults to false when not passed as a parameter",
-            data.overload?.get(1)?.comment
-        )
-        assertEquals(
-            "subject",
-            data.overload?.get(1)?.parameterName?.get(0)
-        )
-        assertEquals(
-            "1",
-            data.parameter?.get(0)?.max
-        )
-        assertEquals(
-            "1".toInt(),
-            data.parameter?.get(0)?.min?.value
-        )
-        assertEquals(
-            "subject",
-            data.parameter?.get(0)?.name
-        )
-        assertEquals(
-            "Reference",
-            data.parameter?.get(0)?.type
-        )
-        assertEquals(
-            OperationParameterUse.IN,
-            data.parameter?.get(0)?.use
-        )
-        assertEquals(
-            "If the *local* parameter is set to true, server information about the specified subject will be used to populate the instance.",
-            data.parameter?.get(1)?.documentation
-        )
-        assertEquals(
-            "1",
-            data.parameter?.get(1)?.max
-        )
-        assertEquals(
-            "0".toInt(),
-            data.parameter?.get(1)?.min?.value
-        )
-        assertEquals(
-            "local",
-            data.parameter?.get(1)?.name
-        )
-        assertEquals(
-            "Reference",
-            data.parameter?.get(1)?.type
-        )
-        assertEquals(
-            OperationParameterUse.IN,
-            data.parameter?.get(1)?.use
-        )
-        assertEquals(
-            "The partially (or fully)-populated set of answers for the specified Questionnaire",
-            data.parameter?.get(2)?.documentation
-        )
-        assertEquals(
-            "1",
-            data.parameter?.get(2)?.max
-        )
-        assertEquals(
-            "1".toInt(),
-            data.parameter?.get(2)?.min?.value
-        )
-        assertEquals(
-            "return",
-            data.parameter?.get(2)?.name
-        )
-        assertEquals(
-            "QuestionnaireResponse",
-            data.parameter?.get(2)?.type
-        )
-        assertEquals(
-            OperationParameterUse.OUT,
-            data.parameter?.get(2)?.use
-        )
-        assertEquals(
-            "Acme Healthcare Services",
-            data.publisher
-        )
-        assertEquals(
-            ResourceType.QUESTIONNAIRE,
-            data.resource?.get(0)
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.system?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.type?.value
-        )
-        assertEquals(
-            "http://h7.org/fhir/OperationDefinition/example",
-            data.url
-        )
-        assertEquals(
-            "venue",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "Clinical Venue",
-            data.useContext?.get(0)?.code?.display
-        )
-        assertEquals(
-            "http://build.fhir.org/codesystem-usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "IMP",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "inpatient encounter",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "B",
-            data.version
-        )
+        assertOperationDefinition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOperationDefinition01Step01(data: OperationDefinition) {
+
+        assertEquals(
+            expected = "OperationDefinition/Questionnaire-populate",
+            actual = data.base
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "populate",
+            actual = data.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Only implemented for Labs and Medications so far",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "System Administrator",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "beep@coyote.acme.com",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-04",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Limited implementation of the Populate Questionnaire implementation",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.instance?.value
+        )
+
+        assertEquals(
+            expected = "GB",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "United Kingdom of Great Britain and Northern Ireland (the)",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = OperationKind.OPERATION,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "Populate Questionnaire",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "subject",
+            actual = data.overload?.get(0)?.parameterName?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "local",
+            actual = data.overload?.get(0)?.parameterName?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "local defaults to false when not passed as a parameter",
+            actual = data.overload?.get(1)?.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "subject",
+            actual = data.overload?.get(1)?.parameterName?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.parameter?.get(0)?.max
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.parameter?.get(0)?.min?.value
+        )
+
+        assertEquals(
+            expected = "subject",
+            actual = data.parameter?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Reference",
+            actual = data.parameter?.get(0)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = OperationParameterUse.IN,
+            actual = data.parameter?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "If the *local* parameter is set to true, server information about the specified subject will be used to populate the instance.",
+            actual = data.parameter?.get(1)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.parameter?.get(1)?.max
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.parameter?.get(1)?.min?.value
+        )
+
+        assertEquals(
+            expected = "local",
+            actual = data.parameter?.get(1)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Reference",
+            actual = data.parameter?.get(1)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = OperationParameterUse.IN,
+            actual = data.parameter?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "The partially (or fully)-populated set of answers for the specified Questionnaire",
+            actual = data.parameter?.get(2)?.documentation
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.parameter?.get(2)?.max
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.parameter?.get(2)?.min?.value
+        )
+
+        assertEquals(
+            expected = "return",
+            actual = data.parameter?.get(2)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "QuestionnaireResponse",
+            actual = data.parameter?.get(2)?.type
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = OperationParameterUse.OUT,
+            actual = data.parameter?.get(2)?.use
+        )
+
+        assertEquals(
+            expected = "Acme Healthcare Services",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.QUESTIONNAIRE,
+            actual = data.resource?.get(0)
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.system?.value
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.type?.value
+        )
+
+        assertEquals(
+            expected = "http://h7.org/fhir/OperationDefinition/example",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "venue",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical Venue",
+            actual = data.useContext?.get(0)?.code?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://build.fhir.org/codesystem-usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IMP",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inpatient encounter",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "B",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 }

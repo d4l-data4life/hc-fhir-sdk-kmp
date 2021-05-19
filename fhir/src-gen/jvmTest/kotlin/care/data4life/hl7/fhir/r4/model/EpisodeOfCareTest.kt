@@ -49,159 +49,222 @@ class EpisodeOfCareTest {
         val data = parser.toFhir(EpisodeOfCare::class, sourceJson)
 
         // Then
-        assertEquals(
-            "example account",
-            data.account?.get(0)?.display
-        )
-        assertEquals(
-            "Account/example",
-            data.account?.get(0)?.reference
-        )
-        assertEquals(
-            "Amanda Assigned",
-            data.careManager?.display
-        )
-        assertEquals(
-            "Practitioner/14",
-            data.careManager?.reference
-        )
-        assertEquals(
-            "Condition/stroke",
-            data.diagnosis?.get(0)?.condition?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.rank?.value
-        )
-        assertEquals(
-            "CC",
-            data.diagnosis?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chief complaint",
-            data.diagnosis?.get(0)?.role?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diagnosis-role",
-            data.diagnosis?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/sampleepisodeofcare-identifier",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/hl7",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "2014-09-01",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "Referral from Example Aged Care Services",
-            data.referralRequest?.get(0)?.display
-        )
-        assertEquals(
-            EpisodeOfCareStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "2014-09-14",
-            data.statusHistory?.get(0)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-09-01",
-            data.statusHistory?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EpisodeOfCareStatus.PLANNED,
-            data.statusHistory?.get(0)?.status
-        )
-        assertEquals(
-            "2014-09-21",
-            data.statusHistory?.get(1)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-09-15",
-            data.statusHistory?.get(1)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EpisodeOfCareStatus.ACTIVE,
-            data.statusHistory?.get(1)?.status
-        )
-        assertEquals(
-            "2014-09-24",
-            data.statusHistory?.get(2)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2014-09-22",
-            data.statusHistory?.get(2)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EpisodeOfCareStatus.ONHOLD,
-            data.statusHistory?.get(2)?.status
-        )
-        assertEquals(
-            "2014-09-25",
-            data.statusHistory?.get(3)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EpisodeOfCareStatus.ACTIVE,
-            data.statusHistory?.get(3)?.status
-        )
-        assertEquals(
-            "example care team",
-            data.team?.get(0)?.display
-        )
-        assertEquals(
-            "CareTeam/example",
-            data.team?.get(0)?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "hacc",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Home and Community Care",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/episodeofcare-type",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertEpisodeOfCare01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEpisodeOfCare01Step01(data: EpisodeOfCare) {
+
+        assertEquals(
+            expected = "example account",
+            actual = data.account?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Account/example",
+            actual = data.account?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Amanda Assigned",
+            actual = data.careManager?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/14",
+            actual = data.careManager?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/stroke",
+            actual = data.diagnosis?.get(0)?.condition?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.rank?.value
+        )
+
+        assertEquals(
+            expected = "CC",
+            actual = data.diagnosis?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chief complaint",
+            actual = data.diagnosis?.get(0)?.role?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            actual = data.diagnosis?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/sampleepisodeofcare-identifier",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.managingOrganization?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-09-01",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Referral from Example Aged Care Services",
+            actual = data.referralRequest?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EpisodeOfCareStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "2014-09-14",
+            actual = data.statusHistory?.get(0)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-09-01",
+            actual = data.statusHistory?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EpisodeOfCareStatus.PLANNED,
+            actual = data.statusHistory?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = "2014-09-21",
+            actual = data.statusHistory?.get(1)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-09-15",
+            actual = data.statusHistory?.get(1)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EpisodeOfCareStatus.ACTIVE,
+            actual = data.statusHistory?.get(1)?.status
+        )
+
+        assertEquals(
+            expected = "2014-09-24",
+            actual = data.statusHistory?.get(2)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2014-09-22",
+            actual = data.statusHistory?.get(2)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EpisodeOfCareStatus.ONHOLD,
+            actual = data.statusHistory?.get(2)?.status
+        )
+
+        assertEquals(
+            expected = "2014-09-25",
+            actual = data.statusHistory?.get(3)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EpisodeOfCareStatus.ACTIVE,
+            actual = data.statusHistory?.get(3)?.status
+        )
+
+        assertEquals(
+            expected = "example care team",
+            actual = data.team?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CareTeam/example",
+            actual = data.team?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "hacc",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Home and Community Care",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/episodeofcare-type",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

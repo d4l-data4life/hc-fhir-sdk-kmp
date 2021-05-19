@@ -53,108 +53,153 @@ class RelatedPersonTest {
         val data = parser.toFhir(RelatedPerson::class, sourceJson)
 
         // Then
-        assertEquals(
-            "PleasantVille",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "534 Erewhon St",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "3999",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            "Vic",
-            data.address?.get(0)?.state
-        )
-        assertEquals(
-            AddressUse.HOME,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            AdministrativeGender.MALE,
-            data.gender
-        )
-        assertEquals(
-            "peter",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Chalmers",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Peter",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            "James",
-            data.name?.get(0)?.given?.get(1)
-        )
-        assertEquals(
-            NameUse.OFFICIAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            "Patient/animal",
-            data.patient?.reference
-        )
-        assertEquals(
-            "2012-03-11",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "image/jpeg",
-            data.photo?.get(0)?.contentType
-        )
-        assertEquals(
-            "Binary/f012",
-            data.photo?.get(0)?.url
-        )
-        assertEquals(
-            "C",
-            data.relationship?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0131",
-            data.relationship?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "(03) 5555 6473",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRelatedPerson01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRelatedPerson01Step01(data: RelatedPerson) {
+
+        assertEquals(
+            expected = "PleasantVille",
+            actual = data.address?.get(0)?.city
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "534 Erewhon St",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3999",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vic",
+            actual = data.address?.get(0)?.state
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.HOME,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.MALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "peter",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chalmers",
+            actual = data.name?.get(0)?.family
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "James",
+            actual = data.name?.get(0)?.given?.get(1)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.OFFICIAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Patient/animal",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-03-11",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "image/jpeg",
+            actual = data.photo?.get(0)?.contentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Binary/f012",
+            actual = data.photo?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "C",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0131",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "(03) 5555 6473",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -166,96 +211,134 @@ class RelatedPersonTest {
         val data = parser.toFhir(RelatedPerson::class, sourceJson)
 
         // Then
-        assertEquals(
-            AdministrativeGender.FEMALE,
-            data.gender
-        )
-        assertEquals(
-            "f001",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.6.3",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "BSN",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Abels",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Sarah",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            NameUse.USUAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            "Patient/f001",
-            data.patient?.reference
-        )
-        assertEquals(
-            "SIGOTHR",
-            data.relationship?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.relationship?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.MOBILE,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "0690383372",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.HOME,
-            data.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "s.abels@kpn.nl",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRelatedPerson02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRelatedPerson02Step01(data: RelatedPerson) {
+
+        assertEquals(
+            expected = AdministrativeGender.FEMALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "f001",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.6.3",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "BSN",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Abels",
+            actual = data.name?.get(0)?.family
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sarah",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.USUAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SIGOTHR",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.MOBILE,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "0690383372",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.HOME,
+            actual = data.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "s.abels@kpn.nl",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -267,112 +350,158 @@ class RelatedPersonTest {
         val data = parser.toFhir(RelatedPerson::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "2222 Home Street",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            AddressUse.HOME,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            "1973-05-31",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            AdministrativeGender.FEMALE,
-            data.gender
-        )
-        assertEquals(
-            "newborn-mom",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/us-ssn",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "SS",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0203",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "444222222",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Everywoman",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Eve",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            NameUse.OFFICIAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            "Patient/newborn",
-            data.patient?.reference
-        )
-        assertEquals(
-            "NMTH",
-            data.relationship?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "natural mother",
-            data.relationship?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.relationship?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Natural Mother",
-            data.relationship?.get(0)?.text
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "555-555-2003",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRelatedPerson03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRelatedPerson03Step01(data: RelatedPerson) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "2222 Home Street",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.HOME,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "1973-05-31",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.FEMALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "newborn-mom",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/us-ssn",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SS",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0203",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "444222222",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Everywoman",
+            actual = data.name?.get(0)?.family
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eve",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.OFFICIAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Patient/newborn",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "NMTH",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "natural mother",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Natural Mother",
+            actual = data.relationship?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "555-555-2003",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -384,116 +513,167 @@ class RelatedPersonTest {
         val data = parser.toFhir(RelatedPerson::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Paris",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "FRA",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "43, Place du Marché Sainte Catherine",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "75004",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            AdministrativeGender.FEMALE,
-            data.gender
-        )
-        assertEquals(
-            "benedicte",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:1.2.250.1.61",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "INSEE",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "272117510400399",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "du Marché",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Bénédicte",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            "Patient/example",
-            data.patient?.reference
-        )
-        assertEquals(
-            "image/jpeg",
-            data.photo?.get(0)?.contentType
-        )
-        assertEquals(
-            "Binary/f016",
-            data.photo?.get(0)?.url
-        )
-        assertEquals(
-            "N",
-            data.relationship?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0131",
-            data.relationship?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "WIFE",
-            data.relationship?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.relationship?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "+33 (237) 998327",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRelatedPerson04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRelatedPerson04Step01(data: RelatedPerson) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Paris",
+            actual = data.address?.get(0)?.city
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FRA",
+            actual = data.address?.get(0)?.country
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "43, Place du Marché Sainte Catherine",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "75004",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.FEMALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "benedicte",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.250.1.61",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "INSEE",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "272117510400399",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "du Marché",
+            actual = data.name?.get(0)?.family
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bénédicte",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "image/jpeg",
+            actual = data.photo?.get(0)?.contentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Binary/f016",
+            actual = data.photo?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0131",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "WIFE",
+            actual = data.relationship?.get(0)?.coding?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.relationship?.get(0)?.coding?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "+33 (237) 998327",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -505,79 +685,110 @@ class RelatedPersonTest {
         val data = parser.toFhir(RelatedPerson::class, sourceJson)
 
         // Then
-        assertEquals(
-            "1963",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            AdministrativeGender.FEMALE,
-            data.gender
-        )
-        assertEquals(
-            "f002",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Ariadne Bor-Jansma",
-            data.name?.get(0)?.text
-        )
-        assertEquals(
-            NameUse.USUAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            "Patient/f201",
-            data.patient?.reference
-        )
-        assertEquals(
-            "1975",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "image/jpeg",
-            data.photo?.get(0)?.contentType
-        )
-        assertEquals(
-            "SIGOTHR",
-            data.relationship?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-            data.relationship?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.HOME,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+31201234567",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertRelatedPerson05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertRelatedPerson05Step01(data: RelatedPerson) {
+
+        assertEquals(
+            expected = "1963",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.FEMALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "f002",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ariadne Bor-Jansma",
+            actual = data.name?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.USUAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.patient?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1975",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "image/jpeg",
+            actual = data.photo?.get(0)?.contentType
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "SIGOTHR",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            actual = data.relationship?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.HOME,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+31201234567",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

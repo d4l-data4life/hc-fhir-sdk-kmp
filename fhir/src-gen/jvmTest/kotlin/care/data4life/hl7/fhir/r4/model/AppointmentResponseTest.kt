@@ -45,84 +45,120 @@ class AppointmentResponseTest {
         val data = parser.toFhir(AppointmentResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Dr Adam Careful",
-            data.actor?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.actor?.reference
-        )
-        assertEquals(
-            "Brian MRI results discussion",
-            data.appointment?.display
-        )
-        assertEquals(
-            "Appointment/examplereq",
-            data.appointment?.reference
-        )
-        assertEquals(
-            "can't we try for this time, can't do mornings",
-            data.comment
-        )
-        assertEquals(
-            "2013-12-25T13:30:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "exampleresp",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/sampleappointmentresponse-identifier",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "response123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ParticipationStatus.TENTATIVE,
-            data.participantStatus
-        )
-        assertEquals(
-            "ATND",
-            data.participantType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.participantType?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2013-12-25T13:15:00Z",
-            data.start?.value.toString()
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertAppointmentResponse01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertAppointmentResponse01Step01(data: AppointmentResponse) {
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian MRI results discussion",
+            actual = data.appointment?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Appointment/examplereq",
+            actual = data.appointment?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "can't we try for this time, can't do mornings",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T13:30:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "exampleresp",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/sampleappointmentresponse-identifier",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "response123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.TENTATIVE,
+            actual = data.participantStatus
+        )
+
+        assertEquals(
+            expected = "ATND",
+            actual = data.participantType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.participantType?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T13:15:00Z",
+            actual = data.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -134,55 +170,79 @@ class AppointmentResponseTest {
         val data = parser.toFhir(AppointmentResponse::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Peter James Chalmers",
-            data.actor?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.actor?.reference
-        )
-        assertEquals(
-            "Brian MRI results discussion",
-            data.appointment?.display
-        )
-        assertEquals(
-            "Appointment/example",
-            data.appointment?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participantStatus
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertAppointmentResponse02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertAppointmentResponse02Step01(data: AppointmentResponse) {
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brian MRI results discussion",
+            actual = data.appointment?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Appointment/example",
+            actual = data.appointment?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participantStatus
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

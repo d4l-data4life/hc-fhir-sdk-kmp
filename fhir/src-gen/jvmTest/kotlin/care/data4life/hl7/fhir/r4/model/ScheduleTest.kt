@@ -45,100 +45,143 @@ class ScheduleTest {
         val data = parser.toFhir(Schedule::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Dr. Beverly Crusher",
-            data.actor?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/1",
-            data.actor?.get(0)?.reference
-        )
-        assertEquals(
-            "USS Enterprise-D Sickbay",
-            data.actor?.get(1)?.display
-        )
-        assertEquals(
-            "Location/3",
-            data.actor?.get(1)?.reference
-        )
-        assertEquals(
-            "The slots attached to this schedule are for genetic counselling in the USS Enterprise-D Sickbay.",
-            data.comment
-        )
-        assertEquals(
-            "exampleloc1",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/scheduleid",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "46",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2017-12-25T09:30:00Z",
-            data.planningHorizon?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-12-25T09:15:00Z",
-            data.planningHorizon?.start?.value.toString()
-        )
-        assertEquals(
-            "17",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "75",
-            data.serviceType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Genetic Counselling",
-            data.serviceType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "394580004",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Clinical genetics",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSchedule01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSchedule01Step01(data: Schedule) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Dr. Beverly Crusher",
+            actual = data.actor?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/1",
+            actual = data.actor?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "USS Enterprise-D Sickbay",
+            actual = data.actor?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/3",
+            actual = data.actor?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The slots attached to this schedule are for genetic counselling in the USS Enterprise-D Sickbay.",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exampleloc1",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/scheduleid",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "46",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-12-25T09:30:00Z",
+            actual = data.planningHorizon?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-12-25T09:15:00Z",
+            actual = data.planningHorizon?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "17",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "75",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Genetic Counselling",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "394580004",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical genetics",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -150,92 +193,131 @@ class ScheduleTest {
         val data = parser.toFhir(Schedule::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Burgers UMC, South Wing, second floor",
-            data.actor?.get(0)?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.actor?.get(0)?.reference
-        )
-        assertEquals(
-            "The slots attached to this schedule should be specialized to cover immunizations within the clinic",
-            data.comment
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/scheduleid",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "45",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2013-12-25T09:30:00Z",
-            data.planningHorizon?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-12-25T09:15:00Z",
-            data.planningHorizon?.start?.value.toString()
-        )
-        assertEquals(
-            "17",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "57",
-            data.serviceType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Immunization",
-            data.serviceType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "408480009",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Clinical immunology",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSchedule02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSchedule02Step01(data: Schedule) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Burgers UMC, South Wing, second floor",
+            actual = data.actor?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.actor?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The slots attached to this schedule should be specialized to cover immunizations within the clinic",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/scheduleid",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "45",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:30:00Z",
+            actual = data.planningHorizon?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-12-25T09:15:00Z",
+            actual = data.planningHorizon?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "17",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "57",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Immunization",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "408480009",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical immunology",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -247,99 +329,142 @@ class ScheduleTest {
         val data = parser.toFhir(Schedule::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Dr. Beverly Crusher",
-            data.actor?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/1",
-            data.actor?.get(0)?.reference
-        )
-        assertEquals(
-            "Starfleet HQ Sickbay",
-            data.actor?.get(1)?.display
-        )
-        assertEquals(
-            "Location/2",
-            data.actor?.get(1)?.reference
-        )
-        assertEquals(
-            "The slots attached to this schedule are for neurosurgery operations at Starfleet HQ only.",
-            data.comment
-        )
-        assertEquals(
-            "exampleloc2",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/scheduleid",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "47",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2017-12-25T09:30:00Z",
-            data.planningHorizon?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-12-25T09:15:00Z",
-            data.planningHorizon?.start?.value.toString()
-        )
-        assertEquals(
-            "31",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Specialist Surgical",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "221",
-            data.serviceType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Surgery - General",
-            data.serviceType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "394610002",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Surgery-Neurosurgery",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSchedule03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSchedule03Step01(data: Schedule) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Dr. Beverly Crusher",
+            actual = data.actor?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/1",
+            actual = data.actor?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Starfleet HQ Sickbay",
+            actual = data.actor?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/2",
+            actual = data.actor?.get(1)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The slots attached to this schedule are for neurosurgery operations at Starfleet HQ only.",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exampleloc2",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/scheduleid",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "47",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-12-25T09:30:00Z",
+            actual = data.planningHorizon?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-12-25T09:15:00Z",
+            actual = data.planningHorizon?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "31",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Specialist Surgical",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "221",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Surgery - General",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "394610002",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Surgery-Neurosurgery",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

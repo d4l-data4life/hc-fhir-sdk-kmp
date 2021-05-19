@@ -47,79 +47,114 @@ class MedicationKnowledgeTest {
         val data = parser.toFhir(MedicationKnowledge::class, sourceJson)
 
         // Then
-        assertEquals(
-            "mg/ml",
-            data.amount?.unit
-        )
-        assertEquals(
-            "50".toDouble(),
-            data.amount?.value?.value
-        )
-        assertEquals(
-            "0069-2587-10",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/ndc",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "org4",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "385219001",
-            data.doseForm?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Injection Solution (qualifier value)",
-            data.doseForm?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.doseForm?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "#org4",
-            data.manufacturer?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            MedicationKnowledgeStatusCodes.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)",
-            data.synonym?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicationKnowledge01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicationKnowledge01Step01(data: MedicationKnowledge) {
+
+        assertEquals(
+            expected = "mg/ml",
+            actual = data.amount?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toDouble(),
+            actual = data.amount?.value?.value
+        )
+
+        assertEquals(
+            expected = "0069-2587-10",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/ndc",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "org4",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "385219001",
+            actual = data.doseForm?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Injection Solution (qualifier value)",
+            actual = data.doseForm?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.doseForm?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#org4",
+            actual = data.manufacturer?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = MedicationKnowledgeStatusCodes.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)",
+            actual = data.synonym?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

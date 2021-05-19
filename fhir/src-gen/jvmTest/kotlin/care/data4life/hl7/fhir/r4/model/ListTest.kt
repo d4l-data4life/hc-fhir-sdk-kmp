@@ -46,100 +46,143 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "182836005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Review of medication",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Medication Review",
-            data.code?.text
-        )
-        assertEquals(
-            "2013-11-20T23:10:23+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "01",
-            data.entry?.get(0)?.flag?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Prescribed",
-            data.entry?.get(0)?.flag?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://nehta.gov.au/codes/medications/changetype",
-            data.entry?.get(0)?.flag?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "hydroxocobalamin",
-            data.entry?.get(0)?.item?.display
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.entry?.get(1)?.deleted?.value
-        )
-        assertEquals(
-            "02",
-            data.entry?.get(1)?.flag?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Cancelled",
-            data.entry?.get(1)?.flag?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://nehta.gov.au/codes/medications/changetype",
-            data.entry?.get(1)?.flag?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Morphine Sulfate",
-            data.entry?.get(1)?.item?.display
-        )
-        assertEquals(
-            "med-list",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.CHANGES,
-            data.mode
-        )
-        assertEquals(
-            "Patient/example",
-            data.source?.reference
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList01Step01(data: List) {
+
+        assertEquals(
+            expected = "182836005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Review of medication",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Medication Review",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-11-20T23:10:23+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "01",
+            actual = data.entry?.get(0)?.flag?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Prescribed",
+            actual = data.entry?.get(0)?.flag?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://nehta.gov.au/codes/medications/changetype",
+            actual = data.entry?.get(0)?.flag?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "hydroxocobalamin",
+            actual = data.entry?.get(0)?.item?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.entry?.get(1)?.deleted?.value
+        )
+
+        assertEquals(
+            expected = "02",
+            actual = data.entry?.get(1)?.flag?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cancelled",
+            actual = data.entry?.get(1)?.flag?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://nehta.gov.au/codes/medications/changetype",
+            actual = data.entry?.get(1)?.flag?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Morphine Sulfate",
+            actual = data.entry?.get(1)?.item?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "med-list",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.CHANGES,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.source?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -151,140 +194,205 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "8670-2",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "History of family member diseases",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "image",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "1",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "2",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "3",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "4",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "5",
-            data.contained?.get(5)?.id
-        )
-        assertEquals(
-            "6",
-            data.contained?.get(6)?.id
-        )
-        assertEquals(
-            "7",
-            data.contained?.get(7)?.id
-        )
-        assertEquals(
-            "8",
-            data.contained?.get(8)?.id
-        )
-        assertEquals(
-            "9",
-            data.contained?.get(9)?.id
-        )
-        assertEquals(
-            "#image",
-            data.entry?.get(0)?.item?.reference
-        )
-        assertEquals(
-            "#2",
-            data.entry?.get(1)?.item?.reference
-        )
-        assertEquals(
-            "#3",
-            data.entry?.get(2)?.item?.reference
-        )
-        assertEquals(
-            "#4",
-            data.entry?.get(3)?.item?.reference
-        )
-        assertEquals(
-            "#5",
-            data.entry?.get(4)?.item?.reference
-        )
-        assertEquals(
-            "#6",
-            data.entry?.get(5)?.item?.reference
-        )
-        assertEquals(
-            "#7",
-            data.entry?.get(6)?.item?.reference
-        )
-        assertEquals(
-            "#8",
-            data.entry?.get(7)?.item?.reference
-        )
-        assertEquals(
-            "#9",
-            data.entry?.get(8)?.item?.reference
-        )
-        assertEquals(
-            "#10",
-            data.entry?.get(9)?.item?.reference
-        )
-        assertEquals(
-            "prognosis",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.mode
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            "Annie Proband, female, born 1966",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/proband",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList02Step01(data: List) {
+
+        assertEquals(
+            expected = "8670-2",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History of family member diseases",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "image",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6",
+            actual = data.contained?.get(6)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "7",
+            actual = data.contained?.get(7)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8",
+            actual = data.contained?.get(8)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9",
+            actual = data.contained?.get(9)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#image",
+            actual = data.entry?.get(0)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#2",
+            actual = data.entry?.get(1)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#3",
+            actual = data.entry?.get(2)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#4",
+            actual = data.entry?.get(3)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#5",
+            actual = data.entry?.get(4)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#6",
+            actual = data.entry?.get(5)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#7",
+            actual = data.entry?.get(6)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#8",
+            actual = data.entry?.get(7)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#9",
+            actual = data.entry?.get(8)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#10",
+            actual = data.entry?.get(9)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "prognosis",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Annie Proband, female, born 1966",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/proband",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -296,56 +404,78 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "346638",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Patient Admission List",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://acme.com/list-codes",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2016-07-14T11:54:05+10:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "example-simple-empty",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.mode
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList03Step01(data: List) {
+
+        assertEquals(
+            expected = "346638",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient Admission List",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/list-codes",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-07-14T11:54:05+10:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example-simple-empty",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -357,80 +487,114 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "182836005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Review of medication",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Medication Review",
-            data.code?.text
-        )
-        assertEquals(
-            "2012-11-26T07:30:23+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "nilknown",
-            data.emptyReason?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Nil Known",
-            data.emptyReason?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/list-empty-reason",
-            data.emptyReason?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The patient is not on any medications",
-            data.emptyReason?.text
-        )
-        assertEquals(
-            "example-empty",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.mode
-        )
-        assertEquals(
-            "Patient/example",
-            data.source?.reference
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList04Step01(data: List) {
+
+        assertEquals(
+            expected = "182836005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Review of medication",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Medication Review",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-11-26T07:30:23+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "nilknown",
+            actual = data.emptyReason?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nil Known",
+            actual = data.emptyReason?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+            actual = data.emptyReason?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The patient is not on any medications",
+            actual = data.emptyReason?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-empty",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.source?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -442,132 +606,193 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "8670-2",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "History of family member diseases",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "3",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "4",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "5",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "6",
-            data.contained?.get(5)?.id
-        )
-        assertEquals(
-            "7",
-            data.contained?.get(6)?.id
-        )
-        assertEquals(
-            "8",
-            data.contained?.get(7)?.id
-        )
-        assertEquals(
-            "#1",
-            data.entry?.get(0)?.item?.reference
-        )
-        assertEquals(
-            "#2",
-            data.entry?.get(1)?.item?.reference
-        )
-        assertEquals(
-            "#3",
-            data.entry?.get(2)?.item?.reference
-        )
-        assertEquals(
-            "#4",
-            data.entry?.get(3)?.item?.reference
-        )
-        assertEquals(
-            "#5",
-            data.entry?.get(4)?.item?.reference
-        )
-        assertEquals(
-            "#6",
-            data.entry?.get(5)?.item?.reference
-        )
-        assertEquals(
-            "#7",
-            data.entry?.get(6)?.item?.reference
-        )
-        assertEquals(
-            "#8",
-            data.entry?.get(7)?.item?.reference
-        )
-        assertEquals(
-            "Family history of cancer of colon",
-            data.entry?.get(8)?.item?.display
-        )
-        assertEquals(
-            "Condition/family-history",
-            data.entry?.get(8)?.item?.reference
-        )
-        assertEquals(
-            "genetic",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.mode
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            "Peter Patient",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList05Step01(data: List) {
+
+        assertEquals(
+            expected = "8670-2",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History of family member diseases",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "7",
+            actual = data.contained?.get(6)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "8",
+            actual = data.contained?.get(7)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#1",
+            actual = data.entry?.get(0)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#2",
+            actual = data.entry?.get(1)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#3",
+            actual = data.entry?.get(2)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#4",
+            actual = data.entry?.get(3)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#5",
+            actual = data.entry?.get(4)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#6",
+            actual = data.entry?.get(5)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#7",
+            actual = data.entry?.get(6)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#8",
+            actual = data.entry?.get(7)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Family history of cancer of colon",
+            actual = data.entry?.get(8)?.item?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/family-history",
+            actual = data.entry?.get(8)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "genetic",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter Patient",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -579,80 +804,115 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "8670-2",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "History of family member diseases",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "fmh-1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "fmh-2",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "#fmh-1",
-            data.entry?.get(0)?.item?.reference
-        )
-        assertEquals(
-            "#fmh-2",
-            data.entry?.get(1)?.item?.reference
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.mode
-        )
-        assertEquals(
-            "Both parents, both brothers and both children (twin) are still alive.",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList06Step01(data: List) {
+
+        assertEquals(
+            expected = "8670-2",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "History of family member diseases",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fmh-1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fmh-2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#fmh-1",
+            actual = data.entry?.get(0)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#fmh-2",
+            actual = data.entry?.get(1)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "Both parents, both brothers and both children (twin) are still alive.",
+            actual = data.note?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -664,84 +924,119 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2012-11-25T22:17:00+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Encounter/example",
-            data.encounter?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.entry?.get(0)?.deleted?.value
-        )
-        assertEquals(
-            "Deleted due to error",
-            data.entry?.get(0)?.flag?.text
-        )
-        assertEquals(
-            "Condition/example",
-            data.entry?.get(0)?.item?.reference
-        )
-        assertEquals(
-            "Added",
-            data.entry?.get(1)?.flag?.text
-        )
-        assertEquals(
-            "Condition/example2",
-            data.entry?.get(1)?.item?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "urn:uuid:a9fcea7c-fcdf-4d17-a5e0-f26dda030b59",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "23974652",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.CHANGES,
-            data.mode
-        )
-        assertEquals(
-            "Patient/example",
-            data.source?.reference
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList07Step01(data: List) {
+
+        assertEquals(
+            expected = "2012-11-25T22:17:00+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.encounter?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.entry?.get(0)?.deleted?.value
+        )
+
+        assertEquals(
+            expected = "Deleted due to error",
+            actual = data.entry?.get(0)?.flag?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/example",
+            actual = data.entry?.get(0)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Added",
+            actual = data.entry?.get(1)?.flag?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/example2",
+            actual = data.entry?.get(1)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:a9fcea7c-fcdf-4d17-a5e0-f26dda030b59",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "23974652",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.CHANGES,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.source?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -753,84 +1048,120 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "52472-8",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Allergies and Adverse Drug Reactions",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Current Allergy List",
-            data.code?.text
-        )
-        assertEquals(
-            "2015-07-14T23:10:23+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "AllergyIntolerance/example",
-            data.entry?.get(0)?.item?.reference
-        )
-        assertEquals(
-            "AllergyIntolerance/medication",
-            data.entry?.get(1)?.item?.reference
-        )
-        assertEquals(
-            "current-allergies",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.WORKING,
-            data.mode
-        )
-        assertEquals(
-            "entry-date",
-            data.orderedBy?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/list-order",
-            data.orderedBy?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.source?.reference
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Current Allergy List",
-            data.title
-        )
+        assertList08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList08Step01(data: List) {
+
+        assertEquals(
+            expected = "52472-8",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Allergies and Adverse Drug Reactions",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Current Allergy List",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-07-14T23:10:23+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/example",
+            actual = data.entry?.get(0)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "AllergyIntolerance/medication",
+            actual = data.entry?.get(1)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "current-allergies",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.WORKING,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = "entry-date",
+            actual = data.orderedBy?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/list-order",
+            actual = data.orderedBy?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.source?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Current Allergy List",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -842,112 +1173,163 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "80738-8",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "TPMT gene mutations found [Identifier] in Blood or Tissue by Sequencing Nominal",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "TPMT gene mutations found [Identifier] in Blood or Tissue by Sequencing Nominal",
-            data.code?.text
-        )
-        assertEquals(
-            "1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "3",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "4",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "5",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "6",
-            data.contained?.get(5)?.id
-        )
-        assertEquals(
-            "#1",
-            data.entry?.get(0)?.item?.reference
-        )
-        assertEquals(
-            "#2",
-            data.entry?.get(1)?.item?.reference
-        )
-        assertEquals(
-            "#3",
-            data.entry?.get(2)?.item?.reference
-        )
-        assertEquals(
-            "#4",
-            data.entry?.get(3)?.item?.reference
-        )
-        assertEquals(
-            "#5",
-            data.entry?.get(4)?.item?.reference
-        )
-        assertEquals(
-            "#6",
-            data.entry?.get(5)?.item?.reference
-        )
-        assertEquals(
-            "example-double-cousin-relationship",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.SNAPSHOT,
-            data.mode
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            "Pam Taylor",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList09Step01(data: List) {
+
+        assertEquals(
+            expected = "80738-8",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "TPMT gene mutations found [Identifier] in Blood or Tissue by Sequencing Nominal",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "TPMT gene mutations found [Identifier] in Blood or Tissue by Sequencing Nominal",
+            actual = data.code?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "3",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "5",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "6",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#1",
+            actual = data.entry?.get(0)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#2",
+            actual = data.entry?.get(1)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#3",
+            actual = data.entry?.get(2)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#4",
+            actual = data.entry?.get(3)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#5",
+            actual = data.entry?.get(4)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#6",
+            actual = data.entry?.get(5)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-double-cousin-relationship",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.SNAPSHOT,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Pam Taylor",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -959,83 +1341,119 @@ class ListTest {
         val data = parser.toFhir(List::class, sourceJson)
 
         // Then
-        assertEquals(
-            "2018-02-21T12:17:00+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Patient/example",
-            data.entry?.get(0)?.item?.reference
-        )
-        assertEquals(
-            "Patient/pat1",
-            data.entry?.get(1)?.item?.reference
-        )
-        assertEquals(
-            "Patient/pat2",
-            data.entry?.get(2)?.item?.reference
-        )
-        assertEquals(
-            "Patient/pat3",
-            data.entry?.get(3)?.item?.reference
-        )
-        assertEquals(
-            "Patient/pat4",
-            data.entry?.get(4)?.item?.reference
-        )
-        assertEquals(
-            "Patient/1",
-            data.entry?.get(5)?.item?.reference
-        )
-        assertEquals(
-            "Patient/2",
-            data.entry?.get(6)?.item?.reference
-        )
-        assertEquals(
-            "Patient/3",
-            data.entry?.get(7)?.item?.reference
-        )
-        assertEquals(
-            "Patient/4",
-            data.entry?.get(8)?.item?.reference
-        )
-        assertEquals(
-            "Patient/5",
-            data.entry?.get(9)?.item?.reference
-        )
-        assertEquals(
-            "long",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            ListMode.CHANGES,
-            data.mode
-        )
-        assertEquals(
-            ListStatus.CURRENT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertList10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertList10Step01(data: List) {
+
+        assertEquals(
+            expected = "2018-02-21T12:17:00+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.entry?.get(0)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat1",
+            actual = data.entry?.get(1)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.entry?.get(2)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat3",
+            actual = data.entry?.get(3)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat4",
+            actual = data.entry?.get(4)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/1",
+            actual = data.entry?.get(5)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/2",
+            actual = data.entry?.get(6)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/3",
+            actual = data.entry?.get(7)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/4",
+            actual = data.entry?.get(8)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/5",
+            actual = data.entry?.get(9)?.item?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "long",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ListMode.CHANGES,
+            actual = data.mode
+        )
+
+        assertEquals(
+            expected = ListStatus.CURRENT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

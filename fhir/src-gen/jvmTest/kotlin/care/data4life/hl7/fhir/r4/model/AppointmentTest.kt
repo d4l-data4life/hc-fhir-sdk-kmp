@@ -47,176 +47,250 @@ class AppointmentTest {
         val data = parser.toFhir(Appointment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "FOLLOWUP",
-            data.appointmentType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "A follow up visit from a previous appointment",
-            data.appointmentType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0276",
-            data.appointmentType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "ServiceRequest/myringotomy",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
-            data.comment
-        )
-        assertEquals(
-            "2013-10-10",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Discussion on the results of your recent MRI",
-            data.description
-        )
-        assertEquals(
-            "2013-12-10T11:00:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.participant?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.participant?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(0)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(0)?.status
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.participant?.get(1)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.participant?.get(1)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(1)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(1)?.status
-        )
-        assertEquals(
-            "ATND",
-            data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "South Wing, second floor",
-            data.participant?.get(2)?.actor?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.participant?.get(2)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(2)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(2)?.status
-        )
-        assertEquals(
-            "5".toLong(),
-            data.priority?.value
-        )
-        assertEquals(
-            "Severe burn of left ear",
-            data.reasonReference?.get(0)?.display
-        )
-        assertEquals(
-            "Condition/example",
-            data.reasonReference?.get(0)?.reference
-        )
-        assertEquals(
-            "gp",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/service-category",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "52",
-            data.serviceType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Discussion",
-            data.serviceType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "394814009",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General practice",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.specialty?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2013-12-10T09:00:00Z",
-            data.start?.value.toString()
-        )
-        assertEquals(
-            AppointmentStatus.BOOKED,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertAppointment01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertAppointment01Step01(data: Appointment) {
+
+        assertEquals(
+            expected = "FOLLOWUP",
+            actual = data.appointmentType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "A follow up visit from a previous appointment",
+            actual = data.appointmentType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0276",
+            actual = data.appointmentType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ServiceRequest/myringotomy",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-10-10",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Discussion on the results of your recent MRI",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-10T11:00:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.participant?.get(0)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.participant?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(0)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.participant?.get(1)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.participant?.get(1)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(1)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(1)?.status
+        )
+
+        assertEquals(
+            expected = "ATND",
+            actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "South Wing, second floor",
+            actual = data.participant?.get(2)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.participant?.get(2)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(2)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(2)?.status
+        )
+
+        assertEquals(
+            expected = "5".toLong(),
+            actual = data.priority?.value
+        )
+
+        assertEquals(
+            expected = "Severe burn of left ear",
+            actual = data.reasonReference?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/example",
+            actual = data.reasonReference?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "gp",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/service-category",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Discussion",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "394814009",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General practice",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-10T09:00:00Z",
+            actual = data.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = AppointmentStatus.BOOKED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -228,176 +302,249 @@ class AppointmentTest {
         val data = parser.toFhir(Appointment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "WALKIN",
-            data.appointmentType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "A previously unscheduled walk-in visit",
-            data.appointmentType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0276",
-            data.appointmentType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
-            data.comment
-        )
-        assertEquals(
-            "2015-12-02",
-            data.created?.value.toString()
-        )
-        assertEquals(
-            "Discussion on the results of your recent MRI",
-            data.description
-        )
-        assertEquals(
-            "examplereq",
-            data.id
-        )
-        assertEquals(
-            "http://example.org/sampleappointment-identifier",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "123",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "15".toLong(),
-            data.minutesDuration?.value
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.participant?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.participant?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(0)?.required
-        )
-        assertEquals(
-            ParticipationStatus.NEEDS_ACTION,
-            data.participant?.get(0)?.status
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(1)?.required
-        )
-        assertEquals(
-            ParticipationStatus.NEEDS_ACTION,
-            data.participant?.get(1)?.status
-        )
-        assertEquals(
-            "ATND",
-            data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "South Wing, second floor",
-            data.participant?.get(2)?.actor?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.participant?.get(2)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(2)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(2)?.status
-        )
-        assertEquals(
-            "5".toLong(),
-            data.priority?.value
-        )
-        assertEquals(
-            "413095006",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Clinical Review",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "2016-06-09",
-            data.requestedPeriod?.get(0)?.end?.value.toString()
-        )
-        assertEquals(
-            "2016-06-02",
-            data.requestedPeriod?.get(0)?.start?.value.toString()
-        )
-        assertEquals(
-            "gp",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/service-category",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Slot/example",
-            data.slot?.get(0)?.reference
-        )
-        assertEquals(
-            "394814009",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General practice",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.specialty?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            AppointmentStatus.PROPOSED,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertAppointment02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertAppointment02Step01(data: Appointment) {
+
+        assertEquals(
+            expected = "WALKIN",
+            actual = data.appointmentType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "A previously unscheduled walk-in visit",
+            actual = data.appointmentType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0276",
+            actual = data.appointmentType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-12-02",
+            actual = data.created?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Discussion on the results of your recent MRI",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "examplereq",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/sampleappointment-identifier",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "123",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "15".toLong(),
+            actual = data.minutesDuration?.value
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.participant?.get(0)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.participant?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(0)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.NEEDS_ACTION,
+            actual = data.participant?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(1)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.NEEDS_ACTION,
+            actual = data.participant?.get(1)?.status
+        )
+
+        assertEquals(
+            expected = "ATND",
+            actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "South Wing, second floor",
+            actual = data.participant?.get(2)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.participant?.get(2)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(2)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(2)?.status
+        )
+
+        assertEquals(
+            expected = "5".toLong(),
+            actual = data.priority?.value
+        )
+
+        assertEquals(
+            expected = "413095006",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical Review",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-06-09",
+            actual = data.requestedPeriod?.get(0)?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2016-06-02",
+            actual = data.requestedPeriod?.get(0)?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "gp",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/service-category",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Slot/example",
+            actual = data.slot?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "394814009",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General practice",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = AppointmentStatus.PROPOSED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -409,167 +556,236 @@ class AppointmentTest {
         val data = parser.toFhir(Appointment::class, sourceJson)
 
         // Then
-        assertEquals(
-            "WALKIN",
-            data.appointmentType?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "A previously unscheduled walk-in visit",
-            data.appointmentType?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0276",
-            data.appointmentType?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Clarify the results of the MRI to ensure context of test was correct",
-            data.comment
-        )
-        assertEquals(
-            "Discussion about Peter Chalmers MRI results",
-            data.description
-        )
-        assertEquals(
-            "2013-12-09T11:00:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "2docs",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.participant?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.participant?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.INFORMATION_ONLY,
-            data.participant?.get(0)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(0)?.status
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.participant?.get(1)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.participant?.get(1)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(1)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(1)?.status
-        )
-        assertEquals(
-            "Luigi Maas",
-            data.participant?.get(2)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/f202",
-            data.participant?.get(2)?.actor?.reference
-        )
-        assertEquals(
-            ParticipantRequired.REQUIRED,
-            data.participant?.get(2)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(2)?.status
-        )
-        assertEquals(
-            "Phone Call",
-            data.participant?.get(3)?.actor?.display
-        )
-        assertEquals(
-            ParticipantRequired.INFORMATION_ONLY,
-            data.participant?.get(3)?.required
-        )
-        assertEquals(
-            ParticipationStatus.ACCEPTED,
-            data.participant?.get(3)?.status
-        )
-        assertEquals(
-            "5".toLong(),
-            data.priority?.value
-        )
-        assertEquals(
-            "gp",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Practice",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/service-category",
-            data.serviceCategory?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "52",
-            data.serviceType?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Discussion",
-            data.serviceType?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "394814009",
-            data.specialty?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General practice",
-            data.specialty?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.specialty?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2013-12-09T09:00:00Z",
-            data.start?.value.toString()
-        )
-        assertEquals(
-            AppointmentStatus.BOOKED,
-            data.status
-        )
-        assertEquals(
-            "DiagnosticReport/ultrasound",
-            data.supportingInformation?.get(0)?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertAppointment03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertAppointment03Step01(data: Appointment) {
+
+        assertEquals(
+            expected = "WALKIN",
+            actual = data.appointmentType?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "A previously unscheduled walk-in visit",
+            actual = data.appointmentType?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0276",
+            actual = data.appointmentType?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clarify the results of the MRI to ensure context of test was correct",
+            actual = data.comment
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Discussion about Peter Chalmers MRI results",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-09T11:00:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2docs",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.participant?.get(0)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.participant?.get(0)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.INFORMATION_ONLY,
+            actual = data.participant?.get(0)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.participant?.get(1)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.participant?.get(1)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(1)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(1)?.status
+        )
+
+        assertEquals(
+            expected = "Luigi Maas",
+            actual = data.participant?.get(2)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f202",
+            actual = data.participant?.get(2)?.actor?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.REQUIRED,
+            actual = data.participant?.get(2)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(2)?.status
+        )
+
+        assertEquals(
+            expected = "Phone Call",
+            actual = data.participant?.get(3)?.actor?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ParticipantRequired.INFORMATION_ONLY,
+            actual = data.participant?.get(3)?.required
+        )
+
+        assertEquals(
+            expected = ParticipationStatus.ACCEPTED,
+            actual = data.participant?.get(3)?.status
+        )
+
+        assertEquals(
+            expected = "5".toLong(),
+            actual = data.priority?.value
+        )
+
+        assertEquals(
+            expected = "gp",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Practice",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/service-category",
+            actual = data.serviceCategory?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "52",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Discussion",
+            actual = data.serviceType?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "394814009",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "General practice",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.specialty?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-12-09T09:00:00Z",
+            actual = data.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = AppointmentStatus.BOOKED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/ultrasound",
+            actual = data.supportingInformation?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

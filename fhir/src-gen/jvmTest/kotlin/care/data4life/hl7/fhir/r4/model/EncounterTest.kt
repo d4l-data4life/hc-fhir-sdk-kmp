@@ -50,104 +50,145 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "HH",
-            data.clazz?.code
-        )
-        assertEquals(
-            "home health",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "home",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "home",
-            data.id
-        )
-        assertEquals(
-            "Client's home",
-            data.location?.get(0)?.location?.display
-        )
-        assertEquals(
-            "#home",
-            data.location?.get(0)?.location?.reference
-        )
-        assertEquals(
-            "2015-01-17T16:30:00+10:00",
-            data.location?.get(0)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-01-17T16:00:00+10:00",
-            data.location?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterLocationStatus.COMPLETED,
-            data.location?.get(0)?.status
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.participant?.get(0)?.individual?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "2015-01-17T16:30:00+10:00",
-            data.participant?.get(0)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-01-17T16:00:00+10:00",
-            data.participant?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "2015-01-17T16:30:00+10:00",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-01-17T16:00:00+10:00",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example who is at home</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEncounter01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter01Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "HH",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "home health",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "home",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "home",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Client's home",
+            actual = data.location?.get(0)?.location?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#home",
+            actual = data.location?.get(0)?.location?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-01-17T16:30:00+10:00",
+            actual = data.location?.get(0)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-01-17T16:00:00+10:00",
+            actual = data.location?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterLocationStatus.COMPLETED,
+            actual = data.location?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.participant?.get(0)?.individual?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-01-17T16:30:00+10:00",
+            actual = data.participant?.get(0)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-01-17T16:00:00+10:00",
+            actual = data.participant?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-01-17T16:30:00+10:00",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-01-17T16:00:00+10:00",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example who is at home</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -159,100 +200,145 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "AMB",
-            data.clazz?.code
-        )
-        assertEquals(
-            "ambulatory",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            IdentifierUse.TEMP,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "Encounter_Roel_20130404",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "17621005",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Normal",
-            data.priority?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.priority?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The patient had fever peaks over the last couple of days. He is worried about these peaks.",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "Organization/f201",
-            data.serviceProvider?.reference
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "11429006",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Consultation",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertEncounter02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter02Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "AMB",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulatory",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.TEMP,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Encounter_Roel_20130404",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "17621005",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Normal",
+            actual = data.priority?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.priority?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The patient had fever peaks over the last couple of days. He is worried about these peaks.",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f201",
+            actual = data.serviceProvider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "11429006",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Consultation",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -264,168 +350,245 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "AMB",
-            data.clazz?.code
-        )
-        assertEquals(
-            "ambulatory",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "305956004",
-            data.hospitalization?.admitSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Referral by physician",
-            data.hospitalization?.admitSource?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.admitSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "306689006",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Discharge to home",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
-            data.hospitalization?.preAdmissionIdentifier?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.hospitalization?.preAdmissionIdentifier?.use
-        )
-        assertEquals(
-            "93042",
-            data.hospitalization?.preAdmissionIdentifier?.value
-        )
-        assertEquals(
-            "f003",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/encounters",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "v6751",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "min",
-            data.length?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.length?.system
-        )
-        assertEquals(
-            "min",
-            data.length?.unit
-        )
-        assertEquals(
-            "90".toDouble(),
-            data.length?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "E.M. van den Broek",
-            data.participant?.get(0)?.individual?.display
-        )
-        assertEquals(
-            "Practitioner/f001",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "103391001",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Non-urgent ear, nose and throat admission",
-            data.priority?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.priority?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "18099001",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Retropharyngeal abscess",
-            data.reasonCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Organization/f001",
-            data.serviceProvider?.reference
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "270427003",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Patient-initiated encounter",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertEncounter03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter03Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "AMB",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulatory",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "305956004",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral by physician",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306689006",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Discharge to home",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+            actual = data.hospitalization?.preAdmissionIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.hospitalization?.preAdmissionIdentifier?.use
+        )
+
+        assertEquals(
+            expected = "93042",
+            actual = data.hospitalization?.preAdmissionIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f003",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/encounters",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "v6751",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "min",
+            actual = data.length?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.length?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "min",
+            actual = data.length?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "90".toDouble(),
+            actual = data.length?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "E.M. van den Broek",
+            actual = data.participant?.get(0)?.individual?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f001",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "103391001",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Non-urgent ear, nose and throat admission",
+            actual = data.priority?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.priority?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "18099001",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Retropharyngeal abscess",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.serviceProvider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "270427003",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient-initiated encounter",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -437,56 +600,80 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "IMP",
-            data.clazz?.code
-        )
-        assertEquals(
-            "inpatient encounter",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            EncounterStatus.IN_PROGRESS,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEncounter04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter04Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "IMP",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inpatient encounter",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -498,172 +685,251 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "AMB",
-            data.clazz?.code
-        )
-        assertEquals(
-            "ambulatory",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "305997006",
-            data.hospitalization?.admitSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Referral by radiologist",
-            data.hospitalization?.admitSource?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.admitSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "306689006",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Discharge to home",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
-            data.hospitalization?.preAdmissionIdentifier?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.hospitalization?.preAdmissionIdentifier?.use
-        )
-        assertEquals(
-            "98682",
-            data.hospitalization?.preAdmissionIdentifier?.value
-        )
-        assertEquals(
-            "f002",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/encounters",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "v3251",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "min",
-            data.length?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.length?.system
-        )
-        assertEquals(
-            "min",
-            data.length?.unit
-        )
-        assertEquals(
-            "140".toDouble(),
-            data.length?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "M.I.M Versteegh",
-            data.participant?.get(0)?.individual?.display
-        )
-        assertEquals(
-            "Practitioner/f003",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "103391001",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Urgent",
-            data.priority?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.priority?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "34068001",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Partial lobectomy of lung",
-            data.reasonCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "BMC",
-            data.serviceProvider?.display
-        )
-        assertEquals(
-            "Organization/f001",
-            data.serviceProvider?.reference
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "270427003",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Patient-initiated encounter",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertEncounter05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter05Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "AMB",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulatory",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "305997006",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral by radiologist",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306689006",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Discharge to home",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/pre-admissions",
+            actual = data.hospitalization?.preAdmissionIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.hospitalization?.preAdmissionIdentifier?.use
+        )
+
+        assertEquals(
+            expected = "98682",
+            actual = data.hospitalization?.preAdmissionIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f002",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/encounters",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "v3251",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "min",
+            actual = data.length?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.length?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "min",
+            actual = data.length?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "140".toDouble(),
+            actual = data.length?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "M.I.M Versteegh",
+            actual = data.participant?.get(0)?.individual?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f003",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "103391001",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Urgent",
+            actual = data.priority?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.priority?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "34068001",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Partial lobectomy of lung",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "BMC",
+            actual = data.serviceProvider?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.serviceProvider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "270427003",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient-initiated encounter",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -675,240 +941,350 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "Account/example",
-            data.account?.get(0)?.reference
-        )
-        assertEquals(
-            "Appointment/example",
-            data.appointment?.get(0)?.reference
-        )
-        assertEquals(
-            "ServiceRequest/myringotomy",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "IMP",
-            data.clazz?.code
-        )
-        assertEquals(
-            "inpatient encounter",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "Condition/stroke",
-            data.diagnosis?.get(0)?.condition?.reference
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(0)?.rank?.value
-        )
-        assertEquals(
-            "AD",
-            data.diagnosis?.get(0)?.use?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Admission diagnosis",
-            data.diagnosis?.get(0)?.use?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diagnosis-role",
-            data.diagnosis?.get(0)?.use?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Condition/f201",
-            data.diagnosis?.get(1)?.condition?.reference
-        )
-        assertEquals(
-            "DD",
-            data.diagnosis?.get(1)?.use?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Discharge diagnosis",
-            data.diagnosis?.get(1)?.use?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diagnosis-role",
-            data.diagnosis?.get(1)?.use?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "EpisodeOfCare/example",
-            data.episodeOfCare?.get(0)?.reference
-        )
-        assertEquals(
-            "309902002",
-            data.hospitalization?.admitSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Clinical Oncology Department",
-            data.hospitalization?.admitSource?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.admitSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Location/2",
-            data.hospitalization?.destination?.reference
-        )
-        assertEquals(
-            "276026009",
-            data.hospitalization?.dietPreference?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Fluid balance regulation",
-            data.hospitalization?.dietPreference?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.dietPreference?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Location/2",
-            data.hospitalization?.origin?.reference
-        )
-        assertEquals(
-            "readmitted",
-            data.hospitalization?.reAdmission?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "wheel",
-            data.hospitalization?.specialArrangement?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Wheelchair",
-            data.hospitalization?.specialArrangement?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/encounter-special-arrangements",
-            data.hospitalization?.specialArrangement?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "NRM",
-            data.hospitalization?.specialCourtesy?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "normal courtesy",
-            data.hospitalization?.specialCourtesy?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy",
-            data.hospitalization?.specialCourtesy?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f203",
-            data.id
-        )
-        assertEquals(
-            IdentifierUse.TEMP,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "Encounter_Roel_20130311",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Encounter/f203",
-            data.partOf?.reference
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "PART",
-            data.participant?.get(0)?.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-            data.participant?.get(0)?.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2013-03-20",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-03-11",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "394849002",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "High priority",
-            data.priority?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.priority?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy.",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "Organization/2",
-            data.serviceProvider?.reference
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "2013-03-08",
-            data.statusHistory?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.ARRIVED,
-            data.statusHistory?.get(0)?.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "183807002",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Inpatient stay for nine days",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertEncounter06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter06Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "Account/example",
+            actual = data.account?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Appointment/example",
+            actual = data.appointment?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ServiceRequest/myringotomy",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "IMP",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inpatient encounter",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/stroke",
+            actual = data.diagnosis?.get(0)?.condition?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(0)?.rank?.value
+        )
+
+        assertEquals(
+            expected = "AD",
+            actual = data.diagnosis?.get(0)?.use?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Admission diagnosis",
+            actual = data.diagnosis?.get(0)?.use?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            actual = data.diagnosis?.get(0)?.use?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/f201",
+            actual = data.diagnosis?.get(1)?.condition?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "DD",
+            actual = data.diagnosis?.get(1)?.use?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Discharge diagnosis",
+            actual = data.diagnosis?.get(1)?.use?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            actual = data.diagnosis?.get(1)?.use?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EpisodeOfCare/example",
+            actual = data.episodeOfCare?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "309902002",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical Oncology Department",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/2",
+            actual = data.hospitalization?.destination?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "276026009",
+            actual = data.hospitalization?.dietPreference?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Fluid balance regulation",
+            actual = data.hospitalization?.dietPreference?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.dietPreference?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/2",
+            actual = data.hospitalization?.origin?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "readmitted",
+            actual = data.hospitalization?.reAdmission?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "wheel",
+            actual = data.hospitalization?.specialArrangement?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Wheelchair",
+            actual = data.hospitalization?.specialArrangement?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/encounter-special-arrangements",
+            actual = data.hospitalization?.specialArrangement?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "NRM",
+            actual = data.hospitalization?.specialCourtesy?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "normal courtesy",
+            actual = data.hospitalization?.specialCourtesy?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy",
+            actual = data.hospitalization?.specialCourtesy?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f203",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.TEMP,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Encounter_Roel_20130311",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f203",
+            actual = data.partOf?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "PART",
+            actual = data.participant?.get(0)?.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            actual = data.participant?.get(0)?.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-20",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-11",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "394849002",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "High priority",
+            actual = data.priority?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.priority?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy.",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.serviceProvider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "2013-03-08",
+            actual = data.statusHistory?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.ARRIVED,
+            actual = data.statusHistory?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "183807002",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Inpatient stay for nine days",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -920,80 +1296,115 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "AMB",
-            data.clazz?.code
-        )
-        assertEquals(
-            "ambulatory",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "xcda",
-            data.id
-        )
-        assertEquals(
-            "http://healthcare.example.org/identifiers/enocunter",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "1234213.52345873",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/xcda1",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "T-D8200",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Arm",
-            data.reasonCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://ihe.net/xds/connectathon/eventCodes",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "Patient/xcda",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEncounter07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter07Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "AMB",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulatory",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "xcda",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://healthcare.example.org/identifiers/enocunter",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "1234213.52345873",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda1",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "T-D8200",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Arm",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ihe.net/xds/connectathon/eventCodes",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/xcda",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1005,156 +1416,226 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "AMB",
-            data.clazz?.code
-        )
-        assertEquals(
-            "ambulatory",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "Complications from Roel's TPF chemotherapy on January 28th, 2013",
-            data.diagnosis?.get(0)?.condition?.display
-        )
-        assertEquals(
-            "2".toLong(),
-            data.diagnosis?.get(0)?.rank?.value
-        )
-        assertEquals(
-            "AD",
-            data.diagnosis?.get(0)?.use?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Admission diagnosis",
-            data.diagnosis?.get(0)?.use?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diagnosis-role",
-            data.diagnosis?.get(0)?.use?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The patient is treated for a tumor",
-            data.diagnosis?.get(1)?.condition?.display
-        )
-        assertEquals(
-            "1".toLong(),
-            data.diagnosis?.get(1)?.rank?.value
-        )
-        assertEquals(
-            "CC",
-            data.diagnosis?.get(1)?.use?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chief complaint",
-            data.diagnosis?.get(1)?.use?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/diagnosis-role",
-            data.diagnosis?.get(1)?.use?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f202",
-            data.id
-        )
-        assertEquals(
-            IdentifierUse.TEMP,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "Encounter_Roel_20130128",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "min",
-            data.length?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.length?.system
-        )
-        assertEquals(
-            "minutes",
-            data.length?.unit
-        )
-        assertEquals(
-            "56".toDouble(),
-            data.length?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "103391001",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Urgent",
-            data.priority?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.priority?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "The patient is treated for a tumor.",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "Organization/f201",
-            data.serviceProvider?.reference
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "367336001",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chemotherapy",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertEncounter08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter08Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "AMB",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulatory",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Complications from Roel's TPF chemotherapy on January 28th, 2013",
+            actual = data.diagnosis?.get(0)?.condition?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2".toLong(),
+            actual = data.diagnosis?.get(0)?.rank?.value
+        )
+
+        assertEquals(
+            expected = "AD",
+            actual = data.diagnosis?.get(0)?.use?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Admission diagnosis",
+            actual = data.diagnosis?.get(0)?.use?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            actual = data.diagnosis?.get(0)?.use?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The patient is treated for a tumor",
+            actual = data.diagnosis?.get(1)?.condition?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.diagnosis?.get(1)?.rank?.value
+        )
+
+        assertEquals(
+            expected = "CC",
+            actual = data.diagnosis?.get(1)?.use?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chief complaint",
+            actual = data.diagnosis?.get(1)?.use?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            actual = data.diagnosis?.get(1)?.use?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f202",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.TEMP,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Encounter_Roel_20130128",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "min",
+            actual = data.length?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.length?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "minutes",
+            actual = data.length?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "56".toDouble(),
+            actual = data.length?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "103391001",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Urgent",
+            actual = data.priority?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.priority?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "The patient is treated for a tumor.",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f201",
+            actual = data.serviceProvider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "367336001",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chemotherapy",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1166,240 +1647,324 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "EMER",
-            data.classHistory?.get(0)?.clazz?.code
-        )
-        assertEquals(
-            "emergency",
-            data.classHistory?.get(0)?.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.classHistory?.get(0)?.clazz?.system
-        )
-        assertEquals(
-            "2017-02-01T09:27:00+10:00",
-            data.classHistory?.get(0)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T07:15:00+10:00",
-            data.classHistory?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "IMP",
-            data.classHistory?.get(1)?.clazz?.code
-        )
-        assertEquals(
-            "inpatient encounter",
-            data.classHistory?.get(1)?.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.classHistory?.get(1)?.clazz?.system
-        )
-        assertEquals(
-            "2017-02-01T09:27:00+10:00",
-            data.classHistory?.get(1)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            "IMP",
-            data.clazz?.code
-        )
-        assertEquals(
-            "inpatient encounter",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "emd",
-            data.hospitalization?.admitSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "From accident/emergency department",
-            data.hospitalization?.admitSource?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/admit-source",
-            data.hospitalization?.admitSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "emerg",
-            data.id
-        )
-        assertEquals(
-            "Emergency Waiting Room",
-            data.location?.get(0)?.location?.display
-        )
-        assertEquals(
-            "2017-02-01T08:45:00+10:00",
-            data.location?.get(0)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T07:15:00+10:00",
-            data.location?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterLocationStatus.ACTIVE,
-            data.location?.get(0)?.status
-        )
-        assertEquals(
-            "Emergency",
-            data.location?.get(1)?.location?.display
-        )
-        assertEquals(
-            "2017-02-01T09:27:00+10:00",
-            data.location?.get(1)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T08:45:00+10:00",
-            data.location?.get(1)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterLocationStatus.ACTIVE,
-            data.location?.get(1)?.status
-        )
-        assertEquals(
-            "Ward 1, Room 42, Bed 1",
-            data.location?.get(2)?.location?.display
-        )
-        assertEquals(
-            "2017-02-01T12:15:00+10:00",
-            data.location?.get(2)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T09:27:00+10:00",
-            data.location?.get(2)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterLocationStatus.ACTIVE,
-            data.location?.get(2)?.status
-        )
-        assertEquals(
-            "Ward 1, Room 42, Bed 1",
-            data.location?.get(3)?.location?.display
-        )
-        assertEquals(
-            "2017-02-01T12:45:00+10:00",
-            data.location?.get(3)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T12:15:00+10:00",
-            data.location?.get(3)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterLocationStatus.RESERVED,
-            data.location?.get(3)?.status
-        )
-        assertEquals(
-            "Ward 1, Room 42, Bed 1",
-            data.location?.get(4)?.location?.display
-        )
-        assertEquals(
-            "2017-02-01T12:45:00+10:00",
-            data.location?.get(4)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterLocationStatus.ACTIVE,
-            data.location?.get(4)?.status
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "2017-02-01T07:15:00+10:00",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.IN_PROGRESS,
-            data.status
-        )
-        assertEquals(
-            "2017-02-01T07:35:00+10:00",
-            data.statusHistory?.get(0)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T07:15:00+10:00",
-            data.statusHistory?.get(0)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.ARRIVED,
-            data.statusHistory?.get(0)?.status
-        )
-        assertEquals(
-            "2017-02-01T08:45:00+10:00",
-            data.statusHistory?.get(1)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T07:35:00+10:00",
-            data.statusHistory?.get(1)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.TRIAGED,
-            data.statusHistory?.get(1)?.status
-        )
-        assertEquals(
-            "2017-02-01T12:15:00+10:00",
-            data.statusHistory?.get(2)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T08:45:00+10:00",
-            data.statusHistory?.get(2)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.IN_PROGRESS,
-            data.statusHistory?.get(2)?.status
-        )
-        assertEquals(
-            "2017-02-01T12:45:00+10:00",
-            data.statusHistory?.get(3)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2017-02-01T12:15:00+10:00",
-            data.statusHistory?.get(3)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.ONLEAVE,
-            data.statusHistory?.get(3)?.status
-        )
-        assertEquals(
-            "2017-02-01T12:45:00+10:00",
-            data.statusHistory?.get(4)?.period?.start?.value.toString()
-        )
-        assertEquals(
-            EncounterStatus.IN_PROGRESS,
-            data.statusHistory?.get(4)?.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Emergency visit that escalated into inpatient patient @example</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertEncounter09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter09Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "EMER",
+            actual = data.classHistory?.get(0)?.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "emergency",
+            actual = data.classHistory?.get(0)?.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.classHistory?.get(0)?.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T09:27:00+10:00",
+            actual = data.classHistory?.get(0)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T07:15:00+10:00",
+            actual = data.classHistory?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "IMP",
+            actual = data.classHistory?.get(1)?.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inpatient encounter",
+            actual = data.classHistory?.get(1)?.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.classHistory?.get(1)?.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T09:27:00+10:00",
+            actual = data.classHistory?.get(1)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "IMP",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "inpatient encounter",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "emd",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "From accident/emergency department",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/admit-source",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "emerg",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Emergency Waiting Room",
+            actual = data.location?.get(0)?.location?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T08:45:00+10:00",
+            actual = data.location?.get(0)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T07:15:00+10:00",
+            actual = data.location?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterLocationStatus.ACTIVE,
+            actual = data.location?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = "Emergency",
+            actual = data.location?.get(1)?.location?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T09:27:00+10:00",
+            actual = data.location?.get(1)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T08:45:00+10:00",
+            actual = data.location?.get(1)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterLocationStatus.ACTIVE,
+            actual = data.location?.get(1)?.status
+        )
+
+        assertEquals(
+            expected = "Ward 1, Room 42, Bed 1",
+            actual = data.location?.get(2)?.location?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:15:00+10:00",
+            actual = data.location?.get(2)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T09:27:00+10:00",
+            actual = data.location?.get(2)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterLocationStatus.ACTIVE,
+            actual = data.location?.get(2)?.status
+        )
+
+        assertEquals(
+            expected = "Ward 1, Room 42, Bed 1",
+            actual = data.location?.get(3)?.location?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:45:00+10:00",
+            actual = data.location?.get(3)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:15:00+10:00",
+            actual = data.location?.get(3)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterLocationStatus.RESERVED,
+            actual = data.location?.get(3)?.status
+        )
+
+        assertEquals(
+            expected = "Ward 1, Room 42, Bed 1",
+            actual = data.location?.get(4)?.location?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:45:00+10:00",
+            actual = data.location?.get(4)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterLocationStatus.ACTIVE,
+            actual = data.location?.get(4)?.status
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-01T07:15:00+10:00",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.IN_PROGRESS,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "2017-02-01T07:35:00+10:00",
+            actual = data.statusHistory?.get(0)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T07:15:00+10:00",
+            actual = data.statusHistory?.get(0)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.ARRIVED,
+            actual = data.statusHistory?.get(0)?.status
+        )
+
+        assertEquals(
+            expected = "2017-02-01T08:45:00+10:00",
+            actual = data.statusHistory?.get(1)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T07:35:00+10:00",
+            actual = data.statusHistory?.get(1)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.TRIAGED,
+            actual = data.statusHistory?.get(1)?.status
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:15:00+10:00",
+            actual = data.statusHistory?.get(2)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T08:45:00+10:00",
+            actual = data.statusHistory?.get(2)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.IN_PROGRESS,
+            actual = data.statusHistory?.get(2)?.status
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:45:00+10:00",
+            actual = data.statusHistory?.get(3)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:15:00+10:00",
+            actual = data.statusHistory?.get(3)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.ONLEAVE,
+            actual = data.statusHistory?.get(3)?.status
+        )
+
+        assertEquals(
+            expected = "2017-02-01T12:45:00+10:00",
+            actual = data.statusHistory?.get(4)?.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = EncounterStatus.IN_PROGRESS,
+            actual = data.statusHistory?.get(4)?.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Emergency visit that escalated into inpatient patient @example</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1411,171 +1976,250 @@ class EncounterTest {
         val data = parser.toFhir(Encounter::class, sourceJson)
 
         // Then
-        assertEquals(
-            "AMB",
-            data.clazz?.code
-        )
-        assertEquals(
-            "ambulatory",
-            data.clazz?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            data.clazz?.system
-        )
-        assertEquals(
-            "305956004",
-            data.hospitalization?.admitSource?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Referral by physician",
-            data.hospitalization?.admitSource?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.admitSource?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "306689006",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Discharge to home",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.hospitalization?.dischargeDisposition?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://www.amc.nl/zorgportal/identifiers/pre-admissions",
-            data.hospitalization?.preAdmissionIdentifier?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.hospitalization?.preAdmissionIdentifier?.use
-        )
-        assertEquals(
-            "93042",
-            data.hospitalization?.preAdmissionIdentifier?.value
-        )
-        assertEquals(
-            "f001",
-            data.id
-        )
-        assertEquals(
-            "http://www.amc.nl/zorgportal/identifiers/visits",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "v1451",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "min",
-            data.length?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.length?.system
-        )
-        assertEquals(
-            "min",
-            data.length?.unit
-        )
-        assertEquals(
-            "140".toDouble(),
-            data.length?.value?.value
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "P. Voigt",
-            data.participant?.get(0)?.individual?.display
-        )
-        assertEquals(
-            "Practitioner/f002",
-            data.participant?.get(0)?.individual?.reference
-        )
-        assertEquals(
-            "310361003",
-            data.priority?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Non-urgent cardiological admission",
-            data.priority?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.priority?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "34068001",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Heart valve replacement",
-            data.reasonCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Burgers University Medical Center",
-            data.serviceProvider?.display
-        )
-        assertEquals(
-            "Organization/f001",
-            data.serviceProvider?.reference
-        )
-        assertEquals(
-            EncounterStatus.FINISHED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "270427003",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Patient-initiated encounter",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertEncounter10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertEncounter10Step01(data: Encounter) {
+
+        assertEquals(
+            expected = "AMB",
+            actual = data.clazz?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulatory",
+            actual = data.clazz?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            actual = data.clazz?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "305956004",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral by physician",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.admitSource?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "306689006",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Discharge to home",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.hospitalization?.dischargeDisposition?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.amc.nl/zorgportal/identifiers/pre-admissions",
+            actual = data.hospitalization?.preAdmissionIdentifier?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.hospitalization?.preAdmissionIdentifier?.use
+        )
+
+        assertEquals(
+            expected = "93042",
+            actual = data.hospitalization?.preAdmissionIdentifier?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "f001",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.amc.nl/zorgportal/identifiers/visits",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "v1451",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "min",
+            actual = data.length?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.length?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "min",
+            actual = data.length?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "140".toDouble(),
+            actual = data.length?.value?.value
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "P. Voigt",
+            actual = data.participant?.get(0)?.individual?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f002",
+            actual = data.participant?.get(0)?.individual?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "310361003",
+            actual = data.priority?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Non-urgent cardiological admission",
+            actual = data.priority?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.priority?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "34068001",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Heart valve replacement",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Center",
+            actual = data.serviceProvider?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.serviceProvider?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = EncounterStatus.FINISHED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "270427003",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient-initiated encounter",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
     }
 }

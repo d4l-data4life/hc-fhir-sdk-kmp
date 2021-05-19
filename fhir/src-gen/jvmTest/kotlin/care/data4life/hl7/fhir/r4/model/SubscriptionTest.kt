@@ -52,80 +52,113 @@ class SubscriptionTest {
         val data = parser.toFhir(Subscription::class, sourceJson)
 
         // Then
-        assertEquals(
-            "https://biliwatch.com/customers/mount-auburn-miu/on-result",
-            data.channel?.endpoint
-        )
-        assertEquals(
-            "Authorization: Bearer secret-token-abc-123",
-            data.channel?.header?.get(0)
-        )
-        assertEquals(
-            "application/fhir+json",
-            data.channel?.payload
-        )
-        assertEquals(
-            SubscriptionChannelType.REST_HOOK,
-            data.channel?.type
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.system
-        )
-        assertEquals(
-            "ext 4123",
-            data.contact?.get(0)?.value
-        )
-        assertEquals(
-            "Observation?code=http://loinc.org|1975-2",
-            data.criteria
-        )
-        assertEquals(
-            "2021-01-01T00:00:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "Socket Error 10060 - can't connect to host",
-            data.error
-        )
-        assertEquals(
-            "example-error",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Monitor new neonatal function",
-            data.reason
-        )
-        assertEquals(
-            SubscriptionStatus.ERROR,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubscription01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubscription01Step01(data: Subscription) {
+
+        assertEquals(
+            expected = "https://biliwatch.com/customers/mount-auburn-miu/on-result",
+            actual = data.channel?.endpoint
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Authorization: Bearer secret-token-abc-123",
+            actual = data.channel?.header?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/fhir+json",
+            actual = data.channel?.payload
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SubscriptionChannelType.REST_HOOK,
+            actual = data.channel?.type
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "ext 4123",
+            actual = data.contact?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation?code=http://loinc.org|1975-2",
+            actual = data.criteria
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2021-01-01T00:00:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Socket Error 10060 - can't connect to host",
+            actual = data.error
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-error",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Monitor new neonatal function",
+            actual = data.reason
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SubscriptionStatus.ERROR,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -137,75 +170,106 @@ class SubscriptionTest {
         val data = parser.toFhir(Subscription::class, sourceJson)
 
         // Then
-        assertEquals(
-            "https://biliwatch.com/customers/mount-auburn-miu/on-result",
-            data.channel?.endpoint
-        )
-        assertEquals(
-            "Authorization: Bearer secret-token-abc-123",
-            data.channel?.header?.get(0)
-        )
-        assertEquals(
-            "application/fhir+json",
-            data.channel?.payload
-        )
-        assertEquals(
-            SubscriptionChannelType.REST_HOOK,
-            data.channel?.type
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.system
-        )
-        assertEquals(
-            "ext 4123",
-            data.contact?.get(0)?.value
-        )
-        assertEquals(
-            "Observation?code=http://loinc.org|1975-2",
-            data.criteria
-        )
-        assertEquals(
-            "2021-01-01T00:00:00Z",
-            data.end?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Monitor new neonatal function",
-            data.reason
-        )
-        assertEquals(
-            SubscriptionStatus.REQUESTED,
-            data.status
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertSubscription02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSubscription02Step01(data: Subscription) {
+
+        assertEquals(
+            expected = "https://biliwatch.com/customers/mount-auburn-miu/on-result",
+            actual = data.channel?.endpoint
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Authorization: Bearer secret-token-abc-123",
+            actual = data.channel?.header?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/fhir+json",
+            actual = data.channel?.payload
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SubscriptionChannelType.REST_HOOK,
+            actual = data.channel?.type
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "ext 4123",
+            actual = data.contact?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation?code=http://loinc.org|1975-2",
+            actual = data.criteria
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2021-01-01T00:00:00Z",
+            actual = data.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Monitor new neonatal function",
+            actual = data.reason
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = SubscriptionStatus.REQUESTED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
+            actual = data.text?.div
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

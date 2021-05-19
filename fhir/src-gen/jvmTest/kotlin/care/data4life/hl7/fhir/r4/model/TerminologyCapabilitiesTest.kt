@@ -52,91 +52,128 @@ class TerminologyCapabilitiesTest {
         val data = parser.toFhir(TerminologyCapabilities::class, sourceJson)
 
         // Then
-        assertEquals(
-            CodeSearchSupport.EXPLICIT,
-            data.codeSearch
-        )
-        assertEquals(
-            "System Administrator",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "wile@acme.org",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2012-01-04",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "Acme Terminology Server",
-            data.implementation?.description
-        )
-        assertEquals(
-            "http://example.org/tx",
-            data.implementation?.url
-        )
-        assertEquals(
-            CapabilityStatementKind.INSTANCE,
-            data.kind
-        )
-        assertEquals(
-            "ACME-EHR",
-            data.name
-        )
-        assertEquals(
-            "ACME Corporation",
-            data.publisher
-        )
-        assertEquals(
-            "TxServer",
-            data.software?.name
-        )
-        assertEquals(
-            "0.1.2",
-            data.software?.version
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "ACME EHR capability statement",
-            data.title
-        )
-        assertEquals(
-            "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311",
-            data.url
-        )
-        assertEquals(
-            "20130510",
-            data.version
-        )
+        assertTerminologyCapabilities01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertTerminologyCapabilities01Step01(data: TerminologyCapabilities) {
+
+        assertEquals(
+            expected = CodeSearchSupport.EXPLICIT,
+            actual = data.codeSearch
+        )
+
+        assertEquals(
+            expected = "System Administrator",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "wile@acme.org",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-01-04",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Terminology Server",
+            actual = data.implementation?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/tx",
+            actual = data.implementation?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CapabilityStatementKind.INSTANCE,
+            actual = data.kind
+        )
+
+        assertEquals(
+            expected = "ACME-EHR",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACME Corporation",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "TxServer",
+            actual = data.software?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.1.2",
+            actual = data.software?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "ACME EHR capability statement",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20130510",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 }

@@ -52,168 +52,241 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.compose?.inactive?.value
-        )
-        assertEquals(
-            "14647-2",
-            data.compose?.include?.get(0)?.concept?.get(0)?.code
-        )
-        assertEquals(
-            "Cholesterol [Moles/Volume]",
-            data.compose?.include?.get(0)?.concept?.get(0)?.display
-        )
-        assertEquals(
-            "2093-3",
-            data.compose?.include?.get(0)?.concept?.get(1)?.code
-        )
-        assertEquals(
-            "Cholesterol [Mass/Volume]",
-            data.compose?.include?.get(0)?.concept?.get(1)?.display
-        )
-        assertEquals(
-            "35200-5",
-            data.compose?.include?.get(0)?.concept?.get(2)?.code
-        )
-        assertEquals(
-            "Cholesterol [Mass Or Moles/Volume]",
-            data.compose?.include?.get(0)?.concept?.get(2)?.display
-        )
-        assertEquals(
-            "9342-7",
-            data.compose?.include?.get(0)?.concept?.get(3)?.code
-        )
-        assertEquals(
-            "Cholesterol [Percentile]",
-            data.compose?.include?.get(0)?.concept?.get(3)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            "2.36",
-            data.compose?.include?.get(0)?.version
-        )
-        assertEquals(
-            "2012-06-13",
-            data.compose?.lockedDate?.value.toString()
-        )
-        assertEquals(
-            "FHIR project team",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.",
-            data.copyright
-        )
-        assertEquals(
-            "2015-06-22",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example-extensional",
-            data.id
-        )
-        assertEquals(
-            "http://acme.com/identifiers/valuesets",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "loinc-cholesterol-int",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "US",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            "LOINC Codes for Cholesterol in Serum/Plasma",
-            data.name
-        )
-        assertEquals(
-            "HL7 International",
-            data.publisher
-        )
-        assertEquals(
-            "This value set was published by ACME Inc in order to make clear which codes are used for Cholesterol by AcmeClinicals (Adult Ambulatory care support in USA)",
-            data.purpose
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/example-extensional",
-            data.url
-        )
-        assertEquals(
-            "age",
-            data.useContext?.get(0)?.code?.code
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/usage-context-type",
-            data.useContext?.get(0)?.code?.system
-        )
-        assertEquals(
-            "a",
-            data.useContext?.get(0)?.valueQuantity?.code
-        )
-        assertEquals(
-            QuantityComparator.GREATER_THAN,
-            data.useContext?.get(0)?.valueQuantity?.comparator
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.useContext?.get(0)?.valueQuantity?.system
-        )
-        assertEquals(
-            "yrs",
-            data.useContext?.get(0)?.valueQuantity?.unit
-        )
-        assertEquals(
-            "18".toDouble(),
-            data.useContext?.get(0)?.valueQuantity?.value?.value
-        )
-        assertEquals(
-            "20150622",
-            data.version
-        )
+        assertValueSet01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet01Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.compose?.inactive?.value
+        )
+
+        assertEquals(
+            expected = "14647-2",
+            actual = data.compose?.include?.get(0)?.concept?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Moles/Volume]",
+            actual = data.compose?.include?.get(0)?.concept?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2093-3",
+            actual = data.compose?.include?.get(0)?.concept?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Mass/Volume]",
+            actual = data.compose?.include?.get(0)?.concept?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "35200-5",
+            actual = data.compose?.include?.get(0)?.concept?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Mass Or Moles/Volume]",
+            actual = data.compose?.include?.get(0)?.concept?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9342-7",
+            actual = data.compose?.include?.get(0)?.concept?.get(3)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Percentile]",
+            actual = data.compose?.include?.get(0)?.concept?.get(3)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.36",
+            actual = data.compose?.include?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-06-13",
+            actual = data.compose?.lockedDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "FHIR project team",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-06-22",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example-extensional",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/identifiers/valuesets",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "loinc-cholesterol-int",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "US",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LOINC Codes for Cholesterol in Serum/Plasma",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 International",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This value set was published by ACME Inc in order to make clear which codes are used for Cholesterol by AcmeClinicals (Adult Ambulatory care support in USA)",
+            actual = data.purpose
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/example-extensional",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "age",
+            actual = data.useContext?.get(0)?.code?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            actual = data.useContext?.get(0)?.code?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "a",
+            actual = data.useContext?.get(0)?.valueQuantity?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = QuantityComparator.GREATER_THAN,
+            actual = data.useContext?.get(0)?.valueQuantity?.comparator
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.useContext?.get(0)?.valueQuantity?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "yrs",
+            actual = data.useContext?.get(0)?.valueQuantity?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "18".toDouble(),
+            actual = data.useContext?.get(0)?.valueQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "20150622",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -225,504 +298,1476 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            "invalid",
-            data.compose?.include?.get(0)?.concept?.get(0)?.code
-        )
-        assertEquals(
-            "structure",
-            data.compose?.include?.get(0)?.concept?.get(1)?.code
-        )
-        assertEquals(
-            "required",
-            data.compose?.include?.get(0)?.concept?.get(2)?.code
-        )
-        assertEquals(
-            "value",
-            data.compose?.include?.get(0)?.concept?.get(3)?.code
-        )
-        assertEquals(
-            "processing",
-            data.compose?.include?.get(0)?.concept?.get(4)?.code
-        )
-        assertEquals(
-            "duplicate",
-            data.compose?.include?.get(0)?.concept?.get(5)?.code
-        )
-        assertEquals(
-            "not-found",
-            data.compose?.include?.get(0)?.concept?.get(6)?.code
-        )
-        assertEquals(
-            "conflict",
-            data.compose?.include?.get(0)?.concept?.get(7)?.code
-        )
-        assertEquals(
-            "lock",
-            data.compose?.include?.get(0)?.concept?.get(8)?.code
-        )
-        assertEquals(
-            "exception",
-            data.compose?.include?.get(0)?.concept?.get(9)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/valueset-expand-rules",
-            data.compose?.include?.get(0)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "groups-only",
-            data.compose?.include?.get(0)?.extension?.get(0)?.valueCode
-        )
-        assertEquals(
-            "display",
-            data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "(Most common)",
-            data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(0)?.valueString
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "login",
-            data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(1)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "conflict",
-            data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(2)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
-            data.compose?.include?.get(0)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "code",
-            data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "processing",
-            data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(0)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "duplicate",
-            data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(1)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "not-found",
-            data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(2)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
-            data.compose?.include?.get(0)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "code",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "invalid",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(0)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "structure",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(1)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "required",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(2)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(3)?.url
-        )
-        assertEquals(
-            "value",
-            data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(3)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
-            data.compose?.include?.get(0)?.extension?.get(3)?.url
-        )
-        assertEquals(
-            "code",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "transient",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(0)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "lock",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(1)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "exception",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(2)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(3)?.url
-        )
-        assertEquals(
-            "throttled",
-            data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(3)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
-            data.compose?.include?.get(0)?.extension?.get(4)?.url
-        )
-        assertEquals(
-            "code",
-            data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "security",
-            data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(0)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(1)?.url
-        )
-        assertEquals(
-            "login",
-            data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(1)?.valueCode
-        )
-        assertEquals(
-            "member",
-            data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(2)?.url
-        )
-        assertEquals(
-            "unknown",
-            data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(2)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
-            data.compose?.include?.get(0)?.extension?.get(5)?.url
-        )
-        assertEquals(
-            "#hacked",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "hacked",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2018-07-20",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Demonstration of extensions that build a hierarchical contains",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.expansion?.contains?.get(0)?.abstrakt?.value
-        )
-        assertEquals(
-            "login",
-            data.expansion?.contains?.get(0)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Login Required",
-            data.expansion?.contains?.get(0)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(0)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "conflict",
-            data.expansion?.contains?.get(0)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "Edit Version Conflict",
-            data.expansion?.contains?.get(0)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(0)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "(Most common)",
-            data.expansion?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "processing",
-            data.expansion?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "duplicate",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Duplicate",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "not-found",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "Not Found",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "Processing Failure",
-            data.expansion?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.expansion?.contains?.get(2)?.abstrakt?.value
-        )
-        assertEquals(
-            "invalid",
-            data.expansion?.contains?.get(2)?.code
-        )
-        assertEquals(
-            "structure",
-            data.expansion?.contains?.get(2)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Structural Issue",
-            data.expansion?.contains?.get(2)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(2)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "required",
-            data.expansion?.contains?.get(2)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "Required element missing",
-            data.expansion?.contains?.get(2)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(2)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "value",
-            data.expansion?.contains?.get(2)?.contains?.get(2)?.code
-        )
-        assertEquals(
-            "Element value invalid",
-            data.expansion?.contains?.get(2)?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(2)?.contains?.get(2)?.system
-        )
-        assertEquals(
-            "Invalid Content",
-            data.expansion?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(2)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.expansion?.contains?.get(3)?.abstrakt?.value
-        )
-        assertEquals(
-            "transient",
-            data.expansion?.contains?.get(3)?.code
-        )
-        assertEquals(
-            "lock-error",
-            data.expansion?.contains?.get(3)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Lock Error",
-            data.expansion?.contains?.get(3)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(3)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "exception",
-            data.expansion?.contains?.get(3)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "Exception",
-            data.expansion?.contains?.get(3)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(3)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "throttled",
-            data.expansion?.contains?.get(3)?.contains?.get(2)?.code
-        )
-        assertEquals(
-            "Throttled",
-            data.expansion?.contains?.get(3)?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(3)?.contains?.get(2)?.system
-        )
-        assertEquals(
-            "Transient Issue",
-            data.expansion?.contains?.get(3)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(3)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.expansion?.contains?.get(4)?.abstrakt?.value
-        )
-        assertEquals(
-            "security",
-            data.expansion?.contains?.get(4)?.code
-        )
-        assertEquals(
-            "login",
-            data.expansion?.contains?.get(4)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Login Required",
-            data.expansion?.contains?.get(4)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(4)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "unknown",
-            data.expansion?.contains?.get(4)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "Unknown User",
-            data.expansion?.contains?.get(4)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(4)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "Security Problem",
-            data.expansion?.contains?.get(4)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/hacked",
-            data.expansion?.contains?.get(4)?.system
-        )
-        assertEquals(
-            "urn:uuid:42316ff8-2714-4680-9980-f37a6d1a71bc",
-            data.expansion?.identifier
-        )
-        assertEquals(
-            "excludeNotForUI",
-            data.expansion?.parameter?.get(0)?.name
-        )
-        assertEquals(
-            "false",
-            data.expansion?.parameter?.get(0)?.valueUri
-        )
-        assertEquals(
-            "2018-07-20T23:14:07+10:00",
-            data.expansion?.timestamp?.value.toString()
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example-hierarchical",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            "Example Hierarchical ValueSet",
-            data.name
-        )
-        assertEquals(
-            "FHIR Project team",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/example-hierarchical",
-            data.url
-        )
-        assertEquals(
-            "4.0.1",
-            data.version
-        )
+        assertValueSet02Step01(data)
+        assertValueSet02Step02(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet02Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = "invalid",
+            actual = data.compose?.include?.get(0)?.concept?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "structure",
+            actual = data.compose?.include?.get(0)?.concept?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "required",
+            actual = data.compose?.include?.get(0)?.concept?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "value",
+            actual = data.compose?.include?.get(0)?.concept?.get(3)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "processing",
+            actual = data.compose?.include?.get(0)?.concept?.get(4)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "duplicate",
+            actual = data.compose?.include?.get(0)?.concept?.get(5)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "not-found",
+            actual = data.compose?.include?.get(0)?.concept?.get(6)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "conflict",
+            actual = data.compose?.include?.get(0)?.concept?.get(7)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lock",
+            actual = data.compose?.include?.get(0)?.concept?.get(8)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exception",
+            actual = data.compose?.include?.get(0)?.concept?.get(9)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-rules",
+            actual = data.compose?.include?.get(0)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "groups-only",
+            actual = data.compose?.include?.get(0)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "display",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "(Most common)",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "conflict",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "processing",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "duplicate",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "not-found",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "invalid",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "structure",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "required",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(3)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "value",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(3)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "transient",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lock",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exception",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(3)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "throttled",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(3)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "security",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#hacked",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "hacked",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-07-20",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Demonstration of extensions that build a hierarchical contains",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(0)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Login Required",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "conflict",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Edit Version Conflict",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "(Most common)",
+            actual = data.expansion?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "processing",
+            actual = data.expansion?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "duplicate",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Duplicate",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "not-found",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Not Found",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Processing Failure",
+            actual = data.expansion?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(2)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "invalid",
+            actual = data.expansion?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "structure",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Structural Issue",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "required",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Required element missing",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "value",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Element value invalid",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Invalid Content",
+            actual = data.expansion?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(3)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "transient",
+            actual = data.expansion?.contains?.get(3)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lock-error",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lock Error",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exception",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Exception",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "throttled",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Throttled",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Transient Issue",
+            actual = data.expansion?.contains?.get(3)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(4)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "security",
+            actual = data.expansion?.contains?.get(4)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Login Required",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Unknown User",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Security Problem",
+            actual = data.expansion?.contains?.get(4)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(4)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:42316ff8-2714-4680-9980-f37a6d1a71bc",
+            actual = data.expansion?.identifier
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "excludeNotForUI",
+            actual = data.expansion?.parameter?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.expansion?.parameter?.get(0)?.valueUri
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-07-20T23:14:07+10:00",
+            actual = data.expansion?.timestamp?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example-hierarchical",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Example Hierarchical ValueSet",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Project team",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/example-hierarchical",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
+    }
+
+    private fun assertValueSet02Step02(data: ValueSet) {
+
+        assertEquals(
+            expected = "invalid",
+            actual = data.compose?.include?.get(0)?.concept?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "structure",
+            actual = data.compose?.include?.get(0)?.concept?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "required",
+            actual = data.compose?.include?.get(0)?.concept?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "value",
+            actual = data.compose?.include?.get(0)?.concept?.get(3)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "processing",
+            actual = data.compose?.include?.get(0)?.concept?.get(4)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "duplicate",
+            actual = data.compose?.include?.get(0)?.concept?.get(5)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "not-found",
+            actual = data.compose?.include?.get(0)?.concept?.get(6)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "conflict",
+            actual = data.compose?.include?.get(0)?.concept?.get(7)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lock",
+            actual = data.compose?.include?.get(0)?.concept?.get(8)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exception",
+            actual = data.compose?.include?.get(0)?.concept?.get(9)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-rules",
+            actual = data.compose?.include?.get(0)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "groups-only",
+            actual = data.compose?.include?.get(0)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "display",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "(Most common)",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "conflict",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "processing",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "duplicate",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "not-found",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "invalid",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "structure",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "required",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(3)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "value",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.extension?.get(3)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(3)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "transient",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lock",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exception",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(3)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "throttled",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.extension?.get(3)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(4)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "code",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "security",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "member",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.extension?.get(2)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expand-group",
+            actual = data.compose?.include?.get(0)?.extension?.get(5)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "#hacked",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "hacked",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-07-20",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Demonstration of extensions that build a hierarchical contains",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(0)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Login Required",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "conflict",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Edit Version Conflict",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(0)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "(Most common)",
+            actual = data.expansion?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "processing",
+            actual = data.expansion?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "duplicate",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Duplicate",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "not-found",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Not Found",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Processing Failure",
+            actual = data.expansion?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(2)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "invalid",
+            actual = data.expansion?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "structure",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Structural Issue",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "required",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Required element missing",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "value",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Element value invalid",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Invalid Content",
+            actual = data.expansion?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(3)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "transient",
+            actual = data.expansion?.contains?.get(3)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "lock-error",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lock Error",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "exception",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Exception",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "throttled",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Throttled",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Transient Issue",
+            actual = data.expansion?.contains?.get(3)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(3)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(4)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "security",
+            actual = data.expansion?.contains?.get(4)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "login",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Login Required",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "unknown",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Unknown User",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(4)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Security Problem",
+            actual = data.expansion?.contains?.get(4)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/hacked",
+            actual = data.expansion?.contains?.get(4)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:42316ff8-2714-4680-9980-f37a6d1a71bc",
+            actual = data.expansion?.identifier
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "excludeNotForUI",
+            actual = data.expansion?.parameter?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "false",
+            actual = data.expansion?.parameter?.get(0)?.valueUri
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-07-20T23:14:07+10:00",
+            actual = data.expansion?.timestamp?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example-hierarchical",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Example Hierarchical ValueSet",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Project team",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/example-hierarchical",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -734,260 +1779,377 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            FilterOperator.EQUAL,
-            data.compose?.include?.get(0)?.filter?.get(0)?.op
-        )
-        assertEquals(
-            "parent",
-            data.compose?.include?.get(0)?.filter?.get(0)?.property
-        )
-        assertEquals(
-            "LP43571-6",
-            data.compose?.include?.get(0)?.filter?.get(0)?.value
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.",
-            data.copyright
-        )
-        assertEquals(
-            "2015-06-22",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.",
-            data.description
-        )
-        assertEquals(
-            "14647-2",
-            data.expansion?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Cholesterol [Moles/volume] in Serum or Plasma",
-            data.expansion?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(0)?.version
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.expansion?.contains?.get(1)?.abstrakt?.value
-        )
-        assertEquals(
-            "2093-3",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Cholesterol [Mass/volume] in Serum or Plasma",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.version
-        )
-        assertEquals(
-            "48620-9",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "Cholesterol [Mass/volume] in Serum or Plasma ultracentrifugate",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.version
-        )
-        assertEquals(
-            "9342-7",
-            data.expansion?.contains?.get(1)?.contains?.get(2)?.code
-        )
-        assertEquals(
-            "Cholesterol [Percentile]",
-            data.expansion?.contains?.get(1)?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(1)?.contains?.get(2)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(1)?.contains?.get(2)?.version
-        )
-        assertEquals(
-            "Cholesterol codes",
-            data.expansion?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.expansion?.contains?.get(2)?.abstrakt?.value
-        )
-        assertEquals(
-            "2096-6",
-            data.expansion?.contains?.get(2)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Cholesterol/Triglyceride [Mass Ratio] in Serum or Plasma",
-            data.expansion?.contains?.get(2)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(2)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(2)?.contains?.get(0)?.version
-        )
-        assertEquals(
-            "35200-5",
-            data.expansion?.contains?.get(2)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "Cholesterol/Triglyceride [Mass Ratio] in Serum or Plasma",
-            data.expansion?.contains?.get(2)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(2)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(2)?.contains?.get(1)?.version
-        )
-        assertEquals(
-            "48089-7",
-            data.expansion?.contains?.get(2)?.contains?.get(2)?.code
-        )
-        assertEquals(
-            "Cholesterol/Apolipoprotein B [Molar ratio] in Serum or Plasma",
-            data.expansion?.contains?.get(2)?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(2)?.contains?.get(2)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(2)?.contains?.get(2)?.version
-        )
-        assertEquals(
-            "55838-7",
-            data.expansion?.contains?.get(2)?.contains?.get(3)?.code
-        )
-        assertEquals(
-            "Cholesterol/Phospholipid [Molar ratio] in Serum or Plasma",
-            data.expansion?.contains?.get(2)?.contains?.get(3)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.expansion?.contains?.get(2)?.contains?.get(3)?.system
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.contains?.get(2)?.contains?.get(3)?.version
-        )
-        assertEquals(
-            "Cholesterol Ratios",
-            data.expansion?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/valueset-expansionSource",
-            data.expansion?.extension?.get(0)?.url
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/example-extensional",
-            data.expansion?.extension?.get(0)?.valueUri
-        )
-        assertEquals(
-            "urn:uuid:42316ff8-2714-4680-9980-f37a6d1a71bc",
-            data.expansion?.identifier
-        )
-        assertEquals(
-            "0".toInt(),
-            data.expansion?.offset?.value
-        )
-        assertEquals(
-            "version",
-            data.expansion?.parameter?.get(0)?.name
-        )
-        assertEquals(
-            "2.50",
-            data.expansion?.parameter?.get(0)?.valueString
-        )
-        assertEquals(
-            "2015-06-22T13:56:07Z",
-            data.expansion?.timestamp?.value.toString()
-        )
-        assertEquals(
-            "8".toInt(),
-            data.expansion?.total?.value
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example-expansion",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            "LOINC Codes for Cholesterol in Serum/Plasma",
-            data.name
-        )
-        assertEquals(
-            "FHIR Project team",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/example-expansion",
-            data.url
-        )
-        assertEquals(
-            "20150622",
-            data.version
-        )
+        assertValueSet03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet03Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = FilterOperator.EQUAL,
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.op
+        )
+
+        assertEquals(
+            expected = "parent",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.property
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LP43571-6",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-06-22",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "14647-2",
+            actual = data.expansion?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Moles/volume] in Serum or Plasma",
+            actual = data.expansion?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(1)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "2093-3",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Mass/volume] in Serum or Plasma",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "48620-9",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Mass/volume] in Serum or Plasma ultracentrifugate",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "9342-7",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Percentile]",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(2)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol codes",
+            actual = data.expansion?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(2)?.abstrakt?.value
+        )
+
+        assertEquals(
+            expected = "2096-6",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol/Triglyceride [Mass Ratio] in Serum or Plasma",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(0)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "35200-5",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol/Triglyceride [Mass Ratio] in Serum or Plasma",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(1)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "48089-7",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol/Apolipoprotein B [Molar ratio] in Serum or Plasma",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(2)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "55838-7",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(3)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol/Phospholipid [Molar ratio] in Serum or Plasma",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(3)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(3)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.contains?.get(2)?.contains?.get(3)?.version
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol Ratios",
+            actual = data.expansion?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/valueset-expansionSource",
+            actual = data.expansion?.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/example-extensional",
+            actual = data.expansion?.extension?.get(0)?.valueUri
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:42316ff8-2714-4680-9980-f37a6d1a71bc",
+            actual = data.expansion?.identifier
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.expansion?.offset?.value
+        )
+
+        assertEquals(
+            expected = "version",
+            actual = data.expansion?.parameter?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.50",
+            actual = data.expansion?.parameter?.get(0)?.valueString
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-06-22T13:56:07Z",
+            actual = data.expansion?.timestamp?.value.toString()
+        )
+
+        assertEquals(
+            expected = "8".toInt(),
+            actual = data.expansion?.total?.value
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example-expansion",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LOINC Codes for Cholesterol in Serum/Plasma",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Project team",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/example-expansion",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20150622",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -999,136 +2161,196 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            "True".toBoolean(),
-            data.compose?.inactive?.value
-        )
-        assertEquals(
-            FilterOperator.DESCENDENT_OF,
-            data.compose?.include?.get(0)?.filter?.get(0)?.op
-        )
-        assertEquals(
-            "concept",
-            data.compose?.include?.get(0)?.filter?.get(0)?.property
-        )
-        assertEquals(
-            "_ActMoodPredicate",
-            data.compose?.include?.get(0)?.filter?.get(0)?.value
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActMood",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            "HL7 v3 ActMood Predicate codes, including inactive codes",
-            data.description
-        )
-        assertEquals(
-            "CRT",
-            data.expansion?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "criterion",
-            data.expansion?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.expansion?.contains?.get(0)?.inactive?.value
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActMood",
-            data.expansion?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "EXPEC",
-            data.expansion?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "GOL",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "goal",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActMood",
-            data.expansion?.contains?.get(1)?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "RSK",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "risk",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActMood",
-            data.expansion?.contains?.get(1)?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "expectation",
-            data.expansion?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActMood",
-            data.expansion?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "OPT",
-            data.expansion?.contains?.get(2)?.code
-        )
-        assertEquals(
-            "option",
-            data.expansion?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActMood",
-            data.expansion?.contains?.get(2)?.system
-        )
-        assertEquals(
-            "urn:uuid:46c00b3f-003a-4f31-9d4b-ea2de58b2a99",
-            data.expansion?.identifier
-        )
-        assertEquals(
-            "2017-02-26T10:00:00Z",
-            data.expansion?.timestamp?.value.toString()
-        )
-        assertEquals(
-            "inactive",
-            data.id
-        )
-        assertEquals(
-            "Example-inactive",
-            data.name
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Example with inactive codes",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/inactive",
-            data.url
-        )
-        assertEquals(
-            "4.0.1",
-            data.version
-        )
+        assertValueSet04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet04Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.compose?.inactive?.value
+        )
+
+        assertEquals(
+            expected = FilterOperator.DESCENDENT_OF,
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.op
+        )
+
+        assertEquals(
+            expected = "concept",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.property
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "_ActMoodPredicate",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 v3 ActMood Predicate codes, including inactive codes",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "CRT",
+            actual = data.expansion?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "criterion",
+            actual = data.expansion?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.expansion?.contains?.get(0)?.inactive?.value
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+            actual = data.expansion?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EXPEC",
+            actual = data.expansion?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "GOL",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "goal",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "RSK",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "risk",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+            actual = data.expansion?.contains?.get(1)?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "expectation",
+            actual = data.expansion?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+            actual = data.expansion?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "OPT",
+            actual = data.expansion?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "option",
+            actual = data.expansion?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+            actual = data.expansion?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:46c00b3f-003a-4f31-9d4b-ea2de58b2a99",
+            actual = data.expansion?.identifier
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-02-26T10:00:00Z",
+            actual = data.expansion?.timestamp?.value.toString()
+        )
+
+        assertEquals(
+            expected = "inactive",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Example-inactive",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Example with inactive codes",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/inactive",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1140,84 +2362,118 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            FilterOperator.EQUAL,
-            data.compose?.include?.get(0)?.filter?.get(0)?.op
-        )
-        assertEquals(
-            "acme-plasma",
-            data.compose?.include?.get(0)?.filter?.get(0)?.property
-        )
-        assertEquals(
-            "true",
-            data.compose?.include?.get(0)?.filter?.get(0)?.value
-        )
-        assertEquals(
-            "http://hl7.org/fhir/CodeSystem/example",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            "FHIR project team",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2018-11-01",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "ACME Codes for Cholesterol: Plasma only - demonstrating the use of a filter defined in a CodeSystem",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example-filter",
-            data.id
-        )
-        assertEquals(
-            "ACMECholCodesPlasma",
-            data.name
-        )
-        assertEquals(
-            "HL7 International",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "ACME Codes for Cholesterol: Plasma only",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/example-filter",
-            data.url
-        )
-        assertEquals(
-            "4.0.1",
-            data.version
-        )
+        assertValueSet05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet05Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = FilterOperator.EQUAL,
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.op
+        )
+
+        assertEquals(
+            expected = "acme-plasma",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.property
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "true",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/CodeSystem/example",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR project team",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2018-11-01",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ACME Codes for Cholesterol: Plasma only - demonstrating the use of a filter defined in a CodeSystem",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example-filter",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACMECholCodesPlasma",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 International",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "ACME Codes for Cholesterol: Plasma only",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/example-filter",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1229,100 +2485,145 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            "http://terminology.hl7.org/ValueSet/v2-0136",
-            data.compose?.include?.get(0)?.valueSet?.get(0)
-        )
-        assertEquals(
-            "asked-unknown",
-            data.compose?.include?.get(1)?.concept?.get(0)?.code
-        )
-        assertEquals(
-            "Don't know",
-            data.compose?.include?.get(1)?.concept?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/data-absent-reason",
-            data.compose?.include?.get(1)?.system
-        )
-        assertEquals(
-            "For Capturing simple yes-no-don't know answers",
-            data.description
-        )
-        assertEquals(
-            "Y",
-            data.expansion?.contains?.get(0)?.code
-        )
-        assertEquals(
-            "Yes",
-            data.expansion?.contains?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0136",
-            data.expansion?.contains?.get(0)?.system
-        )
-        assertEquals(
-            "N",
-            data.expansion?.contains?.get(1)?.code
-        )
-        assertEquals(
-            "No",
-            data.expansion?.contains?.get(1)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v2-0136",
-            data.expansion?.contains?.get(1)?.system
-        )
-        assertEquals(
-            "asked-unknown",
-            data.expansion?.contains?.get(2)?.code
-        )
-        assertEquals(
-            "Don't know",
-            data.expansion?.contains?.get(2)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/data-absent-reason",
-            data.expansion?.contains?.get(2)?.system
-        )
-        assertEquals(
-            "urn:uuid:bf99fe50-2c2b-41ad-bd63-bee6919810b4",
-            data.expansion?.identifier
-        )
-        assertEquals(
-            "2015-07-14T10:00:00Z",
-            data.expansion?.timestamp?.value.toString()
-        )
-        assertEquals(
-            "yesnodontknow",
-            data.id
-        )
-        assertEquals(
-            "Yes/No/Don't Know",
-            data.name
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/yesnodontknow",
-            data.url
-        )
-        assertEquals(
-            "4.0.1",
-            data.version
-        )
+        assertValueSet06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet06Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/ValueSet/v2-0136",
+            actual = data.compose?.include?.get(0)?.valueSet?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "asked-unknown",
+            actual = data.compose?.include?.get(1)?.concept?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Don't know",
+            actual = data.compose?.include?.get(1)?.concept?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+            actual = data.compose?.include?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "For Capturing simple yes-no-don't know answers",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Y",
+            actual = data.expansion?.contains?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes",
+            actual = data.expansion?.contains?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0136",
+            actual = data.expansion?.contains?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.expansion?.contains?.get(1)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "No",
+            actual = data.expansion?.contains?.get(1)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v2-0136",
+            actual = data.expansion?.contains?.get(1)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "asked-unknown",
+            actual = data.expansion?.contains?.get(2)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Don't know",
+            actual = data.expansion?.contains?.get(2)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+            actual = data.expansion?.contains?.get(2)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:uuid:bf99fe50-2c2b-41ad-bd63-bee6919810b4",
+            actual = data.expansion?.identifier
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-07-14T10:00:00Z",
+            actual = data.expansion?.timestamp?.value.toString()
+        )
+
+        assertEquals(
+            expected = "yesnodontknow",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Yes/No/Don't Know",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/yesnodontknow",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1334,120 +2635,169 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            "http://hl7.org/fhir/examplescenario-actor-type",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            "fhir@lists.hl7.org",
-            data.contact?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            "2019-11-01T09:29:23+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "The type of actor - system or human.",
-            data.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "fhir",
-            data.extension?.get(0)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-            data.extension?.get(1)?.url
-        )
-        assertEquals(
-            "trial-use",
-            data.extension?.get(1)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-            data.extension?.get(2)?.url
-        )
-        assertEquals(
-            "0".toInt(),
-            data.extension?.get(2)?.valueInteger?.value
-        )
-        assertEquals(
-            "examplescenario-actor-type",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.4.642.3.858",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.immutable?.value
-        )
-        assertEquals(
-            "2019-11-01T09:29:23.356+11:00",
-            data.meta?.lastUpdated?.value.toString()
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            "ExampleScenarioActorType",
-            data.name
-        )
-        assertEquals(
-            "HL7 (FHIR Project)",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "ExampleScenarioActorType",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/examplescenario-actor-type",
-            data.url
-        )
-        assertEquals(
-            "4.0.1",
-            data.version
-        )
+        assertValueSet07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet07Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/examplescenario-actor-type",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = "fhir@lists.hl7.org",
+            actual = data.contact?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2019-11-01T09:29:23+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "The type of actor - system or human.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fhir",
+            actual = data.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            actual = data.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "trial-use",
+            actual = data.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+            actual = data.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "0".toInt(),
+            actual = data.extension?.get(2)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "examplescenario-actor-type",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.4.642.3.858",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.immutable?.value
+        )
+
+        assertEquals(
+            expected = "2019-11-01T09:29:23.356+11:00",
+            actual = data.meta?.lastUpdated?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ExampleScenarioActorType",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 (FHIR Project)",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "ExampleScenarioActorType",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/examplescenario-actor-type",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1459,112 +2809,158 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/list-example-use-codes",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2019-11-01T09:29:23+11:00",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Example use codes for the List resource - typical kinds of use.",
-            data.description
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "fhir",
-            data.extension?.get(0)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-            data.extension?.get(1)?.url
-        )
-        assertEquals(
-            "draft",
-            data.extension?.get(1)?.valueCode
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-            data.extension?.get(2)?.url
-        )
-        assertEquals(
-            "1".toInt(),
-            data.extension?.get(2)?.valueInteger?.value
-        )
-        assertEquals(
-            "list-example-codes",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.4.642.3.316",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.immutable?.value
-        )
-        assertEquals(
-            "2019-11-01T09:29:23.356+11:00",
-            data.meta?.lastUpdated?.value.toString()
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            "ExampleUseCodesForList",
-            data.name
-        )
-        assertEquals(
-            "FHIR Project",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Example Use Codes for List",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/list-example-codes",
-            data.url
-        )
-        assertEquals(
-            "4.0.1",
-            data.version
-        )
+        assertValueSet08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet08Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/list-example-use-codes",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2019-11-01T09:29:23+11:00",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Example use codes for the List resource - typical kinds of use.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "fhir",
+            actual = data.extension?.get(0)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            actual = data.extension?.get(1)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "draft",
+            actual = data.extension?.get(1)?.valueCode
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+            actual = data.extension?.get(2)?.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.extension?.get(2)?.valueInteger?.value
+        )
+
+        assertEquals(
+            expected = "list-example-codes",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.4.642.3.316",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.immutable?.value
+        )
+
+        assertEquals(
+            expected = "2019-11-01T09:29:23.356+11:00",
+            actual = data.meta?.lastUpdated?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ExampleUseCodesForList",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Project",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Example Use Codes for List",
+            actual = data.title
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/list-example-codes",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "4.0.1",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 
     @Test
@@ -1576,107 +2972,153 @@ class ValueSetTest {
         val data = parser.toFhir(ValueSet::class, sourceJson)
 
         // Then
-        assertEquals(
-            "5932-9",
-            data.compose?.exclude?.get(0)?.concept?.get(0)?.code
-        )
-        assertEquals(
-            "Cholesterol [Presence] in Blood by Test strip",
-            data.compose?.exclude?.get(0)?.concept?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.compose?.exclude?.get(0)?.system
-        )
-        assertEquals(
-            FilterOperator.EQUAL,
-            data.compose?.include?.get(0)?.filter?.get(0)?.op
-        )
-        assertEquals(
-            "parent",
-            data.compose?.include?.get(0)?.filter?.get(0)?.property
-        )
-        assertEquals(
-            "LP43571-6",
-            data.compose?.include?.get(0)?.filter?.get(0)?.value
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.compose?.include?.get(0)?.system
-        )
-        assertEquals(
-            "FHIR project team",
-            data.contact?.get(0)?.name
-        )
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use",
-            data.copyright
-        )
-        assertEquals(
-            "2015-06-22",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.",
-            data.description
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.experimental?.value
-        )
-        assertEquals(
-            "example-intensional",
-            data.id
-        )
-        assertEquals(
-            "http://acme.com/identifiers/valuesets",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "loinc-cholesterol-ext",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            "LOINC Codes for Cholesterol in Serum/Plasma",
-            data.name
-        )
-        assertEquals(
-            "HL7 International",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/example-intensional",
-            data.url
-        )
-        assertEquals(
-            "20150622",
-            data.version
-        )
+        assertValueSet09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertValueSet09Step01(data: ValueSet) {
+
+        assertEquals(
+            expected = "5932-9",
+            actual = data.compose?.exclude?.get(0)?.concept?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Cholesterol [Presence] in Blood by Test strip",
+            actual = data.compose?.exclude?.get(0)?.concept?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.compose?.exclude?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = FilterOperator.EQUAL,
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.op
+        )
+
+        assertEquals(
+            expected = "parent",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.property
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LP43571-6",
+            actual = data.compose?.include?.get(0)?.filter?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.compose?.include?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR project team",
+            actual = data.contact?.get(0)?.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use",
+            actual = data.copyright
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-06-22",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.experimental?.value
+        )
+
+        assertEquals(
+            expected = "example-intensional",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/identifiers/valuesets",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "loinc-cholesterol-ext",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "LOINC Codes for Cholesterol in Serum/Plasma",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 International",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/example-intensional",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "20150622",
+            actual = data.version
+                ?.replace("\n", " ")
+        )
     }
 }

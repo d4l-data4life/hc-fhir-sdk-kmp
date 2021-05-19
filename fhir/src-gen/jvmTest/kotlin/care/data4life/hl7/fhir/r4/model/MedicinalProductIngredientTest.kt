@@ -44,83 +44,120 @@ class MedicinalProductIngredientTest {
         val data = parser.toFhir(MedicinalProductIngredient::class, sourceJson)
 
         // Then
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "Organization/example",
-            data.manufacturer?.get(0)?.reference
-        )
-        assertEquals(
-            "HTEST",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "test health data",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "ActiveBase",
-            data.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/ingredientRole",
-            data.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "equixabanCompanyequixaban1",
-            data.specifiedSubstance?.get(0)?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/specifiedSubstance",
-            data.specifiedSubstance?.get(0)?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2",
-            data.specifiedSubstance?.get(0)?.group?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/specifiedSubstanceGroup",
-            data.specifiedSubstance?.get(0)?.group?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "EQUIXABAN",
-            data.substance?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://ema.europa.eu/example/substance",
-            data.substance?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "{tablet}",
-            data.substance?.strength?.get(0)?.presentation?.denominator?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.substance?.strength?.get(0)?.presentation?.denominator?.value?.value
-        )
-        assertEquals(
-            "mg",
-            data.substance?.strength?.get(0)?.presentation?.numerator?.unit
-        )
-        assertEquals(
-            "2.5".toDouble(),
-            data.substance?.strength?.get(0)?.presentation?.numerator?.value?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicinalProductIngredient01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicinalProductIngredient01Step01(data: MedicinalProductIngredient) {
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/example",
+            actual = data.manufacturer?.get(0)?.reference
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTEST",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "test health data",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "ActiveBase",
+            actual = data.role?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/ingredientRole",
+            actual = data.role?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "equixabanCompanyequixaban1",
+            actual = data.specifiedSubstance?.get(0)?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/specifiedSubstance",
+            actual = data.specifiedSubstance?.get(0)?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.specifiedSubstance?.get(0)?.group?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/specifiedSubstanceGroup",
+            actual = data.specifiedSubstance?.get(0)?.group?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "EQUIXABAN",
+            actual = data.substance?.code?.coding?.get(0)?.code
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ema.europa.eu/example/substance",
+            actual = data.substance?.code?.coding?.get(0)?.system
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "{tablet}",
+            actual = data.substance?.strength?.get(0)?.presentation?.denominator?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.substance?.strength?.get(0)?.presentation?.denominator?.value?.value
+        )
+
+        assertEquals(
+            expected = "mg",
+            actual = data.substance?.strength?.get(0)?.presentation?.numerator?.unit
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.5".toDouble(),
+            actual = data.substance?.strength?.get(0)?.presentation?.numerator?.value?.value
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

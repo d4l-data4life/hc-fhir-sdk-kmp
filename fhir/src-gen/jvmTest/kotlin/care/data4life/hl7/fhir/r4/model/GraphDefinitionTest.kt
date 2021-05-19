@@ -54,103 +54,140 @@ class GraphDefinitionTest {
         val data = parser.toFhir(GraphDefinition::class, sourceJson)
 
         // Then
-        assertEquals(
-            ContactPointSystem.URL,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "2015-08-04",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "Specify to include list references when generating a document using the \$document operation",
-            data.description
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "Link to List",
-            data.link?.get(0)?.description
-        )
-        assertEquals(
-            "Composition.section.entry",
-            data.link?.get(0)?.path
-        )
-        assertEquals(
-            CompartmentType.PATIENT,
-            data.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.code
-        )
-        assertEquals(
-            GraphCompartmentRule.IDENTICAL,
-            data.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.rule
-        )
-        assertEquals(
-            GraphCompartmentUse.REQUIREMENT,
-            data.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.use
-        )
-        assertEquals(
-            "Include any list entries",
-            data.link?.get(0)?.target?.get(0)?.link?.get(0)?.description
-        )
-        assertEquals(
-            "List.entry.item",
-            data.link?.get(0)?.target?.get(0)?.link?.get(0)?.path
-        )
-        assertEquals(
-            CompartmentType.PATIENT,
-            data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.code
-        )
-        assertEquals(
-            GraphCompartmentRule.IDENTICAL,
-            data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.rule
-        )
-        assertEquals(
-            GraphCompartmentUse.REQUIREMENT,
-            data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.use
-        )
-        assertEquals(
-            ResourceType.RESOURCE,
-            data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.type
-        )
-        assertEquals(
-            ResourceType.LIST,
-            data.link?.get(0)?.target?.get(0)?.type
-        )
-        assertEquals(
-            "Document Generation Template",
-            data.name
-        )
-        assertEquals(
-            "FHIR Project",
-            data.publisher
-        )
-        assertEquals(
-            ResourceType.COMPOSITION,
-            data.start
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://h7.org/fhir/GraphDefinition/example",
-            data.url
-        )
+        assertGraphDefinition01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertGraphDefinition01Step01(data: GraphDefinition) {
+
+        assertEquals(
+            expected = ContactPointSystem.URL,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-04",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Specify to include list references when generating a document using the \$document operation",
+            actual = data.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Link to List",
+            actual = data.link?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "Composition.section.entry",
+            actual = data.link?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CompartmentType.PATIENT,
+            actual = data.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = GraphCompartmentRule.IDENTICAL,
+            actual = data.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.rule
+        )
+
+        assertEquals(
+            expected = GraphCompartmentUse.REQUIREMENT,
+            actual = data.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Include any list entries",
+            actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.description
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "List.entry.item",
+            actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.path
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = CompartmentType.PATIENT,
+            actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.code
+        )
+
+        assertEquals(
+            expected = GraphCompartmentRule.IDENTICAL,
+            actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.rule
+        )
+
+        assertEquals(
+            expected = GraphCompartmentUse.REQUIREMENT,
+            actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.compartment?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = ResourceType.RESOURCE,
+            actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.target?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = ResourceType.LIST,
+            actual = data.link?.get(0)?.target?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Document Generation Template",
+            actual = data.name
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = "FHIR Project",
+            actual = data.publisher
+                ?.replace("\n", " ")
+        )
+
+        assertEquals(
+            expected = ResourceType.COMPOSITION,
+            actual = data.start
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://h7.org/fhir/GraphDefinition/example",
+            actual = data.url
+                ?.replace("\n", " ")
+        )
     }
 }
