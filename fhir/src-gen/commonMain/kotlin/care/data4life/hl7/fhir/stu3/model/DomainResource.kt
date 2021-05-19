@@ -79,12 +79,17 @@ data class DomainResource(
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirDomainResource {

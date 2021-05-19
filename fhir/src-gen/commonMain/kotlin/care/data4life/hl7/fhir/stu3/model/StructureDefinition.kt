@@ -1,0 +1,524 @@
+/*
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
+ *
+ * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
+ * including any intellectual property rights that subsist in the SDK.
+ *
+ * The SDK and its documentation may be accessed and used for viewing/review purposes only.
+ * Any usage of the SDK for other purposes, including usage for the development of
+ * applications/third-party applications shall require the conclusion of a license agreement
+ * between you and D4L.
+ *
+ * If you are interested in licensing the SDK for your own applications/third-party
+ * applications and/or if you’d like to contribute to the development of the SDK, please
+ * contact D4L by email to help@data4life.care.
+ */
+
+package care.data4life.hl7.fhir.stu3.model
+
+import care.data4life.hl7.fhir.stu3.codesystem.ExtensionContext
+import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
+import care.data4life.hl7.fhir.stu3.codesystem.StructureDefinitionKind
+import care.data4life.hl7.fhir.stu3.codesystem.TypeDerivationRule
+import care.data4life.hl7.fhir.stu3.primitive.Bool
+import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlin.jvm.JvmStatic
+
+/**
+ * FhirStructureDefinition
+ *
+ * A definition of a FHIR structure. This resource is used to describe the underlying resources, data
+ * types defined in FHIR, and also for describing extensions and constraints on resources and data
+ * types.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinition</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+interface FhirStructureDefinition : FhirDomainResource {
+
+    /**
+     * Logical URI to reference this structure definition (globally unique).
+     */
+    val url: String
+
+    /**
+     * Additional identifier for the structure definition.
+     */
+    val identifier: List<Identifier>?
+
+    /**
+     * Business version of the structure definition.
+     */
+    val version: String?
+
+    /**
+     * Name for this structure definition (computer friendly).
+     */
+    val name: String
+
+    /**
+     * Name for this structure definition (human friendly).
+     */
+    val title: String?
+
+    /**
+     * The status of this structure definition. Enables tracking the life-cycle of the
+     * content.
+     */
+    val status: PublicationStatus
+
+    /**
+     * For testing purposes, not real usage.
+     */
+    val experimental: Bool?
+
+    /**
+     * Date this was last changed.
+     */
+    val date: DateTime?
+
+    /**
+     * Name of the publisher (organization or individual).
+     */
+    val publisher: String?
+
+    /**
+     * Contact details for the publisher.
+     */
+    val contact: List<ContactDetail>?
+
+    /**
+     * Natural language description of the structure definition.
+     */
+    val description: String?
+
+    /**
+     * Context the content is intended to support.
+     */
+    val useContext: List<UsageContext>?
+
+    /**
+     * Intended jurisdiction for structure definition (if applicable).
+     */
+    val jurisdiction: List<CodeableConcept>?
+
+    /**
+     * Why this structure definition is defined.
+     */
+    val purpose: String?
+
+    /**
+     * Use and/or publishing restrictions.
+     */
+    val copyright: String?
+
+    /**
+     * Assist with indexing and finding.
+     */
+    val keyword: List<Coding>?
+
+    /**
+     * FHIR Version this StructureDefinition targets.
+     */
+    val fhirVersion: String?
+
+    /**
+     * External specification that the content is mapped to.
+     */
+    val mapping: List<StructureDefinitionMapping>?
+
+    /**
+     * Defines the kind of structure that this definition is describing.
+     */
+    val kind: StructureDefinitionKind
+
+    /**
+     * Whether the structure is abstract.
+     */
+    val abstrakt: Bool
+
+    /**
+     * If this is an extension, Identifies the context within FHIR resources where the
+     * extension can be used.
+     */
+    val contextType: ExtensionContext?
+
+    /**
+     * Where the extension can be used in instances.
+     */
+    val context: List<String>?
+
+    /**
+     * FHIRPath invariants - when the extension can be used.
+     */
+    val contextInvariant: List<String>?
+
+    /**
+     * Type defined or constrained by this structure.
+     */
+    val type: String
+
+    /**
+     * Definition that this type is constrained/specialized from.
+     */
+    val baseDefinition: String?
+
+    /**
+     * How the type relates to the baseDefinition.
+     */
+    val derivation: TypeDerivationRule?
+
+    /**
+     * Snapshot view of the structure.
+     */
+    val snapshot: StructureDefinitionSnapshot?
+
+    /**
+     * Differential view of the structure.
+     */
+    val differential: StructureDefinitionDifferential?
+}
+
+/**
+ * StructureDefinition
+ *
+ * SourceFileName: StructureDefinition.kt
+ *
+ * A definition of a FHIR structure. This resource is used to describe the underlying resources, data
+ * types defined in FHIR, and also for describing extensions and constraints on resources and data
+ * types.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinition</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+@Serializable
+@SerialName("StructureDefinition")
+data class StructureDefinition(
+
+    @SerialName("url")
+    override val url: String,
+
+    @SerialName("identifier")
+    override val identifier: List<Identifier>? = null,
+
+    @SerialName("version")
+    override val version: String? = null,
+
+    @SerialName("name")
+    override val name: String,
+
+    @SerialName("title")
+    override val title: String? = null,
+
+    @SerialName("status")
+    override val status: PublicationStatus,
+
+    @SerialName("experimental")
+    override val experimental: Bool? = null,
+
+    @SerialName("date")
+    override val date: DateTime? = null,
+
+    @SerialName("publisher")
+    override val publisher: String? = null,
+
+    @SerialName("contact")
+    override val contact: List<ContactDetail>? = null,
+
+    @SerialName("description")
+    override val description: String? = null,
+
+    @SerialName("useContext")
+    override val useContext: List<UsageContext>? = null,
+
+    @SerialName("jurisdiction")
+    override val jurisdiction: List<CodeableConcept>? = null,
+
+    @SerialName("purpose")
+    override val purpose: String? = null,
+
+    @SerialName("copyright")
+    override val copyright: String? = null,
+
+    @SerialName("keyword")
+    override val keyword: List<Coding>? = null,
+
+    @SerialName("fhirVersion")
+    override val fhirVersion: String? = null,
+
+    @SerialName("mapping")
+    override val mapping: List<StructureDefinitionMapping>? = null,
+
+    @SerialName("kind")
+    override val kind: StructureDefinitionKind,
+
+    @SerialName("abstract")
+    override val abstrakt: Bool,
+
+    @SerialName("contextType")
+    override val contextType: ExtensionContext? = null,
+
+    @SerialName("context")
+    override val context: List<String>? = null,
+
+    @SerialName("contextInvariant")
+    override val contextInvariant: List<String>? = null,
+
+    @SerialName("type")
+    override val type: String,
+
+    @SerialName("baseDefinition")
+    override val baseDefinition: String? = null,
+
+    @SerialName("derivation")
+    override val derivation: TypeDerivationRule? = null,
+
+    @SerialName("snapshot")
+    override val snapshot: StructureDefinitionSnapshot? = null,
+
+    @SerialName("differential")
+    override val differential: StructureDefinitionDifferential? = null,
+
+    // # DomainResource
+
+    @SerialName("text")
+    override val text: Narrative? = null,
+
+    @SerialName("contained")
+    override val contained: List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
+    override val id: String? = null,
+
+    @SerialName("meta")
+    override val meta: Meta? = null,
+
+    @SerialName("implicitRules")
+    override val implicitRules: String? = null,
+
+    @SerialName("language")
+    override val language: String? = null
+) : FhirStructureDefinition {
+
+    override val resourceType: kotlin.String
+        get() = resourceType()
+
+    companion object {
+        @JvmStatic
+        fun resourceType(): kotlin.String = "StructureDefinition"
+    }
+}
+
+/**
+ * FhirStructureDefinitionDifferential
+ *
+ * A differential view is expressed relative to the base StructureDefinition - a statement of
+ * differences that it applies.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinitionDifferential</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+interface FhirStructureDefinitionDifferential : FhirBackboneElement {
+
+    /**
+     * Definition of elements in the resource (if no StructureDefinition).
+     */
+    val element: List<ElementDefinition>
+}
+
+/**
+ * StructureDefinitionDifferential
+ *
+ * SourceFileName: StructureDefinition.kt
+ *
+ * A differential view is expressed relative to the base StructureDefinition - a statement of
+ * differences that it applies.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinitionDifferential</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+@Serializable
+@SerialName("StructureDefinitionDifferential")
+data class StructureDefinitionDifferential(
+
+    @SerialName("element")
+    override val element: List<ElementDefinition>,
+
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
+    override val id: String? = null,
+
+    @SerialName("extension")
+    override val extension: List<Extension>? = null
+) : FhirStructureDefinitionDifferential {
+
+    override val resourceType: kotlin.String
+        get() = resourceType()
+
+    companion object {
+        @JvmStatic
+        fun resourceType(): kotlin.String = "StructureDefinitionDifferential"
+    }
+}
+
+/**
+ * FhirStructureDefinitionMapping
+ *
+ * An external specification that the content is mapped to.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinitionMapping</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+interface FhirStructureDefinitionMapping : FhirBackboneElement {
+
+    /**
+     * Internal id when this mapping is used.
+     */
+    val identity: String
+
+    /**
+     * Identifies what this mapping refers to.
+     */
+    val uri: String?
+
+    /**
+     * Names what this mapping refers to.
+     */
+    val name: String?
+
+    /**
+     * Versions, Issues, Scope limitations etc..
+     */
+    val comment: String?
+}
+
+/**
+ * StructureDefinitionMapping
+ *
+ * SourceFileName: StructureDefinition.kt
+ *
+ * An external specification that the content is mapped to.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinitionMapping</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+@Serializable
+@SerialName("StructureDefinitionMapping")
+data class StructureDefinitionMapping(
+
+    @SerialName("identity")
+    override val identity: String,
+
+    @SerialName("uri")
+    override val uri: String? = null,
+
+    @SerialName("name")
+    override val name: String? = null,
+
+    @SerialName("comment")
+    override val comment: String? = null,
+
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
+    override val id: String? = null,
+
+    @SerialName("extension")
+    override val extension: List<Extension>? = null
+) : FhirStructureDefinitionMapping {
+
+    override val resourceType: kotlin.String
+        get() = resourceType()
+
+    companion object {
+        @JvmStatic
+        fun resourceType(): kotlin.String = "StructureDefinitionMapping"
+    }
+}
+
+/**
+ * FhirStructureDefinitionSnapshot
+ *
+ * A snapshot view is expressed in a stand alone form that can be used and interpreted without
+ * considering the base StructureDefinition.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinitionSnapshot</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+interface FhirStructureDefinitionSnapshot : FhirBackboneElement {
+
+    /**
+     * Definition of elements in the resource (if no StructureDefinition).
+     */
+    val element: List<ElementDefinition>
+}
+
+/**
+ * StructureDefinitionSnapshot
+ *
+ * SourceFileName: StructureDefinition.kt
+ *
+ * A snapshot view is expressed in a stand alone form that can be used and interpreted without
+ * considering the base StructureDefinition.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/StructureDefinition">StructureDefinitionSnapshot</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/StructureDefinition)
+ */
+@Serializable
+@SerialName("StructureDefinitionSnapshot")
+data class StructureDefinitionSnapshot(
+
+    @SerialName("element")
+    override val element: List<ElementDefinition>,
+
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
+    override val id: String? = null,
+
+    @SerialName("extension")
+    override val extension: List<Extension>? = null
+) : FhirStructureDefinitionSnapshot {
+
+    override val resourceType: kotlin.String
+        get() = resourceType()
+
+    companion object {
+        @JvmStatic
+        fun resourceType(): kotlin.String = "StructureDefinitionSnapshot"
+    }
+}

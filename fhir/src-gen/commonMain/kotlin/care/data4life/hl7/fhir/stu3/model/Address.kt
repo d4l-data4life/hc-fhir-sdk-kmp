@@ -136,8 +136,11 @@ data class Address(
     @SerialName("period")
     override val period: Period? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirAddress {

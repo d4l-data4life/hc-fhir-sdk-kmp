@@ -63,8 +63,11 @@ data class Range(
     @SerialName("high")
     override val high: Quantity? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirRange {

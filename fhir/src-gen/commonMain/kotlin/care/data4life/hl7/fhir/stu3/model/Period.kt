@@ -64,8 +64,11 @@ data class Period(
     @SerialName("end")
     override val end: DateTime? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirPeriod {

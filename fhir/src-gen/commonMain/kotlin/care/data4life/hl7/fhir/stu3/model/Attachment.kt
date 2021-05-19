@@ -113,8 +113,11 @@ data class Attachment(
     @SerialName("creation")
     override val creation: DateTime? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirAttachment {

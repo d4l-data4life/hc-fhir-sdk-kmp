@@ -309,21 +309,31 @@ data class Observation(
     @SerialName("component")
     override val component: List<ObservationComponent>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
+
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirObservation {
@@ -482,11 +492,16 @@ data class ObservationComponent(
     @SerialName("referenceRange")
     override val referenceRange: List<ObservationReferenceRange>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirObservationComponent {
@@ -575,11 +590,16 @@ data class ObservationReferenceRange(
     @SerialName("text")
     override val text: String? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirObservationReferenceRange {
@@ -638,11 +658,16 @@ data class ObservationRelated(
     @SerialName("target")
     override val target: Reference,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirObservationRelated {

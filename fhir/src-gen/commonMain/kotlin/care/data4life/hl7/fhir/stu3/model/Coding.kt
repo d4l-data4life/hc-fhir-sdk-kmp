@@ -88,8 +88,11 @@ data class Coding(
     @SerialName("userSelected")
     override val userSelected: Bool? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCoding {

@@ -63,8 +63,11 @@ data class ContactDetail(
     @SerialName("telecom")
     override val telecom: List<ContactPoint>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirContactDetail {

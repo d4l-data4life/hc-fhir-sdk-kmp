@@ -80,8 +80,11 @@ data class Annotation(
     @SerialName("text")
     override val text: String,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirAnnotation {

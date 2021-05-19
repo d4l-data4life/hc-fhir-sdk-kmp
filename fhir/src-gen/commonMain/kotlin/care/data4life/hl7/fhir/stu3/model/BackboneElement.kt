@@ -55,8 +55,11 @@ data class BackboneElement(
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirBackboneElement {

@@ -124,21 +124,31 @@ data class Medication(
     @SerialName("image")
     override val image: List<Attachment>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
+
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirMedication {
@@ -211,11 +221,16 @@ data class MedicationIngredient(
     @SerialName("amount")
     override val amount: Ratio? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationIngredient {
@@ -280,11 +295,16 @@ data class MedicationPackage(
     @SerialName("batch")
     override val batch: List<MedicationPackageBatch>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationPackage {
@@ -341,11 +361,16 @@ data class MedicationPackageBatch(
     @SerialName("expirationDate")
     override val expirationDate: DateTime? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationPackageBatch {
@@ -410,11 +435,16 @@ data class MedicationPackageContent(
     @SerialName("amount")
     override val amount: Quantity? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirMedicationPackageContent {

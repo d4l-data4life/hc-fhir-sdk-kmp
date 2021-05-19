@@ -83,8 +83,11 @@ data class Timing(
     @SerialName("code")
     override val code: CodeableConcept? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirTiming {
@@ -262,8 +265,11 @@ data class TimingRepeat(
     @SerialName("offset")
     override val offset: UnsignedInteger? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirTimingRepeat {

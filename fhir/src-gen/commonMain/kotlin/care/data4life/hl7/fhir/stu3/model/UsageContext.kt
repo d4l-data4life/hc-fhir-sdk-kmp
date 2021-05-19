@@ -83,8 +83,11 @@ data class UsageContext(
     @SerialName("valueRange")
     override val valueRange: Range? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirUsageContext {

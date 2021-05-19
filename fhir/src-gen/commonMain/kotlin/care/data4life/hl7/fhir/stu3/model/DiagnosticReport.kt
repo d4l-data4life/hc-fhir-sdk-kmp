@@ -200,21 +200,31 @@ data class DiagnosticReport(
     @SerialName("presentedForm")
     override val presentedForm: List<Attachment>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
+
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirDiagnosticReport {
@@ -275,11 +285,16 @@ data class DiagnosticReportImage(
     @SerialName("link")
     override val link: Reference,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirDiagnosticReportImage {
@@ -336,11 +351,16 @@ data class DiagnosticReportPerformer(
     @SerialName("actor")
     override val actor: Reference,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirDiagnosticReportPerformer {

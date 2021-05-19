@@ -257,21 +257,31 @@ data class CodeSystem(
     @SerialName("concept")
     override val concept: List<CodeSystemConcept>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
+
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirCodeSystem {
@@ -362,11 +372,16 @@ data class CodeSystemConcept(
     @SerialName("concept")
     override val concept: List<CodeSystemConcept>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCodeSystemConcept {
@@ -433,11 +448,16 @@ data class CodeSystemConceptDesignation(
     @SerialName("value")
     override val value: String,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCodeSystemConceptDesignation {
@@ -534,11 +554,16 @@ data class CodeSystemConceptProperty(
     @SerialName("valueDateTime")
     override val valueDateTime: DateTime? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCodeSystemConceptProperty {
@@ -611,11 +636,16 @@ data class CodeSystemFilter(
     @SerialName("value")
     override val value: String,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCodeSystemFilter {
@@ -691,11 +721,16 @@ data class CodeSystemProperty(
     @SerialName("type")
     override val type: PropertyType,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirCodeSystemProperty {

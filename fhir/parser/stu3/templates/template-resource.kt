@@ -143,7 +143,7 @@ data class {{ klass.name }}(
 {%- for _, sclass in superclasses.items() %}
 
     // # {{ sclass.name }}
-{%- for prop in sclass.properties -%}
+{%- for prop in sclass.properties %}
 
     @SerialName("{{prop.orig_name}}")
     override val {{ prop.name }}: {% if prop.is_array %}List<{% endif %}{% if prop.enum %}{{ prop.enum.name }}{% else %}{% if prop.class_name in resource_list %}Fhir{% endif %}{{ prop.class_name }}{% endif %}{% if prop.is_array %}>{% endif %}{%- if (not prop.nonoptional) or prop.one_of_many %}? = null{% endif %}{%- if sclass.superclass %},{% else %}{% if not loop.last %},{% endif %}{% endif %}

@@ -209,21 +209,31 @@ data class Patient(
     @SerialName("link")
     override val link: List<PatientLink>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
+
     @SerialName("contained")
     override val contained: List<FhirResource>? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null,
+
     @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirPatient {
@@ -288,11 +298,16 @@ data class PatientAnimal(
     @SerialName("genderStatus")
     override val genderStatus: CodeableConcept? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirPatientAnimal {
@@ -350,11 +365,16 @@ data class PatientCommunication(
     @SerialName("preferred")
     override val preferred: Bool? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirPatientCommunication {
@@ -453,11 +473,16 @@ data class PatientContact(
     @SerialName("period")
     override val period: Period? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirPatientContact {
@@ -514,11 +539,16 @@ data class PatientLink(
     @SerialName("type")
     override val type: LinkType,
 
-    // # BackboneElement@SerialName("modifierExtension")
+    // # BackboneElement
+
+    @SerialName("modifierExtension")
     override val modifierExtension: List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirPatientLink {

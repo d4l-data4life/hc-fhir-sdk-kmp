@@ -368,8 +368,11 @@ data class Extension(
     @SerialName("valueMeta")
     override val valueMeta: Meta? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirExtension {

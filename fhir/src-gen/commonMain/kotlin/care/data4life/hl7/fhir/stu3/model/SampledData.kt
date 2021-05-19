@@ -107,8 +107,11 @@ data class SampledData(
     @SerialName("data")
     override val data: String,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
     override val extension: List<Extension>? = null
 ) : FhirSampledData {
