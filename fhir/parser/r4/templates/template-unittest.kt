@@ -123,13 +123,11 @@ class {{ class.name }}Test {
         JSONAssert.assertEquals(sourceJson, json, true)
     }
 
-{%- for assert_cycle in range(assertion_steps) %}
-{%- set assert_step = loop.index %}
-{%- set assert_step_start_index = (assert_step -1) * 100  %}
-{%- set assert_step_stop_index = ((assert_step) * 100) - 1 %}
+{%- for test_steps in tcase.tests | batch(100) %}
+{%- set test_step = loop.index %}
 
-    private fun assert{{ class.name }}{{ '%02d' % test_case_number }}Step{{ '%02d' % assert_step }}(data: {{ class.name }}) {
-{%- for test in tcase.tests[assert_step_start_index:assert_step_stop_index] %}
+    private fun assert{{ class.name }}{{ '%02d' % test_case_number }}Step{{ '%02d' % test_step }}(data: {{ class.name }}) {
+{%- for test in test_steps %}
 {% if test.enum %}
         assertEquals(
             expected = {{ test.enum }}.

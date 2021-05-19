@@ -1122,22 +1122,9 @@ class ActivityDefinitionTest {
             actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
                 ?.replace("\n", " ")
         )
-
-        assertEquals(
-            expected = "1.0.0",
-            actual = data.version
-                ?.replace("\n", " ")
-        )
     }
 
     private fun assertActivityDefinition02Step02(data: ActivityDefinition) {
-
-
-        assertEquals(
-            expected = "http://snomed.info/sct",
-            actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
-        )
 
         assertEquals(
             expected = "1.0.0",
