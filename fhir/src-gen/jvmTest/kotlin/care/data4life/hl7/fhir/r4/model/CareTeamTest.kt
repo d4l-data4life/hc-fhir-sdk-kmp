@@ -62,109 +62,109 @@ class CareTeamTest {
         assertEquals(
             expected = "LA27976-2",
             actual = data.category?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Encounter-focused care team",
             actual = data.category?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://loinc.org",
             actual = data.category?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "pr1",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Encounter/example",
             actual = data.encounter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "12345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/f001",
             actual = data.managingOrganization?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Peter James Charlmers Care Plan for Inpatient Encounter",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Peter James Chalmers",
             actual = data.participant?.get(0)?.member?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.participant?.get(0)?.member?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "responsiblePerson",
             actual = data.participant?.get(0)?.role?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Dorothy Dietition",
             actual = data.participant?.get(1)?.member?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#pr1",
             actual = data.participant?.get(1)?.member?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/f001",
             actual = data.participant?.get(1)?.onBehalfOf?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -175,7 +175,7 @@ class CareTeamTest {
         assertEquals(
             expected = "adviser",
             actual = data.participant?.get(1)?.role?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -191,19 +191,19 @@ class CareTeamTest {
         assertEquals(
             expected = "Peter James Chalmers",
             actual = data.subject?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

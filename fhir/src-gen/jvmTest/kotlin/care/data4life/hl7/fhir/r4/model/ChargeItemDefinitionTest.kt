@@ -65,43 +65,43 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "Verify ChargeItem pertains to Device 12345",
             actual = data.applicability?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "%context.service.suppliedItem='Device/12345'",
             actual = data.applicability?.get(0)?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/fhirpath",
             actual = data.applicability?.get(0)?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Financial details for  custom made device",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "device",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Device/12345",
             actual = data.instance?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EUR",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -112,19 +112,19 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "VK",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Verkaufspreis (netto)",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fhir.de/CodeSystem/billing-attributes",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -135,37 +135,37 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "Gültigkeit Steuersatz",
             actual = data.propertyGroup?.get(1)?.applicability?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "%context.occurenceDateTime > '2018-04-01'",
             actual = data.propertyGroup?.get(1)?.applicability?.get(0)?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/fhirpath",
             actual = data.propertyGroup?.get(1)?.applicability?.get(0)?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MWST",
             actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Mehrwersteuersatz",
             actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fhir.de/CodeSystem/billing-attributes",
             actual = data.propertyGroup?.get(1)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -181,37 +181,37 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "Gültigkeit Steuersatz",
             actual = data.propertyGroup?.get(2)?.applicability?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "%context.occurenceDateTime <= '2018-04-01'",
             actual = data.propertyGroup?.get(2)?.applicability?.get(0)?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/fhirpath",
             actual = data.propertyGroup?.get(2)?.applicability?.get(0)?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MWST",
             actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Mehrwersteuersatz",
             actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fhir.de/CodeSystem/billing-attributes",
             actual = data.propertyGroup?.get(2)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -237,7 +237,7 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "http://sap.org/ChargeItemDefinition/device-123",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -264,61 +264,61 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "Excludes billing code 13250 for same Encounter",
             actual = data.applicability?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "[some CQL expression]",
             actual = data.applicability?.get(0)?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.applicability?.get(0)?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Applies only once per Encounter",
             actual = data.applicability?.get(1)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "[some CQL expression]",
             actual = data.applicability?.get(1)?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/CQL",
             actual = data.applicability?.get(1)?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "30110",
             actual = data.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Allergologiediagnostik I",
             actual = data.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fhir.de/CodingSystem/kbv/ebm",
             actual = data.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -334,13 +334,13 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "ebm",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EUR",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.amount?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -351,19 +351,19 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "gesamt-euro",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Gesamt (Euro)",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fhir.de/CodeSystem/kbv/ebm-attribute",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -374,19 +374,19 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "gesamt-punkte",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Gesamt (Punkte)",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fhir.de/CodeSystem/kbv/ebm-attribute",
             actual = data.propertyGroup?.get(0)?.priceComponent?.get(1)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -412,13 +412,13 @@ class ChargeItemDefinitionTest {
         assertEquals(
             expected = "http://fhir.de/ChargeItemDefinition/kbv/ebm-30110",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "2-2018",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

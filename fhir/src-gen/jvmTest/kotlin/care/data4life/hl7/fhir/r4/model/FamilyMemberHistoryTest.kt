@@ -62,25 +62,25 @@ class FamilyMemberHistoryTest {
         assertEquals(
             expected = "315619001",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Myocardial Infarction",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Heart Attack",
             actual = data.condition?.get(0)?.code?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -91,25 +91,25 @@ class FamilyMemberHistoryTest {
         assertEquals(
             expected = "Was fishing at the time. At least he went doing someting he loved.",
             actual = data.condition?.get(0)?.note?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "a",
             actual = data.condition?.get(0)?.onsetAge?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.condition?.get(0)?.onsetAge?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "yr",
             actual = data.condition?.get(0)?.onsetAge?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -125,85 +125,85 @@ class FamilyMemberHistoryTest {
         assertEquals(
             expected = "father",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "12345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/family-member-history-questionnaire",
             actual = data.instantiatesUri?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Peter Patient",
             actual = data.patient?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FTH",
             actual = data.relationship?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "father",
             actual = data.relationship?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
             actual = data.relationship?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "male",
             actual = data.sex?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Male",
             actual = data.sex?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/administrative-gender",
             actual = data.sex?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -214,7 +214,7 @@ class FamilyMemberHistoryTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Father died of a heart attack aged 74</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -246,43 +246,43 @@ class FamilyMemberHistoryTest {
         assertEquals(
             expected = "371041009",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Embolic Stroke",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Stroke",
             actual = data.condition?.get(0)?.code?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "a",
             actual = data.condition?.get(0)?.onsetAge?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.condition?.get(0)?.onsetAge?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "yr",
             actual = data.condition?.get(0)?.onsetAge?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -293,55 +293,55 @@ class FamilyMemberHistoryTest {
         assertEquals(
             expected = "mother",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Peter Patient",
             actual = data.patient?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/100",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MTH",
             actual = data.relationship?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mother",
             actual = data.relationship?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
             actual = data.relationship?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -352,7 +352,7 @@ class FamilyMemberHistoryTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mother died of a stroke aged 56</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

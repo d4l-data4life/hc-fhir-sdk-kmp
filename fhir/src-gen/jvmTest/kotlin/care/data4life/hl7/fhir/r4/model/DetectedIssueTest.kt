@@ -65,25 +65,25 @@ class DetectedIssueTest {
         assertEquals(
             expected = "allergy",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -94,7 +94,7 @@ class DetectedIssueTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -126,37 +126,37 @@ class DetectedIssueTest {
         assertEquals(
             expected = "Device/software",
             actual = data.author?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DUPTHPY",
             actual = data.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Duplicate Therapy Alert",
             actual = data.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
             actual = data.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Similar test was performed within the past 14 days",
             actual = data.detail
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "duplicate",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -167,7 +167,7 @@ class DetectedIssueTest {
         assertEquals(
             expected = "http://example.org",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -178,61 +178,61 @@ class DetectedIssueTest {
         assertEquals(
             expected = "12345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Chest CT - ordered May 8, 2013 by Dr. Adam Careful",
             actual = data.implicated?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ServiceRequest/di",
             actual = data.implicated?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM",
             actual = data.implicated?.get(1)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ImagingStudy/example",
             actual = data.implicated?.get(1)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/dicom",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.tmhp.com/RadiologyClinicalDecisionSupport/2011/CHEST%20IMAGING%20GUIDELINES%202011.pdf",
             actual = data.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -269,31 +269,31 @@ class DetectedIssueTest {
         assertEquals(
             expected = "Device/software",
             actual = data.author?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DRG",
             actual = data.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Drug Interaction Alert",
             actual = data.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
             actual = data.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ddi",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -304,79 +304,79 @@ class DetectedIssueTest {
         assertEquals(
             expected = "500 mg Acetaminophen tablet 1/day, PRN since 2010",
             actual = data.implicated?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MedicationStatement/example001",
             actual = data.implicated?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Warfarin 1 MG TAB prescribed Jan. 15, 2015",
             actual = data.implicated?.get(1)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MedicationRequest/medrx0331",
             actual = data.implicated?.get(1)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "13",
             actual = data.mitigation?.get(0)?.action?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Stopped Concurrent Therapy",
             actual = data.mitigation?.get(0)?.action?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
             actual = data.mitigation?.get(0)?.action?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Asked patient to discontinue regular use of Tylenol and to consult with clinician if they need to resume to allow appropriate INR monitoring",
             actual = data.mitigation?.get(0)?.action?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Dr. Adam Careful",
             actual = data.mitigation?.get(0)?.author?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/example",
             actual = data.mitigation?.get(0)?.author?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -423,25 +423,25 @@ class DetectedIssueTest {
         assertEquals(
             expected = "lab",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -452,7 +452,7 @@ class DetectedIssueTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

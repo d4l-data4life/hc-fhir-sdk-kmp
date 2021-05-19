@@ -73,7 +73,7 @@ class GraphDefinitionTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -84,25 +84,25 @@ class GraphDefinitionTest {
         assertEquals(
             expected = "Specify to include list references when generating a document using the \$document operation",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Link to List",
             actual = data.link?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section.entry",
             actual = data.link?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -123,13 +123,13 @@ class GraphDefinitionTest {
         assertEquals(
             expected = "Include any list entries",
             actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "List.entry.item",
             actual = data.link?.get(0)?.target?.get(0)?.link?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -160,13 +160,13 @@ class GraphDefinitionTest {
         assertEquals(
             expected = "Document Generation Template",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FHIR Project",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -187,7 +187,7 @@ class GraphDefinitionTest {
         assertEquals(
             expected = "http://h7.org/fhir/GraphDefinition/example",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

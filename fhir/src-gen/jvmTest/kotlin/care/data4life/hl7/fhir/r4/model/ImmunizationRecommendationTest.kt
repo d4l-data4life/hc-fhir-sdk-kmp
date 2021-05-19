@@ -61,7 +61,7 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "Organization/hl7",
             actual = data.authority?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -72,61 +72,61 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:ietf:rfc:3986",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "earliest",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Earliest Date",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -137,19 +137,19 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "recommended",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Recommended",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -160,19 +160,19 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "overdue",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Past Due Date",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -183,7 +183,7 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "First sequence in protocol",
             actual = data.recommendation?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -194,13 +194,13 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "Not Complete",
             actual = data.recommendation?.get(0)?.forecastStatus?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vaccination Series 1",
             actual = data.recommendation?.get(0)?.series
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -211,37 +211,37 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "Immunization/example",
             actual = data.recommendation?.get(0)?.supportingImmunization?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Observation/example",
             actual = data.recommendation?.get(0)?.supportingPatientInformation?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "14745005",
             actual = data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Hepatitis A vaccine",
             actual = data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.recommendation?.get(0)?.vaccineCode?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -273,7 +273,7 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "Organization/hl7",
             actual = data.authority?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -284,61 +284,61 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:ietf:rfc:3986",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "30981-5",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Earliest date to give",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://loinc.org",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -349,19 +349,19 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "recommended",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Recommended",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(1)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -372,19 +372,19 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "overdue",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Past Due Date",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion",
             actual = data.recommendation?.get(0)?.dateCriterion?.get(2)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -395,7 +395,7 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "First sequence in protocol",
             actual = data.recommendation?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -406,13 +406,13 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "Not Complete",
             actual = data.recommendation?.get(0)?.forecastStatus?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vaccination Series 1",
             actual = data.recommendation?.get(0)?.series
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -423,31 +423,31 @@ class ImmunizationRecommendationTest {
         assertEquals(
             expected = "Immunization/example",
             actual = data.recommendation?.get(0)?.supportingImmunization?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Observation/example",
             actual = data.recommendation?.get(0)?.supportingPatientInformation?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "40468003",
             actual = data.recommendation?.get(0)?.targetDisease?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.recommendation?.get(0)?.targetDisease?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

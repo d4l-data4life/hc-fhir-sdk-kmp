@@ -61,31 +61,31 @@ class AppointmentTest {
         assertEquals(
             expected = "FOLLOWUP",
             actual = data.appointmentType?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A follow up visit from a previous appointment",
             actual = data.appointmentType?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v2-0276",
             actual = data.appointmentType?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ServiceRequest/myringotomy",
             actual = data.basedOn?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
             actual = data.comment
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -96,7 +96,7 @@ class AppointmentTest {
         assertEquals(
             expected = "Discussion on the results of your recent MRI",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -107,37 +107,37 @@ class AppointmentTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Peter James Chalmers",
             actual = data.participant?.get(0)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.participant?.get(0)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -153,13 +153,13 @@ class AppointmentTest {
         assertEquals(
             expected = "Dr Adam Careful",
             actual = data.participant?.get(1)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/example",
             actual = data.participant?.get(1)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -175,25 +175,25 @@ class AppointmentTest {
         assertEquals(
             expected = "ATND",
             actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
             actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "South Wing, second floor",
             actual = data.participant?.get(2)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Location/1",
             actual = data.participant?.get(2)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -214,61 +214,61 @@ class AppointmentTest {
         assertEquals(
             expected = "Severe burn of left ear",
             actual = data.reasonReference?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Condition/example",
             actual = data.reasonReference?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "gp",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General Practice",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/service-category",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "52",
             actual = data.serviceType?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General Discussion",
             actual = data.serviceType?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "394814009",
             actual = data.specialty?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General practice",
             actual = data.specialty?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.specialty?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -284,7 +284,7 @@ class AppointmentTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -316,25 +316,25 @@ class AppointmentTest {
         assertEquals(
             expected = "WALKIN",
             actual = data.appointmentType?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A previously unscheduled walk-in visit",
             actual = data.appointmentType?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v2-0276",
             actual = data.appointmentType?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Further expand on the results of the MRI and determine the next actions that may be appropriate.",
             actual = data.comment
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -345,43 +345,43 @@ class AppointmentTest {
         assertEquals(
             expected = "Discussion on the results of your recent MRI",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "examplereq",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/sampleappointment-identifier",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "123",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -392,13 +392,13 @@ class AppointmentTest {
         assertEquals(
             expected = "Peter James Chalmers",
             actual = data.participant?.get(0)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.participant?.get(0)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -424,25 +424,25 @@ class AppointmentTest {
         assertEquals(
             expected = "ATND",
             actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
             actual = data.participant?.get(1)?.type?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "South Wing, second floor",
             actual = data.participant?.get(2)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Location/1",
             actual = data.participant?.get(2)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -463,19 +463,19 @@ class AppointmentTest {
         assertEquals(
             expected = "413095006",
             actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Clinical Review",
             actual = data.reasonCode?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -491,43 +491,43 @@ class AppointmentTest {
         assertEquals(
             expected = "gp",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General Practice",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/service-category",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Slot/example",
             actual = data.slot?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "394814009",
             actual = data.specialty?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General practice",
             actual = data.specialty?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.specialty?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -538,7 +538,7 @@ class AppointmentTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -570,31 +570,31 @@ class AppointmentTest {
         assertEquals(
             expected = "WALKIN",
             actual = data.appointmentType?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A previously unscheduled walk-in visit",
             actual = data.appointmentType?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v2-0276",
             actual = data.appointmentType?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Clarify the results of the MRI to ensure context of test was correct",
             actual = data.comment
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Discussion about Peter Chalmers MRI results",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -605,37 +605,37 @@ class AppointmentTest {
         assertEquals(
             expected = "2docs",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Peter James Chalmers",
             actual = data.participant?.get(0)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.participant?.get(0)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -651,13 +651,13 @@ class AppointmentTest {
         assertEquals(
             expected = "Dr Adam Careful",
             actual = data.participant?.get(1)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/example",
             actual = data.participant?.get(1)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -673,13 +673,13 @@ class AppointmentTest {
         assertEquals(
             expected = "Luigi Maas",
             actual = data.participant?.get(2)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/f202",
             actual = data.participant?.get(2)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -695,7 +695,7 @@ class AppointmentTest {
         assertEquals(
             expected = "Phone Call",
             actual = data.participant?.get(3)?.actor?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -716,49 +716,49 @@ class AppointmentTest {
         assertEquals(
             expected = "gp",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General Practice",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/service-category",
             actual = data.serviceCategory?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "52",
             actual = data.serviceType?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General Discussion",
             actual = data.serviceType?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "394814009",
             actual = data.specialty?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "General practice",
             actual = data.specialty?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.specialty?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -774,13 +774,13 @@ class AppointmentTest {
         assertEquals(
             expected = "DiagnosticReport/ultrasound",
             actual = data.supportingInformation?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

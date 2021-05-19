@@ -58,13 +58,13 @@ class MedicinalProductAuthorizationTest {
         assertEquals(
             expected = "EU",
             actual = data.country?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/country",
             actual = data.country?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -85,25 +85,25 @@ class MedicinalProductAuthorizationTest {
         assertEquals(
             expected = "Organization/example",
             actual = data.holder?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/marketingAuthorisationNumber",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EU/1/11/999/001",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -114,79 +114,79 @@ class MedicinalProductAuthorizationTest {
         assertEquals(
             expected = "NO",
             actual = data.jurisdictionalAuthorization?.get(0)?.country?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/countryCode",
             actual = data.jurisdictionalAuthorization?.get(0)?.country?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1",
             actual = data.jurisdictionalAuthorization?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/marketingauthorisationnumber",
             actual = data.jurisdictionalAuthorization?.get(0)?.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "123-456-789",
             actual = data.jurisdictionalAuthorization?.get(0)?.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "NO",
             actual = data.jurisdictionalAuthorization?.get(1)?.country?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/countryCode",
             actual = data.jurisdictionalAuthorization?.get(1)?.country?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "2",
             actual = data.jurisdictionalAuthorization?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/marketingauthorisationnumber",
             actual = data.jurisdictionalAuthorization?.get(1)?.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "123-456-123",
             actual = data.jurisdictionalAuthorization?.get(1)?.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -197,25 +197,25 @@ class MedicinalProductAuthorizationTest {
         assertEquals(
             expected = "http://ema.europa.eu/example/applicationidentifier-number",
             actual = data.procedure?.application?.get(0)?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "IA38G",
             actual = data.procedure?.application?.get(0)?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "GroupTypeIAVariationNotification",
             actual = data.procedure?.application?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/marketingAuthorisationApplicationType",
             actual = data.procedure?.application?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -231,43 +231,43 @@ class MedicinalProductAuthorizationTest {
         assertEquals(
             expected = "http://ema.europa.eu/example/procedureidentifier-number",
             actual = data.procedure?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EMEA/H/C/009999/IA/0099/G",
             actual = data.procedure?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "VariationTypeIA",
             actual = data.procedure?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/marketingAuthorisationProcedureType",
             actual = data.procedure?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/example",
             actual = data.regulator?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "active",
             actual = data.status?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/authorisationstatus",
             actual = data.status?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

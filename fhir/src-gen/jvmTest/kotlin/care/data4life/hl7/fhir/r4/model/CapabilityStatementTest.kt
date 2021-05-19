@@ -74,7 +74,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "System Administrator",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -85,13 +85,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "wile@acme.org",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Copyright © Acme Healthcare and GoodCorp EHR Systems",
             actual = data.copyright
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -102,13 +102,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Basic rules for all documents in the EHR system",
             actual = data.document?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -119,7 +119,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796",
             actual = data.document?.get(0)?.profile
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -130,67 +130,67 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "4.0.1",
             actual = data.fhirVer
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "xml",
             actual = data.format?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "json",
             actual = data.format?.get(1)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "main EHR at ACME",
             actual = data.implementation?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://10.2.3.4/fhir",
             actual = data.implementation?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/us/lab",
             actual = data.implementationGuide?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ihe.org/fhir/CapabilityStatement/pixm-client",
             actual = data.instantiates?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "US",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "United States of America (the)",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:3166",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -201,25 +201,25 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "ADT A08 equivalent for external system notifications",
             actual = data.messaging?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mllp:10.1.1.10:9234",
             actual = data.messaging?.get(0)?.endpoint?.get(0)?.address
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mllp",
             actual = data.messaging?.get(0)?.endpoint?.get(0)?.protocol?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/message-transport",
             actual = data.messaging?.get(0)?.endpoint?.get(0)?.protocol?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -230,7 +230,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "MessageDefinition/example",
             actual = data.messaging?.get(0)?.supportedMessage?.get(0)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -241,43 +241,43 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "ACME-EHR",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "application/xml-patch+xml",
             actual = data.patchFormat?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "application/json-patch+json",
             actual = data.patchFormat?.get(1)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ACME Corporation",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Main EHR capability statement, published for contracting and operational support",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/CompartmentDefinition/patient",
             actual = data.rest?.get(0)?.compartment?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Main FHIR endpoint for acem health",
             actual = data.rest?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -318,7 +318,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "This server does not let the clients create identities.",
             actual = data.rest?.get(0)?.resource?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -334,7 +334,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "Only supported for patient records since 12-Dec 2012",
             actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -360,7 +360,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416",
             actual = data.rest?.get(0)?.resource?.get(0)?.profile
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -371,25 +371,25 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "Organization",
             actual = data.rest?.get(0)?.resource?.get(0)?.searchInclude?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/SearchParameter/Patient-identifier",
             actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Only supports search by institution MRN",
             actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "identifier",
             actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -400,13 +400,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "http://hl7.org/fhir/SearchParameter/Patient-general-practitioner",
             actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "general-practitioner",
             actual = data.rest?.get(0)?.resource?.get(0)?.searchParam?.get(1)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -417,13 +417,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "Person",
             actual = data.rest?.get(0)?.resource?.get(0)?.searchRevInclude?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347",
             actual = data.rest?.get(0)?.resource?.get(0)?.supportedProfile?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -449,25 +449,25 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "See Smart on FHIR documentation",
             actual = data.rest?.get(0)?.security?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "SMART-on-FHIR",
             actual = data.rest?.get(0)?.security?.service?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/restful-security-service",
             actual = data.rest?.get(0)?.security?.service?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EHR",
             actual = data.software?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -478,7 +478,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "0.00.020.2134",
             actual = data.software?.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -494,43 +494,43 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "ACME EHR capability statement",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "focus",
             actual = data.useContext?.get(0)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(0)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "positive",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/variant-state",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "20130510",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -562,7 +562,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -573,31 +573,31 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "Prototype Capability Statement for September 2013 Connectathon",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "4.0.1",
             actual = data.fhirVer
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "json",
             actual = data.format?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "xml",
             actual = data.format?.get(1)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "phr",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -608,37 +608,37 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "PHR Template",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FHIR Project",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Protoype server Capability Statement for September 2013 Connectathon",
             actual = data.rest?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -659,7 +659,7 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "When a client searches patients with no search criteria, they get a list of all patients they have access too. Servers may elect to offer additional search parameters, but this is not required",
             actual = data.rest?.get(0)?.resource?.get(0)?.interaction?.get(1)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -680,13 +680,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "_id parameter always supported. For the connectathon, servers may elect which search parameters are supported",
             actual = data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "_id",
             actual = data.rest?.get(0)?.resource?.get(1)?.searchParam?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -712,13 +712,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "Standard _id parameter",
             actual = data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "_id",
             actual = data.rest?.get(0)?.resource?.get(2)?.searchParam?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -744,13 +744,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "Standard _id parameter",
             actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "_id",
             actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -761,13 +761,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "which diagnostic discipline/department created the report",
             actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "service",
             actual = data.rest?.get(0)?.resource?.get(3)?.searchParam?.get(1)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -783,13 +783,13 @@ class CapabilityStatementTest {
         assertEquals(
             expected = "OAuth",
             actual = data.rest?.get(0)?.security?.service?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ACME PHR Server",
             actual = data.software?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

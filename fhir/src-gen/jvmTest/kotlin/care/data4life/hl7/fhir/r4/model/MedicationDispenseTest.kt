@@ -64,31 +64,31 @@ class MedicationDispenseTest {
         assertEquals(
             expected = "MedicationRequest/medrx0309",
             actual = data.authorizingPrescription?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medexample015",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mg",
             actual = data.dosageInstruction?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.dosageInstruction?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mg",
             actual = data.dosageInstruction?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -99,37 +99,37 @@ class MedicationDispenseTest {
         assertEquals(
             expected = "ordered",
             actual = data.dosageInstruction?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Ordered",
             actual = data.dosageInstruction?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/dose-rate-type",
             actual = data.dosageInstruction?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "394899003",
             actual = data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "oral administration of treatment",
             actual = data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -150,43 +150,43 @@ class MedicationDispenseTest {
         assertEquals(
             expected = "d",
             actual = data.dosageInstruction?.get(0)?.timing?.repeat?.periodUnit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "meddisp008",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#medexample015",
             actual = data.medicationReference?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/f006",
             actual = data.performer?.get(0)?.actor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -197,13 +197,13 @@ class MedicationDispenseTest {
         assertEquals(
             expected = "Donald Duck",
             actual = data.subject?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/pat1",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

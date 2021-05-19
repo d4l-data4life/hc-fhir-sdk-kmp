@@ -63,127 +63,127 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "http://ema.europa.eu/example/baid1",
             actual = data.batchIdentifier?.get(0)?.outerPackaging?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "AAF5699",
             actual = data.batchIdentifier?.get(0)?.outerPackaging?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS. ",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/pcid",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "{PCID}",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/example",
             actual = data.packageItem?.get(0)?.manufacturer?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "PVC",
             actual = data.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
             actual = data.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "PVDC",
             actual = data.packageItem?.get(0)?.material?.get(1)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
             actual = data.packageItem?.get(0)?.material?.get(1)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "alu",
             actual = data.packageItem?.get(0)?.material?.get(2)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
             actual = data.packageItem?.get(0)?.material?.get(2)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MedicinalProductManufactured/example",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.manufacturedItem?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/example",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.manufacturer?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Paperboard",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/packageItemContainerMaterial",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.material?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mm",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.height?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -194,7 +194,7 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "mm",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.physicalCharacteristics?.width?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -205,7 +205,7 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "1",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.quantity?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -216,7 +216,7 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "a",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.period?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -227,43 +227,43 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "Thismedicinalproductdoesnotrequireanyspecialstoragecondition.",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.specialPrecautionsForStorage?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/specialprecautionsforstorage",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.specialPrecautionsForStorage?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ShelfLifeofPackagedMedicinalProduct",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/shelfLifeTypePlaceHolder",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.shelfLifeStorage?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Blister",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/packageitemcontainertype",
             actual = data.packageItem?.get(0)?.packageItem?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mm",
             actual = data.packageItem?.get(0)?.physicalCharacteristics?.depth?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -274,7 +274,7 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "mm",
             actual = data.packageItem?.get(0)?.physicalCharacteristics?.height?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -285,7 +285,7 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "mm",
             actual = data.packageItem?.get(0)?.physicalCharacteristics?.width?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -296,7 +296,7 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "1",
             actual = data.packageItem?.get(0)?.quantity?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -307,13 +307,13 @@ class MedicinalProductPackagedTest {
         assertEquals(
             expected = "Carton",
             actual = data.packageItem?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/packageitemcontainertype",
             actual = data.packageItem?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

@@ -68,25 +68,25 @@ class ClaimTest {
         assertEquals(
             expected = "Grouse Mountain Ski Hill",
             actual = data.accident?.locationAddress?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "SPT",
             actual = data.accident?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Sporting Accident",
             actual = data.accident?.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode",
             actual = data.accident?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -102,19 +102,19 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "physician",
             actual = data.careTeam?.get(0)?.qualification?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/provider-qualification",
             actual = data.careTeam?.get(0)?.qualification?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -125,13 +125,13 @@ class ClaimTest {
         assertEquals(
             expected = "primary",
             actual = data.careTeam?.get(0)?.role?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/claim-careteamrole",
             actual = data.careTeam?.get(0)?.role?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -147,25 +147,25 @@ class ClaimTest {
         assertEquals(
             expected = "654456",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "400",
             actual = data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Head trauma - concussion",
             actual = data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup",
             actual = data.diagnosis?.get(0)?.packageCode?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -176,67 +176,67 @@ class ClaimTest {
         assertEquals(
             expected = "admitting",
             actual = data.diagnosis?.get(0)?.type?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-diagnosistype",
             actual = data.diagnosis?.get(0)?.type?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://jurisdiction.org/facilities/HOSP1234/users",
             actual = data.enterer?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "UC1234",
             actual = data.enterer?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://jurisdiction.org/facilities",
             actual = data.facility?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HOSP1234",
             actual = data.facility?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "960151",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happyhospital.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "96123451",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "BA987123",
             actual = data.insurance?.get(0)?.businessArrangement
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -247,7 +247,7 @@ class ClaimTest {
         assertEquals(
             expected = "PA2014G56473",
             actual = data.insurance?.get(0)?.preAuthRef?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -258,7 +258,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -269,7 +269,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -280,13 +280,13 @@ class ClaimTest {
         assertEquals(
             expected = "exam",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ex-serviceproduct",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -302,7 +302,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -313,49 +313,49 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://npid.org/providerid",
             actual = data.provider?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "NJ12345",
             actual = data.provider?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -366,13 +366,13 @@ class ClaimTest {
         assertEquals(
             expected = "employmentimpacted",
             actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
             actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -393,13 +393,13 @@ class ClaimTest {
         assertEquals(
             expected = "hospitalized",
             actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
             actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -420,7 +420,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -431,7 +431,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.total?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -442,13 +442,13 @@ class ClaimTest {
         assertEquals(
             expected = "institutional",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -480,7 +480,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -496,7 +496,7 @@ class ClaimTest {
         assertEquals(
             expected = "654456",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -507,25 +507,25 @@ class ClaimTest {
         assertEquals(
             expected = "860150",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happypdocs.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "8612345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -541,7 +541,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -552,7 +552,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -563,13 +563,13 @@ class ClaimTest {
         assertEquals(
             expected = "exam",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ex-serviceproduct",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -585,7 +585,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -596,43 +596,43 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -643,7 +643,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -654,13 +654,13 @@ class ClaimTest {
         assertEquals(
             expected = "professional",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -692,7 +692,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -708,7 +708,7 @@ class ClaimTest {
         assertEquals(
             expected = "123456",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -719,25 +719,25 @@ class ClaimTest {
         assertEquals(
             expected = "100150",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happyvalley.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "12345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -748,13 +748,13 @@ class ClaimTest {
         assertEquals(
             expected = "http://happyvalley.com/claim",
             actual = data.insurance?.get(0)?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "12345",
             actual = data.insurance?.get(0)?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -765,7 +765,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -776,7 +776,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -787,7 +787,7 @@ class ClaimTest {
         assertEquals(
             expected = "1200",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -803,7 +803,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -814,43 +814,43 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -861,7 +861,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -872,13 +872,13 @@ class ClaimTest {
         assertEquals(
             expected = "oral",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -910,7 +910,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -926,7 +926,7 @@ class ClaimTest {
         assertEquals(
             expected = "654321",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -937,25 +937,25 @@ class ClaimTest {
         assertEquals(
             expected = "660150",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happysight.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "6612345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -971,7 +971,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -982,7 +982,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -993,13 +993,13 @@ class ClaimTest {
         assertEquals(
             expected = "exam",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1015,7 +1015,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1026,43 +1026,43 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1073,7 +1073,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Vision Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1084,13 +1084,13 @@ class ClaimTest {
         assertEquals(
             expected = "vision",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1123,7 +1123,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1134,13 +1134,13 @@ class ClaimTest {
         assertEquals(
             expected = "device-frame",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "device-lens",
             actual = data.contained?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1151,7 +1151,7 @@ class ClaimTest {
         assertEquals(
             expected = "654321",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1162,31 +1162,31 @@ class ClaimTest {
         assertEquals(
             expected = "660152",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happysight.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "6612347",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ClaimResponse/R3500",
             actual = data.insurance?.get(0)?.claimResponse?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1197,7 +1197,7 @@ class ClaimTest {
         assertEquals(
             expected = "PR7652387237",
             actual = data.insurance?.get(0)?.preAuthRef?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1208,7 +1208,7 @@ class ClaimTest {
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(1)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1219,7 +1219,7 @@ class ClaimTest {
         assertEquals(
             expected = "AB543GTD7567",
             actual = data.insurance?.get(1)?.preAuthRef?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1230,7 +1230,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1241,37 +1241,37 @@ class ClaimTest {
         assertEquals(
             expected = "F6",
             actual = data.item?.get(0)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Coverage",
             actual = data.item?.get(0)?.category?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
             actual = data.item?.get(0)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "F6",
             actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Coverage",
             actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
             actual = data.item?.get(0)?.detail?.get(0)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1282,19 +1282,19 @@ class ClaimTest {
         assertEquals(
             expected = "rooh",
             actual = data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/modifiers",
             actual = data.item?.get(0)?.detail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1305,31 +1305,31 @@ class ClaimTest {
         assertEquals(
             expected = "frame",
             actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "0010",
             actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Clinic",
             actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
             actual = data.item?.get(0)?.detail?.get(0)?.revenue?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1340,13 +1340,13 @@ class ClaimTest {
         assertEquals(
             expected = "#device-frame",
             actual = data.item?.get(0)?.detail?.get(0)?.udi?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1357,25 +1357,25 @@ class ClaimTest {
         assertEquals(
             expected = "F6",
             actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Coverage",
             actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
             actual = data.item?.get(0)?.detail?.get(1)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1386,25 +1386,25 @@ class ClaimTest {
         assertEquals(
             expected = "lens",
             actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "none",
             actual = data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
             actual = data.item?.get(0)?.detail?.get(1)?.programCode?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1415,19 +1415,19 @@ class ClaimTest {
         assertEquals(
             expected = "0010",
             actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Clinic",
             actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
             actual = data.item?.get(0)?.detail?.get(1)?.revenue?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1438,19 +1438,19 @@ class ClaimTest {
         assertEquals(
             expected = "F6",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Coverage",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1461,19 +1461,19 @@ class ClaimTest {
         assertEquals(
             expected = "rooh",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/modifiers",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1484,25 +1484,25 @@ class ClaimTest {
         assertEquals(
             expected = "lens",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "none",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1513,19 +1513,19 @@ class ClaimTest {
         assertEquals(
             expected = "0010",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Clinic",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.revenue?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1536,13 +1536,13 @@ class ClaimTest {
         assertEquals(
             expected = "#device-lens",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.udi?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1553,19 +1553,19 @@ class ClaimTest {
         assertEquals(
             expected = "F6",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Coverage",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1576,19 +1576,19 @@ class ClaimTest {
         assertEquals(
             expected = "rooh",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/modifiers",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.modifier?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1599,13 +1599,13 @@ class ClaimTest {
         assertEquals(
             expected = "hardening",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1616,19 +1616,19 @@ class ClaimTest {
         assertEquals(
             expected = "0010",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Clinic",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.revenue?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1639,7 +1639,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(1)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1650,19 +1650,19 @@ class ClaimTest {
         assertEquals(
             expected = "F6",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Coverage",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1673,19 +1673,19 @@ class ClaimTest {
         assertEquals(
             expected = "rooh",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/modifiers",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.modifier?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1699,13 +1699,13 @@ class ClaimTest {
         assertEquals(
             expected = "UV coating",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1716,19 +1716,19 @@ class ClaimTest {
         assertEquals(
             expected = "0010",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Clinic",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.revenue?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1739,7 +1739,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1750,7 +1750,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1761,19 +1761,19 @@ class ClaimTest {
         assertEquals(
             expected = "F6",
             actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Coverage",
             actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/benefit-subcategory",
             actual = data.item?.get(0)?.detail?.get(2)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1784,7 +1784,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1795,31 +1795,31 @@ class ClaimTest {
         assertEquals(
             expected = "fst",
             actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "0010",
             actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Clinic",
             actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
             actual = data.item?.get(0)?.detail?.get(2)?.revenue?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1830,7 +1830,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1841,19 +1841,19 @@ class ClaimTest {
         assertEquals(
             expected = "rooh",
             actual = data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/modifiers",
             actual = data.item?.get(0)?.modifier?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1864,43 +1864,43 @@ class ClaimTest {
         assertEquals(
             expected = "glasses",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/ex-visionservice",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "none",
             actual = data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-programcode",
             actual = data.item?.get(0)?.programCode?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "0010",
             actual = data.item?.get(0)?.revenue?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Vision Clinic",
             actual = data.item?.get(0)?.revenue?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-revenue-center",
             actual = data.item?.get(0)?.revenue?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1916,7 +1916,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1927,49 +1927,49 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.optdocs.com/prescription/12345",
             actual = data.prescription?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1980,7 +1980,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Vision Claim for Glasses</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1991,13 +1991,13 @@ class ClaimTest {
         assertEquals(
             expected = "vision",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2029,7 +2029,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2045,7 +2045,7 @@ class ClaimTest {
         assertEquals(
             expected = "654456",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2056,49 +2056,49 @@ class ClaimTest {
         assertEquals(
             expected = "http://jurisdiction.org/facilities/HOSP1234/users",
             actual = data.enterer?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "UC1234",
             actual = data.enterer?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://jurisdiction.org/facilities",
             actual = data.facility?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HOSP1234",
             actual = data.facility?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "960150",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happyhospital.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "9612345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2114,7 +2114,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2125,13 +2125,13 @@ class ClaimTest {
         assertEquals(
             expected = "Encounter/example",
             actual = data.item?.get(0)?.encounter?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2142,13 +2142,13 @@ class ClaimTest {
         assertEquals(
             expected = "exam",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ex-serviceproduct",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2164,7 +2164,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2175,37 +2175,37 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2216,13 +2216,13 @@ class ClaimTest {
         assertEquals(
             expected = "SDI9901",
             actual = data.procedure?.get(0)?.procedureCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Subcutaneous diagnostic implant",
             actual = data.procedure?.get(0)?.procedureCodeableConcept?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2233,19 +2233,19 @@ class ClaimTest {
         assertEquals(
             expected = "primary",
             actual = data.procedure?.get(0)?.type?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Device/example",
             actual = data.procedure?.get(0)?.udi?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2256,19 +2256,19 @@ class ClaimTest {
         assertEquals(
             expected = "emergency",
             actual = data.subType?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-claimsubtype",
             actual = data.subType?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2279,7 +2279,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.total?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2290,13 +2290,13 @@ class ClaimTest {
         assertEquals(
             expected = "institutional",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2328,7 +2328,7 @@ class ClaimTest {
         assertEquals(
             expected = "#provider-1",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2339,31 +2339,31 @@ class ClaimTest {
         assertEquals(
             expected = "org-insurer",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "org-org",
             actual = data.contained?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider-1",
             actual = data.contained?.get(2)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "patient-1",
             actual = data.contained?.get(3)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "coverage-1",
             actual = data.contained?.get(4)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2374,7 +2374,7 @@ class ClaimTest {
         assertEquals(
             expected = "123456",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2385,25 +2385,25 @@ class ClaimTest {
         assertEquals(
             expected = "100152",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happyvalley.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "12347",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#coverage-1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2419,7 +2419,7 @@ class ClaimTest {
         assertEquals(
             expected = "#org-insurer",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2430,7 +2430,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2441,7 +2441,7 @@ class ClaimTest {
         assertEquals(
             expected = "1200",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2457,7 +2457,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2468,43 +2468,43 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#patient-1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#org-org",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2515,7 +2515,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2526,13 +2526,13 @@ class ClaimTest {
         assertEquals(
             expected = "oral",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2564,7 +2564,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2580,7 +2580,7 @@ class ClaimTest {
         assertEquals(
             expected = "654456",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2591,25 +2591,25 @@ class ClaimTest {
         assertEquals(
             expected = "760151",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happypharma.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "7612345",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2625,7 +2625,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2636,7 +2636,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2647,13 +2647,13 @@ class ClaimTest {
         assertEquals(
             expected = "drugcost",
             actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ex-pharmaservice",
             actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2664,7 +2664,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2675,13 +2675,13 @@ class ClaimTest {
         assertEquals(
             expected = "markup",
             actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ex-pharmaservice",
             actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2692,7 +2692,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2703,13 +2703,13 @@ class ClaimTest {
         assertEquals(
             expected = "dispensefee",
             actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ex-pharmaservice",
             actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2735,7 +2735,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2746,37 +2746,37 @@ class ClaimTest {
         assertEquals(
             expected = "562721",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Alprazolam 0.25mg (Xanax)",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.nlm.nih.gov/research/umls/rxnorm",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "TAB",
             actual = data.item?.get(0)?.quantity?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.item?.get(0)?.quantity?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "TAB",
             actual = data.item?.get(0)?.quantity?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2797,55 +2797,55 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://pharmacy.org/MedicationRequest/AB1202B",
             actual = data.originalPrescription?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://pharmacy.org/MedicationRequest/AB1234G",
             actual = data.prescription?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stat",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2856,19 +2856,19 @@ class ClaimTest {
         assertEquals(
             expected = "pharmacyrefill",
             actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "new",
             actual = data.supportingInfo?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/pharmacy-refill",
             actual = data.supportingInfo?.get(0)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2879,19 +2879,19 @@ class ClaimTest {
         assertEquals(
             expected = "pharmacyinformation",
             actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "refillsremaining",
             actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/pharmacy-information",
             actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2907,19 +2907,19 @@ class ClaimTest {
         assertEquals(
             expected = "pharmacyinformation",
             actual = data.supportingInfo?.get(2)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "dayssupply",
             actual = data.supportingInfo?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/CodeSystem/pharmacy-information",
             actual = data.supportingInfo?.get(2)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2935,7 +2935,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Pharmacy Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2946,7 +2946,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.total?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2957,13 +2957,13 @@ class ClaimTest {
         assertEquals(
             expected = "pharmacy",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -2996,7 +2996,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3012,13 +3012,13 @@ class ClaimTest {
         assertEquals(
             expected = "123457",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/sid/icd-10",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3029,31 +3029,31 @@ class ClaimTest {
         assertEquals(
             expected = "provider",
             actual = data.fundsReserve?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "100153",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happyvalley.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "12355",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3069,7 +3069,7 @@ class ClaimTest {
         assertEquals(
             expected = "Organization/2",
             actual = data.insurer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3080,7 +3080,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3091,13 +3091,13 @@ class ClaimTest {
         assertEquals(
             expected = "ORTHOEXAM",
             actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(0)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3108,7 +3108,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3119,7 +3119,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3130,13 +3130,13 @@ class ClaimTest {
         assertEquals(
             expected = "ORTHODIAG",
             actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(0)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3147,7 +3147,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(1)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3158,7 +3158,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(2)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3169,13 +3169,13 @@ class ClaimTest {
         assertEquals(
             expected = "ORTHOINITIAL",
             actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(0)?.detail?.get(2)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3186,7 +3186,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(2)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3197,13 +3197,13 @@ class ClaimTest {
         assertEquals(
             expected = "ORTHOMONTHS",
             actual = data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(0)?.detail?.get(3)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3219,7 +3219,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(4)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3230,13 +3230,13 @@ class ClaimTest {
         assertEquals(
             expected = "ORTHOPERIODIC",
             actual = data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(0)?.detail?.get(4)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3252,7 +3252,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.detail?.get(4)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3268,7 +3268,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3279,13 +3279,13 @@ class ClaimTest {
         assertEquals(
             expected = "ORTHPLAN",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3301,7 +3301,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3312,13 +3312,13 @@ class ClaimTest {
         assertEquals(
             expected = "21",
             actual = data.item?.get(1)?.bodySite?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fdi.org/fhir/oraltoothcodes",
             actual = data.item?.get(1)?.bodySite?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3329,7 +3329,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(1)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3340,13 +3340,13 @@ class ClaimTest {
         assertEquals(
             expected = "21211",
             actual = data.item?.get(1)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(1)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3362,19 +3362,19 @@ class ClaimTest {
         assertEquals(
             expected = "L",
             actual = data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fdi.org/fhir/oralsurfacecodes",
             actual = data.item?.get(1)?.subSite?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(1)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3385,13 +3385,13 @@ class ClaimTest {
         assertEquals(
             expected = "36",
             actual = data.item?.get(2)?.bodySite?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://fdi.org/fhir/oraltoothcodes",
             actual = data.item?.get(2)?.bodySite?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3402,7 +3402,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(2)?.detail?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3413,13 +3413,13 @@ class ClaimTest {
         assertEquals(
             expected = "27211",
             actual = data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(2)?.detail?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3430,7 +3430,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(2)?.detail?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3441,7 +3441,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(2)?.detail?.get(1)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3452,13 +3452,13 @@ class ClaimTest {
         assertEquals(
             expected = "lab",
             actual = data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(2)?.detail?.get(1)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3469,7 +3469,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(2)?.detail?.get(1)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3480,7 +3480,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(2)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3491,13 +3491,13 @@ class ClaimTest {
         assertEquals(
             expected = "27211",
             actual = data.item?.get(2)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/oralservicecodes",
             actual = data.item?.get(2)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3513,7 +3513,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(2)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3524,31 +3524,31 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -3557,13 +3557,13 @@ class ClaimTest {
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3574,7 +3574,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3585,13 +3585,13 @@ class ClaimTest {
         assertEquals(
             expected = "oral",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3623,7 +3623,7 @@ class ClaimTest {
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3634,13 +3634,13 @@ class ClaimTest {
         assertEquals(
             expected = "patient-1",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "coverage-1",
             actual = data.contained?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3651,19 +3651,19 @@ class ClaimTest {
         assertEquals(
             expected = "M96.1",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Postlaminectomy syndrome",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/sid/icd-10",
             actual = data.diagnosis?.get(0)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3674,19 +3674,19 @@ class ClaimTest {
         assertEquals(
             expected = "G89.4",
             actual = data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Chronic pain syndrome",
             actual = data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/sid/icd-10",
             actual = data.diagnosis?.get(1)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3697,19 +3697,19 @@ class ClaimTest {
         assertEquals(
             expected = "M53.88",
             actual = data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Other specified dorsopathies, sacral and sacrococcygeal region",
             actual = data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/sid/icd-10",
             actual = data.diagnosis?.get(2)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3720,19 +3720,19 @@ class ClaimTest {
         assertEquals(
             expected = "M47.816",
             actual = data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Spondylosis without myelopathy or radiculopathy, lumbar region",
             actual = data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/sid/icd-10",
             actual = data.diagnosis?.get(3)?.diagnosisCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3743,25 +3743,25 @@ class ClaimTest {
         assertEquals(
             expected = "MED-00050",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://CedarArmsMedicalCenter.com/claim",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MED-00050",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#coverage-1",
             actual = data.insurance?.get(0)?.coverage?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3772,13 +3772,13 @@ class ClaimTest {
         assertEquals(
             expected = "http://CedarArmsMedicalCenter.com/claim",
             actual = data.insurance?.get(0)?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MED-00050",
             actual = data.insurance?.get(0)?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3789,19 +3789,19 @@ class ClaimTest {
         assertEquals(
             expected = "Humana Inc.",
             actual = data.insurer?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.bindb.com/bin",
             actual = data.insurer?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "123456",
             actual = data.insurer?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3827,25 +3827,25 @@ class ClaimTest {
         assertEquals(
             expected = "24",
             actual = data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Ambulatory Surgical Center",
             actual = data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html",
             actual = data.item?.get(0)?.locationCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.net?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3856,19 +3856,19 @@ class ClaimTest {
         assertEquals(
             expected = "62264",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Surgical Procedures on the Spine and Spinal Cord",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.ama-assn.org/go/cpt",
             actual = data.item?.get(0)?.productOrService?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3884,7 +3884,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.item?.get(0)?.unitPrice?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3895,55 +3895,55 @@ class ClaimTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#patient-1",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.payee?.party?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "provider",
             actual = data.payee?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/payeetype",
             actual = data.payee?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.provider?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3954,25 +3954,25 @@ class ClaimTest {
         assertEquals(
             expected = "831",
             actual = data.subType?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "https://www.cms.gov/codes/billtype",
             actual = data.subType?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "hospitalized",
             actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
             actual = data.supportingInfo?.get(0)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -3993,31 +3993,31 @@ class ClaimTest {
         assertEquals(
             expected = "discharge",
             actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claiminformationcategory",
             actual = data.supportingInfo?.get(1)?.category?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "01",
             actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Discharge to Home or Self Care",
             actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf",
             actual = data.supportingInfo?.get(1)?.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -4028,7 +4028,7 @@ class ClaimTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of a CMS 1500 Claim</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -4039,7 +4039,7 @@ class ClaimTest {
         assertEquals(
             expected = "USD",
             actual = data.total?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -4050,13 +4050,13 @@ class ClaimTest {
         assertEquals(
             expected = "institutional",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/claim-type",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

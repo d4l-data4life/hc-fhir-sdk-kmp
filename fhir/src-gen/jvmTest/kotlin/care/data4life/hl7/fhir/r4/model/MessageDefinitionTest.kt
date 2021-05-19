@@ -75,7 +75,7 @@ class MessageDefinitionTest {
         assertEquals(
             expected = "http://hl7.org",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -86,13 +86,13 @@ class MessageDefinitionTest {
         assertEquals(
             expected = "admin-notify",
             actual = data.eventCoding?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/fhir/message-events",
             actual = data.eventCoding?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -103,25 +103,25 @@ class MessageDefinitionTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EXAMPLE",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Health Level Seven, Int'l",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Defines a base example for other MessageDefinition instances.",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -132,7 +132,7 @@ class MessageDefinitionTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Message definition base example</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -143,13 +143,13 @@ class MessageDefinitionTest {
         assertEquals(
             expected = "Message definition base example",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/MessageDefinition/example",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

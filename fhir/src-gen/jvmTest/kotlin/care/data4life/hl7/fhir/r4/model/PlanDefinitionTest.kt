@@ -80,43 +80,43 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "#activitydefinition-medicationrequest-1",
             actual = data.action?.get(0)?.action?.get(0)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medication-action-1",
             actual = data.action?.get(0)?.action?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Administer Medication 1",
             actual = data.action?.get(0)?.action?.get(0)?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#activitydefinition-medicationrequest-2",
             actual = data.action?.get(0)?.action?.get(1)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medication-action-2",
             actual = data.action?.get(0)?.action?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medication-action-1",
             actual = data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.actionId
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "h",
             actual = data.action?.get(0)?.action?.get(1)?.relatedAction?.get(0)?.offsetDuration?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -132,7 +132,7 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Administer Medication 2",
             actual = data.action?.get(0)?.action?.get(1)?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -148,37 +148,37 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "activitydefinition-medicationrequest-1",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "activitydefinition-medicationrequest-2",
             actual = data.contained?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "options-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -189,7 +189,7 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -200,7 +200,7 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "This example illustrates relationships between actions.",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -239,13 +239,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "exists ([Condition: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today())",
             actual = data.action?.get(0)?.condition?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.action?.get(0)?.condition?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -256,19 +256,19 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "#procedure",
             actual = data.action?.get(0)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Measure, Weight, Height, Waist, Circumference; Calculate BMI",
             actual = data.action?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "reduce-bmi-ratio",
             actual = data.action?.get(0)?.goalId?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -279,13 +279,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Measure BMI",
             actual = data.action?.get(0)?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "National Heart, Lung, and Blood Institute",
             actual = data.author?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -296,49 +296,49 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "https://www.nhlbi.nih.gov/health-pro/guidelines",
             actual = data.author?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "procedure",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "414916001",
             actual = data.goal?.get(0)?.addresses?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Obesity (disorder)",
             actual = data.goal?.get(0)?.addresses?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.goal?.get(0)?.addresses?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Treatment",
             actual = data.goal?.get(0)?.category?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Reduce BMI to below 25",
             actual = data.goal?.get(0)?.description?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Evaluation and Treatment Strategy",
             actual = data.goal?.get(0)?.documentation?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -349,31 +349,31 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "https://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/42.htm",
             actual = data.goal?.get(0)?.documentation?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "reduce-bmi-ratio",
             actual = data.goal?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medium-priority",
             actual = data.goal?.get(0)?.priority?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "When the patient's BMI Ratio is at or above 25",
             actual = data.goal?.get(0)?.start?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "kg/m2",
             actual = data.goal?.get(0)?.target?.get(0)?.detailRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -384,7 +384,7 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "a",
             actual = data.goal?.get(0)?.target?.get(0)?.due?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -395,67 +395,67 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "39156-5",
             actual = data.goal?.get(0)?.target?.get(0)?.measure?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Body mass index (BMI) [Ratio]",
             actual = data.goal?.get(0)?.target?.get(0)?.measure?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://loinc.org",
             actual = data.goal?.get(0)?.target?.get(0)?.measure?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "protocol-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://acme.org",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example-1",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Example of A medical algorithm for assessment and treatment of overweight and obesity",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Overweight and Obesity Treatment Guidelines",
             actual = data.relatedArtifact?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -466,7 +466,7 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm",
             actual = data.relatedArtifact?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -482,37 +482,37 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Obesity Assessment Protocol",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "clinical-protocol",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "focus",
             actual = data.useContext?.get(0)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "414916001",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Obesity (disorder)",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -546,13 +546,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Should Administer Zika Virus Exposure Assessment",
             actual = data.action?.get(0)?.action?.get(0)?.condition?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.action?.get(0)?.action?.get(0)?.condition?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -563,19 +563,19 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "ActivityDefinition/administer-zika-virus-exposure-assessment",
             actual = data.action?.get(0)?.action?.get(0)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Should Order Serum + Urine rRT-PCR Test",
             actual = data.action?.get(0)?.action?.get(1)?.condition?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.action?.get(0)?.action?.get(1)?.condition?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -586,19 +586,19 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "ActivityDefinition/order-serum-urine-rrt-pcr-test",
             actual = data.action?.get(0)?.action?.get(1)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Should Order Serum Zika Virus IgM + Dengue Virus IgM",
             actual = data.action?.get(0)?.action?.get(2)?.condition?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.action?.get(0)?.action?.get(2)?.condition?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -609,19 +609,19 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "ActivityDefinition/order-serum-zika-dengue-virus-igm",
             actual = data.action?.get(0)?.action?.get(2)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Should Consider IgM Antibody Testing",
             actual = data.action?.get(0)?.action?.get(3)?.condition?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.action?.get(0)?.action?.get(3)?.condition?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -632,31 +632,31 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "ActivityDefinition/consider-igm-antibody-testing",
             actual = data.action?.get(0)?.action?.get(3)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ActivityDefinition/provide-mosquito-prevention-advice",
             actual = data.action?.get(0)?.action?.get(4)?.action?.get(0)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ActivityDefinition/provide-contraception-advice",
             actual = data.action?.get(0)?.action?.get(4)?.action?.get(1)?.definitionCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Should Provide Mosquito Prevention and Contraception Advice",
             actual = data.action?.get(0)?.action?.get(4)?.condition?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.action?.get(0)?.action?.get(4)?.condition?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -667,13 +667,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Is Patient Pregnant",
             actual = data.action?.get(0)?.condition?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.action?.get(0)?.condition?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -684,13 +684,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Zika Virus Assessment",
             actual = data.action?.get(0)?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "patient-view",
             actual = data.action?.get(0)?.trigger?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -706,13 +706,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "zika-virus-intervention-initial",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -723,13 +723,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "zika-virus-intervention",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Library/zika-virus-intervention-logic",
             actual = data.library?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -740,13 +740,13 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w",
             actual = data.relatedArtifact?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "PlanDefinition/zika-virus-intervention",
             actual = data.relatedArtifact?.get(1)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -767,25 +767,25 @@ class PlanDefinitionTest {
         assertEquals(
             expected = "Example Zika Virus Intervention",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Zika Virus Management",
             actual = data.topic?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/PlanDefinition/zika-virus-intervention",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1.0.0",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

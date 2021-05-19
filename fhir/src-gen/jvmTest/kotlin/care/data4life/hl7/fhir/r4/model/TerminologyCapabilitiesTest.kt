@@ -71,7 +71,7 @@ class TerminologyCapabilitiesTest {
         assertEquals(
             expected = "System Administrator",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -82,7 +82,7 @@ class TerminologyCapabilitiesTest {
         assertEquals(
             expected = "wile@acme.org",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -93,7 +93,7 @@ class TerminologyCapabilitiesTest {
         assertEquals(
             expected = "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -104,19 +104,19 @@ class TerminologyCapabilitiesTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Acme Terminology Server",
             actual = data.implementation?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/tx",
             actual = data.implementation?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -127,25 +127,25 @@ class TerminologyCapabilitiesTest {
         assertEquals(
             expected = "ACME-EHR",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ACME Corporation",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "TxServer",
             actual = data.software?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "0.1.2",
             actual = data.software?.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -161,19 +161,19 @@ class TerminologyCapabilitiesTest {
         assertEquals(
             expected = "ACME EHR capability statement",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "20130510",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

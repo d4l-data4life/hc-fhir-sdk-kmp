@@ -69,7 +69,7 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "USD",
             actual = data.detail?.get(0)?.amount?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -85,67 +85,67 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "http://www.BenefitsInc.com/payment/2018/detail",
             actual = data.detail?.get(0)?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "10-12345-001",
             actual = data.detail?.get(0)?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.detail?.get(0)?.payee?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://happyvalleyclinic.com/claim",
             actual = data.detail?.get(0)?.request?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "AB12345",
             actual = data.detail?.get(0)?.request?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.BenefitsInc.com/fhir/claimresponse",
             actual = data.detail?.get(0)?.response?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CR20140815-AB12345",
             actual = data.detail?.get(0)?.response?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.detail?.get(0)?.submitter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "payment",
             actual = data.detail?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/payment-type",
             actual = data.detail?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.detail?.get(1)?.amount?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -161,37 +161,37 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "http://www.BenefitsInc.com/payment/2018/detail",
             actual = data.detail?.get(1)?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "10-12345-002",
             actual = data.detail?.get(1)?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332699",
             actual = data.detail?.get(1)?.request?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "payment",
             actual = data.detail?.get(1)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/payment-type",
             actual = data.detail?.get(1)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "USD",
             actual = data.detail?.get(2)?.amount?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -207,79 +207,79 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "http://www.BenefitsInc.com/payment/2018/detail",
             actual = data.detail?.get(2)?.identifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "10-12345-003",
             actual = data.detail?.get(2)?.identifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "advance",
             actual = data.detail?.get(2)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/payment-type",
             actual = data.detail?.get(2)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "2014 August mid-month settlement.",
             actual = data.disposition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "PAYREC/2016/01B",
             actual = data.formCode?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ncforms.org/formid",
             actual = data.formCode?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ER2500",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.BenefitsInc.com/fhir/enrollmentresponse",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "781234",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -290,7 +290,7 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "USD",
             actual = data.paymentAmount?.currency
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -306,19 +306,19 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "http://www.BenefitsInc.com/payment/2018",
             actual = data.paymentIdentifier?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "10-12345",
             actual = data.paymentIdentifier?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/2",
             actual = data.paymentIssuer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -334,7 +334,7 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "Due to the year end holiday the cutoff for submissions for December will be the 28th.",
             actual = data.processNote?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -345,13 +345,13 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "http://www.BenefitsInc.com/fhir/eligibility/225476332402",
             actual = data.request?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/1",
             actual = data.requestor?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -362,7 +362,7 @@ class PaymentReconciliationTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the PaymentReconciliation</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

@@ -80,7 +80,7 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "Motive Medical Intelligence",
             actual = data.author?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -96,7 +96,7 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "415-362-4007",
             actual = data.author?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -112,7 +112,7 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "info@motivemi.com",
             actual = data.author?.get(0)?.telecom?.get(1)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -128,7 +128,7 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "415-362-4007",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -144,25 +144,25 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "info@motivemi.com",
             actual = data.contact?.get(0)?.telecom?.get(1)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "citalopramMedication",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "citalopramSubstance",
             actual = data.contained?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "© Copyright 2016 Motive Medical Intelligence. All rights reserved.",
             actual = data.copyright
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -173,13 +173,13 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "Citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "{tbl}",
             actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.doseQuantity?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -190,43 +190,43 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "ordered",
             actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Ordered",
             actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/dose-rate-type",
             actual = data.dosage?.get(0)?.doseAndRate?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "26643006",
             actual = data.dosage?.get(0)?.route?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Oral route (qualifier value)",
             actual = data.dosage?.get(0)?.route?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Oral route (qualifier value)",
             actual = data.dosage?.get(0)?.route?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1 tablet oral 1 time daily",
             actual = data.dosage?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -242,55 +242,55 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "d",
             actual = data.dosage?.get(0)?.timing?.repeat?.periodUnit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "dispenseRequest.numberOfRepeatsAllowed is three (3)",
             actual = data.dynamicValue?.get(0)?.expression?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "3",
             actual = data.dynamicValue?.get(0)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.dynamicValue?.get(0)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "dispenseRequest.numberOfRepeatsAllowed",
             actual = data.dynamicValue?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "dispenseRequest.quantity is thirty (30) tablets",
             actual = data.dynamicValue?.get(1)?.expression?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "30 '{tbl}'",
             actual = data.dynamicValue?.get(1)?.expression?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.dynamicValue?.get(1)?.expression?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "dispenseRequest.quantity",
             actual = data.dynamicValue?.get(1)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -311,13 +311,13 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "citalopramPrescription",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://motivemi.com",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -328,19 +328,19 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "citalopramPrescription",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "US",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:3166",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -356,31 +356,31 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "CitalopramPrescription",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#citalopramMedication",
             actual = data.productReference?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Motive Medical Intelligence",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Defines a guideline supported prescription for the treatment of depressive disorders",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practice Guideline for the Treatment of Patients with Major Depressive Disorder",
             actual = data.relatedArtifact?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -391,13 +391,13 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf",
             actual = data.relatedArtifact?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "#citalopramMedication",
             actual = data.relatedArtifact?.get(1)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -418,235 +418,235 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "Citalopram Prescription",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Mental Health Treatment",
             actual = data.topic?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://motivemi.com/artifacts/ActivityDefinition/citalopramPrescription",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "This activity definition is used as part of various suicide risk order sets",
             actual = data.usage
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "age",
             actual = data.useContext?.get(0)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(0)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "D000328",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Adult",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "https://meshb.nlm.nih.gov",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "focus",
             actual = data.useContext?.get(1)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(1)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "87512008",
             actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Mild major depression",
             actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "focus",
             actual = data.useContext?.get(2)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(2)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "40379007",
             actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Major depression, recurrent, mild",
             actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(2)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "focus",
             actual = data.useContext?.get(3)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(3)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "225444004",
             actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "At risk for suicide (finding)",
             actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "focus",
             actual = data.useContext?.get(4)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(4)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "306206005",
             actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Referral to service (procedure)",
             actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(4)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "user",
             actual = data.useContext?.get(5)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(5)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "309343006",
             actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Physician",
             actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(5)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "venue",
             actual = data.useContext?.get(6)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(6)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "440655000",
             actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Outpatient environment",
             actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(6)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -655,7 +655,7 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "1.0.0",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -696,25 +696,25 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "BlueTubes",
             actual = data.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Blood collect tubes blue cap",
             actual = data.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "10 Blood collect tubes blue cap",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "blood-tubes-supply",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -725,25 +725,25 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Describes a request for 10 Blood collection tubes with blue caps.",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -764,7 +764,7 @@ class ActivityDefinitionTest {
         assertEquals(
             expected = "StructureMap/supplyrequest-transform",
             actual = data.transform
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

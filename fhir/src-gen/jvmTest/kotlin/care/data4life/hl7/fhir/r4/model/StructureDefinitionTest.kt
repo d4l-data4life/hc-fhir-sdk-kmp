@@ -72,7 +72,7 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/Composition",
             actual = data.baseDefinition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -88,37 +88,37 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Composition",
             actual = data.differential?.element?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition",
             actual = data.differential?.element?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section",
             actual = data.differential?.element?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section",
             actual = data.differential?.element?.get(1)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Slice by .section.code when using this library of sections",
             actual = data.differential?.element?.get(1)?.slicing?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "code",
             actual = data.differential?.element?.get(1)?.slicing?.discriminator?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -139,31 +139,31 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Composition.section:procedure",
             actual = data.differential?.element?.get(2)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section",
             actual = data.differential?.element?.get(2)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "procedure",
             actual = data.differential?.element?.get(2)?.sliceName
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Procedures Performed",
             actual = data.differential?.element?.get(3)?.fixedString
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section:procedure.title",
             actual = data.differential?.element?.get(3)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -174,13 +174,13 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Composition.section.title",
             actual = data.differential?.element?.get(3)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section:procedure.code",
             actual = data.differential?.element?.get(4)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -191,55 +191,55 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Composition.section.code",
             actual = data.differential?.element?.get(4)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "29554-3",
             actual = data.differential?.element?.get(4)?.patternCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Procedure Narrative",
             actual = data.differential?.element?.get(4)?.patternCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://loinc.org",
             actual = data.differential?.element?.get(4)?.patternCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section:medications",
             actual = data.differential?.element?.get(5)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section",
             actual = data.differential?.element?.get(5)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medications",
             actual = data.differential?.element?.get(5)?.sliceName
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Medications Administered",
             actual = data.differential?.element?.get(6)?.fixedString
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section:medications.title",
             actual = data.differential?.element?.get(6)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -250,13 +250,13 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Composition.section.title",
             actual = data.differential?.element?.get(6)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section:medications.code",
             actual = data.differential?.element?.get(7)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -267,55 +267,55 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Composition.section.code",
             actual = data.differential?.element?.get(7)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "29549-3",
             actual = data.differential?.element?.get(7)?.patternCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Medication administered Narrative",
             actual = data.differential?.element?.get(7)?.patternCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://loinc.org",
             actual = data.differential?.element?.get(7)?.patternCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section:plan",
             actual = data.differential?.element?.get(8)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section",
             actual = data.differential?.element?.get(8)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "plan",
             actual = data.differential?.element?.get(8)?.sliceName
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Discharge Treatment Plan",
             actual = data.differential?.element?.get(9)?.fixedString
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition.section:plan.title",
             actual = data.differential?.element?.get(9)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -326,7 +326,7 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Composition.section.title",
             actual = data.differential?.element?.get(9)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -337,7 +337,7 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "example-section-library",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -348,7 +348,7 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "DocumentSectionLibrary",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -364,19 +364,19 @@ class StructureDefinitionTest {
         assertEquals(
             expected = "Document Section Library (For testing section templates)",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Composition",
             actual = data.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/example-section-library",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 

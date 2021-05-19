@@ -65,19 +65,19 @@ class LibraryTest {
         assertEquals(
             expected = "text/cql",
             actual = data.content?.get(0)?.contentType
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FHIR Helpers",
             actual = data.content?.get(0)?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "library-fhir-helpers-content.cql",
             actual = data.content?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -88,7 +88,7 @@ class LibraryTest {
         assertEquals(
             expected = "FHIR Helpers",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -99,7 +99,7 @@ class LibraryTest {
         assertEquals(
             expected = "library-fhir-helpers-predecessor",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -110,31 +110,31 @@ class LibraryTest {
         assertEquals(
             expected = "FHIRHelpers",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Library/fhir-model-definition",
             actual = data.relatedArtifact?.get(0)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -145,7 +145,7 @@ class LibraryTest {
         assertEquals(
             expected = "Library/library-fhir-helpers",
             actual = data.relatedArtifact?.get(1)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -166,25 +166,25 @@ class LibraryTest {
         assertEquals(
             expected = "FHIR Helpers",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FHIR Helpers",
             actual = data.topic?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "logic-library",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1.6",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -211,241 +211,241 @@ class LibraryTest {
         assertEquals(
             expected = "text/cql",
             actual = data.content?.get(0)?.contentType
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "library-cms146-example-content.cql",
             actual = data.content?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient",
             actual = data.dataRequirement?.get(0)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "diagnosis",
             actual = data.dataRequirement?.get(1)?.codeFilter?.get(0)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "category",
             actual = data.dataRequirement?.get(1)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "confirmed",
             actual = data.dataRequirement?.get(1)?.codeFilter?.get(1)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "clinicalStatus",
             actual = data.dataRequirement?.get(1)?.codeFilter?.get(1)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "code",
             actual = data.dataRequirement?.get(1)?.codeFilter?.get(2)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011",
             actual = data.dataRequirement?.get(1)?.codeFilter?.get(2)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Condition",
             actual = data.dataRequirement?.get(1)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "diagnosis",
             actual = data.dataRequirement?.get(2)?.codeFilter?.get(0)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "category",
             actual = data.dataRequirement?.get(2)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "confirmed",
             actual = data.dataRequirement?.get(2)?.codeFilter?.get(1)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "clinicalStatus",
             actual = data.dataRequirement?.get(2)?.codeFilter?.get(1)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "code",
             actual = data.dataRequirement?.get(2)?.codeFilter?.get(2)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012",
             actual = data.dataRequirement?.get(2)?.codeFilter?.get(2)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Condition",
             actual = data.dataRequirement?.get(2)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "finished",
             actual = data.dataRequirement?.get(3)?.codeFilter?.get(0)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "status",
             actual = data.dataRequirement?.get(3)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ambulatory",
             actual = data.dataRequirement?.get(3)?.codeFilter?.get(1)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "class",
             actual = data.dataRequirement?.get(3)?.codeFilter?.get(1)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "type",
             actual = data.dataRequirement?.get(3)?.codeFilter?.get(2)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061",
             actual = data.dataRequirement?.get(3)?.codeFilter?.get(2)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Encounter",
             actual = data.dataRequirement?.get(3)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "diagnosis",
             actual = data.dataRequirement?.get(4)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012",
             actual = data.dataRequirement?.get(4)?.codeFilter?.get(0)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DiagnosticReport",
             actual = data.dataRequirement?.get(4)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "code",
             actual = data.dataRequirement?.get(5)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
             actual = data.dataRequirement?.get(5)?.codeFilter?.get(0)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Medication",
             actual = data.dataRequirement?.get(5)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "active",
             actual = data.dataRequirement?.get(6)?.codeFilter?.get(0)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "status",
             actual = data.dataRequirement?.get(6)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medication.code",
             actual = data.dataRequirement?.get(6)?.codeFilter?.get(1)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
             actual = data.dataRequirement?.get(6)?.codeFilter?.get(1)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MedicationRequest",
             actual = data.dataRequirement?.get(6)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "completed",
             actual = data.dataRequirement?.get(7)?.codeFilter?.get(0)?.code?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "status",
             actual = data.dataRequirement?.get(7)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medication.code",
             actual = data.dataRequirement?.get(7)?.codeFilter?.get(1)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001",
             actual = data.dataRequirement?.get(7)?.codeFilter?.get(1)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "MedicationStatement",
             actual = data.dataRequirement?.get(7)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -456,13 +456,13 @@ class LibraryTest {
         assertEquals(
             expected = "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "library-cms146-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -473,31 +473,31 @@ class LibraryTest {
         assertEquals(
             expected = "CMS146",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Library/library-quick-model-definition",
             actual = data.relatedArtifact?.get(0)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -518,19 +518,19 @@ class LibraryTest {
         assertEquals(
             expected = "Appropriate Testing for Children with Pharyngitis",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "logic-library",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "2.0.0",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -557,31 +557,31 @@ class LibraryTest {
         assertEquals(
             expected = "text/cql",
             actual = data.content?.get(0)?.contentType
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "library-example-content.cql",
             actual = data.content?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "code",
             actual = data.dataRequirement?.get(0)?.codeFilter?.get(0)?.path
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006",
             actual = data.dataRequirement?.get(0)?.codeFilter?.get(0)?.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Condition",
             actual = data.dataRequirement?.get(0)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -592,13 +592,13 @@ class LibraryTest {
         assertEquals(
             expected = "Common Logic for adherence to Chlamydia Screening guidelines",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -609,31 +609,31 @@ class LibraryTest {
         assertEquals(
             expected = "ChalmydiaScreening_Common",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Library/library-quick-model-definition",
             actual = data.relatedArtifact?.get(0)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -654,25 +654,25 @@ class LibraryTest {
         assertEquals(
             expected = "Chlamydia Screening Common Library",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Chlamydia Screening",
             actual = data.topic?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "logic-library",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "2.0.0",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -704,19 +704,19 @@ class LibraryTest {
         assertEquals(
             expected = "Artifacts required for implementation of Zika Virus Management",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "composition-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -727,31 +727,31 @@ class LibraryTest {
         assertEquals(
             expected = "Zika Artifacts",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ActivityDefinition/administer-zika-virus-exposure-assessment",
             actual = data.relatedArtifact?.get(0)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -762,7 +762,7 @@ class LibraryTest {
         assertEquals(
             expected = "ActivityDefinition/order-serum-zika-dengue-virus-igm",
             actual = data.relatedArtifact?.get(1)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -773,7 +773,7 @@ class LibraryTest {
         assertEquals(
             expected = "ActivityDefinition/provide-mosquito-prevention-advice",
             actual = data.relatedArtifact?.get(2)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -784,7 +784,7 @@ class LibraryTest {
         assertEquals(
             expected = "Library/zika-virus-intervention-logic",
             actual = data.relatedArtifact?.get(3)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -795,7 +795,7 @@ class LibraryTest {
         assertEquals(
             expected = "PlanDefinition/zika-virus-intervention",
             actual = data.relatedArtifact?.get(4)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -806,7 +806,7 @@ class LibraryTest {
         assertEquals(
             expected = "Questionnaire/zika-virus-exposure-assessment",
             actual = data.relatedArtifact?.get(5)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -822,7 +822,7 @@ class LibraryTest {
         assertEquals(
             expected = "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w",
             actual = data.relatedArtifact?.get(6)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -838,25 +838,25 @@ class LibraryTest {
         assertEquals(
             expected = "Zika Artifacts",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Zika Virus Management",
             actual = data.topic?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "asset-collection",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1.0.0",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

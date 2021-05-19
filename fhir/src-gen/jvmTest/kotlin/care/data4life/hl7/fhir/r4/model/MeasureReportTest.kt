@@ -63,7 +63,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "reporter",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -74,19 +74,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "Condition/123",
             actual = data.evaluatedResource?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146-group-1",
             actual = data.group?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -97,7 +97,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -108,7 +108,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -119,7 +119,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -130,13 +130,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "stratifier-ages-up-to-9",
             actual = data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -147,7 +147,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -158,7 +158,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -169,7 +169,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -180,13 +180,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "true",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -197,7 +197,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -208,7 +208,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -219,7 +219,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -230,19 +230,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "false",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-ages-10-plus",
             actual = data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -253,7 +253,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -264,7 +264,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -275,7 +275,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -286,13 +286,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "true",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -303,7 +303,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -314,7 +314,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -325,7 +325,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -336,19 +336,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "false",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-gender",
             actual = data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -359,7 +359,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -370,7 +370,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -381,7 +381,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -392,13 +392,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "male",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -409,7 +409,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -420,7 +420,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -431,7 +431,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -442,13 +442,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "female",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -459,7 +459,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -470,7 +470,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -481,7 +481,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -492,13 +492,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "other",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -509,7 +509,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -520,7 +520,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -531,7 +531,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -542,43 +542,43 @@ class MeasureReportTest {
         assertEquals(
             expected = "unknown",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measurereport-cms146-cat1-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measurereport-cms146-cat1-example-2017-03-13",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Measure/CMS146",
             actual = data.measure
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -594,7 +594,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "#reporter",
             actual = data.reporter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -605,7 +605,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "Patient/123",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -643,7 +643,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "reporter",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -654,13 +654,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "CMS146-group-1",
             actual = data.group?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -671,13 +671,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -688,13 +688,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-numerator",
             actual = data.group?.get(0)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -705,13 +705,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-denominator",
             actual = data.group?.get(0)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -722,19 +722,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-denominator-exclusions",
             actual = data.group?.get(0)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-ages-up-to-9",
             actual = data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -745,13 +745,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-true-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -762,13 +762,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-true-numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -779,13 +779,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-true-denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -796,19 +796,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-true-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "true",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -819,13 +819,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-false-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -836,13 +836,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-false-numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -853,13 +853,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-false-denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -870,25 +870,25 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-up-to-9-false-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "false",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-ages-10-plus",
             actual = data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -899,13 +899,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-true-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -916,13 +916,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-true-numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -933,13 +933,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-true-denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -950,19 +950,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-true-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "true",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -973,13 +973,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-false-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -990,13 +990,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-false-numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1007,13 +1007,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-false-denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1024,25 +1024,25 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-ages-10-plus-false-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "false",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-gender",
             actual = data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1053,13 +1053,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-male-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1070,13 +1070,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-male-numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1087,13 +1087,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-male-denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1104,19 +1104,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-male-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "male",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1127,13 +1127,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-female-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1144,13 +1144,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-female-numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1161,13 +1161,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-female-denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1178,19 +1178,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-female-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "female",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1201,13 +1201,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-other-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -1221,13 +1221,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-other-numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1238,13 +1238,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-other-denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1255,19 +1255,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-other-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "other",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1278,13 +1278,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-unknown-initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1295,13 +1295,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-unknown-numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1312,13 +1312,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-unknown-denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1329,49 +1329,49 @@ class MeasureReportTest {
         assertEquals(
             expected = "List/CMS146-stratifier-gender-unknown-denominator-exclusions",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.subjectResults?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "unknown",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measurereport-cms146-cat2-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measurereport-cms146-cat2-example-2017-03-13",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Measure/CMS146",
             actual = data.measure
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1387,7 +1387,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "#reporter",
             actual = data.reporter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1429,7 +1429,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "reporter",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1440,13 +1440,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "CMS146-group-1",
             actual = data.group?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1457,7 +1457,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1468,7 +1468,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1479,7 +1479,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1490,13 +1490,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "stratifier-ages-up-to-9",
             actual = data.group?.get(0)?.stratifier?.get(0)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1507,7 +1507,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1518,7 +1518,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1529,7 +1529,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1540,13 +1540,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "true",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1557,7 +1557,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1568,7 +1568,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1579,7 +1579,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1590,19 +1590,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "false",
             actual = data.group?.get(0)?.stratifier?.get(0)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-ages-10-plus",
             actual = data.group?.get(0)?.stratifier?.get(1)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1613,7 +1613,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1624,7 +1624,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1635,7 +1635,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1646,13 +1646,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "true",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1663,7 +1663,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1674,7 +1674,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1685,7 +1685,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1696,19 +1696,19 @@ class MeasureReportTest {
         assertEquals(
             expected = "false",
             actual = data.group?.get(0)?.stratifier?.get(1)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-gender",
             actual = data.group?.get(0)?.stratifier?.get(2)?.code?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1719,7 +1719,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1730,7 +1730,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1741,7 +1741,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1752,13 +1752,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "male",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(0)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1769,7 +1769,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1780,7 +1780,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1791,7 +1791,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1802,13 +1802,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "female",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(1)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1819,7 +1819,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1830,7 +1830,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1841,7 +1841,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1852,13 +1852,13 @@ class MeasureReportTest {
         assertEquals(
             expected = "other",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1869,7 +1869,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1880,7 +1880,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1891,7 +1891,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1902,43 +1902,43 @@ class MeasureReportTest {
         assertEquals(
             expected = "unknown",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(3)?.value?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measurereport-cms146-cat3-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measurereport-cms146-cat3-example-2017-03-13",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Measure/CMS146",
             actual = data.measure
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1954,7 +1954,7 @@ class MeasureReportTest {
         assertEquals(
             expected = "#reporter",
             actual = data.reporter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

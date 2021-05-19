@@ -69,7 +69,7 @@ class CompartmentDefinitionTest {
         assertEquals(
             expected = "[string]",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -80,7 +80,7 @@ class CompartmentDefinitionTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -91,7 +91,7 @@ class CompartmentDefinitionTest {
         assertEquals(
             expected = "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -102,25 +102,25 @@ class CompartmentDefinitionTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EXAMPLE",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Health Level Seven International (FHIR Infrastructure)",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Provides an example of a FHIR compartment definition based on the Device resource type.",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -131,19 +131,19 @@ class CompartmentDefinitionTest {
         assertEquals(
             expected = "The device used as the message sender and recipient",
             actual = data.resource?.get(0)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "sender",
             actual = data.resource?.get(0)?.param?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "recipient",
             actual = data.resource?.get(0)?.param?.get(1)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -154,19 +154,19 @@ class CompartmentDefinitionTest {
         assertEquals(
             expected = "The device used as the message sender and recipient",
             actual = data.resource?.get(1)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "sender",
             actual = data.resource?.get(1)?.param?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "recipient",
             actual = data.resource?.get(1)?.param?.get(1)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -187,31 +187,31 @@ class CompartmentDefinitionTest {
         assertEquals(
             expected = "http://hl7.org/fhir/CompartmentDefinition/example",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "focus",
             actual = data.useContext?.get(0)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(0)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Device",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/resource-types",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

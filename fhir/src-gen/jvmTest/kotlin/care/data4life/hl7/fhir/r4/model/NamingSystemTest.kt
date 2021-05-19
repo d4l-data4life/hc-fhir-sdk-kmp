@@ -66,7 +66,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "HL7 Australia FHIR Team",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -77,7 +77,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "http://hl7-australia.wikispaces.com/FHIR+Australia",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -88,25 +88,25 @@ class NamingSystemTest {
         assertEquals(
             expected = "Australian HI Identifier as established by relevant regulations etc.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example-id",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "AU",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:3166",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -117,37 +117,37 @@ class NamingSystemTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Austalian Healthcare Identifier - Individual",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HL7 Australia on behalf of NEHTA",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HI Service Operator / NEHTA",
             actual = data.responsible
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -163,31 +163,31 @@ class NamingSystemTest {
         assertEquals(
             expected = "NI",
             actual = data.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "National unique individual identifier",
             actual = data.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v2-0203",
             actual = data.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "IHI",
             actual = data.type?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "This value is used in Australian CDA documents",
             actual = data.uniqueId?.get(0)?.comment
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -198,7 +198,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "1.2.36.1.2001.1003.0",
             actual = data.uniqueId?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -219,13 +219,13 @@ class NamingSystemTest {
         assertEquals(
             expected = "http://ns.electronichealth.net.au/id/hi/ihi/1.0",
             actual = data.uniqueId?.get(1)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Used in Australia for identifying patients",
             actual = data.usage
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -252,7 +252,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "FHIR project team",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -263,7 +263,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -274,7 +274,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -285,37 +285,37 @@ class NamingSystemTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "SNOMED CT",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HL7 International on behalf of IHTSDO",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "IHTSDO & affiliates",
             actual = data.responsible
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -336,7 +336,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "2.16.840.1.113883.6.96",
             actual = data.uniqueId?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -352,7 +352,7 @@ class NamingSystemTest {
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.uniqueId?.get(1)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

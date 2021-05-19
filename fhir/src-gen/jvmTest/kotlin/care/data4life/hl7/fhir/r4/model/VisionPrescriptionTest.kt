@@ -73,25 +73,25 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "Encounter/f001",
             actual = data.encounter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "33124",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.happysight.com/prescription",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "15014",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -112,13 +112,13 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "OphthaGuard",
             actual = data.lensSpecification?.get(0)?.brand
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "green",
             actual = data.lensSpecification?.get(0)?.color
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -134,19 +134,19 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "month",
             actual = data.lensSpecification?.get(0)?.duration?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.lensSpecification?.get(0)?.duration?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "month",
             actual = data.lensSpecification?.get(0)?.duration?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -162,7 +162,7 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "Shade treatment for extreme light sensitivity",
             actual = data.lensSpecification?.get(0)?.note?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -173,13 +173,13 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "contact",
             actual = data.lensSpecification?.get(0)?.product?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
             actual = data.lensSpecification?.get(0)?.product?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -200,13 +200,13 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "OphthaGuard",
             actual = data.lensSpecification?.get(1)?.brand
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "green",
             actual = data.lensSpecification?.get(1)?.color
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -222,19 +222,19 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "month",
             actual = data.lensSpecification?.get(1)?.duration?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.lensSpecification?.get(1)?.duration?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "month",
             actual = data.lensSpecification?.get(1)?.duration?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -250,7 +250,7 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "Shade treatment for extreme light sensitivity",
             actual = data.lensSpecification?.get(1)?.note?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -261,43 +261,43 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "contact",
             actual = data.lensSpecification?.get(1)?.product?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
             actual = data.lensSpecification?.get(1)?.product?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/example",
             actual = data.prescriber?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -308,7 +308,7 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Sample Contract Lens prescription</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -350,19 +350,19 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "33123",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://www.happysight.com/prescription",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "15013",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -388,13 +388,13 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "lens",
             actual = data.lensSpecification?.get(0)?.product?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
             actual = data.lensSpecification?.get(0)?.product?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -435,13 +435,13 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "lens",
             actual = data.lensSpecification?.get(1)?.product?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
             actual = data.lensSpecification?.get(1)?.product?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -452,31 +452,31 @@ class VisionPrescriptionTest {
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/example",
             actual = data.patient?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/example",
             actual = data.prescriber?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

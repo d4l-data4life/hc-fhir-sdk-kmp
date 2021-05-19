@@ -66,13 +66,13 @@ class CodeSystemTest {
         assertEquals(
             expected = "chol-mmol",
             actual = data.concept?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "legacy",
             actual = data.concept?.get(0)?.property?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -83,13 +83,13 @@ class CodeSystemTest {
         assertEquals(
             expected = "chol-mass",
             actual = data.concept?.get(1)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "legacy",
             actual = data.concept?.get(1)?.property?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -100,13 +100,13 @@ class CodeSystemTest {
         assertEquals(
             expected = "chol",
             actual = data.concept?.get(2)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "legacy",
             actual = data.concept?.get(2)?.property?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -117,7 +117,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "FHIR project team",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -128,7 +128,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -149,25 +149,25 @@ class CodeSystemTest {
         assertEquals(
             expected = "example-supplement",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CholCodeLegacyStatus",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "legacy",
             actual = data.property?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "hether the test is currently performed",
             actual = data.property?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -178,7 +178,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "ACME Co",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -189,7 +189,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir/CodeSystem/example",
             actual = data.supplements
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -200,13 +200,13 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir/CodeSystem/example-supplement",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "201801103",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -238,163 +238,163 @@ class CodeSystemTest {
         assertEquals(
             expected = "alerts",
             actual = data.concept?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A list of alerts for the patient.",
             actual = data.concept?.get(0)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Alerts",
             actual = data.concept?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "adverserxns",
             actual = data.concept?.get(1)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A list of part adverse reactions.",
             actual = data.concept?.get(1)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Adverse Reactions",
             actual = data.concept?.get(1)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "allergies",
             actual = data.concept?.get(2)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A list of Allergies for the patient.",
             actual = data.concept?.get(2)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Allergies",
             actual = data.concept?.get(2)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "medications",
             actual = data.concept?.get(3)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A list of medication statements for the patient.",
             actual = data.concept?.get(3)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Medication List",
             actual = data.concept?.get(3)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "problems",
             actual = data.concept?.get(4)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A list of problems that the patient is known of have (or have had in the past).",
             actual = data.concept?.get(4)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Problem List",
             actual = data.concept?.get(4)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "worklist",
             actual = data.concept?.get(5)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A list of items that constitute a set of work to be performed (typically this code would be specialized for more specific uses, such as a ward round list).",
             actual = data.concept?.get(5)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Worklist",
             actual = data.concept?.get(5)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "waiting",
             actual = data.concept?.get(6)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A list of items waiting for an event (perhaps a surgical patient waiting list).",
             actual = data.concept?.get(6)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Waiting List",
             actual = data.concept?.get(6)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "protocols",
             actual = data.concept?.get(7)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A set of protocols to be followed.",
             actual = data.concept?.get(7)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Protocols",
             actual = data.concept?.get(7)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "plans",
             actual = data.concept?.get(8)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A set of care plans that apply in a particular context of care.",
             actual = data.concept?.get(8)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Care Plans",
             actual = data.concept?.get(8)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -405,7 +405,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -416,7 +416,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "Example use codes for the List resource - typical kinds of use.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -427,31 +427,31 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
             actual = data.extension?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "fhir",
             actual = data.extension?.get(0)?.valueCode
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
             actual = data.extension?.get(1)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "draft",
             actual = data.extension?.get(1)?.valueCode
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
             actual = data.extension?.get(2)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -462,19 +462,19 @@ class CodeSystemTest {
         assertEquals(
             expected = "list-example-codes",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:ietf:rfc:3986",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.4.642.4.1105",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -485,19 +485,19 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/shareablecodesystem",
             actual = data.meta?.profile?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ExampleUseCodesForList",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FHIR Project",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -513,25 +513,25 @@ class CodeSystemTest {
         assertEquals(
             expected = "Example Use Codes for List",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/list-example-use-codes",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ValueSet/list-example-codes",
             actual = data.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "4.0.1",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -563,37 +563,37 @@ class CodeSystemTest {
         assertEquals(
             expected = "person",
             actual = data.concept?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A person.",
             actual = data.concept?.get(0)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Person",
             actual = data.concept?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "entity",
             actual = data.concept?.get(1)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A system.",
             actual = data.concept?.get(1)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "System",
             actual = data.concept?.get(1)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -604,7 +604,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -615,7 +615,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "fhir@lists.hl7.org",
             actual = data.contact?.get(0)?.telecom?.get(1)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -631,7 +631,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "The type of actor - system or human.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -642,31 +642,31 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
             actual = data.extension?.get(0)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "fhir",
             actual = data.extension?.get(0)?.valueCode
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
             actual = data.extension?.get(1)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "trial-use",
             actual = data.extension?.get(1)?.valueCode
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
             actual = data.extension?.get(2)?.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -677,19 +677,19 @@ class CodeSystemTest {
         assertEquals(
             expected = "examplescenario-actor-type",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:ietf:rfc:3986",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:oid:2.16.840.1.113883.4.642.4.859",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -700,13 +700,13 @@ class CodeSystemTest {
         assertEquals(
             expected = "ExampleScenarioActorType",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HL7 (FHIR Project)",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -722,25 +722,25 @@ class CodeSystemTest {
         assertEquals(
             expected = "ExampleScenarioActorType",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/examplescenario-actor-type",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ValueSet/examplescenario-actor-type",
             actual = data.valueSet
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "4.0.1",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -772,7 +772,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "FHIR project team",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -783,7 +783,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -799,7 +799,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "This is an example code system summary for the ACME codes for body site.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -810,31 +810,31 @@ class CodeSystemTest {
         assertEquals(
             expected = "summary",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CA",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:3166",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Code system summary example for ACME body sites",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HL7 International",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -850,43 +850,43 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir/CodeSystem/summary",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "species",
             actual = data.useContext?.get(0)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org/CodeSystem/contexttype",
             actual = data.useContext?.get(0)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "337915000",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Homo sapiens (organism)",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "4.0.1",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -918,115 +918,115 @@ class CodeSystemTest {
         assertEquals(
             expected = "chol-mmol",
             actual = data.concept?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Serum Cholesterol, in mmol/L",
             actual = data.concept?.get(0)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "internal-label",
             actual = data.concept?.get(0)?.designation?.get(0)?.use?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://acme.com/config/fhir/codesystems/internal",
             actual = data.concept?.get(0)?.designation?.get(0)?.use?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "From ACME POC Testing",
             actual = data.concept?.get(0)?.designation?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "SChol (mmol/L)",
             actual = data.concept?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "chol-mass",
             actual = data.concept?.get(1)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Serum Cholesterol, in mg/L",
             actual = data.concept?.get(1)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "internal-label",
             actual = data.concept?.get(1)?.designation?.get(0)?.use?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://acme.com/config/fhir/codesystems/internal",
             actual = data.concept?.get(1)?.designation?.get(0)?.use?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "From Paragon Labs",
             actual = data.concept?.get(1)?.designation?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "SChol (mg/L)",
             actual = data.concept?.get(1)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "chol",
             actual = data.concept?.get(2)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Serum Cholesterol",
             actual = data.concept?.get(2)?.definition
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "internal-label",
             actual = data.concept?.get(2)?.designation?.get(0)?.use?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://acme.com/config/fhir/codesystems/internal",
             actual = data.concept?.get(2)?.designation?.get(0)?.use?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Obdurate Labs uses this with both kinds of units...",
             actual = data.concept?.get(2)?.designation?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "SChol",
             actual = data.concept?.get(2)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FHIR project team",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1037,7 +1037,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1053,7 +1053,7 @@ class CodeSystemTest {
         assertEquals(
             expected = "This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1064,13 +1064,13 @@ class CodeSystemTest {
         assertEquals(
             expected = "acme-plasma",
             actual = data.filter?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "An internal filter used to select codes that are only used with plasma",
             actual = data.filter?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1081,43 +1081,43 @@ class CodeSystemTest {
         assertEquals(
             expected = "the value of this filter is either 'true' or 'false'",
             actual = data.filter?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://acme.com/identifiers/codesystems",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "internal-cholesterol-inl",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/StructureDefinition/shareablecodesystem",
             actual = data.meta?.profile?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ACMECholCodesBlood",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Acme Co",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1133,19 +1133,19 @@ class CodeSystemTest {
         assertEquals(
             expected = "ACME Codes for Cholesterol in Serum/Plasma",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/CodeSystem/example",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "20160128",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

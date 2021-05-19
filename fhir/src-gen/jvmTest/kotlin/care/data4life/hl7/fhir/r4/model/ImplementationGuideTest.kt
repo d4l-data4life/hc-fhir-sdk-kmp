@@ -67,7 +67,7 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "ONC",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -78,13 +78,13 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "http://www.healthit.gov",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HL7",
             actual = data.contact?.get(1)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -95,13 +95,13 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "http://hl7.org/fhir",
             actual = data.contact?.get(1)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Published by ONC under the standard FHIR license (CC0)",
             actual = data.copyright
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -112,13 +112,13 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "Base package (not broken up into multiple packages)",
             actual = data.definition?.grouping?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test",
             actual = data.definition?.grouping?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -129,7 +129,7 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "patient-example.html",
             actual = data.definition?.page?.nameUrl
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -140,19 +140,19 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "list.html",
             actual = data.definition?.page?.page?.get(0)?.nameUrl
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Value Set Page",
             actual = data.definition?.page?.page?.get(0)?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Example Patient Page",
             actual = data.definition?.page?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -163,37 +163,37 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "version",
             actual = data.definition?.parameter?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "A test example to show how an implementation guide works",
             actual = data.definition?.resource?.get(0)?.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/us/core/StructureDefinition/patient",
             actual = data.definition?.resource?.get(0)?.exampleCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Test Example",
             actual = data.definition?.resource?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/test",
             actual = data.definition?.resource?.get(0)?.reference?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/ImplementationGuide/uscore",
             actual = data.dependsOn?.get(0)?.uri
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -204,13 +204,13 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "4.0.1",
             actual = data.fhirVer?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/us/core/StructureDefinition/patient",
             actual = data.global?.get(0)?.profile
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -221,109 +221,109 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "US",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:3166",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CC0-1.0",
             actual = data.license
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "fhir.png",
             actual = data.manifest?.image?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "fhir.css",
             actual = data.manifest?.other?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "patient-test",
             actual = data.manifest?.page?.get(0)?.anchor?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "tx",
             actual = data.manifest?.page?.get(0)?.anchor?.get(1)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "uml",
             actual = data.manifest?.page?.get(0)?.anchor?.get(2)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "patient-test.html",
             actual = data.manifest?.page?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Test Patient Example",
             actual = data.manifest?.page?.get(0)?.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/us/daf",
             actual = data.manifest?.rendering
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/us/core/StructureDefinition/patient",
             actual = data.manifest?.resource?.get(0)?.exampleCanonical
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient/test",
             actual = data.manifest?.resource?.get(0)?.reference?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "patient-test.html#patient-test",
             actual = data.manifest?.resource?.get(0)?.relativePath
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Data Access Framework (DAF)",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "hl7.fhir.us.daf",
             actual = data.packageId
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ONC / HL7 Joint project",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -339,13 +339,13 @@ class ImplementationGuideTest {
         assertEquals(
             expected = "http://hl7.org/fhir/us/daf",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "0",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

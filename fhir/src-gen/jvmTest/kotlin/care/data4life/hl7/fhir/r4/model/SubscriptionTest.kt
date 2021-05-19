@@ -66,19 +66,19 @@ class SubscriptionTest {
         assertEquals(
             expected = "https://biliwatch.com/customers/mount-auburn-miu/on-result",
             actual = data.channel?.endpoint
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Authorization: Bearer secret-token-abc-123",
             actual = data.channel?.header?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "application/fhir+json",
             actual = data.channel?.payload
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -94,13 +94,13 @@ class SubscriptionTest {
         assertEquals(
             expected = "ext 4123",
             actual = data.contact?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Observation?code=http://loinc.org|1975-2",
             actual = data.criteria
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -111,37 +111,37 @@ class SubscriptionTest {
         assertEquals(
             expected = "Socket Error 10060 - can't connect to host",
             actual = data.error
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example-error",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Monitor new neonatal function",
             actual = data.reason
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -152,7 +152,7 @@ class SubscriptionTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -184,19 +184,19 @@ class SubscriptionTest {
         assertEquals(
             expected = "https://biliwatch.com/customers/mount-auburn-miu/on-result",
             actual = data.channel?.endpoint
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Authorization: Bearer secret-token-abc-123",
             actual = data.channel?.header?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "application/fhir+json",
             actual = data.channel?.payload
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -212,13 +212,13 @@ class SubscriptionTest {
         assertEquals(
             expected = "ext 4123",
             actual = data.contact?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Observation?code=http://loinc.org|1975-2",
             actual = data.criteria
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -229,31 +229,31 @@ class SubscriptionTest {
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Monitor new neonatal function",
             actual = data.reason
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -264,7 +264,7 @@ class SubscriptionTest {
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

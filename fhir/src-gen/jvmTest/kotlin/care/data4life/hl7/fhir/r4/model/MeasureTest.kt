@@ -64,91 +64,91 @@ class MeasureTest {
         assertEquals(
             expected = "Main",
             actual = data.group?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Initial Population",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Denominator",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Numerator",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "component-b-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "proportion",
             actual = data.scoring?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -164,7 +164,7 @@ class MeasureTest {
         assertEquals(
             expected = "Screening for Depression",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -196,169 +196,169 @@ class MeasureTest {
         assertEquals(
             expected = "Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "PopulationGroup1",
             actual = data.group?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "InitialPopulation1",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Denominator1",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusions",
             actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DenominatorExclusions1",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Numerator1",
             actual = data.group?.get(0)?.population?.get(3)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(3)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "PopulationGroup2",
             actual = data.group?.get(1)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(1)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "InitialPopulation2",
             actual = data.group?.get(1)?.population?.get(0)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(1)?.population?.get(0)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(1)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Denominator2",
             actual = data.group?.get(1)?.population?.get(1)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(1)?.population?.get(1)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(1)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DenominatorExclusions2",
             actual = data.group?.get(1)?.population?.get(2)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(1)?.population?.get(2)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(1)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Numerator2",
             actual = data.group?.get(1)?.population?.get(3)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(1)?.population?.get(3)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measure-predecessor-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -369,55 +369,55 @@ class MeasureTest {
         assertEquals(
             expected = "exclusive-breastfeeding-measure",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "increase",
             actual = data.improvementNotation?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
             actual = data.improvementNotation?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Library/library-exclusive-breastfeeding-cqm-logic",
             actual = data.library?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Measure of newborns who were fed breast milk only since birth",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "American Academy of Pediatrics. (2005). Section on Breastfeeding. Policy Statement:Breastfeeding and the Use of Human Milk. Pediatrics.115:496-506.",
             actual = data.relatedArtifact?.get(0)?.citation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -453,7 +453,7 @@ class MeasureTest {
         assertEquals(
             expected = "Kramer, M.S. & Kakuma, R. (2002).Optimal duration of exclusive breastfeeding. [107 refs] Cochrane Database of Systematic Reviews. (1):CD003517.",
             actual = data.relatedArtifact?.get(6)?.citation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -464,7 +464,7 @@ class MeasureTest {
         assertEquals(
             expected = "Petrova, A., Hegyi, T., & Mehta, R. (2007). Maternal race/ethnicity and one-month exclusive breastfeeding in association with the in-hospital feeding modality. Breastfeeding Medicine. 2(2):92-8.",
             actual = data.relatedArtifact?.get(7)?.citation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -485,7 +485,7 @@ class MeasureTest {
         assertEquals(
             expected = "proportion",
             actual = data.scoring?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -501,25 +501,25 @@ class MeasureTest {
         assertEquals(
             expected = "Exclusive Breastfeeding Measure",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Exclusive Breastfeeding",
             actual = data.topic?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "process",
             actual = data.type?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "4.0.1",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -551,7 +551,7 @@ class MeasureTest {
         assertEquals(
             expected = "National Committee for Quality Assurance",
             actual = data.author?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -562,7 +562,7 @@ class MeasureTest {
         assertEquals(
             expected = "http://www.ncqa.org/",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -573,7 +573,7 @@ class MeasureTest {
         assertEquals(
             expected = "Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -594,151 +594,151 @@ class MeasureTest {
         assertEquals(
             expected = "CMS146-group-1",
             actual = data.group?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146.InInitialPopulation",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146.InNumerator",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146.InDenominator",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator-exclusion",
             actual = data.group?.get(0)?.population?.get(3)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146.InDenominatorExclusions",
             actual = data.group?.get(0)?.population?.get(3)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(3)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-ages-up-to-9",
             actual = data.group?.get(0)?.stratifier?.get(0)?.code?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146.AgesUpToNine",
             actual = data.group?.get(0)?.stratifier?.get(0)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.stratifier?.get(0)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-ages-10-plus",
             actual = data.group?.get(0)?.stratifier?.get(1)?.code?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146.AgesTenPlus",
             actual = data.group?.get(0)?.stratifier?.get(1)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.stratifier?.get(1)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "stratifier-gender",
             actual = data.group?.get(0)?.stratifier?.get(2)?.code?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient.gender",
             actual = data.group?.get(0)?.stratifier?.get(2)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/fhirpath",
             actual = data.group?.get(0)?.stratifier?.get(2)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure",
             actual = data.guidance
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "measure-cms146-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -749,13 +749,13 @@ class MeasureTest {
         assertEquals(
             expected = "146",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf",
             actual = data.identifier?.get(1)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -766,31 +766,31 @@ class MeasureTest {
         assertEquals(
             expected = "0002",
             actual = data.identifier?.get(1)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "increase",
             actual = data.improvementNotation?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
             actual = data.improvementNotation?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "US",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:3166",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -801,31 +801,31 @@ class MeasureTest {
         assertEquals(
             expected = "Library/library-cms146-example",
             actual = data.library?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "CMS146",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "National Committee for Quality Assurance",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Measure of children with a group A streptococcus test in the 7-day period from 3 days prior through 3 days after the diagnosis of pharyngitis",
             actual = data.purpose
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. _Antibiotic treatment of children with sore throat._ JAMA 294(18):2315-2322. ",
             actual = data.relatedArtifact?.get(0)?.citation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -836,7 +836,7 @@ class MeasureTest {
         assertEquals(
             expected = "Infectious Diseases Society of America. 2012. _Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update._ ",
             actual = data.relatedArtifact?.get(1)?.citation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -852,7 +852,7 @@ class MeasureTest {
         assertEquals(
             expected = "proportion",
             actual = data.scoring?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -863,37 +863,37 @@ class MeasureTest {
         assertEquals(
             expected = "supplemental-data-gender",
             actual = data.supplementalData?.get(0)?.code?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Patient.gender",
             actual = data.supplementalData?.get(0)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/fhirpath",
             actual = data.supplementalData?.get(0)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "supplemental-data-deceased",
             actual = data.supplementalData?.get(1)?.code?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "deceasedBoolean",
             actual = data.supplementalData?.get(1)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/fhirpath",
             actual = data.supplementalData?.get(1)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -904,61 +904,61 @@ class MeasureTest {
         assertEquals(
             expected = "Appropriate Testing for Children with Pharyngitis",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "57024-2",
             actual = data.topic?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://loinc.org",
             actual = data.topic?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "process",
             actual = data.type?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://hl7.org/fhir/Measure/measure-cms146-example",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "program",
             actual = data.useContext?.get(0)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "eligibile-provider",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "age",
             actual = data.useContext?.get(1)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/usage-context-type",
             actual = data.useContext?.get(1)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "a",
             actual = data.useContext?.get(1)?.valueRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -969,7 +969,7 @@ class MeasureTest {
         assertEquals(
             expected = "a",
             actual = data.useContext?.get(1)?.valueRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -980,7 +980,7 @@ class MeasureTest {
         assertEquals(
             expected = "1.0.0",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -1007,91 +1007,91 @@ class MeasureTest {
         assertEquals(
             expected = "Main",
             actual = data.group?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "initial-population",
             actual = data.group?.get(0)?.population?.get(0)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Initial Population",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(0)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "denominator",
             actual = data.group?.get(0)?.population?.get(1)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Denominator",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(1)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "numerator",
             actual = data.group?.get(0)?.population?.get(2)?.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Numerator",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.expression
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "text/cql",
             actual = data.group?.get(0)?.population?.get(2)?.criteria?.language
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "component-a-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "proportion",
             actual = data.scoring?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1107,7 +1107,7 @@ class MeasureTest {
         assertEquals(
             expected = "Screening for Alcohol Misuse",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -1134,37 +1134,37 @@ class MeasureTest {
         assertEquals(
             expected = "opportunity",
             actual = data.compositeScoring?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "composite-example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Measure/component-a-example",
             actual = data.relatedArtifact?.get(0)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1175,7 +1175,7 @@ class MeasureTest {
         assertEquals(
             expected = "Measure/component-b-example",
             actual = data.relatedArtifact?.get(1)?.resource
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1186,7 +1186,7 @@ class MeasureTest {
         assertEquals(
             expected = "proportion",
             actual = data.scoring?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1202,7 +1202,7 @@ class MeasureTest {
         assertEquals(
             expected = "Behavioral Assessment Composite Measure",
             actual = data.title
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

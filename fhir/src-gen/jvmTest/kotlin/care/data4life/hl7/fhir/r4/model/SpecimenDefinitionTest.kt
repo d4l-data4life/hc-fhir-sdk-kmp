@@ -62,49 +62,49 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "2364",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "12 hour fasting",
             actual = data.patientPreparation?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "263678003",
             actual = data.patientPreparation?.get(1)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "At rest",
             actual = data.patientPreparation?.get(1)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.patientPreparation?.get(1)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -115,79 +115,79 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "preferrably morning time",
             actual = data.timeAspect
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "122555007",
             actual = data.typeCollected?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Venous blood specimen",
             actual = data.typeCollected?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.typeCollected?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "yellow",
             actual = data.typeTested?.get(0)?.container?.cap?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "yellow cap",
             actual = data.typeTested?.get(0)?.container?.cap?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:6710:2017",
             actual = data.typeTested?.get(0)?.container?.cap?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "61088005",
             actual = data.typeTested?.get(0)?.container?.material?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "plastic",
             actual = data.typeTested?.get(0)?.container?.material?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.typeTested?.get(0)?.container?.material?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mL",
             actual = data.typeTested?.get(0)?.container?.minimumVolumeQuantity?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(0)?.container?.minimumVolumeQuantity?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ml",
             actual = data.typeTested?.get(0)?.container?.minimumVolumeQuantity?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -198,37 +198,37 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "702281005",
             actual = data.typeTested?.get(0)?.container?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Evacuated blood collection tube, thrombin/clot activator/gel separator",
             actual = data.typeTested?.get(0)?.container?.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.typeTested?.get(0)?.container?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "min",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.maxDuration?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.maxDuration?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "minute",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.maxDuration?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -239,25 +239,25 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Ambient temperature",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.temperatureQualifier?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.temperatureRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.temperatureRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.temperatureRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -268,19 +268,19 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.temperatureRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.temperatureRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(0)?.handling?.get(0)?.temperatureRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -291,19 +291,19 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "h",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.maxDuration?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.maxDuration?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "hour",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.maxDuration?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -314,25 +314,25 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Refrigerated temperature",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.temperatureQualifier?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.temperatureRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.temperatureRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.temperatureRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -343,19 +343,19 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.temperatureRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.temperatureRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(0)?.handling?.get(1)?.temperatureRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -371,73 +371,73 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "119364003",
             actual = data.typeTested?.get(0)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Serum specimen",
             actual = data.typeTested?.get(0)?.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.typeTested?.get(0)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "green",
             actual = data.typeTested?.get(1)?.container?.cap?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "green cap",
             actual = data.typeTested?.get(1)?.container?.cap?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:6710:2017",
             actual = data.typeTested?.get(1)?.container?.cap?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "32039001",
             actual = data.typeTested?.get(1)?.container?.material?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "glass",
             actual = data.typeTested?.get(1)?.container?.material?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.typeTested?.get(1)?.container?.material?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "mL",
             actual = data.typeTested?.get(1)?.container?.minimumVolumeQuantity?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(1)?.container?.minimumVolumeQuantity?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "ml",
             actual = data.typeTested?.get(1)?.container?.minimumVolumeQuantity?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -448,37 +448,37 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "767390000",
             actual = data.typeTested?.get(1)?.container?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Evacuated blood collection tube with heparin lithium and gel separator",
             actual = data.typeTested?.get(1)?.container?.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.typeTested?.get(1)?.container?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "min",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.maxDuration?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.maxDuration?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "minute",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.maxDuration?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -489,25 +489,25 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Ambient temperature",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.temperatureQualifier?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.temperatureRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.temperatureRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.temperatureRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -518,19 +518,19 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.temperatureRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.temperatureRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(1)?.handling?.get(0)?.temperatureRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -541,19 +541,19 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "h",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.maxDuration?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.maxDuration?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "hour",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.maxDuration?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -564,25 +564,25 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Refrigerated temperature",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.temperatureQualifier?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.temperatureRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.temperatureRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.temperatureRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -593,19 +593,19 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "Cel",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.temperatureRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.temperatureRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "°C",
             actual = data.typeTested?.get(1)?.handling?.get(1)?.temperatureRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -621,25 +621,25 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "insufficient",
             actual = data.typeTested?.get(1)?.rejectionCriterion?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "insufficient specimen volume",
             actual = data.typeTested?.get(1)?.rejectionCriterion?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/rejection-criteria",
             actual = data.typeTested?.get(1)?.rejectionCriterion?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "hemolized",
             actual = data.typeTested?.get(1)?.rejectionCriterion?.get(1)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 
@@ -648,31 +648,31 @@ class SpecimenDefinitionTest {
         assertEquals(
             expected = "hemolized specimen",
             actual = data.typeTested?.get(1)?.rejectionCriterion?.get(1)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/rejection-criteria",
             actual = data.typeTested?.get(1)?.rejectionCriterion?.get(1)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "119361006",
             actual = data.typeTested?.get(1)?.type?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Plasma specimen",
             actual = data.typeTested?.get(1)?.type?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.typeTested?.get(1)?.type?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

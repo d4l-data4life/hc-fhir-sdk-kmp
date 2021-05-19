@@ -66,25 +66,25 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "OperationDefinition/Questionnaire-populate",
             actual = data.base
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "populate",
             actual = data.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Only implemented for Labs and Medications so far",
             actual = data.comment
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "System Administrator",
             actual = data.contact?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -95,7 +95,7 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "beep@coyote.acme.com",
             actual = data.contact?.get(0)?.telecom?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -106,13 +106,13 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "Limited implementation of the Populate Questionnaire implementation",
             actual = data.description
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -123,19 +123,19 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "GB",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "United Kingdom of Great Britain and Northern Ireland (the)",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "urn:iso:std:iso:3166",
             actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -146,37 +146,37 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "Populate Questionnaire",
             actual = data.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "subject",
             actual = data.overload?.get(0)?.parameterName?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "local",
             actual = data.overload?.get(0)?.parameterName?.get(1)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "local defaults to false when not passed as a parameter",
             actual = data.overload?.get(1)?.comment
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "subject",
             actual = data.overload?.get(1)?.parameterName?.get(0)
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1",
             actual = data.parameter?.get(0)?.max
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -187,13 +187,13 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "subject",
             actual = data.parameter?.get(0)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Reference",
             actual = data.parameter?.get(0)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -204,13 +204,13 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "If the *local* parameter is set to true, server information about the specified subject will be used to populate the instance.",
             actual = data.parameter?.get(1)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1",
             actual = data.parameter?.get(1)?.max
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -221,13 +221,13 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "local",
             actual = data.parameter?.get(1)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Reference",
             actual = data.parameter?.get(1)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -238,13 +238,13 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "The partially (or fully)-populated set of answers for the specified Questionnaire",
             actual = data.parameter?.get(2)?.documentation
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1",
             actual = data.parameter?.get(2)?.max
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -255,13 +255,13 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "return",
             actual = data.parameter?.get(2)?.name
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "QuestionnaireResponse",
             actual = data.parameter?.get(2)?.type
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -272,7 +272,7 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "Acme Healthcare Services",
             actual = data.publisher
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -303,49 +303,49 @@ class OperationDefinitionTest {
         assertEquals(
             expected = "http://h7.org/fhir/OperationDefinition/example",
             actual = data.url
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "venue",
             actual = data.useContext?.get(0)?.code?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Clinical Venue",
             actual = data.useContext?.get(0)?.code?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://build.fhir.org/codesystem-usage-context-type",
             actual = data.useContext?.get(0)?.code?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "IMP",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "inpatient encounter",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
             actual = data.useContext?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "B",
             actual = data.version
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
     }
 }

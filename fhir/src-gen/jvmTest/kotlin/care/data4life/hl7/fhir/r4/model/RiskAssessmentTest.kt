@@ -63,31 +63,31 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "group1",
             actual = data.contained?.get(0)?.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "population",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -98,7 +98,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "#group1",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -130,37 +130,37 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Patient/pat2",
             actual = data.basis?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DiagnosticReport/lipids",
             actual = data.basis?.get(1)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Observation/blood-pressure",
             actual = data.basis?.get(2)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Encounter/example",
             actual = data.encounter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "cardiac",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -171,25 +171,25 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "risk-assessment-cardiac",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -200,13 +200,13 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "http://cvdrisk.nhlbi.nih.gov/#cholesterol",
             actual = data.performer?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Heart Attack",
             actual = data.prediction?.get(0)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -217,19 +217,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(0)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(0)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(0)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -240,19 +240,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(0)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(0)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(0)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -268,7 +268,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Patient/pat2",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -300,43 +300,43 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "List/prognosis",
             actual = data.basis?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "genetic",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "BRCAPRO",
             actual = data.method?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "High degree of certainty",
             actual = data.note?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -347,7 +347,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(0)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -358,19 +358,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(0)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(0)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(0)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -381,7 +381,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(1)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -392,19 +392,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(1)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(1)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(1)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -415,19 +415,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(1)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(1)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(1)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -438,7 +438,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(2)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -449,19 +449,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(2)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(2)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(2)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -472,19 +472,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(2)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(2)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(2)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -495,7 +495,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(3)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -506,19 +506,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(3)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(3)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(3)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -529,19 +529,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(3)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(3)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(3)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -552,7 +552,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(4)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -563,19 +563,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(4)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(4)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(4)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -586,19 +586,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(4)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(4)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(4)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -609,7 +609,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(5)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -620,19 +620,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(5)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(5)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(5)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -643,19 +643,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(5)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(5)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(5)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -666,7 +666,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(6)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -677,19 +677,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(6)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(6)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(6)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -700,19 +700,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(6)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(6)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(6)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -723,7 +723,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(7)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -734,19 +734,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(7)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(7)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(7)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -757,19 +757,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(7)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(7)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(7)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -785,7 +785,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -817,67 +817,67 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "ImmunizationRecommendation/example",
             actual = data.basedOn?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DiagnosticReport/example",
             actual = data.basis?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Observation/example",
             actual = data.basis?.get(1)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "709510001",
             actual = data.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Assessment of risk for disease (procedure)",
             actual = data.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://browser.ihtsdotools.org/",
             actual = data.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Condition/example",
             actual = data.condition?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Encounter with patient @example",
             actual = data.encounter?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Encounter/example",
             actual = data.encounter?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "riskexample",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -888,31 +888,31 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "risk-assessment-breastcancer1",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "This risk assessment is for reference only",
             actual = data.note?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -923,19 +923,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "DiagnosticReport/example",
             actual = data.parent?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/example",
             actual = data.performer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Breast Cancer",
             actual = data.prediction?.get(0)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -946,19 +946,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(0)?.whenRange?.high?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(0)?.whenRange?.high?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(0)?.whenRange?.high?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -969,19 +969,19 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "a",
             actual = data.prediction?.get(0)?.whenRange?.low?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://unitsofmeasure.org",
             actual = data.prediction?.get(0)?.whenRange?.low?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "years",
             actual = data.prediction?.get(0)?.whenRange?.low?.unit
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -997,13 +997,13 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Patient/example",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Risk assessment for reference only</div>",
             actual = data.text?.div
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1035,37 +1035,37 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Observation/example-genetics-brcapat",
             actual = data.basis?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "709510001",
             actual = data.code?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Assessment of risk for disease (procedure)",
             actual = data.code?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://browser.ihtsdotools.org/",
             actual = data.code?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "breastcancer-risk",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://example.org",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1076,43 +1076,43 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "risk-assessment-breastcancer1",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "This risk assessment is based on BRCA1 and BRCA2 genetic mutation test",
             actual = data.note?.get(0)?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Practitioner/example",
             actual = data.performer?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Unknown risk of developing breast cancer",
             actual = data.prediction?.get(0)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1123,7 +1123,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Patient/example",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1155,37 +1155,37 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Ischemic Stroke",
             actual = data.condition?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Condition/stroke",
             actual = data.condition?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "prognosis",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1196,37 +1196,37 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "249943000:363698007=72098002,260868000=6934004",
             actual = data.prediction?.get(0)?.outcome?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://snomed.info/sct",
             actual = data.prediction?.get(0)?.outcome?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "permanent weakness of the left arm",
             actual = data.prediction?.get(0)?.outcome?.text
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "moderate",
             actual = data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "moderate likelihood",
             actual = data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/risk-probability",
             actual = data.prediction?.get(0)?.qualitativeRisk?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -1237,7 +1237,7 @@ class RiskAssessmentTest {
         assertEquals(
             expected = "Patient/example",
             actual = data.subject?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

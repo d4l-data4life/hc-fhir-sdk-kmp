@@ -58,37 +58,37 @@ class MedicinalProductTest {
         assertEquals(
             expected = "DocumentReference/example",
             actual = data.attachedDocument?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "example",
             actual = data.id
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/MPID",
             actual = data.identifier?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "{mpid}",
             actual = data.identifier?.get(0)?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber",
             actual = data.manufacturingBusinessOperation?.get(0)?.authorisationReferenceNumber?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "1324TZ",
             actual = data.manufacturingBusinessOperation?.get(0)?.authorisationReferenceNumber?.value
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
@@ -99,139 +99,139 @@ class MedicinalProductTest {
         assertEquals(
             expected = "Organization/example",
             actual = data.manufacturingBusinessOperation?.get(0)?.manufacturer?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Batchrelease",
             actual = data.manufacturingBusinessOperation?.get(0)?.operationType?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/manufacturingOperationType",
             actual = data.manufacturingBusinessOperation?.get(0)?.operationType?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Organization/example",
             actual = data.manufacturingBusinessOperation?.get(0)?.regulator?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "DocumentReference/example",
             actual = data.masterFile?.get(0)?.reference
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "HTEST",
             actual = data.meta?.tag?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "test health data",
             actual = data.meta?.tag?.get(0)?.display
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://terminology.hl7.org/CodeSystem/v3-ActReason",
             actual = data.meta?.tag?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EU",
             actual = data.name?.get(0)?.countryLanguage?.get(0)?.country?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/countryCode",
             actual = data.name?.get(0)?.countryLanguage?.get(0)?.country?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EU",
             actual = data.name?.get(0)?.countryLanguage?.get(0)?.jurisdiction?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/jurisdictionCode",
             actual = data.name?.get(0)?.countryLanguage?.get(0)?.jurisdiction?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "EN",
             actual = data.name?.get(0)?.countryLanguage?.get(0)?.language?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/languageCode",
             actual = data.name?.get(0)?.countryLanguage?.get(0)?.language?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Equilidem",
             actual = data.name?.get(0)?.namePart?.get(0)?.part
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "INV",
             actual = data.name?.get(0)?.namePart?.get(0)?.type?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "2.5 mg",
             actual = data.name?.get(0)?.namePart?.get(1)?.part
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "STR",
             actual = data.name?.get(0)?.namePart?.get(1)?.type?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "film-coated tablets",
             actual = data.name?.get(0)?.namePart?.get(2)?.part
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "FRM",
             actual = data.name?.get(0)?.namePart?.get(2)?.type?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "Equilidem 2.5 mg film-coated tablets",
             actual = data.name?.get(0)?.productName
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02",
             actual = data.productClassification?.get(0)?.coding?.get(0)?.code
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(
             expected = "http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem",
             actual = data.productClassification?.get(0)?.coding?.get(0)?.system
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 
         assertEquals(

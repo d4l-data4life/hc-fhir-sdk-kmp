@@ -150,7 +150,7 @@ class {{ class.name }}Test {
         assertEquals(
             expected = "{{ test.value | replace('"', '\\"') | replace('$', '\\$') | replace('\\n',' ') }}",
             actual = data.{{ test.path }}
-                ?.replace("\n", " ")
+                ?.replace("\\n", " ")
         )
 {%- else %}{% if "Decimal" == test.klass.name %}
         assertEquals(
