@@ -635,6 +635,33 @@ object FhirHelper {
                     subclass(TerminologyCapabilitiesSoftware::class)
                     subclass(TerminologyCapabilitiesTranslation::class)
                     subclass(TerminologyCapabilitiesValidateCode::class)
+                    subclass(TestReport::class)
+                    subclass(TestReportParticipant::class)
+                    subclass(TestReportSetup::class)
+                    subclass(TestReportSetupAction::class)
+                    subclass(TestReportSetupActionAssert::class)
+                    subclass(TestReportSetupActionOperation::class)
+                    subclass(TestReportTeardown::class)
+                    subclass(TestReportTeardownAction::class)
+                    subclass(TestReportTest::class)
+                    subclass(TestReportTestAction::class)
+                    subclass(TestScript::class)
+                    subclass(TestScriptDestination::class)
+                    subclass(TestScriptFixture::class)
+                    subclass(TestScriptMetadata::class)
+                    subclass(TestScriptMetadataCapability::class)
+                    subclass(TestScriptMetadataLink::class)
+                    subclass(TestScriptOrigin::class)
+                    subclass(TestScriptSetup::class)
+                    subclass(TestScriptSetupAction::class)
+                    subclass(TestScriptSetupActionAssert::class)
+                    subclass(TestScriptSetupActionOperation::class)
+                    subclass(TestScriptSetupActionOperationRequestHeader::class)
+                    subclass(TestScriptTeardown::class)
+                    subclass(TestScriptTeardownAction::class)
+                    subclass(TestScriptTest::class)
+                    subclass(TestScriptTestAction::class)
+                    subclass(TestScriptVariable::class)
                     subclass(Timing::class)
                     subclass(TimingRepeat::class)
                     subclass(TriggerDefinition::class)
@@ -799,6 +826,8 @@ object FhirHelper {
                     subclass(SupplyRequest::class)
                     subclass(Task::class)
                     subclass(TerminologyCapabilities::class)
+                    subclass(TestReport::class)
+                    subclass(TestScript::class)
                     subclass(ValueSet::class)
                     subclass(VerificationResult::class)
                     subclass(VisionPrescription::class)
@@ -953,6 +982,8 @@ object FhirHelper {
                 SupplyRequest::class -> SupplyRequest.resourceType()
                 Task::class -> Task.resourceType()
                 TerminologyCapabilities::class -> TerminologyCapabilities.resourceType()
+                TestReport::class -> TestReport.resourceType()
+                TestScript::class -> TestScript.resourceType()
                 ValueSet::class -> ValueSet.resourceType()
                 VerificationResult::class -> VerificationResult.resourceType()
                 VisionPrescription::class -> VisionPrescription.resourceType()
@@ -1104,6 +1135,8 @@ object FhirHelper {
                 "SupplyRequest" -> SupplyRequest::class
                 "Task" -> Task::class
                 "TerminologyCapabilities" -> TerminologyCapabilities::class
+                "TestReport" -> TestReport::class
+                "TestScript" -> TestScript::class
                 "ValueSet" -> ValueSet::class
                 "VerificationResult" -> VerificationResult::class
                 "VisionPrescription" -> VisionPrescription::class

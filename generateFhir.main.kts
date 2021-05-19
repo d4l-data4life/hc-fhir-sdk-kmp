@@ -35,28 +35,19 @@ fun targetTestJsons(fhirVersion: FhirVersion) =
     "fhir/src-gen/jvmTest/resources/${fhirVersion.value}"
 
 fun modelExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
+    // this exclusions need to be in sync with 'fhir/parser/r4/templates/template-elementfactory.kt' -> 'exclude_resources'
     FhirVersion.FHIR4 -> listOf(
         "ExampleScenario.kt",
-        "TestReport.kt",
-        "TestScript.kt",
     )
-    FhirVersion.FHIR3 -> listOf()
-}
-
-fun testExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
-    FhirVersion.FHIR4 -> listOf(
-        "ExampleScenarioTest.kt",
-        "TestReportTest.kt",
-        "TestScriptTest.kt",
-    )
+    // this exclusions need to be in sync with 'fhir/parser/stu3/templates/template-elementfactory.kt' -> 'exclude_resources'
     FhirVersion.FHIR3 -> listOf()
 }
 
 fun staticReplacementMap(fhirVersion: FhirVersion) = when (fhirVersion) {
     FhirVersion.FHIR4 -> mapOf(
         "MedicationStatementStatusCodes.kt" to targetCodesystems(fhirVersion),
+        "MedicationStatementFhirTest.kt" to targetTests(fhirVersion),
         "MedicationStatement.kt" to targetModels(fhirVersion),
-        "MedicationStatementTest.kt" to targetTests(fhirVersion),
     )
     FhirVersion.FHIR3 -> mapOf()
 }
@@ -172,7 +163,7 @@ fun integrateFhirModels(fhirVersion: FhirVersion) {
     File(sourceTests)
         .walk()
         .forEach { file ->
-            if (!testExclusionList(fhirVersion).contains(file.name)) {
+            if (!modelExclusionList(fhirVersion).contains(file.name.replace("FhirTest", ""))) {
                 file.copyTo(File("$targetTests/${file.name}"))
             }
         }

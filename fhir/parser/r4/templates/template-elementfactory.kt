@@ -21,10 +21,9 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import kotlin.reflect.KClass
 
+{#- this exclude_resources need to be in sync with the generateFhir.main.kts script #}
 {%- set exclude_resources = [
     "ExampleScenario",
-    "TestReport",
-    "TestScript",
 ] %}
 
 {%- set exclusions = [] %}
