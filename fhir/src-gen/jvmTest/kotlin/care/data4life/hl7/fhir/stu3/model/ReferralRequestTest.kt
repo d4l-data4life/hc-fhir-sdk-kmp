@@ -50,144 +50,207 @@ class ReferralRequestTest {
         val data = parser.toFhir(ReferralRequest::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "2014-02-14",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "ProcedureRequest for Myringotomy and insertion of tympanic ventilation tube",
-            data.basedOn?.get(0)?.display
-        )
-        assertEquals(
-            "Beverly Waver's encounter on 2014-02-14",
-            data.context?.display
-        )
-        assertEquals(
-            "Protocol for insertion of tympanic ventilation tube",
-            data.definition?.get(0)?.display
-        )
-        assertEquals(
-            "In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is     falling behind her peers at school, and displaying some learning difficulties.",
-            data.description
-        )
-        assertEquals(
-            "1234",
-            data.groupIdentifier?.value
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "http://orionhealth.com/fhir/apps/referralids",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "ret4421",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            RequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "2014-03-14",
-            data.occurrencePeriod?.end?.value.toString()
-        )
-        assertEquals(
-            RequestPriority.ROUTINE,
-            data.priority
-        )
-        assertEquals(
-            "For consideration of Grommets",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "Dr Dave",
-            data.recipient?.get(0)?.display
-        )
-        assertEquals(
-            "https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597",
-            data.recipient?.get(0)?.reference
-        )
-        assertEquals(
-            "prior ReferralRequest",
-            data.replaces?.get(0)?.display
-        )
-        assertEquals(
-            "Serena Shrink",
-            data.requester?.agent?.display
-        )
-        assertEquals(
-            "https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272",
-            data.requester?.agent?.reference
-        )
-        assertEquals(
-            "172676009",
-            data.serviceRequested?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Myringotomy and insertion of tympanic ventilation tube",
-            data.serviceRequested?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.serviceRequested?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Insertion of grommets",
-            data.serviceRequested?.get(0)?.text
-        )
-        assertEquals(
-            "ent",
-            data.specialty?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "ENT",
-            data.specialty?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://orionhealth.com/fhir/apps/specialties",
-            data.specialty?.coding?.get(0)?.system
-        )
-        assertEquals(
-            RequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Beverly Weaver",
-            data.subject?.display
-        )
-        assertEquals(
-            "https://fhir.orionhealth.com/blaze/fhir/Patient/77662",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "103696004",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Patient referral to specialist",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.coding?.get(0)?.system
-        )
+        assertReferralRequest01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertReferralRequest01Step01(data: ReferralRequest) {
+
+        assertEquals(
+            expected = "2014-02-14",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ProcedureRequest for Myringotomy and insertion of tympanic ventilation tube",
+            actual = data.basedOn?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Beverly Waver's encounter on 2014-02-14",
+            actual = data.context?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Protocol for insertion of tympanic ventilation tube",
+            actual = data.definition?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is     falling behind her peers at school, and displaying some learning difficulties.",
+            actual = data.description
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1234",
+            actual = data.groupIdentifier?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://orionhealth.com/fhir/apps/referralids",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ret4421",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "2014-03-14",
+            actual = data.occurrencePeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = RequestPriority.ROUTINE,
+            actual = data.priority
+        )
+
+        assertEquals(
+            expected = "For consideration of Grommets",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Dave",
+            actual = data.recipient?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597",
+            actual = data.recipient?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "prior ReferralRequest",
+            actual = data.replaces?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Serena Shrink",
+            actual = data.requester?.agent?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272",
+            actual = data.requester?.agent?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "172676009",
+            actual = data.serviceRequested?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Myringotomy and insertion of tympanic ventilation tube",
+            actual = data.serviceRequested?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.serviceRequested?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Insertion of grommets",
+            actual = data.serviceRequested?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ent",
+            actual = data.specialty?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ENT",
+            actual = data.specialty?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://orionhealth.com/fhir/apps/specialties",
+            actual = data.specialty?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = RequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Beverly Weaver",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://fhir.orionhealth.com/blaze/fhir/Patient/77662",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "103696004",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient referral to specialist",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 }

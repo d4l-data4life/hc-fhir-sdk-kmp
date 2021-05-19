@@ -48,100 +48,143 @@ class CareTeamTest {
         val data = parser.toFhir(CareTeam::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "encounter",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/care-team-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "pr1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "Encounter/example",
-            data.context?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/f001",
-            data.managingOrganization?.get(0)?.reference
-        )
-        assertEquals(
-            "Peter James Charlmers Care Plan for Inpatient Encounter",
-            data.name
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.participant?.get(0)?.member?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.participant?.get(0)?.member?.reference
-        )
-        assertEquals(
-            "responsiblePerson",
-            data.participant?.get(0)?.role?.text
-        )
-        assertEquals(
-            "Dorothy Dietition",
-            data.participant?.get(1)?.member?.display
-        )
-        assertEquals(
-            "#pr1",
-            data.participant?.get(1)?.member?.reference
-        )
-        assertEquals(
-            "Organization/f001",
-            data.participant?.get(1)?.onBehalfOf?.reference
-        )
-        assertEquals(
-            "2013-01-01",
-            data.participant?.get(1)?.period?.end?.value.toString()
-        )
-        assertEquals(
-            "adviser",
-            data.participant?.get(1)?.role?.text
-        )
-        assertEquals(
-            "2013-01-01",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            CareTeamStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Peter James Chalmers",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertCareTeam01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertCareTeam01Step01(data: CareTeam) {
+
+        assertEquals(
+            expected = "encounter",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/care-team-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "pr1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.managingOrganization?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter James Charlmers Care Plan for Inpatient Encounter",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.participant?.get(0)?.member?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.participant?.get(0)?.member?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "responsiblePerson",
+            actual = data.participant?.get(0)?.role?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dorothy Dietition",
+            actual = data.participant?.get(1)?.member?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#pr1",
+            actual = data.participant?.get(1)?.member?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.participant?.get(1)?.onBehalfOf?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-01",
+            actual = data.participant?.get(1)?.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "adviser",
+            actual = data.participant?.get(1)?.role?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-01",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = CareTeamStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

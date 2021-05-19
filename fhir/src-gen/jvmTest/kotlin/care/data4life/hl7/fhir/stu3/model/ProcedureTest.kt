@@ -48,101 +48,144 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "272676008",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Sphenoid bone",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "367336001",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Chemotherapy",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Roel's encounter on January 28th, 2013",
-            data.context?.display
-        )
-        assertEquals(
-            "Encounter/f202",
-            data.context?.reference
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "Eerste neo-adjuvante TPF-kuur bij groot proces in sphenoid met intracraniale uitbreiding.",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2013-01-28T14:27:00+01:00",
-            data.performedPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-01-28T13:31:00+01:00",
-            data.performedPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "Dokter Bronsig",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/f201",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "310512001",
-            data.performer?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Medical oncologist",
-            data.performer?.get(0)?.role?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.performer?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "DiagnosticReport/f201",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure01Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "272676008",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sphenoid bone",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "367336001",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chemotherapy",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel's encounter on January 28th, 2013",
+            actual = data.context?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f202",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eerste neo-adjuvante TPF-kuur bij groot proces in sphenoid met intracraniale uitbreiding.",
+            actual = data.note?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-28T14:27:00+01:00",
+            actual = data.performedPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-01-28T13:31:00+01:00",
+            actual = data.performedPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Dokter Bronsig",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f201",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "310512001",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Medical oncologist",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/f201",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -154,117 +197,169 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "Maternity care plan",
-            data.basedOn?.get(0)?.display
-        )
-        assertEquals(
-            "CarePlan/preg",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "62013009",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Ambulating patient (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Ambulation",
-            data.code?.text
-        )
-        assertEquals(
-            "Protocol for hypertension during pregnancy",
-            data.definition?.get(0)?.display
-        )
-        assertEquals(
-            "ambulation",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Burgers University Medical Center, South Wing, second floor",
-            data.location?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.notDone?.value
-        )
-        assertEquals(
-            "398254007",
-            data.notDoneReason?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "  Pre-eclampsia (disorder)",
-            data.notDoneReason?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.notDoneReason?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Pre-eclampsia",
-            data.notDoneReason?.text
-        )
-        assertEquals(
-            "Carla Espinosa",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/f204",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "University Medical Hospital",
-            data.performer?.get(0)?.onBehalfOf?.display
-        )
-        assertEquals(
-            "Organization/f001",
-            data.performer?.get(0)?.onBehalfOf?.reference
-        )
-        assertEquals(
-            "Blood Pressure",
-            data.reasonReference?.get(0)?.display
-        )
-        assertEquals(
-            "Observation/blood-pressure",
-            data.reasonReference?.get(0)?.reference
-        )
-        assertEquals(
-            EventStatus.SUSPENDED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Ambulation procedure was not done</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure02Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "Maternity care plan",
+            actual = data.basedOn?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "CarePlan/preg",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "62013009",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ambulating patient (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ambulation",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Protocol for hypertension during pregnancy",
+            actual = data.definition?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ambulation",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Center, South Wing, second floor",
+            actual = data.location?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.notDone?.value
+        )
+
+        assertEquals(
+            expected = "398254007",
+            actual = data.notDoneReason?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "  Pre-eclampsia (disorder)",
+            actual = data.notDoneReason?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.notDoneReason?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pre-eclampsia",
+            actual = data.notDoneReason?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Carla Espinosa",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f204",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "University Medical Hospital",
+            actual = data.performer?.get(0)?.onBehalfOf?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.performer?.get(0)?.onBehalfOf?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blood Pressure",
+            actual = data.reasonReference?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/blood-pressure",
+            actual = data.reasonReference?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.SUSPENDED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Ambulation procedure was not done</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -276,81 +371,115 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "25267002",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Insertion of intracardiac pacemaker (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Implant Pacemaker",
-            data.code?.text
-        )
-        assertEquals(
-            "implanted",
-            data.focalDevice?.get(0)?.action?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/device-action",
-            data.focalDevice?.get(0)?.action?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Device/example-pacemaker",
-            data.focalDevice?.get(0)?.manipulated?.reference
-        )
-        assertEquals(
-            "ROS 5 days  - 2013-04-10",
-            data.followUp?.get(0)?.text
-        )
-        assertEquals(
-            "example-implant",
-            data.id
-        )
-        assertEquals(
-            "Routine Appendectomy. Appendix was inflamed and in retro-caecal position",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2015-04-05",
-            data.performedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Dr Cecil Surgeon",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "Bradycardia",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure03Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "25267002",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Insertion of intracardiac pacemaker (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Implant Pacemaker",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "implanted",
+            actual = data.focalDevice?.get(0)?.action?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/device-action",
+            actual = data.focalDevice?.get(0)?.action?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device/example-pacemaker",
+            actual = data.focalDevice?.get(0)?.manipulated?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ROS 5 days  - 2013-04-10",
+            actual = data.followUp?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-implant",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Routine Appendectomy. Appendix was inflamed and in retro-caecal position",
+            actual = data.note?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-04-05",
+            actual = data.performedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Dr Cecil Surgeon",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bradycardia",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -362,81 +491,115 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "76164006",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Biopsy of colon (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Biopsy of colon",
-            data.code?.text
-        )
-        assertEquals(
-            "colon-biopsy",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Burgers University Medical Center, South Wing, second floor",
-            data.location?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.notDone?.value
-        )
-        assertEquals(
-            "Colonoscopy",
-            data.partOf?.get(0)?.display
-        )
-        assertEquals(
-            "Procedure/colonoscopy",
-            data.partOf?.get(0)?.reference
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Biopsy of colon, which was part of colonoscopy</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure04Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "76164006",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Biopsy of colon (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Biopsy of colon",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "colon-biopsy",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Center, South Wing, second floor",
+            actual = data.location?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.notDone?.value
+        )
+
+        assertEquals(
+            expected = "Colonoscopy",
+            actual = data.partOf?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Procedure/colonoscopy",
+            actual = data.partOf?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Biopsy of colon, which was part of colonoscopy</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -448,113 +611,162 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "83030008",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Retropharyngeal area",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "48387007",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Tracheotomy",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Encounter/f003",
-            data.context?.reference
-        )
-        assertEquals(
-            "described in care plan",
-            data.followUp?.get(0)?.text
-        )
-        assertEquals(
-            "f004",
-            data.id
-        )
-        assertEquals(
-            "removal of the retropharyngeal abscess",
-            data.outcome?.text
-        )
-        assertEquals(
-            "2013-03-22T10:30:10+01:00",
-            data.performedPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-03-22T09:30:10+01:00",
-            data.performedPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "A. Langeveld",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/f005",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "01.000",
-            data.performer?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Arts",
-            data.performer?.get(0)?.role?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.15.111",
-            data.performer?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Care role",
-            data.performer?.get(0)?.role?.text
-        )
-        assertEquals(
-            "ensure breathing during surgery",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "???????????",
-            data.report?.get(0)?.display
-        )
-        assertEquals(
-            "DiagnosticReport/f001",
-            data.report?.get(0)?.reference
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure05Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "83030008",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Retropharyngeal area",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "48387007",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Tracheotomy",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f003",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "described in care plan",
+            actual = data.followUp?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f004",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "removal of the retropharyngeal abscess",
+            actual = data.outcome?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-22T10:30:10+01:00",
+            actual = data.performedPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-22T09:30:10+01:00",
+            actual = data.performedPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "A. Langeveld",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f005",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "01.000",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Arts",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.15.111",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Care role",
+            actual = data.performer?.get(0)?.role?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ensure breathing during surgery",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "???????????",
+            actual = data.report?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/f001",
+            actual = data.report?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -566,89 +778,127 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "Order for health education",
-            data.basedOn?.get(0)?.display
-        )
-        assertEquals(
-            "ProcedureRequest/education",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "311401005",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Patient education (procedure)",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Education",
-            data.category?.text
-        )
-        assertEquals(
-            "48023004",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Breast self-examination technique education (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Health education - breast examination",
-            data.code?.text
-        )
-        assertEquals(
-            "education",
-            data.id
-        )
-        assertEquals(
-            "Southside Community Health Center",
-            data.location?.display
-        )
-        assertEquals(
-            "2014-08-16",
-            data.performedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Pamela Educator, RN",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "early detection of breast mass",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Jane Doe",
-            data.subject?.display
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Health education - breast examination for early detection of breast mass</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure06Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "Order for health education",
+            actual = data.basedOn?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ProcedureRequest/education",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "311401005",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient education (procedure)",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Education",
+            actual = data.category?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "48023004",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Breast self-examination technique education (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health education - breast examination",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "education",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Southside Community Health Center",
+            actual = data.location?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-08-16",
+            actual = data.performedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Pamela Educator, RN",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "early detection of breast mass",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Jane Doe",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Health education - breast examination for early detection of breast mass</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -660,81 +910,115 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "73761001",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Colonoscopy (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Colonoscopy",
-            data.code?.text
-        )
-        assertEquals(
-            "Perforated intestine condition",
-            data.complicationDetail?.get(0)?.display
-        )
-        assertEquals(
-            "colonoscopy",
-            data.id
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Burgers University Medical Center, South Wing, second floor",
-            data.location?.display
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.notDone?.value
-        )
-        assertEquals(
-            "Dr Adam Careful",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Colonoscopy with complication</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Colonoscope device",
-            data.usedReference?.get(0)?.display
-        )
+        assertProcedure07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure07Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "73761001",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Colonoscopy (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Colonoscopy",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Perforated intestine condition",
+            actual = data.complicationDetail?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "colonoscopy",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Center, South Wing, second floor",
+            actual = data.location?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.notDone?.value
+        )
+
+        assertEquals(
+            expected = "Dr Adam Careful",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Colonoscopy with complication</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Colonoscope device",
+            actual = data.usedReference?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -746,105 +1030,151 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "Order for the assessment of passive range of motion",
-            data.basedOn?.get(0)?.display
-        )
-        assertEquals(
-            "ProcedureRequest/physical-therapy",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "36701003",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Both knees (body structure)",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Both knees",
-            data.bodySite?.get(0)?.text
-        )
-        assertEquals(
-            "386053000",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Evaluation procedure (procedure)",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Evaluation",
-            data.category?.text
-        )
-        assertEquals(
-            "710830005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Assessment of passive range of motion (procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Assessment of passive range of motion",
-            data.code?.text
-        )
-        assertEquals(
-            "physical-therapy",
-            data.id
-        )
-        assertEquals(
-            "Sawbones Orthopedic Clinic",
-            data.location?.display
-        )
-        assertEquals(
-            "2016-09-27",
-            data.performedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Paul Therapist, PT",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "assessment of mobility limitations due to osteoarthritis",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Assessment of passive range of motion for both knees on Sept 27, 2016 due to osteoarthritis</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure08Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "Order for the assessment of passive range of motion",
+            actual = data.basedOn?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ProcedureRequest/physical-therapy",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "36701003",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Both knees (body structure)",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Both knees",
+            actual = data.bodySite?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "386053000",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Evaluation procedure (procedure)",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Evaluation",
+            actual = data.category?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "710830005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Assessment of passive range of motion (procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Assessment of passive range of motion",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "physical-therapy",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sawbones Orthopedic Clinic",
+            actual = data.location?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-09-27",
+            actual = data.performedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Paul Therapist, PT",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "assessment of mobility limitations due to osteoarthritis",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Assessment of passive range of motion for both knees on Sept 27, 2016 due to osteoarthritis</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -856,113 +1186,162 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "83030008",
-            data.bodySite?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Retropharyngeal area",
-            data.bodySite?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "172960003",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Incision of retropharyngeal abscess",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Encounter/f003",
-            data.context?.reference
-        )
-        assertEquals(
-            "described in care plan",
-            data.followUp?.get(0)?.text
-        )
-        assertEquals(
-            "f003",
-            data.id
-        )
-        assertEquals(
-            "removal of the retropharyngeal abscess",
-            data.outcome?.text
-        )
-        assertEquals(
-            "2013-03-24T10:30:10+01:00",
-            data.performedPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2013-03-24T09:30:10+01:00",
-            data.performedPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "E.M.J.M. van den broek",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/f001",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "01.000",
-            data.performer?.get(0)?.role?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Arts",
-            data.performer?.get(0)?.role?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.15.111",
-            data.performer?.get(0)?.role?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Care role",
-            data.performer?.get(0)?.role?.text
-        )
-        assertEquals(
-            "abcess in retropharyngeal area",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            "Lab results blood test",
-            data.report?.get(0)?.display
-        )
-        assertEquals(
-            "DiagnosticReport/f001",
-            data.report?.get(0)?.reference
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "P. van de Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure09Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "83030008",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Retropharyngeal area",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "172960003",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Incision of retropharyngeal abscess",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f003",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "described in care plan",
+            actual = data.followUp?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f003",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "removal of the retropharyngeal abscess",
+            actual = data.outcome?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-24T10:30:10+01:00",
+            actual = data.performedPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2013-03-24T09:30:10+01:00",
+            actual = data.performedPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "E.M.J.M. van den broek",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f001",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "01.000",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Arts",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.15.111",
+            actual = data.performer?.get(0)?.role?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Care role",
+            actual = data.performer?.get(0)?.role?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "abcess in retropharyngeal area",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lab results blood test",
+            actual = data.report?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "DiagnosticReport/f001",
+            actual = data.report?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van de Heuvel",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -974,72 +1353,102 @@ class ProcedureTest {
         val data = parser.toFhir(Procedure::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "80146002",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Appendectomy (Procedure)",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Appendectomy",
-            data.code?.text
-        )
-        assertEquals(
-            "ROS 5 days  - 2013-04-10",
-            data.followUp?.get(0)?.text
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "Routine Appendectomy. Appendix was inflamed and in retro-caecal position",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2013-04-05",
-            data.performedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Dr Cecil Surgeon",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding",
-            data.reasonCode?.get(0)?.text
-        )
-        assertEquals(
-            EventStatus.COMPLETED,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Routine Appendectomy</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProcedure10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProcedure10Step01(data: Procedure) {
+
+        assertEquals(
+            expected = "80146002",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Appendectomy (Procedure)",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Appendectomy",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ROS 5 days  - 2013-04-10",
+            actual = data.followUp?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Routine Appendectomy. Appendix was inflamed and in retro-caecal position",
+            actual = data.note?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-04-05",
+            actual = data.performedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Dr Cecil Surgeon",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding",
+            actual = data.reasonCode?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = EventStatus.COMPLETED,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Routine Appendectomy</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

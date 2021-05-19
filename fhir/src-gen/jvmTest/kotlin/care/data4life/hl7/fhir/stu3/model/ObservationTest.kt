@@ -48,125 +48,181 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "55233-1",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Genetic analysis master panel-- This is the parent OBR for the panel holding all of the associated observations that can be reported with a molecular genetics analysis result.",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "NG_007726.3:g.146252T>G",
-            data.extension?.get(0)?.valueCodeableConcept?.text
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/observation-geneticsGene",
-            data.extension?.get(1)?.url
-        )
-        assertEquals(
-            "3236",
-            data.extension?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "EGFR",
-            data.extension?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://www.genenames.org",
-            data.extension?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName",
-            data.extension?.get(2)?.url
-        )
-        assertEquals(
-            "Exon 21",
-            data.extension?.get(2)?.valueString
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass",
-            data.extension?.get(3)?.url
-        )
-        assertEquals(
-            "LA6684-0",
-            data.extension?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "somatic",
-            data.extension?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.extension?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "example-genetics-1",
-            data.id
-        )
-        assertEquals(
-            "2013-04-03T15:30:10+01:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Molecular Diagnostics Laboratory",
-            data.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.reference
-        )
-        assertEquals(
-            "Molecular Specimen ID: MLD45-Z4-1234",
-            data.specimen?.display
-        )
-        assertEquals(
-            "Specimen/genetics-example1-somatic",
-            data.specimen?.reference
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Molecular Lab Patient ID: HOSP-23456",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "10828004",
-            data.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Positive",
-            data.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.valueCodeableConcept?.coding?.get(0)?.system
-        )
+        assertObservation01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation01Step01(data: Observation) {
+
+        assertEquals(
+            expected = "55233-1",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Genetic analysis master panel-- This is the parent OBR for the panel holding all of the associated observations that can be reported with a molecular genetics analysis result.",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NG_007726.3:g.146252T>G",
+            actual = data.extension?.get(0)?.valueCodeableConcept?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/observation-geneticsGene",
+            actual = data.extension?.get(1)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "3236",
+            actual = data.extension?.get(1)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "EGFR",
+            actual = data.extension?.get(1)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.genenames.org",
+            actual = data.extension?.get(1)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName",
+            actual = data.extension?.get(2)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Exon 21",
+            actual = data.extension?.get(2)?.valueString
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass",
+            actual = data.extension?.get(3)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "LA6684-0",
+            actual = data.extension?.get(3)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "somatic",
+            actual = data.extension?.get(3)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.extension?.get(3)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-genetics-1",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-04-03T15:30:10+01:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Molecular Diagnostics Laboratory",
+            actual = data.performer?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Molecular Specimen ID: MLD45-Z4-1234",
+            actual = data.specimen?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Specimen/genetics-example1-somatic",
+            actual = data.specimen?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Molecular Lab Patient ID: HOSP-23456",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "10828004",
+            actual = data.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Positive",
+            actual = data.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -178,81 +234,115 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "71341001:272741003=7771000",
-            data.bodySite?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.bodySite?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Left Femur",
-            data.bodySite?.text
-        )
-        assertEquals(
-            "24701-5",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Femur DXA Bone density",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "BMD - Left Femur",
-            data.code?.text
-        )
-        assertEquals(
-            "bmd",
-            data.id
-        )
-        assertEquals(
-            "Acme Imaging Diagnostics",
-            data.performer?.get(0)?.display
-        )
-        assertEquals(
-            "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
-            data.performer?.get(0)?.reference
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/pat2",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "g/cm-2",
-            data.valueQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.valueQuantity?.system
-        )
-        assertEquals(
-            "g/cm²",
-            data.valueQuantity?.unit
-        )
-        assertEquals(
-            "0.887".toDouble(),
-            data.valueQuantity?.value?.value
-        )
+        assertObservation02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation02Step01(data: Observation) {
+
+        assertEquals(
+            expected = "71341001:272741003=7771000",
+            actual = data.bodySite?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.bodySite?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Left Femur",
+            actual = data.bodySite?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "24701-5",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Femur DXA Bone density",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "BMD - Left Femur",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "bmd",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Imaging Diagnostics",
+            actual = data.performer?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+            actual = data.performer?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "g/cm-2",
+            actual = data.valueQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.valueQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "g/cm²",
+            actual = data.valueQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "0.887".toDouble(),
+            actual = data.valueQuantity?.value?.value
+        )
     }
 
     @Test
@@ -264,85 +354,120 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "vital-signs",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/observation-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.text
-        )
-        assertEquals(
-            "9279-1",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Respiratory rate",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Respiratory rate",
-            data.code?.text
-        )
-        assertEquals(
-            "1999-07-02",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "respiratory-rate",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "/min",
-            data.valueQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.valueQuantity?.system
-        )
-        assertEquals(
-            "breaths/minute",
-            data.valueQuantity?.unit
-        )
-        assertEquals(
-            "26".toDouble(),
-            data.valueQuantity?.value?.value
-        )
+        assertObservation03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation03Step01(data: Observation) {
+
+        assertEquals(
+            expected = "vital-signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/observation-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "9279-1",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Respiratory rate",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Respiratory rate",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1999-07-02",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "respiratory-rate",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/vitalsigns",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "/min",
+            actual = data.valueQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.valueQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "breaths/minute",
+            actual = data.valueQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "26".toDouble(),
+            actual = data.valueQuantity?.value?.value
+        )
     }
 
     @Test
@@ -354,113 +479,162 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "vital-signs",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/observation-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "29463-7",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Body Weight",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "3141-9",
-            data.code?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Body weight Measured",
-            data.code?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "27113001",
-            data.code?.coding?.get(2)?.code
-        )
-        assertEquals(
-            "Body weight",
-            data.code?.coding?.get(2)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(2)?.system
-        )
-        assertEquals(
-            "body-weight",
-            data.code?.coding?.get(3)?.code
-        )
-        assertEquals(
-            "Body Weight",
-            data.code?.coding?.get(3)?.display
-        )
-        assertEquals(
-            "http://acme.org/devices/clinical-codes",
-            data.code?.coding?.get(3)?.system
-        )
-        assertEquals(
-            "Encounter/example",
-            data.context?.reference
-        )
-        assertEquals(
-            "2016-03-28",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "[lb_av]",
-            data.valueQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.valueQuantity?.system
-        )
-        assertEquals(
-            "lbs",
-            data.valueQuantity?.unit
-        )
-        assertEquals(
-            "185".toDouble(),
-            data.valueQuantity?.value?.value
-        )
+        assertObservation04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation04Step01(data: Observation) {
+
+        assertEquals(
+            expected = "vital-signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/observation-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "29463-7",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body Weight",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "3141-9",
+            actual = data.code?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body weight Measured",
+            actual = data.code?.coding?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "27113001",
+            actual = data.code?.coding?.get(2)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body weight",
+            actual = data.code?.coding?.get(2)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(2)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "body-weight",
+            actual = data.code?.coding?.get(3)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body Weight",
+            actual = data.code?.coding?.get(3)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.org/devices/clinical-codes",
+            actual = data.code?.coding?.get(3)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-03-28",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "[lb_av]",
+            actual = data.valueQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.valueQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "lbs",
+            actual = data.valueQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "185".toDouble(),
+            actual = data.valueQuantity?.value?.value
+        )
     }
 
     @Test
@@ -472,117 +646,167 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "55233-1",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Genetic analysis master panel-- This is the parent OBR for the panel holding all of the associated observations that can be reported with a molecular genetics analysis result.",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/observation-geneticsGene",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "2623",
-            data.extension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "CYP2C9",
-            data.extension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://www.genenames.org",
-            data.extension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence",
-            data.extension?.get(1)?.url
-        )
-        assertEquals(
-            "Sequence/example-sequence1",
-            data.extension?.get(1)?.valueReference?.reference
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence",
-            data.extension?.get(2)?.url
-        )
-        assertEquals(
-            "Sequence/example-sequence2",
-            data.extension?.get(2)?.valueReference?.reference
-        )
-        assertEquals(
-            "example-haplotype2",
-            data.id
-        )
-        assertEquals(
-            "2013-04-03T15:30:10+01:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Sequence/example-pgx-1",
-            data.related?.get(0)?.target?.reference
-        )
-        assertEquals(
-            ObservationRelationshipType.DERIVED_FROM,
-            data.related?.get(0)?.type
-        )
-        assertEquals(
-            "Sequence/example-pgx-2",
-            data.related?.get(1)?.target?.reference
-        )
-        assertEquals(
-            ObservationRelationshipType.DERIVED_FROM,
-            data.related?.get(1)?.type
-        )
-        assertEquals(
-            "Molecular Specimen ID: MLD45-Z4-1234",
-            data.specimen?.display
-        )
-        assertEquals(
-            "Specimen/genetics-example1-somatic",
-            data.specimen?.reference
-        )
-        assertEquals(
-            ObservationStatus.UNKNOWN,
-            data.status
-        )
-        assertEquals(
-            "J*********** C***********",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/727127",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "PA16581679",
-            data.valueCodeableConcept?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "*4",
-            data.valueCodeableConcept?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://pharmakb.org",
-            data.valueCodeableConcept?.coding?.get(0)?.system
-        )
+        assertObservation05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation05Step01(data: Observation) {
+
+        assertEquals(
+            expected = "55233-1",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Genetic analysis master panel-- This is the parent OBR for the panel holding all of the associated observations that can be reported with a molecular genetics analysis result.",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/observation-geneticsGene",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2623",
+            actual = data.extension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "CYP2C9",
+            actual = data.extension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.genenames.org",
+            actual = data.extension?.get(0)?.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence",
+            actual = data.extension?.get(1)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sequence/example-sequence1",
+            actual = data.extension?.get(1)?.valueReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence",
+            actual = data.extension?.get(2)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sequence/example-sequence2",
+            actual = data.extension?.get(2)?.valueReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-haplotype2",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-04-03T15:30:10+01:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Sequence/example-pgx-1",
+            actual = data.related?.get(0)?.target?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationRelationshipType.DERIVED_FROM,
+            actual = data.related?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "Sequence/example-pgx-2",
+            actual = data.related?.get(1)?.target?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationRelationshipType.DERIVED_FROM,
+            actual = data.related?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "Molecular Specimen ID: MLD45-Z4-1234",
+            actual = data.specimen?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Specimen/genetics-example1-somatic",
+            actual = data.specimen?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.UNKNOWN,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "J*********** C***********",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/727127",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "PA16581679",
+            actual = data.valueCodeableConcept?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "*4",
+            actual = data.valueCodeableConcept?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://pharmakb.org",
+            actual = data.valueCodeableConcept?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -594,81 +818,114 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "vital-signs",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/observation-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.text
-        )
-        assertEquals(
-            "8478-0",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Mean blood pressure",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Mean blood pressure",
-            data.code?.text
-        )
-        assertEquals(
-            "1999-07-02",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "mbp",
-            data.id
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "mm[Hg]",
-            data.valueQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.valueQuantity?.system
-        )
-        assertEquals(
-            "mm[Hg]",
-            data.valueQuantity?.unit
-        )
-        assertEquals(
-            "80".toDouble(),
-            data.valueQuantity?.value?.value
-        )
+        assertObservation06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation06Step01(data: Observation) {
+
+        assertEquals(
+            expected = "vital-signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/observation-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "8478-0",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mean blood pressure",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Mean blood pressure",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1999-07-02",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "mbp",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "mm[Hg]",
+            actual = data.valueQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.valueQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mm[Hg]",
+            actual = data.valueQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "80".toDouble(),
+            actual = data.valueQuantity?.value?.value
+        )
     }
 
     @Test
@@ -680,85 +937,120 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "vital-signs",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/observation-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.text
-        )
-        assertEquals(
-            "39156-5",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Body mass index (BMI) [Ratio]",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "BMI",
-            data.code?.text
-        )
-        assertEquals(
-            "1999-07-02",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "bmi",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "kg/m2",
-            data.valueQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.valueQuantity?.system
-        )
-        assertEquals(
-            "kg/m2",
-            data.valueQuantity?.unit
-        )
-        assertEquals(
-            "16.2".toDouble(),
-            data.valueQuantity?.value?.value
-        )
+        assertObservation07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation07Step01(data: Observation) {
+
+        assertEquals(
+            expected = "vital-signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/observation-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "39156-5",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body mass index (BMI) [Ratio]",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "BMI",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1999-07-02",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "bmi",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/vitalsigns",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "kg/m2",
+            actual = data.valueQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.valueQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "kg/m2",
+            actual = data.valueQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "16.2".toDouble(),
+            actual = data.valueQuantity?.value?.value
+        )
     }
 
     @Test
@@ -770,85 +1062,120 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "vital-signs",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/observation-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.text
-        )
-        assertEquals(
-            "8302-2",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Body height",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Body height",
-            data.code?.text
-        )
-        assertEquals(
-            "1999-07-02",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "body-height",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "[in_i]",
-            data.valueQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.valueQuantity?.system
-        )
-        assertEquals(
-            "in",
-            data.valueQuantity?.unit
-        )
-        assertEquals(
-            "66.89999999999999".toDouble(),
-            data.valueQuantity?.value?.value
-        )
+        assertObservation08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation08Step01(data: Observation) {
+
+        assertEquals(
+            expected = "vital-signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/observation-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "8302-2",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body height",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body height",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1999-07-02",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "body-height",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/vitalsigns",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "[in_i]",
+            actual = data.valueQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.valueQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "in",
+            actual = data.valueQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "66.89999999999999".toDouble(),
+            actual = data.valueQuantity?.value?.value
+        )
     }
 
     @Test
@@ -860,41 +1187,55 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "eye color",
-            data.code?.text
-        )
-        assertEquals(
-            "2016-05-18",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "eye-color",
-            data.id
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "blue",
-            data.valueString
-        )
+        assertObservation09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation09Step01(data: Observation) {
+
+        assertEquals(
+            expected = "eye color",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-05-18",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "eye-color",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "blue",
+            actual = data.valueString
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -906,84 +1247,119 @@ class ObservationTest {
         val data = parser.toFhir(Observation::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "vital-signs",
-            data.category?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/observation-category",
-            data.category?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Vital Signs",
-            data.category?.get(0)?.text
-        )
-        assertEquals(
-            "8310-5",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Body temperature",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Body temperature",
-            data.code?.text
-        )
-        assertEquals(
-            "1999-07-02",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "body-temperature",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns",
-            data.meta?.profile?.get(0)
-        )
-        assertEquals(
-            ObservationStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Cel",
-            data.valueQuantity?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.valueQuantity?.system
-        )
-        assertEquals(
-            "C",
-            data.valueQuantity?.unit
-        )
-        assertEquals(
-            "36.5".toDouble(),
-            data.valueQuantity?.value?.value
-        )
+        assertObservation10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertObservation10Step01(data: Observation) {
+
+        assertEquals(
+            expected = "vital-signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/observation-category",
+            actual = data.category?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vital Signs",
+            actual = data.category?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "8310-5",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body temperature",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Body temperature",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1999-07-02",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "body-temperature",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/vitalsigns",
+            actual = data.meta?.profile?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ObservationStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Cel",
+            actual = data.valueQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.valueQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "C",
+            actual = data.valueQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "36.5".toDouble(),
+            actual = data.valueQuantity?.value?.value
+        )
     }
 }

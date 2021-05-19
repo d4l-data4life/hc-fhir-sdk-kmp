@@ -53,85 +53,119 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Metropolis",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "USA",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "100 Main St",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "44130",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            "Il",
-            data.address?.get(0)?.state
-        )
-        assertEquals(
-            "1956-05-27",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            AdministrativeGender.MALE,
-            data.gender
-        )
-        assertEquals(
-            "xds",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:1.2.3.4.5",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "MR",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0203",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "89765a87b",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/2",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "Doe",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "John",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient01Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Metropolis",
+            actual = data.address?.get(0)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "USA",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "100 Main St",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "44130",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Il",
+            actual = data.address?.get(0)?.state
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1956-05-27",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.MALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "xds",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:1.2.3.4.5",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "MR",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0203",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "89765a87b",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/2",
+            actual = data.managingOrganization?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Doe",
+            actual = data.name?.get(0)?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "John",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -143,197 +177,274 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Amsterdam",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "NLD",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "Van Egmondkade 23",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "1024 RJ",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            AddressUse.HOME,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            "1944-11-17",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            "nl",
-            data.communication?.get(0)?.language?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Dutch",
-            data.communication?.get(0)?.language?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:ietf:bcp:47",
-            data.communication?.get(0)?.language?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Nederlands",
-            data.communication?.get(0)?.language?.text
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.communication?.get(0)?.preferred?.value
-        )
-        assertEquals(
-            "Abels",
-            data.contact?.get(0)?.name?.family
-        )
-        assertEquals(
-            "Sarah",
-            data.contact?.get(0)?.name?.given?.get(0)
-        )
-        assertEquals(
-            NameUse.USUAL,
-            data.contact?.get(0)?.name?.use
-        )
-        assertEquals(
-            "C",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0131",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.MOBILE,
-            data.contact?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "0690383372",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.deceasedBoolean?.value
-        )
-        assertEquals(
-            AdministrativeGender.MALE,
-            data.gender
-        )
-        assertEquals(
-            "f001",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.6.3",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "738472983",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.6.3",
-            data.identifier?.get(1)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(1)?.use
-        )
-        assertEquals(
-            "Burgers University Medical Centre",
-            data.managingOrganization?.display
-        )
-        assertEquals(
-            "Organization/f001",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "M",
-            data.maritalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Married",
-            data.maritalStatus?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/MaritalStatus",
-            data.maritalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Getrouwd",
-            data.maritalStatus?.text
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.multipleBirthBoolean?.value
-        )
-        assertEquals(
-            "van de Heuvel",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Pieter",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            "MSc",
-            data.name?.get(0)?.suffix?.get(0)
-        )
-        assertEquals(
-            NameUse.USUAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.MOBILE,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "0648352638",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.HOME,
-            data.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "p.heuvel@gmail.com",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient02Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Amsterdam",
+            actual = data.address?.get(0)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Van Egmondkade 23",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1024 RJ",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.HOME,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "1944-11-17",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "nl",
+            actual = data.communication?.get(0)?.language?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dutch",
+            actual = data.communication?.get(0)?.language?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:bcp:47",
+            actual = data.communication?.get(0)?.language?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Nederlands",
+            actual = data.communication?.get(0)?.language?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.communication?.get(0)?.preferred?.value
+        )
+
+        assertEquals(
+            expected = "Abels",
+            actual = data.contact?.get(0)?.name?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sarah",
+            actual = data.contact?.get(0)?.name?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.USUAL,
+            actual = data.contact?.get(0)?.name?.use
+        )
+
+        assertEquals(
+            expected = "C",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0131",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.MOBILE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "0690383372",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.deceasedBoolean?.value
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.MALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "f001",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.6.3",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "738472983",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.6.3",
+            actual = data.identifier?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Centre",
+            actual = data.managingOrganization?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.managingOrganization?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "M",
+            actual = data.maritalStatus?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Married",
+            actual = data.maritalStatus?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/MaritalStatus",
+            actual = data.maritalStatus?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Getrouwd",
+            actual = data.maritalStatus?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.multipleBirthBoolean?.value
+        )
+
+        assertEquals(
+            expected = "van de Heuvel",
+            actual = data.name?.get(0)?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pieter",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "MSc",
+            actual = data.name?.get(0)?.suffix?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.USUAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.MOBILE,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "0648352638",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.HOME,
+            actual = data.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "p.heuvel@gmail.com",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -345,77 +456,105 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "1982-08-02",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.deceasedBoolean?.value
-        )
-        assertEquals(
-            AdministrativeGender.FEMALE,
-            data.gender
-        )
-        assertEquals(
-            "pat4",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:0.1.2.3.4.5.6.7",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "MR",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0203",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "123458",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "ACME Healthcare, Inc",
-            data.managingOrganization?.display
-        )
-        assertEquals(
-            "Organization/1",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "Notsowell",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Sandy",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            NameUse.OFFICIAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient03Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "1982-08-02",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.deceasedBoolean?.value
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.FEMALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "pat4",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:0.1.2.3.4.5.6.7",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "MR",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0203",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "123458",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACME Healthcare, Inc",
+            actual = data.managingOrganization?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.managingOrganization?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Notsowell",
+            actual = data.name?.get(0)?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sandy",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.OFFICIAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -427,89 +566,121 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "2222 Home Street",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            AddressUse.HOME,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            "1973-05-31",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            AdministrativeGender.FEMALE,
-            data.gender
-        )
-        assertEquals(
-            "genetics-example1",
-            data.id
-        )
-        assertEquals(
-            "http://hl7.org/fhir/sid/us-ssn",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "SS",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0203",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "444222222",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Organization/hl7",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "2012-05-29T23:45:32Z",
-            data.meta?.lastUpdated?.value.toString()
-        )
-        assertEquals(
-            "Everywoman",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Eve",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            NameUse.OFFICIAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "555-555-2003",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient04Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "2222 Home Street",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.HOME,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "1973-05-31",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.FEMALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "genetics-example1",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/sid/us-ssn",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "SS",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0203",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "444222222",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/hl7",
+            actual = data.managingOrganization?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-05-29T23:45:32Z",
+            actual = data.meta?.lastUpdated?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Everywoman",
+            actual = data.name?.get(0)?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Eve",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.OFFICIAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "555-555-2003",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -528,77 +699,105 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "1982-01-23",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            "2015-02-14T13:42:00+10:00",
-            data.deceasedDateTime?.value.toString()
-        )
-        assertEquals(
-            AdministrativeGender.MALE,
-            data.gender
-        )
-        assertEquals(
-            "pat3",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:0.1.2.3.4.5.6.7",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "MR",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0203",
-            data.identifier?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "123457",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "ACME Healthcare, Inc",
-            data.managingOrganization?.display
-        )
-        assertEquals(
-            "Organization/1",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "Notsowell",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Simon",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            NameUse.OFFICIAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient06Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "1982-01-23",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-02-14T13:42:00+10:00",
+            actual = data.deceasedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.MALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "pat3",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:0.1.2.3.4.5.6.7",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "MR",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0203",
+            actual = data.identifier?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "123457",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACME Healthcare, Inc",
+            actual = data.managingOrganization?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.managingOrganization?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Notsowell",
+            actual = data.name?.get(0)?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Simon",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.OFFICIAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -610,45 +809,62 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "ihe-pcd",
-            data.id
-        )
-        assertEquals(
-            "Internal Identifier",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            "AB60001",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "BROOKS",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "ALBERT",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">Albert Brooks, Id: AB60001</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient07Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "ihe-pcd",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Internal Identifier",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "AB60001",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "BROOKS",
+            actual = data.name?.get(0)?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ALBERT",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Albert Brooks, Id: AB60001</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -667,57 +883,76 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "1966-04-04",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.deceasedBoolean?.value
-        )
-        assertEquals(
-            AdministrativeGender.FEMALE,
-            data.gender
-        )
-        assertEquals(
-            "proband",
-            data.id
-        )
-        assertEquals(
-            "Boston Massachesetts General Hospital",
-            data.identifier?.get(0)?.assigner?.display
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.6.117",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "Computer-Stored Abulatory Records (COSTAR)",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "999999999",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient09Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "1966-04-04",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.deceasedBoolean?.value
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.FEMALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "proband",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Boston Massachesetts General Hospital",
+            actual = data.identifier?.get(0)?.assigner?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.6.117",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Computer-Stored Abulatory Records (COSTAR)",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "999999999",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -729,240 +964,339 @@ class PatientTest {
         val data = parser.toFhir(Patient::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Amsterdam",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "NLD",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "Bos en Lommerplein 280",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "1055RW",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            AddressUse.HOME,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            "1960-03-13",
-            data.birthDate?.value.toString()
-        )
-        assertEquals(
-            "nl-NL",
-            data.communication?.get(0)?.language?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Dutch",
-            data.communication?.get(0)?.language?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:ietf:bcp:47",
-            data.communication?.get(0)?.language?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.communication?.get(0)?.preferred?.value
-        )
-        assertEquals(
-            "Ariadne Bor-Jansma",
-            data.contact?.get(0)?.name?.text
-        )
-        assertEquals(
-            NameUse.USUAL,
-            data.contact?.get(0)?.name?.use
-        )
-        assertEquals(
-            "127850001",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Wife",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "N",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0131",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "WIFE",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(2)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/RoleCode",
-            data.contact?.get(0)?.relationship?.get(0)?.coding?.get(2)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.HOME,
-            data.contact?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+31201234567",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.deceasedBoolean?.value
-        )
-        assertEquals(
-            AdministrativeGender.MALE,
-            data.gender
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.6.3",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "BSN",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "123456789",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.6.3",
-            data.identifier?.get(1)?.system
-        )
-        assertEquals(
-            "BSN",
-            data.identifier?.get(1)?.type?.text
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(1)?.use
-        )
-        assertEquals(
-            "123456789",
-            data.identifier?.get(1)?.value
-        )
-        assertEquals(
-            "AUMC",
-            data.managingOrganization?.display
-        )
-        assertEquals(
-            "Organization/f201",
-            data.managingOrganization?.reference
-        )
-        assertEquals(
-            "36629006",
-            data.maritalStatus?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Legally married",
-            data.maritalStatus?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.maritalStatus?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "M",
-            data.maritalStatus?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/MaritalStatus",
-            data.maritalStatus?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "False".toBoolean(),
-            data.multipleBirthBoolean?.value
-        )
-        assertEquals(
-            "Bor",
-            data.name?.get(0)?.family
-        )
-        assertEquals(
-            "Roelof Olaf",
-            data.name?.get(0)?.given?.get(0)
-        )
-        assertEquals(
-            "Drs.",
-            data.name?.get(0)?.prefix?.get(0)
-        )
-        assertEquals(
-            "PDEng.",
-            data.name?.get(0)?.suffix?.get(0)
-        )
-        assertEquals(
-            "Roel",
-            data.name?.get(0)?.text
-        )
-        assertEquals(
-            NameUse.OFFICIAL,
-            data.name?.get(0)?.use
-        )
-        assertEquals(
-            "image/jpeg",
-            data.photo?.get(0)?.contentType
-        )
-        assertEquals(
-            "Binary/f006",
-            data.photo?.get(0)?.url
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.MOBILE,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+31612345678",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.HOME,
-            data.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "+31201234567",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertPatient10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertPatient10Step01(data: Patient) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Amsterdam",
+            actual = data.address?.get(0)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bos en Lommerplein 280",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1055RW",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.HOME,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "1960-03-13",
+            actual = data.birthDate?.value.toString()
+        )
+
+        assertEquals(
+            expected = "nl-NL",
+            actual = data.communication?.get(0)?.language?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Dutch",
+            actual = data.communication?.get(0)?.language?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:bcp:47",
+            actual = data.communication?.get(0)?.language?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.communication?.get(0)?.preferred?.value
+        )
+
+        assertEquals(
+            expected = "Ariadne Bor-Jansma",
+            actual = data.contact?.get(0)?.name?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.USUAL,
+            actual = data.contact?.get(0)?.name?.use
+        )
+
+        assertEquals(
+            expected = "127850001",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Wife",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "N",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0131",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "WIFE",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(2)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/RoleCode",
+            actual = data.contact?.get(0)?.relationship?.get(0)?.coding?.get(2)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.HOME,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+31201234567",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.deceasedBoolean?.value
+        )
+
+        assertEquals(
+            expected = AdministrativeGender.MALE,
+            actual = data.gender
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.6.3",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "BSN",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "123456789",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.6.3",
+            actual = data.identifier?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "BSN",
+            actual = data.identifier?.get(1)?.type?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "123456789",
+            actual = data.identifier?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "AUMC",
+            actual = data.managingOrganization?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f201",
+            actual = data.managingOrganization?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "36629006",
+            actual = data.maritalStatus?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Legally married",
+            actual = data.maritalStatus?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.maritalStatus?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "M",
+            actual = data.maritalStatus?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/MaritalStatus",
+            actual = data.maritalStatus?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "False".toBoolean(),
+            actual = data.multipleBirthBoolean?.value
+        )
+
+        assertEquals(
+            expected = "Bor",
+            actual = data.name?.get(0)?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roelof Olaf",
+            actual = data.name?.get(0)?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Drs.",
+            actual = data.name?.get(0)?.prefix?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "PDEng.",
+            actual = data.name?.get(0)?.suffix?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.name?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.OFFICIAL,
+            actual = data.name?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "image/jpeg",
+            actual = data.photo?.get(0)?.contentType
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Binary/f006",
+            actual = data.photo?.get(0)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.MOBILE,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+31612345678",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.HOME,
+            actual = data.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "+31201234567",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

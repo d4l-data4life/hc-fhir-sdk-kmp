@@ -51,277 +51,398 @@ class QuestionnaireTest {
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "2012-01",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "3141",
-            data.id
-        )
-        assertEquals(
-            "COMORBIDITY",
-            data.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/system/code/sections",
-            data.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "COMORB",
-            data.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/system/code/questions",
-            data.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "CARDIAL",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/system/code/sections",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "Y",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.enableWhen?.get(0)?.answerCoding?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0136",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.enableWhen?.get(0)?.answerCoding?.system
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.enableWhen?.get(0)?.question
-        )
-        assertEquals(
-            "COMORBCAR",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/system/code/questions",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "COMCAR00",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "Angina Pectoris",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/system/code/questions",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "194828000",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(1)?.code
-        )
-        assertEquals(
-            "Angina (disorder)",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(1)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(1)?.system
-        )
-        assertEquals(
-            "1.1.1.1.1",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/yesnodontknow",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.options?.reference
-        )
-        assertEquals(
-            "1.1.1",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.prefix
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "22298006",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "Myocardial infarction (disorder)",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "1.1.1.1.2",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/yesnodontknow",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.options?.reference
-        )
-        assertEquals(
-            "1.1.2",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.prefix
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "1.1.1.1",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/yesnodontknow",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.options?.reference
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.prefix
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "COMORBVAS",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/system/code/questions",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "1.1.1.2",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/yesnodontknow",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.options?.reference
-        )
-        assertEquals(
-            "1.2",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.prefix
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "1.1.1",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "http://hl7.org/fhir/ValueSet/yesnodontknow",
-            data.item?.get(0)?.item?.get(0)?.options?.reference
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.item?.get(0)?.prefix
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(0)?.type
-        )
-        assertEquals(
-            "HISTOPATHOLOGY",
-            data.item?.get(1)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/system/code/sections",
-            data.item?.get(1)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "ABDOMINAL",
-            data.item?.get(1)?.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://example.org/system/code/sections",
-            data.item?.get(1)?.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "STADPT",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "pT category",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/system/code/questions",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "2.1.2",
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(1)?.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(1)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "2",
-            data.item?.get(1)?.linkId
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(1)?.type
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            ResourceType.PATIENT,
-            data.subjectType?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Cancer Quality Forum Questionnaire 2012",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/Questionnaire/3141",
-            data.url
-        )
+        assertQuestionnaire01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaire01Step01(data: Questionnaire) {
+
+        assertEquals(
+            expected = "2012-01",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "3141",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "COMORBIDITY",
+            actual = data.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/sections",
+            actual = data.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "COMORB",
+            actual = data.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/questions",
+            actual = data.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "CARDIAL",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/sections",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Y",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.enableWhen?.get(0)?.answerCoding?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0136",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.enableWhen?.get(0)?.answerCoding?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.enableWhen?.get(0)?.question
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "COMORBCAR",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/questions",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "COMCAR00",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Angina Pectoris",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/questions",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "194828000",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Angina (disorder)",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.code?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1.1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/yesnodontknow",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.prefix
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "22298006",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Myocardial infarction (disorder)",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1.1.2",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/yesnodontknow",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.2",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.prefix
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "1.1.1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/yesnodontknow",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.prefix
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "COMORBVAS",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/questions",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1.1.2",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/yesnodontknow",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.2",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.prefix
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "1.1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/ValueSet/yesnodontknow",
+            actual = data.item?.get(0)?.item?.get(0)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.item?.get(0)?.prefix
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "HISTOPATHOLOGY",
+            actual = data.item?.get(1)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/sections",
+            actual = data.item?.get(1)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ABDOMINAL",
+            actual = data.item?.get(1)?.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/sections",
+            actual = data.item?.get(1)?.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "STADPT",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "pT category",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/questions",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.1.2",
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(1)?.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(1)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.subjectType?.get(0)
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Cancer Quality Forum Questionnaire 2012",
+            actual = data.title
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Questionnaire/3141",
+            actual = data.url
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -333,157 +454,219 @@ class QuestionnaireTest {
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "VL 1-1, 18-65_1.2.2",
-            data.code?.get(0)?.code
-        )
-        assertEquals(
-            "Lifelines Questionnaire 1 part 1",
-            data.code?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/system/code/lifelines/nl",
-            data.code?.get(0)?.system
-        )
-        assertEquals(
-            "2010",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "1",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Do you have allergies?",
-            data.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.BOOLEAN,
-            data.item?.get(0)?.type
-        )
-        assertEquals(
-            "2.1",
-            data.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "What is your gender?",
-            data.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.STRING,
-            data.item?.get(1)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "2.2",
-            data.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "What is your date of birth?",
-            data.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.DATE,
-            data.item?.get(1)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "2.3",
-            data.item?.get(1)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "What is your country of birth?",
-            data.item?.get(1)?.item?.get(2)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.STRING,
-            data.item?.get(1)?.item?.get(2)?.type
-        )
-        assertEquals(
-            "2.4",
-            data.item?.get(1)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "What is your marital status?",
-            data.item?.get(1)?.item?.get(3)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.STRING,
-            data.item?.get(1)?.item?.get(3)?.type
-        )
-        assertEquals(
-            "2",
-            data.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "General questions",
-            data.item?.get(1)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(1)?.type
-        )
-        assertEquals(
-            "3.1",
-            data.item?.get(2)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Do you smoke?",
-            data.item?.get(2)?.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.BOOLEAN,
-            data.item?.get(2)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "3.2",
-            data.item?.get(2)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Do you drink alchohol?",
-            data.item?.get(2)?.item?.get(1)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.BOOLEAN,
-            data.item?.get(2)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "3",
-            data.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "Intoxications",
-            data.item?.get(2)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(2)?.type
-        )
-        assertEquals(
-            PublicationStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            ResourceType.PATIENT,
-            data.subjectType?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "http://hl7.org/fhir/Questionnaire/f201",
-            data.url
-        )
+        assertQuestionnaire02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaire02Step01(data: Questionnaire) {
+
+        assertEquals(
+            expected = "VL 1-1, 18-65_1.2.2",
+            actual = data.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lifelines Questionnaire 1 part 1",
+            actual = data.code?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/system/code/lifelines/nl",
+            actual = data.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2010",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Do you have allergies?",
+            actual = data.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.BOOLEAN,
+            actual = data.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "2.1",
+            actual = data.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your gender?",
+            actual = data.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.STRING,
+            actual = data.item?.get(1)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "2.2",
+            actual = data.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your date of birth?",
+            actual = data.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.DATE,
+            actual = data.item?.get(1)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "2.3",
+            actual = data.item?.get(1)?.item?.get(2)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your country of birth?",
+            actual = data.item?.get(1)?.item?.get(2)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.STRING,
+            actual = data.item?.get(1)?.item?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = "2.4",
+            actual = data.item?.get(1)?.item?.get(3)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "What is your marital status?",
+            actual = data.item?.get(1)?.item?.get(3)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.STRING,
+            actual = data.item?.get(1)?.item?.get(3)?.type
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "General questions",
+            actual = data.item?.get(1)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "3.1",
+            actual = data.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Do you smoke?",
+            actual = data.item?.get(2)?.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.BOOLEAN,
+            actual = data.item?.get(2)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "3.2",
+            actual = data.item?.get(2)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Do you drink alchohol?",
+            actual = data.item?.get(2)?.item?.get(1)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.BOOLEAN,
+            actual = data.item?.get(2)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "3",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Intoxications",
+            actual = data.item?.get(2)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = PublicationStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.subjectType?.get(0)
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Questionnaire/f201",
+            actual = data.url
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -495,125 +678,177 @@ class QuestionnaireTest {
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "9269-2",
-            data.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.get(0)?.system
-        )
-        assertEquals(
-            "motor",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "verbal",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "eye",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "2015-08-03",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "gcs",
-            data.id
-        )
-        assertEquals(
-            "9270-0",
-            data.item?.get(0)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(0)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "1.1",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "#verbal",
-            data.item?.get(0)?.options?.reference
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.type
-        )
-        assertEquals(
-            "9268-4",
-            data.item?.get(1)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(1)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "1.2",
-            data.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "#motor",
-            data.item?.get(1)?.options?.reference
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(1)?.type
-        )
-        assertEquals(
-            "9267-6",
-            data.item?.get(2)?.code?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.item?.get(2)?.code?.get(0)?.system
-        )
-        assertEquals(
-            "1.3",
-            data.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "#eye",
-            data.item?.get(2)?.options?.reference
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(2)?.type
-        )
-        assertEquals(
-            "FHIR Project team",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            ResourceType.PATIENT,
-            data.subjectType?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "Glasgow Coma Score",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/Questionnaire/gcs",
-            data.url
-        )
+        assertQuestionnaire03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaire03Step01(data: Questionnaire) {
+
+        assertEquals(
+            expected = "9269-2",
+            actual = data.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "motor",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "verbal",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "eye",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-03",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "gcs",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "9270-0",
+            actual = data.item?.get(0)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(0)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.1",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#verbal",
+            actual = data.item?.get(0)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "9268-4",
+            actual = data.item?.get(1)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(1)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.2",
+            actual = data.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#motor",
+            actual = data.item?.get(1)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "9267-6",
+            actual = data.item?.get(2)?.code?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.item?.get(2)?.code?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.3",
+            actual = data.item?.get(2)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#eye",
+            actual = data.item?.get(2)?.options?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = "FHIR Project team",
+            actual = data.publisher
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.subjectType?.get(0)
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "Glasgow Coma Score",
+            actual = data.title
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Questionnaire/gcs",
+            actual = data.url
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -625,240 +860,338 @@ class QuestionnaireTest {
         val data = parser.toFhir(Questionnaire::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "2013-02-19",
-            data.date?.value.toString()
-        )
-        assertEquals(
-            "bb",
-            data.id
-        )
-        assertEquals(
-            "nameOfChild",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Name of child",
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.STRING,
-            data.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "sex",
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "F",
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.option?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "M",
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.option?.get(1)?.valueCoding?.code
-        )
-        assertEquals(
-            "Sex",
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.item?.get(0)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "group",
-            data.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "birthWeight",
-            data.item?.get(0)?.item?.get(1)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Birth weight (kg)",
-            data.item?.get(0)?.item?.get(1)?.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.DECIMAL,
-            data.item?.get(0)?.item?.get(1)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "birthLength",
-            data.item?.get(0)?.item?.get(1)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Birth length (cm)",
-            data.item?.get(0)?.item?.get(1)?.item?.get(1)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.DECIMAL,
-            data.item?.get(0)?.item?.get(1)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.enableWhen?.get(0)?.hasAnswer?.value
-        )
-        assertEquals(
-            "vitaminKgiven",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.enableWhen?.get(0)?.question
-        )
-        assertEquals(
-            "vitaminiKDose1",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "1st dose",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.DATETIME,
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "vitaminiKDose2",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "2nd dose",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.DATETIME,
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "vitaminKgivenDoses",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "vitaminKgiven",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.linkId
-        )
-        assertEquals(
-            "INJECTION",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.option?.get(0)?.valueCoding?.code
-        )
-        assertEquals(
-            "INTRAVENOUS",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.option?.get(1)?.valueCoding?.code
-        )
-        assertEquals(
-            "ORAL",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.option?.get(2)?.valueCoding?.code
-        )
-        assertEquals(
-            "Vitamin K given",
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.CHOICE,
-            data.item?.get(0)?.item?.get(1)?.item?.get(2)?.type
-        )
-        assertEquals(
-            "hepBgivenDate",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Date given",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.DATE,
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.item?.get(0)?.type
-        )
-        assertEquals(
-            "hepBgiven",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.linkId
-        )
-        assertEquals(
-            "Hep B given y / n",
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.BOOLEAN,
-            data.item?.get(0)?.item?.get(1)?.item?.get(3)?.type
-        )
-        assertEquals(
-            "abnormalitiesAtBirth",
-            data.item?.get(0)?.item?.get(1)?.item?.get(4)?.linkId
-        )
-        assertEquals(
-            "Abnormalities noted at birth",
-            data.item?.get(0)?.item?.get(1)?.item?.get(4)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.STRING,
-            data.item?.get(0)?.item?.get(1)?.item?.get(4)?.type
-        )
-        assertEquals(
-            "neonatalInformation",
-            data.item?.get(0)?.item?.get(1)?.linkId
-        )
-        assertEquals(
-            "Neonatal Information",
-            data.item?.get(0)?.item?.get(1)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(0)?.item?.get(1)?.type
-        )
-        assertEquals(
-            "birthDetails",
-            data.item?.get(0)?.linkId
-        )
-        assertEquals(
-            "Birth details - To be completed by health professional",
-            data.item?.get(0)?.text
-        )
-        assertEquals(
-            QuestionnaireItemType.GROUP,
-            data.item?.get(0)?.type
-        )
-        assertEquals(
-            "AU",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "urn:iso:std:iso:3166",
-            data.jurisdiction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "New South Wales Department of Health",
-            data.publisher
-        )
-        assertEquals(
-            PublicationStatus.DRAFT,
-            data.status
-        )
-        assertEquals(
-            ResourceType.PATIENT,
-            data.subjectType?.get(0)
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "NSW Government My Personal Health Record",
-            data.title
-        )
-        assertEquals(
-            "http://hl7.org/fhir/Questionnaire/bb",
-            data.url
-        )
+        assertQuestionnaire04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertQuestionnaire04Step01(data: Questionnaire) {
+
+        assertEquals(
+            expected = "2013-02-19",
+            actual = data.date?.value.toString()
+        )
+
+        assertEquals(
+            expected = "bb",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "nameOfChild",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Name of child",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.STRING,
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "sex",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "F",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.option?.get(0)?.valueCoding?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "M",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.option?.get(1)?.valueCoding?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Sex",
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.item?.get(0)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "group",
+            actual = data.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "birthWeight",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Birth weight (kg)",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.DECIMAL,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "birthLength",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Birth length (cm)",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(1)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.DECIMAL,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.enableWhen?.get(0)?.hasAnswer?.value
+        )
+
+        assertEquals(
+            expected = "vitaminKgiven",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.enableWhen?.get(0)?.question
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "vitaminiKDose1",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1st dose",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.DATETIME,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "vitaminiKDose2",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2nd dose",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.DATETIME,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "vitaminKgivenDoses",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "vitaminKgiven",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "INJECTION",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.option?.get(0)?.valueCoding?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "INTRAVENOUS",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.option?.get(1)?.valueCoding?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ORAL",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.option?.get(2)?.valueCoding?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Vitamin K given",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.CHOICE,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(2)?.type
+        )
+
+        assertEquals(
+            expected = "hepBgivenDate",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Date given",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.DATE,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "hepBgiven",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hep B given y / n",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.BOOLEAN,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(3)?.type
+        )
+
+        assertEquals(
+            expected = "abnormalitiesAtBirth",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(4)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Abnormalities noted at birth",
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(4)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.STRING,
+            actual = data.item?.get(0)?.item?.get(1)?.item?.get(4)?.type
+        )
+
+        assertEquals(
+            expected = "neonatalInformation",
+            actual = data.item?.get(0)?.item?.get(1)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Neonatal Information",
+            actual = data.item?.get(0)?.item?.get(1)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(0)?.item?.get(1)?.type
+        )
+
+        assertEquals(
+            expected = "birthDetails",
+            actual = data.item?.get(0)?.linkId
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Birth details - To be completed by health professional",
+            actual = data.item?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = QuestionnaireItemType.GROUP,
+            actual = data.item?.get(0)?.type
+        )
+
+        assertEquals(
+            expected = "AU",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso:std:iso:3166",
+            actual = data.jurisdiction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "New South Wales Department of Health",
+            actual = data.publisher
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = PublicationStatus.DRAFT,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = ResourceType.PATIENT,
+            actual = data.subjectType?.get(0)
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "NSW Government My Personal Health Record",
+            actual = data.title
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/Questionnaire/bb",
+            actual = data.url
+                ?.replace("\\n", " ")
+        )
     }
 }

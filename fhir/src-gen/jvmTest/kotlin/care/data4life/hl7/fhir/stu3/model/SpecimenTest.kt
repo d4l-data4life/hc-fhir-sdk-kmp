@@ -47,81 +47,114 @@ class SpecimenTest {
         val data = parser.toFhir(Specimen::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "http://lab.acme.org/specimens/2011",
-            data.accessionIdentifier?.system
-        )
-        assertEquals(
-            "X352356-ISO1",
-            data.accessionIdentifier?.value
-        )
-        assertEquals(
-            "2015-08-16T07:03:00Z",
-            data.collection?.collectedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/f202",
-            data.collection?.collector?.reference
-        )
-        assertEquals(
-            "BAP",
-            data.collection?.method?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0488",
-            data.collection?.method?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "stool",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "isolate",
-            data.id
-        )
-        assertEquals(
-            "Patient dropped off specimen",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "#stool",
-            data.parent?.get(0)?.reference
-        )
-        assertEquals(
-            "2015-08-18T07:03:00Z",
-            data.receivedTime?.value.toString()
-        )
-        assertEquals(
-            SpecimenStatus.AVAILABLE,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "429951000124103",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Bacterial isolate specimen",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.coding?.get(0)?.system
-        )
+        assertSpecimen01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSpecimen01Step01(data: Specimen) {
+
+        assertEquals(
+            expected = "http://lab.acme.org/specimens/2011",
+            actual = data.accessionIdentifier?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "X352356-ISO1",
+            actual = data.accessionIdentifier?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-16T07:03:00Z",
+            actual = data.collection?.collectedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/f202",
+            actual = data.collection?.collector?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "BAP",
+            actual = data.collection?.method?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0488",
+            actual = data.collection?.method?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "stool",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "isolate",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient dropped off specimen",
+            actual = data.note?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#stool",
+            actual = data.parent?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-18T07:03:00Z",
+            actual = data.receivedTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = SpecimenStatus.AVAILABLE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "429951000124103",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bacterial isolate specimen",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -133,101 +166,141 @@ class SpecimenTest {
         val data = parser.toFhir(Specimen::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "http://lab.acme.org/specimens/2015",
-            data.accessionIdentifier?.system
-        )
-        assertEquals(
-            "X352356",
-            data.accessionIdentifier?.value
-        )
-        assertEquals(
-            "2015-08-18T07:03:00Z",
-            data.collection?.collectedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/f202",
-            data.collection?.collector?.reference
-        )
-        assertEquals(
-            "mls",
-            data.container?.get(0)?.capacity?.unit
-        )
-        assertEquals(
-            "50".toDouble(),
-            data.container?.get(0)?.capacity?.value?.value
-        )
-        assertEquals(
-            "mls",
-            data.container?.get(0)?.specimenQuantity?.unit
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.container?.get(0)?.specimenQuantity?.value?.value
-        )
-        assertEquals(
-            "Non-sterile specimen container",
-            data.container?.get(0)?.type?.text
-        )
-        assertEquals(
-            "vma-urine",
-            data.id
-        )
-        assertEquals(
-            "6 N HCl",
-            data.processing?.get(0)?.additive?.get(0)?.display
-        )
-        assertEquals(
-            "Acidify to pH < 3.0 with 6 N HCl.",
-            data.processing?.get(0)?.description
-        )
-        assertEquals(
-            "ACID",
-            data.processing?.get(0)?.procedure?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0373",
-            data.processing?.get(0)?.procedure?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2015-08-18T08:10:00Z",
-            data.processing?.get(0)?.timeDateTime?.value.toString()
-        )
-        assertEquals(
-            "2015-08-18T07:03:00Z",
-            data.receivedTime?.value.toString()
-        )
-        assertEquals(
-            SpecimenStatus.AVAILABLE,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "RANDU",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Urine, Random",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0487",
-            data.type?.coding?.get(0)?.system
-        )
+        assertSpecimen02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSpecimen02Step01(data: Specimen) {
+
+        assertEquals(
+            expected = "http://lab.acme.org/specimens/2015",
+            actual = data.accessionIdentifier?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "X352356",
+            actual = data.accessionIdentifier?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-18T07:03:00Z",
+            actual = data.collection?.collectedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/f202",
+            actual = data.collection?.collector?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mls",
+            actual = data.container?.get(0)?.capacity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "50".toDouble(),
+            actual = data.container?.get(0)?.capacity?.value?.value
+        )
+
+        assertEquals(
+            expected = "mls",
+            actual = data.container?.get(0)?.specimenQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "10".toDouble(),
+            actual = data.container?.get(0)?.specimenQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "Non-sterile specimen container",
+            actual = data.container?.get(0)?.type?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "vma-urine",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "6 N HCl",
+            actual = data.processing?.get(0)?.additive?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acidify to pH < 3.0 with 6 N HCl.",
+            actual = data.processing?.get(0)?.description
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACID",
+            actual = data.processing?.get(0)?.procedure?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0373",
+            actual = data.processing?.get(0)?.procedure?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-18T08:10:00Z",
+            actual = data.processing?.get(0)?.timeDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-08-18T07:03:00Z",
+            actual = data.receivedTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = SpecimenStatus.AVAILABLE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "RANDU",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Urine, Random",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0487",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -239,69 +312,98 @@ class SpecimenTest {
         val data = parser.toFhir(Specimen::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "http://acme.com/labs/accession-ids",
-            data.accessionIdentifier?.system
-        )
-        assertEquals(
-            "20150816-00124",
-            data.accessionIdentifier?.value
-        )
-        assertEquals(
-            "2015-08-16T06:40:17Z",
-            data.collection?.collectedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/f202",
-            data.collection?.collector?.reference
-        )
-        assertEquals(
-            "SST",
-            data.container?.get(0)?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Serum Separator Tube",
-            data.container?.get(0)?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://acme.com/labs",
-            data.container?.get(0)?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "sst",
-            data.id
-        )
-        assertEquals(
-            "ProcedureRequest/ft4",
-            data.request?.get(0)?.reference
-        )
-        assertEquals(
-            "Patient/pat2",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "119364003",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Serum sample",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.coding?.get(0)?.system
-        )
+        assertSpecimen03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSpecimen03Step01(data: Specimen) {
+
+        assertEquals(
+            expected = "http://acme.com/labs/accession-ids",
+            actual = data.accessionIdentifier?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "20150816-00124",
+            actual = data.accessionIdentifier?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-16T06:40:17Z",
+            actual = data.collection?.collectedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/f202",
+            actual = data.collection?.collector?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "SST",
+            actual = data.container?.get(0)?.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Serum Separator Tube",
+            actual = data.container?.get(0)?.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/labs",
+            actual = data.container?.get(0)?.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "sst",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ProcedureRequest/ft4",
+            actual = data.request?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "119364003",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Serum sample",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -313,148 +415,212 @@ class SpecimenTest {
         val data = parser.toFhir(Specimen::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "http://lab.acme.org/specimens/2011",
-            data.accessionIdentifier?.system
-        )
-        assertEquals(
-            "X352356",
-            data.accessionIdentifier?.value
-        )
-        assertEquals(
-            "49852007",
-            data.collection?.bodySite?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Structure of median cubital vein (body structure)",
-            data.collection?.bodySite?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.collection?.bodySite?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Right median cubital vein",
-            data.collection?.bodySite?.text
-        )
-        assertEquals(
-            "2011-05-30T06:15:00Z",
-            data.collection?.collectedDateTime?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.collection?.collector?.reference
-        )
-        assertEquals(
-            "LNV",
-            data.collection?.method?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0488",
-            data.collection?.method?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mL",
-            data.collection?.quantity?.unit
-        )
-        assertEquals(
-            "6".toDouble(),
-            data.collection?.quantity?.value?.value
-        )
-        assertEquals(
-            "hep",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "#hep",
-            data.container?.get(0)?.additiveReference?.reference
-        )
-        assertEquals(
-            "mL",
-            data.container?.get(0)?.capacity?.unit
-        )
-        assertEquals(
-            "10".toDouble(),
-            data.container?.get(0)?.capacity?.value?.value
-        )
-        assertEquals(
-            "Green Gel tube",
-            data.container?.get(0)?.description
-        )
-        assertEquals(
-            "48736-15394-75465",
-            data.container?.get(0)?.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "mL",
-            data.container?.get(0)?.specimenQuantity?.unit
-        )
-        assertEquals(
-            "6".toDouble(),
-            data.container?.get(0)?.specimenQuantity?.value?.value
-        )
-        assertEquals(
-            "Vacutainer",
-            data.container?.get(0)?.type?.text
-        )
-        assertEquals(
-            "101",
-            data.id
-        )
-        assertEquals(
-            "http://ehr.acme.org/identifiers/collections",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "23234352356",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Specimen is grossly lipemic",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "2011-03-04T07:03:00Z",
-            data.receivedTime?.value.toString()
-        )
-        assertEquals(
-            "ProcedureRequest/example",
-            data.request?.get(0)?.reference
-        )
-        assertEquals(
-            SpecimenStatus.AVAILABLE,
-            data.status
-        )
-        assertEquals(
-            "Peter Patient",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "122555007",
-            data.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Venous blood specimen",
-            data.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.coding?.get(0)?.system
-        )
+        assertSpecimen04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertSpecimen04Step01(data: Specimen) {
+
+        assertEquals(
+            expected = "http://lab.acme.org/specimens/2011",
+            actual = data.accessionIdentifier?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "X352356",
+            actual = data.accessionIdentifier?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "49852007",
+            actual = data.collection?.bodySite?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Structure of median cubital vein (body structure)",
+            actual = data.collection?.bodySite?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.collection?.bodySite?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Right median cubital vein",
+            actual = data.collection?.bodySite?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-05-30T06:15:00Z",
+            actual = data.collection?.collectedDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.collection?.collector?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "LNV",
+            actual = data.collection?.method?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0488",
+            actual = data.collection?.method?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL",
+            actual = data.collection?.quantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "6".toDouble(),
+            actual = data.collection?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "hep",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#hep",
+            actual = data.container?.get(0)?.additiveReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL",
+            actual = data.container?.get(0)?.capacity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "10".toDouble(),
+            actual = data.container?.get(0)?.capacity?.value?.value
+        )
+
+        assertEquals(
+            expected = "Green Gel tube",
+            actual = data.container?.get(0)?.description
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "48736-15394-75465",
+            actual = data.container?.get(0)?.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mL",
+            actual = data.container?.get(0)?.specimenQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "6".toDouble(),
+            actual = data.container?.get(0)?.specimenQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "Vacutainer",
+            actual = data.container?.get(0)?.type?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "101",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://ehr.acme.org/identifiers/collections",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "23234352356",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Specimen is grossly lipemic",
+            actual = data.note?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-03-04T07:03:00Z",
+            actual = data.receivedTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ProcedureRequest/example",
+            actual = data.request?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = SpecimenStatus.AVAILABLE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter Patient",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "122555007",
+            actual = data.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Venous blood specimen",
+            actual = data.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 }

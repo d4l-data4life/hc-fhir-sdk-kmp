@@ -52,225 +52,321 @@ class MedicationRequestTest {
         val data = parser.toFhir(MedicationRequest::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "2015-01-15",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "med0316",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "encounter who leads to this prescription",
-            data.context?.display
-        )
-        assertEquals(
-            "Encounter/f001",
-            data.context?.reference
-        )
-        assertEquals(
-            "d",
-            data.dispenseRequest?.expectedSupplyDuration?.code
-        )
-        assertEquals(
-            "http://unitsofmeasure.org",
-            data.dispenseRequest?.expectedSupplyDuration?.system
-        )
-        assertEquals(
-            "days",
-            data.dispenseRequest?.expectedSupplyDuration?.unit
-        )
-        assertEquals(
-            "30".toDouble(),
-            data.dispenseRequest?.expectedSupplyDuration?.value?.value
-        )
-        assertEquals(
-            "1".toLong(),
-            data.dispenseRequest?.numberOfRepeatsAllowed?.value
-        )
-        assertEquals(
-            "TAB",
-            data.dispenseRequest?.quantity?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/orderableDrugForm",
-            data.dispenseRequest?.quantity?.system
-        )
-        assertEquals(
-            "TAB",
-            data.dispenseRequest?.quantity?.unit
-        )
-        assertEquals(
-            "30".toDouble(),
-            data.dispenseRequest?.quantity?.value?.value
-        )
-        assertEquals(
-            "2016-01-15",
-            data.dispenseRequest?.validityPeriod?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-01-15",
-            data.dispenseRequest?.validityPeriod?.start?.value.toString()
-        )
-        assertEquals(
-            "311504000",
-            data.dosageInstruction?.get(0)?.additionalInstruction?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "With or after food",
-            data.dosageInstruction?.get(0)?.additionalInstruction?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.dosageInstruction?.get(0)?.additionalInstruction?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "TAB",
-            data.dosageInstruction?.get(0)?.doseQuantity?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/orderableDrugForm",
-            data.dosageInstruction?.get(0)?.doseQuantity?.system
-        )
-        assertEquals(
-            "TAB",
-            data.dosageInstruction?.get(0)?.doseQuantity?.unit
-        )
-        assertEquals(
-            "1".toDouble(),
-            data.dosageInstruction?.get(0)?.doseQuantity?.value?.value
-        )
-        assertEquals(
-            "421521009",
-            data.dosageInstruction?.get(0)?.method?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Swallow - dosing instruction imperative (qualifier value)",
-            data.dosageInstruction?.get(0)?.method?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.dosageInstruction?.get(0)?.method?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "26643006",
-            data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Oral Route",
-            data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "1".toInt(),
-            data.dosageInstruction?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "One tablet daily",
-            data.dosageInstruction?.get(0)?.text
-        )
-        assertEquals(
-            "QD",
-            data.dosageInstruction?.get(0)?.timing?.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "QD",
-            data.dosageInstruction?.get(0)?.timing?.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/GTSAbbreviation",
-            data.dosageInstruction?.get(0)?.timing?.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "medrx0311",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/portal/prescriptions",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "12345689",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            MedicationRequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "#med0316",
-            data.medicationReference?.reference
-        )
-        assertEquals(
-            "Chlorthalidone increases urniation so take it in the morning",
-            data.note?.get(0)?.text
-        )
-        assertEquals(
-            "condition for prescribing this medication",
-            data.reasonReference?.get(0)?.display
-        )
-        assertEquals(
-            "Condition/f201",
-            data.reasonReference?.get(0)?.reference
-        )
-        assertEquals(
-            "Patrick Pump",
-            data.requester?.agent?.display
-        )
-        assertEquals(
-            "Practitioner/f007",
-            data.requester?.agent?.reference
-        )
-        assertEquals(
-            "Organization/f002",
-            data.requester?.onBehalfOf?.reference
-        )
-        assertEquals(
-            MedicationRequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Donald Duck",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/pat1",
-            data.subject?.reference
-        )
-        assertEquals(
-            "True".toBoolean(),
-            data.substitution?.allowed?.value
-        )
-        assertEquals(
-            "CT",
-            data.substitution?.reason?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "continuing therapy",
-            data.substitution?.reason?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/ActReason",
-            data.substitution?.reason?.coding?.get(0)?.system
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicationRequest01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicationRequest01Step01(data: MedicationRequest) {
+
+        assertEquals(
+            expected = "2015-01-15",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "med0316",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "encounter who leads to this prescription",
+            actual = data.context?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f001",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "d",
+            actual = data.dispenseRequest?.expectedSupplyDuration?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://unitsofmeasure.org",
+            actual = data.dispenseRequest?.expectedSupplyDuration?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "days",
+            actual = data.dispenseRequest?.expectedSupplyDuration?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "30".toDouble(),
+            actual = data.dispenseRequest?.expectedSupplyDuration?.value?.value
+        )
+
+        assertEquals(
+            expected = "1".toLong(),
+            actual = data.dispenseRequest?.numberOfRepeatsAllowed?.value
+        )
+
+        assertEquals(
+            expected = "TAB",
+            actual = data.dispenseRequest?.quantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/orderableDrugForm",
+            actual = data.dispenseRequest?.quantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "TAB",
+            actual = data.dispenseRequest?.quantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "30".toDouble(),
+            actual = data.dispenseRequest?.quantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "2016-01-15",
+            actual = data.dispenseRequest?.validityPeriod?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-01-15",
+            actual = data.dispenseRequest?.validityPeriod?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "311504000",
+            actual = data.dosageInstruction?.get(0)?.additionalInstruction?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "With or after food",
+            actual = data.dosageInstruction?.get(0)?.additionalInstruction?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.dosageInstruction?.get(0)?.additionalInstruction?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "TAB",
+            actual = data.dosageInstruction?.get(0)?.doseQuantity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/orderableDrugForm",
+            actual = data.dosageInstruction?.get(0)?.doseQuantity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "TAB",
+            actual = data.dosageInstruction?.get(0)?.doseQuantity?.unit
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toDouble(),
+            actual = data.dosageInstruction?.get(0)?.doseQuantity?.value?.value
+        )
+
+        assertEquals(
+            expected = "421521009",
+            actual = data.dosageInstruction?.get(0)?.method?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Swallow - dosing instruction imperative (qualifier value)",
+            actual = data.dosageInstruction?.get(0)?.method?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.dosageInstruction?.get(0)?.method?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "26643006",
+            actual = data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Oral Route",
+            actual = data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.dosageInstruction?.get(0)?.route?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.dosageInstruction?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "One tablet daily",
+            actual = data.dosageInstruction?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "QD",
+            actual = data.dosageInstruction?.get(0)?.timing?.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "QD",
+            actual = data.dosageInstruction?.get(0)?.timing?.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/GTSAbbreviation",
+            actual = data.dosageInstruction?.get(0)?.timing?.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "medrx0311",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/portal/prescriptions",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "12345689",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = MedicationRequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "#med0316",
+            actual = data.medicationReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chlorthalidone increases urniation so take it in the morning",
+            actual = data.note?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "condition for prescribing this medication",
+            actual = data.reasonReference?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Condition/f201",
+            actual = data.reasonReference?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patrick Pump",
+            actual = data.requester?.agent?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f007",
+            actual = data.requester?.agent?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f002",
+            actual = data.requester?.onBehalfOf?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = MedicationRequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Donald Duck",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat1",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.substitution?.allowed?.value
+        )
+
+        assertEquals(
+            expected = "CT",
+            actual = data.substitution?.reason?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "continuing therapy",
+            actual = data.substitution?.reason?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/ActReason",
+            actual = data.substitution?.reason?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -282,100 +378,141 @@ class MedicationRequestTest {
         val data = parser.toFhir(MedicationRequest::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "2015-03-01",
-            data.authoredOn?.value.toString()
-        )
-        assertEquals(
-            "encounter that leads to this prescription",
-            data.context?.display
-        )
-        assertEquals(
-            "Encounter/f001",
-            data.context?.reference
-        )
-        assertEquals(
-            "1".toInt(),
-            data.dosageInstruction?.get(0)?.sequence?.value
-        )
-        assertEquals(
-            "Take one tablet daily as directed",
-            data.dosageInstruction?.get(0)?.text
-        )
-        assertEquals(
-            "medrx002",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/portal/prescriptions",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "12345",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            MedicationRequestIntent.ORDER,
-            data.intent
-        )
-        assertEquals(
-            "prescribed medication",
-            data.medicationReference?.display
-        )
-        assertEquals(
-            "Medication/med0316",
-            data.medicationReference?.reference
-        )
-        assertEquals(
-            "59621000",
-            data.reasonCode?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Essential hypertension (disorder)",
-            data.reasonCode?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reasonCode?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Patrick Pump",
-            data.requester?.agent?.display
-        )
-        assertEquals(
-            "Practitioner/f007",
-            data.requester?.agent?.reference
-        )
-        assertEquals(
-            "Organization/f002",
-            data.requester?.onBehalfOf?.reference
-        )
-        assertEquals(
-            MedicationRequestStatus.ACTIVE,
-            data.status
-        )
-        assertEquals(
-            "Donald Duck",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/pat1",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertMedicationRequest02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertMedicationRequest02Step01(data: MedicationRequest) {
+
+        assertEquals(
+            expected = "2015-03-01",
+            actual = data.authoredOn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "encounter that leads to this prescription",
+            actual = data.context?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/f001",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1".toInt(),
+            actual = data.dosageInstruction?.get(0)?.sequence?.value
+        )
+
+        assertEquals(
+            expected = "Take one tablet daily as directed",
+            actual = data.dosageInstruction?.get(0)?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "medrx002",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/portal/prescriptions",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "12345",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = MedicationRequestIntent.ORDER,
+            actual = data.intent
+        )
+
+        assertEquals(
+            expected = "prescribed medication",
+            actual = data.medicationReference?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Medication/med0316",
+            actual = data.medicationReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "59621000",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Essential hypertension (disorder)",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reasonCode?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patrick Pump",
+            actual = data.requester?.agent?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/f007",
+            actual = data.requester?.agent?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f002",
+            actual = data.requester?.onBehalfOf?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = MedicationRequestStatus.ACTIVE,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Donald Duck",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/pat1",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

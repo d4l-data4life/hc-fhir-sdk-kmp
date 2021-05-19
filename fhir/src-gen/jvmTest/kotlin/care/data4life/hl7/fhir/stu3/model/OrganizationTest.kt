@@ -53,81 +53,114 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "Ann Arbor",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "USA",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "3300 Washtenaw Avenue, Suite 227",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "48104",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            "MI",
-            data.address?.get(0)?.state
-        )
-        assertEquals(
-            "Endpoint/example",
-            data.endpoint?.get(0)?.reference
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/organization-alias",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "HL7 International",
-            data.extension?.get(0)?.valueString
-        )
-        assertEquals(
-            "hl7",
-            data.id
-        )
-        assertEquals(
-            "Health Level Seven International",
-            data.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "(+1) 734-677-7777",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.FAX,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            "(+1) 734-677-6622",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(2)?.system
-        )
-        assertEquals(
-            "hq@HL7.org",
-            data.telecom?.get(2)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganization01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization01Step01(data: Organization) {
+
+        assertEquals(
+            expected = "Ann Arbor",
+            actual = data.address?.get(0)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "USA",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "3300 Washtenaw Avenue, Suite 227",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "48104",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "MI",
+            actual = data.address?.get(0)?.state
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Endpoint/example",
+            actual = data.endpoint?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/organization-alias",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "HL7 International",
+            actual = data.extension?.get(0)?.valueString
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "hl7",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Health Level Seven International",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "(+1) 734-677-7777",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.FAX,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = "(+1) 734-677-6622",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(2)?.system
+        )
+
+        assertEquals(
+            expected = "hq@HL7.org",
+            actual = data.telecom?.get(2)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -139,33 +172,44 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Swizterland",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "mmanu",
-            data.id
-        )
-        assertEquals(
-            "Acme Corporation",
-            data.name
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganization02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization02Step01(data: Organization) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Swizterland",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mmanu",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Corporation",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -177,65 +221,89 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "1",
-            data.id
-        )
-        assertEquals(
-            "http://www.acme.org.au/units",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "Gastro",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Gastroenterology",
-            data.name
-        )
-        assertEquals(
-            "ACME Healthcare, Inc",
-            data.partOf?.display
-        )
-        assertEquals(
-            "Organization/1",
-            data.partOf?.reference
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.MOBILE,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+1 555 234 3523",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "gastro@acme.org",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganization03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization03Step01(data: Organization) {
+
+        assertEquals(
+            expected = "1",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.acme.org.au/units",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gastro",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gastroenterology",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ACME Healthcare, Inc",
+            actual = data.partOf?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1",
+            actual = data.partOf?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.MOBILE,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+1 555 234 3523",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "gastro@acme.org",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -247,57 +315,77 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "1832473e-2fe0-452d-abe9-3cdb9879522f",
-            data.id
-        )
-        assertEquals(
-            "http://www.acme.org.au/units",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "ClinLab",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Clinical Lab",
-            data.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+1 555 234 1234",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.telecom?.get(1)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(1)?.use
-        )
-        assertEquals(
-            "contact@labs.acme.org",
-            data.telecom?.get(1)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganization04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization04Step01(data: Organization) {
+
+        assertEquals(
+            expected = "1832473e-2fe0-452d-abe9-3cdb9879522f",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.acme.org.au/units",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ClinLab",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Clinical Lab",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+1 555 234 1234",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "contact@labs.acme.org",
+            actual = data.telecom?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -309,97 +397,136 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "South Wing, floor 2",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "South Wing, floor 2",
-            data.contact?.get(0)?.address?.line?.get(0)
-        )
-        assertEquals(
-            "mevr. D. de Haan",
-            data.contact?.get(0)?.name?.text
-        )
-        assertEquals(
-            "ADMIN",
-            data.contact?.get(0)?.purpose?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/contactentity-type",
-            data.contact?.get(0)?.purpose?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "022-655 2321",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            ContactPointSystem.EMAIL,
-            data.contact?.get(0)?.telecom?.get(1)?.system
-        )
-        assertEquals(
-            "cardio@burgersumc.nl",
-            data.contact?.get(0)?.telecom?.get(1)?.value
-        )
-        assertEquals(
-            ContactPointSystem.FAX,
-            data.contact?.get(0)?.telecom?.get(2)?.system
-        )
-        assertEquals(
-            "022-655 2322",
-            data.contact?.get(0)?.telecom?.get(2)?.value
-        )
-        assertEquals(
-            "f002",
-            data.id
-        )
-        assertEquals(
-            "Burgers UMC Cardiology unit",
-            data.name
-        )
-        assertEquals(
-            "Organization/f001",
-            data.partOf?.reference
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "022-655 2320",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "dept",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Hospital Department",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/organization-type",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
+        assertOrganization05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization05Step01(data: Organization) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "South Wing, floor 2",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "South Wing, floor 2",
+            actual = data.contact?.get(0)?.address?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mevr. D. de Haan",
+            actual = data.contact?.get(0)?.name?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ADMIN",
+            actual = data.contact?.get(0)?.purpose?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/contactentity-type",
+            actual = data.contact?.get(0)?.purpose?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "022-655 2321",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.EMAIL,
+            actual = data.contact?.get(0)?.telecom?.get(1)?.system
+        )
+
+        assertEquals(
+            expected = "cardio@burgersumc.nl",
+            actual = data.contact?.get(0)?.telecom?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.FAX,
+            actual = data.contact?.get(0)?.telecom?.get(2)?.system
+        )
+
+        assertEquals(
+            expected = "022-655 2322",
+            actual = data.contact?.get(0)?.telecom?.get(2)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f002",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Burgers UMC Cardiology unit",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.partOf?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "022-655 2320",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "dept",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Hospital Department",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/organization-type",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -411,161 +538,229 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Den Helder",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "NLD",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "Walvisbaai 3",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "2333ZA",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            AddressUse.WORK,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            "Den helder",
-            data.contact?.get(0)?.address?.city
-        )
-        assertEquals(
-            "NLD",
-            data.contact?.get(0)?.address?.country
-        )
-        assertEquals(
-            "Walvisbaai 3",
-            data.contact?.get(0)?.address?.line?.get(0)
-        )
-        assertEquals(
-            "Gebouw 2",
-            data.contact?.get(0)?.address?.line?.get(1)
-        )
-        assertEquals(
-            "2333ZA",
-            data.contact?.get(0)?.address?.postalCode
-        )
-        assertEquals(
-            "Brand",
-            data.contact?.get(0)?.name?.family
-        )
-        assertEquals(
-            "Ronald",
-            data.contact?.get(0)?.name?.given?.get(0)
-        )
-        assertEquals(
-            "Prof.Dr.",
-            data.contact?.get(0)?.name?.prefix?.get(0)
-        )
-        assertEquals(
-            "Professor Brand",
-            data.contact?.get(0)?.name?.text
-        )
-        assertEquals(
-            NameUse.OFFICIAL,
-            data.contact?.get(0)?.name?.use
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.contact?.get(0)?.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+31715269702",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "http://www.zorgkaartnederland.nl/",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "Artis University Medical Center",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Artis University Medical Center (AUMC)",
-            data.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+31715269111",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "405608006",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Academic Medical Center",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "V6",
-            data.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "University Medical Hospital",
-            data.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.15.1060",
-            data.type?.get(0)?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "prov",
-            data.type?.get(0)?.coding?.get(2)?.code
-        )
-        assertEquals(
-            "Healthcare Provider",
-            data.type?.get(0)?.coding?.get(2)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/organization-type",
-            data.type?.get(0)?.coding?.get(2)?.system
-        )
+        assertOrganization06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization06Step01(data: Organization) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Den Helder",
+            actual = data.address?.get(0)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Walvisbaai 3",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2333ZA",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.WORK,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Den helder",
+            actual = data.contact?.get(0)?.address?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.contact?.get(0)?.address?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Walvisbaai 3",
+            actual = data.contact?.get(0)?.address?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Gebouw 2",
+            actual = data.contact?.get(0)?.address?.line?.get(1)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2333ZA",
+            actual = data.contact?.get(0)?.address?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Brand",
+            actual = data.contact?.get(0)?.name?.family
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ronald",
+            actual = data.contact?.get(0)?.name?.given?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Prof.Dr.",
+            actual = data.contact?.get(0)?.name?.prefix?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Professor Brand",
+            actual = data.contact?.get(0)?.name?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NameUse.OFFICIAL,
+            actual = data.contact?.get(0)?.name?.use
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+31715269702",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.zorgkaartnederland.nl/",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Artis University Medical Center",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Artis University Medical Center (AUMC)",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+31715269111",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "405608006",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Academic Medical Center",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "V6",
+            actual = data.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "University Medical Hospital",
+            actual = data.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.15.1060",
+            actual = data.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "prov",
+            actual = data.type?.get(0)?.coding?.get(2)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Healthcare Provider",
+            actual = data.type?.get(0)?.coding?.get(2)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/organization-type",
+            actual = data.type?.get(0)?.coding?.get(2)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -577,33 +772,45 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "2.16.840.1.113883.19.5",
-            data.id
-        )
-        assertEquals(
-            "urn:ietf:rfc:3986",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "2.16.840.1.113883.19.5",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Good Health Clinic",
-            data.name
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganization07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization07Step01(data: Organization) {
+
+        assertEquals(
+            expected = "2.16.840.1.113883.19.5",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:ietf:rfc:3986",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2.16.840.1.113883.19.5",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Good Health Clinic",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -615,157 +822,223 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "Den Burg",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "NLD",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "Galapagosweg 91",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "9105 PZ",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            AddressUse.WORK,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            "Den Burg",
-            data.address?.get(1)?.city
-        )
-        assertEquals(
-            "NLD",
-            data.address?.get(1)?.country
-        )
-        assertEquals(
-            "PO Box 2311",
-            data.address?.get(1)?.line?.get(0)
-        )
-        assertEquals(
-            "9100 AA",
-            data.address?.get(1)?.postalCode
-        )
-        assertEquals(
-            AddressUse.WORK,
-            data.address?.get(1)?.use
-        )
-        assertEquals(
-            "PRESS",
-            data.contact?.get(0)?.purpose?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/contactentity-type",
-            data.contact?.get(0)?.purpose?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(0)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "022-655 2334",
-            data.contact?.get(0)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "PATINF",
-            data.contact?.get(1)?.purpose?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/contactentity-type",
-            data.contact?.get(1)?.purpose?.coding?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.contact?.get(1)?.telecom?.get(0)?.system
-        )
-        assertEquals(
-            "022-655 2335",
-            data.contact?.get(1)?.telecom?.get(0)?.value
-        )
-        assertEquals(
-            "f001",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:2.16.528.1",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "91654",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.6.1",
-            data.identifier?.get(1)?.system
-        )
-        assertEquals(
-            IdentifierUse.USUAL,
-            data.identifier?.get(1)?.use
-        )
-        assertEquals(
-            "17-0112278",
-            data.identifier?.get(1)?.value
-        )
-        assertEquals(
-            "Burgers University Medical Center",
-            data.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "022-655 2300",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "V6",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "University Medical Hospital",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.2.4.15.1060",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "prov",
-            data.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "Healthcare Provider",
-            data.type?.get(0)?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/organization-type",
-            data.type?.get(0)?.coding?.get(1)?.system
-        )
+        assertOrganization08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization08Step01(data: Organization) {
+
+        assertEquals(
+            expected = "Den Burg",
+            actual = data.address?.get(0)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Galapagosweg 91",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "9105 PZ",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.WORK,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Den Burg",
+            actual = data.address?.get(1)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.address?.get(1)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "PO Box 2311",
+            actual = data.address?.get(1)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "9100 AA",
+            actual = data.address?.get(1)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.WORK,
+            actual = data.address?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "PRESS",
+            actual = data.contact?.get(0)?.purpose?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/contactentity-type",
+            actual = data.contact?.get(0)?.purpose?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(0)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "022-655 2334",
+            actual = data.contact?.get(0)?.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "PATINF",
+            actual = data.contact?.get(1)?.purpose?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/contactentity-type",
+            actual = data.contact?.get(1)?.purpose?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.contact?.get(1)?.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = "022-655 2335",
+            actual = data.contact?.get(1)?.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f001",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.528.1",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "91654",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.6.1",
+            actual = data.identifier?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.USUAL,
+            actual = data.identifier?.get(1)?.use
+        )
+
+        assertEquals(
+            expected = "17-0112278",
+            actual = data.identifier?.get(1)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Center",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "022-655 2300",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "V6",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "University Medical Hospital",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.2.4.15.1060",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "prov",
+            actual = data.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Healthcare Provider",
+            actual = data.type?.get(0)?.coding?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/organization-type",
+            actual = data.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
     }
 
     @Test
@@ -777,37 +1050,51 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "ABC Insurance",
-            data.alias?.get(0)
-        )
-        assertEquals(
-            "2",
-            data.id
-        )
-        assertEquals(
-            "urn:oid:2.16.840.1.113883.3.19.2.3",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "666666",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "XYZ Insurance",
-            data.name
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertOrganization09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization09Step01(data: Organization) {
+
+        assertEquals(
+            expected = "ABC Insurance",
+            actual = data.alias?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:oid:2.16.840.1.113883.3.19.2.3",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "666666",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "XYZ Insurance",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -819,96 +1106,135 @@ class OrganizationTest {
         val data = parser.toFhir(Organization::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "True".toBoolean(),
-            data.active?.value
-        )
-        assertEquals(
-            "Blijdorp",
-            data.address?.get(0)?.city
-        )
-        assertEquals(
-            "NLD",
-            data.address?.get(0)?.country
-        )
-        assertEquals(
-            "apenrots 230",
-            data.address?.get(0)?.line?.get(0)
-        )
-        assertEquals(
-            "3056BE",
-            data.address?.get(0)?.postalCode
-        )
-        assertEquals(
-            AddressUse.WORK,
-            data.address?.get(0)?.use
-        )
-        assertEquals(
-            "f203",
-            data.id
-        )
-        assertEquals(
-            "http://www.zorgkaartnederland.nl/",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "Zorginstelling naam",
-            data.identifier?.get(0)?.type?.text
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "Blijdorp MC",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "Blijdorp Medisch Centrum (BUMC)",
-            data.name
-        )
-        assertEquals(
-            ContactPointSystem.PHONE,
-            data.telecom?.get(0)?.system
-        )
-        assertEquals(
-            ContactPointUse.WORK,
-            data.telecom?.get(0)?.use
-        )
-        assertEquals(
-            "+31107040704",
-            data.telecom?.get(0)?.value
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
-        assertEquals(
-            "405608006",
-            data.type?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Academic Medical Center",
-            data.type?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.type?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "prov",
-            data.type?.get(0)?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/organization-type",
-            data.type?.get(0)?.coding?.get(1)?.system
-        )
+        assertOrganization10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertOrganization10Step01(data: Organization) {
+
+        assertEquals(
+            expected = "True".toBoolean(),
+            actual = data.active?.value
+        )
+
+        assertEquals(
+            expected = "Blijdorp",
+            actual = data.address?.get(0)?.city
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "NLD",
+            actual = data.address?.get(0)?.country
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "apenrots 230",
+            actual = data.address?.get(0)?.line?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "3056BE",
+            actual = data.address?.get(0)?.postalCode
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = AddressUse.WORK,
+            actual = data.address?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "f203",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.zorgkaartnederland.nl/",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Zorginstelling naam",
+            actual = data.identifier?.get(0)?.type?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "Blijdorp MC",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blijdorp Medisch Centrum (BUMC)",
+            actual = data.name
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ContactPointSystem.PHONE,
+            actual = data.telecom?.get(0)?.system
+        )
+
+        assertEquals(
+            expected = ContactPointUse.WORK,
+            actual = data.telecom?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "+31107040704",
+            actual = data.telecom?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
+
+        assertEquals(
+            expected = "405608006",
+            actual = data.type?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Academic Medical Center",
+            actual = data.type?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.type?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "prov",
+            actual = data.type?.get(0)?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/organization-type",
+            actual = data.type?.get(0)?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
     }
 }

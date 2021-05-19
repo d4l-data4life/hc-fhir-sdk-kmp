@@ -51,109 +51,157 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "#req",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "15220000",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Laboratory test",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "LAB",
-            data.category?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "104177005",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Blood culture for bacteria, including anaerobic screen",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "428763004",
-            data.codedDiagnosis?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Bacteremia due to staphylococcus",
-            data.codedDiagnosis?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.codedDiagnosis?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Blood culture tested positive on staphylococcus aureus",
-            data.conclusion
-        )
-        assertEquals(
-            "req",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "f202",
-            data.id
-        )
-        assertEquals(
-            "2013-03-11T10:28:00+01:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "AUMC",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Organization/f201",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "Results for staphylococcus analysis on Roel's blood culture",
-            data.result?.get(0)?.display
-        )
-        assertEquals(
-            "Observation/f206",
-            data.result?.get(0)?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport01Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "#req",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "15220000",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Laboratory test",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "LAB",
+            actual = data.category?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "104177005",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blood culture for bacteria, including anaerobic screen",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "428763004",
+            actual = data.codedDiagnosis?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Bacteremia due to staphylococcus",
+            actual = data.codedDiagnosis?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.codedDiagnosis?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Blood culture tested positive on staphylococcus aureus",
+            actual = data.conclusion
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "req",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f202",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-03-11T10:28:00+01:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "AUMC",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f201",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Results for staphylococcus analysis on Roel's blood culture",
+            actual = data.result?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/f206",
+            actual = data.result?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -165,157 +213,227 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "GHP",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "General Health Profile",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://acme.com/labs/reports",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "rtt",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "ltt",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "urine",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "p2",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "r1",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "r2",
-            data.contained?.get(5)?.id
-        )
-        assertEquals(
-            "r3",
-            data.contained?.get(6)?.id
-        )
-        assertEquals(
-            "r4",
-            data.contained?.get(7)?.id
-        )
-        assertEquals(
-            "r5",
-            data.contained?.get(8)?.id
-        )
-        assertEquals(
-            "r6",
-            data.contained?.get(9)?.id
-        )
-        assertEquals(
-            "2015-08-16T06:40:17Z",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "ghp",
-            data.id
-        )
-        assertEquals(
-            "http://acme.com/lab/reports",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "ghp-example",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "2015-08-17T06:40:17Z",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "2015-08-16T10:35:23Z",
-            data.meta?.lastUpdated?.value.toString()
-        )
-        assertEquals(
-            "Acme Laboratory, Inc",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "Chemistry Panel",
-            data.result?.get(0)?.display
-        )
-        assertEquals(
-            "#p1",
-            data.result?.get(0)?.reference
-        )
-        assertEquals(
-            "CBC",
-            data.result?.get(1)?.display
-        )
-        assertEquals(
-            "#p2",
-            data.result?.get(1)?.reference
-        )
-        assertEquals(
-            "Urinalysis",
-            data.result?.get(2)?.display
-        )
-        assertEquals(
-            "#p3",
-            data.result?.get(2)?.reference
-        )
-        assertEquals(
-            "Red Top Tube",
-            data.specimen?.get(0)?.display
-        )
-        assertEquals(
-            "#rtt",
-            data.specimen?.get(0)?.reference
-        )
-        assertEquals(
-            "Lavender Top Tube",
-            data.specimen?.get(1)?.display
-        )
-        assertEquals(
-            "#ltt",
-            data.specimen?.get(1)?.reference
-        )
-        assertEquals(
-            "Urine Sample",
-            data.specimen?.get(2)?.display
-        )
-        assertEquals(
-            "#urine",
-            data.specimen?.get(2)?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/pat2",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport02Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "GHP",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "General Health Profile",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/labs/reports",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "rtt",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ltt",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urine",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "p2",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r1",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r2",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r3",
+            actual = data.contained?.get(6)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r4",
+            actual = data.contained?.get(7)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r5",
+            actual = data.contained?.get(8)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r6",
+            actual = data.contained?.get(9)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-16T06:40:17Z",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ghp",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/lab/reports",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ghp-example",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-17T06:40:17Z",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-08-16T10:35:23Z",
+            actual = data.meta?.lastUpdated?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Acme Laboratory, Inc",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Chemistry Panel",
+            actual = data.result?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p1",
+            actual = data.result?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "CBC",
+            actual = data.result?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p2",
+            actual = data.result?.get(1)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Urinalysis",
+            actual = data.result?.get(2)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#p3",
+            actual = data.result?.get(2)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Red Top Tube",
+            actual = data.specimen?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#rtt",
+            actual = data.specimen?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lavender Top Tube",
+            actual = data.specimen?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#ltt",
+            actual = data.specimen?.get(1)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Urine Sample",
+            actual = data.specimen?.get(2)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#urine",
+            actual = data.specimen?.get(2)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -327,109 +445,156 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "HM",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "24331-1",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Lipid 1996 panel - Serum or Plasma",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Lipid Panel",
-            data.code?.text
-        )
-        assertEquals(
-            "cholesterol",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "triglyceride",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "hdlcholesterol",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "ldlcholesterol",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "2011-03-04T08:30:00+11:00",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "lipids",
-            data.id
-        )
-        assertEquals(
-            "http://acme.com/lab/reports",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "5234342",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "2013-01-27T11:45:33+11:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Acme Laboratory, Inc",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "#cholesterol",
-            data.result?.get(0)?.reference
-        )
-        assertEquals(
-            "#triglyceride",
-            data.result?.get(1)?.reference
-        )
-        assertEquals(
-            "#hdlcholesterol",
-            data.result?.get(2)?.reference
-        )
-        assertEquals(
-            "#ldlcholesterol",
-            data.result?.get(3)?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/pat2",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport03Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "HM",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "24331-1",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lipid 1996 panel - Serum or Plasma",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Lipid Panel",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "cholesterol",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "triglyceride",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "hdlcholesterol",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "ldlcholesterol",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-03-04T08:30:00+11:00",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "lipids",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/lab/reports",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "5234342",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-01-27T11:45:33+11:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Acme Laboratory, Inc",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#cholesterol",
+            actual = data.result?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#triglyceride",
+            actual = data.result?.get(1)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#hdlcholesterol",
+            actual = data.result?.get(2)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#ldlcholesterol",
+            actual = data.result?.get(3)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -441,121 +606,174 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "#req",
-            data.basedOn?.get(0)?.reference
-        )
-        assertEquals(
-            "252275004",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Haematology test",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "HM",
-            data.category?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "58410-2",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Complete blood count (hemogram) panel - Blood by Automated count",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Core lab",
-            data.conclusion
-        )
-        assertEquals(
-            "req",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "f001",
-            data.id
-        )
-        assertEquals(
-            "http://www.bmc.nl/zorgportal/identifiers/reports",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            IdentifierUse.OFFICIAL,
-            data.identifier?.get(0)?.use
-        )
-        assertEquals(
-            "nr1239044",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "2013-05-15T19:32:52+01:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Burgers University Medical Centre",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Organization/f001",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "Observation/f001",
-            data.result?.get(0)?.reference
-        )
-        assertEquals(
-            "Observation/f002",
-            data.result?.get(1)?.reference
-        )
-        assertEquals(
-            "Observation/f003",
-            data.result?.get(2)?.reference
-        )
-        assertEquals(
-            "Observation/f004",
-            data.result?.get(3)?.reference
-        )
-        assertEquals(
-            "Observation/f005",
-            data.result?.get(4)?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "P. van den Heuvel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f001",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport04Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "#req",
+            actual = data.basedOn?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "252275004",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Haematology test",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "HM",
+            actual = data.category?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "58410-2",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Complete blood count (hemogram) panel - Blood by Automated count",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Core lab",
+            actual = data.conclusion
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "req",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f001",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.bmc.nl/zorgportal/identifiers/reports",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = IdentifierUse.OFFICIAL,
+            actual = data.identifier?.get(0)?.use
+        )
+
+        assertEquals(
+            expected = "nr1239044",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-05-15T19:32:52+01:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Burgers University Medical Centre",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f001",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/f001",
+            actual = data.result?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/f002",
+            actual = data.result?.get(1)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/f003",
+            actual = data.result?.get(2)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/f004",
+            actual = data.result?.get(3)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/f005",
+            actual = data.result?.get(4)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "P. van den Heuvel",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f001",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -567,93 +785,132 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "394914008",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Radiology",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "RAD",
-            data.category?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "45036003",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Ultrasonography of abdomen",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Abdominal Ultrasound",
-            data.code?.text
-        )
-        assertEquals(
-            "Unremarkable study",
-            data.conclusion
-        )
-        assertEquals(
-            "2012-12-01T12:00:00+01:00",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "ultrasound",
-            data.id
-        )
-        assertEquals(
-            "A comment about the image",
-            data.image?.get(0)?.comment
-        )
-        assertEquals(
-            "WADO example image",
-            data.image?.get(0)?.link?.display
-        )
-        assertEquals(
-            "Media/1.2.840.11361907579238403408700.3.0.14.19970327150033",
-            data.image?.get(0)?.link?.reference
-        )
-        assertEquals(
-            "2012-12-01T12:00:00+01:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport05Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport05Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "394914008",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Radiology",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "RAD",
+            actual = data.category?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "45036003",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Ultrasonography of abdomen",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Abdominal Ultrasound",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Unremarkable study",
+            actual = data.conclusion
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-12-01T12:00:00+01:00",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "ultrasound",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "A comment about the image",
+            actual = data.image?.get(0)?.comment
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "WADO example image",
+            actual = data.image?.get(0)?.link?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Media/1.2.840.11361907579238403408700.3.0.14.19970327150033",
+            actual = data.image?.get(0)?.link?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-12-01T12:00:00+01:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -665,105 +922,150 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "394914008",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Radiology",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "RAD",
-            data.category?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "429858000",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Computed tomography (CT) of head and neck",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "CT of head-neck",
-            data.code?.text
-        )
-        assertEquals(
-            "188340000",
-            data.codedDiagnosis?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Malignant tumor of craniopharyngeal duct",
-            data.codedDiagnosis?.get(0)?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.codedDiagnosis?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "CT brains: large tumor sphenoid/clivus.",
-            data.conclusion
-        )
-        assertEquals(
-            "2012-12-01T12:00:00+01:00",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "f201",
-            data.id
-        )
-        assertEquals(
-            "HEAD and NECK CT DICOM imaging study",
-            data.imagingStudy?.get(0)?.display
-        )
-        assertEquals(
-            "2012-12-01T12:00:00+01:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Blijdorp MC",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Organization/f203",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Roel",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/f201",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport06Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport06Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "394914008",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Radiology",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "RAD",
+            actual = data.category?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "429858000",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Computed tomography (CT) of head and neck",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "CT of head-neck",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "188340000",
+            actual = data.codedDiagnosis?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Malignant tumor of craniopharyngeal duct",
+            actual = data.codedDiagnosis?.get(0)?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.codedDiagnosis?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "CT brains: large tumor sphenoid/clivus.",
+            actual = data.conclusion
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-12-01T12:00:00+01:00",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "f201",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "HEAD and NECK CT DICOM imaging study",
+            actual = data.imagingStudy?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2012-12-01T12:00:00+01:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Blijdorp MC",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/f203",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Roel",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/f201",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -775,117 +1077,168 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "15220000",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Laboratory test",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "LAB",
-            data.category?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(1)?.system
-        )
-        assertEquals(
-            "55233-1",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Genetic analysis master panel",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "f1-genetics",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "2015-05-26T15:30:10+01:00",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory",
-            data.extension?.get(0)?.url
-        )
-        assertEquals(
-            "#f1-genetics",
-            data.extension?.get(0)?.valueReference?.reference
-        )
-        assertEquals(
-            "dg2",
-            data.id
-        )
-        assertEquals(
-            "2014-05-16T10:28:00+01:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Molecular Diagnostic Laboratory",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Practitioner/genetics-example2",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "Genetic analysis for BRAC -1",
-            data.result?.get(0)?.display
-        )
-        assertEquals(
-            "Observation/ob-genetics-3-1",
-            data.result?.get(0)?.reference
-        )
-        assertEquals(
-            "Genetic analysis for BRAC -2",
-            data.result?.get(1)?.display
-        )
-        assertEquals(
-            "Observation/ob-genetics-3-2",
-            data.result?.get(1)?.reference
-        )
-        assertEquals(
-            "Molecular Specimen ID: MLD45-Z4-1234",
-            data.specimen?.get(0)?.display
-        )
-        assertEquals(
-            "Specimen/genetics-example2",
-            data.specimen?.get(0)?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Peter James Chalmers(MRN: 12345)",
-            data.subject?.display
-        )
-        assertEquals(
-            "Patient/example",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport07Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport07Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "15220000",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Laboratory test",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "LAB",
+            actual = data.category?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(1)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "55233-1",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Genetic analysis master panel",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "f1-genetics",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-05-26T15:30:10+01:00",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory",
+            actual = data.extension?.get(0)?.url
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#f1-genetics",
+            actual = data.extension?.get(0)?.valueReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "dg2",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2014-05-16T10:28:00+01:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Molecular Diagnostic Laboratory",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/genetics-example2",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Genetic analysis for BRAC -1",
+            actual = data.result?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/ob-genetics-3-1",
+            actual = data.result?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Genetic analysis for BRAC -2",
+            actual = data.result?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Observation/ob-genetics-3-2",
+            actual = data.result?.get(1)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Molecular Specimen ID: MLD45-Z4-1234",
+            actual = data.specimen?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Specimen/genetics-example2",
+            actual = data.specimen?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Peter James Chalmers(MRN: 12345)",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -897,193 +1250,282 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "HM",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "58410-2",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Complete blood count (hemogram) panel - Blood by Automated count",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "CBC",
-            data.code?.coding?.get(1)?.code
-        )
-        assertEquals(
-            "MASTER FULL BLOOD COUNT",
-            data.code?.coding?.get(1)?.display
-        )
-        assertEquals(
-            "Complete Blood Count",
-            data.code?.text
-        )
-        assertEquals(
-            "r1",
-            data.contained?.get(0)?.id
-        )
-        assertEquals(
-            "r2",
-            data.contained?.get(1)?.id
-        )
-        assertEquals(
-            "r3",
-            data.contained?.get(2)?.id
-        )
-        assertEquals(
-            "r4",
-            data.contained?.get(3)?.id
-        )
-        assertEquals(
-            "r5",
-            data.contained?.get(4)?.id
-        )
-        assertEquals(
-            "r6",
-            data.contained?.get(5)?.id
-        )
-        assertEquals(
-            "r7",
-            data.contained?.get(6)?.id
-        )
-        assertEquals(
-            "r8",
-            data.contained?.get(7)?.id
-        )
-        assertEquals(
-            "r9",
-            data.contained?.get(8)?.id
-        )
-        assertEquals(
-            "r10",
-            data.contained?.get(9)?.id
-        )
-        assertEquals(
-            "Encounter/example",
-            data.context?.reference
-        )
-        assertEquals(
-            "2011-03-04T08:30:00+11:00",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "101",
-            data.id
-        )
-        assertEquals(
-            "http://acme.com/lab/reports",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "5234342",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "2011-03-04T11:45:33+11:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "01",
-            data.meta?.tag?.get(0)?.code
-        )
-        assertEquals(
-            "Needs Review",
-            data.meta?.tag?.get(0)?.display
-        )
-        assertEquals(
-            "http://example.org/fhir/CodeSystem/workflow-codes",
-            data.meta?.tag?.get(0)?.system
-        )
-        assertEquals(
-            "Acme Laboratory, Inc",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            "application/pdf",
-            data.presentedForm?.get(0)?.contentType
-        )
-        assertEquals(
-            "en-AU",
-            data.presentedForm?.get(0)?.language
-        )
-        assertEquals(
-            "HTML Report",
-            data.presentedForm?.get(0)?.title
-        )
-        assertEquals(
-            "#r1",
-            data.result?.get(0)?.reference
-        )
-        assertEquals(
-            "#r2",
-            data.result?.get(1)?.reference
-        )
-        assertEquals(
-            "#r3",
-            data.result?.get(2)?.reference
-        )
-        assertEquals(
-            "#r4",
-            data.result?.get(3)?.reference
-        )
-        assertEquals(
-            "#r5",
-            data.result?.get(4)?.reference
-        )
-        assertEquals(
-            "#r6",
-            data.result?.get(5)?.reference
-        )
-        assertEquals(
-            "#r7",
-            data.result?.get(6)?.reference
-        )
-        assertEquals(
-            "#r8",
-            data.result?.get(7)?.reference
-        )
-        assertEquals(
-            "#r9",
-            data.result?.get(8)?.reference
-        )
-        assertEquals(
-            "#r10",
-            data.result?.get(9)?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/pat2",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport08Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport08Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "HM",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "58410-2",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Complete blood count (hemogram) panel - Blood by Automated count",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "CBC",
+            actual = data.code?.coding?.get(1)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "MASTER FULL BLOOD COUNT",
+            actual = data.code?.coding?.get(1)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Complete Blood Count",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r1",
+            actual = data.contained?.get(0)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r2",
+            actual = data.contained?.get(1)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r3",
+            actual = data.contained?.get(2)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r4",
+            actual = data.contained?.get(3)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r5",
+            actual = data.contained?.get(4)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r6",
+            actual = data.contained?.get(5)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r7",
+            actual = data.contained?.get(6)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r8",
+            actual = data.contained?.get(7)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r9",
+            actual = data.contained?.get(8)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "r10",
+            actual = data.contained?.get(9)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Encounter/example",
+            actual = data.context?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-03-04T08:30:00+11:00",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "101",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://acme.com/lab/reports",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "5234342",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2011-03-04T11:45:33+11:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "01",
+            actual = data.meta?.tag?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Needs Review",
+            actual = data.meta?.tag?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://example.org/fhir/CodeSystem/workflow-codes",
+            actual = data.meta?.tag?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Acme Laboratory, Inc",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Organization/1832473e-2fe0-452d-abe9-3cdb9879522f",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/pdf",
+            actual = data.presentedForm?.get(0)?.contentType
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "en-AU",
+            actual = data.presentedForm?.get(0)?.language
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "HTML Report",
+            actual = data.presentedForm?.get(0)?.title
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r1",
+            actual = data.result?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r2",
+            actual = data.result?.get(1)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r3",
+            actual = data.result?.get(2)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r4",
+            actual = data.result?.get(3)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r5",
+            actual = data.result?.get(4)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r6",
+            actual = data.result?.get(5)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r7",
+            actual = data.result?.get(6)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r8",
+            actual = data.result?.get(7)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r9",
+            actual = data.result?.get(8)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "#r10",
+            actual = data.result?.get(9)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/pat2",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1095,49 +1537,66 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "47527-7",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://loinc.org",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "2013-02-11T10:33:33+11:00",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "pap",
-            data.id
-        )
-        assertEquals(
-            "2013-02-13T11:45:33+11:00",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.performer?.get(0)?.actor?.reference
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51",
-            data.subject?.reference
-        )
-        assertEquals(
-            NarrativeStatus.ADDITIONAL,
-            data.text?.status
-        )
+        assertDiagnosticReport09Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport09Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "47527-7",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://loinc.org",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-02-11T10:33:33+11:00",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "pap",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2013-02-13T11:45:33+11:00",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.performer?.get(0)?.actor?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51",
+            actual = data.subject?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.ADDITIONAL,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -1149,92 +1608,131 @@ class DiagnosticReportTest {
         val data = parser.toFhir(DiagnosticReport::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "PAT",
-            data.category?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Pathology (gross & histopath, not surgical)",
-            data.category?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v2/0074",
-            data.category?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Pathology",
-            data.category?.text
-        )
-        assertEquals(
-            "4503",
-            data.code?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "Biopsy without Microscopic Description (1 Site/Lesion)-Standard",
-            data.code?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://www.acmeonline.com",
-            data.code?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Biopsy without Microscopic Description (1 Site/Lesion)-Standard",
-            data.code?.text
-        )
-        assertEquals(
-            "2017-03-02",
-            data.effectiveDateTime?.value.toString()
-        )
-        assertEquals(
-            "gingival-mass",
-            data.id
-        )
-        assertEquals(
-            "https://www.acmeonline.com",
-            data.identifier?.get(0)?.system
-        )
-        assertEquals(
-            "P73456090",
-            data.identifier?.get(0)?.value
-        )
-        assertEquals(
-            "2017-03-15T08:13:08Z",
-            data.issued?.value.toString()
-        )
-        assertEquals(
-            "Acme Animal Labs",
-            data.performer?.get(0)?.actor?.display
-        )
-        assertEquals(
-            "application/pdf",
-            data.presentedForm?.get(0)?.contentType
-        )
-        assertEquals(
-            "en",
-            data.presentedForm?.get(0)?.language
-        )
-        assertEquals(
-            "LAB ID: P73456090 MAX JONES Biopsy without Microscopic Description (1 Site/Lesion)-Standard",
-            data.presentedForm?.get(0)?.title
-        )
-        assertEquals(
-            DiagnosticReportStatus.FINAL,
-            data.status
-        )
-        assertEquals(
-            "Max Jones",
-            data.subject?.display
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertDiagnosticReport10Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertDiagnosticReport10Step01(data: DiagnosticReport) {
+
+        assertEquals(
+            expected = "PAT",
+            actual = data.category?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pathology (gross & histopath, not surgical)",
+            actual = data.category?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v2/0074",
+            actual = data.category?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Pathology",
+            actual = data.category?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "4503",
+            actual = data.code?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Biopsy without Microscopic Description (1 Site/Lesion)-Standard",
+            actual = data.code?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://www.acmeonline.com",
+            actual = data.code?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Biopsy without Microscopic Description (1 Site/Lesion)-Standard",
+            actual = data.code?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-02",
+            actual = data.effectiveDateTime?.value.toString()
+        )
+
+        assertEquals(
+            expected = "gingival-mass",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://www.acmeonline.com",
+            actual = data.identifier?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "P73456090",
+            actual = data.identifier?.get(0)?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-03-15T08:13:08Z",
+            actual = data.issued?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Acme Animal Labs",
+            actual = data.performer?.get(0)?.actor?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/pdf",
+            actual = data.presentedForm?.get(0)?.contentType
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "en",
+            actual = data.presentedForm?.get(0)?.language
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "LAB ID: P73456090 MAX JONES Biopsy without Microscopic Description (1 Site/Lesion)-Standard",
+            actual = data.presentedForm?.get(0)?.title
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = DiagnosticReportStatus.FINAL,
+            actual = data.status
+        )
+
+        assertEquals(
+            expected = "Max Jones",
+            actual = data.subject?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }

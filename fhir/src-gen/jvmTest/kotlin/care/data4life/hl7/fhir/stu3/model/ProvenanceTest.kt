@@ -54,97 +54,139 @@ class ProvenanceTest {
         val data = parser.toFhir(Provenance::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "AU",
-            data.activity?.code
-        )
-        assertEquals(
-            "authenticated",
-            data.activity?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/DocumentCompletion",
-            data.activity?.system
-        )
-        assertEquals(
-            "VERF",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://www.hl7.org/fhir/contractsignertypecodes",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "mailto://hhd@ssa.gov",
-            data.agent?.get(0)?.whoUri
-        )
-        assertEquals(
-            "signature",
-            data.id
-        )
-        assertEquals(
-            "TREAT",
-            data.reason?.get(0)?.code
-        )
-        assertEquals(
-            "treatment",
-            data.reason?.get(0)?.display
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/ActReason",
-            data.reason?.get(0)?.system
-        )
-        assertEquals(
-            "2015-08-27T08:39:24+10:00",
-            data.recorded?.value.toString()
-        )
-        assertEquals(
-            "Li4u",
-            data.signature?.get(0)?.blob
-        )
-        assertEquals(
-            "application/signature+xml",
-            data.signature?.get(0)?.contentType
-        )
-        assertEquals(
-            "1.2.840.10065.1.12.1.5",
-            data.signature?.get(0)?.type?.get(0)?.code
-        )
-        assertEquals(
-            "Verification Signature",
-            data.signature?.get(0)?.type?.get(0)?.display
-        )
-        assertEquals(
-            "urn:iso-astm:E1762-95:2013",
-            data.signature?.get(0)?.type?.get(0)?.system
-        )
-        assertEquals(
-            "2015-08-27T08:39:24+10:00",
-            data.signature?.get(0)?.whenn?.value.toString()
-        )
-        assertEquals(
-            "Practitioner/xcda-author",
-            data.signature?.get(0)?.whoReference?.reference
-        )
-        assertEquals(
-            "DocumentReference/example",
-            data.target?.get(0)?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProvenance01Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProvenance01Step01(data: Provenance) {
+
+        assertEquals(
+            expected = "AU",
+            actual = data.activity?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "authenticated",
+            actual = data.activity?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/DocumentCompletion",
+            actual = data.activity?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "VERF",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://www.hl7.org/fhir/contractsignertypecodes",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "mailto://hhd@ssa.gov",
+            actual = data.agent?.get(0)?.whoUri
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "signature",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "TREAT",
+            actual = data.reason?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "treatment",
+            actual = data.reason?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/ActReason",
+            actual = data.reason?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-27T08:39:24+10:00",
+            actual = data.recorded?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Li4u",
+            actual = data.signature?.get(0)?.blob
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "application/signature+xml",
+            actual = data.signature?.get(0)?.contentType
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "1.2.840.10065.1.12.1.5",
+            actual = data.signature?.get(0)?.type?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Verification Signature",
+            actual = data.signature?.get(0)?.type?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "urn:iso-astm:E1762-95:2013",
+            actual = data.signature?.get(0)?.type?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-08-27T08:39:24+10:00",
+            actual = data.signature?.get(0)?.whenn?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda-author",
+            actual = data.signature?.get(0)?.whoReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "DocumentReference/example",
+            actual = data.target?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -156,69 +198,96 @@ class ProvenanceTest {
         val data = parser.toFhir(Provenance::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "AUT",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/ParticipationType",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Patient/example",
-            data.agent?.get(0)?.whoReference?.reference
-        )
-        assertEquals(
-            ProvenanceEntityRole.SOURCE,
-            data.entity?.get(0)?.role
-        )
-        assertEquals(
-            "CWL",
-            data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "lobSTR",
-            data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://github.com/common-workflow-language/workflows",
-            data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl",
-            data.entity?.get(0)?.whatIdentifier?.value
-        )
-        assertEquals(
-            "example-cwl",
-            data.id
-        )
-        assertEquals(
-            "2016-11-30",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.",
-            data.reason?.get(0)?.display
-        )
-        assertEquals(
-            "2016-12-01T08:12:14+10:00",
-            data.recorded?.value.toString()
-        )
-        assertEquals(
-            "Sequence/example-pgx-1",
-            data.target?.get(0)?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProvenance02Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProvenance02Step01(data: Provenance) {
+
+        assertEquals(
+            expected = "AUT",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/ParticipationType",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Patient/example",
+            actual = data.agent?.get(0)?.whoReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ProvenanceEntityRole.SOURCE,
+            actual = data.entity?.get(0)?.role
+        )
+
+        assertEquals(
+            expected = "CWL",
+            actual = data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "lobSTR",
+            actual = data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://github.com/common-workflow-language/workflows",
+            actual = data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl",
+            actual = data.entity?.get(0)?.whatIdentifier?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-cwl",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-11-30",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.",
+            actual = data.reason?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-12-01T08:12:14+10:00",
+            actual = data.recorded?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Sequence/example-pgx-1",
+            actual = data.target?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -230,69 +299,96 @@ class ProvenanceTest {
         val data = parser.toFhir(Provenance::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "AUT",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/ParticipationType",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/example",
-            data.agent?.get(0)?.whoReference?.reference
-        )
-        assertEquals(
-            ProvenanceEntityRole.SOURCE,
-            data.entity?.get(0)?.role
-        )
-        assertEquals(
-            "biocompute",
-            data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "obj.1001",
-            data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.display
-        )
-        assertEquals(
-            "https://hive.biochemistry.gwu.edu",
-            data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1",
-            data.entity?.get(0)?.whatIdentifier?.value
-        )
-        assertEquals(
-            "example-biocompute-object",
-            data.id
-        )
-        assertEquals(
-            "2017-06-06",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "antiviral resistance detection",
-            data.reason?.get(0)?.display
-        )
-        assertEquals(
-            "2016-06-09T08:12:14+10:00",
-            data.recorded?.value.toString()
-        )
-        assertEquals(
-            "Sequence/example",
-            data.target?.get(0)?.reference
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProvenance03Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProvenance03Step01(data: Provenance) {
+
+        assertEquals(
+            expected = "AUT",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/ParticipationType",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/example",
+            actual = data.agent?.get(0)?.whoReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ProvenanceEntityRole.SOURCE,
+            actual = data.entity?.get(0)?.role
+        )
+
+        assertEquals(
+            expected = "biocompute",
+            actual = data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "obj.1001",
+            actual = data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://hive.biochemistry.gwu.edu",
+            actual = data.entity?.get(0)?.whatIdentifier?.type?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1",
+            actual = data.entity?.get(0)?.whatIdentifier?.value
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example-biocompute-object",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2017-06-06",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "antiviral resistance detection",
+            actual = data.reason?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2016-06-09T08:12:14+10:00",
+            actual = data.recorded?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Sequence/example",
+            actual = data.target?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 
     @Test
@@ -304,108 +400,154 @@ class ProvenanceTest {
         val data = parser.toFhir(Provenance::class, sourceJson)
 
         // Then
-
-        assertEquals(
-            "#a1",
-            data.agent?.get(0)?.onBehalfOfUri
-        )
-        assertEquals(
-            "used",
-            data.agent?.get(0)?.relatedAgentType?.text
-        )
-        assertEquals(
-            "AUT",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/ParticipationType",
-            data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Practitioner/xcda-author",
-            data.agent?.get(0)?.whoReference?.reference
-        )
-        assertEquals(
-            "a1",
-            data.agent?.get(1)?.id
-        )
-        assertEquals(
-            "DEV",
-            data.agent?.get(1)?.role?.get(0)?.coding?.get(0)?.code
-        )
-        assertEquals(
-            "http://hl7.org/fhir/v3/ParticipationType",
-            data.agent?.get(1)?.role?.get(0)?.coding?.get(0)?.system
-        )
-        assertEquals(
-            "Device/software",
-            data.agent?.get(1)?.whoReference?.reference
-        )
-        assertEquals(
-            ProvenanceEntityRole.SOURCE,
-            data.entity?.get(0)?.role
-        )
-        assertEquals(
-            "CDA Document in XDS repository",
-            data.entity?.get(0)?.whatReference?.display
-        )
-        assertEquals(
-            "DocumentReference/example",
-            data.entity?.get(0)?.whatReference?.reference
-        )
-        assertEquals(
-            "example",
-            data.id
-        )
-        assertEquals(
-            "Location/1",
-            data.location?.reference
-        )
-        assertEquals(
-            "2015-06-28",
-            data.period?.end?.value.toString()
-        )
-        assertEquals(
-            "2015-06-27",
-            data.period?.start?.value.toString()
-        )
-        assertEquals(
-            "http://acme.com/fhir/Consent/25",
-            data.policy?.get(0)
-        )
-        assertEquals(
-            "3457005",
-            data.reason?.get(0)?.code
-        )
-        assertEquals(
-            "Referral",
-            data.reason?.get(0)?.display
-        )
-        assertEquals(
-            "http://snomed.info/sct",
-            data.reason?.get(0)?.system
-        )
-        assertEquals(
-            "2015-06-27T08:39:24+10:00",
-            data.recorded?.value.toString()
-        )
-        assertEquals(
-            "Procedure/example/_history/1",
-            data.target?.get(0)?.reference
-        )
-        assertEquals(
-            "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from XDS managed CDA Referral received 26-June</div>",
-            data.text?.div
-        )
-        assertEquals(
-            NarrativeStatus.GENERATED,
-            data.text?.status
-        )
+        assertProvenance04Step01(data)
 
         // When generating JSON from model
         val json = parser.fromFhir(data)
 
         // Then JSON needs to match original JSON file
         JSONAssert.assertEquals(sourceJson, json, true)
+    }
+
+    private fun assertProvenance04Step01(data: Provenance) {
+
+        assertEquals(
+            expected = "#a1",
+            actual = data.agent?.get(0)?.onBehalfOfUri
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "used",
+            actual = data.agent?.get(0)?.relatedAgentType?.text
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "AUT",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/ParticipationType",
+            actual = data.agent?.get(0)?.role?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Practitioner/xcda-author",
+            actual = data.agent?.get(0)?.whoReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "a1",
+            actual = data.agent?.get(1)?.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "DEV",
+            actual = data.agent?.get(1)?.role?.get(0)?.coding?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://hl7.org/fhir/v3/ParticipationType",
+            actual = data.agent?.get(1)?.role?.get(0)?.coding?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Device/software",
+            actual = data.agent?.get(1)?.whoReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = ProvenanceEntityRole.SOURCE,
+            actual = data.entity?.get(0)?.role
+        )
+
+        assertEquals(
+            expected = "CDA Document in XDS repository",
+            actual = data.entity?.get(0)?.whatReference?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "DocumentReference/example",
+            actual = data.entity?.get(0)?.whatReference?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "example",
+            actual = data.id
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Location/1",
+            actual = data.location?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-06-28",
+            actual = data.period?.end?.value.toString()
+        )
+
+        assertEquals(
+            expected = "2015-06-27",
+            actual = data.period?.start?.value.toString()
+        )
+
+        assertEquals(
+            expected = "http://acme.com/fhir/Consent/25",
+            actual = data.policy?.get(0)
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "3457005",
+            actual = data.reason?.get(0)?.code
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "Referral",
+            actual = data.reason?.get(0)?.display
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "http://snomed.info/sct",
+            actual = data.reason?.get(0)?.system
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "2015-06-27T08:39:24+10:00",
+            actual = data.recorded?.value.toString()
+        )
+
+        assertEquals(
+            expected = "Procedure/example/_history/1",
+            actual = data.target?.get(0)?.reference
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from XDS managed CDA Referral received 26-June</div>",
+            actual = data.text?.div
+                ?.replace("\\n", " ")
+        )
+
+        assertEquals(
+            expected = NarrativeStatus.GENERATED,
+            actual = data.text?.status
+        )
     }
 }
