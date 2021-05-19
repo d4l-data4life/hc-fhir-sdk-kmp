@@ -39,7 +39,7 @@ interface FhirElement : FhirR4 {
     /**
      * Additional content defined by implementations.
      */
-    val extension: List<Extension>?
+    val extension: kotlin.collections.List<Extension>?
 }
 
 /**
@@ -59,7 +59,7 @@ data class Element(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElement {
 
     override val resourceType: String

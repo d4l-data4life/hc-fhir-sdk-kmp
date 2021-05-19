@@ -53,7 +53,7 @@ interface FhirQuestionnaire : FhirDomainResource {
     /**
      * Additional identifier for the questionnaire.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the questionnaire.
@@ -73,7 +73,7 @@ interface FhirQuestionnaire : FhirDomainResource {
     /**
      * Instantiates protocol or definition.
      */
-    val derivedFrom: List<String>?
+    val derivedFrom: kotlin.collections.List<String>?
 
     /**
      * The status of this questionnaire. Enables tracking the life-cycle of the
@@ -90,7 +90,7 @@ interface FhirQuestionnaire : FhirDomainResource {
      * The types of subjects that can be the subject of responses created for the
      * questionnaire.
      */
-    val subjectType: List<ResourceType>?
+    val subjectType: kotlin.collections.List<ResourceType>?
 
     /**
      * Date last changed.
@@ -105,7 +105,7 @@ interface FhirQuestionnaire : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the questionnaire.
@@ -115,12 +115,12 @@ interface FhirQuestionnaire : FhirDomainResource {
     /**
      * The context that the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for questionnaire (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this questionnaire is defined.
@@ -150,12 +150,12 @@ interface FhirQuestionnaire : FhirDomainResource {
     /**
      * Concept that represents the overall questionnaire.
      */
-    val code: List<Coding>?
+    val code: kotlin.collections.List<Coding>?
 
     /**
      * Questions and sections within the Questionnaire.
      */
-    val item: List<QuestionnaireItem>?
+    val item: kotlin.collections.List<QuestionnaireItem>?
 }
 
 /**
@@ -177,7 +177,7 @@ data class Questionnaire(
     override val url: String? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -189,7 +189,7 @@ data class Questionnaire(
     override val title: String? = null,
 
     @SerialName("derivedFrom")
-    override val derivedFrom: List<String>? = null,
+    override val derivedFrom: kotlin.collections.List<String>? = null,
 
     @SerialName("status")
     override val status: PublicationStatus,
@@ -198,7 +198,7 @@ data class Questionnaire(
     override val experimental: Bool? = null,
 
     @SerialName("subjectType")
-    override val subjectType: List<ResourceType>? = null,
+    override val subjectType: kotlin.collections.List<ResourceType>? = null,
 
     @SerialName("date")
     override val date: DateTime? = null,
@@ -207,16 +207,16 @@ data class Questionnaire(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -234,10 +234,10 @@ data class Questionnaire(
     override val effectivePeriod: Period? = null,
 
     @SerialName("code")
-    override val code: List<Coding>? = null,
+    override val code: kotlin.collections.List<Coding>? = null,
 
     @SerialName("item")
-    override val item: List<QuestionnaireItem>? = null,
+    override val item: kotlin.collections.List<QuestionnaireItem>? = null,
 
     // # DomainResource
 
@@ -245,13 +245,13 @@ data class Questionnaire(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -301,7 +301,7 @@ interface FhirQuestionnaireItem : FhirBackboneElement {
     /**
      * Corresponding concept for this item in a terminology.
      */
-    val code: List<Coding>?
+    val code: kotlin.collections.List<Coding>?
 
     /**
      * E.g. "1(a)", "2.5.3".
@@ -323,7 +323,7 @@ interface FhirQuestionnaireItem : FhirBackboneElement {
     /**
      * Only allow data when.
      */
-    val enableWhen: List<QuestionnaireItemEnableWhen>?
+    val enableWhen: kotlin.collections.List<QuestionnaireItemEnableWhen>?
 
     /**
      * Controls how multiple enableWhen values are interpreted - whether all or any
@@ -359,17 +359,17 @@ interface FhirQuestionnaireItem : FhirBackboneElement {
     /**
      * Permitted answer.
      */
-    val answerOption: List<QuestionnaireItemAnswerOption>?
+    val answerOption: kotlin.collections.List<QuestionnaireItemAnswerOption>?
 
     /**
      * Initial value(s) when item is first rendered.
      */
-    val initial: List<QuestionnaireItemInitial>?
+    val initial: kotlin.collections.List<QuestionnaireItemInitial>?
 
     /**
      * Nested questionnaire items.
      */
-    val item: List<QuestionnaireItem>?
+    val item: kotlin.collections.List<QuestionnaireItem>?
 }
 
 /**
@@ -392,7 +392,7 @@ data class QuestionnaireItem(
     override val definition: String? = null,
 
     @SerialName("code")
-    override val code: List<Coding>? = null,
+    override val code: kotlin.collections.List<Coding>? = null,
 
     @SerialName("prefix")
     override val prefix: String? = null,
@@ -404,7 +404,7 @@ data class QuestionnaireItem(
     override val type: QuestionnaireItemType,
 
     @SerialName("enableWhen")
-    override val enableWhen: List<QuestionnaireItemEnableWhen>? = null,
+    override val enableWhen: kotlin.collections.List<QuestionnaireItemEnableWhen>? = null,
 
     @SerialName("enableBehavior")
     override val enableBehavior: EnableWhenBehavior? = null,
@@ -425,18 +425,18 @@ data class QuestionnaireItem(
     override val answerValueSet: String? = null,
 
     @SerialName("answerOption")
-    override val answerOption: List<QuestionnaireItemAnswerOption>? = null,
+    override val answerOption: kotlin.collections.List<QuestionnaireItemAnswerOption>? = null,
 
     @SerialName("initial")
-    override val initial: List<QuestionnaireItemInitial>? = null,
+    override val initial: kotlin.collections.List<QuestionnaireItemInitial>? = null,
 
     @SerialName("item")
-    override val item: List<QuestionnaireItem>? = null,
+    override val item: kotlin.collections.List<QuestionnaireItem>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -444,7 +444,7 @@ data class QuestionnaireItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirQuestionnaireItem {
 
     override val resourceType: String
@@ -540,7 +540,7 @@ data class QuestionnaireItemAnswerOption(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -548,7 +548,7 @@ data class QuestionnaireItemAnswerOption(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirQuestionnaireItemAnswerOption {
 
     override val resourceType: String
@@ -686,7 +686,7 @@ data class QuestionnaireItemEnableWhen(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -694,7 +694,7 @@ data class QuestionnaireItemEnableWhen(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirQuestionnaireItemEnableWhen {
 
     override val resourceType: String
@@ -832,7 +832,7 @@ data class QuestionnaireItemInitial(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -840,7 +840,7 @@ data class QuestionnaireItemInitial(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirQuestionnaireItemInitial {
 
     override val resourceType: String

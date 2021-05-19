@@ -40,17 +40,17 @@ interface FhirObservation : FhirDomainResource {
     /**
      * Business Identifier for observation.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Fulfills plan, proposal or order.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Part of referenced event.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * The status of the result value.
@@ -60,7 +60,7 @@ interface FhirObservation : FhirDomainResource {
     /**
      * Classification of type of observation.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Type of observation (code / type).
@@ -75,7 +75,7 @@ interface FhirObservation : FhirDomainResource {
     /**
      * What the observation is about, when it is not about the subject of record.
      */
-    val focus: List<Reference>?
+    val focus: kotlin.collections.List<Reference>?
 
     /**
      * Healthcare event during which this observation is made.
@@ -110,7 +110,7 @@ interface FhirObservation : FhirDomainResource {
     /**
      * Who is responsible for the observation.
      */
-    val performer: List<Reference>?
+    val performer: kotlin.collections.List<Reference>?
 
     /**
      * Actual result.
@@ -175,12 +175,12 @@ interface FhirObservation : FhirDomainResource {
     /**
      * High, low, normal, etc..
      */
-    val interpretation: List<CodeableConcept>?
+    val interpretation: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Comments about the observation.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Observed body part.
@@ -205,22 +205,22 @@ interface FhirObservation : FhirDomainResource {
     /**
      * Provides guide for interpretation.
      */
-    val referenceRange: List<ObservationReferenceRange>?
+    val referenceRange: kotlin.collections.List<ObservationReferenceRange>?
 
     /**
      * Related resource that belongs to the Observation group.
      */
-    val hasMember: List<Reference>?
+    val hasMember: kotlin.collections.List<Reference>?
 
     /**
      * Related measurements the observation is made from.
      */
-    val derivedFrom: List<Reference>?
+    val derivedFrom: kotlin.collections.List<Reference>?
 
     /**
      * Component results.
      */
-    val component: List<ObservationComponent>?
+    val component: kotlin.collections.List<ObservationComponent>?
 }
 
 /**
@@ -237,19 +237,19 @@ interface FhirObservation : FhirDomainResource {
 data class Observation(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: ObservationStatus,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept,
@@ -258,7 +258,7 @@ data class Observation(
     override val subject: Reference? = null,
 
     @SerialName("focus")
-    override val focus: List<Reference>? = null,
+    override val focus: kotlin.collections.List<Reference>? = null,
 
     @SerialName("encounter")
     override val encounter: Reference? = null,
@@ -279,7 +279,7 @@ data class Observation(
     override val issued: Instant? = null,
 
     @SerialName("performer")
-    override val performer: List<Reference>? = null,
+    override val performer: kotlin.collections.List<Reference>? = null,
 
     @SerialName("valueQuantity")
     override val valueQuantity: Quantity? = null,
@@ -318,10 +318,10 @@ data class Observation(
     override val dataAbsentReason: CodeableConcept? = null,
 
     @SerialName("interpretation")
-    override val interpretation: List<CodeableConcept>? = null,
+    override val interpretation: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("bodySite")
     override val bodySite: CodeableConcept? = null,
@@ -336,16 +336,16 @@ data class Observation(
     override val device: Reference? = null,
 
     @SerialName("referenceRange")
-    override val referenceRange: List<ObservationReferenceRange>? = null,
+    override val referenceRange: kotlin.collections.List<ObservationReferenceRange>? = null,
 
     @SerialName("hasMember")
-    override val hasMember: List<Reference>? = null,
+    override val hasMember: kotlin.collections.List<Reference>? = null,
 
     @SerialName("derivedFrom")
-    override val derivedFrom: List<Reference>? = null,
+    override val derivedFrom: kotlin.collections.List<Reference>? = null,
 
     @SerialName("component")
-    override val component: List<ObservationComponent>? = null,
+    override val component: kotlin.collections.List<ObservationComponent>? = null,
 
     // # DomainResource
 
@@ -353,13 +353,13 @@ data class Observation(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -467,12 +467,12 @@ interface FhirObservationComponent : FhirBackboneElement {
     /**
      * High, low, normal, etc..
      */
-    val interpretation: List<CodeableConcept>?
+    val interpretation: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Provides guide for interpretation of component result.
      */
-    val referenceRange: List<ObservationReferenceRange>?
+    val referenceRange: kotlin.collections.List<ObservationReferenceRange>?
 }
 
 /**
@@ -531,15 +531,15 @@ data class ObservationComponent(
     override val dataAbsentReason: CodeableConcept? = null,
 
     @SerialName("interpretation")
-    override val interpretation: List<CodeableConcept>? = null,
+    override val interpretation: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("referenceRange")
-    override val referenceRange: List<ObservationReferenceRange>? = null,
+    override val referenceRange: kotlin.collections.List<ObservationReferenceRange>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -547,7 +547,7 @@ data class ObservationComponent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirObservationComponent {
 
     override val resourceType: String
@@ -590,7 +590,7 @@ interface FhirObservationReferenceRange : FhirBackboneElement {
     /**
      * Reference range population.
      */
-    val appliesTo: List<CodeableConcept>?
+    val appliesTo: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Applicable age range, if relevant.
@@ -628,7 +628,7 @@ data class ObservationReferenceRange(
     override val type: CodeableConcept? = null,
 
     @SerialName("appliesTo")
-    override val appliesTo: List<CodeableConcept>? = null,
+    override val appliesTo: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("age")
     override val age: Range? = null,
@@ -639,7 +639,7 @@ data class ObservationReferenceRange(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -647,7 +647,7 @@ data class ObservationReferenceRange(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirObservationReferenceRange {
 
     override val resourceType: String

@@ -46,7 +46,7 @@ interface FhirContributor : FhirElement {
     /**
      * Contact details of the contributor.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 }
 
 /**
@@ -70,7 +70,7 @@ data class Contributor(
     override val name: String,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     // # Element
 
@@ -78,7 +78,7 @@ data class Contributor(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContributor {
 
     override val resourceType: String

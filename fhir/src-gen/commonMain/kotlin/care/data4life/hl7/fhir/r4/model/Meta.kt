@@ -52,17 +52,17 @@ interface FhirMeta : FhirElement {
     /**
      * Profiles this resource claims to conform to.
      */
-    val profile: List<String>?
+    val profile: kotlin.collections.List<String>?
 
     /**
      * Security Labels applied to this resource.
      */
-    val security: List<Coding>?
+    val security: kotlin.collections.List<Coding>?
 
     /**
      * Tags applied to this resource.
      */
-    val tag: List<Coding>?
+    val tag: kotlin.collections.List<Coding>?
 }
 
 /**
@@ -90,13 +90,13 @@ data class Meta(
     override val source: String? = null,
 
     @SerialName("profile")
-    override val profile: List<String>? = null,
+    override val profile: kotlin.collections.List<String>? = null,
 
     @SerialName("security")
-    override val security: List<Coding>? = null,
+    override val security: kotlin.collections.List<Coding>? = null,
 
     @SerialName("tag")
-    override val tag: List<Coding>? = null,
+    override val tag: kotlin.collections.List<Coding>? = null,
 
     // # Element
 
@@ -104,7 +104,7 @@ data class Meta(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeta {
 
     override val resourceType: String

@@ -39,7 +39,7 @@ interface FhirMedication : FhirDomainResource {
     /**
      * Business identifier for this medication.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Codes that identify this medication.
@@ -69,7 +69,7 @@ interface FhirMedication : FhirDomainResource {
     /**
      * Active or inactive ingredient.
      */
-    val ingredient: List<MedicationIngredient>?
+    val ingredient: kotlin.collections.List<MedicationIngredient>?
 
     /**
      * Details about packaged medications.
@@ -93,7 +93,7 @@ interface FhirMedication : FhirDomainResource {
 data class Medication(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept? = null,
@@ -111,7 +111,7 @@ data class Medication(
     override val amount: Ratio? = null,
 
     @SerialName("ingredient")
-    override val ingredient: List<MedicationIngredient>? = null,
+    override val ingredient: kotlin.collections.List<MedicationIngredient>? = null,
 
     @SerialName("batch")
     override val batch: MedicationBatch? = null,
@@ -122,13 +122,13 @@ data class Medication(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -198,7 +198,7 @@ data class MedicationBatch(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -206,7 +206,7 @@ data class MedicationBatch(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationBatch {
 
     override val resourceType: String
@@ -278,7 +278,7 @@ data class MedicationIngredient(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -286,7 +286,7 @@ data class MedicationIngredient(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationIngredient {
 
     override val resourceType: String

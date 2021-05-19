@@ -40,7 +40,7 @@ interface FhirGoal : FhirDomainResource {
     /**
      * External Ids for this goal.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * The state of the goal throughout its lifecycle.
@@ -56,7 +56,7 @@ interface FhirGoal : FhirDomainResource {
     /**
      * E.g. Treatment, dietary, behavioral, etc..
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * high-priority | medium-priority | low-priority.
@@ -86,7 +86,7 @@ interface FhirGoal : FhirDomainResource {
     /**
      * Target outcome for the goal.
      */
-    val target: List<GoalTarget>?
+    val target: kotlin.collections.List<GoalTarget>?
 
     /**
      * When goal status took effect.
@@ -106,22 +106,22 @@ interface FhirGoal : FhirDomainResource {
     /**
      * Issues addressed by this goal.
      */
-    val addresses: List<Reference>?
+    val addresses: kotlin.collections.List<Reference>?
 
     /**
      * Comments about the goal.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * What result was achieved regarding the goal?.
      */
-    val outcomeCode: List<CodeableConcept>?
+    val outcomeCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Observation that resulted from goal.
      */
-    val outcomeReference: List<Reference>?
+    val outcomeReference: kotlin.collections.List<Reference>?
 }
 
 /**
@@ -140,7 +140,7 @@ interface FhirGoal : FhirDomainResource {
 data class Goal(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("lifecycleStatus")
     override val lifecycleStatus: GoalLifecycleStatus,
@@ -149,7 +149,7 @@ data class Goal(
     override val achievementStatus: CodeableConcept? = null,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("priority")
     override val priority: CodeableConcept? = null,
@@ -167,7 +167,7 @@ data class Goal(
     override val startCodeableConcept: CodeableConcept? = null,
 
     @SerialName("target")
-    override val target: List<GoalTarget>? = null,
+    override val target: kotlin.collections.List<GoalTarget>? = null,
 
     @SerialName("statusDate")
     override val statusDate: Date? = null,
@@ -179,16 +179,16 @@ data class Goal(
     override val expressedBy: Reference? = null,
 
     @SerialName("addresses")
-    override val addresses: List<Reference>? = null,
+    override val addresses: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("outcomeCode")
-    override val outcomeCode: List<CodeableConcept>? = null,
+    override val outcomeCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("outcomeReference")
-    override val outcomeReference: List<Reference>? = null,
+    override val outcomeReference: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -196,13 +196,13 @@ data class Goal(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -336,7 +336,7 @@ data class GoalTarget(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -344,7 +344,7 @@ data class GoalTarget(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirGoalTarget {
 
     override val resourceType: String

@@ -468,7 +468,7 @@ data class Extension(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirExtension {
 
     override val resourceType: String

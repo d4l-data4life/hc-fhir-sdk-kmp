@@ -83,7 +83,7 @@ data class Reference(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirReference {
 
     override val resourceType: String

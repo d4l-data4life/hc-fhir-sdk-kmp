@@ -261,15 +261,6 @@ object FhirHelper {
                     subclass(Evidence::class)
                     subclass(EvidenceVariable::class)
                     subclass(EvidenceVariableCharacteristic::class)
-                    subclass(ExampleScenario::class)
-                    subclass(ExampleScenarioActor::class)
-                    subclass(ExampleScenarioInstance::class)
-                    subclass(ExampleScenarioInstanceContainedInstance::class)
-                    subclass(ExampleScenarioInstanceVersion::class)
-                    subclass(ExampleScenarioProcess::class)
-                    subclass(ExampleScenarioProcessStep::class)
-                    subclass(ExampleScenarioProcessStepAlternative::class)
-                    subclass(ExampleScenarioProcessStepOperation::class)
                     subclass(ExplanationOfBenefit::class)
                     subclass(ExplanationOfBenefitAccident::class)
                     subclass(ExplanationOfBenefitAddItem::class)
@@ -644,33 +635,6 @@ object FhirHelper {
                     subclass(TerminologyCapabilitiesSoftware::class)
                     subclass(TerminologyCapabilitiesTranslation::class)
                     subclass(TerminologyCapabilitiesValidateCode::class)
-                    subclass(TestReport::class)
-                    subclass(TestReportParticipant::class)
-                    subclass(TestReportSetup::class)
-                    subclass(TestReportSetupAction::class)
-                    subclass(TestReportSetupActionAssert::class)
-                    subclass(TestReportSetupActionOperation::class)
-                    subclass(TestReportTeardown::class)
-                    subclass(TestReportTeardownAction::class)
-                    subclass(TestReportTest::class)
-                    subclass(TestReportTestAction::class)
-                    subclass(TestScript::class)
-                    subclass(TestScriptDestination::class)
-                    subclass(TestScriptFixture::class)
-                    subclass(TestScriptMetadata::class)
-                    subclass(TestScriptMetadataCapability::class)
-                    subclass(TestScriptMetadataLink::class)
-                    subclass(TestScriptOrigin::class)
-                    subclass(TestScriptSetup::class)
-                    subclass(TestScriptSetupAction::class)
-                    subclass(TestScriptSetupActionAssert::class)
-                    subclass(TestScriptSetupActionOperation::class)
-                    subclass(TestScriptSetupActionOperationRequestHeader::class)
-                    subclass(TestScriptTeardown::class)
-                    subclass(TestScriptTeardownAction::class)
-                    subclass(TestScriptTest::class)
-                    subclass(TestScriptTestAction::class)
-                    subclass(TestScriptVariable::class)
                     subclass(Timing::class)
                     subclass(TimingRepeat::class)
                     subclass(TriggerDefinition::class)
@@ -745,7 +709,6 @@ object FhirHelper {
                     subclass(EventDefinition::class)
                     subclass(Evidence::class)
                     subclass(EvidenceVariable::class)
-                    subclass(ExampleScenario::class)
                     subclass(ExplanationOfBenefit::class)
                     subclass(FamilyMemberHistory::class)
                     subclass(Flag::class)
@@ -836,8 +799,6 @@ object FhirHelper {
                     subclass(SupplyRequest::class)
                     subclass(Task::class)
                     subclass(TerminologyCapabilities::class)
-                    subclass(TestReport::class)
-                    subclass(TestScript::class)
                     subclass(ValueSet::class)
                     subclass(VerificationResult::class)
                     subclass(VisionPrescription::class)
@@ -902,7 +863,6 @@ object FhirHelper {
                 EventDefinition::class -> EventDefinition.resourceType()
                 Evidence::class -> Evidence.resourceType()
                 EvidenceVariable::class -> EvidenceVariable.resourceType()
-                ExampleScenario::class -> ExampleScenario.resourceType()
                 ExplanationOfBenefit::class -> ExplanationOfBenefit.resourceType()
                 FamilyMemberHistory::class -> FamilyMemberHistory.resourceType()
                 Flag::class -> Flag.resourceType()
@@ -993,8 +953,6 @@ object FhirHelper {
                 SupplyRequest::class -> SupplyRequest.resourceType()
                 Task::class -> Task.resourceType()
                 TerminologyCapabilities::class -> TerminologyCapabilities.resourceType()
-                TestReport::class -> TestReport.resourceType()
-                TestScript::class -> TestScript.resourceType()
                 ValueSet::class -> ValueSet.resourceType()
                 VerificationResult::class -> VerificationResult.resourceType()
                 VisionPrescription::class -> VisionPrescription.resourceType()
@@ -1056,7 +1014,6 @@ object FhirHelper {
                 "EventDefinition" -> EventDefinition::class
                 "Evidence" -> Evidence::class
                 "EvidenceVariable" -> EvidenceVariable::class
-                "ExampleScenario" -> ExampleScenario::class
                 "ExplanationOfBenefit" -> ExplanationOfBenefit::class
                 "FamilyMemberHistory" -> FamilyMemberHistory::class
                 "Flag" -> Flag::class
@@ -1147,8 +1104,6 @@ object FhirHelper {
                 "SupplyRequest" -> SupplyRequest::class
                 "Task" -> Task::class
                 "TerminologyCapabilities" -> TerminologyCapabilities::class
-                "TestReport" -> TestReport::class
-                "TestScript" -> TestScript::class
                 "ValueSet" -> ValueSet::class
                 "VerificationResult" -> VerificationResult::class
                 "VisionPrescription" -> VisionPrescription::class

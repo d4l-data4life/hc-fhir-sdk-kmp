@@ -37,7 +37,7 @@ interface FhirPractitioner : FhirDomainResource {
     /**
      * An identifier for the person as this agent.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether this practitioner's record is in active use.
@@ -47,18 +47,18 @@ interface FhirPractitioner : FhirDomainResource {
     /**
      * The name(s) associated with the practitioner.
      */
-    val name: List<HumanName>?
+    val name: kotlin.collections.List<HumanName>?
 
     /**
      * A contact detail for the practitioner (that apply to all roles).
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Address(es) of the practitioner that are not role specific (typically home
      * address).
      */
-    val address: List<Address>?
+    val address: kotlin.collections.List<Address>?
 
     /**
      * Administrative Gender - the gender that the person is considered to have for
@@ -74,17 +74,17 @@ interface FhirPractitioner : FhirDomainResource {
     /**
      * Image of the person.
      */
-    val photo: List<Attachment>?
+    val photo: kotlin.collections.List<Attachment>?
 
     /**
      * Certification, licenses, or training pertaining to the provision of care.
      */
-    val qualification: List<PractitionerQualification>?
+    val qualification: kotlin.collections.List<PractitionerQualification>?
 
     /**
      * A language the practitioner can use in patient communication.
      */
-    val communication: List<CodeableConcept>?
+    val communication: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
@@ -101,19 +101,19 @@ interface FhirPractitioner : FhirDomainResource {
 data class Practitioner(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
 
     @SerialName("name")
-    override val name: List<HumanName>? = null,
+    override val name: kotlin.collections.List<HumanName>? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("address")
-    override val address: List<Address>? = null,
+    override val address: kotlin.collections.List<Address>? = null,
 
     @SerialName("gender")
     override val gender: AdministrativeGender? = null,
@@ -122,13 +122,13 @@ data class Practitioner(
     override val birthDate: Date? = null,
 
     @SerialName("photo")
-    override val photo: List<Attachment>? = null,
+    override val photo: kotlin.collections.List<Attachment>? = null,
 
     @SerialName("qualification")
-    override val qualification: List<PractitionerQualification>? = null,
+    override val qualification: kotlin.collections.List<PractitionerQualification>? = null,
 
     @SerialName("communication")
-    override val communication: List<CodeableConcept>? = null,
+    override val communication: kotlin.collections.List<CodeableConcept>? = null,
 
     // # DomainResource
 
@@ -136,13 +136,13 @@ data class Practitioner(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -184,7 +184,7 @@ interface FhirPractitionerQualification : FhirBackboneElement {
     /**
      * An identifier for this qualification for the practitioner.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Coded representation of the qualification.
@@ -218,7 +218,7 @@ interface FhirPractitionerQualification : FhirBackboneElement {
 data class PractitionerQualification(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept,
@@ -232,7 +232,7 @@ data class PractitionerQualification(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -240,7 +240,7 @@ data class PractitionerQualification(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPractitionerQualification {
 
     override val resourceType: String
