@@ -82,7 +82,7 @@ import kotlin.test.assertEquals
  * Generated from FHIR {{ info.version }})
  */
 @Suppress("UNNECESSARY_SAFE_CALL")
-class {{ class.name }}Test {
+class {{ class.name }}FhirTest {
 
     val parser = FhirStu3Parser()
 
