@@ -83,6 +83,17 @@ object FhirHelper {
                     subclass(CareTeamParticipant::class)
                     subclass(ChargeItem::class)
                     subclass(ChargeItemParticipant::class)
+                    subclass(ClaimResponse::class)
+                    subclass(ClaimResponseAddItem::class)
+                    subclass(ClaimResponseAddItemDetail::class)
+                    subclass(ClaimResponseError::class)
+                    subclass(ClaimResponseInsurance::class)
+                    subclass(ClaimResponseItem::class)
+                    subclass(ClaimResponseItemAdjudication::class)
+                    subclass(ClaimResponseItemDetail::class)
+                    subclass(ClaimResponseItemDetailSubDetail::class)
+                    subclass(ClaimResponsePayment::class)
+                    subclass(ClaimResponseProcessNote::class)
                     subclass(ClinicalImpression::class)
                     subclass(ClinicalImpressionFinding::class)
                     subclass(ClinicalImpressionInvestigation::class)
@@ -492,6 +503,7 @@ object FhirHelper {
                     subclass(CarePlan::class)
                     subclass(CareTeam::class)
                     subclass(ChargeItem::class)
+                    subclass(ClaimResponse::class)
                     subclass(ClinicalImpression::class)
                     subclass(CodeSystem::class)
                     subclass(Communication::class)
@@ -617,6 +629,7 @@ object FhirHelper {
                 CarePlan::class -> CarePlan.resourceType()
                 CareTeam::class -> CareTeam.resourceType()
                 ChargeItem::class -> ChargeItem.resourceType()
+                ClaimResponse::class -> ClaimResponse.resourceType()
                 ClinicalImpression::class -> ClinicalImpression.resourceType()
                 CodeSystem::class -> CodeSystem.resourceType()
                 Communication::class -> Communication.resourceType()
@@ -739,6 +752,7 @@ object FhirHelper {
                 "CarePlan" -> CarePlan::class
                 "CareTeam" -> CareTeam::class
                 "ChargeItem" -> ChargeItem::class
+                "ClaimResponse" -> ClaimResponse::class
                 "ClinicalImpression" -> ClinicalImpression::class
                 "CodeSystem" -> CodeSystem::class
                 "Communication" -> Communication::class
