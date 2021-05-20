@@ -39,17 +39,17 @@ interface FhirDomainResource : FhirResource {
     /**
      * Contained, inline Resources.
      */
-    val contained: List<FhirResource>?
+    val contained: kotlin.collections.List<FhirResource>?
 
     /**
      * Additional content defined by implementations.
      */
-    val extension: List<Extension>?
+    val extension: kotlin.collections.List<Extension>?
 
     /**
      * Extensions that cannot be ignored.
      */
-    val modifierExtension: List<Extension>?
+    val modifierExtension: kotlin.collections.List<Extension>?
 }
 
 /**
@@ -69,13 +69,13 @@ data class DomainResource(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

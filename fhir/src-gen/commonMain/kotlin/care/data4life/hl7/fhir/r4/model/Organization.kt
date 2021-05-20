@@ -37,7 +37,7 @@ interface FhirOrganization : FhirDomainResource {
     /**
      * Identifies this organization across multiple systems.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Whether the organization's record is still in active use.
@@ -47,7 +47,7 @@ interface FhirOrganization : FhirDomainResource {
     /**
      * Kind of organization.
      */
-    val type: List<CodeableConcept>?
+    val type: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Name used for the organization.
@@ -58,17 +58,17 @@ interface FhirOrganization : FhirDomainResource {
      * A list of alternate names that the organization is known as, or was known as in
      * the past.
      */
-    val alias: List<String>?
+    val alias: kotlin.collections.List<String>?
 
     /**
      * A contact detail for the organization.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * An address for the organization.
      */
-    val address: List<Address>?
+    val address: kotlin.collections.List<Address>?
 
     /**
      * The organization of which this organization forms a part.
@@ -78,12 +78,12 @@ interface FhirOrganization : FhirDomainResource {
     /**
      * Contact for the organization for a certain purpose.
      */
-    val contact: List<OrganizationContact>?
+    val contact: kotlin.collections.List<OrganizationContact>?
 
     /**
      * Technical endpoints providing access to services operated for the organization.
      */
-    val endpoint: List<Reference>?
+    val endpoint: kotlin.collections.List<Reference>?
 }
 
 /**
@@ -102,34 +102,34 @@ interface FhirOrganization : FhirDomainResource {
 data class Organization(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("active")
     override val active: Bool? = null,
 
     @SerialName("type")
-    override val type: List<CodeableConcept>? = null,
+    override val type: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("name")
     override val name: String? = null,
 
     @SerialName("alias")
-    override val alias: List<String>? = null,
+    override val alias: kotlin.collections.List<String>? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("address")
-    override val address: List<Address>? = null,
+    override val address: kotlin.collections.List<Address>? = null,
 
     @SerialName("partOf")
     override val partOf: Reference? = null,
 
     @SerialName("contact")
-    override val contact: List<OrganizationContact>? = null,
+    override val contact: kotlin.collections.List<OrganizationContact>? = null,
 
     @SerialName("endpoint")
-    override val endpoint: List<Reference>? = null,
+    override val endpoint: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -137,13 +137,13 @@ data class Organization(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -193,7 +193,7 @@ interface FhirOrganizationContact : FhirBackboneElement {
     /**
      * Contact details (telephone, email, etc.) for a contact.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 
     /**
      * Visiting or postal addresses for the contact.
@@ -221,7 +221,7 @@ data class OrganizationContact(
     override val name: HumanName? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     @SerialName("address")
     override val address: Address? = null,
@@ -229,7 +229,7 @@ data class OrganizationContact(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -237,7 +237,7 @@ data class OrganizationContact(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirOrganizationContact {
 
     override val resourceType: String

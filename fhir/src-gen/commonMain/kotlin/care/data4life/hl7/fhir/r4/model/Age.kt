@@ -69,7 +69,7 @@ data class Age(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAge {
 
     override val resourceType: String

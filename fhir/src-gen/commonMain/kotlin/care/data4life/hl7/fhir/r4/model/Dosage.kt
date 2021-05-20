@@ -47,7 +47,7 @@ interface FhirDosage : FhirBackboneElement {
      * Supplemental instruction or warnings to the patient - e.g. "with meals", "may
      * cause drowsiness".
      */
-    val additionalInstruction: List<CodeableConcept>?
+    val additionalInstruction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Patient or consumer oriented instructions.
@@ -87,7 +87,7 @@ interface FhirDosage : FhirBackboneElement {
     /**
      * Amount of medication administered.
      */
-    val doseAndRate: List<DosageDoseAndRate>?
+    val doseAndRate: kotlin.collections.List<DosageDoseAndRate>?
 
     /**
      * Upper limit on medication per unit of time.
@@ -125,7 +125,7 @@ data class Dosage(
     override val text: String? = null,
 
     @SerialName("additionalInstruction")
-    override val additionalInstruction: List<CodeableConcept>? = null,
+    override val additionalInstruction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("patientInstruction")
     override val patientInstruction: String? = null,
@@ -149,7 +149,7 @@ data class Dosage(
     override val method: CodeableConcept? = null,
 
     @SerialName("doseAndRate")
-    override val doseAndRate: List<DosageDoseAndRate>? = null,
+    override val doseAndRate: kotlin.collections.List<DosageDoseAndRate>? = null,
 
     @SerialName("maxDosePerPeriod")
     override val maxDosePerPeriod: Ratio? = null,
@@ -163,7 +163,7 @@ data class Dosage(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -171,7 +171,7 @@ data class Dosage(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDosage {
 
     override val resourceType: String
@@ -262,7 +262,7 @@ data class DosageDoseAndRate(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDosageDoseAndRate {
 
     override val resourceType: String

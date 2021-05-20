@@ -113,7 +113,7 @@ data class ParameterDefinition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirParameterDefinition {
 
     override val resourceType: String

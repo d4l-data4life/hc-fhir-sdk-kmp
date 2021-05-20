@@ -43,7 +43,7 @@ interface FhirTiming : FhirBackboneElement {
     /**
      * When the event occurs.
      */
-    val event: List<DateTime>?
+    val event: kotlin.collections.List<DateTime>?
 
     /**
      * When the event is to occur.
@@ -73,7 +73,7 @@ interface FhirTiming : FhirBackboneElement {
 data class Timing(
 
     @SerialName("event")
-    override val event: List<DateTime>? = null,
+    override val event: kotlin.collections.List<DateTime>? = null,
 
     @SerialName("repeat")
     override val repeat: TimingRepeat? = null,
@@ -84,7 +84,7 @@ data class Timing(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -92,7 +92,7 @@ data class Timing(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTiming {
 
     override val resourceType: String
@@ -184,17 +184,17 @@ interface FhirTimingRepeat : FhirElement {
      * If one or more days of week is provided, then the action happens only on the
      * specified day(s).
      */
-    val dayOfWeek: List<DaysOfWeek>?
+    val dayOfWeek: kotlin.collections.List<DaysOfWeek>?
 
     /**
      * Time of day for action.
      */
-    val timeOfDay: List<Time>?
+    val timeOfDay: kotlin.collections.List<Time>?
 
     /**
      * Code for time period of occurrence.
      */
-    val whenn: List<String>?
+    val whenn: kotlin.collections.List<String>?
 
     /**
      * Minutes from event (before or after).
@@ -255,13 +255,13 @@ data class TimingRepeat(
     override val periodUnit: String? = null,
 
     @SerialName("dayOfWeek")
-    override val dayOfWeek: List<DaysOfWeek>? = null,
+    override val dayOfWeek: kotlin.collections.List<DaysOfWeek>? = null,
 
     @SerialName("timeOfDay")
-    override val timeOfDay: List<Time>? = null,
+    override val timeOfDay: kotlin.collections.List<Time>? = null,
 
     @SerialName("when")
-    override val whenn: List<String>? = null,
+    override val whenn: kotlin.collections.List<String>? = null,
 
     @SerialName("offset")
     override val offset: UnsignedInteger? = null,
@@ -272,7 +272,7 @@ data class TimingRepeat(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTimingRepeat {
 
     override val resourceType: String

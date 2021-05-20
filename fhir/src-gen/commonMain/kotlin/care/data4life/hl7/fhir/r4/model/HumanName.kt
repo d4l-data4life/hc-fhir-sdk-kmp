@@ -50,17 +50,17 @@ interface FhirHumanName : FhirElement {
     /**
      * Given names (not always 'first'). Includes middle names.
      */
-    val given: List<String>?
+    val given: kotlin.collections.List<String>?
 
     /**
      * Parts that come before the name.
      */
-    val prefix: List<String>?
+    val prefix: kotlin.collections.List<String>?
 
     /**
      * Parts that come after the name.
      */
-    val suffix: List<String>?
+    val suffix: kotlin.collections.List<String>?
 
     /**
      * Time period when name was/is in use.
@@ -91,13 +91,13 @@ data class HumanName(
     override val family: String? = null,
 
     @SerialName("given")
-    override val given: List<String>? = null,
+    override val given: kotlin.collections.List<String>? = null,
 
     @SerialName("prefix")
-    override val prefix: List<String>? = null,
+    override val prefix: kotlin.collections.List<String>? = null,
 
     @SerialName("suffix")
-    override val suffix: List<String>? = null,
+    override val suffix: kotlin.collections.List<String>? = null,
 
     @SerialName("period")
     override val period: Period? = null,
@@ -108,7 +108,7 @@ data class HumanName(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirHumanName {
 
     override val resourceType: String

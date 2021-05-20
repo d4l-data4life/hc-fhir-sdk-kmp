@@ -47,12 +47,12 @@ interface FhirQuestionnaireResponse : FhirDomainResource {
     /**
      * Request fulfilled by this QuestionnaireResponse.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Part of this action.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * Form being answered.
@@ -92,7 +92,7 @@ interface FhirQuestionnaireResponse : FhirDomainResource {
     /**
      * Groups and questions.
      */
-    val item: List<QuestionnaireResponseItem>?
+    val item: kotlin.collections.List<QuestionnaireResponseItem>?
 }
 
 /**
@@ -113,10 +113,10 @@ data class QuestionnaireResponse(
     override val identifier: Identifier? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("questionnaire")
     override val questionnaire: String? = null,
@@ -140,7 +140,7 @@ data class QuestionnaireResponse(
     override val source: Reference? = null,
 
     @SerialName("item")
-    override val item: List<QuestionnaireResponseItem>? = null,
+    override val item: kotlin.collections.List<QuestionnaireResponseItem>? = null,
 
     // # DomainResource
 
@@ -148,13 +148,13 @@ data class QuestionnaireResponse(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -209,12 +209,12 @@ interface FhirQuestionnaireResponseItem : FhirBackboneElement {
     /**
      * The response(s) to the question.
      */
-    val answer: List<QuestionnaireResponseItemAnswer>?
+    val answer: kotlin.collections.List<QuestionnaireResponseItemAnswer>?
 
     /**
      * Nested questionnaire response items.
      */
-    val item: List<QuestionnaireResponseItem>?
+    val item: kotlin.collections.List<QuestionnaireResponseItem>?
 }
 
 /**
@@ -240,15 +240,15 @@ data class QuestionnaireResponseItem(
     override val text: String? = null,
 
     @SerialName("answer")
-    override val answer: List<QuestionnaireResponseItemAnswer>? = null,
+    override val answer: kotlin.collections.List<QuestionnaireResponseItemAnswer>? = null,
 
     @SerialName("item")
-    override val item: List<QuestionnaireResponseItem>? = null,
+    override val item: kotlin.collections.List<QuestionnaireResponseItem>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -256,7 +256,7 @@ data class QuestionnaireResponseItem(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirQuestionnaireResponseItem {
 
     override val resourceType: String
@@ -342,7 +342,7 @@ interface FhirQuestionnaireResponseItemAnswer : FhirBackboneElement {
     /**
      * Nested groups and questions.
      */
-    val item: List<QuestionnaireResponseItem>?
+    val item: kotlin.collections.List<QuestionnaireResponseItem>?
 }
 
 /**
@@ -395,12 +395,12 @@ data class QuestionnaireResponseItemAnswer(
     override val valueReference: Reference? = null,
 
     @SerialName("item")
-    override val item: List<QuestionnaireResponseItem>? = null,
+    override val item: kotlin.collections.List<QuestionnaireResponseItem>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -408,7 +408,7 @@ data class QuestionnaireResponseItemAnswer(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirQuestionnaireResponseItemAnswer {
 
     override val resourceType: String

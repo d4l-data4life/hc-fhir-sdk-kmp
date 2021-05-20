@@ -40,27 +40,27 @@ interface FhirServiceRequest : FhirDomainResource {
     /**
      * Identifiers assigned to this order.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates FHIR protocol or definition.
      */
-    val instantiatesCanonical: List<String>?
+    val instantiatesCanonical: kotlin.collections.List<String>?
 
     /**
      * Instantiates external protocol or definition.
      */
-    val instantiatesUri: List<String>?
+    val instantiatesUri: kotlin.collections.List<String>?
 
     /**
      * What request fulfills.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * What request replaces.
      */
-    val replaces: List<Reference>?
+    val replaces: kotlin.collections.List<Reference>?
 
     /**
      * Composite Request ID.
@@ -80,7 +80,7 @@ interface FhirServiceRequest : FhirDomainResource {
     /**
      * Classification of service.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Indicates how quickly the ServiceRequest should be addressed with respect to
@@ -101,7 +101,7 @@ interface FhirServiceRequest : FhirDomainResource {
     /**
      * Additional order information.
      */
-    val orderDetail: List<CodeableConcept>?
+    val orderDetail: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Service amount.
@@ -171,52 +171,52 @@ interface FhirServiceRequest : FhirDomainResource {
     /**
      * Requested performer.
      */
-    val performer: List<Reference>?
+    val performer: kotlin.collections.List<Reference>?
 
     /**
      * Requested location.
      */
-    val locationCode: List<CodeableConcept>?
+    val locationCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Requested location.
      */
-    val locationReference: List<Reference>?
+    val locationReference: kotlin.collections.List<Reference>?
 
     /**
      * Explanation/Justification for procedure or service.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Explanation/Justification for service or service.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Associated insurance coverage.
      */
-    val insurance: List<Reference>?
+    val insurance: kotlin.collections.List<Reference>?
 
     /**
      * Additional clinical information.
      */
-    val supportingInfo: List<Reference>?
+    val supportingInfo: kotlin.collections.List<Reference>?
 
     /**
      * Procedure Samples.
      */
-    val specimen: List<Reference>?
+    val specimen: kotlin.collections.List<Reference>?
 
     /**
      * Location on Body.
      */
-    val bodySite: List<CodeableConcept>?
+    val bodySite: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Comments.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Patient or consumer-oriented instructions.
@@ -226,7 +226,7 @@ interface FhirServiceRequest : FhirDomainResource {
     /**
      * Request provenance.
      */
-    val relevantHistory: List<Reference>?
+    val relevantHistory: kotlin.collections.List<Reference>?
 }
 
 /**
@@ -244,19 +244,19 @@ interface FhirServiceRequest : FhirDomainResource {
 data class ServiceRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("instantiatesCanonical")
-    override val instantiatesCanonical: List<String>? = null,
+    override val instantiatesCanonical: kotlin.collections.List<String>? = null,
 
     @SerialName("instantiatesUri")
-    override val instantiatesUri: List<String>? = null,
+    override val instantiatesUri: kotlin.collections.List<String>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("replaces")
-    override val replaces: List<Reference>? = null,
+    override val replaces: kotlin.collections.List<Reference>? = null,
 
     @SerialName("requisition")
     override val requisition: Identifier? = null,
@@ -268,7 +268,7 @@ data class ServiceRequest(
     override val intent: RequestIntent,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("priority")
     override val priority: RequestPriority? = null,
@@ -280,7 +280,7 @@ data class ServiceRequest(
     override val code: CodeableConcept? = null,
 
     @SerialName("orderDetail")
-    override val orderDetail: List<CodeableConcept>? = null,
+    override val orderDetail: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("quantityQuantity")
     override val quantityQuantity: Quantity? = null,
@@ -322,40 +322,40 @@ data class ServiceRequest(
     override val performerType: CodeableConcept? = null,
 
     @SerialName("performer")
-    override val performer: List<Reference>? = null,
+    override val performer: kotlin.collections.List<Reference>? = null,
 
     @SerialName("locationCode")
-    override val locationCode: List<CodeableConcept>? = null,
+    override val locationCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("locationReference")
-    override val locationReference: List<Reference>? = null,
+    override val locationReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("insurance")
-    override val insurance: List<Reference>? = null,
+    override val insurance: kotlin.collections.List<Reference>? = null,
 
     @SerialName("supportingInfo")
-    override val supportingInfo: List<Reference>? = null,
+    override val supportingInfo: kotlin.collections.List<Reference>? = null,
 
     @SerialName("specimen")
-    override val specimen: List<Reference>? = null,
+    override val specimen: kotlin.collections.List<Reference>? = null,
 
     @SerialName("bodySite")
-    override val bodySite: List<CodeableConcept>? = null,
+    override val bodySite: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("patientInstruction")
     override val patientInstruction: String? = null,
 
     @SerialName("relevantHistory")
-    override val relevantHistory: List<Reference>? = null,
+    override val relevantHistory: kotlin.collections.List<Reference>? = null,
 
     // # DomainResource
 
@@ -363,13 +363,13 @@ data class ServiceRequest(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 

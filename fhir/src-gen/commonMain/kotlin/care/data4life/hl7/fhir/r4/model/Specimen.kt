@@ -36,7 +36,7 @@ interface FhirSpecimen : FhirDomainResource {
     /**
      * External Identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Identifier assigned by the lab.
@@ -68,12 +68,12 @@ interface FhirSpecimen : FhirDomainResource {
     /**
      * Specimen from which this specimen originated.
      */
-    val parent: List<Reference>?
+    val parent: kotlin.collections.List<Reference>?
 
     /**
      * Why the specimen was collected.
      */
-    val request: List<Reference>?
+    val request: kotlin.collections.List<Reference>?
 
     /**
      * Collection details.
@@ -83,22 +83,22 @@ interface FhirSpecimen : FhirDomainResource {
     /**
      * Processing and processing step details.
      */
-    val processing: List<SpecimenProcessing>?
+    val processing: kotlin.collections.List<SpecimenProcessing>?
 
     /**
      * Direct container of specimen (tube/slide, etc.).
      */
-    val container: List<SpecimenContainer>?
+    val container: kotlin.collections.List<SpecimenContainer>?
 
     /**
      * State of the specimen.
      */
-    val condition: List<CodeableConcept>?
+    val condition: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Comments.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
@@ -115,7 +115,7 @@ interface FhirSpecimen : FhirDomainResource {
 data class Specimen(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("accessionIdentifier")
     override val accessionIdentifier: Identifier? = null,
@@ -133,25 +133,25 @@ data class Specimen(
     override val receivedTime: DateTime? = null,
 
     @SerialName("parent")
-    override val parent: List<Reference>? = null,
+    override val parent: kotlin.collections.List<Reference>? = null,
 
     @SerialName("request")
-    override val request: List<Reference>? = null,
+    override val request: kotlin.collections.List<Reference>? = null,
 
     @SerialName("collection")
     override val collection: SpecimenCollection? = null,
 
     @SerialName("processing")
-    override val processing: List<SpecimenProcessing>? = null,
+    override val processing: kotlin.collections.List<SpecimenProcessing>? = null,
 
     @SerialName("container")
-    override val container: List<SpecimenContainer>? = null,
+    override val container: kotlin.collections.List<SpecimenContainer>? = null,
 
     @SerialName("condition")
-    override val condition: List<CodeableConcept>? = null,
+    override val condition: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # DomainResource
 
@@ -159,13 +159,13 @@ data class Specimen(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -291,7 +291,7 @@ data class SpecimenCollection(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -299,7 +299,7 @@ data class SpecimenCollection(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSpecimenCollection {
 
     override val resourceType: String
@@ -326,7 +326,7 @@ interface FhirSpecimenContainer : FhirBackboneElement {
     /**
      * Id for the container.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Textual description of the container.
@@ -374,7 +374,7 @@ interface FhirSpecimenContainer : FhirBackboneElement {
 data class SpecimenContainer(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("description")
     override val description: String? = null,
@@ -397,7 +397,7 @@ data class SpecimenContainer(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -405,7 +405,7 @@ data class SpecimenContainer(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSpecimenContainer {
 
     override val resourceType: String
@@ -441,7 +441,7 @@ interface FhirSpecimenProcessing : FhirBackboneElement {
     /**
      * Material used in the processing step.
      */
-    val additive: List<Reference>?
+    val additive: kotlin.collections.List<Reference>?
 
     /**
      * Date and time of specimen processing.
@@ -474,7 +474,7 @@ data class SpecimenProcessing(
     override val procedure: CodeableConcept? = null,
 
     @SerialName("additive")
-    override val additive: List<Reference>? = null,
+    override val additive: kotlin.collections.List<Reference>? = null,
 
     @SerialName("timeDateTime")
     override val timeDateTime: DateTime? = null,
@@ -485,7 +485,7 @@ data class SpecimenProcessing(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -493,7 +493,7 @@ data class SpecimenProcessing(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSpecimenProcessing {
 
     override val resourceType: String

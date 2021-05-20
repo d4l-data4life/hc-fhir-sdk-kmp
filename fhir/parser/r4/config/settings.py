@@ -22,18 +22,18 @@ tpl_codesystems_target = 'codesystems'                      # target directory t
 tpl_codesystems_target_ptrn = '{}.kt'                       # the filename to use for the generated code systems and value sets (in `tpl_resource_target`)
 
 # Whether and where to put the factory methods
-write_factory = False
+write_factory = True
 tpl_factory_source = 'template-elementfactory.kt'           # the template to use for factory generation
-tpl_factory_target = 'models/FhirElementFactory.kt'         # where to write the generated factory
-write_dependencies = True
-tpl_dependencies_source = 'template-serialization.kt'       # template used to render the serialization dependency graph
-tpl_dependencies_target = 'models/FhirSerializationModule.kt'      # write serialization module
+tpl_factory_target = 'models/FhirHelper.kt'                 # where to write the generated factory
+write_dependencies = False
+tpl_dependencies_source = 'template-dependencies.kt'       # template used to render the serialization dependency graph
+tpl_dependencies_target = 'models/FhirDependencies.kt'      # write serialization module
 
 #Whether and where to write unit tests
 write_unittests = True
 tpl_unittest_source = 'template-unittest.kt'                # the template to use for unit test generation
 tpl_unittest_target = 'tests'                               # target directory to write the generated unit test files to
-tpl_unittest_target_ptrn = '{}Test.kt'                      # a pattern to determine the output files for unit tests; the one placeholder will be the class name
+tpl_unittest_target_ptrn = '{}FhirTest.kt'                      # a pattern to determine the output files for unit tests; the one placeholder will be the class name
 unittest_copyfiles = [                                      # array of file names to copy to the test directory `tpl_unittest_target` (e.g. unit test base classes)
 ]
 

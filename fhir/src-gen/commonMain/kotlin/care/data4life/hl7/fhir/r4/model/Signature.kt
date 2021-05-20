@@ -38,7 +38,7 @@ interface FhirSignature : FhirElement {
     /**
      * Indication of the reason the entity signed the object(s).
      */
-    val type: List<Coding>
+    val type: kotlin.collections.List<Coding>
 
     /**
      * When the signature was created.
@@ -88,7 +88,7 @@ interface FhirSignature : FhirElement {
 data class Signature(
 
     @SerialName("type")
-    override val type: List<Coding>,
+    override val type: kotlin.collections.List<Coding>,
 
     @SerialName("when")
     override val whenn: Instant,
@@ -114,7 +114,7 @@ data class Signature(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSignature {
 
     override val resourceType: String

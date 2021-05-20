@@ -42,32 +42,32 @@ interface FhirCarePlan : FhirDomainResource {
     /**
      * External Ids for this plan.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates FHIR protocol or definition.
      */
-    val instantiatesCanonical: List<String>?
+    val instantiatesCanonical: kotlin.collections.List<String>?
 
     /**
      * Instantiates external protocol or definition.
      */
-    val instantiatesUri: List<String>?
+    val instantiatesUri: kotlin.collections.List<String>?
 
     /**
      * Fulfills CarePlan.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * CarePlan replaced by this CarePlan.
      */
-    val replaces: List<Reference>?
+    val replaces: kotlin.collections.List<Reference>?
 
     /**
      * Part of referenced CarePlan.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * Indicates whether the plan is currently being acted upon, represents future
@@ -86,7 +86,7 @@ interface FhirCarePlan : FhirDomainResource {
     /**
      * Type of plan.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Human-friendly name for the care plan.
@@ -126,37 +126,37 @@ interface FhirCarePlan : FhirDomainResource {
     /**
      * Who provided the content of the care plan.
      */
-    val contributor: List<Reference>?
+    val contributor: kotlin.collections.List<Reference>?
 
     /**
      * Who's involved in plan?.
      */
-    val careTeam: List<Reference>?
+    val careTeam: kotlin.collections.List<Reference>?
 
     /**
      * Health issues this plan addresses.
      */
-    val addresses: List<Reference>?
+    val addresses: kotlin.collections.List<Reference>?
 
     /**
      * Information considered as part of plan.
      */
-    val supportingInfo: List<Reference>?
+    val supportingInfo: kotlin.collections.List<Reference>?
 
     /**
      * Desired outcome of plan.
      */
-    val goal: List<Reference>?
+    val goal: kotlin.collections.List<Reference>?
 
     /**
      * Action to occur as part of plan.
      */
-    val activity: List<CarePlanActivity>?
+    val activity: kotlin.collections.List<CarePlanActivity>?
 
     /**
      * Comments about the plan.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
@@ -175,22 +175,22 @@ interface FhirCarePlan : FhirDomainResource {
 data class CarePlan(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("instantiatesCanonical")
-    override val instantiatesCanonical: List<String>? = null,
+    override val instantiatesCanonical: kotlin.collections.List<String>? = null,
 
     @SerialName("instantiatesUri")
-    override val instantiatesUri: List<String>? = null,
+    override val instantiatesUri: kotlin.collections.List<String>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("replaces")
-    override val replaces: List<Reference>? = null,
+    override val replaces: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: RequestStatus,
@@ -199,7 +199,7 @@ data class CarePlan(
     override val intent: RequestIntent,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("title")
     override val title: String? = null,
@@ -223,25 +223,25 @@ data class CarePlan(
     override val author: Reference? = null,
 
     @SerialName("contributor")
-    override val contributor: List<Reference>? = null,
+    override val contributor: kotlin.collections.List<Reference>? = null,
 
     @SerialName("careTeam")
-    override val careTeam: List<Reference>? = null,
+    override val careTeam: kotlin.collections.List<Reference>? = null,
 
     @SerialName("addresses")
-    override val addresses: List<Reference>? = null,
+    override val addresses: kotlin.collections.List<Reference>? = null,
 
     @SerialName("supportingInfo")
-    override val supportingInfo: List<Reference>? = null,
+    override val supportingInfo: kotlin.collections.List<Reference>? = null,
 
     @SerialName("goal")
-    override val goal: List<Reference>? = null,
+    override val goal: kotlin.collections.List<Reference>? = null,
 
     @SerialName("activity")
-    override val activity: List<CarePlanActivity>? = null,
+    override val activity: kotlin.collections.List<CarePlanActivity>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     // # DomainResource
 
@@ -249,13 +249,13 @@ data class CarePlan(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -296,17 +296,17 @@ interface FhirCarePlanActivity : FhirBackboneElement {
     /**
      * Results of the activity.
      */
-    val outcomeCodeableConcept: List<CodeableConcept>?
+    val outcomeCodeableConcept: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Appointment, Encounter, Procedure, etc..
      */
-    val outcomeReference: List<Reference>?
+    val outcomeReference: kotlin.collections.List<Reference>?
 
     /**
      * Comments about the activity status/progress.
      */
-    val progress: List<Annotation>?
+    val progress: kotlin.collections.List<Annotation>?
 
     /**
      * Activity details defined in specific resource.
@@ -334,13 +334,13 @@ interface FhirCarePlanActivity : FhirBackboneElement {
 data class CarePlanActivity(
 
     @SerialName("outcomeCodeableConcept")
-    override val outcomeCodeableConcept: List<CodeableConcept>? = null,
+    override val outcomeCodeableConcept: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("outcomeReference")
-    override val outcomeReference: List<Reference>? = null,
+    override val outcomeReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("progress")
-    override val progress: List<Annotation>? = null,
+    override val progress: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("reference")
     override val reference: Reference? = null,
@@ -351,7 +351,7 @@ data class CarePlanActivity(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -359,7 +359,7 @@ data class CarePlanActivity(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCarePlanActivity {
 
     override val resourceType: String
@@ -396,12 +396,12 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
     /**
      * Instantiates FHIR protocol or definition.
      */
-    val instantiatesCanonical: List<String>?
+    val instantiatesCanonical: kotlin.collections.List<String>?
 
     /**
      * Instantiates external protocol or definition.
      */
-    val instantiatesUri: List<String>?
+    val instantiatesUri: kotlin.collections.List<String>?
 
     /**
      * Detail type of activity.
@@ -411,17 +411,17 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
     /**
      * Why activity should be done or why activity was prohibited.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why activity is needed.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Goals this activity relates to.
      */
-    val goal: List<Reference>?
+    val goal: kotlin.collections.List<Reference>?
 
     /**
      * Identifies what progress is being made for the specific activity.
@@ -461,7 +461,7 @@ interface FhirCarePlanActivityDetail : FhirBackboneElement {
     /**
      * Who will be responsible?.
      */
-    val performer: List<Reference>?
+    val performer: kotlin.collections.List<Reference>?
 
     /**
      * What is to be administered/supplied.
@@ -507,22 +507,22 @@ data class CarePlanActivityDetail(
     override val kind: ResourceType? = null,
 
     @SerialName("instantiatesCanonical")
-    override val instantiatesCanonical: List<String>? = null,
+    override val instantiatesCanonical: kotlin.collections.List<String>? = null,
 
     @SerialName("instantiatesUri")
-    override val instantiatesUri: List<String>? = null,
+    override val instantiatesUri: kotlin.collections.List<String>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("goal")
-    override val goal: List<Reference>? = null,
+    override val goal: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: CarePlanActivityStatus,
@@ -546,7 +546,7 @@ data class CarePlanActivityDetail(
     override val location: Reference? = null,
 
     @SerialName("performer")
-    override val performer: List<Reference>? = null,
+    override val performer: kotlin.collections.List<Reference>? = null,
 
     @SerialName("productCodeableConcept")
     override val productCodeableConcept: CodeableConcept? = null,
@@ -566,7 +566,7 @@ data class CarePlanActivityDetail(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -574,7 +574,7 @@ data class CarePlanActivityDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCarePlanActivityDetail {
 
     override val resourceType: String

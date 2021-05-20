@@ -39,7 +39,7 @@ interface FhirContactDetail : FhirElement {
     /**
      * Contact details for individual or organization.
      */
-    val telecom: List<ContactPoint>?
+    val telecom: kotlin.collections.List<ContactPoint>?
 }
 
 /**
@@ -59,7 +59,7 @@ data class ContactDetail(
     override val name: String? = null,
 
     @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     // # Element
 
@@ -67,7 +67,7 @@ data class ContactDetail(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContactDetail {
 
     override val resourceType: String

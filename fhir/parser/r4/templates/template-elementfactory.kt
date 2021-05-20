@@ -14,83 +14,77 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.r4.model;
+package care.data4life.hl7.fhir.r4.model
 
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
+import kotlin.reflect.KClass
 
-{%- set resource_list = [
-    "Address",
-    "Age",
-    "Annotation",
-    "Attachment",
-    "BackboneElement",
-    "CarePlan",
-    "CareTeam",
-    "CodeableConcept",
-    "CodeSystem",
-    "Coding",
-    "Condition",
-    "ContactDetail",
-    "ContactPoint",
-    "Count",
-    "DiagnosticReport",
-    "Distance",
-    "DocumentReference",
-    "DomainResource",
-    "Dosage",
-    "Duration",
-    "Element",
-    "Encounter",
-    "Extension",
-    "FamilyMemberHistory",
-    "FhirElementFact",
-    "Goal",
-    "HumanName",
-    "Identifier",
-    "Location",
-    "Medication",
-    "MedicationRequest",
-    "MedicationStatement",
-    "Meta",
-    "Money",
-    "Narrative",
-    "Observation",
-    "Organization",
-    "Patient",
-    "Period",
-    "Practitioner",
-    "PractitionerRole",
-    "Procedure",
-    "ProcedureRequest",
-    "Provenance",
-    "Quantity",
-    "Questionnaire",
-    "QuestionnaireResponse",
-    "Range",
-    "Ratio",
-    "Reference",
-    "ReferralRequest",
-    "Resource",
-    "SampledData",
-    "ServiceRequest",
-    "Signature",
-    "Specimen",
-    "Substance",
-    "Timing",
-    "UsageContext",
-    "ValueSet"
-] -%}
+{#- this exclude_resources need to be in sync with the generateFhir.main.kts script #}
+{%- set exclude_resources = [
+    "ExampleScenario",
+] %}
 
-object FhirElementFactory {
+{%- set exclusions = [] %}
+{%- for klass in classes %}
+{%- for exclude in exclude_resources %}
+{%- if exclude in klass.name %}
+{%- set _ = exclusions.append( klass.name ) %}
+{%- endif %}
+{%- endfor %}
+{%- endfor %}
 
-    public fun module() : SerializersModule {
-        return SerializersModule{
-            polymorphic(FhirR4::class{%- for klass in classes %}{% if klass.name in resource_list %},Fhir{{ klass.name }}::class{%- endif %}{% endfor %}){
-            {%- for klass in classes %}{% if klass.name in resource_list %}
-                {{ klass.name }}::class with {{ klass.name }}.serializer()
-            {%- endif %}{% endfor %}
+object FhirHelper {
+
+    object FhirSerializationModule {
+        fun module(): SerializersModule {
+            return SerializersModule {
+                polymorphic(FhirR4::class) {
+{%- for klass in classes %}
+{%- if not klass.name in exclusions %}
+                    subclass({{ klass.name }}::class)
+{%- endif %}
+{%- endfor %}
+                }
+                polymorphic(FhirResource::class) {
+{%- for klass in classes %}
+{%- if klass.resource_type %}
+{%- if not klass.name in exclusions %}
+                    subclass({{ klass.name }}::class)
+{%- endif %}
+{%- endif %}
+{%- endfor %}
+                }
+            }
+        }
+    }
+
+    object FhirElementFactory {
+
+        fun <T : FhirR4> getFhirResourceType(klass: KClass<T>): String {
+            return when (klass) {
+{%- for klass in classes %}
+{%- if klass.resource_type %}
+{%- if not klass.name in exclusions %}
+                {{ klass.name }}::class -> {{ klass.name}}.resourceType()
+{%- endif %}
+{%- endif %}
+{%- endfor %}
+                else -> throw IllegalArgumentException("FHIR class unknown: $klass")
+            }
+        }
+
+        fun getFhirClass(resourceType: String): KClass<*> {
+            return when (resourceType) {
+{%- for klass in classes %}
+{%- if klass.resource_type %}
+{%- if not klass.name in exclusions %}
+                "{{ klass.name }}" -> {{ klass.name}}::class
+{%- endif %}
+{%- endif %}
+{%- endfor %}
+                else -> throw IllegalArgumentException("FHIR resourceType unknown: $resourceType")
             }
         }
     }

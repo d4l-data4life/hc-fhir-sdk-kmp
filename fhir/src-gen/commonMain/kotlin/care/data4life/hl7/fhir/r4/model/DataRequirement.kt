@@ -43,7 +43,7 @@ interface FhirDataRequirement : FhirElement {
     /**
      * The profile of the required data.
      */
-    val profile: List<String>?
+    val profile: kotlin.collections.List<String>?
 
     /**
      * E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device.
@@ -59,17 +59,17 @@ interface FhirDataRequirement : FhirElement {
      * Indicates specific structure elements that are referenced by the knowledge
      * module.
      */
-    val mustSupport: List<String>?
+    val mustSupport: kotlin.collections.List<String>?
 
     /**
      * What codes are expected.
      */
-    val codeFilter: List<DataRequirementCodeFilter>?
+    val codeFilter: kotlin.collections.List<DataRequirementCodeFilter>?
 
     /**
      * What dates/date ranges are expected.
      */
-    val dateFilter: List<DataRequirementDateFilter>?
+    val dateFilter: kotlin.collections.List<DataRequirementDateFilter>?
 
     /**
      * Number of results.
@@ -79,7 +79,7 @@ interface FhirDataRequirement : FhirElement {
     /**
      * Order of the results.
      */
-    val sort: List<DataRequirementSort>?
+    val sort: kotlin.collections.List<DataRequirementSort>?
 }
 
 /**
@@ -100,7 +100,7 @@ data class DataRequirement(
     override val type: String,
 
     @SerialName("profile")
-    override val profile: List<String>? = null,
+    override val profile: kotlin.collections.List<String>? = null,
 
     @SerialName("subjectCodeableConcept")
     override val subjectCodeableConcept: CodeableConcept? = null,
@@ -109,19 +109,19 @@ data class DataRequirement(
     override val subjectReference: Reference? = null,
 
     @SerialName("mustSupport")
-    override val mustSupport: List<String>? = null,
+    override val mustSupport: kotlin.collections.List<String>? = null,
 
     @SerialName("codeFilter")
-    override val codeFilter: List<DataRequirementCodeFilter>? = null,
+    override val codeFilter: kotlin.collections.List<DataRequirementCodeFilter>? = null,
 
     @SerialName("dateFilter")
-    override val dateFilter: List<DataRequirementDateFilter>? = null,
+    override val dateFilter: kotlin.collections.List<DataRequirementDateFilter>? = null,
 
     @SerialName("limit")
     override val limit: PositiveInteger? = null,
 
     @SerialName("sort")
-    override val sort: List<DataRequirementSort>? = null,
+    override val sort: kotlin.collections.List<DataRequirementSort>? = null,
 
     // # Element
 
@@ -129,7 +129,7 @@ data class DataRequirement(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataRequirement {
 
     override val resourceType: String
@@ -172,7 +172,7 @@ interface FhirDataRequirementCodeFilter : FhirElement {
     /**
      * What code is expected.
      */
-    val code: List<Coding>?
+    val code: kotlin.collections.List<Coding>?
 }
 
 /**
@@ -200,7 +200,7 @@ data class DataRequirementCodeFilter(
     override val valueSet: String? = null,
 
     @SerialName("code")
-    override val code: List<Coding>? = null,
+    override val code: kotlin.collections.List<Coding>? = null,
 
     // # Element
 
@@ -208,7 +208,7 @@ data class DataRequirementCodeFilter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataRequirementCodeFilter {
 
     override val resourceType: String
@@ -295,7 +295,7 @@ data class DataRequirementDateFilter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataRequirementDateFilter {
 
     override val resourceType: String
@@ -354,7 +354,7 @@ data class DataRequirementSort(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDataRequirementSort {
 
     override val resourceType: String

@@ -108,7 +108,7 @@ data class RelatedArtifact(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRelatedArtifact {
 
     override val resourceType: String

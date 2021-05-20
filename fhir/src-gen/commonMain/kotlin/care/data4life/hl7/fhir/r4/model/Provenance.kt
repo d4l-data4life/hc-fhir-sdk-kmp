@@ -44,7 +44,7 @@ interface FhirProvenance : FhirDomainResource {
     /**
      * Target Reference(s) (usually version specific).
      */
-    val target: List<Reference>
+    val target: kotlin.collections.List<Reference>
 
     /**
      * When the activity occurred.
@@ -64,7 +64,7 @@ interface FhirProvenance : FhirDomainResource {
     /**
      * Policy or plan the activity was defined by.
      */
-    val policy: List<String>?
+    val policy: kotlin.collections.List<String>?
 
     /**
      * Where the activity occurred, if relevant.
@@ -74,7 +74,7 @@ interface FhirProvenance : FhirDomainResource {
     /**
      * Reason the activity is occurring.
      */
-    val reason: List<CodeableConcept>?
+    val reason: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Activity that occurred.
@@ -84,17 +84,17 @@ interface FhirProvenance : FhirDomainResource {
     /**
      * Actor involved.
      */
-    val agent: List<ProvenanceAgent>
+    val agent: kotlin.collections.List<ProvenanceAgent>
 
     /**
      * An entity used in this activity.
      */
-    val entity: List<ProvenanceEntity>?
+    val entity: kotlin.collections.List<ProvenanceEntity>?
 
     /**
      * Signature on target.
      */
-    val signature: List<Signature>?
+    val signature: kotlin.collections.List<Signature>?
 }
 
 /**
@@ -118,7 +118,7 @@ interface FhirProvenance : FhirDomainResource {
 data class Provenance(
 
     @SerialName("target")
-    override val target: List<Reference>,
+    override val target: kotlin.collections.List<Reference>,
 
     @SerialName("occurredPeriod")
     override val occurredPeriod: Period? = null,
@@ -130,25 +130,25 @@ data class Provenance(
     override val recorded: Instant,
 
     @SerialName("policy")
-    override val policy: List<String>? = null,
+    override val policy: kotlin.collections.List<String>? = null,
 
     @SerialName("location")
     override val location: Reference? = null,
 
     @SerialName("reason")
-    override val reason: List<CodeableConcept>? = null,
+    override val reason: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("activity")
     override val activity: CodeableConcept? = null,
 
     @SerialName("agent")
-    override val agent: List<ProvenanceAgent>,
+    override val agent: kotlin.collections.List<ProvenanceAgent>,
 
     @SerialName("entity")
-    override val entity: List<ProvenanceEntity>? = null,
+    override val entity: kotlin.collections.List<ProvenanceEntity>? = null,
 
     @SerialName("signature")
-    override val signature: List<Signature>? = null,
+    override val signature: kotlin.collections.List<Signature>? = null,
 
     // # DomainResource
 
@@ -156,13 +156,13 @@ data class Provenance(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -208,7 +208,7 @@ interface FhirProvenanceAgent : FhirBackboneElement {
     /**
      * What the agents role was.
      */
-    val role: List<CodeableConcept>?
+    val role: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Who participated.
@@ -239,7 +239,7 @@ data class ProvenanceAgent(
     override val type: CodeableConcept? = null,
 
     @SerialName("role")
-    override val role: List<CodeableConcept>? = null,
+    override val role: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("who")
     override val who: Reference,
@@ -250,7 +250,7 @@ data class ProvenanceAgent(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -258,7 +258,7 @@ data class ProvenanceAgent(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirProvenanceAgent {
 
     override val resourceType: String
@@ -294,7 +294,7 @@ interface FhirProvenanceEntity : FhirBackboneElement {
     /**
      * Entity is attributed to this agent.
      */
-    val agent: List<ProvenanceAgent>?
+    val agent: kotlin.collections.List<ProvenanceAgent>?
 }
 
 /**
@@ -317,12 +317,12 @@ data class ProvenanceEntity(
     override val what: Reference,
 
     @SerialName("agent")
-    override val agent: List<ProvenanceAgent>? = null,
+    override val agent: kotlin.collections.List<ProvenanceAgent>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -330,7 +330,7 @@ data class ProvenanceEntity(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirProvenanceEntity {
 
     override val resourceType: String

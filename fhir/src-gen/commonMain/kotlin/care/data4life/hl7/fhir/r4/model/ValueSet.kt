@@ -48,7 +48,7 @@ interface FhirValueSet : FhirDomainResource {
     /**
      * Additional identifier for the value set (business identifier).
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Business version of the value set.
@@ -91,7 +91,7 @@ interface FhirValueSet : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the value set.
@@ -101,12 +101,12 @@ interface FhirValueSet : FhirDomainResource {
     /**
      * The context that the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for value set (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Indicates whether or not any change to the content logical definition may occur.
@@ -153,7 +153,7 @@ data class ValueSet(
     override val url: String? = null,
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("version")
     override val version: String? = null,
@@ -177,16 +177,16 @@ data class ValueSet(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("immutable")
     override val immutable: Bool? = null,
@@ -209,13 +209,13 @@ data class ValueSet(
     override val text: Narrative? = null,
 
     @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
+    override val contained: kotlin.collections.List<FhirResource>? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null,
+    override val extension: kotlin.collections.List<Extension>? = null,
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
 
@@ -267,12 +267,12 @@ interface FhirValueSetCompose : FhirBackboneElement {
     /**
      * Include one or more codes from a code system or other value set(s).
      */
-    val include: List<ValueSetComposeInclude>
+    val include: kotlin.collections.List<ValueSetComposeInclude>
 
     /**
      * Explicitly exclude codes from a code system or other value sets.
      */
-    val exclude: List<ValueSetComposeInclude>?
+    val exclude: kotlin.collections.List<ValueSetComposeInclude>?
 }
 
 /**
@@ -297,15 +297,15 @@ data class ValueSetCompose(
     override val inactive: Bool? = null,
 
     @SerialName("include")
-    override val include: List<ValueSetComposeInclude>,
+    override val include: kotlin.collections.List<ValueSetComposeInclude>,
 
     @SerialName("exclude")
-    override val exclude: List<ValueSetComposeInclude>? = null,
+    override val exclude: kotlin.collections.List<ValueSetComposeInclude>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -313,7 +313,7 @@ data class ValueSetCompose(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetCompose {
 
     override val resourceType: String
@@ -349,17 +349,17 @@ interface FhirValueSetComposeInclude : FhirBackboneElement {
     /**
      * A concept defined in the system.
      */
-    val concept: List<ValueSetComposeIncludeConcept>?
+    val concept: kotlin.collections.List<ValueSetComposeIncludeConcept>?
 
     /**
      * Select codes/concepts by their properties (including relationships).
      */
-    val filter: List<ValueSetComposeIncludeFilter>?
+    val filter: kotlin.collections.List<ValueSetComposeIncludeFilter>?
 
     /**
      * Select the contents included in this value set.
      */
-    val valueSet: List<String>?
+    val valueSet: kotlin.collections.List<String>?
 }
 
 /**
@@ -382,18 +382,18 @@ data class ValueSetComposeInclude(
     override val version: String? = null,
 
     @SerialName("concept")
-    override val concept: List<ValueSetComposeIncludeConcept>? = null,
+    override val concept: kotlin.collections.List<ValueSetComposeIncludeConcept>? = null,
 
     @SerialName("filter")
-    override val filter: List<ValueSetComposeIncludeFilter>? = null,
+    override val filter: kotlin.collections.List<ValueSetComposeIncludeFilter>? = null,
 
     @SerialName("valueSet")
-    override val valueSet: List<String>? = null,
+    override val valueSet: kotlin.collections.List<String>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -401,7 +401,7 @@ data class ValueSetComposeInclude(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetComposeInclude {
 
     override val resourceType: String
@@ -437,7 +437,7 @@ interface FhirValueSetComposeIncludeConcept : FhirBackboneElement {
     /**
      * Additional representations for this concept.
      */
-    val designation: List<ValueSetComposeIncludeConceptDesignation>?
+    val designation: kotlin.collections.List<ValueSetComposeIncludeConceptDesignation>?
 }
 
 /**
@@ -460,12 +460,12 @@ data class ValueSetComposeIncludeConcept(
     override val display: String? = null,
 
     @SerialName("designation")
-    override val designation: List<ValueSetComposeIncludeConceptDesignation>? = null,
+    override val designation: kotlin.collections.List<ValueSetComposeIncludeConceptDesignation>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -473,7 +473,7 @@ data class ValueSetComposeIncludeConcept(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetComposeIncludeConcept {
 
     override val resourceType: String
@@ -539,7 +539,7 @@ data class ValueSetComposeIncludeConceptDesignation(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -547,7 +547,7 @@ data class ValueSetComposeIncludeConceptDesignation(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetComposeIncludeConceptDesignation {
 
     override val resourceType: String
@@ -615,7 +615,7 @@ data class ValueSetComposeIncludeFilter(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -623,7 +623,7 @@ data class ValueSetComposeIncludeFilter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetComposeIncludeFilter {
 
     override val resourceType: String
@@ -670,12 +670,12 @@ interface FhirValueSetExpansion : FhirBackboneElement {
     /**
      * Parameter that controlled the expansion process.
      */
-    val parameter: List<ValueSetExpansionParameter>?
+    val parameter: kotlin.collections.List<ValueSetExpansionParameter>?
 
     /**
      * Codes in the value set.
      */
-    val contains: List<ValueSetExpansionContains>?
+    val contains: kotlin.collections.List<ValueSetExpansionContains>?
 }
 
 /**
@@ -705,15 +705,15 @@ data class ValueSetExpansion(
     override val offset: Integer? = null,
 
     @SerialName("parameter")
-    override val parameter: List<ValueSetExpansionParameter>? = null,
+    override val parameter: kotlin.collections.List<ValueSetExpansionParameter>? = null,
 
     @SerialName("contains")
-    override val contains: List<ValueSetExpansionContains>? = null,
+    override val contains: kotlin.collections.List<ValueSetExpansionContains>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -721,7 +721,7 @@ data class ValueSetExpansion(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetExpansion {
 
     override val resourceType: String
@@ -777,12 +777,12 @@ interface FhirValueSetExpansionContains : FhirBackboneElement {
     /**
      * Additional representations for this item.
      */
-    val designation: List<ValueSetComposeIncludeConceptDesignation>?
+    val designation: kotlin.collections.List<ValueSetComposeIncludeConceptDesignation>?
 
     /**
      * Codes contained under this entry.
      */
-    val contains: List<ValueSetExpansionContains>?
+    val contains: kotlin.collections.List<ValueSetExpansionContains>?
 }
 
 /**
@@ -817,15 +817,15 @@ data class ValueSetExpansionContains(
     override val display: String? = null,
 
     @SerialName("designation")
-    override val designation: List<ValueSetComposeIncludeConceptDesignation>? = null,
+    override val designation: kotlin.collections.List<ValueSetComposeIncludeConceptDesignation>? = null,
 
     @SerialName("contains")
-    override val contains: List<ValueSetExpansionContains>? = null,
+    override val contains: kotlin.collections.List<ValueSetExpansionContains>? = null,
 
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -833,7 +833,7 @@ data class ValueSetExpansionContains(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetExpansionContains {
 
     override val resourceType: String
@@ -941,7 +941,7 @@ data class ValueSetExpansionParameter(
     // # BackboneElement
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -949,7 +949,7 @@ data class ValueSetExpansionParameter(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirValueSetExpansionParameter {
 
     override val resourceType: String

@@ -69,7 +69,7 @@ data class Duration(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDuration {
 
     override val resourceType: String

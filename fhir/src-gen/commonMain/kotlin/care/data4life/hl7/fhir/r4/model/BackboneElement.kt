@@ -34,7 +34,7 @@ interface FhirBackboneElement : FhirElement {
     /**
      * Extensions that cannot be ignored even if unrecognized.
      */
-    val modifierExtension: List<Extension>?
+    val modifierExtension: kotlin.collections.List<Extension>?
 }
 
 /**
@@ -51,7 +51,7 @@ interface FhirBackboneElement : FhirElement {
 data class BackboneElement(
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
 
@@ -59,7 +59,7 @@ data class BackboneElement(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirBackboneElement {
 
     override val resourceType: String

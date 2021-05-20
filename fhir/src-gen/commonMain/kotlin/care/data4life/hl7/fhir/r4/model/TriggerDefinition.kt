@@ -68,7 +68,7 @@ interface FhirTriggerDefinition : FhirElement {
     /**
      * Triggering data of the event (multiple = 'and').
      */
-    val data: List<DataRequirement>?
+    val data: kotlin.collections.List<DataRequirement>?
 
     /**
      * Whether the event triggers (boolean expression).
@@ -109,7 +109,7 @@ data class TriggerDefinition(
     override val timingDateTime: DateTime? = null,
 
     @SerialName("data")
-    override val data: List<DataRequirement>? = null,
+    override val data: kotlin.collections.List<DataRequirement>? = null,
 
     @SerialName("condition")
     override val condition: Expression? = null,
@@ -120,7 +120,7 @@ data class TriggerDefinition(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTriggerDefinition {
 
     override val resourceType: String

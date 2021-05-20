@@ -95,7 +95,7 @@ data class UsageContext(
     override val id: String? = null,
 
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirUsageContext {
 
     override val resourceType: String
