@@ -686,7 +686,7 @@ class PatientFhirTest {
     @Test
     fun testPatient05() {
         // FIXME Test disabled due to issues with patient-example-b.json
-        // REASON - Property _gender is not supported
+        // REASON - Property _gender is not supported yet
         assertEquals(true, true)
     }
 
@@ -870,7 +870,7 @@ class PatientFhirTest {
     @Test
     fun testPatient08() {
         // FIXME Test disabled due to issues with patient-example.json
-        // REASON - Properties _birthDate and _family are not supported
+        // REASON - Properties _birthDate and _family are not supported yet
         assertEquals(true, true)
     }
 

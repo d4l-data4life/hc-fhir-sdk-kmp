@@ -41,8 +41,15 @@ package care.data4life.hl7.fhir.stu3.model
     '*':'MAX',
 } %}
 {%- set test_exclusion_dict = {
-    'patient-example-b.json':'Property _gender is not supported',
-    'patient-example.json':'Properties _birthDate and _family are not supported'
+    'patient-example-b.json':'Property _gender is not supported yet',
+    'patient-example.json':'Properties _birthDate and _family are not supported yet',
+    'activitydefinition-predecessor-example.json':'Property _event is not supported yet',
+    'activitydefinition-procedurerequest-example.json':'Property _event is not supported yet',
+    'activitydefinition-example.json':'Property _event is not supported yet',
+    'claimresponse-example.json':'Property _event is not supported yet',
+    'plandefinition-example-kdn5-simplified.json':'Property _type is not supported yet',
+    'plandefinition-example.json':'Property _event is not supported yet',
+    'relatedperson-example.json':'Property _family is not supported yet',
 } %}
 {%- set allsuperclasses = {} %}
 {%- set codesystems = {} %}

@@ -25,13 +25,17 @@ import kotlin.reflect.KClass
 {%- set exclude_resources = [
     "ExampleScenario",
 ] %}
+{%- set force_include_resources = [
+] %}
 
 {%- set exclusions = [] %}
 {%- for klass in classes %}
 {%- for exclude in exclude_resources %}
-{%- if exclude in klass.name %}
+{%- for include in force_include_resources %}
+{%- if (exclude in klass.name) and not (include in klass.name) %}
 {%- set _ = exclusions.append( klass.name ) %}
 {%- endif %}
+{%- endfor %}
 {%- endfor %}
 {%- endfor %}
 
