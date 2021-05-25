@@ -88,7 +88,7 @@ interface FhirCodeSystem : FhirDomainResource {
     /**
      * Contact details for the publisher.
      */
-    val contact: List<ContactDetail>?
+    val contact: kotlin.collections.List<ContactDetail>?
 
     /**
      * Natural language description of the code system.
@@ -98,12 +98,12 @@ interface FhirCodeSystem : FhirDomainResource {
     /**
      * Context the content is intended to support.
      */
-    val useContext: List<UsageContext>?
+    val useContext: kotlin.collections.List<UsageContext>?
 
     /**
      * Intended jurisdiction for code system (if applicable).
      */
-    val jurisdiction: List<CodeableConcept>?
+    val jurisdiction: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why this code system is defined.
@@ -154,23 +154,21 @@ interface FhirCodeSystem : FhirDomainResource {
     /**
      * Filter that can be used in a value set.
      */
-    val filter: List<CodeSystemFilter>?
+    val filter: kotlin.collections.List<CodeSystemFilter>?
 
     /**
      * Additional information supplied about each concept.
      */
-    val property: List<CodeSystemProperty>?
+    val property: kotlin.collections.List<CodeSystemProperty>?
 
     /**
      * Concepts in the code system.
      */
-    val concept: List<CodeSystemConcept>?
+    val concept: kotlin.collections.List<CodeSystemConcept>?
 }
 
 /**
  * CodeSystem
- *
- * SourceFileName: CodeSystem.kt
  *
  * A code system resource specifies a set of codes drawn from one or more code systems.
  *
@@ -210,16 +208,16 @@ data class CodeSystem(
     override val publisher: String? = null,
 
     @SerialName("contact")
-    override val contact: List<ContactDetail>? = null,
+    override val contact: kotlin.collections.List<ContactDetail>? = null,
 
     @SerialName("description")
     override val description: String? = null,
 
     @SerialName("useContext")
-    override val useContext: List<UsageContext>? = null,
+    override val useContext: kotlin.collections.List<UsageContext>? = null,
 
     @SerialName("jurisdiction")
-    override val jurisdiction: List<CodeableConcept>? = null,
+    override val jurisdiction: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("purpose")
     override val purpose: String? = null,
@@ -249,29 +247,39 @@ data class CodeSystem(
     override val count: UnsignedInteger? = null,
 
     @SerialName("filter")
-    override val filter: List<CodeSystemFilter>? = null,
+    override val filter: kotlin.collections.List<CodeSystemFilter>? = null,
 
     @SerialName("property")
-    override val property: List<CodeSystemProperty>? = null,
+    override val property: kotlin.collections.List<CodeSystemProperty>? = null,
 
     @SerialName("concept")
-    override val concept: List<CodeSystemConcept>? = null,
+    override val concept: kotlin.collections.List<CodeSystemConcept>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirCodeSystem {
@@ -315,23 +323,21 @@ interface FhirCodeSystemConcept : FhirBackboneElement {
     /**
      * Additional representations for the concept.
      */
-    val designation: List<CodeSystemConceptDesignation>?
+    val designation: kotlin.collections.List<CodeSystemConceptDesignation>?
 
     /**
      * Property value for the concept.
      */
-    val property: List<CodeSystemConceptProperty>?
+    val property: kotlin.collections.List<CodeSystemConceptProperty>?
 
     /**
      * Child Concepts (is-a/contains/categorizes).
      */
-    val concept: List<CodeSystemConcept>?
+    val concept: kotlin.collections.List<CodeSystemConcept>?
 }
 
 /**
  * CodeSystemConcept
- *
- * SourceFileName: CodeSystem.kt
  *
  * Concepts that are in the code system. The concept definitions are inherently hierarchical, but the
  * definitions must be consulted to determine what the meaning of the hierarchical relationships are.
@@ -354,21 +360,26 @@ data class CodeSystemConcept(
     override val definition: String? = null,
 
     @SerialName("designation")
-    override val designation: List<CodeSystemConceptDesignation>? = null,
+    override val designation: kotlin.collections.List<CodeSystemConceptDesignation>? = null,
 
     @SerialName("property")
-    override val property: List<CodeSystemConceptProperty>? = null,
+    override val property: kotlin.collections.List<CodeSystemConceptProperty>? = null,
 
     @SerialName("concept")
-    override val concept: List<CodeSystemConcept>? = null,
+    override val concept: kotlin.collections.List<CodeSystemConcept>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCodeSystemConcept {
 
     override val resourceType: kotlin.String
@@ -411,8 +422,6 @@ interface FhirCodeSystemConceptDesignation : FhirBackboneElement {
 /**
  * CodeSystemConceptDesignation
  *
- * SourceFileName: CodeSystem.kt
- *
  * Additional representations for the concept - other languages, aliases, specialized purposes, used
  * for particular purposes, etc.
  *
@@ -433,13 +442,18 @@ data class CodeSystemConceptDesignation(
     @SerialName("value")
     override val value: String,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCodeSystemConceptDesignation {
 
     override val resourceType: kotlin.String
@@ -501,8 +515,6 @@ interface FhirCodeSystemConceptProperty : FhirBackboneElement {
 /**
  * CodeSystemConceptProperty
  *
- * SourceFileName: CodeSystem.kt
- *
  * A property value for this concept.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CodeSystem">CodeSystemConceptProperty</a>
@@ -534,13 +546,18 @@ data class CodeSystemConceptProperty(
     @SerialName("valueDateTime")
     override val valueDateTime: DateTime? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCodeSystemConceptProperty {
 
     override val resourceType: kotlin.String
@@ -576,7 +593,7 @@ interface FhirCodeSystemFilter : FhirBackboneElement {
     /**
      * A list of operators that can be used with the filter.
      */
-    val operator: List<FilterOperator>
+    val operator: kotlin.collections.List<FilterOperator>
 
     /**
      * What to use for the value.
@@ -586,8 +603,6 @@ interface FhirCodeSystemFilter : FhirBackboneElement {
 
 /**
  * CodeSystemFilter
- *
- * SourceFileName: CodeSystem.kt
  *
  * A filter that can be used in a value set compose statement when selecting concepts using a filter.
  *
@@ -606,18 +621,23 @@ data class CodeSystemFilter(
     override val description: String? = null,
 
     @SerialName("operator")
-    override val operator: List<FilterOperator>,
+    override val operator: kotlin.collections.List<FilterOperator>,
 
     @SerialName("value")
     override val value: String,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCodeSystemFilter {
 
     override val resourceType: kotlin.String
@@ -666,8 +686,6 @@ interface FhirCodeSystemProperty : FhirBackboneElement {
 /**
  * CodeSystemProperty
  *
- * SourceFileName: CodeSystem.kt
- *
  * A property defines an additional slot through which additional information can be provided about a
  * concept.
  *
@@ -691,13 +709,18 @@ data class CodeSystemProperty(
     @SerialName("type")
     override val type: PropertyType,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCodeSystemProperty {
 
     override val resourceType: kotlin.String

@@ -62,8 +62,11 @@ jsonmap_default = 'FHIRJSON'
 reservedmap = {
     'abstract': 'abstrakt',
     'class': 'clazz',
+    'fhirVersion': 'fhirVer',
+    'for': 'forr',
+    'package': 'pakkage',
+    'resourceType': 'resType',
     'when': 'whenn',
-    'package': 'pakkage'
 }
 
 # For enum codes where a computer just cannot generate reasonable names

@@ -65,10 +65,10 @@ reservedmap = {
     'abstract': 'abstrakt',
     'class': 'clazz',
     'fhirVersion': 'fhirVer',
-    'resourceType': 'resType',
     'for': 'forr',
+    'package': 'pakkage',
+    'resourceType': 'resType',
     'when': 'whenn',
-    'package': 'pakkage'
 }
 
 # For enum codes where a computer just cannot generate reasonable names

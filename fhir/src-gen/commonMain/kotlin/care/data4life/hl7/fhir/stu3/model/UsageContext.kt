@@ -57,8 +57,6 @@ interface FhirUsageContext : FhirElement {
 /**
  * UsageContext
  *
- * SourceFileName: UsageContext.kt
- *
  * Specifies clinical/business/etc metadata that can be used to retrieve, index and/or categorize an
  * artifact. This metadata can either be specific to the applicable population (e.g., age category,
  * DRG) or the specific context of care (e.g., venue, care setting, provider of care).
@@ -83,10 +81,13 @@ data class UsageContext(
     @SerialName("valueRange")
     override val valueRange: Range? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirUsageContext {
 
     override val resourceType: kotlin.String

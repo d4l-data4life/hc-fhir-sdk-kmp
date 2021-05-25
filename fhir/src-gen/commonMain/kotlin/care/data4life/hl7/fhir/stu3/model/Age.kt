@@ -36,8 +36,6 @@ interface FhirAge : FhirQuantity
 /**
  * Age
  *
- * SourceFileName: Age.kt
- *
  * A duration of time during which an organism (or a process) has existed
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Age">Age</a>
@@ -48,21 +46,30 @@ interface FhirAge : FhirQuantity
 @SerialName("Age")
 data class Age(
 
-    // # Quantity@SerialName("value")
+    // # Quantity
+
+    @SerialName("value")
     override val value: Decimal? = null,
+
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
+
     @SerialName("unit")
     override val unit: String? = null,
+
     @SerialName("system")
     override val system: String? = null,
+
     @SerialName("code")
     override val code: String? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAge {
 
     override val resourceType: kotlin.String

@@ -43,7 +43,7 @@ interface FhirTiming : FhirElement {
     /**
      * When the event occurs.
      */
-    val event: List<DateTime>?
+    val event: kotlin.collections.List<DateTime>?
 
     /**
      * When the event is to occur.
@@ -59,8 +59,6 @@ interface FhirTiming : FhirElement {
 /**
  * Timing
  *
- * SourceFileName: Timing.kt
- *
  * Specifies an event that may occur multiple times. Timing schedules are used to record when things
  * are planned, expected or requested to occur. The most common usage is in dosage instructions for
  * medications. They are also used when planning care of various kinds, and may be used for reporting
@@ -75,7 +73,7 @@ interface FhirTiming : FhirElement {
 data class Timing(
 
     @SerialName("event")
-    override val event: List<DateTime>? = null,
+    override val event: kotlin.collections.List<DateTime>? = null,
 
     @SerialName("repeat")
     override val repeat: TimingRepeat? = null,
@@ -83,10 +81,13 @@ data class Timing(
     @SerialName("code")
     override val code: CodeableConcept? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTiming {
 
     override val resourceType: kotlin.String
@@ -178,17 +179,17 @@ interface FhirTimingRepeat : FhirElement {
      * If one or more days of week is provided, then the action happens only on the
      * specified day(s).
      */
-    val dayOfWeek: List<DaysOfWeek>?
+    val dayOfWeek: kotlin.collections.List<DaysOfWeek>?
 
     /**
      * Time of day for action.
      */
-    val timeOfDay: List<Time>?
+    val timeOfDay: kotlin.collections.List<Time>?
 
     /**
      * Regular life events the event is tied to.
      */
-    val whenn: List<String>?
+    val whenn: kotlin.collections.List<String>?
 
     /**
      * Minutes from event (before or after).
@@ -198,8 +199,6 @@ interface FhirTimingRepeat : FhirElement {
 
 /**
  * TimingRepeat
- *
- * SourceFileName: Timing.kt
  *
  * A set of rules that describe when the event is scheduled.
  *
@@ -251,21 +250,24 @@ data class TimingRepeat(
     override val periodUnit: String? = null,
 
     @SerialName("dayOfWeek")
-    override val dayOfWeek: List<DaysOfWeek>? = null,
+    override val dayOfWeek: kotlin.collections.List<DaysOfWeek>? = null,
 
     @SerialName("timeOfDay")
-    override val timeOfDay: List<Time>? = null,
+    override val timeOfDay: kotlin.collections.List<Time>? = null,
 
     @SerialName("when")
-    override val whenn: List<String>? = null,
+    override val whenn: kotlin.collections.List<String>? = null,
 
     @SerialName("offset")
     override val offset: UnsignedInteger? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirTimingRepeat {
 
     override val resourceType: kotlin.String

@@ -38,7 +38,7 @@ interface FhirGoal : FhirDomainResource {
     /**
      * External Ids for this goal.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Indicates whether the goal has been reached and is still considered relevant.
@@ -48,7 +48,7 @@ interface FhirGoal : FhirDomainResource {
     /**
      * E.g. Treatment, dietary, behavioral, etc..
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * high-priority | medium-priority | low-priority.
@@ -98,28 +98,26 @@ interface FhirGoal : FhirDomainResource {
     /**
      * Issues addressed by this goal.
      */
-    val addresses: List<Reference>?
+    val addresses: kotlin.collections.List<Reference>?
 
     /**
      * Comments about the goal.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * What result was achieved regarding the goal?.
      */
-    val outcomeCode: List<CodeableConcept>?
+    val outcomeCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Observation that resulted from goal.
      */
-    val outcomeReference: List<Reference>?
+    val outcomeReference: kotlin.collections.List<Reference>?
 }
 
 /**
  * Goal
- *
- * SourceFileName: Goal.kt
  *
  * Describes the intended objective(s) for a patient, group or organization care, for example, weight
  * loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a
@@ -134,13 +132,13 @@ interface FhirGoal : FhirDomainResource {
 data class Goal(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: GoalStatus,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("priority")
     override val priority: CodeableConcept? = null,
@@ -170,32 +168,42 @@ data class Goal(
     override val expressedBy: Reference? = null,
 
     @SerialName("addresses")
-    override val addresses: List<Reference>? = null,
+    override val addresses: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("outcomeCode")
-    override val outcomeCode: List<CodeableConcept>? = null,
+    override val outcomeCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("outcomeReference")
-    override val outcomeReference: List<Reference>? = null,
+    override val outcomeReference: kotlin.collections.List<Reference>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirGoal {
@@ -254,8 +262,6 @@ interface FhirGoalTarget : FhirBackboneElement {
 /**
  * GoalTarget
  *
- * SourceFileName: Goal.kt
- *
  * Indicates what should be done by when.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Goal">GoalTarget</a>
@@ -284,13 +290,18 @@ data class GoalTarget(
     @SerialName("dueDuration")
     override val dueDuration: Duration? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirGoalTarget {
 
     override val resourceType: kotlin.String

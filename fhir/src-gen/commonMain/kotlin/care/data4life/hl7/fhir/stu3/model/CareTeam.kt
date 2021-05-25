@@ -36,7 +36,7 @@ interface FhirCareTeam : FhirDomainResource {
     /**
      * External Ids for this team.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Indicates the current state of the care team.
@@ -46,7 +46,7 @@ interface FhirCareTeam : FhirDomainResource {
     /**
      * Type of team.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Name of the team, such as crisis assessment team.
@@ -71,33 +71,31 @@ interface FhirCareTeam : FhirDomainResource {
     /**
      * Members of the team.
      */
-    val participant: List<CareTeamParticipant>?
+    val participant: kotlin.collections.List<CareTeamParticipant>?
 
     /**
      * Why the care team exists.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why the care team exists.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Organization responsible for the care team.
      */
-    val managingOrganization: List<Reference>?
+    val managingOrganization: kotlin.collections.List<Reference>?
 
     /**
      * Comments made about the CareTeam.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * CareTeam
- *
- * SourceFileName: CareTeam.kt
  *
  * The Care Team includes all the people and organizations who plan to participate in the coordination
  * and delivery of care for a patient.
@@ -111,13 +109,13 @@ interface FhirCareTeam : FhirDomainResource {
 data class CareTeam(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: CareTeamStatus? = null,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("name")
     override val name: String? = null,
@@ -132,35 +130,45 @@ data class CareTeam(
     override val period: Period? = null,
 
     @SerialName("participant")
-    override val participant: List<CareTeamParticipant>? = null,
+    override val participant: kotlin.collections.List<CareTeamParticipant>? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("managingOrganization")
-    override val managingOrganization: List<Reference>? = null,
+    override val managingOrganization: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirCareTeam {
@@ -209,8 +217,6 @@ interface FhirCareTeamParticipant : FhirBackboneElement {
 /**
  * CareTeamParticipant
  *
- * SourceFileName: CareTeam.kt
- *
  * Identifies all people and organizations who are expected to be involved in the care team.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/CareTeam">CareTeamParticipant</a>
@@ -233,13 +239,18 @@ data class CareTeamParticipant(
     @SerialName("period")
     override val period: Period? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCareTeamParticipant {
 
     override val resourceType: kotlin.String

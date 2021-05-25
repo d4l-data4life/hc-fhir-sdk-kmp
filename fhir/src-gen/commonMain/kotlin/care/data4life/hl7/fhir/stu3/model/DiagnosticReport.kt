@@ -40,12 +40,12 @@ interface FhirDiagnosticReport : FhirDomainResource {
     /**
      * Business identifier for report.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * What was requested.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * The status of the diagnostic report as a whole.
@@ -90,27 +90,27 @@ interface FhirDiagnosticReport : FhirDomainResource {
     /**
      * Participants in producing the report.
      */
-    val performer: List<DiagnosticReportPerformer>?
+    val performer: kotlin.collections.List<DiagnosticReportPerformer>?
 
     /**
      * Specimens this report is based on.
      */
-    val specimen: List<Reference>?
+    val specimen: kotlin.collections.List<Reference>?
 
     /**
      * Observations - simple, or complex nested groups.
      */
-    val result: List<Reference>?
+    val result: kotlin.collections.List<Reference>?
 
     /**
      * Reference to full details of imaging associated with the diagnostic report.
      */
-    val imagingStudy: List<Reference>?
+    val imagingStudy: kotlin.collections.List<Reference>?
 
     /**
      * Key images associated with this report.
      */
-    val image: List<DiagnosticReportImage>?
+    val image: kotlin.collections.List<DiagnosticReportImage>?
 
     /**
      * Clinical Interpretation of test results.
@@ -120,18 +120,16 @@ interface FhirDiagnosticReport : FhirDomainResource {
     /**
      * Codes for the conclusion.
      */
-    val codedDiagnosis: List<CodeableConcept>?
+    val codedDiagnosis: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Entire report as issued.
      */
-    val presentedForm: List<Attachment>?
+    val presentedForm: kotlin.collections.List<Attachment>?
 }
 
 /**
  * DiagnosticReport
- *
- * SourceFileName: DiagnosticReport.kt
  *
  * The findings and interpretation of diagnostic tests performed on patients, groups of patients,
  * devices, and locations, and/or specimens derived from these. The report includes clinical context
@@ -147,10 +145,10 @@ interface FhirDiagnosticReport : FhirDomainResource {
 data class DiagnosticReport(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: DiagnosticReportStatus,
@@ -177,44 +175,54 @@ data class DiagnosticReport(
     override val issued: Instant? = null,
 
     @SerialName("performer")
-    override val performer: List<DiagnosticReportPerformer>? = null,
+    override val performer: kotlin.collections.List<DiagnosticReportPerformer>? = null,
 
     @SerialName("specimen")
-    override val specimen: List<Reference>? = null,
+    override val specimen: kotlin.collections.List<Reference>? = null,
 
     @SerialName("result")
-    override val result: List<Reference>? = null,
+    override val result: kotlin.collections.List<Reference>? = null,
 
     @SerialName("imagingStudy")
-    override val imagingStudy: List<Reference>? = null,
+    override val imagingStudy: kotlin.collections.List<Reference>? = null,
 
     @SerialName("image")
-    override val image: List<DiagnosticReportImage>? = null,
+    override val image: kotlin.collections.List<DiagnosticReportImage>? = null,
 
     @SerialName("conclusion")
     override val conclusion: String? = null,
 
     @SerialName("codedDiagnosis")
-    override val codedDiagnosis: List<CodeableConcept>? = null,
+    override val codedDiagnosis: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("presentedForm")
-    override val presentedForm: List<Attachment>? = null,
+    override val presentedForm: kotlin.collections.List<Attachment>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirDiagnosticReport {
@@ -255,8 +263,6 @@ interface FhirDiagnosticReportImage : FhirBackboneElement {
 /**
  * DiagnosticReportImage
  *
- * SourceFileName: DiagnosticReport.kt
- *
  * A list of key images associated with this report. The images are generally created during the
  * diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of
  * interest).
@@ -275,13 +281,18 @@ data class DiagnosticReportImage(
     @SerialName("link")
     override val link: Reference,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDiagnosticReportImage {
 
     override val resourceType: kotlin.String
@@ -318,8 +329,6 @@ interface FhirDiagnosticReportPerformer : FhirBackboneElement {
 /**
  * DiagnosticReportPerformer
  *
- * SourceFileName: DiagnosticReport.kt
- *
  * Indicates who or what participated in producing the report.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportPerformer</a>
@@ -336,13 +345,18 @@ data class DiagnosticReportPerformer(
     @SerialName("actor")
     override val actor: Reference,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDiagnosticReportPerformer {
 
     override val resourceType: kotlin.String

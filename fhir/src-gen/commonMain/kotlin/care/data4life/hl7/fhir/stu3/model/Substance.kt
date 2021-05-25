@@ -36,7 +36,7 @@ interface FhirSubstance : FhirDomainResource {
     /**
      * Unique identifier.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * A code to indicate if the substance is actively used.
@@ -46,7 +46,7 @@ interface FhirSubstance : FhirDomainResource {
     /**
      * What class/type of substance this is.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * What substance this is.
@@ -61,18 +61,16 @@ interface FhirSubstance : FhirDomainResource {
     /**
      * If this describes a specific package/container of the substance.
      */
-    val instance: List<SubstanceInstance>?
+    val instance: kotlin.collections.List<SubstanceInstance>?
 
     /**
      * Composition information about the substance.
      */
-    val ingredient: List<SubstanceIngredient>?
+    val ingredient: kotlin.collections.List<SubstanceIngredient>?
 }
 
 /**
  * Substance
- *
- * SourceFileName: Substance.kt
  *
  * A homogeneous material with a definite composition
  *
@@ -85,13 +83,13 @@ interface FhirSubstance : FhirDomainResource {
 data class Substance(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("status")
     override val status: FHIRSubstanceStatus? = null,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept,
@@ -100,26 +98,36 @@ data class Substance(
     override val description: String? = null,
 
     @SerialName("instance")
-    override val instance: List<SubstanceInstance>? = null,
+    override val instance: kotlin.collections.List<SubstanceInstance>? = null,
 
     @SerialName("ingredient")
-    override val ingredient: List<SubstanceIngredient>? = null,
+    override val ingredient: kotlin.collections.List<SubstanceIngredient>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirSubstance {
@@ -163,8 +171,6 @@ interface FhirSubstanceIngredient : FhirBackboneElement {
 /**
  * SubstanceIngredient
  *
- * SourceFileName: Substance.kt
- *
  * A substance can be composed of other substances.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Substance">SubstanceIngredient</a>
@@ -184,13 +190,18 @@ data class SubstanceIngredient(
     @SerialName("substanceReference")
     override val substanceReference: Reference? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSubstanceIngredient {
 
     override val resourceType: kotlin.String
@@ -233,8 +244,6 @@ interface FhirSubstanceInstance : FhirBackboneElement {
 /**
  * SubstanceInstance
  *
- * SourceFileName: Substance.kt
- *
  * Substance may be used to describe a kind of substance, or a specific package/container of the
  * substance: an instance.
  *
@@ -255,13 +264,18 @@ data class SubstanceInstance(
     @SerialName("quantity")
     override val quantity: Quantity? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirSubstanceInstance {
 
     override val resourceType: kotlin.String

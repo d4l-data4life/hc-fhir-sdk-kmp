@@ -40,12 +40,12 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     /**
      * External Id(s) for this record.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * A code specifying the status of the record of the family history of a specific
@@ -152,28 +152,26 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
     /**
      * Why was family member history performed?.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Why was family member history performed?.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * General note about related person.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Condition that the related person had.
      */
-    val condition: List<FamilyMemberHistoryCondition>?
+    val condition: kotlin.collections.List<FamilyMemberHistoryCondition>?
 }
 
 /**
  * FamilyMemberHistory
- *
- * SourceFileName: FamilyMemberHistory.kt
  *
  * Significant health events and conditions for a person related to the patient relevant in the context
  * of care for the patient.
@@ -187,10 +185,10 @@ interface FhirFamilyMemberHistory : FhirDomainResource {
 data class FamilyMemberHistory(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: FamilyHistoryStatus,
@@ -253,32 +251,42 @@ data class FamilyMemberHistory(
     override val deceasedString: String? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("condition")
-    override val condition: List<FamilyMemberHistoryCondition>? = null,
+    override val condition: kotlin.collections.List<FamilyMemberHistoryCondition>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirFamilyMemberHistory {
@@ -338,13 +346,11 @@ interface FhirFamilyMemberHistoryCondition : FhirBackboneElement {
     /**
      * Extra information about condition.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * FamilyMemberHistoryCondition
- *
- * SourceFileName: FamilyMemberHistory.kt
  *
  * The significant Conditions (or condition) that the family member had. This is a repeating section to
  * allow a system to represent more than one condition per resource, though there is nothing stopping
@@ -377,15 +383,20 @@ data class FamilyMemberHistoryCondition(
     override val onsetString: String? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirFamilyMemberHistoryCondition {
 
     override val resourceType: kotlin.String

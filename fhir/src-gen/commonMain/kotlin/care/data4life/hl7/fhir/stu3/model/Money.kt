@@ -36,8 +36,6 @@ interface FhirMoney : FhirQuantity
 /**
  * Money
  *
- * SourceFileName: Money.kt
- *
  * An amount of economic utility in some recognized currency
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Money">Money</a>
@@ -48,21 +46,30 @@ interface FhirMoney : FhirQuantity
 @SerialName("Money")
 data class Money(
 
-    // # Quantity@SerialName("value")
+    // # Quantity
+
+    @SerialName("value")
     override val value: Decimal? = null,
+
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
+
     @SerialName("unit")
     override val unit: String? = null,
+
     @SerialName("system")
     override val system: String? = null,
+
     @SerialName("code")
     override val code: String? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMoney {
 
     override val resourceType: kotlin.String

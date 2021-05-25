@@ -55,8 +55,6 @@ interface FhirResource : FhirStu3 {
 /**
  * Resource
  *
- * SourceFileName: Resource.kt
- *
  * This is the base resource type for everything.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Resource">Resource</a>

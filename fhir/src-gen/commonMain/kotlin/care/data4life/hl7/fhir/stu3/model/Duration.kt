@@ -36,8 +36,6 @@ interface FhirDuration : FhirQuantity
 /**
  * Duration
  *
- * SourceFileName: Duration.kt
- *
  * A length of time
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Duration">Duration</a>
@@ -48,21 +46,30 @@ interface FhirDuration : FhirQuantity
 @SerialName("Duration")
 data class Duration(
 
-    // # Quantity@SerialName("value")
+    // # Quantity
+
+    @SerialName("value")
     override val value: Decimal? = null,
+
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
+
     @SerialName("unit")
     override val unit: String? = null,
+
     @SerialName("system")
     override val system: String? = null,
+
     @SerialName("code")
     override val code: String? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDuration {
 
     override val resourceType: kotlin.String

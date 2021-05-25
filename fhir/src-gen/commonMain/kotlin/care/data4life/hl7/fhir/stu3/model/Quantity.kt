@@ -66,8 +66,6 @@ interface FhirQuantity : FhirElement {
 /**
  * Quantity
  *
- * SourceFileName: Quantity.kt
- *
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts
  * include amounts that are not precisely quantified, including amounts involving arbitrary units and
  * floating currencies.
@@ -95,10 +93,13 @@ data class Quantity(
     @SerialName("code")
     override val code: String? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirQuantity {
 
     override val resourceType: kotlin.String

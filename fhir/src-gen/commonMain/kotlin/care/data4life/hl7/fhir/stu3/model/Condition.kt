@@ -38,7 +38,7 @@ interface FhirCondition : FhirDomainResource {
     /**
      * External Ids for this condition.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * active | recurrence | inactive | remission | resolved.
@@ -53,7 +53,7 @@ interface FhirCondition : FhirDomainResource {
     /**
      * problem-list-item | encounter-diagnosis.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Subjective severity of condition.
@@ -68,7 +68,7 @@ interface FhirCondition : FhirDomainResource {
     /**
      * Anatomical location, if relevant.
      */
-    val bodySite: List<CodeableConcept>?
+    val bodySite: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Who has the condition?.
@@ -153,18 +153,16 @@ interface FhirCondition : FhirDomainResource {
     /**
      * Supporting evidence.
      */
-    val evidence: List<ConditionEvidence>?
+    val evidence: kotlin.collections.List<ConditionEvidence>?
 
     /**
      * Additional information about the Condition.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 }
 
 /**
  * Condition
- *
- * SourceFileName: Condition.kt
  *
  * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that
  * has risen to a level of concern.
@@ -178,7 +176,7 @@ interface FhirCondition : FhirDomainResource {
 data class Condition(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("clinicalStatus")
     override val clinicalStatus: String? = null,
@@ -187,7 +185,7 @@ data class Condition(
     override val verificationStatus: ConditionVerificationStatus? = null,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("severity")
     override val severity: CodeableConcept? = null,
@@ -196,7 +194,7 @@ data class Condition(
     override val code: CodeableConcept? = null,
 
     @SerialName("bodySite")
-    override val bodySite: List<CodeableConcept>? = null,
+    override val bodySite: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("subject")
     override val subject: Reference,
@@ -247,26 +245,36 @@ data class Condition(
     override val stage: ConditionStage? = null,
 
     @SerialName("evidence")
-    override val evidence: List<ConditionEvidence>? = null,
+    override val evidence: kotlin.collections.List<ConditionEvidence>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirCondition {
@@ -295,18 +303,16 @@ interface FhirConditionEvidence : FhirBackboneElement {
     /**
      * Manifestation/symptom.
      */
-    val code: List<CodeableConcept>?
+    val code: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Supporting information found elsewhere.
      */
-    val detail: List<Reference>?
+    val detail: kotlin.collections.List<Reference>?
 }
 
 /**
  * ConditionEvidence
- *
- * SourceFileName: Condition.kt
  *
  * Supporting Evidence / manifestations that are the basis on which this condition is suspected or
  * confirmed.
@@ -320,18 +326,23 @@ interface FhirConditionEvidence : FhirBackboneElement {
 data class ConditionEvidence(
 
     @SerialName("code")
-    override val code: List<CodeableConcept>? = null,
+    override val code: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("detail")
-    override val detail: List<Reference>? = null,
+    override val detail: kotlin.collections.List<Reference>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConditionEvidence {
 
     override val resourceType: kotlin.String
@@ -362,13 +373,11 @@ interface FhirConditionStage : FhirBackboneElement {
     /**
      * Formal record of assessment.
      */
-    val assessment: List<Reference>?
+    val assessment: kotlin.collections.List<Reference>?
 }
 
 /**
  * ConditionStage
- *
- * SourceFileName: Condition.kt
  *
  * Clinical stage or grade of a condition. May include formal severity assessments.
  *
@@ -384,15 +393,20 @@ data class ConditionStage(
     override val summary: CodeableConcept? = null,
 
     @SerialName("assessment")
-    override val assessment: List<Reference>? = null,
+    override val assessment: kotlin.collections.List<Reference>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirConditionStage {
 
     override val resourceType: kotlin.String

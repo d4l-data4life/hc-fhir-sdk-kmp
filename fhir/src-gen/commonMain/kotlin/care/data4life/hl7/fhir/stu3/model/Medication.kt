@@ -68,7 +68,7 @@ interface FhirMedication : FhirDomainResource {
     /**
      * Active or inactive ingredient.
      */
-    val ingredient: List<MedicationIngredient>?
+    val ingredient: kotlin.collections.List<MedicationIngredient>?
 
     /**
      * Details about packaged medications.
@@ -78,13 +78,11 @@ interface FhirMedication : FhirDomainResource {
     /**
      * Picture of the medication.
      */
-    val image: List<Attachment>?
+    val image: kotlin.collections.List<Attachment>?
 }
 
 /**
  * Medication
- *
- * SourceFileName: Medication.kt
  *
  * This resource is primarily used for the identification and definition of a medication. It covers the
  * ingredients and the packaging for a medication.
@@ -116,29 +114,39 @@ data class Medication(
     override val form: CodeableConcept? = null,
 
     @SerialName("ingredient")
-    override val ingredient: List<MedicationIngredient>? = null,
+    override val ingredient: kotlin.collections.List<MedicationIngredient>? = null,
 
     @SerialName("package")
     override val pakkage: MedicationPackage? = null,
 
     @SerialName("image")
-    override val image: List<Attachment>? = null,
+    override val image: kotlin.collections.List<Attachment>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirMedication {
@@ -187,8 +195,6 @@ interface FhirMedicationIngredient : FhirBackboneElement {
 /**
  * MedicationIngredient
  *
- * SourceFileName: Medication.kt
- *
  * Identifies a particular constituent of interest in the product.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationIngredient</a>
@@ -211,13 +217,18 @@ data class MedicationIngredient(
     @SerialName("amount")
     override val amount: Ratio? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationIngredient {
 
     override val resourceType: kotlin.String
@@ -248,18 +259,16 @@ interface FhirMedicationPackage : FhirBackboneElement {
     /**
      * What is in the package.
      */
-    val content: List<MedicationPackageContent>?
+    val content: kotlin.collections.List<MedicationPackageContent>?
 
     /**
      * Identifies a single production run.
      */
-    val batch: List<MedicationPackageBatch>?
+    val batch: kotlin.collections.List<MedicationPackageBatch>?
 }
 
 /**
  * MedicationPackage
- *
- * SourceFileName: Medication.kt
  *
  * Information that only applies to packages (not products).
  *
@@ -275,18 +284,23 @@ data class MedicationPackage(
     override val container: CodeableConcept? = null,
 
     @SerialName("content")
-    override val content: List<MedicationPackageContent>? = null,
+    override val content: kotlin.collections.List<MedicationPackageContent>? = null,
 
     @SerialName("batch")
-    override val batch: List<MedicationPackageBatch>? = null,
+    override val batch: kotlin.collections.List<MedicationPackageBatch>? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationPackage {
 
     override val resourceType: kotlin.String
@@ -323,8 +337,6 @@ interface FhirMedicationPackageBatch : FhirBackboneElement {
 /**
  * MedicationPackageBatch
  *
- * SourceFileName: Medication.kt
- *
  * Information about a group of medication produced or packaged from one production run.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackageBatch</a>
@@ -341,13 +353,18 @@ data class MedicationPackageBatch(
     @SerialName("expirationDate")
     override val expirationDate: DateTime? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationPackageBatch {
 
     override val resourceType: kotlin.String
@@ -389,8 +406,6 @@ interface FhirMedicationPackageContent : FhirBackboneElement {
 /**
  * MedicationPackageContent
  *
- * SourceFileName: Medication.kt
- *
  * A set of components that go to make up the described item.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Medication">MedicationPackageContent</a>
@@ -410,13 +425,18 @@ data class MedicationPackageContent(
     @SerialName("amount")
     override val amount: Quantity? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMedicationPackageContent {
 
     override val resourceType: kotlin.String

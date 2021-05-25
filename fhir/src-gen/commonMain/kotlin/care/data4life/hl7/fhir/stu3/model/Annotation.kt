@@ -56,8 +56,6 @@ interface FhirAnnotation : FhirElement {
 /**
  * Annotation
  *
- * SourceFileName: Annotation.kt
- *
  * A text note which also contains information about who made the statement and when.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Annotation">Annotation</a>
@@ -80,10 +78,13 @@ data class Annotation(
     @SerialName("text")
     override val text: String,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAnnotation {
 
     override val resourceType: kotlin.String

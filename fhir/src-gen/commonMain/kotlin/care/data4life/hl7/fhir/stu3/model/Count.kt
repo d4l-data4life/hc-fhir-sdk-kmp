@@ -38,8 +38,6 @@ interface FhirCount : FhirQuantity
 /**
  * Count
  *
- * SourceFileName: Count.kt
- *
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts
  * include amounts that are not precisely quantified, including amounts involving arbitrary units and
  * floating currencies.
@@ -52,21 +50,30 @@ interface FhirCount : FhirQuantity
 @SerialName("Count")
 data class Count(
 
-    // # Quantity@SerialName("value")
+    // # Quantity
+
+    @SerialName("value")
     override val value: Decimal? = null,
+
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
+
     @SerialName("unit")
     override val unit: String? = null,
+
     @SerialName("system")
     override val system: String? = null,
+
     @SerialName("code")
     override val code: String? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCount {
 
     override val resourceType: kotlin.String

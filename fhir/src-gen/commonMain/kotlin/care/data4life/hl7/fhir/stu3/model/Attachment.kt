@@ -77,8 +77,6 @@ interface FhirAttachment : FhirElement {
 /**
  * Attachment
  *
- * SourceFileName: Attachment.kt
- *
  * For referring to data content defined in other formats.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Attachment">Attachment</a>
@@ -113,10 +111,13 @@ data class Attachment(
     @SerialName("creation")
     override val creation: DateTime? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAttachment {
 
     override val resourceType: kotlin.String

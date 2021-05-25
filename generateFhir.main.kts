@@ -40,7 +40,10 @@ fun modelExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
         "ExampleScenario.kt",
     )
     // this exclusions need to be in sync with 'fhir/parser/stu3/templates/template-elementfactory.kt' -> 'exclude_resources'
-    FhirVersion.FHIR3 -> listOf()
+    FhirVersion.FHIR3 -> listOf(
+        "ExplanationOfBenefit.kt",
+        "Claim.kt",
+    )
 }
 
 fun staticReplacementMap(fhirVersion: FhirVersion) = when (fhirVersion) {

@@ -112,15 +112,13 @@ interface Fhir{{ klass.name }} : Fhir{{ superclass_name }}{% if klass.properties
      * {{ prop.short | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | replace('\n\n','\n') | wordwrap(80) | replace('\n', '\n     * ') }}.
 {%- endif %}
      */
-    val {{ prop.name }}: {% if prop.is_array %}List<{% endif %}{% if prop.enum %}{{ prop.enum.name }}{% else %}{% if prop.class_name in resource_list %}Fhir{% endif %}{{ prop.class_name }}{% endif %}{% if prop.is_array %}>{% endif %}{%- if (not prop.nonoptional) or prop.one_of_many %}?{% endif %}
+    val {{ prop.name }}: {% if prop.is_array %}kotlin.collections.List<{% endif %}{% if prop.enum %}{{ prop.enum.name }}{% else %}{% if prop.class_name in resource_list %}Fhir{% endif %}{{ prop.class_name }}{% endif %}{% if prop.is_array %}>{% endif %}{% if (not prop.nonoptional) or prop.one_of_many %}?{% endif %}
 {%- endfor %}
 }
 {%- endif %}
 
 /**
  * {{ klass.name }}
- *
- * SourceFileName: {{ profile.targetname }}.kt
  *
 {%- if klass.formal %}
  * {{ klass.formal | replace('   ',' ') | replace('  ',' ') | replace('\n',' ') | replace('\n\n','\n') | wordwrap(100) | replace('\n', '\n * ') }}
@@ -138,15 +136,15 @@ data class {{ klass.name }}(
 {%- for prop in klass.properties %}
 
     @SerialName("{{prop.orig_name}}")
-    override val {{ prop.name }}: {% if prop.is_array %}List<{% endif %}{% if prop.enum %}{{ prop.enum.name }}{% else %}{% if prop.class_name in resource_list %}Fhir{% endif %}{{ prop.class_name }}{% endif %}{% if prop.is_array %}>{% endif %}{%- if (not prop.nonoptional) or prop.one_of_many  %}? = null{% endif %}{%- if klass.superclass %},{% else %}{% if not loop.last %},{% endif %}{% endif %}
+    override val {{ prop.name }}: {% if prop.is_array %}kotlin.collections.List<{% endif %}{% if prop.enum %}{{ prop.enum.name }}{% else %}{% if prop.class_name in resource_list %}Fhir{% endif %}{{ prop.class_name }}{% endif %}{% if prop.is_array %}>{% endif %}{%- if (not prop.nonoptional) or prop.one_of_many  %}? = null{% endif %}{%- if klass.superclass %},{% else %}{% if not loop.last %},{% endif %}{% endif %}
 {%- endfor %}
 {%- for _, sclass in superclasses.items() %}
 
     // # {{ sclass.name }}
-{%- for prop in sclass.properties -%}
+{%- for prop in sclass.properties %}
 
     @SerialName("{{prop.orig_name}}")
-    override val {{ prop.name }}: {% if prop.is_array %}List<{% endif %}{% if prop.enum %}{{ prop.enum.name }}{% else %}{% if prop.class_name in resource_list %}Fhir{% endif %}{{ prop.class_name }}{% endif %}{% if prop.is_array %}>{% endif %}{%- if (not prop.nonoptional) or prop.one_of_many %}? = null{% endif %}{%- if sclass.superclass %},{% else %}{% if not loop.last %},{% endif %}{% endif %}
+    override val {{ prop.name }}: {% if prop.is_array %}kotlin.collections.List<{% endif %}{% if prop.enum %}{{ prop.enum.name }}{% else %}{% if prop.class_name in resource_list %}Fhir{% endif %}{{ prop.class_name }}{% endif %}{% if prop.is_array %}>{% endif %}{%- if (not prop.nonoptional) or prop.one_of_many %}? = null{% endif %}{%- if sclass.superclass %},{% else %}{% if not loop.last %},{% endif %}{% endif %}
 {%- endfor %}
 {%- endfor %}
 ) : Fhir{{ klass.name }} {

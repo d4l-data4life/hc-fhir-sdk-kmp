@@ -46,8 +46,6 @@ interface FhirPeriod : FhirElement {
 /**
  * Period
  *
- * SourceFileName: Period.kt
- *
  * A time period defined by a start and end date and optionally time.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Period">Period</a>
@@ -64,10 +62,13 @@ data class Period(
     @SerialName("end")
     override val end: DateTime? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirPeriod {
 
     override val resourceType: kotlin.String

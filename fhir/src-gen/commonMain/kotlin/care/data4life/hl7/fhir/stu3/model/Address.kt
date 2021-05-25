@@ -55,7 +55,7 @@ interface FhirAddress : FhirElement {
     /**
      * Street name, number, direction & P.O. Box etc..
      */
-    val line: List<String>?
+    val line: kotlin.collections.List<String>?
 
     /**
      * Name of city, town etc..
@@ -91,8 +91,6 @@ interface FhirAddress : FhirElement {
 /**
  * Address
  *
- * SourceFileName: Address.kt
- *
  * An address expressed using postal conventions (as opposed to GPS or other location definition
  * formats). This data type may be used to convey addresses for use in delivering mail as well as for
  * visiting locations which might not be valid for mail delivery. There are a variety of postal address
@@ -116,7 +114,7 @@ data class Address(
     override val text: String? = null,
 
     @SerialName("line")
-    override val line: List<String>? = null,
+    override val line: kotlin.collections.List<String>? = null,
 
     @SerialName("city")
     override val city: String? = null,
@@ -136,10 +134,13 @@ data class Address(
     @SerialName("period")
     override val period: Period? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirAddress {
 
     override val resourceType: kotlin.String

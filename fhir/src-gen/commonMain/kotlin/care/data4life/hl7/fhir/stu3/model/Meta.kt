@@ -47,23 +47,21 @@ interface FhirMeta : FhirElement {
     /**
      * Profiles this resource claims to conform to.
      */
-    val profile: List<String>?
+    val profile: kotlin.collections.List<String>?
 
     /**
      * Security Labels applied to this resource.
      */
-    val security: List<Coding>?
+    val security: kotlin.collections.List<Coding>?
 
     /**
      * Tags applied to this resource.
      */
-    val tag: List<Coding>?
+    val tag: kotlin.collections.List<Coding>?
 }
 
 /**
  * Meta
- *
- * SourceFileName: Meta.kt
  *
  * The metadata about a resource. This is content in the resource that is maintained by the
  * infrastructure. Changes to the content may not always be associated with version changes to the
@@ -84,18 +82,21 @@ data class Meta(
     override val lastUpdated: Instant? = null,
 
     @SerialName("profile")
-    override val profile: List<String>? = null,
+    override val profile: kotlin.collections.List<String>? = null,
 
     @SerialName("security")
-    override val security: List<Coding>? = null,
+    override val security: kotlin.collections.List<Coding>? = null,
 
     @SerialName("tag")
-    override val tag: List<Coding>? = null,
+    override val tag: kotlin.collections.List<Coding>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeta {
 
     override val resourceType: kotlin.String

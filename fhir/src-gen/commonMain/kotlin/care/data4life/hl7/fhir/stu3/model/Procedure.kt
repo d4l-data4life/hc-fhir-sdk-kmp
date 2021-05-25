@@ -38,22 +38,22 @@ interface FhirProcedure : FhirDomainResource {
     /**
      * External Identifiers for this procedure.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Instantiates protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * A request for this procedure.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * Part of referenced event.
      */
-    val partOf: List<Reference>?
+    val partOf: kotlin.collections.List<Reference>?
 
     /**
      * A code specifying the state of the procedure. Generally this will be in-progress
@@ -104,7 +104,7 @@ interface FhirProcedure : FhirDomainResource {
     /**
      * The people who performed the procedure.
      */
-    val performer: List<ProcedurePerformer>?
+    val performer: kotlin.collections.List<ProcedurePerformer>?
 
     /**
      * Where the procedure happened.
@@ -114,17 +114,17 @@ interface FhirProcedure : FhirDomainResource {
     /**
      * Coded reason procedure performed.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Condition that is the reason the procedure performed.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Target body sites.
      */
-    val bodySite: List<CodeableConcept>?
+    val bodySite: kotlin.collections.List<CodeableConcept>?
 
     /**
      * The result of procedure.
@@ -134,48 +134,46 @@ interface FhirProcedure : FhirDomainResource {
     /**
      * Any report resulting from the procedure.
      */
-    val report: List<Reference>?
+    val report: kotlin.collections.List<Reference>?
 
     /**
      * Complication following the procedure.
      */
-    val complication: List<CodeableConcept>?
+    val complication: kotlin.collections.List<CodeableConcept>?
 
     /**
      * A condition that is a result of the procedure.
      */
-    val complicationDetail: List<Reference>?
+    val complicationDetail: kotlin.collections.List<Reference>?
 
     /**
      * Instructions for follow up.
      */
-    val followUp: List<CodeableConcept>?
+    val followUp: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Additional information about the procedure.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Device changed in procedure.
      */
-    val focalDevice: List<ProcedureFocalDevice>?
+    val focalDevice: kotlin.collections.List<ProcedureFocalDevice>?
 
     /**
      * Items used during procedure.
      */
-    val usedReference: List<Reference>?
+    val usedReference: kotlin.collections.List<Reference>?
 
     /**
      * Coded items used during the procedure.
      */
-    val usedCode: List<CodeableConcept>?
+    val usedCode: kotlin.collections.List<CodeableConcept>?
 }
 
 /**
  * Procedure
- *
- * SourceFileName: Procedure.kt
  *
  * An action that is or was performed on a patient. This can be a physical intervention like an
  * operation, or less invasive like counseling or hypnotherapy.
@@ -189,16 +187,16 @@ interface FhirProcedure : FhirDomainResource {
 data class Procedure(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("partOf")
-    override val partOf: List<Reference>? = null,
+    override val partOf: kotlin.collections.List<Reference>? = null,
 
     @SerialName("status")
     override val status: EventStatus,
@@ -228,62 +226,72 @@ data class Procedure(
     override val performedPeriod: Period? = null,
 
     @SerialName("performer")
-    override val performer: List<ProcedurePerformer>? = null,
+    override val performer: kotlin.collections.List<ProcedurePerformer>? = null,
 
     @SerialName("location")
     override val location: Reference? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("bodySite")
-    override val bodySite: List<CodeableConcept>? = null,
+    override val bodySite: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("outcome")
     override val outcome: CodeableConcept? = null,
 
     @SerialName("report")
-    override val report: List<Reference>? = null,
+    override val report: kotlin.collections.List<Reference>? = null,
 
     @SerialName("complication")
-    override val complication: List<CodeableConcept>? = null,
+    override val complication: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("complicationDetail")
-    override val complicationDetail: List<Reference>? = null,
+    override val complicationDetail: kotlin.collections.List<Reference>? = null,
 
     @SerialName("followUp")
-    override val followUp: List<CodeableConcept>? = null,
+    override val followUp: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("focalDevice")
-    override val focalDevice: List<ProcedureFocalDevice>? = null,
+    override val focalDevice: kotlin.collections.List<ProcedureFocalDevice>? = null,
 
     @SerialName("usedReference")
-    override val usedReference: List<Reference>? = null,
+    override val usedReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("usedCode")
-    override val usedCode: List<CodeableConcept>? = null,
+    override val usedCode: kotlin.collections.List<CodeableConcept>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirProcedure {
@@ -323,8 +331,6 @@ interface FhirProcedureFocalDevice : FhirBackboneElement {
 /**
  * ProcedureFocalDevice
  *
- * SourceFileName: Procedure.kt
- *
  * A device that is implanted, removed or otherwise manipulated (calibration, battery replacement,
  * fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
  *
@@ -342,13 +348,18 @@ data class ProcedureFocalDevice(
     @SerialName("manipulated")
     override val manipulated: Reference,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirProcedureFocalDevice {
 
     override val resourceType: kotlin.String
@@ -390,8 +401,6 @@ interface FhirProcedurePerformer : FhirBackboneElement {
 /**
  * ProcedurePerformer
  *
- * SourceFileName: Procedure.kt
- *
  * Limited to 'real' people rather than equipment.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Procedure">ProcedurePerformer</a>
@@ -411,13 +420,18 @@ data class ProcedurePerformer(
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirProcedurePerformer {
 
     override val resourceType: kotlin.String

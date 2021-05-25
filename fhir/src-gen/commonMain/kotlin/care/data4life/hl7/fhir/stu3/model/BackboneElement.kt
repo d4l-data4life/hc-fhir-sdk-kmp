@@ -34,13 +34,11 @@ interface FhirBackboneElement : FhirElement {
     /**
      * Extensions that cannot be ignored.
      */
-    val modifierExtension: List<Extension>?
+    val modifierExtension: kotlin.collections.List<Extension>?
 }
 
 /**
  * BackboneElement
- *
- * SourceFileName: BackboneElement.kt
  *
  * Base definition for all elements that are defined inside a resource - but not those in a data type.
  *
@@ -53,12 +51,15 @@ interface FhirBackboneElement : FhirElement {
 data class BackboneElement(
 
     @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirBackboneElement {
 
     override val resourceType: kotlin.String

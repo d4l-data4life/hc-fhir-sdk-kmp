@@ -45,8 +45,6 @@ interface FhirRatio : FhirElement {
 /**
  * Ratio
  *
- * SourceFileName: Ratio.kt
- *
  * A relationship of two Quantity values - expressed as a numerator and a denominator.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Ratio">Ratio</a>
@@ -63,10 +61,13 @@ data class Ratio(
     @SerialName("denominator")
     override val denominator: Quantity? = null,
 
-    // # Element@SerialName("id")
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirRatio {
 
     override val resourceType: kotlin.String

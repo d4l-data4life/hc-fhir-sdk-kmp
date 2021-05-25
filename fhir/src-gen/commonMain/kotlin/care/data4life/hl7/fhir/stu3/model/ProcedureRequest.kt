@@ -39,22 +39,22 @@ interface FhirProcedureRequest : FhirDomainResource {
     /**
      * Identifiers assigned to this order.
      */
-    val identifier: List<Identifier>?
+    val identifier: kotlin.collections.List<Identifier>?
 
     /**
      * Protocol or definition.
      */
-    val definition: List<Reference>?
+    val definition: kotlin.collections.List<Reference>?
 
     /**
      * What request fulfills.
      */
-    val basedOn: List<Reference>?
+    val basedOn: kotlin.collections.List<Reference>?
 
     /**
      * What request replaces.
      */
-    val replaces: List<Reference>?
+    val replaces: kotlin.collections.List<Reference>?
 
     /**
      * Composite Request ID.
@@ -85,7 +85,7 @@ interface FhirProcedureRequest : FhirDomainResource {
     /**
      * Classification of procedure.
      */
-    val category: List<CodeableConcept>?
+    val category: kotlin.collections.List<CodeableConcept>?
 
     /**
      * What is being requested/ordered.
@@ -150,43 +150,41 @@ interface FhirProcedureRequest : FhirDomainResource {
     /**
      * Explanation/Justification for test.
      */
-    val reasonCode: List<CodeableConcept>?
+    val reasonCode: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Explanation/Justification for test.
      */
-    val reasonReference: List<Reference>?
+    val reasonReference: kotlin.collections.List<Reference>?
 
     /**
      * Additional clinical information.
      */
-    val supportingInfo: List<Reference>?
+    val supportingInfo: kotlin.collections.List<Reference>?
 
     /**
      * Procedure Samples.
      */
-    val specimen: List<Reference>?
+    val specimen: kotlin.collections.List<Reference>?
 
     /**
      * Location on Body.
      */
-    val bodySite: List<CodeableConcept>?
+    val bodySite: kotlin.collections.List<CodeableConcept>?
 
     /**
      * Comments.
      */
-    val note: List<Annotation>?
+    val note: kotlin.collections.List<Annotation>?
 
     /**
      * Request provenance.
      */
-    val relevantHistory: List<Reference>?
+    val relevantHistory: kotlin.collections.List<Reference>?
 }
 
 /**
  * ProcedureRequest
- *
- * SourceFileName: ProcedureRequest.kt
  *
  * A record of a request for diagnostic investigations, treatments, or operations to be performed.
  *
@@ -199,16 +197,16 @@ interface FhirProcedureRequest : FhirDomainResource {
 data class ProcedureRequest(
 
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
+    override val identifier: kotlin.collections.List<Identifier>? = null,
 
     @SerialName("definition")
-    override val definition: List<Reference>? = null,
+    override val definition: kotlin.collections.List<Reference>? = null,
 
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
+    override val basedOn: kotlin.collections.List<Reference>? = null,
 
     @SerialName("replaces")
-    override val replaces: List<Reference>? = null,
+    override val replaces: kotlin.collections.List<Reference>? = null,
 
     @SerialName("requisition")
     override val requisition: Identifier? = null,
@@ -226,7 +224,7 @@ data class ProcedureRequest(
     override val doNotPerform: Bool? = null,
 
     @SerialName("category")
-    override val category: List<CodeableConcept>? = null,
+    override val category: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("code")
     override val code: CodeableConcept,
@@ -265,41 +263,51 @@ data class ProcedureRequest(
     override val performer: Reference? = null,
 
     @SerialName("reasonCode")
-    override val reasonCode: List<CodeableConcept>? = null,
+    override val reasonCode: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("reasonReference")
-    override val reasonReference: List<Reference>? = null,
+    override val reasonReference: kotlin.collections.List<Reference>? = null,
 
     @SerialName("supportingInfo")
-    override val supportingInfo: List<Reference>? = null,
+    override val supportingInfo: kotlin.collections.List<Reference>? = null,
 
     @SerialName("specimen")
-    override val specimen: List<Reference>? = null,
+    override val specimen: kotlin.collections.List<Reference>? = null,
 
     @SerialName("bodySite")
-    override val bodySite: List<CodeableConcept>? = null,
+    override val bodySite: kotlin.collections.List<CodeableConcept>? = null,
 
     @SerialName("note")
-    override val note: List<Annotation>? = null,
+    override val note: kotlin.collections.List<Annotation>? = null,
 
     @SerialName("relevantHistory")
-    override val relevantHistory: List<Reference>? = null,
+    override val relevantHistory: kotlin.collections.List<Reference>? = null,
 
-    // # DomainResource@SerialName("text")
+    // # DomainResource
+
+    @SerialName("text")
     override val text: Narrative? = null,
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
-    // # Resource@SerialName("id")
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Resource
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("meta")
     override val meta: Meta? = null,
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirProcedureRequest {
@@ -338,8 +346,6 @@ interface FhirProcedureRequestRequester : FhirBackboneElement {
 /**
  * ProcedureRequestRequester
  *
- * SourceFileName: ProcedureRequest.kt
- *
  * The individual who initiated the request and has responsibility for its activation.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/ProcedureRequest">ProcedureRequestRequester</a>
@@ -356,13 +362,18 @@ data class ProcedureRequestRequester(
     @SerialName("onBehalfOf")
     override val onBehalfOf: Reference? = null,
 
-    // # BackboneElement@SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
+    // # BackboneElement
 
-    // # Element@SerialName("id")
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
+
+    // # Element
+
+    @SerialName("id")
     override val id: String? = null,
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirProcedureRequestRequester {
 
     override val resourceType: kotlin.String
