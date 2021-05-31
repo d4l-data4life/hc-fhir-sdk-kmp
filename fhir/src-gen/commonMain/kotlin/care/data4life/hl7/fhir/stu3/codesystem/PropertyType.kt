@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: PropertyType
+ *
  * The type of a property value
  *
  * @see <a href="http://hl7.org/fhir/concept-property-type">PropertyType</a>
@@ -30,14 +31,17 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PropertyType {
+
     /**
-     * The property value is a code that identifies a concept defined in the code system
+     * The property value is a code that identifies a concept defined in the code
+     * system
      */
     @SerialName("code")
     CODE,
 
     /**
-     * The property  value is a code defined in an external code system. This may be used for translations, but is not the intent
+     * The property value is a code defined in an external code system. This may be
+     * used for translations, but is not the intent
      */
     @SerialName("Coding")
     CODING,
@@ -49,7 +53,8 @@ enum class PropertyType {
     STRING,
 
     /**
-     * The property value is a string (often used to assign ranking values to concepts for supporting score assessments)
+     * The property value is a string (often used to assign ranking values to concepts
+     * for supporting score assessments)
      */
     @SerialName("integer")
     INTEGER,
@@ -64,5 +69,5 @@ enum class PropertyType {
      * The property is a date or a date + time
      */
     @SerialName("dateTime")
-    DATETIME
+    DATETIME,
 }

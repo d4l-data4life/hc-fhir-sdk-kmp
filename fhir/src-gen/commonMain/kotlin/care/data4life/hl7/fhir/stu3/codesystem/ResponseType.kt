@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ResponseType
+ *
  * The kind of response to a message
  *
  * @see <a href="http://hl7.org/fhir/response-code">ResponseType</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResponseType {
+
     /**
      * The message was accepted and processed without error.
      */
@@ -37,14 +39,18 @@ enum class ResponseType {
     OK,
 
     /**
-     * Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
+     * Some internal unexpected error occurred - wait and try again. Note - this is
+     * usually used for things like database unavailable, which may be expected to
+     * resolve, though human intervention may be required.
      */
     @SerialName("transient-error")
     TRANSIENT_ERROR,
 
     /**
-     * The message was rejected because of a problem with the content. There is no point in re-sending without change. The response narrative SHALL describe the issue.
+     * The message was rejected because of a problem with the content. There is no
+     * point in re-sending without change. The response narrative SHALL describe the
+     * issue.
      */
     @SerialName("fatal-error")
-    FATAL_ERROR
+    FATAL_ERROR,
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: MedicationStatementTaken
+ *
  * A coded concept identifying level of certainty if patient has taken or has not taken the medication
  *
  * @see <a href="http://hl7.org/fhir/medication-statement-taken">MedicationStatementTaken</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationStatementTaken {
+
     /**
      * Positive assertion that patient has taken medication
      */
@@ -52,5 +54,5 @@ enum class MedicationStatementTaken {
      * Patient reporting does not apply
      */
     @SerialName("na")
-    NA
+    NA,
 }

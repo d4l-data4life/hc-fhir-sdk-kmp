@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ContributorType
+ *
  * The type of contributor
  *
  * @see <a href="http://hl7.org/fhir/contributor-type">ContributorType</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ContributorType {
+
     /**
      * An author of the content of the module
      */
@@ -52,5 +54,5 @@ enum class ContributorType {
      * An endorser of the content of the module
      */
     @SerialName("endorser")
-    ENDORSER
+    ENDORSER,
 }

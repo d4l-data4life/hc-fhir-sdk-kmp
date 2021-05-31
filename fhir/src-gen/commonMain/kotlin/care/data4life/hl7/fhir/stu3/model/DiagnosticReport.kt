@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -23,72 +23,118 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
+/**
+ * FhirDiagnosticReport
+ *
+ * The findings and interpretation of diagnostic tests performed on patients, groups of patients,
+ * devices, and locations, and/or specimens derived from these. The report includes clinical context
+ * such as requesting and provider information, and some mix of atomic results, images, textual and
+ * coded interpretations, and formatted representation of diagnostic reports.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReport</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport)
+ */
 interface FhirDiagnosticReport : FhirDomainResource {
 
-    // Business identifier for report.
-    val identifier: List<Identifier>?
+    /**
+     * Business identifier for report.
+     */
+    val identifier: kotlin.collections.List<Identifier>?
 
-    // What was requested.
-    val basedOn: List<Reference>?
+    /**
+     * What was requested.
+     */
+    val basedOn: kotlin.collections.List<Reference>?
 
-    // The status of the diagnostic report as a whole.
+    /**
+     * The status of the diagnostic report as a whole.
+     */
     val status: DiagnosticReportStatus
 
-    // Service category.
+    /**
+     * Service category.
+     */
     val category: CodeableConcept?
 
-    // Name/Code for this diagnostic report.
+    /**
+     * Name/Code for this diagnostic report.
+     */
     val code: CodeableConcept
 
-    // The subject of the report - usually, but not always, the patient.
+    /**
+     * The subject of the report - usually, but not always, the patient.
+     */
     val subject: Reference?
 
-    // Health care event when test ordered.
+    /**
+     * Health care event when test ordered.
+     */
     val context: Reference?
 
-    // Clinically relevant time/time-period for report.
+    /**
+     * Clinically relevant time/time-period for report.
+     */
     val effectiveDateTime: DateTime?
 
-    // Clinically relevant time/time-period for report.
+    /**
+     * Clinically relevant time/time-period for report.
+     */
     val effectivePeriod: Period?
 
-    // DateTime this version was released.
+    /**
+     * DateTime this version was released.
+     */
     val issued: Instant?
 
-    // Participants in producing the report.
-    val performer: List<DiagnosticReportPerformer>?
+    /**
+     * Participants in producing the report.
+     */
+    val performer: kotlin.collections.List<DiagnosticReportPerformer>?
 
-    // Specimens this report is based on.
-    val specimen: List<Reference>?
+    /**
+     * Specimens this report is based on.
+     */
+    val specimen: kotlin.collections.List<Reference>?
 
-    // Observations - simple, or complex nested groups.
-    val result: List<Reference>?
+    /**
+     * Observations - simple, or complex nested groups.
+     */
+    val result: kotlin.collections.List<Reference>?
 
-    // Reference to full details of imaging associated with the diagnostic report.
-    val imagingStudy: List<Reference>?
+    /**
+     * Reference to full details of imaging associated with the diagnostic report.
+     */
+    val imagingStudy: kotlin.collections.List<Reference>?
 
-    // Key images associated with this report.
-    val image: List<DiagnosticReportImage>?
+    /**
+     * Key images associated with this report.
+     */
+    val image: kotlin.collections.List<DiagnosticReportImage>?
 
-    // Clinical Interpretation of test results.
+    /**
+     * Clinical Interpretation of test results.
+     */
     val conclusion: String?
 
-    // Codes for the conclusion.
-    val codedDiagnosis: List<CodeableConcept>?
+    /**
+     * Codes for the conclusion.
+     */
+    val codedDiagnosis: kotlin.collections.List<CodeableConcept>?
 
-    // Entire report as issued.
-    val presentedForm: List<Attachment>?
+    /**
+     * Entire report as issued.
+     */
+    val presentedForm: kotlin.collections.List<Attachment>?
 }
 
-
 /**
- * ClassName: DiagnosticReport
+ * DiagnosticReport
  *
- * SourceFileName: DiagnosticReport.kt
- *
- *
- * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
+ * The findings and interpretation of diagnostic tests performed on patients, groups of patients,
+ * devices, and locations, and/or specimens derived from these. The report includes clinical context
+ * such as requesting and provider information, and some mix of atomic results, images, textual and
+ * coded interpretations, and formatted representation of diagnostic reports.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReport</a>
  *
@@ -98,88 +144,85 @@ interface FhirDiagnosticReport : FhirDomainResource {
 @SerialName("DiagnosticReport")
 data class DiagnosticReport(
 
-    // Business identifier for report.
     @SerialName("identifier")
-    override val identifier: List<Identifier>? = null,
-    // What was requested.
+    override val identifier: kotlin.collections.List<Identifier>? = null,
+
     @SerialName("basedOn")
-    override val basedOn: List<Reference>? = null,
-    // The status of the diagnostic report as a whole.
+    override val basedOn: kotlin.collections.List<Reference>? = null,
+
     @SerialName("status")
     override val status: DiagnosticReportStatus,
-    // Service category.
+
     @SerialName("category")
     override val category: CodeableConcept? = null,
-    // Name/Code for this diagnostic report.
+
     @SerialName("code")
     override val code: CodeableConcept,
-    // The subject of the report - usually, but not always, the patient.
+
     @SerialName("subject")
     override val subject: Reference? = null,
-    // Health care event when test ordered.
+
     @SerialName("context")
     override val context: Reference? = null,
-    // Clinically relevant time/time-period for report.
+
     @SerialName("effectiveDateTime")
     override val effectiveDateTime: DateTime? = null,
-    // Clinically relevant time/time-period for report.
+
     @SerialName("effectivePeriod")
     override val effectivePeriod: Period? = null,
-    // DateTime this version was released.
+
     @SerialName("issued")
     override val issued: Instant? = null,
-    // Participants in producing the report.
+
     @SerialName("performer")
-    override val performer: List<DiagnosticReportPerformer>? = null,
-    // Specimens this report is based on.
+    override val performer: kotlin.collections.List<DiagnosticReportPerformer>? = null,
+
     @SerialName("specimen")
-    override val specimen: List<Reference>? = null,
-    // Observations - simple, or complex nested groups.
+    override val specimen: kotlin.collections.List<Reference>? = null,
+
     @SerialName("result")
-    override val result: List<Reference>? = null,
-    // Reference to full details of imaging associated with the diagnostic report.
+    override val result: kotlin.collections.List<Reference>? = null,
+
     @SerialName("imagingStudy")
-    override val imagingStudy: List<Reference>? = null,
-    // Key images associated with this report.
+    override val imagingStudy: kotlin.collections.List<Reference>? = null,
+
     @SerialName("image")
-    override val image: List<DiagnosticReportImage>? = null,
-    // Clinical Interpretation of test results.
+    override val image: kotlin.collections.List<DiagnosticReportImage>? = null,
+
     @SerialName("conclusion")
     override val conclusion: String? = null,
-    // Codes for the conclusion.
-    @SerialName("codedDiagnosis")
-    override val codedDiagnosis: List<CodeableConcept>? = null,
-    // Entire report as issued.
-    @SerialName("presentedForm")
-    override val presentedForm: List<Attachment>? = null,
 
+    @SerialName("codedDiagnosis")
+    override val codedDiagnosis: kotlin.collections.List<CodeableConcept>? = null,
+
+    @SerialName("presentedForm")
+    override val presentedForm: kotlin.collections.List<Attachment>? = null,
 
     // # DomainResource
-    // Text summary of the resource, for human interpretation.
+
     @SerialName("text")
     override val text: Narrative? = null,
-    // Contained, inline Resources.
-    @SerialName("contained")
-    override val contained: List<FhirResource>? = null,
-    // Additional Content defined by implementations.
-    @SerialName("extension")
-    override val extension: List<Extension>? = null,
-    // Extensions that cannot be ignored.
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
+    @SerialName("contained")
+    override val contained: kotlin.collections.List<FhirResource>? = null,
+
+    @SerialName("extension")
+    override val extension: kotlin.collections.List<Extension>? = null,
+
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Resource
-    // Logical id of this artifact.
+
     @SerialName("id")
     override val id: String? = null,
-    // Metadata about the resource.
+
     @SerialName("meta")
     override val meta: Meta? = null,
-    // A set of rules under which this content was created.
+
     @SerialName("implicitRules")
     override val implicitRules: String? = null,
-    // Language of the resource content.
+
     @SerialName("language")
     override val language: String? = null
 ) : FhirDiagnosticReport {
@@ -187,31 +230,42 @@ data class DiagnosticReport(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DiagnosticReport"
     }
 }
 
-
+/**
+ * FhirDiagnosticReportImage
+ *
+ * A list of key images associated with this report. The images are generally created during the
+ * diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of
+ * interest).
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportImage</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport)
+ */
 interface FhirDiagnosticReportImage : FhirBackboneElement {
 
-    // Comment about the image (e.g. explanation).
+    /**
+     * Comment about the image (e.g. explanation).
+     */
     val comment: String?
 
-    // Reference to the image source.
+    /**
+     * Reference to the image source.
+     */
     val link: Reference
 }
 
-
 /**
- * ClassName: DiagnosticReportImage
+ * DiagnosticReportImage
  *
- * SourceFileName: DiagnosticReport.kt
- *
- *
- * A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
+ * A list of key images associated with this report. The images are generally created during the
+ * diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of
+ * interest).
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportImage</a>
  *
@@ -221,32 +275,28 @@ interface FhirDiagnosticReportImage : FhirBackboneElement {
 @SerialName("DiagnosticReportImage")
 data class DiagnosticReportImage(
 
-    // Comment about the image (e.g. explanation).
     @SerialName("comment")
     override val comment: String? = null,
-    // Reference to the image source.
+
     @SerialName("link")
     override val link: Reference,
 
-
     // # BackboneElement
-    // Extensions that cannot be ignored.
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
-    // xml:id (or equivalent in JSON).
+
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDiagnosticReportImage {
 
     override val resourceType: kotlin.String
         get() = resourceType()
-
 
     companion object {
         @JvmStatic
@@ -254,22 +304,30 @@ data class DiagnosticReportImage(
     }
 }
 
-
+/**
+ * FhirDiagnosticReportPerformer
+ *
+ * Indicates who or what participated in producing the report.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/DiagnosticReport">DiagnosticReportPerformer</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport)
+ */
 interface FhirDiagnosticReportPerformer : FhirBackboneElement {
 
-    // Type of performer.
+    /**
+     * Type of performer.
+     */
     val role: CodeableConcept?
 
-    // Practitioner or Organization  participant.
+    /**
+     * Practitioner or Organization participant.
+     */
     val actor: Reference
 }
 
-
 /**
- * ClassName: DiagnosticReportPerformer
- *
- * SourceFileName: DiagnosticReport.kt
- *
+ * DiagnosticReportPerformer
  *
  * Indicates who or what participated in producing the report.
  *
@@ -281,36 +339,31 @@ interface FhirDiagnosticReportPerformer : FhirBackboneElement {
 @SerialName("DiagnosticReportPerformer")
 data class DiagnosticReportPerformer(
 
-    // Type of performer.
     @SerialName("role")
     override val role: CodeableConcept? = null,
-    // Practitioner or Organization  participant.
+
     @SerialName("actor")
     override val actor: Reference,
 
-
     // # BackboneElement
-    // Extensions that cannot be ignored.
-    @SerialName("modifierExtension")
-    override val modifierExtension: List<Extension>? = null,
 
+    @SerialName("modifierExtension")
+    override val modifierExtension: kotlin.collections.List<Extension>? = null,
 
     // # Element
-    // xml:id (or equivalent in JSON).
+
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirDiagnosticReportPerformer {
 
     override val resourceType: kotlin.String
         get() = resourceType()
-
 
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "DiagnosticReportPerformer"
     }
 }
-

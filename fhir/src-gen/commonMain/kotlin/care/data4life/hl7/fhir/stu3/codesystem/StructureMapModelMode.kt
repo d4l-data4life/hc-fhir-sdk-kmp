@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: StructureMapModelMode
+ *
  * How the referenced structure is used in this mapping
  *
  * @see <a href="http://hl7.org/fhir/map-model-mode">StructureMapModelMode</a>
@@ -30,27 +31,32 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureMapModelMode {
+
     /**
-     * This structure describes an instance passed to the mapping engine that is used a source of data
+     * This structure describes an instance passed to the mapping engine that is used a
+     * source of data
      */
     @SerialName("source")
     SOURCE,
 
     /**
-     * This structure describes an instance that the mapping engine may ask for that is used a source of data
+     * This structure describes an instance that the mapping engine may ask for that is
+     * used a source of data
      */
     @SerialName("queried")
     QUERIED,
 
     /**
-     * This structure describes an instance passed to the mapping engine that is used a target of data
+     * This structure describes an instance passed to the mapping engine that is used a
+     * target of data
      */
     @SerialName("target")
     TARGET,
 
     /**
-     * This structure describes an instance that the mapping engine may ask to create that is used a target of data
+     * This structure describes an instance that the mapping engine may ask to create
+     * that is used a target of data
      */
     @SerialName("produced")
-    PRODUCED
+    PRODUCED,
 }

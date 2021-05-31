@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ConstraintSeverity
+ *
  * SHALL applications comply with this constraint?
  *
  * @see <a href="http://hl7.org/fhir/constraint-severity">ConstraintSeverity</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConstraintSeverity {
+
     /**
      * If the constraint is violated, the resource is not conformant.
      */
@@ -37,8 +39,9 @@ enum class ConstraintSeverity {
     ERROR,
 
     /**
-     * If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
+     * If the constraint is violated, the resource is conformant, but it is not
+     * necessarily following best practice.
      */
     @SerialName("warning")
-    WARNING
+    WARNING,
 }

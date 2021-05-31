@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system.
+ * Code System: NHINPurposeOfUse
+ *
+ * This value set is suitable for use with the provenance resource. It is derived from, but not
+ * compatible with, the HL7 v3 Purpose of use Code system.
  *
  * @see <a href="http://healthit.gov/nhin/purposeofuse">NHINPurposeOfUse</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/nhin-purposeofuse">ValueSet</a>
@@ -30,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class NHINPurposeOfUse {
+
     /**
      * Treatment
      */
@@ -91,7 +94,8 @@ enum class NHINPurposeOfUse {
     DIRECTORY,
 
     /**
-     * Disclose to a family member, other relative, or a close personal friend of the individual
+     * Disclose to a family member, other relative, or a close personal friend of the
+     * individual
      */
     @SerialName("FAMILY")
     FAMILY,
@@ -103,7 +107,8 @@ enum class NHINPurposeOfUse {
     PRESENT,
 
     /**
-     * Permission cannot practicably be provided because of the individual's incapacity or an emergency.
+     * Permission cannot practicably be provided because of the individual's incapacity
+     * or an emergency.
      */
     @SerialName("EMERGENCY")
     EMERGENCY,
@@ -151,7 +156,7 @@ enum class NHINPurposeOfUse {
     DECEASED,
 
     /**
-     * Uses and disclosures for cadaveric organ,  eye or tissue donation purposes
+     * Uses and disclosures for cadaveric organ, eye or tissue donation purposes
      */
     @SerialName("DONATION")
     DONATION,
@@ -190,5 +195,5 @@ enum class NHINPurposeOfUse {
      * Request of the Individual
      */
     @SerialName("REQUEST")
-    REQUEST
+    REQUEST,
 }

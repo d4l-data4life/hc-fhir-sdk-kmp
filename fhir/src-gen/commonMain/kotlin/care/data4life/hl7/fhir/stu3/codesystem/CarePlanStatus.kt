@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
+ * Code System: CarePlanStatus
+ *
+ * Indicates whether the plan is currently being acted upon, represents future intentions or is now a
+ * historical record.
  *
  * @see <a href="http://hl7.org/fhir/care-plan-status">CarePlanStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/care-plan-status">ValueSet</a>
@@ -30,8 +32,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CarePlanStatus {
+
     /**
-     * The plan is in development or awaiting use but is not yet intended to be acted upon.
+     * The plan is in development or awaiting use but is not yet intended to be acted
+     * upon.
      */
     @SerialName("draft")
     DRAFT,
@@ -49,7 +53,8 @@ enum class CarePlanStatus {
     SUSPENDED,
 
     /**
-     * The plan is no longer in use and is not expected to be followed or used in patient care.
+     * The plan is no longer in use and is not expected to be followed or used in
+     * patient care.
      */
     @SerialName("completed")
     COMPLETED,
@@ -61,7 +66,8 @@ enum class CarePlanStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).
+     * The plan has been terminated prior to reaching completion (though it may have
+     * been replaced by a new plan).
      */
     @SerialName("cancelled")
     CANCELLED,
@@ -70,5 +76,5 @@ enum class CarePlanStatus {
      * The authoring system doesn't know the current state of the care plan.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

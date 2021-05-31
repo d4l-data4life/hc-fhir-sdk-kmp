@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: SupplyDeliveryStatus
+ *
  * Status of the supply delivery.
  *
  * @see <a href="http://hl7.org/fhir/supplydelivery-status">SupplyDeliveryStatus</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SupplyDeliveryStatus {
+
     /**
      * Supply has been requested, but not delivered.
      */
@@ -49,8 +51,10 @@ enum class SupplyDeliveryStatus {
     ABANDONED,
 
     /**
-     * This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
+     * This electronic record should never have existed, though it is possible that
+     * real-world decisions were based on it. (If real-world activity has occurred, the
+     * status should be "cancelled" rather than "entered-in-error".)
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

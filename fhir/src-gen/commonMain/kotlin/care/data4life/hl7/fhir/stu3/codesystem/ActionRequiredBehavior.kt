@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ActionRequiredBehavior
+ *
  * Defines requiredness behavior for selecting an action or an action group
  *
  * @see <a href="http://hl7.org/fhir/action-required-behavior">ActionRequiredBehavior</a>
@@ -30,21 +31,26 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionRequiredBehavior {
+
     /**
-     * An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
+     * An action with this behavior must be included in the actions processed by the
+     * end user; the end user may not choose not to include this action
      */
     @SerialName("must")
     MUST,
 
     /**
-     * An action with this behavior may be included in the set of actions processed by the end user
+     * An action with this behavior may be included in the set of actions processed by
+     * the end user
      */
     @SerialName("could")
     COULD,
 
     /**
-     * An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included
+     * An action with this behavior must be included in the set of actions processed by
+     * the end user, unless the end user provides documentation as to why the action
+     * was not included
      */
     @SerialName("must-unless-documented")
-    MUST_UNLESS_DOCUMENTED
+    MUST_UNLESS_DOCUMENTED,
 }

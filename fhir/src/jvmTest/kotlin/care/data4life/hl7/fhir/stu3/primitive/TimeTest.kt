@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -16,7 +16,7 @@
 
 package care.data4life.hl7.fhir.stu3.primitive
 
-import care.data4life.hl7.fhir.stu3.datetime.XsTime
+import care.data4life.hl7.fhir.common.datetime.XsTime
 import care.data4life.hl7.fhir.stu3.model.Extension
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -43,7 +43,8 @@ class TimeTest(
                         values["minute"] as Int,
                         values["second"] as Int?,
                         values["fraction"] as Double?,
-                    ), id, extension
+                    ),
+                    id, extension
                 )
             }
             return
@@ -55,7 +56,8 @@ class TimeTest(
                 values["minute"] as Int,
                 values["second"] as Int?,
                 values["fraction"] as Double?,
-            ), id, extension
+            ),
+            id, extension
         )
 
         assertEquals(values["hour"], result.value.hour)

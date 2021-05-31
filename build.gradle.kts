@@ -1,10 +1,4 @@
 buildscript {
-    repositories {
-        mavenCentral()
-        google()
-        jcenter()
-        maven("https://dl.bintray.com/data4life/maven")
-    }
     dependencies {
         classpath(GradlePlugins.kotlin)
         classpath(GradlePlugins.android)
@@ -15,13 +9,21 @@ plugins {
     kotlinMultiplatform(false)
     kotlinSerialization(false)
 
-    dependencyUpdates()
-
-    id("scripts.versioning")
+    id("scripts.dependency-updates")
+    id("scripts.download-scripts")
     id("scripts.publishing")
+    id("scripts.quality-spotless")
+    id("scripts.versioning")
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
 }
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "6.8.2"
+    gradleVersion = "7.0.2"
     distributionType = Wrapper.DistributionType.ALL
 }

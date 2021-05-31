@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance.
+ * Code System: AllergyIntoleranceVerificationStatus
+ *
+ * Assertion about certainty associated with a propensity, or potential risk, of a reaction to the
+ * identified substance.
  *
  * @see <a href="http://hl7.org/fhir/allergy-verification-status">AllergyIntoleranceVerificationStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/allergy-verification-status">ValueSet</a>
@@ -30,20 +32,25 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceVerificationStatus {
+
     /**
-     * A low level of certainty about the propensity for a reaction to the identified substance.
+     * A low level of certainty about the propensity for a reaction to the identified
+     * substance.
      */
     @SerialName("unconfirmed")
     UNCONFIRMED,
 
     /**
-     * A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
+     * A high level of certainty about the propensity for a reaction to the identified
+     * substance, which may include clinical evidence by testing or rechallenge.
      */
     @SerialName("confirmed")
     CONFIRMED,
 
     /**
-     * A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+     * A propensity for a reaction to the identified substance has been disproven with
+     * a high level of clinical certainty, which may include testing or rechallenge,
+     * and is refuted.
      */
     @SerialName("refuted")
     REFUTED,
@@ -52,5 +59,5 @@ enum class AllergyIntoleranceVerificationStatus {
      * The statement was entered in error and is not valid.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

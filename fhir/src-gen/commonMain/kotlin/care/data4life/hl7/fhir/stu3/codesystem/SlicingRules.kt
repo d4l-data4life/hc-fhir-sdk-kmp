@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: SlicingRules
+ *
  * How slices are interpreted when evaluating an instance.
  *
  * @see <a href="http://hl7.org/fhir/resource-slicing-rules">SlicingRules</a>
@@ -30,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SlicingRules {
+
     /**
-     * No additional content is allowed other than that described by the slices in this profile.
+     * No additional content is allowed other than that described by the slices in this
+     * profile.
      */
     @SerialName("closed")
     CLOSED,
@@ -43,8 +46,10 @@ enum class SlicingRules {
     OPEN,
 
     /**
-     * Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required.
+     * Additional content is allowed, but only at the end of the list. Note that using
+     * this requires that the slices be ordered, which makes it hard to share uses.
+     * This should only be done where absolutely required.
      */
     @SerialName("openAtEnd")
-    OPENATEND
+    OPENATEND,
 }

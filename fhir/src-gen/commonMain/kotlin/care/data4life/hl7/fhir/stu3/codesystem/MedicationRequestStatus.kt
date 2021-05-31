@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription
+ * Code System: MedicationRequestStatus
+ *
+ * A coded concept specifying the state of the prescribing event. Describes the lifecycle of the
+ * prescription
  *
  * @see <a href="http://hl7.org/fhir/medication-request-status">MedicationRequestStatus</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/medication-request-status">ValueSet</a>
@@ -30,14 +32,17 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestStatus {
+
     /**
-     * The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
+     * The prescription is 'actionable', but not all actions that are implied by it
+     * have occurred yet.
      */
     @SerialName("active")
     ACTIVE,
 
     /**
-     * Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called "suspended".
+     * Actions implied by the prescription are to be temporarily halted, but are
+     * expected to continue later. May also be called "suspended".
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -61,20 +66,24 @@ enum class MedicationRequestStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * Actions implied by the prescription are to be permanently halted, before all of them occurred.
+     * Actions implied by the prescription are to be permanently halted, before all of
+     * them occurred.
      */
     @SerialName("stopped")
     STOPPED,
 
     /**
-     * The prescription is not yet 'actionable', i.e. it is a work in progress, requires sign-off or verification, and needs to be run through decision support process.
+     * The prescription is not yet 'actionable', i.e. it is a work in progress,
+     * requires sign-off or verification, and needs to be run through decision support
+     * process.
      */
     @SerialName("draft")
     DRAFT,
 
     /**
-     * The authoring system does not know which of the status values currently applies for this request
+     * The authoring system does not know which of the status values currently applies
+     * for this request
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

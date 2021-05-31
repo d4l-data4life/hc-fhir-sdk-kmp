@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ActionSelectionBehavior
+ *
  * Defines selection behavior of a group
  *
  * @see <a href="http://hl7.org/fhir/action-selection-behavior">ActionSelectionBehavior</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ActionSelectionBehavior {
+
     /**
      * Any number of the actions in the group may be chosen, from zero to all
      */
@@ -43,13 +45,15 @@ enum class ActionSelectionBehavior {
     ALL,
 
     /**
-     * All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
+     * All the actions in the group are meant to be chosen as a single unit: either all
+     * must be selected by the end user, or none may be selected
      */
     @SerialName("all-or-none")
     ALL_OR_NONE,
 
     /**
-     * The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group
+     * The end user must choose one and only one of the selectable actions in the
+     * group. The user may not choose none of the actions in the group
      */
     @SerialName("exactly-one")
     EXACTLY_ONE,
@@ -64,5 +68,5 @@ enum class ActionSelectionBehavior {
      * The end user must choose a minimum of one, and as many additional as desired
      */
     @SerialName("one-or-more")
-    ONE_OR_MORE
+    ONE_OR_MORE,
 }

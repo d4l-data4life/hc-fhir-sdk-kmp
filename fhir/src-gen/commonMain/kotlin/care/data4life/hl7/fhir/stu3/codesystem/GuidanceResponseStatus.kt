@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: GuidanceResponseStatus
+ *
  * The status of a guidance response
  *
  * @see <a href="http://hl7.org/fhir/guidance-response-status">GuidanceResponseStatus</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GuidanceResponseStatus {
+
     /**
      * The request was processed successfully
      */
@@ -37,7 +39,8 @@ enum class GuidanceResponseStatus {
     SUCCESS,
 
     /**
-     * The request was processed successfully, but more data may result in a more complete evaluation
+     * The request was processed successfully, but more data may result in a more
+     * complete evaluation
      */
     @SerialName("data-requested")
     DATA_REQUESTED,
@@ -64,5 +67,5 @@ enum class GuidanceResponseStatus {
      * The response was entered in error
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

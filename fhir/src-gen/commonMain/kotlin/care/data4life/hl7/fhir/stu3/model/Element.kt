@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -20,22 +20,30 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
+/**
+ * FhirElement
+ *
+ * Base definition for all elements in a resource.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Element">Element</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Element)
+ */
 interface FhirElement : FhirStu3 {
 
-    // xml:id (or equivalent in JSON).
+    /**
+     * xml:id (or equivalent in JSON).
+     */
     val id: String?
 
-    // Additional Content defined by implementations.
-    val extension: List<Extension>?
+    /**
+     * Additional Content defined by implementations.
+     */
+    val extension: kotlin.collections.List<Extension>?
 }
 
-
 /**
- * ClassName: Element
- *
- * SourceFileName: Element.kt
- *
+ * Element
  *
  * Base definition for all elements in a resource.
  *
@@ -47,21 +55,18 @@ interface FhirElement : FhirStu3 {
 @SerialName("Element")
 data class Element(
 
-    // xml:id (or equivalent in JSON).
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirElement {
 
     override val resourceType: kotlin.String
         get() = resourceType()
-
 
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Element"
     }
 }
-

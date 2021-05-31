@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * Codes for device specification types such as serial number, part number, hardware revision, software revision, etc.
+ * Code System: DeviceSpecificationSpecType
+ *
+ * Codes for device specification types such as serial number, part number, hardware revision, software
+ * revision, etc.
  *
  * @see <a href="http://hl7.org/fhir/specification-type">DeviceSpecificationSpecType</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/specification-type">ValueSet</a>
@@ -30,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceSpecificationSpecType {
+
     /**
      * Unspecified Production Specification - MDC_ID_PROD_SPEC_UNSPECIFIED
      */
@@ -76,5 +79,5 @@ enum class DeviceSpecificationSpecType {
      * GMDN - MDC_ID_PROD_SPEC_GMDN
      */
     @SerialName("gmdn")
-    GMDN
+    GMDN,
 }

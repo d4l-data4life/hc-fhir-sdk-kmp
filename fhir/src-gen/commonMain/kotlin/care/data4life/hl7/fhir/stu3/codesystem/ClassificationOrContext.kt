@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ClassificationOrContext
+ *
  * Identifies whether a useContext represents a context or classification for the element
  *
  * @see <a href="http://hl7.org/fhir/classification-or-context">ClassificationOrContext</a>
@@ -30,15 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ClassificationOrContext {
+
     /**
-     * Indicates the useContext is a classification - e.g. Administrative, financial, etc.
+     * Indicates the useContext is a classification - e.g. Administrative, financial,
+     * etc.
      */
     @SerialName("classification")
     CLASSIFICATION,
 
     /**
-     * Indicates the useContext is a context - a domain of use - e.g. Particular country, organization or system
+     * Indicates the useContext is a context - a domain of use - e.g. Particular
+     * country, organization or system
      */
     @SerialName("context")
-    CONTEXT
+    CONTEXT,
 }

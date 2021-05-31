@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: EpisodeOfCareStatus
+ *
  * The status of the episode of care.
  *
  * @see <a href="http://hl7.org/fhir/episode-of-care-status">EpisodeOfCareStatus</a>
@@ -30,14 +31,19 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EpisodeOfCareStatus {
+
     /**
-     * This episode of care is planned to start at the date specified in the period.start. During this status, an organization may perform assessments to determine if the patient is eligible to receive services, or be organizing to make resources available to provide care services.
+     * This episode of care is planned to start at the date specified in the
+     * period.start. During this status, an organization may perform assessments to
+     * determine if the patient is eligible to receive services, or be organizing to
+     * make resources available to provide care services.
      */
     @SerialName("planned")
     PLANNED,
 
     /**
-     * This episode has been placed on a waitlist, pending the episode being made active (or cancelled).
+     * This episode has been placed on a waitlist, pending the episode being made
+     * active (or cancelled).
      */
     @SerialName("waitlist")
     WAITLIST,
@@ -49,19 +55,25 @@ enum class EpisodeOfCareStatus {
     ACTIVE,
 
     /**
-     * This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite).
+     * This episode of care is on hold, the organization has limited responsibility for
+     * the patient (such as while on respite).
      */
     @SerialName("onhold")
     ONHOLD,
 
     /**
-     * This episode of care is finished and the organization is not expecting to be providing further care to the patient. Can also be known as "closed", "completed" or other similar terms.
+     * This episode of care is finished and the organization is not expecting to be
+     * providing further care to the patient. Can also be known as "closed",
+     * "completed" or other similar terms.
      */
     @SerialName("finished")
     FINISHED,
 
     /**
-     * The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow.
+     * The episode of care was cancelled, or withdrawn from service, often selected
+     * during the planned stage as the patient may have gone elsewhere, or the
+     * circumstances have changed and the organization is unable to provide the care.
+     * It indicates that services terminated outside the planned/expected workflow.
      */
     @SerialName("cancelled")
     CANCELLED,
@@ -70,5 +82,5 @@ enum class EpisodeOfCareStatus {
      * This instance should not have been part of this patient's medical record.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

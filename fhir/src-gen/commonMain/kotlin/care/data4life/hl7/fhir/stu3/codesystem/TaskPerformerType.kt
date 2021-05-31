@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: TaskPerformerType
+ *
  * The type(s) of task performers allowed
  *
  * @see <a href="http://hl7.org/fhir/task-performer-type">TaskPerformerType</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TaskPerformerType {
+
     /**
      * A workflow participant that requests services.
      */
@@ -37,13 +39,15 @@ enum class TaskPerformerType {
     REQUESTER,
 
     /**
-     * A workflow participant that dispatches services (assigns another task to a participant).
+     * A workflow participant that dispatches services (assigns another task to a
+     * participant).
      */
     @SerialName("dispatcher")
     DISPATCHER,
 
     /**
-     * A workflow participant that schedules (dispatches and sets the time or date for performance of) services.
+     * A workflow participant that schedules (dispatches and sets the time or date for
+     * performance of) services.
      */
     @SerialName("scheduler")
     SCHEDULER,
@@ -67,7 +71,8 @@ enum class TaskPerformerType {
     MANAGER,
 
     /**
-     * A workflow participant that acquires resources (specimens, images, etc) necessary to perform the task.
+     * A workflow participant that acquires resources (specimens, images, etc)
+     * necessary to perform the task.
      */
     @SerialName("acquirer")
     ACQUIRER,
@@ -76,5 +81,5 @@ enum class TaskPerformerType {
      * A workflow participant that reviews task inputs or outputs.
      */
     @SerialName("reviewer")
-    REVIEWER
+    REVIEWER,
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ConceptMapGroupUnmappedMode
+ *
  * Defines which action to take if there is no match in the group.
  *
  * @see <a href="http://hl7.org/fhir/conceptmap-unmapped-mode">ConceptMapGroupUnmappedMode</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConceptMapGroupUnmappedMode {
+
     /**
      * Use the code as provided in the $translate request
      */
@@ -46,5 +48,5 @@ enum class ConceptMapGroupUnmappedMode {
      * Use the map identified by the canonical URL in URL
      */
     @SerialName("other-map")
-    OTHER_MAP
+    OTHER_MAP,
 }

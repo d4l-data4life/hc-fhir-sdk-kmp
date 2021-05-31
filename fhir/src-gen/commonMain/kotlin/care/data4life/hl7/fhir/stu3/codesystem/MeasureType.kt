@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: MeasureType
+ *
  * The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)
  *
  * @see <a href="http://hl7.org/fhir/measure-type">MeasureType</a>
@@ -30,33 +31,40 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureType {
+
     /**
-     * A measure which focuses on a process which leads to a certain outcome, meaning that a scientific basis exists for believing that the process, when executed well, will increase the probability of achieving a desired outcome
+     * A measure which focuses on a process which leads to a certain outcome, meaning
+     * that a scientific basis exists for believing that the process, when executed
+     * well, will increase the probability of achieving a desired outcome
      */
     @SerialName("process")
     PROCESS,
 
     /**
-     * A measure that indicates the result of the performance (or non-performance) of a function or process
+     * A measure that indicates the result of the performance (or non-performance) of a
+     * function or process
      */
     @SerialName("outcome")
     OUTCOME,
 
     /**
-     * A measure that focuses on a health care provider's capacity, systems, and processes to provide high-quality care
+     * A measure that focuses on a health care provider's capacity, systems, and
+     * processes to provide high-quality care
      */
     @SerialName("structure")
     STRUCTURE,
 
     /**
-     * A measure that focuses on patient-reported information such as patient engagement or patient experience measures
+     * A measure that focuses on patient-reported information such as patient
+     * engagement or patient experience measures
      */
     @SerialName("patient-reported-outcome")
     PATIENT_REPORTED_OUTCOME,
 
     /**
-     * A measure that combines multiple component measures in to a single quality measure
+     * A measure that combines multiple component measures in to a single quality
+     * measure
      */
     @SerialName("composite")
-    COMPOSITE
+    COMPOSITE,
 }

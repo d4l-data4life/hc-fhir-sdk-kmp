@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -16,10 +16,10 @@
 
 package care.data4life.hl7.fhir.stu3.primitive
 
-import care.data4life.hl7.fhir.stu3.datetime.XsDate
-import care.data4life.hl7.fhir.stu3.datetime.XsDateTime
-import care.data4life.hl7.fhir.stu3.datetime.XsTime
-import care.data4life.hl7.fhir.stu3.datetime.XsTimeZone
+import care.data4life.hl7.fhir.common.datetime.XsDate
+import care.data4life.hl7.fhir.common.datetime.XsDateTime
+import care.data4life.hl7.fhir.common.datetime.XsTime
+import care.data4life.hl7.fhir.common.datetime.XsTimeZone
 import care.data4life.hl7.fhir.stu3.model.Extension
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -45,7 +45,8 @@ class DateTimeTest(
                         values["date"] as XsDate,
                         values["time"] as XsTime?,
                         values["timezone"] as XsTimeZone?,
-                    ), id, extension
+                    ),
+                    id, extension
                 )
             }
             return
@@ -56,7 +57,8 @@ class DateTimeTest(
                 values["date"] as XsDate,
                 values["time"] as XsTime?,
                 values["timezone"] as XsTimeZone?,
-            ), id, extension
+            ),
+            id, extension
         )
 
         assertEquals(values["date"], result.value.date)
@@ -88,16 +90,17 @@ class DateTimeTest(
                         "date" to XsDate(2021, 1, 31),
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
-                    ), null, null, false
+                    ),
+                    null, null, false
                 ),
-
 
                 arrayOf(
                     mapOf(
                         "date" to XsDate(2021, 1, 31),
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1, 0, false)
-                    ), null, null, false
+                    ),
+                    null, null, false
                 ),
 
                 arrayOf(
@@ -105,7 +108,8 @@ class DateTimeTest(
                         "date" to XsDate(2021, 1, 31),
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1)
-                    ), null, null, false
+                    ),
+                    null, null, false
                 ),
 
                 // fails
@@ -114,14 +118,16 @@ class DateTimeTest(
                         "date" to XsDate(2021, 1, 31),
                         "time" to null,
                         "timezone" to XsTimeZone(1)
-                    ), null, null, true
+                    ),
+                    null, null, true
                 ),
                 arrayOf(
                     mapOf(
                         "date" to XsDate(2021, 1, 31),
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to null
-                    ), null, null, true
+                    ),
+                    null, null, true
                 ),
             )
         }

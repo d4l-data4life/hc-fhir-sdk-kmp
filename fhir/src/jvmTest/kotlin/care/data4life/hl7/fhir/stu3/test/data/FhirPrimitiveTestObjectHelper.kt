@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -28,7 +28,7 @@ object FhirPrimitiveTestObjectHelper {
     ): kotlin.String {
         //language=JSON
         return """{"resourceType":"$resourceType","value":${value()}${
-            if (extension != null || id != null) formatSiblingJsonObject(extension, id) else ""
+        if (extension != null || id != null) formatSiblingJsonObject(extension, id) else ""
         }}""".trimMargin()
     }
 

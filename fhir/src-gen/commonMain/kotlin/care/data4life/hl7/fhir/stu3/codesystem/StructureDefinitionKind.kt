@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: StructureDefinitionKind
+ *
  * Defines the type of structure that a definition is describing.
  *
  * @see <a href="http://hl7.org/fhir/structure-definition-kind">StructureDefinitionKind</a>
@@ -30,14 +31,18 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StructureDefinitionKind {
+
     /**
-     * A primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only the base specification can define primitive types.
+     * A primitive type that has a value and an extension. These can be used throughout
+     * Resource and extension definitions. Only the base specification can define
+     * primitive types.
      */
     @SerialName("primitive-type")
     PRIMITIVE_TYPE,
 
     /**
-     * A  complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.
+     * A complex structure that defines a set of data elements. These can be used
+     * throughout Resource and extension definitions, and in logical models.
      */
     @SerialName("complex-type")
     COMPLEX_TYPE,
@@ -49,8 +54,9 @@ enum class StructureDefinitionKind {
     RESOURCE,
 
     /**
-     * A conceptual package of data that will be mapped to resources for implementation.
+     * A conceptual package of data that will be mapped to resources for
+     * implementation.
      */
     @SerialName("logical")
-    LOGICAL
+    LOGICAL,
 }

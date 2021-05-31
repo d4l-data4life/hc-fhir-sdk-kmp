@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ResourceValidationMode
+ *
  * Codes indicating the type of validation to perform
  *
  * @see <a href="http://hl7.org/fhir/resource-validation-mode">ResourceValidationMode</a>
@@ -30,21 +31,28 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ResourceValidationMode {
+
     /**
-     * The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints).
+     * The server checks the content, and then checks that the content would be
+     * acceptable as a create (e.g. that the content would not violate any uniqueness
+     * constraints).
      */
     @SerialName("create")
     CREATE,
 
     /**
-     * The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate).
+     * The server checks the content, and then checks that it would accept it as an
+     * update against the nominated specific resource (e.g. that there are no changes
+     * to immutable fields the server does not allow to change, and checking version
+     * integrity if appropriate).
      */
     @SerialName("update")
     UPDATE,
 
     /**
-     * The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules).
+     * The server ignores the content, and checks that the nominated resource is
+     * allowed to be deleted (e.g. checking referential integrity rules).
      */
     @SerialName("delete")
-    DELETE
+    DELETE,
 }

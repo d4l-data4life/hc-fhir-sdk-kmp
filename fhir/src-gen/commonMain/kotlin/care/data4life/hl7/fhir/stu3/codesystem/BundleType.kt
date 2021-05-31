@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: BundleType
+ *
  * Indicates the purpose of a bundle - how it was intended to be used.
  *
  * @see <a href="http://hl7.org/fhir/bundle-type">BundleType</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class BundleType {
+
     /**
      * The bundle is a document. The first resource is a Composition.
      */
@@ -43,25 +45,29 @@ enum class BundleType {
     MESSAGE,
 
     /**
-     * The bundle is a transaction - intended to be processed by a server as an atomic commit.
+     * The bundle is a transaction - intended to be processed by a server as an atomic
+     * commit.
      */
     @SerialName("transaction")
     TRANSACTION,
 
     /**
-     * The bundle is a transaction response. Because the response is a transaction response, the transaction has succeeded, and all responses are error free.
+     * The bundle is a transaction response. Because the response is a transaction
+     * response, the transaction has succeeded, and all responses are error free.
      */
     @SerialName("transaction-response")
     TRANSACTION_RESPONSE,
 
     /**
-     * The bundle is a transaction - intended to be processed by a server as a group of actions.
+     * The bundle is a transaction - intended to be processed by a server as a group of
+     * actions.
      */
     @SerialName("batch")
     BATCH,
 
     /**
-     * The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success.
+     * The bundle is a batch response. Note that as a batch, some responses may
+     * indicate failure and others success.
      */
     @SerialName("batch-response")
     BATCH_RESPONSE,
@@ -73,14 +79,16 @@ enum class BundleType {
     HISTORY,
 
     /**
-     * The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.
+     * The bundle is a list of resources returned as a result of a search/query
+     * interaction, operation, or message.
      */
     @SerialName("searchset")
     SEARCHSET,
 
     /**
-     * The bundle is a set of resources collected into a single package for ease of distribution.
+     * The bundle is a set of resources collected into a single package for ease of
+     * distribution.
      */
     @SerialName("collection")
-    COLLECTION
+    COLLECTION,
 }

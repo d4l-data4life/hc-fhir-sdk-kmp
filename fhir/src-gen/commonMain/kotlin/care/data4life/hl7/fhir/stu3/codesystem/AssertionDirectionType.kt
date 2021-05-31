@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: AssertionDirectionType
+ *
  * The type of direction to use for assertion.
  *
  * @see <a href="http://hl7.org/fhir/assert-direction-codes">AssertionDirectionType</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AssertionDirectionType {
+
     /**
      * The assertion is evaluated on the response. This is the default value.
      */
@@ -40,5 +42,5 @@ enum class AssertionDirectionType {
      * The assertion is evaluated on the request.
      */
     @SerialName("request")
-    REQUEST
+    REQUEST,
 }

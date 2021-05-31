@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * Why an entry is in the result set - whether it's included as a match or because of an _include requirement.
+ * Code System: SearchEntryMode
+ *
+ * Why an entry is in the result set - whether it's included as a match or because of an _include
+ * requirement.
  *
  * @see <a href="http://hl7.org/fhir/search-entry-mode">SearchEntryMode</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/search-entry-mode">ValueSet</a>
@@ -30,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SearchEntryMode {
+
     /**
      * This resource matched the search specification.
      */
@@ -37,14 +40,16 @@ enum class SearchEntryMode {
     MATCH,
 
     /**
-     * This resource is returned because it is referred to from another resource in the search set.
+     * This resource is returned because it is referred to from another resource in the
+     * search set.
      */
     @SerialName("include")
     INCLUDE,
 
     /**
-     * An OperationOutcome that provides additional information about the processing of a search.
+     * An OperationOutcome that provides additional information about the processing of
+     * a search.
      */
     @SerialName("outcome")
-    OUTCOME
+    OUTCOME,
 }

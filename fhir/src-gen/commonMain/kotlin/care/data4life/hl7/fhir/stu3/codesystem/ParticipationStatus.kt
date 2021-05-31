@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ParticipationStatus
+ *
  * The Participation status of an appointment.
  *
  * @see <a href="http://hl7.org/fhir/participationstatus">ParticipationStatus</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ParticipationStatus {
+
     /**
      * The participant has accepted the appointment.
      */
@@ -37,20 +39,24 @@ enum class ParticipationStatus {
     ACCEPTED,
 
     /**
-     * The participant has declined the appointment and will not participate in the appointment.
+     * The participant has declined the appointment and will not participate in the
+     * appointment.
      */
     @SerialName("declined")
     DECLINED,
 
     /**
-     * The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur.
+     * The participant has tentatively accepted the appointment. This could be
+     * automatically created by a system and requires further processing before it can
+     * be accepted. There is no commitment that attendance will occur.
      */
     @SerialName("tentative")
     TENTATIVE,
 
     /**
-     * The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses.
+     * The participant needs to indicate if they accept the appointment by changing
+     * this status to one of the other statuses.
      */
     @SerialName("needs-action")
-    NEEDS_ACTION
+    NEEDS_ACTION,
 }

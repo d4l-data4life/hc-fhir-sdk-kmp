@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: QuestionnaireResponseStatus
+ *
  * Lifecycle status of the questionnaire response.
  *
  * @see <a href="http://hl7.org/fhir/questionnaire-answers-status">QuestionnaireResponseStatus</a>
@@ -30,20 +31,24 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class QuestionnaireResponseStatus {
+
     /**
-     * This QuestionnaireResponse has been partially filled out with answers, but changes or additions are still expected to be made to it.
+     * This QuestionnaireResponse has been partially filled out with answers, but
+     * changes or additions are still expected to be made to it.
      */
     @SerialName("in-progress")
     IN_PROGRESS,
 
     /**
-     * This QuestionnaireResponse has been filled out with answers, and the current content is regarded as definitive.
+     * This QuestionnaireResponse has been filled out with answers, and the current
+     * content is regarded as definitive.
      */
     @SerialName("completed")
     COMPLETED,
 
     /**
-     * This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
+     * This QuestionnaireResponse has been filled out with answers, then marked as
+     * complete, yet changes or additions have been made to it afterwards.
      */
     @SerialName("amended")
     AMENDED,
@@ -55,8 +60,10 @@ enum class QuestionnaireResponseStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * This QuestionnaireResponse has been partially filled out with answers, but has been abandoned. It is unknown whether changes or additions are expected to be made to it.
+     * This QuestionnaireResponse has been partially filled out with answers, but has
+     * been abandoned. It is unknown whether changes or additions are expected to be
+     * made to it.
      */
     @SerialName("stopped")
-    STOPPED
+    STOPPED,
 }

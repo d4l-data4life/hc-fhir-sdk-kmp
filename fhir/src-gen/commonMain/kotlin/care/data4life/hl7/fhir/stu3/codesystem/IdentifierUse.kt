@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: IdentifierUse
+ *
  * Identifies the purpose for this identifier, if known .
  *
  * @see <a href="http://hl7.org/fhir/identifier-use">IdentifierUse</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class IdentifierUse {
+
     /**
      * The identifier recommended for display and use in real-world interactions.
      */
@@ -37,7 +39,8 @@ enum class IdentifierUse {
     USUAL,
 
     /**
-     * The identifier considered to be most trusted for the identification of this item.
+     * The identifier considered to be most trusted for the identification of this
+     * item.
      */
     @SerialName("official")
     OFFICIAL,
@@ -49,8 +52,10 @@ enum class IdentifierUse {
     TEMP,
 
     /**
-     * An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
+     * An identifier that was assigned in secondary use - it serves to identify the
+     * object in a relative context, but cannot be consistently assigned to the same
+     * object again in a different context.
      */
     @SerialName("secondary")
-    SECONDARY
+    SECONDARY,
 }

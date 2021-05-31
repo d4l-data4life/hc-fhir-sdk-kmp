@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ConceptMapEquivalence
+ *
  * The degree of equivalence between concepts.
  *
  * @see <a href="http://hl7.org/fhir/concept-map-equivalence">ConceptMapEquivalence</a>
@@ -30,20 +31,25 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ConceptMapEquivalence {
+
     /**
-     * The concepts are related to each other, and have at least some overlap in meaning, but the exact relationship is not known
+     * The concepts are related to each other, and have at least some overlap in
+     * meaning, but the exact relationship is not known
      */
     @SerialName("relatedto")
     RELATEDTO,
 
     /**
-     * The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
+     * The definitions of the concepts mean the same thing (including when structural
+     * implications of meaning are considered) (i.e. extensionally identical).
      */
     @SerialName("equivalent")
     EQUIVALENT,
 
     /**
-     * The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identical or irrelevant (i.e. intentionally identical).
+     * The definitions of the concepts are exactly the same (i.e. only grammatical
+     * differences) and structural implications of meaning are identical or irrelevant
+     * (i.e. intentionally identical).
      */
     @SerialName("equal")
     EQUAL,
@@ -55,25 +61,35 @@ enum class ConceptMapEquivalence {
     WIDER,
 
     /**
-     * The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).
+     * The target mapping subsumes the meaning of the source concept (e.g. the source
+     * is-a target).
      */
     @SerialName("subsumes")
     SUBSUMES,
 
     /**
-     * The target mapping is narrower in meaning than the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.
+     * The target mapping is narrower in meaning than the source concept. The sense in
+     * which the mapping is narrower SHALL be described in the comments in this case,
+     * and applications should be careful when attempting to use these mappings
+     * operationally.
      */
     @SerialName("narrower")
     NARROWER,
 
     /**
-     * The target mapping specializes the meaning of the source concept (e.g. the target is-a source).
+     * The target mapping specializes the meaning of the source concept (e.g. the
+     * target is-a source).
      */
     @SerialName("specializes")
     SPECIALIZES,
 
     /**
-     * The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.
+     * The target mapping overlaps with the source concept, but both source and target
+     * cover additional meaning, or the definitions are imprecise and it is uncertain
+     * whether they have the same boundaries to their meaning. The sense in which the
+     * mapping is narrower SHALL be described in the comments in this case, and
+     * applications should be careful when attempting to use these mappings
+     * operationally.
      */
     @SerialName("inexact")
     INEXACT,
@@ -85,8 +101,9 @@ enum class ConceptMapEquivalence {
     UNMATCHED,
 
     /**
-     * This is an explicit assertion that there is no mapping between the source and target concept.
+     * This is an explicit assertion that there is no mapping between the source and
+     * target concept.
      */
     @SerialName("disjoint")
-    DISJOINT
+    DISJOINT,
 }

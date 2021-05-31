@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: SpecialValues
+ *
  * A set of generally useful codes defined so they can be included in value sets.
  *
  * @see <a href="http://hl7.org/fhir/special-values">SpecialValues</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SpecialValues {
+
     /**
      * Boolean true.
      */
@@ -49,7 +51,8 @@ enum class SpecialValues {
     TRACE,
 
     /**
-     * The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.
+     * The specific quantity is not known, but is known to be non-zero and is not
+     * specified because it makes up the bulk of the material.
      */
     @SerialName("sufficient")
     SUFFICIENT,
@@ -64,5 +67,5 @@ enum class SpecialValues {
      * The are no known applicable values in this context.
      */
     @SerialName("nil-known")
-    NIL_KNOWN
+    NIL_KNOWN,
 }

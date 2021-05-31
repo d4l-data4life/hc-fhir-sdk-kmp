@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: PublicationStatus
+ *
  * The lifecycle status of a Value Set or Concept Map.
  *
  * @see <a href="http://hl7.org/fhir/publication-status">PublicationStatus</a>
@@ -30,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class PublicationStatus {
+
     /**
-     * This resource is still under development and is not yet considered to be ready for normal use.
+     * This resource is still under development and is not yet considered to be ready
+     * for normal use.
      */
     @SerialName("draft")
     DRAFT,
@@ -49,8 +52,10 @@ enum class PublicationStatus {
     RETIRED,
 
     /**
-     * The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+     * The authoring system does not know which of the status values currently applies
+     * for this resource. Note: This concept is not to be used for "other" - one of the
+     * listed statuses is presumed to apply, it's just not known which one.
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

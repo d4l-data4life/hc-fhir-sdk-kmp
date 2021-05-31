@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: AggregationMode
+ *
  * How resource references can be aggregated.
  *
  * @see <a href="http://hl7.org/fhir/resource-aggregation-mode">AggregationMode</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AggregationMode {
+
     /**
      * The reference is a local reference to a contained resource.
      */
@@ -37,14 +39,16 @@ enum class AggregationMode {
     CONTAINED,
 
     /**
-     * The reference to a resource that has to be resolved externally to the resource that includes the reference.
+     * The reference to a resource that has to be resolved externally to the resource
+     * that includes the reference.
      */
     @SerialName("referenced")
     REFERENCED,
 
     /**
-     * The resource the reference points to will be found in the same bundle as the resource that includes the reference.
+     * The resource the reference points to will be found in the same bundle as the
+     * resource that includes the reference.
      */
     @SerialName("bundled")
-    BUNDLED
+    BUNDLED,
 }

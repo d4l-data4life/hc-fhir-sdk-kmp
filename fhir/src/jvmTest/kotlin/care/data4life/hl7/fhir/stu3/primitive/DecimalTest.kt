@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -61,13 +61,13 @@ class DecimalTest(
                 arrayOf("1.0", null, null, false),
                 arrayOf("123.456", null, null, false),
                 // arrayOf("456", null, null, false), //FIXME not supported by Double
-                //arrayOf("7.0100100", null, null, false), //FIXME not supported by Double
+                // arrayOf("7.0100100", null, null, false), //FIXME not supported by Double
 
                 // negative
                 arrayOf("-1.0", null, null, false),
                 arrayOf("-123.456", null, null, false),
-                //arrayOf("-456", null, null, false), //FIXME not supported by Double
-                //arrayOf("-7.0100100", null, null, false), //FIXME not supported by Double
+                // arrayOf("-456", null, null, false), //FIXME not supported by Double
+                // arrayOf("-7.0100100", null, null, false), //FIXME not supported by Double
             )
         }
     }

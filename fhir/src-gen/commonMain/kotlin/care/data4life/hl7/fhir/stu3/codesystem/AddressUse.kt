@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: AddressUse
+ *
  * The use of an address
  *
  * @see <a href="http://hl7.org/fhir/address-use">AddressUse</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AddressUse {
+
     /**
      * A communication address at a home.
      */
@@ -37,7 +39,8 @@ enum class AddressUse {
     HOME,
 
     /**
-     * An office address. First choice for business related contacts during business hours.
+     * An office address. First choice for business related contacts during business
+     * hours.
      */
     @SerialName("work")
     WORK,
@@ -49,8 +52,9 @@ enum class AddressUse {
     TEMP,
 
     /**
-     * This address is no longer in use (or was never correct, but retained for records).
+     * This address is no longer in use (or was never correct, but retained for
+     * records).
      */
     @SerialName("old")
-    OLD
+    OLD,
 }

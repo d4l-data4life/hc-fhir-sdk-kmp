@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: CareTeamStatus
+ *
  * Indicates the status of the care team.
  *
  * @see <a href="http://hl7.org/fhir/care-team-status">CareTeamStatus</a>
@@ -30,26 +31,31 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CareTeamStatus {
+
     /**
-     * The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.
+     * The care team has been drafted and proposed, but not yet participating in the
+     * coordination and delivery of care.
      */
     @SerialName("proposed")
     PROPOSED,
 
     /**
-     * The care team is currently participating in the coordination and delivery of care.
+     * The care team is currently participating in the coordination and delivery of
+     * care.
      */
     @SerialName("active")
     ACTIVE,
 
     /**
-     * The care team is temporarily on hold or suspended and not participating in the coordination and delivery of care.
+     * The care team is temporarily on hold or suspended and not participating in the
+     * coordination and delivery of care.
      */
     @SerialName("suspended")
     SUSPENDED,
 
     /**
-     * The care team was, but is no longer, participating in the coordination and delivery of care.
+     * The care team was, but is no longer, participating in the coordination and
+     * delivery of care.
      */
     @SerialName("inactive")
     INACTIVE,
@@ -58,5 +64,5 @@ enum class CareTeamStatus {
      * The care team should have never existed.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

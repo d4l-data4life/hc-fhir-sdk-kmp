@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: FHIRRestfulInteractions
+ *
  * The set of interactions defined by the RESTful part of the FHIR specification.
  *
  * @see <a href="http://hl7.org/fhir/restful-interaction">FHIRRestfulInteractions</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FHIRRestfulInteractions {
+
     /**
      * Read the current state of the resource.
      */
@@ -61,7 +63,8 @@ enum class FHIRRestfulInteractions {
     DELETE,
 
     /**
-     * Retrieve the change history for a particular resource, type of resource, or the entire system.
+     * Retrieve the change history for a particular resource, type of resource, or the
+     * entire system.
      */
     @SerialName("history")
     HISTORY,
@@ -130,5 +133,5 @@ enum class FHIRRestfulInteractions {
      * Perform an operation as defined by an OperationDefinition.
      */
     @SerialName("operation")
-    OPERATION
+    OPERATION,
 }

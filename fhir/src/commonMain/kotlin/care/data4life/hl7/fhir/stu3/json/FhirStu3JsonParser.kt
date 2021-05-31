@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -17,7 +17,7 @@
 package care.data4life.hl7.fhir.stu3.json
 
 import care.data4life.hl7.fhir.parser.json.FhirJsonParser
-import care.data4life.hl7.fhir.stu3.model.FhirSerializationModule
+import care.data4life.hl7.fhir.stu3.model.FhirHelper
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
 import kotlinx.serialization.PolymorphicSerializer
 import kotlinx.serialization.json.Json
@@ -37,10 +37,9 @@ class FhirStu3JsonParser(
         return reader.encodeToString(PolymorphicSerializer(FhirStu3::class), fhirObject)
     }
 
-
     companion object {
 
-        private val fhirStu3SerializersModule = FhirSerializationModule.module()
+        private val fhirStu3SerializersModule = FhirHelper.FhirSerializationModule.module()
 
         fun defaultJsonReader(module: SerializersModule = fhirStu3SerializersModule): Json {
             return Json {

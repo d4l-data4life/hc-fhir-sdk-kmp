@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -17,11 +17,16 @@
 package care.data4life.hl7.fhir
 
 import care.data4life.hl7.fhir.parser.FhirParser
+import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 
 class FhirParserFactory {
 
     fun createStu3Parser(): FhirParser<*> {
         return FhirStu3Parser()
+    }
+
+    fun createR4Parser(): FhirParser<*> {
+        return FhirR4Parser()
     }
 }

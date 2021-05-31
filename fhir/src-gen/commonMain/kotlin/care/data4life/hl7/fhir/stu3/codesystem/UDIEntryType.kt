@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: UDIEntryType
+ *
  * Codes to identify how UDI data was entered
  *
  * @see <a href="http://hl7.org/fhir/udi-entry-type">UDIEntryType</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class UDIEntryType {
+
     /**
      * A Barcode scanner captured the data from the device label
      */
@@ -43,7 +45,8 @@ enum class UDIEntryType {
     RFID,
 
     /**
-     * The data was read from the label by a person and manually entered. (e.g.  via a keyboard)
+     * The data was read from the label by a person and manually entered. (e.g. via a
+     * keyboard)
      */
     @SerialName("manual")
     MANUAL,
@@ -55,7 +58,8 @@ enum class UDIEntryType {
     CARD,
 
     /**
-     * The data originated from a patient source and not directly scanned or read from a label or card.
+     * The data originated from a patient source and not directly scanned or read from
+     * a label or card.
      */
     @SerialName("self-reported")
     SELF_REPORTED,
@@ -64,5 +68,5 @@ enum class UDIEntryType {
      * The method of data capture has not been determined
      */
     @SerialName("unknown")
-    UNKNOWN
+    UNKNOWN,
 }

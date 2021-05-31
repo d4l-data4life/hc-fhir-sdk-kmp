@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * A coded concept identifying where the medication included in the medicationstatement is expected to be consumed or administered
+ * Code System: MedicationStatementCategory
+ *
+ * A coded concept identifying where the medication included in the medicationstatement is expected to
+ * be consumed or administered
  *
  * @see <a href="http://hl7.org/fhir/medication-statement-category">MedicationStatementCategory</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/medication-statement-category">ValueSet</a>
@@ -30,27 +32,33 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationStatementCategory {
+
     /**
-     * Includes orders for medications to be administered or consumed in an inpatient or acute care setting
+     * Includes orders for medications to be administered or consumed in an inpatient
+     * or acute care setting
      */
     @SerialName("inpatient")
     INPATIENT,
 
     /**
-     * Includes orders for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
+     * Includes orders for medications to be administered or consumed in an outpatient
+     * setting (for example, Emergency Department, Outpatient Clinic, Outpatient
+     * Surgery, Doctor's office)
      */
     @SerialName("outpatient")
     OUTPATIENT,
 
     /**
-     * Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)
+     * Includes orders for medications to be administered or consumed by the patient in
+     * their home (this would include long term care or nursing homes, hospices, etc)
      */
     @SerialName("community")
     COMMUNITY,
 
     /**
-     * Includes statements about medication use, including over the counter medication, provided by the patient, agent or another provider
+     * Includes statements about medication use, including over the counter medication,
+     * provided by the patient, agent or another provider
      */
     @SerialName("patientspecified")
-    PATIENTSPECIFIED
+    PATIENTSPECIFIED,
 }

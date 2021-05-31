@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -22,17 +22,19 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
-interface FhirMoney : FhirQuantity {
-
-}
-
+/**
+ * FhirMoney
+ *
+ * An amount of economic utility in some recognized currency
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Money">Money</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Money)
+ */
+interface FhirMoney : FhirQuantity
 
 /**
- * ClassName: Money
- *
- * SourceFileName: Money.kt
- *
+ * Money
  *
  * An amount of economic utility in some recognized currency
  *
@@ -44,41 +46,37 @@ interface FhirMoney : FhirQuantity {
 @SerialName("Money")
 data class Money(
 
-
     // # Quantity
-    // Numerical value (with implicit precision).
+
     @SerialName("value")
     override val value: Decimal? = null,
-    // How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
+
     @SerialName("comparator")
     override val comparator: QuantityComparator? = null,
-    // Unit representation.
+
     @SerialName("unit")
     override val unit: String? = null,
-    // System that defines coded unit form.
+
     @SerialName("system")
     override val system: String? = null,
-    // Coded form of the unit.
+
     @SerialName("code")
     override val code: String? = null,
 
-
     // # Element
-    // xml:id (or equivalent in JSON).
+
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMoney {
 
     override val resourceType: kotlin.String
         get() = resourceType()
-
 
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Money"
     }
 }
-

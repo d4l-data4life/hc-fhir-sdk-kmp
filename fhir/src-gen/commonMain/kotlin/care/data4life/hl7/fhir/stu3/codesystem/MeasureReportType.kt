@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: MeasureReportType
+ *
  * The type of the measure report
  *
  * @see <a href="http://hl7.org/fhir/measure-report-type">MeasureReportType</a>
@@ -30,21 +31,25 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MeasureReportType {
+
     /**
-     * An individual report that provides information on the performance for a given measure with respect to a single patient
+     * An individual report that provides information on the performance for a given
+     * measure with respect to a single patient
      */
     @SerialName("individual")
     INDIVIDUAL,
 
     /**
-     * A patient list report that includes a listing of patients that satisfied each population criteria in the measure
+     * A patient list report that includes a listing of patients that satisfied each
+     * population criteria in the measure
      */
     @SerialName("patient-list")
     PATIENT_LIST,
 
     /**
-     * A summary report that returns the number of patients in each population criteria for the measure
+     * A summary report that returns the number of patients in each population criteria
+     * for the measure
      */
     @SerialName("summary")
-    SUMMARY
+    SUMMARY,
 }

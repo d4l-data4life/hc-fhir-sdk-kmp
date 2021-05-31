@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -28,10 +28,8 @@ class FhirStu3ParserTest {
 
     private lateinit var jsonParser: FhirStu3JsonParser
 
-
     // SUT
     private lateinit var parser: FhirStu3Parser
-
 
     @BeforeTest
     fun setup() {
@@ -48,12 +46,10 @@ class FhirStu3ParserTest {
         // When
         parser.toFhir(clazz, data)
 
-
         // Then
         verify { jsonParser.fromJson(clazz, data) }
         confirmVerified(jsonParser)
     }
-
 
     @Test
     fun `fromFhir() SHOULD call jsonParser_toJson()`() {
@@ -62,7 +58,6 @@ class FhirStu3ParserTest {
 
         // When
         parser.fromFhir(data)
-
 
         // Then
         verify { jsonParser.toJson(data) }

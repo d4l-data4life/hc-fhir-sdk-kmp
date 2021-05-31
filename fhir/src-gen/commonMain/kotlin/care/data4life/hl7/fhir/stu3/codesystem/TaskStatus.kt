@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: TaskStatus
+ *
  * The current status of the task.
  *
  * @see <a href="http://hl7.org/fhir/task-status">TaskStatus</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TaskStatus {
+
     /**
      * The task is not yet ready to be acted upon.
      */
@@ -43,25 +45,30 @@ enum class TaskStatus {
     REQUESTED,
 
     /**
-     * A potential performer has claimed ownership of the task and is evaluating whether to perform it.
+     * A potential performer has claimed ownership of the task and is evaluating
+     * whether to perform it.
      */
     @SerialName("received")
     RECEIVED,
 
     /**
-     * The potential performer has agreed to execute the task but has not yet started work.
+     * The potential performer has agreed to execute the task but has not yet started
+     * work.
      */
     @SerialName("accepted")
     ACCEPTED,
 
     /**
-     * The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.
+     * The potential performer who claimed ownership of the task has decided not to
+     * execute it prior to performing any action.
      */
     @SerialName("rejected")
     REJECTED,
 
     /**
-     * Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.
+     * Task is ready to be performed, but no action has yet been taken. Used in place
+     * of requested/received/accepted/rejected when request assignment and acceptance
+     * is a given.
      */
     @SerialName("ready")
     READY,
@@ -97,8 +104,9 @@ enum class TaskStatus {
     COMPLETED,
 
     /**
-     * The task should never have existed and is retained only because of the possibility it may have used.
+     * The task should never have existed and is retained only because of the
+     * possibility it may have used.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

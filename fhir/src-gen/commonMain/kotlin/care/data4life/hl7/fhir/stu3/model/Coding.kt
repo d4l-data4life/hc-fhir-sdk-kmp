@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -21,31 +21,45 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
+/**
+ * FhirCoding
+ *
+ * A reference to a code defined by a terminology system
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Coding">Coding</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Coding)
+ */
 interface FhirCoding : FhirElement {
 
-    // Identity of the terminology system.
+    /**
+     * Identity of the terminology system.
+     */
     val system: String?
 
-    // Version of the system - if relevant.
+    /**
+     * Version of the system - if relevant.
+     */
     val version: String?
 
-    // Symbol in syntax defined by the system.
+    /**
+     * Symbol in syntax defined by the system.
+     */
     val code: String?
 
-    // Representation defined by the system.
+    /**
+     * Representation defined by the system.
+     */
     val display: String?
 
-    // If this coding was chosen directly by the user.
+    /**
+     * If this coding was chosen directly by the user.
+     */
     val userSelected: Bool?
 }
 
-
 /**
- * ClassName: Coding
- *
- * SourceFileName: Coding.kt
- *
+ * Coding
  *
  * A reference to a code defined by a terminology system
  *
@@ -57,39 +71,35 @@ interface FhirCoding : FhirElement {
 @SerialName("Coding")
 data class Coding(
 
-    // Identity of the terminology system.
     @SerialName("system")
     override val system: String? = null,
-    // Version of the system - if relevant.
+
     @SerialName("version")
     override val version: String? = null,
-    // Symbol in syntax defined by the system.
+
     @SerialName("code")
     override val code: String? = null,
-    // Representation defined by the system.
+
     @SerialName("display")
     override val display: String? = null,
-    // If this coding was chosen directly by the user.
+
     @SerialName("userSelected")
     override val userSelected: Bool? = null,
 
-
     // # Element
-    // xml:id (or equivalent in JSON).
+
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirCoding {
 
     override val resourceType: kotlin.String
         get() = resourceType()
-
 
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Coding"
     }
 }
-

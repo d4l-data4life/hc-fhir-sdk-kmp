@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: RequestIntent
+ *
  * Codes indicating the degree of authority/intentionality associated with a request
  *
  * @see <a href="http://hl7.org/fhir/request-intent">RequestIntent</a>
@@ -30,14 +31,17 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class RequestIntent {
+
     /**
-     * The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act
+     * The request is a suggestion made by someone/something that doesn't have an
+     * intention to ensure it occurs and without providing an authorization to act
      */
     @SerialName("proposal")
     PROPOSAL,
 
     /**
-     * The request represents an intension to ensure something occurs without providing an authorization for others to act
+     * The request represents an intension to ensure something occurs without providing
+     * an authorization for others to act
      */
     @SerialName("plan")
     PLAN,
@@ -55,28 +59,34 @@ enum class RequestIntent {
     ORIGINAL_ORDER,
 
     /**
-     * The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization
+     * The request represents an automatically generated supplemental authorization for
+     * action based on a parent authorization together with initial results of the
+     * action taken against that parent authorization
      */
     @SerialName("reflex-order")
     REFLEX_ORDER,
 
     /**
-     * The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order
+     * The request represents the view of an authorization instantiated by a fulfilling
+     * system representing the details of the fulfiller's intention to act upon a
+     * submitted order
      */
     @SerialName("filler-order")
     FILLER_ORDER,
 
     /**
-     * An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug.
+     * An order created in fulfillment of a broader order that represents the
+     * authorization for a single activity occurrence. E.g. The administration of a
+     * single dose of a drug.
      */
     @SerialName("instance-order")
     INSTANCE_ORDER,
 
     /**
-     * The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.
-
-    Refer to [[[RequestGroup]]] for additional information on how this status is used
+     * The request represents a component or option for a RequestGroup that establishes
+     * timing, conditionality and/or other constraints among a set of requests.  Refer
+     * to [[[RequestGroup]]] for additional information on how this status is used
      */
     @SerialName("option")
-    OPTION
+    OPTION,
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: SlotStatus
+ *
  * The free/busy status of the slot.
  *
  * @see <a href="http://hl7.org/fhir/slotstatus">SlotStatus</a>
@@ -30,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class SlotStatus {
+
     /**
-     * Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
+     * Indicates that the time interval is busy because one or more events have been
+     * scheduled for that interval.
      */
     @SerialName("busy")
     BUSY,
@@ -43,13 +46,15 @@ enum class SlotStatus {
     FREE,
 
     /**
-     * Indicates that the time interval is busy and that the interval can not be scheduled.
+     * Indicates that the time interval is busy and that the interval can not be
+     * scheduled.
      */
     @SerialName("busy-unavailable")
     BUSY_UNAVAILABLE,
 
     /**
-     * Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
+     * Indicates that the time interval is busy because one or more events have been
+     * tentatively scheduled for that interval.
      */
     @SerialName("busy-tentative")
     BUSY_TENTATIVE,
@@ -58,5 +63,5 @@ enum class SlotStatus {
      * This instance should not have been part of this patient's medical record.
      */
     @SerialName("entered-in-error")
-    ENTERED_IN_ERROR
+    ENTERED_IN_ERROR,
 }

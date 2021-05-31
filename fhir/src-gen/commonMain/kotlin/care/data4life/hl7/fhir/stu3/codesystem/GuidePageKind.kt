@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: GuidePageKind
+ *
  * The kind of an included page.
  *
  * @see <a href="http://hl7.org/fhir/guide-page-kind">GuidePageKind</a>
@@ -30,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class GuidePageKind {
+
     /**
-     * This is a page of content that is included in the implementation guide. It has no particular function.
+     * This is a page of content that is included in the implementation guide. It has
+     * no particular function.
      */
     @SerialName("page")
     PAGE,
@@ -55,7 +58,8 @@ enum class GuidePageKind {
     INCLUDE,
 
     /**
-     * This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section.
+     * This is a page that lists the resources of a given type, and also creates pages
+     * for all the listed types as other pages in the section.
      */
     @SerialName("directory")
     DIRECTORY,
@@ -73,8 +77,9 @@ enum class GuidePageKind {
     TOC,
 
     /**
-     * This is a page that represents a presented resource. This is typically used for generated conformance resource presentations.
+     * This is a page that represents a presented resource. This is typically used for
+     * generated conformance resource presentations.
      */
     @SerialName("resource")
-    RESOURCE
+    RESOURCE,
 }

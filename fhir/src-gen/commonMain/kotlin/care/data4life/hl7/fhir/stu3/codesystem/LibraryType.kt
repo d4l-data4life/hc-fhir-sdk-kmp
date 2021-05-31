@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: LibraryType
+ *
  * The type of knowledge asset this library contains
  *
  * @see <a href="http://hl7.org/fhir/library-type">LibraryType</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class LibraryType {
+
     /**
      * The resource is a shareable library of formalized knowledge
      */
@@ -49,8 +51,9 @@ enum class LibraryType {
     ASSET_COLLECTION,
 
     /**
-     * The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation context
+     * The resource defines the dependencies, parameters, and data requirements for a
+     * particular module or evaluation context
      */
     @SerialName("module-definition")
-    MODULE_DEFINITION
+    MODULE_DEFINITION,
 }

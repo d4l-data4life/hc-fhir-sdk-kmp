@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: MedicationRequestPriority
+ *
  * Identifies the level of importance to be assigned to actioning the request
  *
  * @see <a href="http://hl7.org/fhir/medication-request-priority">MedicationRequestPriority</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationRequestPriority {
+
     /**
      * The order has a normal priority .
      */
@@ -52,5 +54,5 @@ enum class MedicationRequestPriority {
      * The order should be acted on as soon as possible.
      */
     @SerialName("asap")
-    ASAP
+    ASAP,
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: TransactionMode
+ *
  * A code that indicates how transactions are supported.
  *
  * @see <a href="http://hl7.org/fhir/transaction-mode">TransactionMode</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class TransactionMode {
+
     /**
      * Neither batch or transaction is supported.
      */
@@ -37,7 +39,7 @@ enum class TransactionMode {
     NOT_SUPPORTED,
 
     /**
-     * Batches are  supported.
+     * Batches are supported.
      */
     @SerialName("batch")
     BATCH,
@@ -52,5 +54,5 @@ enum class TransactionMode {
      * Both batches and transactions are supported.
      */
     @SerialName("both")
-    BOTH
+    BOTH,
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -21,33 +21,51 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
+/**
+ * FhirMeta
+ *
+ * The metadata about a resource. This is content in the resource that is maintained by the
+ * infrastructure. Changes to the content may not always be associated with version changes to the
+ * resource.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/Meta">Meta</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/Meta)
+ */
 interface FhirMeta : FhirElement {
 
-    // Version specific identifier.
+    /**
+     * Version specific identifier.
+     */
     val versionId: String?
 
-    // When the resource version last changed.
+    /**
+     * When the resource version last changed.
+     */
     val lastUpdated: Instant?
 
-    // Profiles this resource claims to conform to.
-    val profile: List<String>?
+    /**
+     * Profiles this resource claims to conform to.
+     */
+    val profile: kotlin.collections.List<String>?
 
-    // Security Labels applied to this resource.
-    val security: List<Coding>?
+    /**
+     * Security Labels applied to this resource.
+     */
+    val security: kotlin.collections.List<Coding>?
 
-    // Tags applied to this resource.
-    val tag: List<Coding>?
+    /**
+     * Tags applied to this resource.
+     */
+    val tag: kotlin.collections.List<Coding>?
 }
 
-
 /**
- * ClassName: Meta
+ * Meta
  *
- * SourceFileName: Meta.kt
- *
- *
- * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
+ * The metadata about a resource. This is content in the resource that is maintained by the
+ * infrastructure. Changes to the content may not always be associated with version changes to the
+ * resource.
  *
  * @see <a href="http://hl7.org/fhir/StructureDefinition/Meta">Meta</a>
  *
@@ -57,39 +75,35 @@ interface FhirMeta : FhirElement {
 @SerialName("Meta")
 data class Meta(
 
-    // Version specific identifier.
     @SerialName("versionId")
     override val versionId: String? = null,
-    // When the resource version last changed.
+
     @SerialName("lastUpdated")
     override val lastUpdated: Instant? = null,
-    // Profiles this resource claims to conform to.
-    @SerialName("profile")
-    override val profile: List<String>? = null,
-    // Security Labels applied to this resource.
-    @SerialName("security")
-    override val security: List<Coding>? = null,
-    // Tags applied to this resource.
-    @SerialName("tag")
-    override val tag: List<Coding>? = null,
 
+    @SerialName("profile")
+    override val profile: kotlin.collections.List<String>? = null,
+
+    @SerialName("security")
+    override val security: kotlin.collections.List<Coding>? = null,
+
+    @SerialName("tag")
+    override val tag: kotlin.collections.List<Coding>? = null,
 
     // # Element
-    // xml:id (or equivalent in JSON).
+
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirMeta {
 
     override val resourceType: kotlin.String
         get() = resourceType()
-
 
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Meta"
     }
 }
-

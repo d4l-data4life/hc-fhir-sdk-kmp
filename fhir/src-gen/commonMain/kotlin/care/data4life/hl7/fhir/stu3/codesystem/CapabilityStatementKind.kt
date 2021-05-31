@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: CapabilityStatementKind
+ *
  * How a capability statement is intended to be used.
  *
  * @see <a href="http://hl7.org/fhir/capability-statement-kind">CapabilityStatementKind</a>
@@ -30,21 +31,27 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class CapabilityStatementKind {
+
     /**
-     * The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
+     * The CapabilityStatement instance represents the present capabilities of a
+     * specific system instance. This is the kind returned by OPTIONS for a FHIR server
+     * end-point.
      */
     @SerialName("instance")
     INSTANCE,
 
     /**
-     * The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.
+     * The CapabilityStatement instance represents the capabilities of a system or
+     * piece of software, independent of a particular installation.
      */
     @SerialName("capability")
     CAPABILITY,
 
     /**
-     * The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.
+     * The CapabilityStatement instance represents a set of requirements for other
+     * systems to meet; e.g. as part of an implementation guide or 'request for
+     * proposal'.
      */
     @SerialName("requirements")
-    REQUIREMENTS
+    REQUIREMENTS,
 }

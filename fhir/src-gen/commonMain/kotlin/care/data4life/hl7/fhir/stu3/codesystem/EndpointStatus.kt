@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: EndpointStatus
+ *
  * The status of the endpoint
  *
  * @see <a href="http://hl7.org/fhir/endpoint-status">EndpointStatus</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class EndpointStatus {
+
     /**
      * This endpoint is expected to be active and can be used
      */
@@ -43,7 +45,9 @@ enum class EndpointStatus {
     SUSPENDED,
 
     /**
-     * This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken
+     * This endpoint has exceeded connectivity thresholds and is considered in an error
+     * state and should no longer be attempted to connect to until corrective action is
+     * taken
      */
     @SerialName("error")
     ERROR,
@@ -64,5 +68,5 @@ enum class EndpointStatus {
      * This endpoint is not intended for production usage.
      */
     @SerialName("test")
-    TEST
+    TEST,
 }

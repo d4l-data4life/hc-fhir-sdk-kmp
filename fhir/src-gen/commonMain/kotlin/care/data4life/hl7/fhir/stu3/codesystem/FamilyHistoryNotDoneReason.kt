@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: FamilyHistoryNotDoneReason
+ *
  * Codes describing the reason why a family member history was not done.
  *
  * @see <a href="http://hl7.org/fhir/history-not-done-reason">FamilyHistoryNotDoneReason</a>
@@ -30,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class FamilyHistoryNotDoneReason {
+
     /**
-     * Patient does not know the subject, e.g. the biological parent of an adopted patient.
+     * Patient does not know the subject, e.g. the biological parent of an adopted
+     * patient.
      */
     @SerialName("subject-unknown")
     SUBJECT_UNKNOWN,
@@ -49,8 +52,9 @@ enum class FamilyHistoryNotDoneReason {
     UNABLE_TO_OBTAIN,
 
     /**
-     * Patient does not have the information now, but can provide the information at a later date.
+     * Patient does not have the information now, but can provide the information at a
+     * later date.
      */
     @SerialName("deferred")
-    DEFERRED
+    DEFERRED,
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -16,8 +16,8 @@
 
 package care.data4life.hl7.fhir.stu3.primitive
 
-import care.data4life.hl7.fhir.stu3.datetime.XsDateTime
-import care.data4life.hl7.fhir.stu3.json.XsDateTimeParser
+import care.data4life.hl7.fhir.common.datetime.XsDateTime
+import care.data4life.hl7.fhir.common.datetime.parser.XsDateTimeParser
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirElement
 import kotlinx.serialization.KSerializer
@@ -32,7 +32,6 @@ import kotlin.jvm.JvmStatic
 interface FhirInstant : FhirElement {
     val value: XsDateTime
 }
-
 
 /**
  * Instant
@@ -82,7 +81,6 @@ data class Instant(
     override val resourceType: kotlin.String
         get() = resourceType()
 
-
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "Instant"
@@ -96,7 +94,7 @@ object InstantSerializer : KSerializer<Instant> {
     override fun deserialize(decoder: Decoder): Instant {
         val value = XsDateTimeParser.parse(decoder.decodeString())
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return Instant(value)
     }
@@ -104,6 +102,6 @@ object InstantSerializer : KSerializer<Instant> {
     override fun serialize(encoder: Encoder, value: Instant) {
         encoder.encodeString(XsDateTimeParser.format(value.value))
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

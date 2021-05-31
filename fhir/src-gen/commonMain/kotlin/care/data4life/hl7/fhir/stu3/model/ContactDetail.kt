@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -20,22 +20,30 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmStatic
 
-
+/**
+ * FhirContactDetail
+ *
+ * Specifies contact information for a person or organization.
+ *
+ * @see <a href="http://hl7.org/fhir/StructureDefinition/ContactDetail">ContactDetail</a>
+ *
+ * Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/ContactDetail)
+ */
 interface FhirContactDetail : FhirElement {
 
-    // Name of an individual to contact.
+    /**
+     * Name of an individual to contact.
+     */
     val name: String?
 
-    // Contact details for individual or organization.
-    val telecom: List<ContactPoint>?
+    /**
+     * Contact details for individual or organization.
+     */
+    val telecom: kotlin.collections.List<ContactPoint>?
 }
 
-
 /**
- * ClassName: ContactDetail
- *
- * SourceFileName: ContactDetail.kt
- *
+ * ContactDetail
  *
  * Specifies contact information for a person or organization.
  *
@@ -47,30 +55,26 @@ interface FhirContactDetail : FhirElement {
 @SerialName("ContactDetail")
 data class ContactDetail(
 
-    // Name of an individual to contact.
     @SerialName("name")
     override val name: String? = null,
-    // Contact details for individual or organization.
-    @SerialName("telecom")
-    override val telecom: List<ContactPoint>? = null,
 
+    @SerialName("telecom")
+    override val telecom: kotlin.collections.List<ContactPoint>? = null,
 
     // # Element
-    // xml:id (or equivalent in JSON).
+
     @SerialName("id")
     override val id: String? = null,
-    // Additional Content defined by implementations.
+
     @SerialName("extension")
-    override val extension: List<Extension>? = null
+    override val extension: kotlin.collections.List<Extension>? = null
 ) : FhirContactDetail {
 
     override val resourceType: kotlin.String
         get() = resourceType()
-
 
     companion object {
         @JvmStatic
         fun resourceType(): kotlin.String = "ContactDetail"
     }
 }
-

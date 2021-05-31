@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -73,7 +73,7 @@ object BoolSerializer : KSerializer<Bool> {
     override fun deserialize(decoder: Decoder): Bool {
         val value = decoder.decodeBoolean()
 
-        //TODO deserialize extensions and id
+        // TODO deserialize extensions and id
 
         return Bool(value)
     }
@@ -81,6 +81,6 @@ object BoolSerializer : KSerializer<Bool> {
     override fun serialize(encoder: Encoder, value: Bool) {
         encoder.encodeBoolean(value.value)
 
-        //TODO serialize extensions and id
+        // TODO serialize extensions and id
     }
 }

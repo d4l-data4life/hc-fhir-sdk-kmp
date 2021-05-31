@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or HGPS systems
+ * Code System: StrengthOfRecommendationRating
+ *
+ * A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or
+ * HGPS systems
  *
  * @see <a href="http://hl7.org/fhir/recommendation-strength">StrengthOfRecommendationRating</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/cqif-recommendation-strength">ValueSet</a>
@@ -30,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class StrengthOfRecommendationRating {
+
     /**
      * Strong recommendation
      */
@@ -40,5 +43,5 @@ enum class StrengthOfRecommendationRating {
      * Weak recommendation
      */
     @SerialName("weak")
-    WEAK
+    WEAK,
 }

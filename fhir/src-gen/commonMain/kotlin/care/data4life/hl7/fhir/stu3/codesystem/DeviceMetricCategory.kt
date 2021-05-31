@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: DeviceMetricCategory
+ *
  * Describes the category of the metric.
  *
  * @see <a href="http://hl7.org/fhir/metric-category">DeviceMetricCategory</a>
@@ -30,6 +31,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class DeviceMetricCategory {
+
     /**
      * DeviceObservations generated for this DeviceMetric are measured.
      */
@@ -37,7 +39,8 @@ enum class DeviceMetricCategory {
     MEASUREMENT,
 
     /**
-     * DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device.
+     * DeviceObservations generated for this DeviceMetric is a setting that will
+     * influence the behavior of the Device.
      */
     @SerialName("setting")
     SETTING,
@@ -52,5 +55,5 @@ enum class DeviceMetricCategory {
      * The category of this DeviceMetric is unspecified.
      */
     @SerialName("unspecified")
-    UNSPECIFIED
+    UNSPECIFIED,
 }

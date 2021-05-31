@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,9 +19,11 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
- * Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
+ * Code System: AllergyIntoleranceSeverity
+ *
+ * Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple
+ * different manifestations.
  *
  * @see <a href="http://hl7.org/fhir/reaction-event-severity">AllergyIntoleranceSeverity</a>
  * @see <a href="http://hl7.org/fhir/ValueSet/reaction-event-severity">ValueSet</a>
@@ -30,6 +32,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class AllergyIntoleranceSeverity {
+
     /**
      * Causes mild physiological effects.
      */
@@ -46,5 +49,5 @@ enum class AllergyIntoleranceSeverity {
      * Causes severe physiological effects.
      */
     @SerialName("severe")
-    SEVERE
+    SEVERE,
 }

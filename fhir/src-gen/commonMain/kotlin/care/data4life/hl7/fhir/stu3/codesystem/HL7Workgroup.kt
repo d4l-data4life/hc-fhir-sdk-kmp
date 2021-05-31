@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: HL7Workgroup
+ *
  * An HL7 administrative unit that owns artifacts in the FHIR specification
  *
  * @see <a href="http://hl7.org/fhir/hl7-work-group">HL7Workgroup</a>
@@ -30,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class HL7Workgroup {
+
     /**
-     * Community Based Collaborative Care (http://www.hl7.org/Special/committees/cbcc/index.cfm)
+     * Community Based Collaborative Care
+     * (http://www.hl7.org/Special/committees/cbcc/index.cfm)
      */
     @SerialName("cbcc")
     CBCC,
@@ -43,7 +46,8 @@ enum class HL7Workgroup {
     CDS,
 
     /**
-     * Clinical Quality Information (http://www.hl7.org/Special/committees/cqi/index.cfm)
+     * Clinical Quality Information
+     * (http://www.hl7.org/Special/committees/cqi/index.cfm)
      */
     @SerialName("cqi")
     CQI,
@@ -55,7 +59,8 @@ enum class HL7Workgroup {
     CG,
 
     /**
-     * Health Care Devices (http://www.hl7.org/Special/committees/healthcaredevices/index.cfm)
+     * Health Care Devices
+     * (http://www.hl7.org/Special/committees/healthcaredevices/index.cfm)
      */
     @SerialName("dev")
     DEV,
@@ -79,7 +84,8 @@ enum class HL7Workgroup {
     FM,
 
     /**
-     * Health Standards Integration (http://www.hl7.org/Special/committees/hsi/index.cfm)
+     * Health Standards Integration
+     * (http://www.hl7.org/Special/committees/hsi/index.cfm)
      */
     @SerialName("hsi")
     HSI,
@@ -91,13 +97,15 @@ enum class HL7Workgroup {
     II,
 
     /**
-     * Infrastructure And Messaging (http://www.hl7.org/special/committees/inm/index.cfm)
+     * Infrastructure And Messaging
+     * (http://www.hl7.org/special/committees/inm/index.cfm)
      */
     @SerialName("inm")
     INM,
 
     /**
-     * Implementable Technology Specifications (http://www.hl7.org/special/committees/xml/index.cfm)
+     * Implementable Technology Specifications
+     * (http://www.hl7.org/special/committees/xml/index.cfm)
      */
     @SerialName("its")
     ITS,
@@ -121,7 +129,8 @@ enum class HL7Workgroup {
     PC,
 
     /**
-     * Public Health and Emergency Response (http://www.hl7.org/Special/committees/pher/index.cfm)
+     * Public Health and Emergency Response
+     * (http://www.hl7.org/Special/committees/pher/index.cfm)
      */
     @SerialName("pher")
     PHER,
@@ -133,7 +142,8 @@ enum class HL7Workgroup {
     PHX,
 
     /**
-     * Regulated Clinical Research Information Management (http://www.hl7.org/Special/committees/rcrim/index.cfm)
+     * Regulated Clinical Research Information Management
+     * (http://www.hl7.org/Special/committees/rcrim/index.cfm)
      */
     @SerialName("rcrim")
     RCRIM,
@@ -163,8 +173,9 @@ enum class HL7Workgroup {
     VOCAB,
 
     /**
-     * Application Implementation and Design (http://www.hl7.org/Special/committees/java/index.cfm)
+     * Application Implementation and Design
+     * (http://www.hl7.org/Special/committees/java/index.cfm)
      */
     @SerialName("aid")
-    AID
+    AID,
 }

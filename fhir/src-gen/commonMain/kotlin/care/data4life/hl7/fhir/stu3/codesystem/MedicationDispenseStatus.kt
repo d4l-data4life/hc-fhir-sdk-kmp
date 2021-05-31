@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: MedicationDispenseStatus
+ *
  * A coded concept specifying the state of the dispense event.
  *
  * @see <a href="http://hl7.org/fhir/medication-dispense-status">MedicationDispenseStatus</a>
@@ -30,8 +31,11 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class MedicationDispenseStatus {
+
     /**
-     * The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes.
+     * The core event has not started yet, but some staging activities have begun (e.g.
+     * initial compounding or packaging of medication). Preparation stages may be
+     * tracked for billing purposes.
      */
     @SerialName("preparation")
     PREPARATION,
@@ -43,7 +47,8 @@ enum class MedicationDispenseStatus {
     IN_PROGRESS,
 
     /**
-     * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended"
+     * Actions implied by the administration have been temporarily halted, but are
+     * expected to continue later. May also be called "suspended"
      */
     @SerialName("on-hold")
     ON_HOLD,
@@ -61,8 +66,9 @@ enum class MedicationDispenseStatus {
     ENTERED_IN_ERROR,
 
     /**
-     * Actions implied by the dispense have been permanently halted, before all of them occurred.
+     * Actions implied by the dispense have been permanently halted, before all of them
+     * occurred.
      */
     @SerialName("stopped")
-    STOPPED
+    STOPPED,
 }

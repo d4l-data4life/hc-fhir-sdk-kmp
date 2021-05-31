@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -19,8 +19,9 @@ package care.data4life.hl7.fhir.stu3.codesystem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
+ * Code System: ReferenceHandlingPolicy
+ *
  * A set of flags that defines how references are supported.
  *
  * @see <a href="http://hl7.org/fhir/reference-handling-policy">ReferenceHandlingPolicy</a>
@@ -30,8 +31,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 enum class ReferenceHandlingPolicy {
+
     /**
-     * The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see 'enforced')
+     * The server supports and populates Literal references where they are known (this
+     * code does not guarantee that all references are literal; see 'enforced')
      */
     @SerialName("literal")
     LITERAL,
@@ -43,13 +46,16 @@ enum class ReferenceHandlingPolicy {
     LOGICAL,
 
     /**
-     * The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)
+     * The server will attempt to resolve logical references to literal references (if
+     * resolution fails, the server may still accept resources; see logical)
      */
     @SerialName("resolves")
     RESOLVES,
 
     /**
-     * The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems
+     * The server enforces that references have integrity - e.g. it ensures that
+     * references can always be resolved. This is typically the case for clinical
+     * record systems, but often not the case for middleware/proxy systems
      */
     @SerialName("enforced")
     ENFORCED,
@@ -58,5 +64,5 @@ enum class ReferenceHandlingPolicy {
      * The server does not support references that point to other servers
      */
     @SerialName("local")
-    LOCAL
+    LOCAL,
 }
