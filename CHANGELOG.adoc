@@ -36,6 +36,7 @@ toc::[]
 * Change FHIR STU3 config to allow multiple FHIR versions
 * Change XsDateTime implementation and parser to common for reuse in different FHIR versions
 * Change Fastlane actions to upgrade Python pip to allow dependency resolution
+* Change contribution guide and README
 
 === Removed
 

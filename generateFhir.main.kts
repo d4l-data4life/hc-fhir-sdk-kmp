@@ -79,7 +79,7 @@ fun printUsage() {
     println(
         """
             Usage: ./generateFhir.main.kts [<option>]
-                all         Generates all FHIR versions. Defaults is <all>.
+                all         Generates all FHIR versions. Default is <all>.
                 fhir3       Generate FHIR3 sources and tests
                 fhir4       Generate FHIR4 sources and tests
         """.trimIndent()
