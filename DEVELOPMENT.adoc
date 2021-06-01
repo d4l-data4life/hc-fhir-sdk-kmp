@@ -1,0 +1,209 @@
+= Development Guide
+:doctype: article
+:toc: macro
+:toclevels: 2
+:toc-title:
+:icons: font
+:table-stripes: uneven
+:imagesdir: assets/images
+:link-repository: https://github.com/d4l-data4life/hc-fhir-sdk-kmp
+// GitHub specific configuration
+ifdef::env-github[]
+:warning-caption: :warning:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+endif::[]
+
+Guide of our development process, project setup and how to write code.
+
+[discrete]
+==== Table Of Contents
+
+toc::[]
+
+== Prerequisites
+
+* link:https://developer.android.com/studio#downloads[Android Studio 4.2.1]
+* link:https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
+* link:https://kotlinlang.org/[Kotlin 1.4.32]
+* link:https://www.python.org/downloads/[Python 3.7.8]
+* Xcode 12.5
+
+== Installation
+
+=== Install Java & Kotlin
+
+You could use link:https://brew.sh/[Homebrew] to install on mac
+
+[source,bash]
+----
+brew tap adoptopenjdk/openjdk
+brew install adoptopenjdk8
+brew install kotlin
+----
+
+OR The easiest way to install Java and Kotlin is to use link:https://sdkman.io/[SDK MAN]
+
+Just open your terminal and enter:
+
+[source,bash]
+----
+curl -s "https://get.sdkman.io" | bash
+----
+
+Follow the setup instructions and verify that your installation works:
+
+[source,bash]
+----
+sdk version
+----
+
+If it shows you something like `5.11.5+713` then your good to continue.
+
+Just install the mentioned dependencies:
+
+[source,bash]
+----
+sdk install java 8.0.292.hs-adpt
+sdk install kotlin 1.4.32
+----
+
+Check your installation by:
+
+[source,bash]
+----
+java -version
+kotlin -version
+----
+
+=== Install Python
+
+It is recommended to use link:https://github.com/pyenv/pyenv[PyEnv] for managing dedicated python versions.
+
+Use link:https://brew.sh/[Homebrew] to install it on mac:
+
+[source,bash]
+----
+brew install pyenv
+----
+
+Make sure you are in the project root and install the correct Python version which is derived from `.python-version` file:
+
+[source,bash]
+----
+pyenv install
+----
+
+=== Android Studio
+
+For better interop with iOS you may install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[KMM plugin for Android Studio]]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
+
+=== First time
+
+As the project includes a Git submodule, this must be initialised on first use
+
+[source,bash]
+----
+git submodule update --init --recursive
+----
+
+== Development Process
+
+=== Branch
+
+
+
+===
+
+
+
+== Branching Strategy
+
+.Branching
+[cols="3"]
+|===
+|*Type* |*Branch* |*Description*
+
+|Development
+|main
+|Column 3, row 1
+
+|Production
+|`release/{version: major.minor}`
+|Column 3, row 2
+
+|Features/Issues
+|`feature/{type_of_change}-{short_description}`
+|Use for all new features and bug fixes
+
+|Hotfix
+|`hotfix/{type_of_change}-{short_description}`
+|Column 3, row 3
+|===
+
+
+Every change has to branch of from `main` and use this branch naming convention: `{feature/hotfix}/{type_of_change}-{short_description}`
+
+`main` must be always in releasable state.
+
+=== Type Of Change
+
+- *add* for new features or functionality
+- *change* for changes in existing features or functionality
+- *remove* | for removed features or functionality
+- *fix* for any bug fixes
+- *bump* for dependency updates
+- *security* in case of vulnerabilities
+
+Examples:
+
+- `feature/NAT-456/add-awesome-hashing-algorithm`
+- `feature/add-awesome-hashing-algorithm`
+- `feature/remove-not-so-awesome-algorithm`
+- `feature/fix-algorithm-corner-case`
+- `feature/bump-algorithm-lib-to-1.3.0`
+
+== Versioning
+
+We use http://semver.org/[Semantic Versioning] as a guideline for our versioning.
+
+Releases use this format: `{major}.{minor}.{patch}`
+
+* Breaking changes bump `{major}` and reset `{minor}` & `{patch}`
+* Backward compatible changes bump `{minor}` and reset `{patch}`
+* Bug fixes bump `{patch}`
+
+== Release
+
+This project is a rolling release. The latest state of `main` is the latest release.
+
+NOTE: Once a new projects started based on this template there is no further update possible.
+
+TODO add steps
+
+== Develop
+
+The source is divided into supporting code for JSON parsing and establishing the FHIR primitive type system (String, Dates, etc.) for link:http://hl7.org/fhir/STU3/datatypes.html[FHIR 3]] and link:http://hl7.org/fhir/R4/datatypes.html[FHIR 4]]
+
+
+
+And a big portion of generated code under `fhir/src-gen/commonMain/kotlin`. The generation is using the
+
+If you need to adjust one of the FHIR versions.
+
+=== How to add a new FHIR version
+
+Add:
+. New FHIR spec under `fhir-spec/hl7.org/fhir/{new FHIR version}/`
+. New `config` and `templates` under `fhir/parser/{new FHIR version}/`
+.. Adjust them to your needs
+. Base implementation
+.. FHIR model base `Fhir{new FHIR version}`
+.. FHIR primitives
+.. `Fhir{new FHIR version}Parser` and register it in `FhirParserFactory` alongside with it's JSON implementation
+. new FHIR version handling to `generateFhir.main.kts`
+. generated models, tests and validation resources by triggering generation
+
+Validate your changes and resolve issues introduced by the new FHIR version.
