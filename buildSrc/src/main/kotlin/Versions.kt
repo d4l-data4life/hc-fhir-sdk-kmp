@@ -19,7 +19,7 @@ object Versions {
     // Gradle Plugin
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.2.0"
+        const val android = "4.2.1"
     }
 
     // Kotlin
@@ -34,7 +34,7 @@ object Versions {
     const val kotlinSerialization = "1.1.0"
 
     // https://github.com/Kotlin/kotlinx-datetime
-    const val dateTime = "0.2.0"
+    const val dateTime = "0.2.1"
 
     // Android
     // https://developer.android.com/studio/write/java8-support
