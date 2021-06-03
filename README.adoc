@@ -202,6 +202,16 @@ Next planed features:
 * write new FHIR generator
 * add FHIR 5 once ready
 
+== Versioning
+
+We use http://semver.org/[Semantic Versioning] as a guideline for our versioning.
+
+Releases use this format: `{major}.{minor}.{patch}`
+
+* Breaking changes bump `{major}` and reset `{minor}` & `{patch}`
+* Backward compatible changes bump `{minor}` and reset `{patch}`
+* Bug fixes bump `{patch}`
+
 == Contributing
 
 You want to help or share a proposal? You have a specific problem?
