@@ -35,6 +35,8 @@ danger(args) {
                 .matches(branchName)
         val isDependabotBranch =
             "dependabot/(.*)"
+                .toRegex()
+                .matches(branchName)
         val isFeatureTitle =
             "(?:(?:\\[[A-Z]{2,8}-\\d{1,6}\\]\\s)?(?:Add|Change|Remove|Fix|Bump|Security)\\s.*)"
                 .toRegex()
