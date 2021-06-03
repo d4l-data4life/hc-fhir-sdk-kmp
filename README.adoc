@@ -148,9 +148,7 @@ In case you know the type of FHIR JSON data, you could directly decode it.
 ----
 val parser = FhirParserFactory.createR4Parser()
 
-val data = "JSON FHIR data"
-
-val result = parser.fromJson(DomainResource::class, "JSON FHIR data")
+val data = parser.fromJson(DomainResource::class, "JSON FHIR data")
 ----
 
 ==== Encode
@@ -176,7 +174,7 @@ FHIR Resources and Elements are represented as Kotlin interfaces which are named
 val name = HumanName(family = "Doe", given = listOf("John"))
 val patient = Patient(name = listOf(name))
 
-val newName = HumanName(family = "Johnny", given = listOf("Silverhand"))
+val newName = HumanName(family = "Doe", given = listOf("Jane"))
 val patientCopy = patient.copy(name = listOf(newName))
 ----
 
@@ -184,7 +182,7 @@ If you need to access the FHIR `resourceType` from a given `class` or need to ge
 
 [source, Kotlin]
 ----
-val resourceType = FhirHelper.FhirElementFactory..getFhirResourceType(Patient::class)
+val resourceType = FhirHelper.FhirElementFactor.getFhirResourceType(Patient::class)
 
 val clazz = FhirHelper.FhirElementFactory.getFhirClass(resourceType)
 ----
