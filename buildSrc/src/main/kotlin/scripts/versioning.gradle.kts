@@ -15,6 +15,8 @@
  */
 package scripts
 
+import com.palantir.gradle.gitversion.VersionDetails
+
 /**
  * Usage:
  *
@@ -54,6 +56,7 @@ plugins {
 val versionDetails: groovy.lang.Closure<com.palantir.gradle.gitversion.VersionDetails> by extra
 val patternNoQualifierBranch = "main|release/.*".toRegex()
 val patternFeatureBranch = "feature/(.*)".toRegex()
+val patternDependabotBranch = "dependabot/(.*)".toRegex()
 val patternTicketNumber = "[A-Z]{2,8}-.*/(.*)".toRegex()
 
 fun versionName(): String {
@@ -63,11 +66,12 @@ fun versionName(): String {
         details.branchName == null -> versionNameWithQualifier(details)
         patternNoQualifierBranch.matches(details.branchName) -> versionNameWithQualifier(details)
         patternFeatureBranch.matches(details.branchName) -> versionNameFeature(details)
+        patternDependabotBranch.matches(details.branchName) -> versionNameDependabot(details)
         else -> throw UnsupportedOperationException("branch name not supported: ${details.branchName}")
     }
 }
 
-fun versionNameFeature(details: com.palantir.gradle.gitversion.VersionDetails): String {
+fun versionNameFeature(details: VersionDetails): String {
     var featureName = patternFeatureBranch.matchEntire(details.branchName)!!.groups[1]!!.value
 
     if (patternTicketNumber.matches(featureName)) {
@@ -77,8 +81,18 @@ fun versionNameFeature(details: com.palantir.gradle.gitversion.VersionDetails): 
     return versionNameWithQualifier(details, featureName)
 }
 
+fun versionNameDependabot(details: VersionDetails): String {
+    var dependabotName = patternDependabotBranch.matchEntire(details.branchName)!!.groups[1]!!.value
+
+    dependabotName = dependabotName
+        .replace("_", "-")
+        .replace("/", "-")
+
+    return versionNameWithQualifier(details, "bump-$dependabotName")
+}
+
 fun versionNameWithQualifier(
-    details: com.palantir.gradle.gitversion.VersionDetails,
+    details: VersionDetails,
     name: String = ""
 ): String {
     val version = if (!details.isCleanTag) {
