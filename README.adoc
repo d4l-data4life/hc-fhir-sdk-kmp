@@ -182,7 +182,7 @@ If you need to access the FHIR `resourceType` from a given `class` or need to ge
 
 [source, Kotlin]
 ----
-val resourceType = FhirHelper.FhirElementFactor.getFhirResourceType(Patient::class)
+val resourceType = FhirHelper.FhirElementFactory.getFhirResourceType(Patient::class)
 
 val clazz = FhirHelper.FhirElementFactory.getFhirClass(resourceType)
 ----
