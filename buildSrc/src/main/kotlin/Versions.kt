@@ -34,7 +34,7 @@ object Versions {
     const val kotlinSerialization = "1.1.0"
 
     // https://github.com/Kotlin/kotlinx-datetime
-    const val dateTime = "0.2.1"
+    const val dateTime = "0.2.0"
 
     // Android
     // https://developer.android.com/studio/write/java8-support
