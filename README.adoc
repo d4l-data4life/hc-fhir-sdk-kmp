@@ -1,35 +1,37 @@
-:fhir-sdk-version: 0.1.0
+= Data4Life FHIR SDK
+:doctype: article
+:!showtitle:
 :toc: macro
 :toclevels: 2
 :toc-title:
+:icons: font
+:imagesdir: assets/images
+:fhir-sdk-version: 0.1.0
+:link-repository: https://github.com/d4l-data4life/hc-fhir-sdk-kmp
+// GitHub specific configuration
 ifdef::env-github[]
-:imagesdir: https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/assets/images/
-:link-license: https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/LICENSE
-:link-contribution: https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/CONTRIBUTION.adoc
 :warning-caption: :warning:
 :caution-caption: :fire:
 :important-caption: :exclamation:
 :note-caption: :paperclip:
 :tip-caption: :bulb:
 endif::[]
-ifndef::env-github[]
-:icons: font
-:imagesdir: ./assets/images
-:link-license: ./LICENCE
-:link-contribution: ./CONTRIBUTION.adoc
-endif::[]
 
 ++++
+
 <div align="center">
-    <!-- PROJECT LOGO -->
-    <p>
-        <a><img src="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/assets/images/d4l-logo.svg" width="150"/></a>
+    <p><!-- PROJECT LOGO -->
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp">
+            <img src="assets/images/d4l-logo.svg" width="150" />
+        </a>
     </p>
-    <!-- PROJECT HEADER -->
-    <h1>Data4Life FHIR SDK</h1>
+    <p><!-- PROJECT TITLE -->
+        <h3>Data4Life FHIR SDK</h3>
+    </p>
     <p><!-- PROJECT DESCRIPTION -->
         HL7 FHIR Models as Kotlin Multiplatform library
     </p>
+
     <p><!-- PROJECT DOCUMENTATION -->
         <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp"><strong>Explore the docs »</strong></a>
     </p>
@@ -38,153 +40,197 @@ endif::[]
         ·
         <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/issues">Request Feature</a>
     </p>
-    <p><!-- PROJECT BADGES -->
-        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/releases">
-            <img src="https://img.shields.io/badge/Latest-0.1.0-blueviolet.svg" alt="0.1.0"/>
+    <p><!-- PROJECT BADGES see assets/images/badges.adoc how to change them-->
+        <a href="https://github.com/d4l-data4life/hc-readme-template/releases">
+            <img src="assets/images/badge-version-latest.svg" alt="Latest version"/>
         </a>
-        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/actions">
-            <img src="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/workflows/D4L%20CI%20KMP/badge.svg" alt="Build Status"/>
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/actions/workflows/d4l-ci-latest-version.yml">
+            <img src="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/actions/workflows/d4l-ci-latest-version.yml/badge.svg" alt="D4L CI - Latest Version"/>
         </a>
-        <a href="http://hl7.org/fhir/index.html">
-            <img src="https://img.shields.io/badge/%F0%9F%94%A5_FHIR-STU3_-orange.svg" alt="FHIR"/>
+        <a>
+            <img src="assets/images/badge-fhir-support.svg" alt="FHIR Support"/>
         </a>
-        <img src="https://img.shields.io/badge/Platform-Android_•%20JVM_•%20iOS-blue.svg" alt="Platform"/>
-        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/blob/main/LICENSE">
-            <img src="https://img.shields.io/badge/license-PRIVATE-lightgrey.svg" alt="License"/>
+        <a>
+            <img src="assets/images/badge-platform-support.svg" alt="Platform Support"/>
+        </a>
+        <a href="LICENSE">
+            <img src="assets/images/badge-license.svg" alt="License"/>
         </a>
     </p>
 </div>
+
 ++++
 
 [discrete]
-=== Table Of Contents
-toc::[]
+==== Table Of Contents
 
+toc::[]
 
 == About The Project
 
-Starting a new *Kotlin Multiplatform* project is a long and tiresome process. Even if there are some IDE templates available, the project structure needs a lot of tweaking and additional setup.
+The Data4Life FHIR SDK is an implementation of the HL7 FHIR Models for Kotlin. It supports encoding/decoding of FHIR data in JSON format.
 
-There are some great Kotlin Multiplatform starter projects available on GitHub, however, they don't really suit our needs. They are too focused on other use cases and setup details.
+=== Features
 
-That's why we created this template:
-
-* Apply best practises and learnings
-* Quickly start on solving tasks and implementing functionality
-* You shouldn't be doing the same task over and over again to setup a multiplatform project from scratch
-* Follow DRY - don't repeat yourself
-
-This is a living template as we learn more and requirements change over time.
+* Kotlin representation of FHIR resources, elements and primitives
+* FHIR code systems are mostly represented as Enums
+* Date/Time parsing, validation and (conversion Java Time / NSDate)
+* JSON encoding/decoding
 
 === Built With
 
 * link:https://kotlinlang.org/docs/reference/mpp-intro.html[Kotlin Multiplatform]
 * link:https://github.com/Kotlin/kotlinx.serialization[Kotlin Serialization]
+* link:https://github.com/Kotlin/kotlinx-datetime[Kotlin DateTime]
 * link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator]
 
 == Getting Started
 
-Guide to setup the template project locally.
+=== Requirements
 
-=== Prerequisites
-
-* link:https://developer.android.com/studio#downloads[Android Studio 4.2.0]
-* link:https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
+* link:https://adoptopenjdk.net/[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
 * link:https://kotlinlang.org/[Kotlin 1.4.32]
-* link:https://www.python.org/downloads/[Python 3.7.8]
-* link:https://fastlane.tools[Fastlane]
-* Xcode 12.3
 
 === Installation
 
-==== Install Java & Kotlin
+==== Consume GitHub Packages
 
-The easiest way to install Java and Kotlin is to use link:https://sdkman.io/[SDK MAN]
+We use GitHub Packages to distribute the SDK. In order to consume our dependencies you need to generate a GitHub Personal Access Token. Please follow the how to link:https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages[authenticate to GitHub Packages, window="_blank"].
 
-Just open your terminal and enter:
+NOTICE:: You need to have _read_ access to this repository and generate a https://github.com/settings/tokens/new/[personal access token] with `repo` and `read:packages` scope.
 
-[source,bash]
+===== Token
+
+The token needs to be made available.
+
+. Add `gpr.user = {GitHub username}` and `gpr.key = {GitHub Personal Access Token}` to your global Gradle properties `~/.gradle/gradle.properties`
+
+    gpr.user=github-username
+    gpr.key=github-token
+
+. Or add following environment variables `PACKAGE_REGISTRY_USERNAME={GitHub username}` and `PACKAGE_REGISTRY_TOKEN={GitHub Personal Access Token}`
+
+===== Setup Maven Repository
+
+Add the following maven repository configuration to your root build.gradle:
+
+[source, Gradle]
 ----
-curl -s "https://get.sdkman.io" | bash
+    allprojects {
+        repositories {
+            ...
+            maven {
+                url = URI("https://maven.pkg.github.com/d4l-data4life/hc-fhir-sdk-kmp")
+                credentials {
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
+                    password = project.findProperty("gpr.key") as String? ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
+                }
+            }
+        }
+    }
 ----
-
-Follow the setup instructions and verify that your installation works:
-
-[source,bash]
-----
-sdk version
-----
-
-If it shows you something like `SDKMAN 5.9.0+555` then your good to continue.
-
-Just install the mentioned dependencies:
-
-[source,bash]
-----
-sdk install java 8.0.265-amzn
-sdk install kotlin 1.4.10
-----
-
-Check your installation by:
-
-[source,bash]
-----
-java -version
-kotlin -version
-----
-
-==== Install Python
-
-It is recommended to use link:https://github.com/pyenv/pyenv[PyEnv] for managing dedicated python versions.
-
-Use link:https://brew.sh/[Homebrew] to install it on mac:
-
-[source,bash]
-----
-brew install pyenv
-----
-
-Make sure you are in the project root and install the correct Python version which is derived from `.python-version` file:
-
-[source,bash]
-----
-pyenv install
-----
-
-==== Install Fastlane
-
-Have a look at link:fastlane/Readme.md[Readme]
-
-==== Android Studio
-
-For better interop with iOS you may install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[KMM plugin for Android Studio]]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
 
 == Usage
 
-=== First time
+How to use this SDK.
 
-As the project includes a Git submodule, this must be initialised on first use
+=== Serialization
 
-[source,bash]
+Create an instance of your desired `FhirStu3Parser` or `FhirR4Parser` using `FhirParserFactory.createStu3Parser()` or `FhirParserFactory.createR4Parser()`.
+
+Decoding and Encoding JSON FHIR data is as simple as:
+
+==== Decode
+
+In case you know the type of FHIR JSON data, you could directly decode it.
+
+[source, Kotlin]
 ----
-git submodule update --init --recursive
+val parser = FhirParserFactory.createR4Parser()
+
+val data = parser.fromJson(DomainResource::class, "JSON FHIR data")
+----
+
+==== Encode
+
+Just pass your FHIR data to the corresponding FHIR parser to encode to JSON format.
+
+[source, Kotlin]
+----
+val parser = FhirParserFactory.createR4Parser()
+
+val data = DomainResource()
+
+val result = parser.toJson(data)
+
+----
+
+=== Model
+
+FHIR Resources and Elements are represented as Kotlin interfaces which are named `Fhir` + ResourceType` e.g. `FhirDocumentReference`. While a `FhirDocumentReference` is implemented by `DocumentReference` which is a Kotlin data class. So they are equatable, copyable, destructable by default.
+
+[source, Kotlin]
+----
+val name = HumanName(family = "Doe", given = listOf("John"))
+val patient = Patient(name = listOf(name))
+
+val newName = HumanName(family = "Doe", given = listOf("Jane"))
+val patientCopy = patient.copy(name = listOf(newName))
+----
+
+If you need to access the FHIR `resourceType` from a given `class` or need to get the `class` for a given FHIR `resourceType` use the `FhirHelper.FhirElementFactory`:
+
+[source, Kotlin]
+----
+val resourceType = FhirHelper.FhirElementFactory.getFhirResourceType(Patient::class)
+
+val clazz = FhirHelper.FhirElementFactory.getFhirClass(resourceType)
 ----
 
 == Roadmap
 
-This repository is work in progress. We are working on adding more functionality, guidelines and other improvements.
+This project is work in progress. We are working on adding more functionality, guidelines, documentation and other improvements.
+
+Next planed features:
+
+* add FHIR primitive extension support
+* add more FHIR primitives
+* add direct decoding from JSON without the need to pass in the correct type
+* conversion to and from Java Time / NSDate
+* write new FHIR generator
+* add FHIR 5 once ready
+
+== Versioning
+
+We use http://semver.org/[Semantic Versioning] as a guideline for our versioning.
+
+Releases use this format: `{major}.{minor}.{patch}`
+
+* Breaking changes bump `{major}` and reset `{minor}` & `{patch}`
+* Backward compatible changes bump `{minor}` and reset `{patch}`
+* Bug fixes bump `{patch}`
 
 == Contributing
 
-Please refer to our link:{link-contribution}[Contribution Guide] for further details.
+You want to help or share a proposal? You have a specific problem?
 
-== License
+* Open an issue
 
-Copyright (c) 2020 D4L data4life gGmbH / All rights reserved. Please refer to our link:{link-license}[License] for further details.
+=== Contribution Guide
+
+Please refer to our link:CONTRIBUTION.adoc[Contribution Guide] for further details about how to propose bugfixes and improvements.
+
+=== Development Guide
+
+Please refer to our link:DEVELOPMENT.adoc[Development Process] for further details about our development process and how to build and test the project.
+
+== Copyright and License
+
+Copyright (c) 2021 D4L data4life gGmbH / All rights reserved. Please refer to our link:LICENSE[License] for further details.
 
 == Related Links
 
-- link:http://hl7.org/fhir/index.html[FHIR current]
-- link:http://hl7.org/fhir/STU3/index.html[FHIR 3 Overview] - link:http://hl7.org/fhir/STU3-3.0.1.zip[STU3-3.0.1.zip]
-- link:http://hl7.org/fhir/R4/index.html[FHIR 4]
-- link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator]
+- link:http://hl7.org/fhir/index.html[FHIR current,window=_blank]
+- link:http://hl7.org/fhir/STU3/index.html[FHIR 3 Overview,window=_blank] - link:http://hl7.org/fhir/STU3-3.0.1.zip[STU3-3.0.1.zip,window=_blank]
+- link:http://hl7.org/fhir/R4/index.html[FHIR 4,window=_blank]
+- link:https://github.com/gesundheitscloud/fhir-parser[Python FHIR model generator,window=_blank]

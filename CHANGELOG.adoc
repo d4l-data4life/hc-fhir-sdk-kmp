@@ -30,12 +30,14 @@ toc::[]
 ** generated full FHIR R4 type system
 ** generated full FHIR STU3 type system
 * Add Kotlin script to generate full FHIR standard
+* Add development guide
 
 === Changed
 
 * Change FHIR STU3 config to allow multiple FHIR versions
 * Change XsDateTime implementation and parser to common for reuse in different FHIR versions
 * Change Fastlane actions to upgrade Python pip to allow dependency resolution
+* Change contribution guide and README
 
 === Removed
 
@@ -52,7 +54,7 @@ toc::[]
 === Bumped
 
 * Bump Gradle 6.8.2 -> 6.8.3
-* Bump Android Studio 4.1.2 -> 4.2.0
+* Bump Android Studio 4.1.2 -> 4.2.1
 * Bump Kotlin 1.4.21 -> 1.4.32
 * Bump Kotlin Serialization 1.0.1 -> 1.1.0
 * Bump Kotlin DateTime 0.1.1 -> 0.2.0

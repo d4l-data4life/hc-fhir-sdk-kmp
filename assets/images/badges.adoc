@@ -1,0 +1,35 @@
+= How to create badges
+
+We use link:https://shields.io/[Shields.io] to generate our Badges. Please use the following links to document and update currently used badges.
+Follow the links and download the svg files and place them in the projects `assets/images` folder.
+
+== Download badges
+
+Simply use `curl` to download badges by providing the `url` and `filename`
+
+[source, bash]
+----
+curl link -s -o filename
+----
+
+== Badge sources
+
+:link-badge-version: https://img.shields.io/badge/Latest-0.1.0-blueviolet.svg
+Version image:{link-badge-version}[Latest version]::
+`curl {link-badge-version} -s -o badge-version-latest.svg`
+
+:link-badge-fhir-support: https://img.shields.io/badge/FHIR-STU3%20•%20R4-orange.svg
+Platform image:{link-badge-fhir-support}[FHIR support]::
+`curl {link-badge-fhir-support} -s -o badge-fhir-support.svg`
+
+:link-badge-platform: https://img.shields.io/badge/Platform-Android%20•%20iOS%20•%20JVM%20-blue.svg
+Platform image:{link-badge-platform}[Platform]::
+`curl {link-badge-platform} -s -o badge-platform-support.svg`
+
+:link-badge-license: https://img.shields.io/badge/License-PRIVATE-lightgrey.svg
+License image:{link-badge-license}[License]::
+`curl {link-badge-license} -s -o badge-license.svg`
+
+== License
+
+Shields is licensed under *Creative Commons Zero v1.0 Universal* (2021-02-16)

@@ -1,66 +1,106 @@
 = Contribution Guide
+:doctype: article
 :toc: macro
 :toclevels: 2
 :toc-title:
+:icons: font
+:table-stripes: uneven
+:imagesdir: assets/images
+:link-repository: https://github.com/d4l-data4life/hc-fhir-sdk-kmp
+// GitHub specific configuration
+ifdef::env-github[]
+:warning-caption: :warning:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+endif::[]
 
-Description of our development process.
+When contributing to this project, this document should help you get started.
 
 [discrete]
 ==== Table Of Contents
+
 toc::[]
 
-== Branch
+== Code Of Conduct
 
-Every change has to branch of from `main` and use this branch naming convention: `{github-username}/{type_of_change}-{short_description}`
+This project adheres to the Contributor Covenant link:CODE-OF-CONDUCT.adoc[Code Of Conduct]. By participating, you are expected to uphold this code.
 
-`main` must be always in releasable state.
+== Issues
 
-=== Type Of Change
+We use GitHub issues to track bugs and enhancements.
 
-- *add* for new features or functionality
-- *change* for changes in existing features or functionality
-- *remove* | for removed features or functionality
-- *fix* for any bug fixes
-- *bump* for dependency updates
-- *security* in case of vulnerabilities
+Issues are very valuable to this project, please feel free to open link:{link-repository}/issues[issues] for:
 
-Examples:
+* _**Questions**_ help us to improve the user experience
+* _**Ideas**_ are a great source for contributions
+* _**Problems**_ show where this project is lacking
 
-- `{github-username}/add-awesome-hashing-algorithm`
-- `{github-username}/remove-not-so-awesome-algorithm`
-- `{github-username}/fix-algorithm-corner-case`
-- `{github-username}/bump-algorithm-lib-to-1.3.0`
+If you are reporting a problem, please help us by providing as much information as possible. Ideally, that includes a description or small sample project how to reproduce the problem.
 
-== Pull Request
+It’s also a good practice to search for existing or related issues before submitting your own. Thank you!
 
- Title pattern: {type_of_change} {short_description}
- Example: Add awesome hashing algorithm
+== Contribute Code
 
-*Important*: Work in progress PR have to start with [WIP] in their name to inform others and the CI about the progress
+=== Pull Request
 
-Pull requests must follow the provided template's structure.
-Where every paragraph has been filled accordingly, put NA when cannot be filled.
+link:{link-repository}/pulls[Pull requests] are a great way to improve the project. But please, discuss your contribution with us before making changes.
 
-*Tags* should be used (enhancement,bugfix, help wanted etc...) and always have to be up to date.
+If you contribute, you have:
 
-== Code Review
+* signed Contributor License Agreement, see <<_licensing>>
+* made clear which problem you're trying to solve
+* followed our link:DEVELOPMENT.adoc[Development Guide]
 
-* Min. 1 reviewer of the link:https://github.com/orgs/gesundheitscloud/teams/native-app-core[Native App Core Team]
-* Definition of done followed
+==== Create Pull Request
 
-== Definition Of Done
+Please use our title pattern: `[{ticket id}] {type of change} {short description}`:
 
-* [ ] Code style and naming conventions met
+* Optional: Add `ticket id` in brackets if you have any, otherwise leave it out.
+* `type of change`:
+- *Add* for new features or functionality
+- *Change* for changes in existing features or functionality
+- *Remove* | for removed features or functionality
+- *Fix* for any bug fixes
+- *Bump* for dependency updates
+- *Security* in case of vulnerabilities
+* `short description` of your change
+
+Example:
+* Add awesome hashing algorithm
+* [SDK-156] Change thumbnail generation
+
+Pull requests must fill the provided template. Put N/A when paragraph cannot be filled.
+
+*Labels* should be used (enhancement,bugfix, help wanted etc...) to categorise your contribution.
+
+Important:: Work in progress pull-requests should be created as a draft.
+
+==== Code Review
+
+At least 1 member of the link:https://github.com/orgs/d4l-data4life/teams/phdc-core[PHDC Core Team] will review
+your contribution and validate if followed criteria is met:
+
+* [ ] Functional and fitting in the project
+* [ ] Code style and naming conventions
 * [ ] Test written and passing
 * [ ] Continuous Integration build passing
 * [ ] Cross platform testing done on Android and iOS
-* [ ] Code peer-reviewed
 * [ ] Documentation updated
 * [ ] Changelog updated
-* [ ] Acceptance criteria met
 
-== Release
+[#_licensing]
+== Licensing
 
-This project is a rolling release. The latest state of `main` is the latest release.
+Due to the private link:LICENSE[License] this repository is published under, external contributors need to sign a
+Contributor License Agreement. Please get in contact with mailto:&#109;o&#98;&#x69;&#x6c;&#x65;&#x40;&#100;&#x61;&#x74;a&#52;&#x6c;&#105;f&#101;&#46;&#99;a&#114;e[&#109;o&#98;&#x69;&#x6c;&#x65;&#x40;&#100;&#x61;&#x74;a&#52;&#x6c;&#105;f&#101;&#46;&#99;a&#114;e] before contributing to the project.
 
-NOTE: Once a new projects started based on this template there is no further update possible.
+=== Components Using Other Licenses
+
+Contributing code and introducing dependencies into the repository from other projects that use one of the following licenses is allowed.
+
+* link:https://opensource.org/licenses/MIT[MIT]
+* link:https://opensource.org/licenses/Apache-2.0[Apache 2.0]
+
+Any other contribution needs to be signed off by the project owners.

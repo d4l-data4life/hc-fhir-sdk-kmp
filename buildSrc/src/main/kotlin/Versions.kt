@@ -19,7 +19,7 @@ object Versions {
     // Gradle Plugin
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.2.0"
+        const val android = "4.2.1"
     }
 
     // Kotlin
