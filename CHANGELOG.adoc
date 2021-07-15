@@ -28,7 +28,27 @@ toc::[]
 
 == link:{link-repository}/releases/latest[Unreleased]
 
-See link:{link-repository}/compare/v0.1.0...main[changeset]
+See link:{link-repository}/compare/v0.2.0...main[changeset]
+
+=== Added
+
+=== Changed
+
+=== Removed
+
+=== Fixed
+
+=== Security
+
+=== Bumped
+
+=== Deprecated
+
+=== Migration
+
+== link:{link-repository}/releases/tag/v0.2.0[0.2.0]
+
+See link:{link-repository}/compare/v0.1.0...0.2.0[0.2.0]
 
 === Added
 
@@ -69,8 +89,6 @@ See link:{link-repository}/compare/v0.1.0...main[changeset]
 ** `{backtick}when{backtick}` -> `whenn`
 ** `{backtick}package{backtick}` -> `pakkage`
 
-=== Security
-
 === Bumped
 
 * Bump Gradle 6.8.2 -> 6.8.3
@@ -85,8 +103,6 @@ See link:{link-repository}/compare/v0.1.0...main[changeset]
 * Bump Kotlin Coroutines 1.3.9-native-mt -> 1.4.3-native-mt
 * Bump Python 3.7.8 -> 3.7.9
 * Bump Ruby 2.7.3
-
-=== Deprecated
 
 === Migration
 
