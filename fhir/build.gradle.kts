@@ -1,23 +1,41 @@
+/*
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
+ *
+ * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
+ * including any intellectual property rights that subsist in the SDK.
+ *
+ * The SDK and its documentation may be accessed and used for viewing/review purposes only.
+ * Any usage of the SDK for other purposes, including usage for the development of
+ * applications/third-party applications shall require the conclusion of a license agreement
+ * between you and D4L.
+ *
+ * If you are interested in licensing the SDK for your own applications/third-party
+ * applications and/or if you’d like to contribute to the development of the SDK, please
+ * contact D4L by email to help@data4life.care.
+ */
+
+import care.data4life.hl7.fhir.dependency.Dependency
+import care.data4life.hl7.fhir.LibraryConfig
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlinMultiplatform()
-    kotlinSerialization()
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.jetbrains.kotlin.plugin.serialization")
 
     // Android
-    androidLibrary()
+    id("com.android.library")
 
     // Publish
-    id("scripts.publishing-config")
+    id("care.data4life.hl7.fhir.publishing-config")
 }
 
 group = LibraryConfig.group
 
-
 kotlin {
     android {
-        publishLibraryVariants("release")
+        publishLibraryVariants("release", "debug")
     }
+
     jvm { }
 
     ios {
@@ -33,40 +51,41 @@ kotlin {
             kotlin.srcDir("src-gen/commonMain/kotlin")
 
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.stdlibCommon)
+                implementation(Dependency.multiplatform.kotlin.stdLib.common)
 
-                implementation(Dependencies.multiplatform.serialization.json)
+                implementation(Dependency.multiplatform.kotlin.serialization.json)
 
-                implementation(Dependencies.multiplatform.dateTime)
+                implementation(Dependency.multiplatform.kotlin.dateTime)
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.testCommon)
-                implementation(Dependencies.multiplatform.kotlin.testCommonAnnotations)
+                implementation(Dependency.multiplatformTest.kotlin.common)
+                implementation(Dependency.multiplatformTest.kotlin.commonAnnotations)
 
-                implementation(Dependencies.multiplatform.mockk.common)
+                implementation(Dependency.multiplatformTest.mockK.common)
             }
         }
 
         val androidMain by getting {
             dependencies {
-                //Kotlin
-                implementation(Dependencies.multiplatform.kotlin.stdlibAndroid)
+                implementation(Dependency.multiplatform.kotlin.stdLib.android)
             }
         }
         val androidTest by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.testJvm)
-                implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
+                implementation(Dependency.multiplatformTest.kotlin.jvm)
+                implementation(Dependency.multiplatformTest.kotlin.jvmJunit)
 
-                implementation(Dependencies.multiplatform.mockk.junit)
+                implementation(Dependency.multiplatformTest.mockK.junit)
+
+                implementation(Dependency.androidTest.robolectric)
             }
         }
 
         val jvmMain by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.stdlibJdk8)
+                implementation(Dependency.multiplatform.kotlin.stdLib.jdk8)
             }
         }
         val jvmTest by getting {
@@ -74,12 +93,12 @@ kotlin {
             resources.srcDir("src-gen/jvmTest/resources")
 
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.testJvm)
-                implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
+                implementation(Dependency.multiplatformTest.kotlin.jvm)
+                implementation(Dependency.multiplatformTest.kotlin.jvmJunit)
 
-                implementation(Dependencies.multiplatform.mockk.junit)
+                implementation(Dependency.multiplatformTest.mockK.junit)
 
-                implementation(Dependencies.test.jsonAssert)
+                implementation(Dependency.jvmTest.jsonAssert)
             }
         }
 

@@ -13,12 +13,16 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
-package scripts
+package care.data4life.hl7.fhir
 
 import com.palantir.gradle.gitversion.VersionDetails
+import org.gradle.kotlin.dsl.creating
+import org.gradle.kotlin.dsl.extra
 
 /**
- * Usage:
+ * Versioning task to calculate the version based on git tags and branch names using [Gradle Git Version](https://github.com/palantir/gradle-git-version)
+ *
+ * Install:
  *
  * You need to add following dependencies to the buildSrc/build.gradle.kts
  *
@@ -32,11 +36,13 @@ import com.palantir.gradle.gitversion.VersionDetails
  *     gradlePluginPortal()
  * }
  *
- * Now just add id("scripts.versioning") to your rootProject build.gradle.kts plugins
+ * Now just add id("care.data4life.fhir.versioning") to your rootProject build.gradle.kts plugins
  *
  * plugins {
- *     id("scripts.versioning")
+ *     id("care.data4life.fhir.versioning")
  * }
+ *
+ * Usage:
  *
  * Versions will be calculated based on the latest git tag v* and branch name. if no tag is present a git hash will be used instead
  *
@@ -47,13 +53,12 @@ import com.palantir.gradle.gitversion.VersionDetails
  *
  * Review the generated version:
  * - ./gradlew versionInfo
- *
  */
 plugins {
     id("com.palantir.git-version")
 }
 
-val versionDetails: groovy.lang.Closure<com.palantir.gradle.gitversion.VersionDetails> by extra
+val versionDetails: groovy.lang.Closure<VersionDetails> by extra
 val patternNoQualifierBranch = "main|release/.*".toRegex()
 val patternFeatureBranch = "feature/(.*)".toRegex()
 val patternDependabotBranch = "dependabot/(.*)".toRegex()

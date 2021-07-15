@@ -14,20 +14,22 @@
  * contact D4L by email to help@data4life.care.
  */
 
-object AppConfig {
+plugins {
+    `kotlin-dsl`
+    `java-gradle-plugin`
+}
 
-    const val group = LibraryConfig.group
+// To make it available as direct dependency
+group = "care.data4life.hl7.fhir.dependency"
+version = "1.0.0-SNAPSHOT"
 
-    val android = AndroidConfig
+repositories {
+    mavenCentral()
+}
 
-    object AndroidConfig {
-        const val minSdkVersion = LibraryConfig.android.minSdkVersion
-        const val compileSdkVersion = LibraryConfig.android.compileSdkVersion
-        const val targetSdkVersion = LibraryConfig.android.targetSdkVersion
-
-        const val versionCode = 1
-        const val versionName = "0.1.0"
-
-        const val applicationId = "$group.hl7.fhir.sample"
+gradlePlugin {
+    plugins.register("care.data4life.hl7.fhir.dependency") {
+        id = "care.data4life.hl7.fhir.dependency"
+        implementationClass = "care.data4life.hl7.fhir.dependency.DependencyPlugin"
     }
 }

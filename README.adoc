@@ -1,4 +1,6 @@
 = Data4Life FHIR SDK
+:link-repository: https://github.com/d4l-data4life/hc-fhir-sdk-kmp
+:project-version: 0.1.0
 :doctype: article
 :!showtitle:
 :toc: macro
@@ -6,9 +8,6 @@
 :toc-title:
 :icons: font
 :imagesdir: assets/images
-:fhir-sdk-version: 0.1.0
-:link-repository: https://github.com/d4l-data4life/hc-fhir-sdk-kmp
-// GitHub specific configuration
 ifdef::env-github[]
 :warning-caption: :warning:
 :caution-caption: :fire:
@@ -18,11 +17,10 @@ ifdef::env-github[]
 endif::[]
 
 ++++
-
 <div align="center">
     <p><!-- PROJECT LOGO -->
         <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp">
-            <img src="assets/images/d4l-logo.svg" width="150" />
+            <img src="assets/images/d4l-logo.svg" width="150"/>
         </a>
     </p>
     <p><!-- PROJECT TITLE -->
@@ -31,38 +29,36 @@ endif::[]
     <p><!-- PROJECT DESCRIPTION -->
         HL7 FHIR Models as Kotlin Multiplatform library
     </p>
-
     <p><!-- PROJECT DOCUMENTATION -->
-        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp"><strong>Explore the docs »</strong></a>
+        <a href="README.adoc"><strong>Explore the docs »</strong></a>
     </p>
     <p><!-- PROJECT ISSUES/FEATURES -->
         <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/issues">Report Bug</a>
         ·
         <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/issues">Request Feature</a>
     </p>
-    <p><!-- PROJECT BADGES see assets/images/badges.adoc how to change them-->
-        <a href="https://github.com/d4l-data4life/hc-readme-template/releases">
-            <img src="assets/images/badge-version-latest.svg" alt="Latest version"/>
+    <p><!-- PROJECT BADGES see badges.adoc how to change them -->
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/releases">
+            <img src="assets/images/badge-release-latest.svg" alt="Latest release"/>
         </a>
-        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/actions/workflows/d4l-ci-latest-version.yml">
+        <a href="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/actions">
             <img src="https://github.com/d4l-data4life/hc-fhir-sdk-kmp/actions/workflows/d4l-ci-latest-version.yml/badge.svg" alt="D4L CI - Latest Version"/>
         </a>
         <a>
             <img src="assets/images/badge-fhir-support.svg" alt="FHIR Support"/>
         </a>
         <a>
-            <img src="assets/images/badge-platform-support.svg" alt="Platform Support"/>
+            <img src="assets/images/badge-platform-support.svg" alt="Platform"/>
         </a>
         <a href="LICENSE">
             <img src="assets/images/badge-license.svg" alt="License"/>
         </a>
     </p>
 </div>
-
 ++++
 
 [discrete]
-==== Table Of Contents
+=== Table Of Contents
 
 toc::[]
 
@@ -86,12 +82,18 @@ The Data4Life FHIR SDK is an implementation of the HL7 FHIR Models for Kotlin. I
 
 == Getting Started
 
-=== Requirements
+Instructions how to get software up and running.
 
+=== Prerequisites
+
+* link:https://developer.android.com/studio#downloads[Android Studio 4.2.1]
 * link:https://adoptopenjdk.net/[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
 * link:https://kotlinlang.org/[Kotlin 1.4.32]
+* Android 6.0 (API 23) to Android 11.0 (API 30)
 
 === Installation
+
+A step by step series of examples that tell you how to get it running.
 
 ==== Consume GitHub Packages
 
@@ -200,6 +202,12 @@ Next planed features:
 * write new FHIR generator
 * add FHIR 5 once ready
 
+Also see the open link:{link-repository}/issues[issues] for a list of proposed features and known issues.
+
+== Changelog
+
+See link:CHANGELOG.adoc[changelog]
+
 == Versioning
 
 We use http://semver.org/[Semantic Versioning] as a guideline for our versioning.
@@ -212,21 +220,17 @@ Releases use this format: `{major}.{minor}.{patch}`
 
 == Contributing
 
-You want to help or share a proposal? You have a specific problem?
+You want to help or share a proposal? You have a specific problem? Read the following:
 
-* Open an issue
-
-=== Contribution Guide
-
-Please refer to our link:CONTRIBUTION.adoc[Contribution Guide] for further details about how to propose bugfixes and improvements.
-
-=== Development Guide
-
-Please refer to our link:DEVELOPMENT.adoc[Development Process] for further details about our development process and how to build and test the project.
+* link:CODE-OF-CONDUCT.adoc[Code of conduct] for details on our code of conduct.
+* link:CONTRIBUTING.adoc[Contributing] for details about how to report bugs and propose features.
+* link:DEVELOPING.adoc[Developing] for details about our development process and how to build and test the project.
 
 == Copyright and License
 
-Copyright (c) 2021 D4L data4life gGmbH / All rights reserved. Please refer to our link:LICENSE[License] for further details.
+Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
+
+Please refer to our link:LICENSE[License] for further details.
 
 == Related Links
 

@@ -1,29 +1,44 @@
-buildscript {
-    dependencies {
-        classpath(GradlePlugins.kotlin)
-        classpath(GradlePlugins.android)
-    }
-}
+/*
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
+ *
+ * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
+ * including any intellectual property rights that subsist in the SDK.
+ *
+ * The SDK and its documentation may be accessed and used for viewing/review purposes only.
+ * Any usage of the SDK for other purposes, including usage for the development of
+ * applications/third-party applications shall require the conclusion of a license agreement
+ * between you and D4L.
+ *
+ * If you are interested in licensing the SDK for your own applications/third-party
+ * applications and/or if you’d like to contribute to the development of the SDK, please
+ * contact D4L by email to help@data4life.care.
+ */
+
+import care.data4life.hl7.fhir.dependency.d4l
+import care.data4life.hl7.fhir.dependency.gitHub
 
 plugins {
-    kotlinMultiplatform(false)
-    kotlinSerialization(false)
+    id("care.data4life.hl7.fhir.dependency")
 
-    id("scripts.dependency-updates")
-    id("scripts.download-scripts")
-    id("scripts.publishing")
-    id("scripts.quality-spotless")
-    id("scripts.versioning")
+    id("care.data4life.hl7.fhir.dependency-updates")
+    id("care.data4life.hl7.fhir.download-scripts")
+    id("care.data4life.hl7.fhir.publishing")
+    id("care.data4life.hl7.fhir.quality-spotless")
+    id("care.data4life.hl7.fhir.versioning")
 }
 
 allprojects {
     repositories {
-        mavenCentral()
         google()
+        mavenCentral()
+
+        gitHub(project)
+
+        d4l()
     }
 }
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "7.0.2"
+    gradleVersion = "6.9"
     distributionType = Wrapper.DistributionType.ALL
 }
