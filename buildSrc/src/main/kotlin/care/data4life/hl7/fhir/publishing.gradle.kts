@@ -14,9 +14,8 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package scripts
+package care.data4life.hl7.fhir
 
-import LibraryConfig
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.api.ResetCommand
 import org.eclipse.jgit.transport.PushResult
@@ -24,7 +23,9 @@ import org.eclipse.jgit.transport.RemoteRefUpdate
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
 
 /**
- * Usage:
+ * Publish generated artefacts to our maven-repository using [jGit](https://www.eclipse.org/jgit/)
+ *
+ * Install:
  *
  * You need to add following dependencies to the buildSrc/build.gradle.kts
  *
@@ -38,11 +39,13 @@ import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
  *     mavenCentral()
  * }
  *
- * Now just add id("scripts.publishing") to your rootProject build.gradle.kts plugins
+ * Now just add id("care.data4life.fhir.publishing") to your rootProject build.gradle.kts plugins
  *
  * plugins {
- *     id("scripts.publishing")
+ *     id("care.data4life.fhir.publishing")
  * }
+ *
+ * Usage:
  *
  * To publish to to https://github.com/d4l-data4life/maven-features/ just run:
  * - ./gradlew publishFeature
@@ -63,122 +66,110 @@ val releaseRepoName = "maven-releases"
 val basePath = "${rootProject.buildDir}/gitPublish"
 
 val gitHubToken = (project.findProperty("gpr.key")
-    ?: System.getenv("PACKAGE_REGISTRY_TOKEN")).toString()
+    ?: System.getenv("PACKAGE_REGISTRY_UPLOAD_TOKEN")).toString()
+
+
+task<Exec>("publishFeature") {
+    group = taskGroup
+
+    commandLine(
+        "./gradlew",
+        "gitPublishFeatureCheckout",
+        "gitPublishFeatureUpdate",
+        "publishAllPublicationsToFeaturePackagesRepository",
+        "gitPublishFeatureCommit",
+        "gitPublishFeaturePush"
+    )
+}
+
+task<Exec>("publishSnapshot") {
+    group = taskGroup
+
+    commandLine(
+        "./gradlew",
+        "gitPublishSnapshotCheckout",
+        "gitPublishSnapshotUpdate",
+        "publishAllPublicationsToSnapshotPackagesRepository",
+        "gitPublishSnapshotCommit",
+        "gitPublishSnapshotPush"
+    )
+}
+
+task<Exec>("publishRelease") {
+    group = taskGroup
+
+    commandLine(
+        "./gradlew",
+        "gitPublishReleaseCheckout",
+        "gitPublishReleaseUpdate",
+        "publishAllPublicationsToReleasePackagesRepository",
+        "gitPublishReleaseCommit",
+        "gitPublishReleasePush"
+    )
+}
 
 // Git Checkout
-val gitPublishCheckoutFeature: Task by tasks.creating() {
+val gitPublishFeatureCheckout: Task by tasks.creating() {
     group = taskGroup
     doLast { gitClone(featureRepoName) }
 }
 
-val gitPublishCheckoutSnapshot: Task by tasks.creating() {
+val gitPublishSnapshotCheckout: Task by tasks.creating() {
     group = taskGroup
     doLast { gitClone(snapshotRepoName) }
 }
 
-val gitPublishCheckoutRelease: Task by tasks.creating() {
+val gitPublishReleaseCheckout: Task by tasks.creating() {
     group = taskGroup
     doLast { gitClone(releaseRepoName) }
 }
 
 // Git Update
-val gitPublishUpdateFeature: Task by tasks.creating() {
+val gitPublishFeatureUpdate: Task by tasks.creating() {
     group = taskGroup
     doLast { gitUpdate(featureRepoName) }
-    mustRunAfter(gitPublishCheckoutFeature)
 }
 
-val gitPublishUpdateSnapshot: Task by tasks.creating() {
+val gitPublishSnapshotUpdate: Task by tasks.creating() {
     group = taskGroup
     doLast { gitUpdate(snapshotRepoName) }
-    mustRunAfter(gitPublishCheckoutSnapshot)
 }
 
-val gitPublishUpdateRelease: Task by tasks.creating() {
+val gitPublishReleaseUpdate: Task by tasks.creating() {
     group = taskGroup
     doLast { gitUpdate(releaseRepoName) }
-    mustRunAfter(gitPublishCheckoutRelease)
-}
-
-// Publish tasks
-val publishToPackagesRepositoryFeature: Task by tasks.creating() {
-    dependsOn(":fhir:publishAllPublicationsToFeaturePackagesRepository")
-    mustRunAfter(gitPublishCheckoutFeature, gitPublishUpdateFeature)
-}
-
-val publishToPackagesRepositorySnapshot: Task by tasks.creating() {
-    dependsOn(":fhir:publishAllPublicationsToSnaphotPackagesRepository")
-    mustRunAfter(gitPublishCheckoutSnapshot, gitPublishUpdateSnapshot)
-}
-
-val publishToPackagesRepositoryRelease: Task by tasks.creating() {
-    dependsOn(":fhir:publishAllPublicationsToReleasePackagesRepository")
-    mustRunAfter(gitPublishCheckoutRelease, gitPublishUpdateRelease)
 }
 
 // Git Commit
-val gitPublishCommitFeature: Task by tasks.creating() {
+val gitPublishFeatureCommit: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(featureRepoName) }
-    mustRunAfter(
-        gitPublishCheckoutFeature,
-        gitPublishUpdateFeature,
-        publishToPackagesRepositoryFeature,
-    )
 }
 
-val gitPublishCommitSnapshot: Task by tasks.creating() {
+val gitPublishSnapshotCommit: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(snapshotRepoName) }
-    mustRunAfter(
-        gitPublishCheckoutSnapshot,
-        gitPublishUpdateSnapshot,
-        publishToPackagesRepositorySnapshot,
-    )
 }
 
-val gitPublishCommitRelease: Task by tasks.creating() {
+val gitPublishReleaseCommit: Task by tasks.creating() {
     group = taskGroup
     doLast { gitCommit(releaseRepoName) }
-    mustRunAfter(
-        gitPublishCheckoutRelease,
-        gitPublishUpdateRelease,
-        publishToPackagesRepositoryRelease,
-    )
 }
 
 // Git Push
-val gitPublishPushFeature: Task by tasks.creating() {
+val gitPublishFeaturePush: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(featureRepoName) }
-    mustRunAfter(
-        gitPublishCheckoutFeature,
-        gitPublishUpdateFeature,
-        publishToPackagesRepositoryFeature,
-        gitPublishCommitFeature,
-    )
 }
 
-val gitPublishPushSnapshot: Task by tasks.creating() {
+val gitPublishSnapshotPush: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(snapshotRepoName) }
-    mustRunAfter(
-        gitPublishCheckoutSnapshot,
-        gitPublishUpdateSnapshot,
-        publishToPackagesRepositorySnapshot,
-        gitPublishCommitSnapshot,
-    )
 }
 
-val gitPublishPushRelease: Task by tasks.creating() {
+val gitPublishReleasePush: Task by tasks.creating() {
     group = taskGroup
     doLast { gitPush(releaseRepoName) }
-    mustRunAfter(
-        gitPublishCheckoutRelease,
-        gitPublishUpdateRelease,
-        publishToPackagesRepositoryRelease,
-        gitPublishCommitFeature,
-    )
 }
 
 // Git calls
@@ -238,39 +229,4 @@ fun gitPush(repositoryName: String) {
             }
         }
     }
-}
-
-// Publish Tasks
-
-val publishFeature: Task by tasks.creating() {
-    group = taskGroup
-    dependsOn(
-        gitPublishCheckoutFeature,
-        gitPublishUpdateFeature,
-        publishToPackagesRepositoryFeature,
-        gitPublishCommitFeature,
-        gitPublishPushFeature
-    )
-}
-
-val publishSnapshot: Task by tasks.creating() {
-    group = taskGroup
-    dependsOn(
-        gitPublishCheckoutSnapshot,
-        gitPublishUpdateSnapshot,
-        publishToPackagesRepositorySnapshot,
-        gitPublishCommitSnapshot,
-        gitPublishPushSnapshot
-    )
-}
-
-val publishRelease: Task by tasks.creating() {
-    group = taskGroup
-    dependsOn(
-        gitPublishCheckoutRelease,
-        gitPublishUpdateRelease,
-        publishToPackagesRepositoryRelease,
-        gitPublishCommitRelease,
-        gitPublishPushRelease
-    )
 }

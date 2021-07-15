@@ -1,6 +1,9 @@
 build:
   - .github/**/*
 
+scripts:
+  - buildSrc/src/main/kotlin/care/data4life/hl7/fhir/**/*.kts
+
 dependencies:
   - buildSrc/**/*
 
@@ -14,12 +17,13 @@ documentation:
   - readmeOSS.adoc
 
 # Library
-library:
+fhir:
   - fhir/**/*
 
-# Sample
+# Sample Apps
 sample-android:
   - sample-android/**/*
-
 sample-ios:
   - sample-ios/**/*
+sample-jvm:
+  - sample-jvm/**/*

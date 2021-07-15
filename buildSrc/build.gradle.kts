@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -16,17 +16,23 @@
 
 plugins {
     `kotlin-dsl`
+    id("care.data4life.hl7.fhir.dependency")
 }
 
 repositories {
     gradlePluginPortal()
     mavenCentral()
+    google()
 }
 
 dependencies {
-    // dependency check
+    implementation(care.data4life.hl7.fhir.dependency.GradlePlugin.kotlin)
+    implementation(care.data4life.hl7.fhir.dependency.GradlePlugin.android)
+    implementation(care.data4life.hl7.fhir.dependency.GradlePlugin.kotlinSerialization)
+
+    // dependency-updates.gradle.kts
     implementation("com.github.ben-manes:gradle-versions-plugin:0.38.0")
-    // download scripts
+    // download-scripts.gradle.kts
     implementation("de.undercouch:gradle-download-task:4.1.1")
     // publishing.gradle.kts
     implementation("org.eclipse.jgit:org.eclipse.jgit:5.11.0.202103091610-r")
@@ -35,8 +41,4 @@ dependencies {
     implementation("com.pinterest:ktlint:0.41.0")
     // versioning.gradle.kts
     implementation("com.palantir.gradle.gitversion:gradle-git-version:0.12.3")
-}
-
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
 }

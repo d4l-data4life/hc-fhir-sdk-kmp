@@ -14,20 +14,23 @@
  * contact D4L by email to help@data4life.care.
  */
 
+package care.data4life.hl7.fhir
+
 object LibraryConfig {
-    const val group = "care.data4life"
+
+    val publishConfig = PublishConfig
+    val android = AndroidLibraryConfig
+
+    const val group = "care.data4life.hl7.fhir"
     const val name = "hc-fhir-sdk-kmp"
 
     const val githubOwner = "d4l-data4life"
     const val githubRepository = "hc-fhir-sdk-kmp"
 
-    val publish = PublishConfig
-
     object PublishConfig {
-        const val name = LibraryConfig.name
-        const val groupId = "${LibraryConfig.group}.${LibraryConfig.name}"
+        const val groupId = "care.data4life.hc-fhir-sdk-kmp"
 
-        const val description = "Provides builder and extension to create and interact with FHIR objects "
+        const val description = "Provides Gradle scripts to harmonise Gradle project settings"
         const val year = "2021"
 
         // URL
@@ -51,8 +54,6 @@ object LibraryConfig {
         const val scmConnection = "scm:$scmUrl"
         const val scmDeveloperConnection = scmConnection
     }
-
-    val android = AndroidLibraryConfig
 
     object AndroidLibraryConfig {
         const val minSdkVersion = 23

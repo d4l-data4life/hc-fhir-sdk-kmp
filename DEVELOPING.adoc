@@ -1,13 +1,11 @@
-= Development Guide
+= Developing
+:link-repository: https://github.com/d4l-data4life/hc-fhir-sdk-kmp
 :doctype: article
 :toc: macro
 :toclevels: 2
 :toc-title:
 :icons: font
-:table-stripes: uneven
 :imagesdir: assets/images
-:link-repository: https://github.com/d4l-data4life/hc-fhir-sdk-kmp
-// GitHub specific configuration
 ifdef::env-github[]
 :warning-caption: :warning:
 :caution-caption: :fire:
@@ -16,7 +14,7 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 endif::[]
 
-Guide of our development process, project setup and how to write code.
+Guide for our development process, project setup and how to write code.
 
 [discrete]
 ==== Table Of Contents
@@ -98,7 +96,7 @@ pyenv install
 
 === Android Studio
 
-For better interop with iOS you may install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[KMM plugin for Android Studio]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
+For better interop with iOS you may install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[Kotlin Multiplaform Mobile (KMM) plugin for Android Studio]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
 
 === First time
 
@@ -145,7 +143,10 @@ A release branches of from `main` branch with following pattern:
 Add following changes:
 
 * Update CHANGELOG.adoc by creating a new Unreleased section and change current unreleased to release version
-* Update README.adoc `fhir-sdk-version` to release version
+* Update README.adoc `project-version` to release version
+* Update the latest release badge link:assets/images/badges.adoc[HowTo]
+
+Releases are automatically created when a tag in the form of `v{major}.{minor}.{patch}` is added.
 
 == Develop
 
@@ -162,6 +163,7 @@ If you need to adjust one of the FHIR versions, it is located under `fhir/src/co
 * `.json`: JsonParser
 * `.model`: FHIR base type for that FHIR version
 * `.primitive`: Implementation of FHIR primitives
+Releases are automatically created when a tag in the form of `v{major}.{minor}.{patch}` is added.
 
 === Change FHIR code generation
 

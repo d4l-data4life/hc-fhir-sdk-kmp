@@ -1,5 +1,5 @@
 ### :pushpin: References
-* **Issue:** [PHDC-XXX](https://gesundheitscloud.atlassian.net/browse/PHDC-XXX)
+* **Issue:** [SDK-XXX](https://gesundheitscloud.atlassian.net/browse/SDK-XXX)
 * **Related pull-requests:** _list of related pull-requests (comma-separated): #1, #2 or **delete** this line_
 
 ### :tophat: What is the goal?
@@ -10,11 +10,8 @@
 
 ### :thinking: DOD Checklist
 
-- [ ] Code style and naming conventions met
-- [ ] Test written and passing
-- [ ] Continuous Integration build passing
-- [ ] Cross platform testing done on Android and iOS
-- [ ] Code peer-reviewed
-- [ ] Documentation updated
-- [ ] Changelog updated
-- [ ] Acceptance criteria met
+- [ ] My code follows the code style and naming conventions of this project.
+- [ ] I have added tests to cover my changes.
+- [ ] All new and existing tests passed.
+- [ ] I have updated the documentation.
+- [ ] I have updated the changelog accordingly.
