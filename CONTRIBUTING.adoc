@@ -35,7 +35,7 @@ Issues are very valuable to this project, please feel free to open link:{link-re
 * _**Ideas**_ are a great source for contributions
 * _**Problems**_ show where this project is lacking
 
-If you are reporting a problem, please help to us by providing as much information as possible. Ideally, that includes a description or small sample project how to reproduce the problem.
+If you are reporting a problem, please help us by providing as much information as possible. Ideally, that includes a description or small sample project how to reproduce the problem.
 
 It’s also a good practice to search for existing or related issues before submitting your own. Thank you!
 
