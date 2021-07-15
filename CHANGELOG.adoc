@@ -38,6 +38,8 @@ toc::[]
 * Change XsDateTime implementation and parser to common for reuse in different FHIR versions
 * Change Fastlane actions to upgrade Python pip to allow dependency resolution
 * Change contribution guide and README
+* Change FhirHelper.FhirElementFactory .getFhirResourceType and .getFhirClass to nullalbe instead of throwing exception for FHIR V3 + V4
+* Change FhirHelper.FhirElementFactory.getFhirClass to ignore case class mapping for FHIR V3 + V4
 
 === Removed
 
