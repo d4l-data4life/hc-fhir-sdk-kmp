@@ -20,7 +20,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * MedicationStatement Status Codes
+ * Code System: MedicationStatement Status Codes
  *
  * @see <a href="http://hl7.org/fhir/R4/valueset-medication-statement-status.html">MedicationStatementStatusCodes</a>
  *

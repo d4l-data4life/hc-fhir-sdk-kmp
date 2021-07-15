@@ -68,7 +68,7 @@ object FhirHelper {
 
     object FhirElementFactory {
 
-        fun <T : FhirStu3> getFhirResourceType(klass: KClass<T>): String {
+        fun <T : FhirStu3> getFhirResourceType(klass: KClass<T>): String? {
             return when (klass) {
 {%- for klass in classes %}
 {%- if klass.resource_type %}
@@ -77,20 +77,20 @@ object FhirHelper {
 {%- endif %}
 {%- endif %}
 {%- endfor %}
-                else -> throw IllegalArgumentException("FHIR class unknown: $klass")
+                else -> null
             }
         }
 
-        fun getFhirClass(resourceType: String): KClass<*> {
-            return when (resourceType) {
+        fun getFhirClass(resourceType: String): KClass<*>? {
+            return when (resourceType.toLowerCase()) {
 {%- for klass in classes %}
 {%- if klass.resource_type %}
 {%- if not klass.name in exclusions %}
-                "{{ klass.name }}" -> {{ klass.name}}::class
+                "{{ klass.name.lower() }}" -> {{ klass.name}}::class
 {%- endif %}
 {%- endif %}
 {%- endfor %}
-                else -> throw IllegalArgumentException("FHIR resourceType unknown: $resourceType")
+                else -> null
             }
         }
     }
