@@ -14,8 +14,8 @@
  * contact D4L by email to help@data4life.care.
  */
 
-import care.data4life.hl7.fhir.dependency.Dependency
-import care.data4life.hl7.fhir.LibraryConfig
+import care.data4life.gradle.fhir.dependency.Dependency
+import care.data4life.gradle.fhir.config.LibraryConfig
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -26,7 +26,7 @@ plugins {
     id("com.android.library")
 
     // Publish
-    id("care.data4life.hl7.fhir.publishing-config")
+    id("care.data4life.gradle.fhir.script.publishing-config")
 }
 
 group = LibraryConfig.group

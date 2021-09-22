@@ -1,6 +1,6 @@
 ### :pushpin: References
 * **Issue:** [SDK-XXX](https://gesundheitscloud.atlassian.net/browse/SDK-XXX)
-* **Related pull-requests:** _list of related pull-requests (comma-separated): #1, #2 or **delete** this line_
+* **Related pull-requests:** #1, #2
 
 ### :tophat: What is the goal?
 <!-- Provide a description of the overall goal (you can usually copy the one from the issue) -->

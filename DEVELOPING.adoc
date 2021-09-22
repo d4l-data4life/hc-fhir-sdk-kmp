@@ -27,7 +27,6 @@ toc::[]
 * link:https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
 * link:https://kotlinlang.org/[Kotlin 1.4.32]
 * link:https://www.python.org/downloads/[Python 3.7.8]
-* Xcode 12.5
 
 == Installation
 
@@ -121,14 +120,14 @@ Every change has to branch of from `main` and use this branch naming convention:
 
 - *add* for new features or functionality
 - *change* for changes in existing features or functionality
-- *remove* | for removed features or functionality
+- *remove* for removed features or functionality
 - *fix* for any bug fixes
 - *bump* for dependency updates
 - *security* in case of vulnerabilities
 
 Examples:
 
-- `feature/NAT-456/add-awesome-hashing-algorithm`
+- `feature/SDK-456/add-awesome-hashing-algorithm`
 - `feature/add-awesome-hashing-algorithm`
 - `feature/remove-not-so-awesome-algorithm`
 - `feature/fix-algorithm-corner-case`

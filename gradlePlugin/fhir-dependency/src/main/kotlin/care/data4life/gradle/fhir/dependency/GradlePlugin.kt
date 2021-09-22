@@ -14,22 +14,10 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir
+package care.data4life.gradle.fhir.dependency
 
-object AppConfig {
-
-    val android = AndroidConfig
-
-    const val group = LibraryConfig.group
-
-    object AndroidConfig {
-        const val minSdkVersion = LibraryConfig.AndroidLibraryConfig.minSdkVersion
-        const val compileSdkVersion = LibraryConfig.AndroidLibraryConfig.compileSdkVersion
-        const val targetSdkVersion = LibraryConfig.AndroidLibraryConfig.targetSdkVersion
-
-        const val versionCode = 1
-        const val versionName = "0.1.0"
-
-        const val applicationId = "$group.sample"
-    }
+object GradlePlugin {
+    const val android = "com.android.tools.build:gradle:${Version.GradlePlugin.android}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.GradlePlugin.kotlin}"
+    const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:${Version.GradlePlugin.kotlin}"
 }

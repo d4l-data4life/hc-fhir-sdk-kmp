@@ -14,8 +14,8 @@
  * contact D4L by email to help@data4life.care.
  */
 
-import care.data4life.hl7.fhir.AppConfig
-import care.data4life.hl7.fhir.dependency.Dependency
+import care.data4life.gradle.fhir.dependency.Dependency
+import care.data4life.gradle.fhir.config.AppConfig
 
 plugins {
     id("com.android.application")

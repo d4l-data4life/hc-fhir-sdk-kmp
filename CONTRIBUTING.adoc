@@ -49,7 +49,7 @@ If you contribute, you have:
 
 * signed Contributor License Agreement, see <<_licensing>>
 * made clear which problem you're trying to solve
-* followed our link:DEVELOPMENT.adoc[Development Guide]
+* followed our link:DEVELOPING.adoc[Development process]
 
 ==== Create Pull Request
 
