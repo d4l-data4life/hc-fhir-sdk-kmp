@@ -16,8 +16,6 @@
 
 package care.data4life.gradle.fhir.config
 
-import care.data4life.gradle.fhir.config.LibraryConfig
-
 object AppConfig {
 
     val android = AndroidConfig

@@ -16,8 +16,6 @@
 
 package care.data4life.gradle.fhir.dependency
 
-import care.data4life.gradle.fhir.dependency.Version
-
 object Dependency {
 
     val kotlin = Kotlin
