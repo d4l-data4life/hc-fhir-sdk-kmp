@@ -9,7 +9,7 @@ on:
 jobs:
   latest-version:
 
-    runs-on: macos-10.15
+    runs-on: macos-latest
 
     env:
       PACKAGE_REGISTRY_DOWNLOAD_USERNAME: ${{ secrets.PACKAGE_REGISTRY_DOWNLOAD_USERNAME }}
@@ -29,5 +29,9 @@ jobs:
         run: ./gradlew versionInfo
       - name: Build
         run: ./gradlew build
+      - name: Reset iOS Simulators
+        run: xcrun simctl erase all
+      - name: Run Swift tests
+        run: xcodebuild -project DataDonationCryptoObjC/DataDonationCryptoObjC.xcodeproj -scheme DataDonationCryptoHostApp -sdk iphonesimulator -destination "name=iPhone 12" -derivedDataPath build/DataDonationCryptoObjC test
       - name: Publish Snapshot to Maven Repo
         run: ./gradlew publishSnapshot

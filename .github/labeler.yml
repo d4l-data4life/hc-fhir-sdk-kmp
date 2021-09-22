@@ -2,7 +2,7 @@ build:
   - .github/**/*
 
 scripts:
-  - buildSrc/src/main/kotlin/care/data4life/hl7/fhir/**/*.kts
+  - buildSrc/src/main/kotlin/care/data4life/gradle/fhir/**/*.kts
 
 dependencies:
   - buildSrc/**/*
