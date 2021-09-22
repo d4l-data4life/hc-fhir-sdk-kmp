@@ -14,7 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir
+package care.data4life.gradle.fhir.script
 
 import de.undercouch.gradle.tasks.download.Download
 
@@ -38,10 +38,10 @@ import de.undercouch.gradle.tasks.download.Download
  *
  * It requires a Environment variable set for GITHUB_USERNAME and GITHUB_REPO_TOKEN, the token should have repo:read scope
  *
- * Now just add id("care.data4life.hl7.fhir.download-scripts") to your project module build.gradle.kts plugins section
+ * Now just add id("care.data4life.gradle.fhir.script.download-scripts") to your project module build.gradle.kts plugins section
  *
  * plugins {
- *     id("care.data4life.hl7.fhir.download-scripts")
+ *     id("care.data4life.gradle.fhir.script.download-scripts")
  * }
  *
  * Usage:
@@ -58,7 +58,7 @@ private val repository = "https://raw.githubusercontent.com/d4l-data4life/hc-gra
 private val branch = "main"
 val baseLink = "$repository/$branch"
 val scriptPathSource = "buildSrc/src/main/kotlin/care/data4life/sdk/script"
-val scriptPathTarget = "buildSrc/src/main/kotlin/care/data4life/hl7/fhir"
+val scriptPathTarget = "buildSrc/src/main/kotlin/care/data4life/gradle/datadonation/script"
 val scriptLink = "$baseLink/$scriptPathSource"
 val workflowPath = ".github/workflows"
 val workflowLink = "$baseLink/$workflowPath"

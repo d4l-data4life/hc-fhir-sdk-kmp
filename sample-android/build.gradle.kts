@@ -14,7 +14,6 @@
  * contact D4L by email to help@data4life.care.
  */
 
-import care.data4life.hl7.fhir.AppConfig
 import care.data4life.hl7.fhir.dependency.Dependency
 
 plugins {
@@ -23,19 +22,19 @@ plugins {
     id("kotlin-android-extensions")
 }
 
-group = AppConfig.group
+group = care.data4life.gradle.fhir.config.AppConfig.group
 
 android {
-    compileSdkVersion(AppConfig.android.compileSdkVersion)
+    compileSdkVersion(care.data4life.gradle.fhir.config.AppConfig.android.compileSdkVersion)
 
     defaultConfig {
-        applicationId = AppConfig.android.applicationId
+        applicationId = care.data4life.gradle.fhir.config.AppConfig.android.applicationId
 
-        minSdkVersion(AppConfig.android.minSdkVersion)
-        targetSdkVersion(AppConfig.android.targetSdkVersion)
+        minSdkVersion(care.data4life.gradle.fhir.config.AppConfig.android.minSdkVersion)
+        targetSdkVersion(care.data4life.gradle.fhir.config.AppConfig.android.targetSdkVersion)
 
-        versionCode = AppConfig.android.versionCode
-        versionName = AppConfig.android.versionName
+        versionCode = care.data4life.gradle.fhir.config.AppConfig.android.versionCode
+        versionName = care.data4life.gradle.fhir.config.AppConfig.android.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments(

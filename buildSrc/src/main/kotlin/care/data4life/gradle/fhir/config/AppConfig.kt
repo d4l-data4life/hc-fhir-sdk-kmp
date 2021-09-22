@@ -14,7 +14,9 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir
+package care.data4life.gradle.fhir.config
+
+import care.data4life.gradle.fhir.config.LibraryConfig
 
 object AppConfig {
 

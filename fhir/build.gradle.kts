@@ -15,7 +15,7 @@
  */
 
 import care.data4life.hl7.fhir.dependency.Dependency
-import care.data4life.hl7.fhir.LibraryConfig
+import care.data4life.gradle.fhir.config.LibraryConfig
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -29,7 +29,7 @@ plugins {
     id("care.data4life.hl7.fhir.publishing-config")
 }
 
-group = LibraryConfig.group
+group = care.data4life.gradle.fhir.config.LibraryConfig.group
 
 kotlin {
     android {
@@ -41,7 +41,7 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = LibraryConfig.name
+                baseName = care.data4life.gradle.fhir.config.LibraryConfig.name
             }
         }
     }
@@ -115,11 +115,11 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(LibraryConfig.android.compileSdkVersion)
+    compileSdkVersion(care.data4life.gradle.fhir.config.LibraryConfig.android.compileSdkVersion)
 
     defaultConfig {
-        minSdkVersion(LibraryConfig.android.minSdkVersion)
-        targetSdkVersion(LibraryConfig.android.targetSdkVersion)
+        minSdkVersion(care.data4life.gradle.fhir.config.LibraryConfig.android.minSdkVersion)
+        targetSdkVersion(care.data4life.gradle.fhir.config.LibraryConfig.android.targetSdkVersion)
 
         versionCode = 1
         versionName = "${project.version}"
@@ -132,7 +132,7 @@ android {
         )
     }
 
-    resourcePrefix(LibraryConfig.android.resourcePrefix)
+    resourcePrefix(care.data4life.gradle.fhir.config.LibraryConfig.android.resourcePrefix)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
