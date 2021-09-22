@@ -16,7 +16,7 @@
 
 package care.data4life.gradle.fhir.dependency
 
-import care.data4life.hl7.fhir.dependency.Version
+import care.data4life.gradle.fhir.dependency.Version
 
 object Dependency {
 

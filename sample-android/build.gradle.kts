@@ -15,6 +15,7 @@
  */
 
 import care.data4life.gradle.fhir.dependency.Dependency
+import care.data4life.gradle.fhir.config.AppConfig
 
 plugins {
     id("com.android.application")
@@ -22,19 +23,19 @@ plugins {
     id("kotlin-android-extensions")
 }
 
-group = care.data4life.gradle.fhir.config.AppConfig.group
+group = AppConfig.group
 
 android {
-    compileSdkVersion(care.data4life.gradle.fhir.config.AppConfig.android.compileSdkVersion)
+    compileSdkVersion(AppConfig.android.compileSdkVersion)
 
     defaultConfig {
-        applicationId = care.data4life.gradle.fhir.config.AppConfig.android.applicationId
+        applicationId = AppConfig.android.applicationId
 
-        minSdkVersion(care.data4life.gradle.fhir.config.AppConfig.android.minSdkVersion)
-        targetSdkVersion(care.data4life.gradle.fhir.config.AppConfig.android.targetSdkVersion)
+        minSdkVersion(AppConfig.android.minSdkVersion)
+        targetSdkVersion(AppConfig.android.targetSdkVersion)
 
-        versionCode = care.data4life.gradle.fhir.config.AppConfig.android.versionCode
-        versionName = care.data4life.gradle.fhir.config.AppConfig.android.versionName
+        versionCode = AppConfig.android.versionCode
+        versionName = AppConfig.android.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments(
@@ -88,18 +89,18 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring(care.data4life.gradle.fhir.dependency.Dependency.android.desugar)
+    coreLibraryDesugaring(Dependency.android.desugar)
 
     implementation(project(":fhir"))
 
-    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.kotlinStdLib)
-    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.kotlinCoroutinesCore)
+    implementation(Dependency.android.kotlinStdLib)
+    implementation(Dependency.android.kotlinCoroutinesCore)
 
-    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.androidX.ktx)
-    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.androidX.appCompat)
-    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.androidX.constraintLayout)
+    implementation(Dependency.android.androidX.ktx)
+    implementation(Dependency.android.androidX.appCompat)
+    implementation(Dependency.android.androidX.constraintLayout)
 
-    testImplementation(care.data4life.gradle.fhir.dependency.Dependency.jvmTest.junit)
-    androidTestImplementation(care.data4life.gradle.fhir.dependency.Dependency.androidTest.junit)
-    androidTestImplementation(care.data4life.gradle.fhir.dependency.Dependency.androidTest.espressoCore)
+    testImplementation(Dependency.jvmTest.junit)
+    androidTestImplementation(Dependency.androidTest.junit)
+    androidTestImplementation(Dependency.androidTest.espressoCore)
 }

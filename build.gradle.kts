@@ -14,17 +14,17 @@
  * contact D4L by email to help@data4life.care.
  */
 
-import care.data4life.hl7.fhir.dependency.d4l
-import care.data4life.hl7.fhir.dependency.gitHub
+import care.data4life.gradle.fhir.dependency.d4l
+import care.data4life.gradle.fhir.dependency.gitHub
 
 plugins {
-    id("care.data4life.hl7.fhir.dependency")
+    id("care.data4life.gradle.fhir.dependency")
 
-    id("care.data4life.hl7.fhir.dependency-updates")
-    id("care.data4life.hl7.fhir.download-scripts")
-    id("care.data4life.hl7.fhir.publishing")
-    id("care.data4life.hl7.fhir.quality-spotless")
-    id("care.data4life.hl7.fhir.versioning")
+    id("care.data4life.gradle.fhir.script.dependency-updates")
+    id("care.data4life.gradle.fhir.script.download-scripts")
+    id("care.data4life.gradle.fhir.script.publishing")
+    id("care.data4life.gradle.fhir.script.quality-spotless")
+    id("care.data4life.gradle.fhir.script.versioning")
 }
 
 allprojects {

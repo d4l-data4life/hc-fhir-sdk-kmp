@@ -26,23 +26,13 @@ object Repository {
 
     val github = listOf(
         // GitHub organization, GitHub repository name, Maven dependency group
-        listOf(gitHubOrgD4l, "hc-sdk-kmp", "care.data4life.hc-sdk-kmp"),
-        listOf(gitHubOrgD4l, "hc-util-sdk-kmp", "care.data4life.hc-util-sdk-kmp"),
-        listOf(gitHubOrgD4l, "hc-util-test-sdk-kmp", "care.data4life.hc-util-test-sdk-kmp"),
-        listOf(gitHubOrgD4l, "hc-fhir-sdk-java", "care.data4life.hc-fhir-sdk-java"),
-        listOf(gitHubOrgD4l, "hc-fhir-sdk-kmp", "care.data4life.hc-fhir-sdk-kmp"),
-        listOf(gitHubOrgD4l, "hc-fhir-helper-sdk-kmp", "care.data4life.hc-fhir-helper-sdk-kmp"),
-        listOf(gitHubOrgGesundheitsloud, "data-donation-sdk-native", "care.data4life.d4l-data-donation-sdk-kmp")
+        listOf(gitHubOrgD4l, "hc-util-test-sdk-kmp", "care.data4life.hc-util-test-sdk-kmp")
     )
 
     val d4l = listOf(
         // Maven dependency group
-        "care.data4life.hc-sdk-kmp",
-        "care.data4life.hc-util-sdk-kmp",
         "care.data4life.hc-util-test-sdk-kmp",
-        "care.data4life.hc-fhir-sdk-kmp",
-        "care.data4life.hc-fhir-helper-sdk-kmp",
-        "care.data4life.d4l-data-donation-sdk-kmp"
+        "care.data4life.gradle.gitversion"
     )
 }
 

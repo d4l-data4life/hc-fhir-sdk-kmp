@@ -26,10 +26,10 @@ plugins {
     id("com.android.library")
 
     // Publish
-    id("care.data4life.hl7.fhir.publishing-config")
+    id("care.data4life.gradle.fhir.script.publishing-config")
 }
 
-group = care.data4life.gradle.fhir.config.LibraryConfig.group
+group = LibraryConfig.group
 
 kotlin {
     android {
@@ -41,7 +41,7 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = care.data4life.gradle.fhir.config.LibraryConfig.name
+                baseName = LibraryConfig.name
             }
         }
     }
@@ -51,41 +51,41 @@ kotlin {
             kotlin.srcDir("src-gen/commonMain/kotlin")
 
             dependencies {
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.stdLib.common)
+                implementation(Dependency.multiplatform.kotlin.stdLib.common)
 
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.serialization.json)
+                implementation(Dependency.multiplatform.kotlin.serialization.json)
 
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.dateTime)
+                implementation(Dependency.multiplatform.kotlin.dateTime)
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.common)
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.commonAnnotations)
+                implementation(Dependency.multiplatformTest.kotlin.common)
+                implementation(Dependency.multiplatformTest.kotlin.commonAnnotations)
 
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.mockK.common)
+                implementation(Dependency.multiplatformTest.mockK.common)
             }
         }
 
         val androidMain by getting {
             dependencies {
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.stdLib.android)
+                implementation(Dependency.multiplatform.kotlin.stdLib.android)
             }
         }
         val androidTest by getting {
             dependencies {
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvm)
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvmJunit)
+                implementation(Dependency.multiplatformTest.kotlin.jvm)
+                implementation(Dependency.multiplatformTest.kotlin.jvmJunit)
 
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.mockK.junit)
+                implementation(Dependency.multiplatformTest.mockK.junit)
 
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.androidTest.robolectric)
+                implementation(Dependency.androidTest.robolectric)
             }
         }
 
         val jvmMain by getting {
             dependencies {
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.stdLib.jdk8)
+                implementation(Dependency.multiplatform.kotlin.stdLib.jdk8)
             }
         }
         val jvmTest by getting {
@@ -93,12 +93,12 @@ kotlin {
             resources.srcDir("src-gen/jvmTest/resources")
 
             dependencies {
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvm)
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvmJunit)
+                implementation(Dependency.multiplatformTest.kotlin.jvm)
+                implementation(Dependency.multiplatformTest.kotlin.jvmJunit)
 
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.mockK.junit)
+                implementation(Dependency.multiplatformTest.mockK.junit)
 
-                implementation(care.data4life.gradle.fhir.dependency.Dependency.jvmTest.jsonAssert)
+                implementation(Dependency.jvmTest.jsonAssert)
             }
         }
 
@@ -115,11 +115,11 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(care.data4life.gradle.fhir.config.LibraryConfig.android.compileSdkVersion)
+    compileSdkVersion(LibraryConfig.android.compileSdkVersion)
 
     defaultConfig {
-        minSdkVersion(care.data4life.gradle.fhir.config.LibraryConfig.android.minSdkVersion)
-        targetSdkVersion(care.data4life.gradle.fhir.config.LibraryConfig.android.targetSdkVersion)
+        minSdkVersion(LibraryConfig.android.minSdkVersion)
+        targetSdkVersion(LibraryConfig.android.targetSdkVersion)
 
         versionCode = 1
         versionName = "${project.version}"
@@ -132,7 +132,7 @@ android {
         )
     }
 
-    resourcePrefix(care.data4life.gradle.fhir.config.LibraryConfig.android.resourcePrefix)
+    resourcePrefix(LibraryConfig.android.resourcePrefix)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
