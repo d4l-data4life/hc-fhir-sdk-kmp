@@ -59,8 +59,8 @@ spotless {
         target("**/*.kt")
         targetExclude(
             "buildSrc/build/",
-            "**/buildSrc/build/",
             "fhir/parser/"
+            "fhir-adapter/fhir3/parser/",
         )
         ktlint(ktlintVersion).userData(
             mapOf(

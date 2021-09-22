@@ -27,6 +27,7 @@ includeBuild(
 
 include(
     ":fhir",
+    ":fhir-adapter:fhir3",
     ":sample-android",
     ":docs"
 )
