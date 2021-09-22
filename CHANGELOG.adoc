@@ -44,6 +44,9 @@ See link:{link-repository}/compare/v0.2.0...main[changeset]
 
 === Bumped
 
+* Gradle 7.0.2 -> 7.2
+*
+
 === Migration
 
 == link:{link-repository}/releases/tag/v0.2.0[0.2.0]
