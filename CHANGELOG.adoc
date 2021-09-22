@@ -51,6 +51,7 @@ See link:{link-repository}/compare/v0.2.0...main[changeset]
 * Kotlin Serialization 1.2.2 -> 1.2.2
 * Kotlin date-time 0.1.1 -> 0.2.1
 * Koin 3.0.1 -> 3.0.2
+* D4L Util-SDK 1.8.0 -> 1.11.0
 * Android XKtx 1.3.1 -> 1.6.0
 * Android AppCompat 1.3.0 -> 1.3.1
 * Android Material Components 1.2.0 -> 1.4.0
