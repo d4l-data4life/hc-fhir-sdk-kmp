@@ -26,6 +26,7 @@ toc::[]
 * link:https://developer.android.com/studio#downloads[Android Studio 4.2.1]
 * link:https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
 * link:https://kotlinlang.org/[Kotlin 1.4.32]
+* link:https://www.python.org/downloads/[Python 3.7.8]
 
 == Installation
 
@@ -62,7 +63,7 @@ Just install the mentioned dependencies:
 
 [source,bash]
 ----
-sdk install java  8.0.292.hs-adpt
+sdk install java 8.0.292.hs-adpt
 sdk install kotlin 1.4.32
 ----
 
@@ -74,9 +75,36 @@ java -version
 kotlin -version
 ----
 
+=== Install Python
+
+It is recommended to use link:https://github.com/pyenv/pyenv[PyEnv] for managing dedicated python versions.
+
+Use link:https://brew.sh/[Homebrew] to install it on mac:
+
+[source,bash]
+----
+brew install pyenv
+----
+
+Make sure you are in the project root and install the correct Python version which is derived from `.python-version` file:
+
+[source,bash]
+----
+pyenv install
+----
+
 === Android Studio
 
 For better interop with iOS you may install the link:https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile[Kotlin Multiplaform Mobile (KMM) plugin for Android Studio]. It let's you run, test and debug shared code on Android and iOS without switching the IDEs.
+
+=== First time
+
+As the project includes a Git submodule, this must be initialised on first use
+
+[source,bash]
+----
+git submodule update --init --recursive
+----
 
 == Development Process
 
@@ -121,4 +149,45 @@ Releases are automatically created when a tag in the form of `v{major}.{minor}.{
 
 == Develop
 
-Coming soon
+The source is divided into supporting code for JSON parsing and establishing the FHIR primitive type system (String, Dates, Integer, etc.) for link:http://hl7.org/fhir/STU3/datatypes.html[FHIR 3] and link:http://hl7.org/fhir/R4/datatypes.html[FHIR 4]
+
+A big portion of the FHIR implementation is generated code, that could be found under `fhir/src-gen/commonMain/kotlin`. The generation is using link:https://github.com/gesundheitscloud/fhir-parser/[FHIR-Parser] and is controlled by `generateFhir.main.kts` script.
+
+To trigger code generation just call `./generateFhir.main.kts` for all FHIR versions or add `fhir3`/`fhir4` to only generate one version.
+
+=== Change FHIR
+
+If you need to adjust one of the FHIR versions, it is located under `fhir/src/commonMain/kotlin` and the corresponding package `care.data4life.hl7.fhir.{fhir_version}`:
+
+* `.json`: JsonParser
+* `.model`: FHIR base type for that FHIR version
+* `.primitive`: Implementation of FHIR primitives
+Releases are automatically created when a tag in the form of `v{major}.{minor}.{patch}` is added.
+
+=== Change FHIR code generation
+
+If you need to adjust the generated code, have a look at `fhir/parser/{FHIR version}/templates`:
+
+* `template-codesystems.kt`: the enums used to represent most FHIR type systems
+* `template-dependencies`: not used at the moment
+* `template-elementfactory.kt`: FhirHelper to define serialization and help with type mapping
+* `template-resource`: FHIR model definition
+* `template-unittest`: Test to validate the FHIR implementation
+
+Additionally you could tweak the type mapping by altering `fhir/parser/{FHIR version}/config/mappings.py`.
+
+=== How to add a new FHIR version
+
+Add:
+
+* New FHIR spec under `fhir-spec/hl7.org/fhir/{new FHIR version}/`
+* New `config` and `templates` under `fhir/parser/{new FHIR version}/`
+** Adjust them to your needs
+* Base implementation
+** FHIR model base `Fhir{new FHIR version}`
+** FHIR primitives
+** `Fhir{new FHIR version}Parser` and register it in `FhirParserFactory` alongside with it's JSON implementation
+* new FHIR version handling to `generateFhir.main.kts`
+* generated models, tests and validation resources by triggering generation
+
+Validate your changes and resolve issues introduced by the new FHIR version.

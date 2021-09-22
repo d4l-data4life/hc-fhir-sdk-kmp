@@ -54,16 +54,16 @@ object Dependency {
             }
 
             object Coroutines {
-                const val common = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Multiplatform.Kotlin.coroutines}"
-                const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Multiplatform.Kotlin.coroutines}"
-                const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.Multiplatform.Kotlin.coroutines}"
+                const val common = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.multiplatform.kotlin.coroutines}"
+                const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.multiplatform.kotlin.coroutines}"
+                const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.multiplatform.kotlin.coroutines}"
             }
 
             object Serialization {
-                const val json = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.Multiplatform.Kotlin.serialization}"
+                const val json = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.multiplatform.kotlin.serialization}"
             }
 
-            const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Version.Multiplatform.Kotlin.dateTime}"
+            const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Version.multiplatform.kotlin.dateTime}"
         }
 
         object D4L {
@@ -71,22 +71,22 @@ object Dependency {
             val util = Util
 
             object Util {
-                const val common = "care.data4life.hc-util-sdk-kmp:util:${Version.Multiplatform.D4L.utilSdk}"
-                const val android = "care.data4life.hc-util-sdk-kmp:util-android:${Version.Multiplatform.D4L.utilSdk}"
-                const val jvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Version.Multiplatform.D4L.utilSdk}"
+                const val common = "care.data4life.hc-util-sdk-kmp:util:${Version.multiplatform.d4l.utilSdk}"
+                const val android = "care.data4life.hc-util-sdk-kmp:util-android:${Version.multiplatform.d4l.utilSdk}"
+                const val jvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Version.multiplatform.d4l.utilSdk}"
             }
         }
 
         object Koin {
             // https://github.com/InsertKoinIO/koin
-            const val commonCore = "org.koin:koin-core:${Version.Multiplatform.koin}"
-            const val commonCoreExt = "org.koin:koin-core-ext:${Version.Multiplatform.koin}"
-            const val test = "org.koin:koin-test:${Version.Multiplatform.koin}"
-            const val androidScope = "org.koin:koin-androidx-scope:${Version.Multiplatform.koin}"
-            const val androidViewModel = "org.koin:koin-androidx-viewmodel:${Version.Multiplatform.koin}"
-            const val androidFragment = "org.koin:koin-androidx-fragment:${Version.Multiplatform.koin}"
-            const val androidExt = "org.koin:koin-androidx-ext:${Version.Multiplatform.koin}"
-            const val tor = "org.koin:koin-tor:${Version.Multiplatform.koin}"
+            const val commonCore = "org.koin:koin-core:${Version.multiplatform.koin}"
+            const val commonCoreExt = "org.koin:koin-core-ext:${Version.multiplatform.koin}"
+            const val test = "org.koin:koin-test:${Version.multiplatform.koin}"
+            const val androidScope = "org.koin:koin-androidx-scope:${Version.multiplatform.koin}"
+            const val androidViewModel = "org.koin:koin-androidx-viewmodel:${Version.multiplatform.koin}"
+            const val androidFragment = "org.koin:koin-androidx-fragment:${Version.multiplatform.koin}"
+            const val androidExt = "org.koin:koin-androidx-ext:${Version.multiplatform.koin}"
+            const val tor = "org.koin:koin-tor:${Version.multiplatform.koin}"
         }
     }
 
@@ -103,21 +103,21 @@ object Dependency {
         }
 
         object MockK {
-            const val common = "io.mockk:mockk-common:${Version.MultiplatformTest.mockK}"
-            const val junit = "io.mockk:mockk:${Version.MultiplatformTest.mockK}"
-            const val androidTestInstrumentation = "io.mockk:mockk-android:${Version.MultiplatformTest.mockK}"
+            const val common = "io.mockk:mockk-common:${Version.multiplatformTest.mockK}"
+            const val junit = "io.mockk:mockk:${Version.multiplatformTest.mockK}"
+            const val androidTestInstrumentation = "io.mockk:mockk-android:${Version.multiplatformTest.mockK}"
         }
     }
 
     object Jvm {
         // Crypto
-        const val bouncyCastleJdk15 = "org.bouncycastle:bcprov-jdk15on:${Version.Jvm.bouncyCastle}"
+        const val bouncyCastleJdk15 = "org.bouncycastle:bcprov-jdk15on:${Version.jvm.bouncyCastle}"
     }
 
     object JvmTest {
-        const val junit = "junit:junit:${Version.JvmTest.jUnit}"
+        const val junit = "junit:junit:${Version.jvmTest.jUnit}"
 
-        const val jsonAssert = "org.skyscreamer:jsonassert:${Version.JvmTest.jsonAssert}"
+        const val jsonAssert = "org.skyscreamer:jsonassert:${Version.jvmTest.jsonAssert}"
     }
 
     object Android {
@@ -127,49 +127,49 @@ object Dependency {
         // Kotlin
         const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}"
         const val kotlinCoroutinesCore =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Multiplatform.Kotlin.coroutines}"
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.multiplatform.kotlin.coroutines}"
 
         // Android
-        const val desugar = "com.android.tools:desugar_jdk_libs:${Version.Android.androidDesugar}"
+        const val desugar = "com.android.tools:desugar_jdk_libs:${Version.android.androidDesugar}"
 
         object AndroidX {
-            const val ktx = "androidx.core:core-ktx:${Version.Android.AndroidX.ktx}"
-            const val appCompat = "androidx.appcompat:appcompat:${Version.Android.AndroidX.appCompat}"
-            const val browser = "androidx.browser:browser:${Version.Android.AndroidX.browser}"
+            const val ktx = "androidx.core:core-ktx:${Version.android.androidX.ktx}"
+            const val appCompat = "androidx.appcompat:appcompat:${Version.android.androidX.appCompat}"
+            const val browser = "androidx.browser:browser:${Version.android.androidX.browser}"
 
             // Layout
-            const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Version.Android.AndroidX.constraintLayout}"
+            const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Version.android.androidX.constraintLayout}"
 
             // Lifecylce
             const val lifecylceCommonJava8 =
-                "androidx.lifecycle:lifecycle-common-java8:${Version.Android.AndroidX.lifecycle}"
+                "androidx.lifecycle:lifecycle-common-java8:${Version.android.androidX.lifecycle}"
             const val lifecylceExtensions =
-                "androidx.lifecycle:lifecycle-extensions:${Version.Android.AndroidX.lifecycle}"
+                "androidx.lifecycle:lifecycle-extensions:${Version.android.androidX.lifecycle}"
 
             // Navigation
             const val navigationFragmentKtx =
-                "androidx.navigation:navigation-fragment-ktx:${Version.Android.AndroidX.navigation}"
+                "androidx.navigation:navigation-fragment-ktx:${Version.android.androidX.navigation}"
             const val navigationUiKtx =
-                "androidx.navigation:navigation-ui-ktx:${Version.Android.AndroidX.navigation}"
+                "androidx.navigation:navigation-ui-ktx:${Version.android.androidX.navigation}"
         }
 
         // Material
-        const val material = "com.google.android.material:material:${Version.Android.material}"
+        const val material = "com.google.android.material:material:${Version.android.material}"
     }
 
     object AndroidTest {
-        const val core = "androidx.test:core:${Version.AndroidTest.androidXTestCore}"
-        const val runner = "androidx.test:runner:${Version.AndroidTest.androidXTestCore}"
-        const val rules = "androidx.test:rules:${Version.AndroidTest.androidXTestCore}"
+        const val core = "androidx.test:core:${Version.androidTest.androidXTestCore}"
+        const val runner = "androidx.test:runner:${Version.androidTest.androidXTestCore}"
+        const val rules = "androidx.test:rules:${Version.androidTest.androidXTestCore}"
 
-        const val junit = "androidx.test.ext:junit:${Version.AndroidTest.androidXTestJunit}"
+        const val junit = "androidx.test.ext:junit:${Version.androidTest.androidXTestJunit}"
 
-        const val espressoCore = "androidx.test.espresso:espresso-core:${Version.AndroidTest.androidXEspresso}"
-        const val espressoIntents = "androidx.test.espresso:espresso-intents:${Version.AndroidTest.androidXEspresso}"
-        const val espressoWeb = "androidx.test.espresso:espresso-web:${Version.AndroidTest.androidXEspresso}"
+        const val espressoCore = "androidx.test.espresso:espresso-core:${Version.androidTest.androidXEspresso}"
+        const val espressoIntents = "androidx.test.espresso:espresso-intents:${Version.androidTest.androidXEspresso}"
+        const val espressoWeb = "androidx.test.espresso:espresso-web:${Version.androidTest.androidXEspresso}"
 
-        const val uiAutomator = "androidx.test.uiautomator:uiautomator:${Version.AndroidTest.androidXUiAutomator}"
+        const val uiAutomator = "androidx.test.uiautomator:uiautomator:${Version.androidTest.androidXUiAutomator}"
 
-        const val robolectric = "org.robolectric:robolectric:${Version.AndroidTest.robolectric}"
+        const val robolectric = "org.robolectric:robolectric:${Version.androidTest.robolectric}"
     }
 }
