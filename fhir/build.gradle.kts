@@ -14,7 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-import care.data4life.hl7.fhir.dependency.Dependency
+import care.data4life.gradle.fhir.dependency.Dependency
 import care.data4life.gradle.fhir.config.LibraryConfig
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
@@ -51,41 +51,41 @@ kotlin {
             kotlin.srcDir("src-gen/commonMain/kotlin")
 
             dependencies {
-                implementation(Dependency.multiplatform.kotlin.stdLib.common)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.stdLib.common)
 
-                implementation(Dependency.multiplatform.kotlin.serialization.json)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.serialization.json)
 
-                implementation(Dependency.multiplatform.kotlin.dateTime)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.dateTime)
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(Dependency.multiplatformTest.kotlin.common)
-                implementation(Dependency.multiplatformTest.kotlin.commonAnnotations)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.common)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.commonAnnotations)
 
-                implementation(Dependency.multiplatformTest.mockK.common)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.mockK.common)
             }
         }
 
         val androidMain by getting {
             dependencies {
-                implementation(Dependency.multiplatform.kotlin.stdLib.android)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.stdLib.android)
             }
         }
         val androidTest by getting {
             dependencies {
-                implementation(Dependency.multiplatformTest.kotlin.jvm)
-                implementation(Dependency.multiplatformTest.kotlin.jvmJunit)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvm)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvmJunit)
 
-                implementation(Dependency.multiplatformTest.mockK.junit)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.mockK.junit)
 
-                implementation(Dependency.androidTest.robolectric)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.androidTest.robolectric)
             }
         }
 
         val jvmMain by getting {
             dependencies {
-                implementation(Dependency.multiplatform.kotlin.stdLib.jdk8)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatform.kotlin.stdLib.jdk8)
             }
         }
         val jvmTest by getting {
@@ -93,12 +93,12 @@ kotlin {
             resources.srcDir("src-gen/jvmTest/resources")
 
             dependencies {
-                implementation(Dependency.multiplatformTest.kotlin.jvm)
-                implementation(Dependency.multiplatformTest.kotlin.jvmJunit)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvm)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.kotlin.jvmJunit)
 
-                implementation(Dependency.multiplatformTest.mockK.junit)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.multiplatformTest.mockK.junit)
 
-                implementation(Dependency.jvmTest.jsonAssert)
+                implementation(care.data4life.gradle.fhir.dependency.Dependency.jvmTest.jsonAssert)
             }
         }
 

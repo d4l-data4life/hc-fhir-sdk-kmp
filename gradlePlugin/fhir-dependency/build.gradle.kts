@@ -20,7 +20,7 @@ plugins {
 }
 
 // To make it available as direct dependency
-group = "care.data4life.hl7.fhir.dependency"
+group = "care.data4life.gradle.fhir.dependency"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -28,8 +28,8 @@ repositories {
 }
 
 gradlePlugin {
-    plugins.register("care.data4life.hl7.fhir.dependency") {
-        id = "care.data4life.hl7.fhir.dependency"
-        implementationClass = "care.data4life.hl7.fhir.dependency.DependencyPlugin"
+    plugins.register("care.data4life.gradle.fhir.dependency") {
+        id = "care.data4life.gradle.fhir.dependency"
+        implementationClass = "care.data4life.gradle.fhir.dependency.DependencyPlugin"
     }
 }

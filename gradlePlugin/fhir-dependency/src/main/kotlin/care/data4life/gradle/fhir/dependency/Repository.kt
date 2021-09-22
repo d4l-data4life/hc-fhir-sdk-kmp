@@ -14,7 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.dependency
+package care.data4life.gradle.fhir.dependency
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.dsl.RepositoryHandler

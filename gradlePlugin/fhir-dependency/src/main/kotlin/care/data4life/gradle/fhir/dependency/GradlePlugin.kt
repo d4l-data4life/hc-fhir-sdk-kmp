@@ -14,14 +14,10 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.dependency
+package care.data4life.gradle.fhir.dependency
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-
-class DependencyPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) {
-        // nothing to do
-    }
+object GradlePlugin {
+    const val android = "com.android.tools.build:gradle:${Version.GradlePlugin.android}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.GradlePlugin.kotlin}"
+    const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:${Version.GradlePlugin.kotlin}"
 }

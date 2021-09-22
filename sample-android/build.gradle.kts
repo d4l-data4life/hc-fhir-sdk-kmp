@@ -14,7 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 
-import care.data4life.hl7.fhir.dependency.Dependency
+import care.data4life.gradle.fhir.dependency.Dependency
 
 plugins {
     id("com.android.application")
@@ -88,18 +88,18 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring(Dependency.android.desugar)
+    coreLibraryDesugaring(care.data4life.gradle.fhir.dependency.Dependency.android.desugar)
 
     implementation(project(":fhir"))
 
-    implementation(Dependency.android.kotlinStdLib)
-    implementation(Dependency.android.kotlinCoroutinesCore)
+    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.kotlinStdLib)
+    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.kotlinCoroutinesCore)
 
-    implementation(Dependency.android.androidX.ktx)
-    implementation(Dependency.android.androidX.appCompat)
-    implementation(Dependency.android.androidX.constraintLayout)
+    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.androidX.ktx)
+    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.androidX.appCompat)
+    implementation(care.data4life.gradle.fhir.dependency.Dependency.android.androidX.constraintLayout)
 
-    testImplementation(Dependency.jvmTest.junit)
-    androidTestImplementation(Dependency.androidTest.junit)
-    androidTestImplementation(Dependency.androidTest.espressoCore)
+    testImplementation(care.data4life.gradle.fhir.dependency.Dependency.jvmTest.junit)
+    androidTestImplementation(care.data4life.gradle.fhir.dependency.Dependency.androidTest.junit)
+    androidTestImplementation(care.data4life.gradle.fhir.dependency.Dependency.androidTest.espressoCore)
 }
