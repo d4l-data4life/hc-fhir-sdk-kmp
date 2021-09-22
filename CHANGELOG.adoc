@@ -44,6 +44,22 @@ See link:{link-repository}/compare/v0.2.0...main[changeset]
 
 === Bumped
 
+* Gradle 7.0.2 -> 7.2
+* *_BREAKING_* Kotlin 1.4.32 -> 1.5.21
+* *_BREAKING_* Android Gradle Plugin 4.2.1 -> 7.0.2
+* *_BREAKING_* Coroutines 1.4.3 -> 1.5.1
+* Kotlin Serialization 1.0.2 -> 1.2.2
+* Kotlin date-time 0.1.1 -> 0.2.1
+* Koin 3.0.1 -> 3.0.2
+* D4L Util-SDK 1.8.0 -> 1.11.0
+* Android XKtx 1.3.1 -> 1.6.0
+* Android AppCompat 1.3.0 -> 1.3.1
+* Android Material Components 1.2.0 -> 1.4.0
+* Android LifeCircle 2.1.0 -> 2.3.1
+* Android Navigation 2.2.0 -> 2.3.5
+* Android Material Components 1.3.0 -> 1.4.0
+* Robolectric 4.5.1 -> 4.6.1
+
 === Migration
 
 == link:{link-repository}/releases/tag/v0.2.0[0.2.0]

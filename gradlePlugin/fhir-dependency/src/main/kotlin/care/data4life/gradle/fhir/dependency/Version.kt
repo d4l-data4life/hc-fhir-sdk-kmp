@@ -29,11 +29,11 @@ object Version {
     /**
      * [Kotlin](https://github.com/JetBrains/kotlin)
      */
-    const val kotlin = "1.4.32"
+    const val kotlin = "1.5.21"
 
     object GradlePlugin {
         const val kotlin = Version.kotlin
-        const val android = "4.2.1"
+        const val android = "7.0.2"
     }
 
     object Multiplatform {
@@ -45,30 +45,30 @@ object Version {
             /**
              * [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
              */
-            const val coroutines = "1.4.3-native-mt"
+            const val coroutines = "1.5.1-native-mt"
 
             /**
              * [Serialization](https://github.com/Kotlin/kotlinx.serialization)
              */
-            const val serialization = "1.0.1"
+            const val serialization = "1.2.2"
 
             /**
              * [DateTime](https://github.com/Kotlin/kotlinx-datetime)
              */
-            const val dateTime = "0.1.1"
+            const val dateTime = "0.2.1"
         }
 
         object D4L {
             /**
              * [hc-util-kmp](https://github.com/d4l-data4life/hc-util-kmp)
              */
-            const val utilSdk = "1.8.0"
+            const val utilSdk = "1.11.0"
         }
 
         /**
          * [Koin](https://github.com/InsertKoinIO/koin)
          */
-        const val koin = "3.0.1"
+        const val koin = "3.0.2"
     }
 
     object MultiplatformTest {
@@ -106,20 +106,20 @@ object Version {
              * [AndroidX](https://developer.android.com/jetpack/androidx)
              */
             const val core = "1.1.0"
-            const val ktx = "1.3.2"
-            const val appCompat = "1.3.0"
+            const val ktx = "1.6.0"
+            const val appCompat = "1.3.1"
             const val browser = "1.2.0"
 
             const val constraintLayout = "2.0.1"
 
-            const val lifecycle = "2.1.0"
-            const val navigation = "2.2.0"
+            const val lifecycle = "2.3.1"
+            const val navigation = "2.3.5"
         }
 
         /**
          * [Material Android](https://github.com/material-components/material-components-android)
          */
-        const val material = "1.3.0"
+        const val material = "1.4.0"
     }
 
     object AndroidTest {
@@ -134,6 +134,6 @@ object Version {
         /**
          * [Robolectric](https://github.com/robolectric/robolectric)
          */
-        const val robolectric = "4.5.1"
+        const val robolectric = "4.6.1"
     }
 }

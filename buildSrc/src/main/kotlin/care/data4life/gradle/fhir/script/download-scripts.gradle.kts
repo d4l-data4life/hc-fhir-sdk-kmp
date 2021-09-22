@@ -57,7 +57,7 @@ plugins {
 private val repository = "https://raw.githubusercontent.com/d4l-data4life/hc-gradle-scripts"
 private val branch = "main"
 val baseLink = "$repository/$branch"
-val scriptPathSource = "buildSrc/src/main/kotlin/care/data4life/sdk/script"
+val scriptPathSource = "buildSrc/src/main/kotlin/care/data4life/gradle/scripts/script"
 val scriptPathTarget = "buildSrc/src/main/kotlin/care/data4life/gradle/fhir/script"
 val scriptLink = "$baseLink/$scriptPathSource"
 val workflowPath = ".github/workflows"
