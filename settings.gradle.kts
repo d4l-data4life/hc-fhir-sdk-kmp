@@ -21,10 +21,6 @@ pluginManagement {
     }
 }
 
-plugins {
-    id("com.gradle.enterprise") version("3.7")
-}
-
 includeBuild(
     "gradlePlugin/fhir-dependency"
 )
@@ -34,13 +30,5 @@ include(
     ":sample-android",
     ":docs"
 )
-
-buildCache {
-    local {
-        isEnabled = true
-        directory = File(rootDir, "build-cache")
-        removeUnusedEntriesAfterDays = 30
-    }
-}
 
 rootProject.name = "hc-fhir-sdk-kmp"
