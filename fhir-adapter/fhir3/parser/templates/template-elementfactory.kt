@@ -82,7 +82,7 @@ object FhirHelper {
         }
 
         fun getFhirClass(resourceType: String): KClass<*>? {
-            return when (resourceType.toLowerCase()) {
+            return when (resourceType.lowercase()) {
 {%- for klass in classes %}
 {%- if klass.resource_type %}
 {%- if not klass.name in exclusions %}

@@ -992,7 +992,7 @@ object FhirHelper {
         }
 
         fun getFhirClass(resourceType: String): KClass<*>? {
-            return when (resourceType.toLowerCase()) {
+            return when (resourceType.lowercase()) {
                 "account" -> Account::class
                 "activitydefinition" -> ActivityDefinition::class
                 "adverseevent" -> AdverseEvent::class
