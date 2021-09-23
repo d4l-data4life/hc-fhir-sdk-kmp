@@ -48,8 +48,6 @@ kotlin {
 
     sourceSets {
         val commonMain by getting {
-            kotlin.srcDir("src-gen/commonMain/kotlin")
-
             dependencies {
                 implementation(Dependency.multiplatform.kotlin.stdLib.common)
 
@@ -89,9 +87,6 @@ kotlin {
             }
         }
         val jvmTest by getting {
-            kotlin.srcDir("src-gen/jvmTest/kotlin")
-            resources.srcDir("src-gen/jvmTest/resources")
-
             dependencies {
                 implementation(Dependency.multiplatformTest.kotlin.jvm)
                 implementation(Dependency.multiplatformTest.kotlin.jvmJunit)

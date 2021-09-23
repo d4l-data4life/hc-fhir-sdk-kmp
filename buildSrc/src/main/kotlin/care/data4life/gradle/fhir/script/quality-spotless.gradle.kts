@@ -59,7 +59,6 @@ spotless {
         target("**/*.kt")
         targetExclude(
             "buildSrc/build/",
-            "fhir/parser/"
             "fhir-adapter/fhir3/parser/",
             "fhir-adapter/fhir4/parser/",
         )

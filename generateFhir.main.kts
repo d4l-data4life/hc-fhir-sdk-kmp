@@ -5,16 +5,23 @@ import java.io.File
 
 val fhirSpecPath = "fhir-spec"
 
-enum class FhirVersion(val value: String) {
-    FHIR3("stu3"), FHIR4("r4")
+enum class FhirVersion(val officialName: String) {
+    FHIR3("stu3"),
+    FHIR4("r4");
+
+    override fun toString(): String {
+        return super.toString().lowercase()
+    }
 }
 
-val parserResourcesPath = "fhir/parser"
 fun sourceParserConfig(fhirVersion: FhirVersion) =
-    "$parserResourcesPath/${fhirVersion.value}/config"
+    "fhir-adapter/$fhirVersion/parser/config"
 
 fun sourceParserTemplates(fhirVersion: FhirVersion) =
-    "$parserResourcesPath/${fhirVersion.value}/templates"
+    "fhir-adapter/$fhirVersion/parser/templates"
+
+fun sourceParserStatics(fhirVersion: FhirVersion) =
+    "fhir-adapter/$fhirVersion/parser/statics"
 
 val parserPath = "fhir-spec-parser"
 val sourceCodesystems = "$parserPath/codesystems"
@@ -22,24 +29,25 @@ val sourceModels = "$parserPath/models"
 val sourceTests = "$parserPath/tests"
 val sourceTestJsons = "$parserPath/downloads"
 
+
 fun targetCodesystems(fhirVersion: FhirVersion) =
-    "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/codesystem"
+    "fhir-adapter/$fhirVersion/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.officialName}/codesystem"
 
 fun targetModels(fhirVersion: FhirVersion) =
-    "fhir/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
+    "fhir-adapter/$fhirVersion/src-gen/commonMain/kotlin/care/data4life/hl7/fhir/${fhirVersion.officialName}/model"
 
 fun targetTests(fhirVersion: FhirVersion) =
-    "fhir/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/${fhirVersion.value}/model"
+    "fhir-adapter/$fhirVersion/src-gen/jvmTest/kotlin/care/data4life/hl7/fhir/${fhirVersion.officialName}/model"
 
 fun targetTestJsons(fhirVersion: FhirVersion) =
-    "fhir/src-gen/jvmTest/resources/${fhirVersion.value}"
+    "fhir-adapter/$fhirVersion/src-gen/jvmTest/resources/${fhirVersion.officialName}"
 
 fun modelExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
-    // this exclusions need to be in sync with 'fhir/parser/r4/templates/template-elementfactory.kt' -> 'exclude_resources'
+    // this exclusions need to be in sync with 'fhir-adapter/fhir4/parser/templates/template-elementfactory.kt' -> 'exclude_resources'
     FhirVersion.FHIR4 -> listOf(
         "ExampleScenario.kt",
     )
-    // this exclusions need to be in sync with 'fhir/parser/stu3/templates/template-elementfactory.kt' -> 'exclude_resources'
+    // this exclusions need to be in sync with 'fhir-adapter/fhir3/parser/templates/template-elementfactory.kt' -> 'exclude_resources'
     FhirVersion.FHIR3 -> listOf(
         "ExplanationOfBenefit.kt",
         "Claim.kt",
@@ -117,8 +125,8 @@ fun generateFhirModels(fhirVersion: FhirVersion) {
 
     println("Copy FHIR specification")
     cmd("mkdir $parserPath/downloads")
-    cmd("cp -a $fhirSpecPath/hl7.org/fhir/${fhirVersion.value}/version.info $parserPath/downloads/")
-    cmd("unzip -o $fhirSpecPath/hl7.org/fhir/${fhirVersion.value}/examples-json.zip -d $parserPath/downloads/")
+    cmd("cp -a $fhirSpecPath/hl7.org/fhir/${fhirVersion.officialName}/version.info $parserPath/downloads/")
+    cmd("unzip -o $fhirSpecPath/hl7.org/fhir/${fhirVersion.officialName}/examples-json.zip -d $parserPath/downloads/")
 
     println("Generate FHIR files")
     if (!cmd("test -d venv", parserPath)) {
@@ -191,10 +199,10 @@ fun integrateFhirModels(fhirVersion: FhirVersion) {
 fun integrateStatics(fhirVersion: FhirVersion) {
     println("Include static FHIR replacements")
 
-    val staticSourcePath = "fhir/parser/${fhirVersion.value}/statics"
+    val source = sourceParserStatics(fhirVersion)
 
     for ((file, target) in staticReplacementMap(fhirVersion)) {
-        cmd("cp $staticSourcePath/$file $target")
+        cmd("cp $source/$file $target")
     }
 
     println(" ✅ Done including static FHIR replacements")
