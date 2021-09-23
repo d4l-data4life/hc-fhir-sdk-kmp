@@ -73,8 +73,9 @@ data class Instant(
     init {
         requireNotNull(value.date.month) { "date: month must be set" }
         requireNotNull(value.date.day) { "date: day must be set" }
-        requireNotNull(value.time) { "time must be set" }
-        requireNotNull(value.time.second) { "time: second must be set" }
+        val time = value.time
+        requireNotNull(time) { "time must be set" }
+        requireNotNull(time.second) { "time: second must be set" }
         requireNotNull(value.timeZone) { "timezone must be set" }
     }
 
