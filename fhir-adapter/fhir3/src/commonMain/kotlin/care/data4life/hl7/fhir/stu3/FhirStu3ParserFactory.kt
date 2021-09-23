@@ -19,17 +19,12 @@ package care.data4life.hl7.fhir.stu3
 import care.data4life.hl7.fhir.parser.FhirParser
 import care.data4life.hl7.fhir.stu3.json.FhirStu3JsonParser
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
-import kotlin.reflect.KClass
 
-class FhirStu3Parser(
-    private val jsonParser: FhirStu3JsonParser
-) : FhirParser<FhirStu3> {
+object FhirStu3ParserFactory : FhirParser.Factory<FhirStu3> {
 
-    override fun <T : FhirStu3> toFhir(fhirType: KClass<T>, fhirData: String): T {
-        return jsonParser.fromJson(fhirType, fhirData)
-    }
-
-    override fun <T : FhirStu3> fromFhir(fhirObject: T): String {
-        return jsonParser.toJson(fhirObject)
+    override fun getInstance(): FhirParser<FhirStu3> {
+        return FhirStu3Parser(
+            FhirStu3JsonParser()
+        )
     }
 }

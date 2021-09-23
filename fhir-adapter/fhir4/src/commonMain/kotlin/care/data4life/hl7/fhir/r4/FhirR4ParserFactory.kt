@@ -14,19 +14,17 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir
+package care.data4life.hl7.fhir.r4
 
 import care.data4life.hl7.fhir.parser.FhirParser
-import care.data4life.hl7.fhir.r4.FhirR4Parser
-import care.data4life.hl7.fhir.stu3.FhirStu3Parser
+import care.data4life.hl7.fhir.r4.json.FhirR4JsonParser
+import care.data4life.hl7.fhir.r4.model.FhirR4
 
-class FhirParserFactory {
+object FhirR4ParserFactory : FhirParser.Factory<FhirR4> {
 
-    fun createStu3Parser(): FhirParser<*> {
-        return FhirStu3Parser()
-    }
-
-    fun createR4Parser(): FhirParser<*> {
-        return FhirR4Parser()
+    override fun getInstance(): FhirParser<FhirR4> {
+        return FhirR4Parser(
+            FhirR4JsonParser()
+        )
     }
 }
