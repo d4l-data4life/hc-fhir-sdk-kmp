@@ -7,10 +7,187 @@ val fhirSpecPath = "fhir-spec"
 
 enum class FhirVersion(
     val versionName: String,
-    val targetName: String
+    val targetName: String,
+    /**
+     * modelExclusions need to be in sync with 'fhir-version/fhir-$targetName/parser/templates/template-elementfactory.kt' -> 'exclude_resources
+     */
+    val modelExclusions: List<String>,
 ) {
-    FHIR3("stu3", "stu3"),
-    FHIR4("r4", "r4");
+    FHIR3(
+        versionName = "stu3",
+        targetName = "stu3",
+        modelExclusions = listOf(
+            "ExplanationOfBenefit",
+            "Claim",
+        ),
+    ),
+    FHIR4(
+        versionName = "r4",
+        targetName = "r4",
+        modelExclusions = listOf(
+            "ExampleScenario",
+        ),
+    ),
+    FHIR4_D4L_APP(
+        versionName = "r4",
+        targetName = "r4-d4l-app",
+        modelExclusions = listOf(
+            "Account",
+            "ActivityDefinition",
+            "AdverseEvent",
+            "AllergyIntolerance",
+            "Appointment",
+            "AppointmentResponse",
+            "AuditEvent",
+            "Basic",
+            "Binary",
+            "BiologicallyDerivedProduct",
+            "BodyStructure",
+            "Bundle",
+            "CapabilityStatement",
+            "CarePlan",
+            "CareTeam",
+            "CatalogEntry",
+            "ChargeItem",
+            "ChargeItemDefinition",
+            "Claim",
+            "ClaimResponse",
+            "ClinicalImpression",
+            "CodeSystem",
+            "Communication",
+            "CommunicationRequest",
+            "CompartmentDefinition",
+            "Composition",
+            "ConceptMap",
+            "Condition",
+            "Consent",
+            "Contract",
+            "Coverage",
+            "CoverageEligibilityRequest",
+            "CoverageEligibilityResponse",
+            "DetectedIssue",
+            "DeviceDefinition",
+            "DeviceMetric",
+            "DeviceRequest",
+            "DeviceUseStatement",
+            "DiagnosticReport",
+            "DocumentManifest",
+            "DocumentReference",
+            "EffectEvidenceSynthesis",
+            "Encounter",
+            "Endpoint",
+            "EnrollmentRequest",
+            "EnrollmentResponse",
+            "EpisodeOfCare",
+            "EventDefinition",
+            "Evidence",
+            "EvidenceVariable",
+            "ExampleScenario",
+            "ExplanationOfBenefit",
+            "FamilyMemberHistory",
+            "Flag",
+            "Goal",
+            "GraphDefinition",
+            "Group",
+            "GuidanceResponse",
+            "HealthcareService",
+            "ImagingStudy",
+            "Immunization",
+            "ImmunizationEvaluation",
+            "ImmunizationRecommendation",
+            "ImplementationGuide",
+            "InsurancePlan",
+            "Invoice",
+            "Library",
+            "Linkage",
+            "List",
+            "Location",
+            "Measure",
+            "MeasureReport",
+            "Media",
+            "Medication",
+            "MedicationAdministration",
+            "MedicationDispense",
+            "MedicationKnowledge",
+            "MedicationRequest",
+            "MedicationStatement",
+            "MedicinalProduct",
+            "MedicinalProductAuthorization",
+            "MedicinalProductContraindication",
+            "MedicinalProductIndication",
+            "MedicinalProductIngredient",
+            "MedicinalProductInteraction",
+            "MedicinalProductManufactured",
+            "MedicinalProductPackaged",
+            "MedicinalProductPharmaceutical",
+            "MedicinalProductUndesirableEffect",
+            "MessageDefinition",
+            "MessageHeader",
+            "MolecularSequence",
+            "NamingSystem",
+            "NutritionOrder",
+            "ObservationDefinition",
+            "OperationDefinition",
+            "OperationOutcome",
+            "Organization",
+            "OrganizationAffiliation",
+            "Parameters",
+            "Patient",
+            "PaymentNotice",
+            "PaymentReconciliation",
+            "Person",
+            "PlanDefinition",
+            "Practitioner",
+            "PractitionerRole",
+            "Procedure",
+            "Provenance",
+            "RelatedPerson",
+            "RequestGroup",
+            "ResearchDefinition",
+            "ResearchElementDefinition",
+            "ResearchStudy",
+            "ResearchSubject",
+            "RiskAssessment",
+            "RiskEvidenceSynthesis",
+            "Schedule",
+            "SearchParameter",
+            "ServiceRequest",
+            "Slot",
+            "Specimen",
+            "SpecimenDefinition",
+            "StructureDefinition",
+            "StructureMap",
+            "Subscription",
+            "Substance",
+            "SubstanceNucleicAcid",
+            "SubstancePolymer",
+            "SubstanceProtein",
+            "SubstanceReferenceInformation",
+            "SubstanceSourceMaterial",
+            "SubstanceSpecification",
+            "SupplyDelivery",
+            "SupplyRequest",
+            "Task",
+            "TerminologyCapabilities",
+            "TestReport",
+            "TestScript",
+            "ValueSet",
+            "VerificationResult",
+            "VisionPrescription",
+        ),
+    ),
+}
+
+fun staticReplacementMap(fhirVersion: FhirVersion) = when (fhirVersion) {
+    FhirVersion.FHIR4 -> mapOf(
+        "MedicationStatementStatusCodes.kt" to targetCodesystems(fhirVersion),
+        "MedicationStatementFhirTest.kt" to targetTests(fhirVersion),
+        "MedicationStatement.kt" to targetModels(fhirVersion),
+    )
+    FhirVersion.FHIR4_D4L_APP -> mapOf(
+        "MedicationStatementStatusCodes.kt" to targetCodesystems(fhirVersion),
+    )
+    FhirVersion.FHIR3 -> mapOf()
 }
 
 fun sourceParserConfig(fhirVersion: FhirVersion) =
@@ -40,35 +217,16 @@ fun targetTests(fhirVersion: FhirVersion) =
 fun targetTestJsons(fhirVersion: FhirVersion) =
     "fhir-version/fhir-${fhirVersion.targetName}/src-gen/jvmTest/resources/${fhirVersion.versionName}"
 
-fun modelExclusionList(fhirVersion: FhirVersion) = when (fhirVersion) {
-    // this exclusions need to be in sync with 'fhir-version/fhir-r4/parser/templates/template-elementfactory.kt' -> 'exclude_resources'
-    FhirVersion.FHIR4 -> listOf(
-        "ExampleScenario.kt",
-    )
-    // this exclusions need to be in sync with 'fhir-version/fhir-stu3/parser/templates/template-elementfactory.kt' -> 'exclude_resources'
-    FhirVersion.FHIR3 -> listOf(
-        "ExplanationOfBenefit.kt",
-        "Claim.kt",
-    )
-}
-
-fun staticReplacementMap(fhirVersion: FhirVersion) = when (fhirVersion) {
-    FhirVersion.FHIR4 -> mapOf(
-        "MedicationStatementStatusCodes.kt" to targetCodesystems(fhirVersion),
-        "MedicationStatementFhirTest.kt" to targetTests(fhirVersion),
-        "MedicationStatement.kt" to targetModels(fhirVersion),
-    )
-    FhirVersion.FHIR3 -> mapOf()
-}
-
 var fhirVersions = listOf(
     FhirVersion.FHIR4,
+    FhirVersion.FHIR4_D4L_APP,
     FhirVersion.FHIR3,
 )
 
 if (args.isNotEmpty()) {
     when (args[0]) {
         "fhir4" -> fhirVersions = listOf(FhirVersion.FHIR4)
+        "fhir4-d4l-app" -> fhirVersions = listOf(FhirVersion.FHIR4_D4L_APP)
         "fhir3" -> fhirVersions = listOf(FhirVersion.FHIR3)
         "all" -> {
         }
@@ -85,9 +243,10 @@ fun printUsage() {
     println(
         """
             Usage: ./generateFhir.main.kts [<option>]
-                all         Generates all FHIR versions. Default is <all>.
-                fhir3       Generate FHIR3 sources and tests
-                fhir4       Generate FHIR4 sources and tests
+                all             Generates all FHIR versions. Default is <all>.
+                fhir3           Generate FHIR3 sources and tests
+                fhir4           Generate FHIR4 sources and tests
+                fhir4-d4l-app   Generate FHIR4 sources and tests for the D4L App
         """.trimIndent()
     )
 }
@@ -163,8 +322,12 @@ fun integrateFhirModels(fhirVersion: FhirVersion) {
     cmd("mkdir $targetModels")
     File(sourceModels)
         .walk()
+        .filter { !it.isDirectory }
         .forEach { file ->
-            if (!modelExclusionList(fhirVersion).contains(file.name)) {
+            if (!fhirVersion.modelExclusions.contains(
+                    file.name.replace(".kt", "")
+                )
+            ) {
                 file.copyTo(File("$targetModels/${file.name}"))
             }
         }
@@ -173,8 +336,13 @@ fun integrateFhirModels(fhirVersion: FhirVersion) {
     cmd("mkdir $targetTests")
     File(sourceTests)
         .walk()
+        .filter { !it.isDirectory }
         .forEach { file ->
-            if (!modelExclusionList(fhirVersion).contains(file.name.replace("FhirTest", ""))) {
+            if (!fhirVersion.modelExclusions.contains(
+                    file.name.replace("FhirTest", "")
+                        .replace(".kt", "")
+                )
+            ) {
                 file.copyTo(File("$targetTests/${file.name}"))
             }
         }
@@ -183,6 +351,7 @@ fun integrateFhirModels(fhirVersion: FhirVersion) {
     cmd("mkdir $targetTestJsons")
     File(sourceTestJsons)
         .walk()
+        .filter { !it.isDirectory }
         .forEach { file ->
             if (file.name.contains("example")) {
                 file.copyTo(File("$targetTestJsons/${file.name}"))

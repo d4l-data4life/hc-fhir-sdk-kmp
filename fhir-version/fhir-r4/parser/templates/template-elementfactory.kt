@@ -26,6 +26,7 @@ import kotlin.reflect.KClass
     "ExampleScenario",
 ] %}
 {%- set force_include_resources = [
+    "PLACEHOLDER_INCLUDE_RESOURCE",
 ] %}
 
 {%- set exclusions = [] %}

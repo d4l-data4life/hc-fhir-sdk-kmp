@@ -27,6 +27,7 @@ import kotlin.reflect.KClass
     'Claim',
 ] %}
 {%- set force_include_resources = [
+    "PLACEHOLDER_INCLUDE_RESOURCE",
     'ClaimResponse',
 ] %}
 
