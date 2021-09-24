@@ -14,31 +14,8 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir
+package care.data4life.hl7.fhir.stu3
 
-import care.data4life.hl7.fhir.r4.FhirR4Parser
-import care.data4life.hl7.fhir.stu3.FhirStu3Parser
-import kotlin.test.BeforeTest
-import kotlin.test.Test
-import kotlin.test.assertTrue
+import org.junit.Assert.*
 
-internal class FhirParserFactoryTest {
-
-    // SUT
-    private lateinit var fhir: FhirParserFactory
-
-    @BeforeTest
-    fun setup() {
-        fhir = FhirParserFactory()
-    }
-
-    @Test
-    fun `createStu3Parser() SHOULD return instance of FhirStu3Parser`() {
-        assertTrue(fhir.createStu3Parser() is FhirStu3Parser)
-    }
-
-    @Test
-    fun `createR4Parser() SHOULD return instance of FhirR4Parser`() {
-        assertTrue(fhir.createR4Parser() is FhirR4Parser)
-    }
-}
+class FhirStu3ParserFactoryTest
