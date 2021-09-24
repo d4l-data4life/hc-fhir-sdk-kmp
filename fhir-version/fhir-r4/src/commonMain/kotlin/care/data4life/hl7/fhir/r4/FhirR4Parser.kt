@@ -22,7 +22,7 @@ import care.data4life.hl7.fhir.r4.model.FhirR4
 import kotlin.reflect.KClass
 
 class FhirR4Parser(
-    private val jsonParser: FhirR4JsonParser
+    private val jsonParser: FhirR4JsonParser = defaultJsonParser()
 ) : FhirParser<FhirR4> {
 
     override fun <T : FhirR4> toFhir(fhirType: KClass<T>, fhirData: String): T {
@@ -31,5 +31,9 @@ class FhirR4Parser(
 
     override fun <T : FhirR4> fromFhir(fhirObject: T): String {
         return jsonParser.toJson(fhirObject)
+    }
+
+    companion object {
+        fun defaultJsonParser() = FhirR4JsonParser()
     }
 }

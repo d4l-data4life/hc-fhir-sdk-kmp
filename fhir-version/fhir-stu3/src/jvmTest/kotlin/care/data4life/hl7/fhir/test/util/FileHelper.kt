@@ -14,17 +14,16 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.hl7.fhir.r4
+package care.data4life.hl7.fhir.test.util
 
-import care.data4life.hl7.fhir.parser.FhirParser
-import care.data4life.hl7.fhir.r4.json.FhirR4JsonParser
-import care.data4life.hl7.fhir.r4.model.FhirR4
+import java.io.IOException
+import java.nio.charset.StandardCharsets
 
-object FhirR4ParserFactory : FhirParser.Factory<FhirR4> {
+object FileHelper {
+    private val FILE_ENCODING = StandardCharsets.UTF_8
 
-    override fun getInstance(): FhirParser<FhirR4> {
-        return FhirR4Parser(
-            FhirR4JsonParser()
-        )
+    @Throws(IOException::class)
+    fun loadAsString(fileName: String): String {
+        return this::class.java.classLoader.getResource(fileName).readText(FILE_ENCODING)
     }
 }
