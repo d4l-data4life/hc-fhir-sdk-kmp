@@ -60,6 +60,7 @@ spotless {
         targetExclude(
             "buildSrc/build/",
             "fhir-version/fhir-stu3/parser/",
+            "fhir-version/fhir-stu3-d4l-app/parser/",
             "fhir-version/fhir-r4/parser/",
             "fhir-version/fhir-r4-d4l-app/parser/",
         )

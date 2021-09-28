@@ -28,6 +28,7 @@ includeBuild(
 include(
     ":fhir",
     ":fhir-version:fhir-stu3",
+    ":fhir-version:fhir-stu3-d4l-app",
     ":fhir-version:fhir-r4",
     ":fhir-version:fhir-r4-d4l-app",
     ":sample-android",
