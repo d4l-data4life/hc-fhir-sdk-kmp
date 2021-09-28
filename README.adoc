@@ -132,6 +132,18 @@ Add the following maven repository configuration to your root build.gradle:
     }
 ----
 
+==== Dependency
+
+If you need either FHIR 3 or FHIR 4, please add the dependencies to your gradle dependencies block. In case all FHIR versions are needed just add both dependencies.
+
+[source, Gradle]
+----
+dependencies {
+    implementation("care.data4life.hc-fhir-sdk-kmp:fhir-stu3:LATEST_VERSION")
+    implementation("care.data4life.hc-fhir-sdk-kmp:fhir-r4:LATEST_VERSION")
+}
+----
+
 == Usage
 
 How to use this SDK.

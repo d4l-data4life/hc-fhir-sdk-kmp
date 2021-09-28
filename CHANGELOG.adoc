@@ -34,6 +34,8 @@ See link:{link-repository}/compare/v0.2.0...main[changeset]
 
 === Changed
 
+* *_BREAKING_* FHIR library has been split into a FHIR 3 and FHIR 4 library version
+
 === Deprecated
 
 === Removed
@@ -61,6 +63,8 @@ See link:{link-repository}/compare/v0.2.0...main[changeset]
 * Robolectric 4.5.1 -> 4.6.1
 
 === Migration
+
+If you need either FHIR 3 or FHIR 4, please use the new dependencies `care.data4life.hc-fhir-sdk-kmp:fhir-stu3:LATEST_VERSION` or `care.data4life.hc-fhir-sdk-kmp:fhir-r4:LATEST_VERSION` instead of `care.data4life.hc-fhir-sdk-kmp:fhir:LATEST_VERSION`. In case all FHIR versions are needed just add both dependencies.
 
 == link:{link-repository}/releases/tag/v0.2.0[0.2.0]
 
