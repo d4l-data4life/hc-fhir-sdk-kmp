@@ -32,8 +32,17 @@ object FhirHelper {
                     subclass(Annotation::class)
                     subclass(Attachment::class)
                     subclass(BackboneElement::class)
+                    subclass(CodeSystem::class)
+                    subclass(CodeSystemConcept::class)
+                    subclass(CodeSystemConceptDesignation::class)
+                    subclass(CodeSystemConceptProperty::class)
+                    subclass(CodeSystemFilter::class)
+                    subclass(CodeSystemProperty::class)
                     subclass(CodeableConcept::class)
                     subclass(Coding::class)
+                    subclass(Condition::class)
+                    subclass(ConditionEvidence::class)
+                    subclass(ConditionStage::class)
                     subclass(ContactDetail::class)
                     subclass(ContactPoint::class)
                     subclass(Contributor::class)
@@ -64,7 +73,19 @@ object FhirHelper {
                     subclass(Narrative::class)
                     subclass(ParameterDefinition::class)
                     subclass(Period::class)
+                    subclass(Practitioner::class)
+                    subclass(PractitionerQualification::class)
+                    subclass(Provenance::class)
+                    subclass(ProvenanceAgent::class)
+                    subclass(ProvenanceEntity::class)
                     subclass(Quantity::class)
+                    subclass(Questionnaire::class)
+                    subclass(QuestionnaireItem::class)
+                    subclass(QuestionnaireItemEnableWhen::class)
+                    subclass(QuestionnaireItemOption::class)
+                    subclass(QuestionnaireResponse::class)
+                    subclass(QuestionnaireResponseItem::class)
+                    subclass(QuestionnaireResponseItemAnswer::class)
                     subclass(Range::class)
                     subclass(Ratio::class)
                     subclass(Reference::class)
@@ -72,14 +93,29 @@ object FhirHelper {
                     subclass(Resource::class)
                     subclass(SampledData::class)
                     subclass(Signature::class)
+                    subclass(Specimen::class)
+                    subclass(SpecimenCollection::class)
+                    subclass(SpecimenContainer::class)
+                    subclass(SpecimenProcessing::class)
+                    subclass(Substance::class)
+                    subclass(SubstanceIngredient::class)
+                    subclass(SubstanceInstance::class)
                     subclass(Timing::class)
                     subclass(TimingRepeat::class)
                     subclass(TriggerDefinition::class)
                     subclass(UsageContext::class)
                 }
                 polymorphic(FhirResource::class) {
+                    subclass(CodeSystem::class)
+                    subclass(Condition::class)
                     subclass(DomainResource::class)
+                    subclass(Practitioner::class)
+                    subclass(Provenance::class)
+                    subclass(Questionnaire::class)
+                    subclass(QuestionnaireResponse::class)
                     subclass(Resource::class)
+                    subclass(Specimen::class)
+                    subclass(Substance::class)
                 }
             }
         }
@@ -89,16 +125,32 @@ object FhirHelper {
 
         fun <T : FhirStu3> getFhirResourceType(klass: KClass<T>): String? {
             return when (klass) {
+                CodeSystem::class -> CodeSystem.resourceType()
+                Condition::class -> Condition.resourceType()
                 DomainResource::class -> DomainResource.resourceType()
+                Practitioner::class -> Practitioner.resourceType()
+                Provenance::class -> Provenance.resourceType()
+                Questionnaire::class -> Questionnaire.resourceType()
+                QuestionnaireResponse::class -> QuestionnaireResponse.resourceType()
                 Resource::class -> Resource.resourceType()
+                Specimen::class -> Specimen.resourceType()
+                Substance::class -> Substance.resourceType()
                 else -> null
             }
         }
 
         fun getFhirClass(resourceType: String): KClass<*>? {
             return when (resourceType.lowercase()) {
+                "codesystem" -> CodeSystem::class
+                "condition" -> Condition::class
                 "domainresource" -> DomainResource::class
+                "practitioner" -> Practitioner::class
+                "provenance" -> Provenance::class
+                "questionnaire" -> Questionnaire::class
+                "questionnaireresponse" -> QuestionnaireResponse::class
                 "resource" -> Resource::class
+                "specimen" -> Specimen::class
+                "substance" -> Substance::class
                 else -> null
             }
         }

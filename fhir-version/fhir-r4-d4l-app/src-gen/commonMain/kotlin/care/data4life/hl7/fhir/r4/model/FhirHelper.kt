@@ -32,8 +32,16 @@ object FhirHelper {
                     subclass(Annotation::class)
                     subclass(Attachment::class)
                     subclass(BackboneElement::class)
+                    subclass(CodeSystem::class)
+                    subclass(CodeSystemConcept::class)
+                    subclass(CodeSystemConceptDesignation::class)
+                    subclass(CodeSystemConceptProperty::class)
+                    subclass(CodeSystemFilter::class)
+                    subclass(CodeSystemProperty::class)
                     subclass(CodeableConcept::class)
                     subclass(Coding::class)
+                    subclass(Condition::class)
+                    subclass(ConditionStage::class)
                     subclass(ContactDetail::class)
                     subclass(ContactPoint::class)
                     subclass(Contributor::class)
@@ -76,10 +84,18 @@ object FhirHelper {
                     subclass(ObservationComponent::class)
                     subclass(ObservationReferenceRange::class)
                     subclass(ParameterDefinition::class)
+                    subclass(Patient::class)
+                    subclass(PatientContact::class)
+                    subclass(PatientLink::class)
                     subclass(Period::class)
                     subclass(Population::class)
+                    subclass(Practitioner::class)
+                    subclass(PractitionerQualification::class)
                     subclass(ProdCharacteristic::class)
                     subclass(ProductShelfLife::class)
+                    subclass(Provenance::class)
+                    subclass(ProvenanceAgent::class)
+                    subclass(ProvenanceEntity::class)
                     subclass(Quantity::class)
                     subclass(Quantity::class)
                     subclass(Questionnaire::class)
@@ -96,19 +112,47 @@ object FhirHelper {
                     subclass(RelatedArtifact::class)
                     subclass(Resource::class)
                     subclass(SampledData::class)
+                    subclass(ServiceRequest::class)
                     subclass(Signature::class)
+                    subclass(Specimen::class)
+                    subclass(SpecimenCollection::class)
+                    subclass(SpecimenContainer::class)
+                    subclass(SpecimenProcessing::class)
+                    subclass(Substance::class)
+                    subclass(SubstanceAmount::class)
+                    subclass(SubstanceAmountReferenceRange::class)
+                    subclass(SubstanceIngredient::class)
+                    subclass(SubstanceInstance::class)
                     subclass(Timing::class)
                     subclass(TimingRepeat::class)
                     subclass(TriggerDefinition::class)
                     subclass(UsageContext::class)
+                    subclass(ValueSet::class)
+                    subclass(ValueSetCompose::class)
+                    subclass(ValueSetComposeInclude::class)
+                    subclass(ValueSetComposeIncludeConcept::class)
+                    subclass(ValueSetComposeIncludeConceptDesignation::class)
+                    subclass(ValueSetComposeIncludeFilter::class)
+                    subclass(ValueSetExpansion::class)
+                    subclass(ValueSetExpansionContains::class)
+                    subclass(ValueSetExpansionParameter::class)
                 }
                 polymorphic(FhirResource::class) {
+                    subclass(CodeSystem::class)
+                    subclass(Condition::class)
                     subclass(Device::class)
                     subclass(DomainResource::class)
                     subclass(Observation::class)
+                    subclass(Patient::class)
+                    subclass(Practitioner::class)
+                    subclass(Provenance::class)
                     subclass(Questionnaire::class)
                     subclass(QuestionnaireResponse::class)
                     subclass(Resource::class)
+                    subclass(ServiceRequest::class)
+                    subclass(Specimen::class)
+                    subclass(Substance::class)
+                    subclass(ValueSet::class)
                 }
             }
         }
@@ -118,24 +162,42 @@ object FhirHelper {
 
         fun <T : FhirR4> getFhirResourceType(klass: KClass<T>): String? {
             return when (klass) {
+                CodeSystem::class -> CodeSystem.resourceType()
+                Condition::class -> Condition.resourceType()
                 Device::class -> Device.resourceType()
                 DomainResource::class -> DomainResource.resourceType()
                 Observation::class -> Observation.resourceType()
+                Patient::class -> Patient.resourceType()
+                Practitioner::class -> Practitioner.resourceType()
+                Provenance::class -> Provenance.resourceType()
                 Questionnaire::class -> Questionnaire.resourceType()
                 QuestionnaireResponse::class -> QuestionnaireResponse.resourceType()
                 Resource::class -> Resource.resourceType()
+                ServiceRequest::class -> ServiceRequest.resourceType()
+                Specimen::class -> Specimen.resourceType()
+                Substance::class -> Substance.resourceType()
+                ValueSet::class -> ValueSet.resourceType()
                 else -> null
             }
         }
 
         fun getFhirClass(resourceType: String): KClass<*>? {
             return when (resourceType.lowercase()) {
+                "codesystem" -> CodeSystem::class
+                "condition" -> Condition::class
                 "device" -> Device::class
                 "domainresource" -> DomainResource::class
                 "observation" -> Observation::class
+                "patient" -> Patient::class
+                "practitioner" -> Practitioner::class
+                "provenance" -> Provenance::class
                 "questionnaire" -> Questionnaire::class
                 "questionnaireresponse" -> QuestionnaireResponse::class
                 "resource" -> Resource::class
+                "servicerequest" -> ServiceRequest::class
+                "specimen" -> Specimen::class
+                "substance" -> Substance::class
+                "valueset" -> ValueSet::class
                 else -> null
             }
         }

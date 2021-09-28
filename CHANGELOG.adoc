@@ -32,6 +32,8 @@ See link:{link-repository}/compare/v0.2.0...main[changeset]
 
 === Added
 
+* Minimised version of FHIR 3 and 4 for D4L App
+
 === Changed
 
 * *_BREAKING_* FHIR library has been split into a FHIR 3 and FHIR 4 library version
