@@ -101,7 +101,6 @@ import kotlin.reflect.KClass
     "OperationOutcome",
     "Organization",
     "Parameters",
-    "Patient",
     "PaymentNotice",
     "PaymentReconciliation",
     "Person",
@@ -111,7 +110,6 @@ import kotlin.reflect.KClass
     "ProcedureRequest",
     "ProcessRequest",
     "ProcessResponse",
-    "ReferralRequest",
     "RelatedPerson",
     "RequestGroup",
     "ResearchStudy",
@@ -130,7 +128,6 @@ import kotlin.reflect.KClass
     "Task",
     "TestReport",
     "TestScript",
-    "ValueSet",
     "VisionPrescription",
 ] %}
 {%- set force_include_resources = [
