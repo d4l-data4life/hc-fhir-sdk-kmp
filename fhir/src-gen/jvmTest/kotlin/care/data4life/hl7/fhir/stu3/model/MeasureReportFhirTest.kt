@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.MeasureReportStatus
 import care.data4life.hl7.fhir.stu3.codesystem.MeasureReportType
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MeasureReportTest.java
@@ -58,7 +58,6 @@ class MeasureReportFhirTest {
     }
 
     private fun assertMeasureReport01Step01(data: MeasureReport) {
-
         assertEquals(
             expected = "reporter",
             actual = data.contained?.get(0)?.id
@@ -615,7 +614,6 @@ class MeasureReportFhirTest {
     }
 
     private fun assertMeasureReport02Step01(data: MeasureReport) {
-
         assertEquals(
             expected = "reporter",
             actual = data.contained?.get(0)?.id
@@ -1188,7 +1186,6 @@ class MeasureReportFhirTest {
     }
 
     private fun assertMeasureReport02Step02(data: MeasureReport) {
-
         assertEquals(
             expected = "List/CMS146-stratifier-gender-other-numerator",
             actual = data.group?.get(0)?.stratifier?.get(2)?.stratum?.get(2)?.population?.get(1)?.patients?.reference
@@ -1378,7 +1375,6 @@ class MeasureReportFhirTest {
     }
 
     private fun assertMeasureReport03Step01(data: MeasureReport) {
-
         assertEquals(
             expected = "reporter",
             actual = data.contained?.get(0)?.id

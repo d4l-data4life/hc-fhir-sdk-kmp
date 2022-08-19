@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.GroupType
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * GroupTest.java
@@ -59,7 +59,6 @@ class GroupFhirTest {
     }
 
     private fun assertGroup01Step01(data: Group) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.actual?.value
@@ -164,7 +163,6 @@ class GroupFhirTest {
     }
 
     private fun assertGroup02Step01(data: Group) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.actual?.value

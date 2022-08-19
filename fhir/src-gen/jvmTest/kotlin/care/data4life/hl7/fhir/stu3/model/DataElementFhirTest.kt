@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.BindingStrength
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DataElementTest.java
@@ -58,7 +58,6 @@ class DataElementFhirTest {
     }
 
     private fun assertDataElement01Step01(data: DataElement) {
-
         assertEquals(
             expected = "2179414",
             actual = data.contained?.get(0)?.id
@@ -295,7 +294,6 @@ class DataElementFhirTest {
     }
 
     private fun assertDataElement02Step01(data: DataElement) {
-
         assertEquals(
             expected = "Protime, PT",
             actual = data.element?.get(0)?.alias?.get(0)

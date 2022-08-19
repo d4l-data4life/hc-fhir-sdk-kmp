@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.ObservationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * RiskAssessmentTest.java
@@ -59,7 +59,6 @@ class RiskAssessmentFhirTest {
     }
 
     private fun assertRiskAssessment01Step01(data: RiskAssessment) {
-
         assertEquals(
             expected = "group1",
             actual = data.contained?.get(0)?.id
@@ -126,7 +125,6 @@ class RiskAssessmentFhirTest {
     }
 
     private fun assertRiskAssessment02Step01(data: RiskAssessment) {
-
         assertEquals(
             expected = "Patient/pat2",
             actual = data.basis?.get(0)?.reference
@@ -296,7 +294,6 @@ class RiskAssessmentFhirTest {
     }
 
     private fun assertRiskAssessment03Step01(data: RiskAssessment) {
-
         assertEquals(
             expected = "List/prognosis",
             actual = data.basis?.get(0)?.reference
@@ -813,7 +810,6 @@ class RiskAssessmentFhirTest {
     }
 
     private fun assertRiskAssessment04Step01(data: RiskAssessment) {
-
         assertEquals(
             expected = "ImmunizationRecommendation/example",
             actual = data.basedOn?.reference
@@ -1031,7 +1027,6 @@ class RiskAssessmentFhirTest {
     }
 
     private fun assertRiskAssessment05Step01(data: RiskAssessment) {
-
         assertEquals(
             expected = "Observation/example-genetics-brcapat",
             actual = data.basis?.get(0)?.reference
@@ -1151,7 +1146,6 @@ class RiskAssessmentFhirTest {
     }
 
     private fun assertRiskAssessment06Step01(data: RiskAssessment) {
-
         assertEquals(
             expected = "Ischemic Stroke",
             actual = data.condition?.display

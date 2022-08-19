@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.DocumentRelationshipType
 import care.data4life.hl7.fhir.r4.codesystem.ListMode
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CompositionTest.java
@@ -66,7 +66,6 @@ class CompositionFhirTest {
     }
 
     private fun assertComposition01Step01(data: Composition) {
-
         assertEquals(
             expected = CompositionAttestationMode.LEGAL,
             actual = data.attester?.get(0)?.mode
@@ -290,7 +289,6 @@ class CompositionFhirTest {
     }
 
     private fun assertComposition02Step01(data: Composition) {
-
         assertEquals(
             expected = CompositionAttestationMode.LEGAL,
             actual = data.attester?.get(0)?.mode

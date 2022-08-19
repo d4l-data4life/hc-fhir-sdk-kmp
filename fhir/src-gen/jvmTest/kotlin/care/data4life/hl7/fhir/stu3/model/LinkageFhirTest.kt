@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.LinkageType
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * LinkageTest.java
@@ -58,7 +58,6 @@ class LinkageFhirTest {
     }
 
     private fun assertLinkage01Step01(data: Linkage) {
-
         assertEquals(
             expected = "Practitioner/f201",
             actual = data.author?.reference

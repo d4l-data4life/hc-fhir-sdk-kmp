@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * BodyStructureTest.java
@@ -57,7 +57,6 @@ class BodyStructureFhirTest {
     }
 
     private fun assertBodyStructure01Step01(data: BodyStructure) {
-
         assertEquals(
             expected = "EDD 1/1/2017 confirmation by LMP",
             actual = data.description
@@ -155,7 +154,6 @@ class BodyStructureFhirTest {
     }
 
     private fun assertBodyStructure02Step01(data: BodyStructure) {
-
         assertEquals(
             expected = "7 cm maximum diameter",
             actual = data.description
@@ -289,7 +287,6 @@ class BodyStructureFhirTest {
     }
 
     private fun assertBodyStructure03Step01(data: BodyStructure) {
-
         assertEquals(
             expected = "False".toBoolean(),
             actual = data.active?.value

@@ -16,10 +16,10 @@
 
 package care.data4life.hl7.fhir.r4.model
 
+import kotlin.reflect.KClass
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
-import kotlin.reflect.KClass
 
 object FhirHelper {
 
@@ -992,7 +992,7 @@ object FhirHelper {
         }
 
         fun getFhirClass(resourceType: String): KClass<*>? {
-            return when (resourceType.toLowerCase()) {
+            return when (resourceType.lowercase()) {
                 "account" -> Account::class
                 "activitydefinition" -> ActivityDefinition::class
                 "adverseevent" -> AdverseEvent::class

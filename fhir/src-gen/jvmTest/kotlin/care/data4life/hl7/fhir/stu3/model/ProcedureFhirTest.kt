@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.EventStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ProcedureTest.java
@@ -58,7 +58,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure01Step01(data: Procedure) {
-
         assertEquals(
             expected = "272676008",
             actual = data.bodySite?.get(0)?.coding?.get(0)?.code
@@ -207,7 +206,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure02Step01(data: Procedure) {
-
         assertEquals(
             expected = "Maternity care plan",
             actual = data.basedOn?.get(0)?.display
@@ -381,7 +379,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure03Step01(data: Procedure) {
-
         assertEquals(
             expected = "25267002",
             actual = data.code?.coding?.get(0)?.code
@@ -501,7 +498,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure04Step01(data: Procedure) {
-
         assertEquals(
             expected = "76164006",
             actual = data.code?.coding?.get(0)?.code
@@ -621,7 +617,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure05Step01(data: Procedure) {
-
         assertEquals(
             expected = "83030008",
             actual = data.bodySite?.get(0)?.coding?.get(0)?.code
@@ -788,7 +783,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure06Step01(data: Procedure) {
-
         assertEquals(
             expected = "Order for health education",
             actual = data.basedOn?.get(0)?.display
@@ -920,7 +914,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure07Step01(data: Procedure) {
-
         assertEquals(
             expected = "73761001",
             actual = data.code?.coding?.get(0)?.code
@@ -1040,7 +1033,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure08Step01(data: Procedure) {
-
         assertEquals(
             expected = "Order for the assessment of passive range of motion",
             actual = data.basedOn?.get(0)?.display
@@ -1196,7 +1188,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure09Step01(data: Procedure) {
-
         assertEquals(
             expected = "83030008",
             actual = data.bodySite?.get(0)?.coding?.get(0)?.code
@@ -1363,7 +1354,6 @@ class ProcedureFhirTest {
     }
 
     private fun assertProcedure10Step01(data: Procedure) {
-
         assertEquals(
             expected = "80146002",
             actual = data.code?.coding?.get(0)?.code

@@ -31,9 +31,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ResourceVersionPolicy
 import care.data4life.hl7.fhir.r4.codesystem.RestfulCapabilityMode
 import care.data4life.hl7.fhir.r4.codesystem.SearchParamType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CapabilityStatementTest.java
@@ -70,7 +70,6 @@ class CapabilityStatementFhirTest {
     }
 
     private fun assertCapabilityStatement01Step01(data: CapabilityStatement) {
-
         assertEquals(
             expected = "System Administrator",
             actual = data.contact?.get(0)?.name
@@ -553,7 +552,6 @@ class CapabilityStatementFhirTest {
     }
 
     private fun assertCapabilityStatement02Step01(data: CapabilityStatement) {
-
         assertEquals(
             expected = ContactPointSystem.URL,
             actual = data.contact?.get(0)?.telecom?.get(0)?.system

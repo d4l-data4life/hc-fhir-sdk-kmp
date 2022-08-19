@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ImagingManifestTest.java
@@ -57,7 +57,6 @@ class ImagingManifestFhirTest {
     }
 
     private fun assertImagingManifest01Step01(data: ImagingManifest) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.author?.reference

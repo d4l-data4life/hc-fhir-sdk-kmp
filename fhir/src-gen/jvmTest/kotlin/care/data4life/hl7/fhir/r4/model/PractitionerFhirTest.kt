@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.NameUse
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * PractitionerTest.java
@@ -62,7 +62,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner01Step01(data: Practitioner) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -229,7 +228,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner02Step01(data: Practitioner) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -415,7 +413,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner03Step01(data: Practitioner) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -606,7 +603,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner04Step01(data: Practitioner) {
-
         assertEquals(
             expected = "xcda-author",
             actual = data.id
@@ -674,7 +670,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner05Step01(data: Practitioner) {
-
         assertEquals(
             expected = "Amsterdam",
             actual = data.address?.get(0)?.city
@@ -886,7 +881,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner06Step01(data: Practitioner) {
-
         assertEquals(
             expected = "Den Burg",
             actual = data.address?.get(0)?.city
@@ -1080,7 +1074,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner07Step01(data: Practitioner) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -1241,7 +1234,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner08Step01(data: Practitioner) {
-
         assertEquals(
             expected = "Den Burg",
             actual = data.address?.get(0)?.city
@@ -1435,7 +1427,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner09Step01(data: Practitioner) {
-
         assertEquals(
             expected = "Den helder",
             actual = data.address?.get(0)?.city
@@ -1574,7 +1565,6 @@ class PractitionerFhirTest {
     }
 
     private fun assertPractitioner10Step01(data: Practitioner) {
-
         assertEquals(
             expected = "xcda1",
             actual = data.id

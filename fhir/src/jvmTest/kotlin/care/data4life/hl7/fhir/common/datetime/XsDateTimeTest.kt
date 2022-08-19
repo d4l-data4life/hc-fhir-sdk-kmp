@@ -16,11 +16,11 @@
 
 package care.data4life.hl7.fhir.common.datetime
 
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class XsDateTimeTest(
@@ -83,7 +83,7 @@ class XsDateTimeTest(
                     null,
                     "",
                     true
-                ),
+                )
             )
         }
     }

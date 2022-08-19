@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.DocumentReferenceStatus
 import care.data4life.hl7.fhir.stu3.codesystem.DocumentRelationshipType
 import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import care.data4life.hl7.fhir.stu3.primitive.Instant
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirDocumentReference

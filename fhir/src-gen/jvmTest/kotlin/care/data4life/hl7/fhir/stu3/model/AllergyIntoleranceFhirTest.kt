@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.AllergyIntoleranceType
 import care.data4life.hl7.fhir.stu3.codesystem.AllergyIntoleranceVerificationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * AllergyIntoleranceTest.java
@@ -63,7 +63,6 @@ class AllergyIntoleranceFhirTest {
     }
 
     private fun assertAllergyIntolerance01Step01(data: AllergyIntolerance) {
-
         assertEquals(
             expected = "2014-10-09T14:58:00+11:00",
             actual = data.assertedDate?.value.toString()

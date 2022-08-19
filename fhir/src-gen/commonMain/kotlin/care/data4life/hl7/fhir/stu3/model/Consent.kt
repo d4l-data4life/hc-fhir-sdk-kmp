@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.ConsentDataMeaning
 import care.data4life.hl7.fhir.stu3.codesystem.ConsentExceptType
 import care.data4life.hl7.fhir.stu3.codesystem.ConsentState
 import care.data4life.hl7.fhir.stu3.primitive.DateTime
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirConsent

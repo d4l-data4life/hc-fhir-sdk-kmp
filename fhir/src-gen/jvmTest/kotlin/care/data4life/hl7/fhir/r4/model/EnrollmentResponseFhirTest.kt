@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ClaimProcessingCodes
 import care.data4life.hl7.fhir.r4.codesystem.FinancialResourceStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * EnrollmentResponseTest.java
@@ -59,7 +59,6 @@ class EnrollmentResponseFhirTest {
     }
 
     private fun assertEnrollmentResponse01Step01(data: EnrollmentResponse) {
-
         assertEquals(
             expected = "2014-08-16",
             actual = data.created?.value.toString()

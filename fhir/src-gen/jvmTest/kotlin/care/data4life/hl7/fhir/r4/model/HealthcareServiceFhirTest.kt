@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ContactPointUse
 import care.data4life.hl7.fhir.r4.codesystem.DaysOfWeek
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * HealthcareServiceTest.java
@@ -57,7 +57,6 @@ class HealthcareServiceFhirTest {
     }
 
     private fun assertHealthcareService01Step01(data: HealthcareService) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value

@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.FHIRDeviceStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DeviceTest.java
@@ -58,7 +58,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice01Step01(data: Device) {
-
         assertEquals(
             expected = "f001",
             actual = data.id
@@ -131,7 +130,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice02Step01(data: Device) {
-
         assertEquals(
             expected = "example",
             actual = data.id

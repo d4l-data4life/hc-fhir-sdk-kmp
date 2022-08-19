@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ResearchElementType
 import care.data4life.hl7.fhir.r4.primitive.Bool
 import care.data4life.hl7.fhir.r4.primitive.Date
 import care.data4life.hl7.fhir.r4.primitive.DateTime
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirResearchElementDefinition

@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.ResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * GraphDefinitionTest.java
@@ -64,7 +64,6 @@ class GraphDefinitionFhirTest {
     }
 
     private fun assertGraphDefinition01Step01(data: GraphDefinition) {
-
         assertEquals(
             expected = ContactPointSystem.URL,
             actual = data.contact?.get(0)?.telecom?.get(0)?.system

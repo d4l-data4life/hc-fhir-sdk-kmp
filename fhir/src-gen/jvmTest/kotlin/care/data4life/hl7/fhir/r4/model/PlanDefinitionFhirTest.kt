@@ -30,9 +30,9 @@ import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.RelatedArtifactType
 import care.data4life.hl7.fhir.r4.codesystem.TriggerType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * PlanDefinitionTest.java
@@ -76,7 +76,6 @@ class PlanDefinitionFhirTest {
     }
 
     private fun assertPlanDefinition02Step01(data: PlanDefinition) {
-
         assertEquals(
             expected = "#activitydefinition-medicationrequest-1",
             actual = data.action?.get(0)?.action?.get(0)?.definitionCanonical
@@ -230,7 +229,6 @@ class PlanDefinitionFhirTest {
     }
 
     private fun assertPlanDefinition04Step01(data: PlanDefinition) {
-
         assertEquals(
             expected = ActionCardinalityBehavior.SINGLE,
             actual = data.action?.get(0)?.cardinalityBehavior
@@ -542,7 +540,6 @@ class PlanDefinitionFhirTest {
     }
 
     private fun assertPlanDefinition06Step01(data: PlanDefinition) {
-
         assertEquals(
             expected = "Should Administer Zika Virus Exposure Assessment",
             actual = data.action?.get(0)?.action?.get(0)?.condition?.get(0)?.expression?.expression

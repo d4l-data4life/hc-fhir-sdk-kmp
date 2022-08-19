@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.ProvenanceEntityRole
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ProvenanceTest.java
@@ -64,7 +64,6 @@ class ProvenanceFhirTest {
     }
 
     private fun assertProvenance01Step01(data: Provenance) {
-
         assertEquals(
             expected = "AU",
             actual = data.activity?.coding?.get(0)?.code
@@ -238,7 +237,6 @@ class ProvenanceFhirTest {
     }
 
     private fun assertProvenance02Step01(data: Provenance) {
-
         assertEquals(
             expected = "AUT",
             actual = data.agent?.get(0)?.type?.coding?.get(0)?.code
@@ -357,7 +355,6 @@ class ProvenanceFhirTest {
     }
 
     private fun assertProvenance03Step01(data: Provenance) {
-
         assertEquals(
             expected = "AUT",
             actual = data.agent?.get(0)?.type?.coding?.get(0)?.code
@@ -476,7 +473,6 @@ class ProvenanceFhirTest {
     }
 
     private fun assertProvenance04Step01(data: Provenance) {
-
         assertEquals(
             expected = "AUT",
             actual = data.agent?.get(0)?.type?.coding?.get(0)?.code

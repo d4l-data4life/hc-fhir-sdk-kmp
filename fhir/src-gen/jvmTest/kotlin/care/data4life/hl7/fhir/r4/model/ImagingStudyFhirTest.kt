@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.ImagingStudyStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ImagingStudyTest.java
@@ -61,7 +61,6 @@ class ImagingStudyFhirTest {
     }
 
     private fun assertImagingStudy01Step01(data: ImagingStudy) {
-
         assertEquals(
             expected = "ServiceRequest/example",
             actual = data.basedOn?.get(0)?.reference
@@ -459,7 +458,6 @@ class ImagingStudyFhirTest {
     }
 
     private fun assertImagingStudy02Step01(data: ImagingStudy) {
-
         assertEquals(
             expected = "example",
             actual = data.id

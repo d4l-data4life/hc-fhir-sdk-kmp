@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.NameUse
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * RelatedPersonTest.java
@@ -63,7 +63,6 @@ class RelatedPersonFhirTest {
     }
 
     private fun assertRelatedPerson01Step01(data: RelatedPerson) {
-
         assertEquals(
             expected = "PleasantVille",
             actual = data.address?.get(0)?.city
@@ -221,7 +220,6 @@ class RelatedPersonFhirTest {
     }
 
     private fun assertRelatedPerson02Step01(data: RelatedPerson) {
-
         assertEquals(
             expected = AdministrativeGender.FEMALE,
             actual = data.gender
@@ -360,7 +358,6 @@ class RelatedPersonFhirTest {
     }
 
     private fun assertRelatedPerson03Step01(data: RelatedPerson) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -530,7 +527,6 @@ class RelatedPersonFhirTest {
     }
 
     private fun assertRelatedPerson05Step01(data: RelatedPerson) {
-
         assertEquals(
             expected = "1963",
             actual = data.birthDate?.value.toString()

@@ -27,9 +27,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.TestScriptRequestMethodCode
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * TestScriptTest.java
@@ -66,7 +66,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript01Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -629,7 +628,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript01Step02(data: TestScript) {
-
         assertEquals(
             expected = "Dest1PatientResourceId",
             actual = data.variable?.get(0)?.name
@@ -674,7 +672,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript02Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -1264,7 +1261,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript03Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -1779,7 +1775,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript04Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -2362,7 +2357,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript04Step02(data: TestScript) {
-
         assertEquals(
             expected = AssertionOperatorType.EQUALS,
             actual = data.test?.get(0)?.action?.get(6)?.assert?.operator
@@ -2536,7 +2530,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript05Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -3116,7 +3109,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript05Step02(data: TestScript) {
-
         assertEquals(
             expected = "Enter patient search criteria for a known family name on the target system",
             actual = data.variable?.get(1)?.description
@@ -3198,7 +3190,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript06Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -3775,7 +3766,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript06Step02(data: TestScript) {
-
         assertEquals(
             expected = "fhir:Patient/fhir:name/fhir:family/@value",
             actual = data.test?.get(0)?.action?.get(5)?.assert?.path
@@ -3984,7 +3974,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript07Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name

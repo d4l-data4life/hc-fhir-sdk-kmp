@@ -18,11 +18,11 @@ package care.data4life.hl7.fhir.r4.primitive
 
 import care.data4life.hl7.fhir.common.datetime.XsTime
 import care.data4life.hl7.fhir.r4.model.Extension
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class TimeTest(
@@ -30,7 +30,7 @@ class TimeTest(
     private var id: String?,
     private var extension: List<Extension>?,
 
-    private var shouldFail: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean
 ) {
 
     @Test
@@ -42,9 +42,10 @@ class TimeTest(
                         values["hour"] as Int,
                         values["minute"] as Int,
                         values["second"] as Int?,
-                        values["fraction"] as Double?,
+                        values["fraction"] as Double?
                     ),
-                    id, extension
+                    id,
+                    extension
                 )
             }
             return
@@ -55,9 +56,10 @@ class TimeTest(
                 values["hour"] as Int,
                 values["minute"] as Int,
                 values["second"] as Int?,
-                values["fraction"] as Double?,
+                values["fraction"] as Double?
             ),
-            id, extension
+            id,
+            extension
         )
 
         assertEquals(values["hour"], result.value.hour)
@@ -78,15 +80,21 @@ class TimeTest(
                 arrayOf(mapOf("hour" to 21, "minute" to 32, "second" to 52), null, null, false),
                 arrayOf(
                     mapOf("hour" to 21, "minute" to 32, "second" to 52, "fraction" to .12679),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
                 arrayOf(
                     mapOf("hour" to 21, "minute" to 32, "second" to 52, "fraction" to .000000001),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
                 arrayOf(
                     mapOf("hour" to 21, "minute" to 32, "second" to 52, "fraction" to .999999999),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
 
                 // fails
@@ -104,7 +112,7 @@ class TimeTest(
 
                 // second out of range
                 arrayOf(mapOf("hour" to 12, "minute" to 44, "second" to -1), null, null, true),
-                arrayOf(mapOf("hour" to 12, "minute" to 44, "second" to 60), null, null, true),
+                arrayOf(mapOf("hour" to 12, "minute" to 44, "second" to 60), null, null, true)
             )
         }
     }

@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.MedicationStatementStatus
 import care.data4life.hl7.fhir.stu3.codesystem.MedicationStatementTaken
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MedicationStatementTest.java
@@ -76,7 +76,6 @@ class MedicationStatementFhirTest {
     }
 
     private fun assertMedicationStatement01Step01(data: MedicationStatement) {
-
         assertEquals(
             expected = "CarePlan/gpvisit",
             actual = data.basedOn?.get(0)?.reference
@@ -188,7 +187,6 @@ class MedicationStatementFhirTest {
     }
 
     private fun assertMedicationStatement02Step01(data: MedicationStatement) {
-
         assertEquals(
             expected = "2015-02-22",
             actual = data.dateAsserted?.value.toString()
@@ -397,7 +395,6 @@ class MedicationStatementFhirTest {
     }
 
     private fun assertMedicationStatement03Step01(data: MedicationStatement) {
-
         assertEquals(
             expected = "2014-02-22",
             actual = data.dateAsserted?.value.toString()
@@ -570,7 +567,6 @@ class MedicationStatementFhirTest {
     }
 
     private fun assertMedicationStatement04Step01(data: MedicationStatement) {
-
         assertEquals(
             expected = "med0309",
             actual = data.contained?.get(0)?.id
@@ -682,7 +678,6 @@ class MedicationStatementFhirTest {
     }
 
     private fun assertMedicationStatement05Step01(data: MedicationStatement) {
-
         assertEquals(
             expected = "inpatient",
             actual = data.category?.coding?.get(0)?.code
@@ -950,7 +945,6 @@ class MedicationStatementFhirTest {
     }
 
     private fun assertMedicationStatement06Step01(data: MedicationStatement) {
-
         assertEquals(
             expected = "med0315",
             actual = data.contained?.get(0)?.id
@@ -1034,7 +1028,6 @@ class MedicationStatementFhirTest {
     }
 
     private fun assertMedicationStatement07Step01(data: MedicationStatement) {
-
         assertEquals(
             expected = "2014-02-22",
             actual = data.dateAsserted?.value.toString()

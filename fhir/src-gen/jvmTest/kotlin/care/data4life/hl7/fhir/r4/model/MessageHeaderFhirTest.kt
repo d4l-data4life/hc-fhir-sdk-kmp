@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ContactPointSystem
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.ResponseType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MessageHeaderTest.java
@@ -61,7 +61,6 @@ class MessageHeaderFhirTest {
     }
 
     private fun assertMessageHeader01Step01(data: MessageHeader) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.author?.reference

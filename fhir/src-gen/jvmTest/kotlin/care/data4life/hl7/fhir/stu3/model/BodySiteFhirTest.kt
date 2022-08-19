@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * BodySiteTest.java
@@ -57,7 +57,6 @@ class BodySiteFhirTest {
     }
 
     private fun assertBodySite01Step01(data: BodySite) {
-
         assertEquals(
             expected = "83418008",
             actual = data.code?.coding?.get(0)?.code
@@ -137,7 +136,6 @@ class BodySiteFhirTest {
     }
 
     private fun assertBodySite02Step01(data: BodySite) {
-
         assertEquals(
             expected = "4147007",
             actual = data.code?.coding?.get(0)?.code
@@ -253,7 +251,6 @@ class BodySiteFhirTest {
     }
 
     private fun assertBodySite03Step01(data: BodySite) {
-
         assertEquals(
             expected = "False".toBoolean(),
             actual = data.active?.value

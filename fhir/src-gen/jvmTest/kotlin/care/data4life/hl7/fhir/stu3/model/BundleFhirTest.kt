@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.BundleType
 import care.data4life.hl7.fhir.stu3.codesystem.HTTPVerb
 import care.data4life.hl7.fhir.stu3.codesystem.SearchEntryMode
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * BundleTest.java
@@ -58,7 +58,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle01Step01(data: Bundle) {
-
         assertEquals(
             expected = "urn:uuid:3fdc72f4-a11d-4a9d-9260-a9f745779e1d",
             actual = data.entry?.get(0)?.fullUrl
@@ -235,7 +234,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle02Step01(data: Bundle) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/Practitioner/1",
             actual = data.entry?.get(0)?.fullUrl
@@ -437,7 +435,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle03Step01(data: Bundle) {
-
         assertEquals(
             expected = "urn:uuid:b0a4b18e-94e7-4b1b-8031-c7ae4bdd8db9",
             actual = data.entry?.get(0)?.fullUrl
@@ -639,7 +636,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle04Step01(data: Bundle) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/PractitionerRole/f003-0",
             actual = data.entry?.get(0)?.fullUrl
@@ -791,7 +787,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle05Step01(data: Bundle) {
-
         assertEquals(
             expected = "http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57",
             actual = data.entry?.get(0)?.fullUrl
@@ -983,7 +978,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle06Step01(data: Bundle) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/Location/2",
             actual = data.entry?.get(0)?.fullUrl
@@ -1039,7 +1033,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle07Step01(data: Bundle) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/us/sdc/ConceptMap/ussgfht-loincde",
             actual = data.entry?.get(0)?.fullUrl
@@ -1355,7 +1348,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle08Step01(data: Bundle) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/Endpoint/71",
             actual = data.entry?.get(0)?.fullUrl
@@ -1512,7 +1504,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle09Step01(data: Bundle) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/Patient/71",
             actual = data.entry?.get(0)?.fullUrl
@@ -1719,7 +1710,6 @@ class BundleFhirTest {
     }
 
     private fun assertBundle10Step01(data: Bundle) {
-
         assertEquals(
             expected = "https://example.com/base/MedicationRequest/3123",
             actual = data.entry?.get(0)?.fullUrl

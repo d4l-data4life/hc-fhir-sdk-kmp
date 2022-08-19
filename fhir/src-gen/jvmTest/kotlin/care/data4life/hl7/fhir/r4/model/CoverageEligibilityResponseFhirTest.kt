@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.EligibilityResponsePurpose
 import care.data4life.hl7.fhir.r4.codesystem.FinancialResourceStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CoverageEligibilityResponseTest.java
@@ -60,7 +60,6 @@ class CoverageEligibilityResponseFhirTest {
     }
 
     private fun assertCoverageEligibilityResponse01Step01(data: CoverageEligibilityResponse) {
-
         assertEquals(
             expected = "2014-08-16",
             actual = data.created?.value.toString()
@@ -183,7 +182,6 @@ class CoverageEligibilityResponseFhirTest {
     }
 
     private fun assertCoverageEligibilityResponse02Step01(data: CoverageEligibilityResponse) {
-
         assertEquals(
             expected = "2014-09-16",
             actual = data.created?.value.toString()
@@ -331,7 +329,6 @@ class CoverageEligibilityResponseFhirTest {
     }
 
     private fun assertCoverageEligibilityResponse03Step01(data: CoverageEligibilityResponse) {
-
         assertEquals(
             expected = "coverage-1",
             actual = data.contained?.get(0)?.id
@@ -776,7 +773,6 @@ class CoverageEligibilityResponseFhirTest {
     }
 
     private fun assertCoverageEligibilityResponse04Step01(data: CoverageEligibilityResponse) {
-
         assertEquals(
             expected = "2014-08-16",
             actual = data.created?.value.toString()

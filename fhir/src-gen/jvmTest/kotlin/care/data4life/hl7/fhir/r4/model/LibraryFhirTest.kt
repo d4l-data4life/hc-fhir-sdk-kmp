@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.RelatedArtifactType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * LibraryTest.java
@@ -61,7 +61,6 @@ class LibraryFhirTest {
     }
 
     private fun assertLibrary01Step01(data: Library) {
-
         assertEquals(
             expected = "text/cql",
             actual = data.content?.get(0)?.contentType
@@ -207,7 +206,6 @@ class LibraryFhirTest {
     }
 
     private fun assertLibrary02Step01(data: Library) {
-
         assertEquals(
             expected = "text/cql",
             actual = data.content?.get(0)?.contentType
@@ -553,7 +551,6 @@ class LibraryFhirTest {
     }
 
     private fun assertLibrary03Step01(data: Library) {
-
         assertEquals(
             expected = "text/cql",
             actual = data.content?.get(0)?.contentType
@@ -695,7 +692,6 @@ class LibraryFhirTest {
     }
 
     private fun assertLibrary04Step01(data: Library) {
-
         assertEquals(
             expected = "2017-03-10",
             actual = data.date?.value.toString()

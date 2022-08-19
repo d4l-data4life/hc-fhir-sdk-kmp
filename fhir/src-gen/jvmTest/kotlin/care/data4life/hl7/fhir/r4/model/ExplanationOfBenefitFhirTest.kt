@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.NoteType
 import care.data4life.hl7.fhir.r4.codesystem.Use
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ExplanationOfBenefitTest.java
@@ -61,7 +61,6 @@ class ExplanationOfBenefitFhirTest {
     }
 
     private fun assertExplanationOfBenefit01Step01(data: ExplanationOfBenefit) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -573,7 +572,6 @@ class ExplanationOfBenefitFhirTest {
     }
 
     private fun assertExplanationOfBenefit02Step01(data: ExplanationOfBenefit) {
-
         assertEquals(
             expected = "2014-02-14",
             actual = data.accident?.date?.value.toString()

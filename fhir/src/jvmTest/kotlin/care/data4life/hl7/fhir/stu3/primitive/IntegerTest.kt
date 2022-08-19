@@ -17,11 +17,11 @@
 package care.data4life.hl7.fhir.stu3.primitive
 
 import care.data4life.hl7.fhir.stu3.model.Extension
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class IntegerTest(
@@ -29,7 +29,7 @@ class IntegerTest(
     private var extension: List<Extension>?,
     private var id: String?,
 
-    private var shouldFail: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean
 ) {
 
     @Test
@@ -62,7 +62,7 @@ class IntegerTest(
 
                 // negative
                 arrayOf(-1, null, null, false),
-                arrayOf(-2147483648, null, null, false),
+                arrayOf(-2147483648, null, null, false)
 
                 // fail will fail on system level
                 // arrayOf(2147483648, null, null, true),

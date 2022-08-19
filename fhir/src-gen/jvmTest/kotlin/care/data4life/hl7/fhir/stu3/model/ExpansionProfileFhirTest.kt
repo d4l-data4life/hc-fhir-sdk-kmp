@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.ContactPointSystem
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ExpansionProfileTest.java
@@ -58,7 +58,6 @@ class ExpansionProfileFhirTest {
     }
 
     private fun assertExpansionProfile01Step01(data: ExpansionProfile) {
-
         assertEquals(
             expected = "FHIR project team",
             actual = data.contact?.get(0)?.name

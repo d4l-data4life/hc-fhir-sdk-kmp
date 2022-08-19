@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.FlagStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * FlagTest.java
@@ -57,7 +57,6 @@ class FlagFhirTest {
     }
 
     private fun assertFlag01Step01(data: Flag) {
-
         assertEquals(
             expected = "Nancy Nurse",
             actual = data.author?.display
@@ -188,7 +187,6 @@ class FlagFhirTest {
     }
 
     private fun assertFlag02Step01(data: Flag) {
-
         assertEquals(
             expected = "infection",
             actual = data.category?.coding?.get(0)?.code

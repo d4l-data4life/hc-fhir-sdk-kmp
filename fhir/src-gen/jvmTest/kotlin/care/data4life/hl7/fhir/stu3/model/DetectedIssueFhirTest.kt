@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ObservationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DetectedIssueTest.java
@@ -61,7 +61,6 @@ class DetectedIssueFhirTest {
     }
 
     private fun assertDetectedIssue01Step01(data: DetectedIssue) {
-
         assertEquals(
             expected = "allergy",
             actual = data.id
@@ -104,7 +103,6 @@ class DetectedIssueFhirTest {
     }
 
     private fun assertDetectedIssue02Step01(data: DetectedIssue) {
-
         assertEquals(
             expected = "Device/software",
             actual = data.author?.reference
@@ -229,7 +227,6 @@ class DetectedIssueFhirTest {
     }
 
     private fun assertDetectedIssue03Step01(data: DetectedIssue) {
-
         assertEquals(
             expected = "Device/software",
             actual = data.author?.reference
@@ -365,7 +362,6 @@ class DetectedIssueFhirTest {
     }
 
     private fun assertDetectedIssue04Step01(data: DetectedIssue) {
-
         assertEquals(
             expected = "lab",
             actual = data.id

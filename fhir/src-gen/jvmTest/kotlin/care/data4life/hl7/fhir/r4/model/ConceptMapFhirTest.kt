@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ContactPointSystem
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ConceptMapTest.java
@@ -61,7 +61,6 @@ class ConceptMapFhirTest {
     }
 
     private fun assertConceptMap01Step01(data: ConceptMap) {
-
         assertEquals(
             expected = "FHIR project team (example)",
             actual = data.contact?.get(0)?.name
@@ -378,7 +377,6 @@ class ConceptMapFhirTest {
     }
 
     private fun assertConceptMap02Step01(data: ConceptMap) {
-
         assertEquals(
             expected = "FHIR project team (example)",
             actual = data.contact?.get(0)?.name
@@ -572,7 +570,6 @@ class ConceptMapFhirTest {
     }
 
     private fun assertConceptMap03Step01(data: ConceptMap) {
-
         assertEquals(
             expected = ContactPointSystem.URL,
             actual = data.contact?.get(0)?.telecom?.get(0)?.system

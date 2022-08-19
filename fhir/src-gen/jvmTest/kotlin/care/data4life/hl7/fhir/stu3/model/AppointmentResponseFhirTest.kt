@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ParticipationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * AppointmentResponseTest.java
@@ -55,7 +55,6 @@ class AppointmentResponseFhirTest {
     }
 
     private fun assertAppointmentResponse01Step01(data: AppointmentResponse) {
-
         assertEquals(
             expected = "Dr Adam Careful",
             actual = data.actor?.display
@@ -162,7 +161,6 @@ class AppointmentResponseFhirTest {
     }
 
     private fun assertAppointmentResponse02Step01(data: AppointmentResponse) {
-
         assertEquals(
             expected = "Peter James Chalmers",
             actual = data.actor?.display

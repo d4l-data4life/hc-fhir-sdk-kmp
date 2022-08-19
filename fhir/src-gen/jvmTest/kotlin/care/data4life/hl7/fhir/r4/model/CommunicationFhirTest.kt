@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.EventStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CommunicationTest.java
@@ -58,7 +58,6 @@ class CommunicationFhirTest {
     }
 
     private fun assertCommunication01Step01(data: Communication) {
-
         assertEquals(
             expected = "http://happyvalley.com/claim",
             actual = data.about?.get(0)?.identifier?.system
@@ -253,7 +252,6 @@ class CommunicationFhirTest {
     }
 
     private fun assertCommunication02Step01(data: Communication) {
-
         assertEquals(
             expected = "#request",
             actual = data.basedOn?.get(0)?.reference
@@ -436,7 +434,6 @@ class CommunicationFhirTest {
     }
 
     private fun assertCommunication03Step01(data: Communication) {
-
         assertEquals(
             expected = "Alert",
             actual = data.category?.get(0)?.coding?.get(0)?.code

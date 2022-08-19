@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.r4.codesystem.SearchParamType
 import care.data4life.hl7.fhir.r4.primitive.Bool
 import care.data4life.hl7.fhir.r4.primitive.DateTime
 import care.data4life.hl7.fhir.r4.primitive.Integer
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirOperationDefinition

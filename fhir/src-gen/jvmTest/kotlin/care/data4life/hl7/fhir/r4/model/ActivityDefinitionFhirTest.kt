@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.RelatedArtifactType
 import care.data4life.hl7.fhir.r4.codesystem.RequestResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ActivityDefinitionTest.java
@@ -71,7 +71,6 @@ class ActivityDefinitionFhirTest {
     }
 
     private fun assertActivityDefinition02Step01(data: ActivityDefinition) {
-
         assertEquals(
             expected = "2016-03-12",
             actual = data.approvalDate?.value.toString()
@@ -651,7 +650,6 @@ class ActivityDefinitionFhirTest {
     }
 
     private fun assertActivityDefinition02Step02(data: ActivityDefinition) {
-
         assertEquals(
             expected = "1.0.0",
             actual = data.version
@@ -692,7 +690,6 @@ class ActivityDefinitionFhirTest {
     }
 
     private fun assertActivityDefinition05Step01(data: ActivityDefinition) {
-
         assertEquals(
             expected = "BlueTubes",
             actual = data.code?.coding?.get(0)?.code

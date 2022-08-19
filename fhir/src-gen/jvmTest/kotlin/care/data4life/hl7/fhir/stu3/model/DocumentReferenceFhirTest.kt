@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.DocumentReferenceStatus
 import care.data4life.hl7.fhir.stu3.codesystem.DocumentRelationshipType
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DocumentReferenceTest.java
@@ -57,7 +57,6 @@ class DocumentReferenceFhirTest {
     }
 
     private fun assertDocumentReference01Step01(data: DocumentReference) {
-
         assertEquals(
             expected = "Organization/f001",
             actual = data.authenticator?.reference

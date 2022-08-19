@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.CareTeamStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CareTeamTest.java
@@ -58,7 +58,6 @@ class CareTeamFhirTest {
     }
 
     private fun assertCareTeam01Step01(data: CareTeam) {
-
         assertEquals(
             expected = "encounter",
             actual = data.category?.get(0)?.coding?.get(0)?.code

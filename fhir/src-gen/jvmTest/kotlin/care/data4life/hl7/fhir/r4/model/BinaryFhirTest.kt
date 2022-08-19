@@ -18,9 +18,9 @@ package care.data4life.hl7.fhir.r4.model
 
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * BinaryTest.java
@@ -57,7 +57,6 @@ class BinaryFhirTest {
     }
 
     private fun assertBinary01Step01(data: Binary) {
-
         assertEquals(
             expected = "application/pdf",
             actual = data.contentType

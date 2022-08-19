@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.RequestPriority
 import care.data4life.hl7.fhir.stu3.codesystem.SupplyRequestStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SupplyRequestTest.java
@@ -58,7 +58,6 @@ class SupplyRequestFhirTest {
     }
 
     private fun assertSupplyRequest01Step01(data: SupplyRequest) {
-
         assertEquals(
             expected = "2016-12-31",
             actual = data.authoredOn?.value.toString()

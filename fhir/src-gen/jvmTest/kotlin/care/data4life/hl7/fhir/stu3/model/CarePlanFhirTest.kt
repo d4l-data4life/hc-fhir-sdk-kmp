@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.CarePlanStatus
 import care.data4life.hl7.fhir.stu3.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CarePlanTest.java
@@ -62,7 +62,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan01Step01(data: CarePlan) {
-
         assertEquals(
             expected = "procedure",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -237,7 +236,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan02Step01(data: CarePlan) {
-
         assertEquals(
             expected = "procedure",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -409,7 +407,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan03Step01(data: CarePlan) {
-
         assertEquals(
             expected = "obesity-narrative",
             actual = data.id
@@ -463,7 +460,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan04Step01(data: CarePlan) {
-
         assertEquals(
             expected = "observation",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -740,7 +736,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan05Step01(data: CarePlan) {
-
         assertEquals(
             expected = "diet",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -961,7 +956,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan06Step01(data: CarePlan) {
-
         assertEquals(
             expected = "encounter",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -1183,7 +1177,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan07Step01(data: CarePlan) {
-
         assertEquals(
             expected = "other",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -1741,7 +1734,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan07Step02(data: CarePlan) {
-
         assertEquals(
             expected = "2012-07-30",
             actual = data.activity?.get(8)?.progress?.get(0)?.time?.value.toString()
@@ -1981,7 +1973,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan08Step01(data: CarePlan) {
-
         assertEquals(
             expected = "procedure",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -2156,7 +2147,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan09Step01(data: CarePlan) {
-
         assertEquals(
             expected = "procedure",
             actual = data.activity?.get(0)?.detail?.category?.coding?.get(0)?.code
@@ -2331,7 +2321,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan10Step01(data: CarePlan) {
-
         assertEquals(
             expected = "Prenatal vitamin MedicationRequest",
             actual = data.activity?.get(0)?.reference?.display

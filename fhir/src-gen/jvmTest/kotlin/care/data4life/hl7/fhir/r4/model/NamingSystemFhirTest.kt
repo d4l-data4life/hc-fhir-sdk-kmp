@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NamingSystemType
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * NamingSystemTest.java
@@ -62,7 +62,6 @@ class NamingSystemFhirTest {
     }
 
     private fun assertNamingSystem01Step01(data: NamingSystem) {
-
         assertEquals(
             expected = "HL7 Australia FHIR Team",
             actual = data.contact?.get(0)?.name
@@ -248,7 +247,6 @@ class NamingSystemFhirTest {
     }
 
     private fun assertNamingSystem02Step01(data: NamingSystem) {
-
         assertEquals(
             expected = "FHIR project team",
             actual = data.contact?.get(0)?.name

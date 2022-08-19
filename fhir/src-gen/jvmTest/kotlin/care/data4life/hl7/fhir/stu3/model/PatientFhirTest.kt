@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.stu3.codesystem.NameUse
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * PatientTest.java
@@ -63,7 +63,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient01Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -187,7 +186,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient02Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -466,7 +464,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient03Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -576,7 +573,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient04Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -709,7 +705,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient06Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -819,7 +814,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient07Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -893,7 +887,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient09Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -974,7 +967,6 @@ class PatientFhirTest {
     }
 
     private fun assertPatient10Step01(data: Patient) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value

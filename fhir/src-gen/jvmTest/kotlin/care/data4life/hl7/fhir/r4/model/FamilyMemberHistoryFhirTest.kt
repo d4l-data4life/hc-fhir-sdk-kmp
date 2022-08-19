@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.FamilyHistoryStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * FamilyMemberHistoryTest.java
@@ -58,7 +58,6 @@ class FamilyMemberHistoryFhirTest {
     }
 
     private fun assertFamilyMemberHistory01Step01(data: FamilyMemberHistory) {
-
         assertEquals(
             expected = "315619001",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.code
@@ -242,7 +241,6 @@ class FamilyMemberHistoryFhirTest {
     }
 
     private fun assertFamilyMemberHistory02Step01(data: FamilyMemberHistory) {
-
         assertEquals(
             expected = "371041009",
             actual = data.condition?.get(0)?.code?.coding?.get(0)?.code

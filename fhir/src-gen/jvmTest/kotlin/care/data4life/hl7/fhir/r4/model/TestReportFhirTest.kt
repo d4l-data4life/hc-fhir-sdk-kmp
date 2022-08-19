@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.TestReportParticipantType
 import care.data4life.hl7.fhir.r4.codesystem.TestReportResult
 import care.data4life.hl7.fhir.r4.codesystem.TestReportStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * TestReportTest.java
@@ -60,7 +60,6 @@ class TestReportFhirTest {
     }
 
     private fun assertTestReport01Step01(data: TestReport) {
-
         assertEquals(
             expected = "testreport-example",
             actual = data.id

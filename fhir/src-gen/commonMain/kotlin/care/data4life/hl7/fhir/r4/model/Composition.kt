@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.CompositionStatus
 import care.data4life.hl7.fhir.r4.codesystem.DocumentRelationshipType
 import care.data4life.hl7.fhir.r4.codesystem.ListMode
 import care.data4life.hl7.fhir.r4.primitive.DateTime
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirComposition

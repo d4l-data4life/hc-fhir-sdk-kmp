@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.QuestionnaireItemType
 import care.data4life.hl7.fhir.stu3.codesystem.ResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * QuestionnaireTest.java
@@ -61,7 +61,6 @@ class QuestionnaireFhirTest {
     }
 
     private fun assertQuestionnaire01Step01(data: Questionnaire) {
-
         assertEquals(
             expected = "2012-01",
             actual = data.date?.value.toString()
@@ -464,7 +463,6 @@ class QuestionnaireFhirTest {
     }
 
     private fun assertQuestionnaire02Step01(data: Questionnaire) {
-
         assertEquals(
             expected = "VL 1-1, 18-65_1.2.2",
             actual = data.code?.get(0)?.code
@@ -688,7 +686,6 @@ class QuestionnaireFhirTest {
     }
 
     private fun assertQuestionnaire03Step01(data: Questionnaire) {
-
         assertEquals(
             expected = "9269-2",
             actual = data.code?.get(0)?.code
@@ -870,7 +867,6 @@ class QuestionnaireFhirTest {
     }
 
     private fun assertQuestionnaire04Step01(data: Questionnaire) {
-
         assertEquals(
             expected = "2013-02-19",
             actual = data.date?.value.toString()

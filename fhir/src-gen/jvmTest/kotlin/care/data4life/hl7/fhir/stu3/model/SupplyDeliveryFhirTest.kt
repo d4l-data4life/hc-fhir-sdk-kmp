@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.SupplyDeliveryStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SupplyDeliveryTest.java
@@ -57,7 +57,6 @@ class SupplyDeliveryFhirTest {
     }
 
     private fun assertSupplyDelivery01Step01(data: SupplyDelivery) {
-
         assertEquals(
             expected = "SupplyRequest/simpleorder",
             actual = data.basedOn?.get(0)?.reference
@@ -164,7 +163,6 @@ class SupplyDeliveryFhirTest {
     }
 
     private fun assertSupplyDelivery02Step01(data: SupplyDelivery) {
-
         assertEquals(
             expected = "Home care dept",
             actual = data.destination?.display
