@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * EnrollmentRequestTest.java
@@ -57,7 +57,6 @@ class EnrollmentRequestFhirTest {
     }
 
     private fun assertEnrollmentRequest01Step01(data: EnrollmentRequest) {
-
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.coverage?.reference

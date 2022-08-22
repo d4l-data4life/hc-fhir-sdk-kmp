@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.InvoicePriceComponentType
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ChargeItemDefinitionTest.java
@@ -61,7 +61,6 @@ class ChargeItemDefinitionFhirTest {
     }
 
     private fun assertChargeItemDefinition01Step01(data: ChargeItemDefinition) {
-
         assertEquals(
             expected = "Verify ChargeItem pertains to Device 12345",
             actual = data.applicability?.get(0)?.description
@@ -260,7 +259,6 @@ class ChargeItemDefinitionFhirTest {
     }
 
     private fun assertChargeItemDefinition02Step01(data: ChargeItemDefinition) {
-
         assertEquals(
             expected = "Excludes billing code 13250 for same Encounter",
             actual = data.applicability?.get(0)?.description

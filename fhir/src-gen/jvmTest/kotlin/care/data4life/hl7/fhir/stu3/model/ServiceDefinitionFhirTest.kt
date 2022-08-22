@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ServiceDefinitionTest.java
@@ -59,7 +59,6 @@ class ServiceDefinitionFhirTest {
     }
 
     private fun assertServiceDefinition01Step01(data: ServiceDefinition) {
-
         assertEquals(
             expected = "2015-07-22",
             actual = data.date?.value.toString()

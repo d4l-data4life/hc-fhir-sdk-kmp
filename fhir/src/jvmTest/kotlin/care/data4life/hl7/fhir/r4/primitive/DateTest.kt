@@ -18,11 +18,11 @@ package care.data4life.hl7.fhir.r4.primitive
 
 import care.data4life.hl7.fhir.common.datetime.XsDate
 import care.data4life.hl7.fhir.r4.model.Extension
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class DateTest(
@@ -30,7 +30,7 @@ class DateTest(
     private var id: String?,
     private var extension: List<Extension>?,
 
-    private var shouldFail: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean
 ) {
 
     @Test
@@ -41,9 +41,10 @@ class DateTest(
                     XsDate(
                         values["year"] as Int,
                         values["month"] as Int?,
-                        values["day"] as Int?,
+                        values["day"] as Int?
                     ),
-                    id, extension
+                    id,
+                    extension
                 )
             }
             return
@@ -53,9 +54,10 @@ class DateTest(
             XsDate(
                 values["year"] as Int,
                 values["month"] as Int?,
-                values["day"] as Int?,
+                values["day"] as Int?
             ),
-            id, extension
+            id,
+            extension
         )
 
         assertEquals(values["year"], result.value.year)
@@ -147,7 +149,7 @@ class DateTest(
                 arrayOf(mapOf("year" to 2021, "month" to 2, "day" to 29), null, null, true),
                 // leap year not applied every 100 years and again every 400
                 arrayOf(mapOf("year" to 1900, "month" to 2, "day" to 29), null, null, true),
-                arrayOf(mapOf("year" to 2100, "month" to 2, "day" to 29), null, null, true),
+                arrayOf(mapOf("year" to 2100, "month" to 2, "day" to 29), null, null, true)
             )
         }
     }

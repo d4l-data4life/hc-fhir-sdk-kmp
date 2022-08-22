@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.ChargeItemStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ChargeItemTest.java
@@ -60,7 +60,6 @@ class ChargeItemFhirTest {
     }
 
     private fun assertChargeItem01Step01(data: ChargeItem) {
-
         assertEquals(
             expected = "Account/example",
             actual = data.account?.get(0)?.reference

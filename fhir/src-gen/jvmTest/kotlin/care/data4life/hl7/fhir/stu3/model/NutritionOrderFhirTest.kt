@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NutritionOrderStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * NutritionOrderTest.java
@@ -58,7 +58,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder01Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "Cashew Nuts",
             actual = data.allergyIntolerance?.get(0)?.display
@@ -293,7 +292,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder02Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "Cashew Nuts",
             actual = data.allergyIntolerance?.get(0)?.display
@@ -593,7 +591,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder03Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "Cashew Nuts",
             actual = data.allergyIntolerance?.get(0)?.display
@@ -877,7 +874,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder04Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "2014-09-17",
             actual = data.dateTime?.value.toString()
@@ -1066,7 +1062,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder05Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "2014-09-17",
             actual = data.dateTime?.value.toString()
@@ -1309,7 +1304,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder06Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "2014-09-17",
             actual = data.dateTime?.value.toString()
@@ -1566,7 +1560,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder07Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "2014-09-17",
             actual = data.dateTime?.value.toString()
@@ -1834,7 +1827,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder08Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "Cashew Nuts",
             actual = data.allergyIntolerance?.get(0)?.display
@@ -2144,7 +2136,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder09Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "Cashew Nuts",
             actual = data.allergyIntolerance?.get(0)?.display
@@ -2393,7 +2384,6 @@ class NutritionOrderFhirTest {
     }
 
     private fun assertNutritionOrder10Step01(data: NutritionOrder) {
-
         assertEquals(
             expected = "Cashew Nuts",
             actual = data.allergyIntolerance?.get(0)?.display

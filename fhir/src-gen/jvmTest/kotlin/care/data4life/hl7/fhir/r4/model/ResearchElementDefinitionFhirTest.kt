@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.ResearchElementType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ResearchElementDefinitionTest.java
@@ -59,7 +59,6 @@ class ResearchElementDefinitionFhirTest {
     }
 
     private fun assertResearchElementDefinition01Step01(data: ResearchElementDefinition) {
-
         assertEquals(
             expected = "Diabetic patients over 65",
             actual = data.characteristic?.get(0)?.definitionCodeableConcept?.text

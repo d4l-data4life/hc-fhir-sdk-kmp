@@ -18,11 +18,11 @@ package care.data4life.hl7.fhir.stu3.json
 
 import care.data4life.hl7.fhir.stu3.model.FhirHelper
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
+import kotlin.test.BeforeTest
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.plus
 import kotlinx.serialization.modules.polymorphic
-import kotlin.test.BeforeTest
 
 abstract class BaseFhirPrimitiveJsonParserTest {
 

@@ -21,11 +21,11 @@ import care.data4life.hl7.fhir.common.datetime.XsDateTime
 import care.data4life.hl7.fhir.common.datetime.XsTime
 import care.data4life.hl7.fhir.common.datetime.XsTimeZone
 import care.data4life.hl7.fhir.stu3.model.Extension
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class DateTimeTest(
@@ -33,7 +33,7 @@ class DateTimeTest(
     private var id: String?,
     private var extension: List<Extension>?,
 
-    private var shouldFail: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean
 ) {
 
     @Test
@@ -44,9 +44,10 @@ class DateTimeTest(
                     XsDateTime(
                         values["date"] as XsDate,
                         values["time"] as XsTime?,
-                        values["timezone"] as XsTimeZone?,
+                        values["timezone"] as XsTimeZone?
                     ),
-                    id, extension
+                    id,
+                    extension
                 )
             }
             return
@@ -56,9 +57,10 @@ class DateTimeTest(
             XsDateTime(
                 values["date"] as XsDate,
                 values["time"] as XsTime?,
-                values["timezone"] as XsTimeZone?,
+                values["timezone"] as XsTimeZone?
             ),
-            id, extension
+            id,
+            extension
         )
 
         assertEquals(values["date"], result.value.date)
@@ -91,7 +93,9 @@ class DateTimeTest(
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
                     ),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
 
                 arrayOf(
@@ -100,7 +104,9 @@ class DateTimeTest(
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1, 0, false)
                     ),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
 
                 arrayOf(
@@ -109,7 +115,9 @@ class DateTimeTest(
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1)
                     ),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
 
                 // fails
@@ -119,7 +127,9 @@ class DateTimeTest(
                         "time" to null,
                         "timezone" to XsTimeZone(1)
                     ),
-                    null, null, true
+                    null,
+                    null,
+                    true
                 ),
                 arrayOf(
                     mapOf(
@@ -127,8 +137,10 @@ class DateTimeTest(
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to null
                     ),
-                    null, null, true
-                ),
+                    null,
+                    null,
+                    true
+                )
             )
         }
     }

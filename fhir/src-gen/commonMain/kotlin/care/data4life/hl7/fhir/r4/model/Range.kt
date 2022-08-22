@@ -16,9 +16,9 @@
 
 package care.data4life.hl7.fhir.r4.model
 
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirRange

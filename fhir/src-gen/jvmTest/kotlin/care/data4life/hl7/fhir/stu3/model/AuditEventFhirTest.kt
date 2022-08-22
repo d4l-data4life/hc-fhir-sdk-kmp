@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.AuditEventAction
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * AuditEventTest.java
@@ -58,7 +58,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent01Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.E,
             actual = data.action
@@ -284,7 +283,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent02Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.E,
             actual = data.action
@@ -480,7 +478,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent03Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.R,
             actual = data.action
@@ -706,7 +703,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent04Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.R,
             actual = data.action
@@ -1003,7 +999,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent05Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.E,
             actual = data.action
@@ -1199,7 +1194,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent06Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.E,
             actual = data.action
@@ -1449,7 +1443,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent07Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.E,
             actual = data.action
@@ -1729,7 +1722,6 @@ class AuditEventFhirTest {
     }
 
     private fun assertAuditEvent08Step01(data: AuditEvent) {
-
         assertEquals(
             expected = AuditEventAction.R,
             actual = data.action

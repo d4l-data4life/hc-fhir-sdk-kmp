@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.FinancialResourceStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CoverageTest.java
@@ -58,7 +58,6 @@ class CoverageFhirTest {
     }
 
     private fun assertCoverage01Step01(data: Coverage) {
-
         assertEquals(
             expected = "Patient/5",
             actual = data.beneficiary?.reference
@@ -329,7 +328,6 @@ class CoverageFhirTest {
     }
 
     private fun assertCoverage02Step01(data: Coverage) {
-
         assertEquals(
             expected = "Patient/5",
             actual = data.beneficiary?.reference
@@ -449,7 +447,6 @@ class CoverageFhirTest {
     }
 
     private fun assertCoverage03Step01(data: Coverage) {
-
         assertEquals(
             expected = "Patient/5",
             actual = data.beneficiary?.reference
@@ -575,7 +572,6 @@ class CoverageFhirTest {
     }
 
     private fun assertCoverage04Step01(data: Coverage) {
-
         assertEquals(
             expected = "Patient/4",
             actual = data.beneficiary?.reference

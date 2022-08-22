@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.SpecimenContainedPreference
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SpecimenDefinitionTest.java
@@ -58,7 +58,6 @@ class SpecimenDefinitionFhirTest {
     }
 
     private fun assertSpecimenDefinition01Step01(data: SpecimenDefinition) {
-
         assertEquals(
             expected = "2364",
             actual = data.id
@@ -644,7 +643,6 @@ class SpecimenDefinitionFhirTest {
     }
 
     private fun assertSpecimenDefinition01Step02(data: SpecimenDefinition) {
-
         assertEquals(
             expected = "hemolized specimen",
             actual = data.typeTested?.get(1)?.rejectionCriterion?.get(1)?.coding?.get(0)?.display

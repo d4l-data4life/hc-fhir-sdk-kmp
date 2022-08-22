@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.AccountStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * AccountTest.java
@@ -58,7 +58,6 @@ class AccountFhirTest {
     }
 
     private fun assertAccount01Step01(data: Account) {
-
         assertEquals(
             expected = "Coverage/7546D",
             actual = data.coverage?.get(0)?.coverage?.reference
@@ -206,7 +205,6 @@ class AccountFhirTest {
     }
 
     private fun assertAccount02Step01(data: Account) {
-
         assertEquals(
             expected = "Coverage/9876B1",
             actual = data.coverage?.get(0)?.coverage?.reference

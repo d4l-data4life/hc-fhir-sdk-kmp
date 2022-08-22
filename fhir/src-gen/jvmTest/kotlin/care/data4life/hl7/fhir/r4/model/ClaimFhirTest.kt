@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.r4.codesystem.FinancialResourceStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.Use
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ClaimTest.java
@@ -59,7 +59,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim01Step01(data: Claim) {
-
         assertEquals(
             expected = "2014-07-09",
             actual = data.accident?.date?.value.toString()
@@ -476,7 +475,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim02Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -688,7 +686,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim03Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -906,7 +903,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim04Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -1119,7 +1115,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim05Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -1695,7 +1690,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim05Step02(data: Claim) {
-
         assertEquals(
             expected = "UV coating",
             actual = data.item?.get(0)?.detail?.get(1)?.subDetail?.get(2)?.productOrService?.coding?.get(0)?.code
@@ -2025,7 +2019,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim06Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -2324,7 +2317,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim07Step01(data: Claim) {
-
         assertEquals(
             expected = "#provider-1",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -2560,7 +2552,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim08Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -2992,7 +2983,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim09Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference
@@ -3553,7 +3543,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim09Step02(data: Claim) {
-
         assertEquals(
             expected = "normal",
             actual = data.priority?.coding?.get(0)?.code
@@ -3619,7 +3608,6 @@ class ClaimFhirTest {
     }
 
     private fun assertClaim10Step01(data: Claim) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.careTeam?.get(0)?.provider?.reference

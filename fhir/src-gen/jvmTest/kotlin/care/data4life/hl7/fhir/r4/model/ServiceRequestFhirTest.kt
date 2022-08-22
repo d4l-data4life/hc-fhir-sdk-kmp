@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.RequestIntent
 import care.data4life.hl7.fhir.r4.codesystem.RequestPriority
 import care.data4life.hl7.fhir.r4.codesystem.RequestStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ServiceRequestTest.java
@@ -60,7 +60,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest01Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "as needed to clear mucus",
             actual = data.asNeededCodeableConcept?.text
@@ -276,7 +275,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest02Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "2017-02-01T17:23:07Z",
             actual = data.authoredOn?.value.toString()
@@ -405,7 +403,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest03Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "LIPID",
             actual = data.code?.coding?.get(0)?.code
@@ -602,7 +599,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest04Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "2017-03-05",
             actual = data.authoredOn?.value.toString()
@@ -739,7 +735,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest05Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "229115003",
             actual = data.code?.coding?.get(0)?.code
@@ -855,7 +850,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest06Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "2016-08-16",
             actual = data.authoredOn?.value.toString()
@@ -997,7 +991,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest07Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "2018-02-20",
             actual = data.authoredOn?.value.toString()
@@ -1152,7 +1145,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest08Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "2017-03-05",
             actual = data.authoredOn?.value.toString()
@@ -1289,7 +1281,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest09Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "2016-09-20",
             actual = data.authoredOn?.value.toString()
@@ -1455,7 +1446,6 @@ class ServiceRequestFhirTest {
     }
 
     private fun assertServiceRequest10Step01(data: ServiceRequest) {
-
         assertEquals(
             expected = "24627-2",
             actual = data.code?.coding?.get(0)?.code

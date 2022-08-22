@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.CarePlanActivityStatus
 import care.data4life.hl7.fhir.stu3.codesystem.CarePlanIntent
 import care.data4life.hl7.fhir.stu3.codesystem.CarePlanStatus
 import care.data4life.hl7.fhir.stu3.primitive.Bool
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirCarePlan

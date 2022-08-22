@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MedicinalProductAuthorizationTest.java
@@ -54,7 +54,6 @@ class MedicinalProductAuthorizationFhirTest {
     }
 
     private fun assertMedicinalProductAuthorization01Step01(data: MedicinalProductAuthorization) {
-
         assertEquals(
             expected = "EU",
             actual = data.country?.get(0)?.coding?.get(0)?.code

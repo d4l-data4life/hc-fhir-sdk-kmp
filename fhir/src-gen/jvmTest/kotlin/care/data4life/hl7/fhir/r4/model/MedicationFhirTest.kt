@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.MedicationStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MedicationTest.java
@@ -59,7 +59,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication01Step01(data: Medication) {
-
         assertEquals(
             expected = "2019-10-31",
             actual = data.batch?.expirationDate?.value.toString()
@@ -220,7 +219,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication02Step01(data: Medication) {
-
         assertEquals(
             expected = "373994007",
             actual = data.code?.coding?.get(0)?.code
@@ -352,7 +350,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication03Step01(data: Medication) {
-
         assertEquals(
             expected = "430127000",
             actual = data.code?.coding?.get(0)?.code
@@ -484,7 +481,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication04Step01(data: Medication) {
-
         assertEquals(
             expected = "2019-10-31",
             actual = data.batch?.expirationDate?.value.toString()
@@ -593,7 +589,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication05Step01(data: Medication) {
-
         assertEquals(
             expected = "2017-05-22",
             actual = data.batch?.expirationDate?.value.toString()
@@ -764,7 +759,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication06Step01(data: Medication) {
-
         assertEquals(
             expected = "385219001",
             actual = data.form?.coding?.get(0)?.code
@@ -942,7 +936,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication07Step01(data: Medication) {
-
         assertEquals(
             expected = "Amoxicillin 250mg/5ml Suspension",
             actual = data.code?.text
@@ -1004,7 +997,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication08Step01(data: Medication) {
-
         assertEquals(
             expected = "2017-05-22",
             actual = data.batch?.expirationDate?.value.toString()
@@ -1159,7 +1151,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication09Step01(data: Medication) {
-
         assertEquals(
             expected = "108761006",
             actual = data.code?.coding?.get(0)?.code
@@ -1297,7 +1288,6 @@ class MedicationFhirTest {
     }
 
     private fun assertMedication10Step01(data: Medication) {
-
         assertEquals(
             expected = "324252006",
             actual = data.code?.coding?.get(0)?.code

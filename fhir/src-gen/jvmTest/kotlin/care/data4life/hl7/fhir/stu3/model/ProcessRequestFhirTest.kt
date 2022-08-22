@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.ActionList
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ProcessRequestTest.java
@@ -58,7 +58,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest01Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.POLL,
             actual = data.action
@@ -142,7 +141,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest02Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.POLL,
             actual = data.action
@@ -214,7 +212,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest03Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.POLL,
             actual = data.action
@@ -316,7 +313,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest04Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.POLL,
             actual = data.action
@@ -394,7 +390,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest05Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.POLL,
             actual = data.action
@@ -482,7 +477,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest06Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.POLL,
             actual = data.action
@@ -554,7 +548,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest07Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.CANCEL,
             actual = data.action
@@ -637,7 +630,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest08Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.REPROCESS,
             actual = data.action
@@ -726,7 +718,6 @@ class ProcessRequestFhirTest {
     }
 
     private fun assertProcessRequest09Step01(data: ProcessRequest) {
-
         assertEquals(
             expected = ActionList.STATUS,
             actual = data.action

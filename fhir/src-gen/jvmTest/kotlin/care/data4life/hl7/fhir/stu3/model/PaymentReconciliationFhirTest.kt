@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * PaymentReconciliationTest.java
@@ -56,7 +56,6 @@ class PaymentReconciliationFhirTest {
     }
 
     private fun assertPaymentReconciliation01Step01(data: PaymentReconciliation) {
-
         assertEquals(
             expected = "2014-08-16",
             actual = data.created?.value.toString()

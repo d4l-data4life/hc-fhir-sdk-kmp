@@ -35,7 +35,6 @@ object Dependency {
     object Multiplatform {
 
         val kotlin = Kotlin
-        val d4l = D4L
         val koin = Koin
 
         object Kotlin {
@@ -64,17 +63,6 @@ object Dependency {
             }
 
             const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Version.multiplatform.kotlin.dateTime}"
-        }
-
-        object D4L {
-
-            val util = Util
-
-            object Util {
-                const val common = "care.data4life.hc-util-sdk-kmp:util:${Version.multiplatform.d4l.utilSdk}"
-                const val android = "care.data4life.hc-util-sdk-kmp:util-android:${Version.multiplatform.d4l.utilSdk}"
-                const val jvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Version.multiplatform.d4l.utilSdk}"
-            }
         }
 
         object Koin {

@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ConditionTest.java
@@ -57,7 +57,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition01Step01(data: Condition) {
-
         assertEquals(
             expected = "P. van de Heuvel",
             actual = data.asserter?.display
@@ -261,7 +260,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition02Step01(data: Condition) {
-
         assertEquals(
             expected = "Practitioner/f201",
             actual = data.asserter?.reference
@@ -471,7 +469,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition03Step01(data: Condition) {
-
         assertEquals(
             expected = "encounter-diagnosis",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -604,7 +601,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition04Step01(data: Condition) {
-
         assertEquals(
             expected = "problem-list-item",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -714,7 +710,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition05Step01(data: Condition) {
-
         assertEquals(
             expected = "P. van de Heuvel",
             actual = data.asserter?.display
@@ -954,7 +949,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition06Step01(data: Condition) {
-
         assertEquals(
             expected = "Practitioner/f201",
             actual = data.asserter?.reference
@@ -1069,7 +1063,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition07Step01(data: Condition) {
-
         assertEquals(
             expected = "2013-03-20",
             actual = data.abatementDateTime?.value.toString()
@@ -1302,7 +1295,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition08Step01(data: Condition) {
-
         assertEquals(
             expected = "problem-list-item",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -1436,7 +1428,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition09Step01(data: Condition) {
-
         assertEquals(
             expected = "a",
             actual = data.abatementAge?.code
@@ -1669,7 +1660,6 @@ class ConditionFhirTest {
     }
 
     private fun assertCondition10Step01(data: Condition) {
-
         assertEquals(
             expected = "around April 9, 2013",
             actual = data.abatementString

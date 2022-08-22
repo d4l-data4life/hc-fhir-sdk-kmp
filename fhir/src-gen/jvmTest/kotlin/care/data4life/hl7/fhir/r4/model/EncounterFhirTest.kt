@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.EncounterStatus
 import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * EncounterTest.java
@@ -60,7 +60,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter01Step01(data: Encounter) {
-
         assertEquals(
             expected = "HH",
             actual = data.clazz?.code
@@ -210,7 +209,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter02Step01(data: Encounter) {
-
         assertEquals(
             expected = "AMB",
             actual = data.clazz?.code
@@ -360,7 +358,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter03Step01(data: Encounter) {
-
         assertEquals(
             expected = "AMB",
             actual = data.clazz?.code
@@ -610,7 +607,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter04Step01(data: Encounter) {
-
         assertEquals(
             expected = "IMP",
             actual = data.clazz?.code
@@ -695,7 +691,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter05Step01(data: Encounter) {
-
         assertEquals(
             expected = "AMB",
             actual = data.clazz?.code
@@ -951,7 +946,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter06Step01(data: Encounter) {
-
         assertEquals(
             expected = "Account/example",
             actual = data.account?.get(0)?.reference
@@ -1306,7 +1300,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter07Step01(data: Encounter) {
-
         assertEquals(
             expected = "AMB",
             actual = data.clazz?.code
@@ -1426,7 +1419,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter08Step01(data: Encounter) {
-
         assertEquals(
             expected = "AMB",
             actual = data.clazz?.code
@@ -1657,7 +1649,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter09Step01(data: Encounter) {
-
         assertEquals(
             expected = "EMER",
             actual = data.classHistory?.get(0)?.clazz?.code
@@ -1986,7 +1977,6 @@ class EncounterFhirTest {
     }
 
     private fun assertEncounter10Step01(data: Encounter) {
-
         assertEquals(
             expected = "AMB",
             actual = data.clazz?.code

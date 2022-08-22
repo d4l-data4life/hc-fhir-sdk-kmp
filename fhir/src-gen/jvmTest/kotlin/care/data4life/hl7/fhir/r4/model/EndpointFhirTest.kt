@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ContactPointUse
 import care.data4life.hl7.fhir.r4.codesystem.EndpointStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * EndpointTest.java
@@ -61,7 +61,6 @@ class EndpointFhirTest {
     }
 
     private fun assertEndpoint01Step01(data: Endpoint) {
-
         assertEquals(
             expected = "https://pacs.hospital.org/IHEInvokeImageDisplay",
             actual = data.address
@@ -146,7 +145,6 @@ class EndpointFhirTest {
     }
 
     private fun assertEndpoint02Step01(data: Endpoint) {
-
         assertEquals(
             expected = "mailto:MARTIN.SMIETANKA@directnppes.com",
             actual = data.address
@@ -237,7 +235,6 @@ class EndpointFhirTest {
     }
 
     private fun assertEndpoint03Step01(data: Endpoint) {
-
         assertEquals(
             expected = "https://pacs.hospital.org/wado-rs",
             actual = data.address
@@ -328,7 +325,6 @@ class EndpointFhirTest {
     }
 
     private fun assertEndpoint04Step01(data: Endpoint) {
-
         assertEquals(
             expected = "http://fhir3.healthintersections.com.au/open/CarePlan",
             actual = data.address

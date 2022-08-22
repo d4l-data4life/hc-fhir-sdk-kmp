@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.ListMode
 import care.data4life.hl7.fhir.stu3.codesystem.ListStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ListTest.java
@@ -58,7 +58,6 @@ class ListFhirTest {
     }
 
     private fun assertList01Step01(data: List) {
-
         assertEquals(
             expected = "182836005",
             actual = data.code?.coding?.get(0)?.code
@@ -188,7 +187,6 @@ class ListFhirTest {
     }
 
     private fun assertList02Step01(data: List) {
-
         assertEquals(
             expected = "8670-2",
             actual = data.code?.coding?.get(0)?.code
@@ -380,7 +378,6 @@ class ListFhirTest {
     }
 
     private fun assertList03Step01(data: List) {
-
         assertEquals(
             expected = "346638",
             actual = data.code?.coding?.get(0)?.code
@@ -445,7 +442,6 @@ class ListFhirTest {
     }
 
     private fun assertList04Step01(data: List) {
-
         assertEquals(
             expected = "182836005",
             actual = data.code?.coding?.get(0)?.code
@@ -546,7 +542,6 @@ class ListFhirTest {
     }
 
     private fun assertList05Step01(data: List) {
-
         assertEquals(
             expected = "8670-2",
             actual = data.code?.coding?.get(0)?.code
@@ -726,7 +721,6 @@ class ListFhirTest {
     }
 
     private fun assertList06Step01(data: List) {
-
         assertEquals(
             expected = "8670-2",
             actual = data.code?.coding?.get(0)?.code
@@ -828,7 +822,6 @@ class ListFhirTest {
     }
 
     private fun assertList07Step01(data: List) {
-
         assertEquals(
             expected = "2012-11-25T22:17:00+11:00",
             actual = data.date?.value.toString()
@@ -939,7 +932,6 @@ class ListFhirTest {
     }
 
     private fun assertList08Step01(data: List) {
-
         assertEquals(
             expected = "52472-8",
             actual = data.code?.coding?.get(0)?.code
@@ -1046,7 +1038,6 @@ class ListFhirTest {
     }
 
     private fun assertList09Step01(data: List) {
-
         assertEquals(
             expected = "80738-8",
             actual = data.code?.coding?.get(0)?.code

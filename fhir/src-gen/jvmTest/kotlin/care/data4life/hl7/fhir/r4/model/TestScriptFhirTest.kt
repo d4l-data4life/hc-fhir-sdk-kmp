@@ -26,9 +26,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.TestScriptRequestMethodCode
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * TestScriptTest.java
@@ -65,7 +65,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript01Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -626,7 +625,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript01Step02(data: TestScript) {
-
         assertEquals(
             expected = "Confirm that the returned resource type is Patient.",
             actual = data.test?.get(1)?.action?.get(4)?.assert?.description
@@ -735,7 +733,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript02Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -1310,7 +1307,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript02Step02(data: TestScript) {
-
         assertEquals(
             expected = "history",
             actual = data.test?.get(0)?.action?.get(4)?.assert?.value
@@ -1395,7 +1391,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript03Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -1956,7 +1951,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript04Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -2527,7 +2521,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript04Step02(data: TestScript) {
-
         assertEquals(
             expected = "Bundle",
             actual = data.test?.get(1)?.action?.get(3)?.assert?.resource
@@ -2729,7 +2722,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript05Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name
@@ -3303,7 +3295,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript05Step02(data: TestScript) {
-
         assertEquals(
             expected = AssertionDirectionType.RESPONSE,
             actual = data.test?.get(0)?.action?.get(2)?.assert?.direction
@@ -3598,7 +3589,6 @@ class TestScriptFhirTest {
     }
 
     private fun assertTestScript06Step01(data: TestScript) {
-
         assertEquals(
             expected = "Support",
             actual = data.contact?.get(0)?.name

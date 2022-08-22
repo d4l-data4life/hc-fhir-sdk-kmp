@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.RequestPriority
 import care.data4life.hl7.fhir.r4.codesystem.TaskStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * TaskTest.java
@@ -57,7 +57,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask01Step01(data: Task) {
-
         assertEquals(
             expected = "2016-10-31T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -325,7 +324,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask02Step01(data: Task) {
-
         assertEquals(
             expected = "2018-10-12T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -494,7 +492,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask03Step01(data: Task) {
-
         assertEquals(
             expected = "2016-10-31T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -751,7 +748,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask04Step01(data: Task) {
-
         assertEquals(
             expected = "2018-10-04T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -968,7 +964,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask05Step01(data: Task) {
-
         assertEquals(
             expected = "2016-03-10T22:39:32-04:00",
             actual = data.authoredOn?.value.toString()
@@ -1069,7 +1064,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask06Step01(data: Task) {
-
         assertEquals(
             expected = "2018-10-04T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -1245,7 +1239,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask07Step01(data: Task) {
-
         assertEquals(
             expected = "2016-10-31T08:45:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -1472,7 +1465,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask08Step01(data: Task) {
-
         assertEquals(
             expected = "2018-10-04T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -1637,7 +1629,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask09Step01(data: Task) {
-
         assertEquals(
             expected = "2018-10-04T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()
@@ -1778,7 +1769,6 @@ class TaskFhirTest {
     }
 
     private fun assertTask10Step01(data: Task) {
-
         assertEquals(
             expected = "2016-10-31T08:25:05+10:00",
             actual = data.authoredOn?.value.toString()

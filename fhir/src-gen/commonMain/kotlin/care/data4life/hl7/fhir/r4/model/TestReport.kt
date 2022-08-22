@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.TestReportResult
 import care.data4life.hl7.fhir.r4.codesystem.TestReportStatus
 import care.data4life.hl7.fhir.r4.primitive.DateTime
 import care.data4life.hl7.fhir.r4.primitive.Decimal
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirTestReport

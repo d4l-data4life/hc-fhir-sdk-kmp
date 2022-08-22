@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.DigitalMediaType
 import care.data4life.hl7.fhir.stu3.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MediaTest.java
@@ -56,7 +56,6 @@ class MediaFhirTest {
     }
 
     private fun assertMedia01Step01(data: Media) {
-
         assertEquals(
             expected = "image/gif",
             actual = data.content?.contentType
@@ -161,7 +160,6 @@ class MediaFhirTest {
     }
 
     private fun assertMedia02Step01(data: Media) {
-
         assertEquals(
             expected = "application/dicom",
             actual = data.content?.contentType
@@ -345,7 +343,6 @@ class MediaFhirTest {
     }
 
     private fun assertMedia03Step01(data: Media) {
-
         assertEquals(
             expected = "XYZ Medical Clinic",
             actual = data.basedOn?.get(0)?.identifier?.assigner?.display
@@ -492,7 +489,6 @@ class MediaFhirTest {
     }
 
     private fun assertMedia04Step01(data: Media) {
-
         assertEquals(
             expected = "audio/mpeg",
             actual = data.content?.contentType

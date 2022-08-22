@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.NameUse
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * PersonTest.java
@@ -63,7 +63,6 @@ class PersonFhirTest {
     }
 
     private fun assertPerson01Step01(data: Person) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -173,7 +172,6 @@ class PersonFhirTest {
     }
 
     private fun assertPerson02Step01(data: Person) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value

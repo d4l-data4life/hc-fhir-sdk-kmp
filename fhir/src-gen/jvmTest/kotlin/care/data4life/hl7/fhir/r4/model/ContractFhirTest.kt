@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.ContractResourceStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ContractTest.java
@@ -58,7 +58,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract01Step01(data: Contract) {
-
         assertEquals(
             expected = "Michigan Health",
             actual = data.authority?.get(0)?.display
@@ -227,7 +226,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract02Step01(data: Contract) {
-
         assertEquals(
             expected = "2017-01-01",
             actual = data.applies?.start?.value.toString()
@@ -485,7 +483,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract03Step01(data: Contract) {
-
         assertEquals(
             expected = "2013-11-01T21:18:27-04:00",
             actual = data.applies?.start?.value.toString()
@@ -822,7 +819,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract04Step01(data: Contract) {
-
         assertEquals(
             expected = "Michigan Health",
             actual = data.authority?.get(0)?.display
@@ -1021,7 +1017,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract05Step01(data: Contract) {
-
         assertEquals(
             expected = "Michigan Health",
             actual = data.authority?.get(0)?.display
@@ -1231,7 +1226,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract06Step01(data: Contract) {
-
         assertEquals(
             expected = "Michigan Health",
             actual = data.authority?.get(0)?.display
@@ -1400,7 +1394,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract07Step01(data: Contract) {
-
         assertEquals(
             expected = "C-123",
             actual = data.id
@@ -1581,7 +1574,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract08Step01(data: Contract) {
-
         assertEquals(
             expected = "Michigan Health",
             actual = data.authority?.get(0)?.display

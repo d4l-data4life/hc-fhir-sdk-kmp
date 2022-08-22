@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MedicinalProductUndesirableEffectTest.java
@@ -56,7 +56,6 @@ class MedicinalProductUndesirableEffectFhirTest {
     }
 
     private fun assertMedicinalProductUndesirableEffect01Step01(data: MedicinalProductUndesirableEffect) {
-
         assertEquals(
             expected = "Bloodandlymphaticsystemdisorders",
             actual = data.classification?.coding?.get(0)?.code

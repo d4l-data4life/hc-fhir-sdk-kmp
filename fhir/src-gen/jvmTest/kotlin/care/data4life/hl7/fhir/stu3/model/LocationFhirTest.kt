@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.LocationMode
 import care.data4life.hl7.fhir.stu3.codesystem.LocationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * LocationTest.java
@@ -62,7 +62,6 @@ class LocationFhirTest {
     }
 
     private fun assertLocation01Step01(data: Location) {
-
         assertEquals(
             expected = "Den Burg",
             actual = data.address?.city
@@ -285,7 +284,6 @@ class LocationFhirTest {
     }
 
     private fun assertLocation02Step01(data: Location) {
-
         assertEquals(
             expected = "South Wing OR 5",
             actual = data.alias?.get(0)
@@ -440,7 +438,6 @@ class LocationFhirTest {
     }
 
     private fun assertLocation03Step01(data: Location) {
-
         assertEquals(
             expected = "Ambulance provided by Burgers University Medical Center",
             actual = data.description
@@ -558,7 +555,6 @@ class LocationFhirTest {
     }
 
     private fun assertLocation04Step01(data: Location) {
-
         assertEquals(
             expected = "All Pharmacies in the United Kingdom covered by the National Pharmacy Association",
             actual = data.description
@@ -654,7 +650,6 @@ class LocationFhirTest {
     }
 
     private fun assertLocation05Step01(data: Location) {
-
         assertEquals(
             expected = "Patient's Home",
             actual = data.description
@@ -756,7 +751,6 @@ class LocationFhirTest {
     }
 
     private fun assertLocation06Step01(data: Location) {
-
         assertEquals(
             expected = "Ann Arbor",
             actual = data.address?.city

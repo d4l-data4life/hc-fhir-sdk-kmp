@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ResearchDefinitionTest.java
@@ -59,7 +59,6 @@ class ResearchDefinitionFhirTest {
     }
 
     private fun assertResearchDefinition01Step01(data: ResearchDefinition) {
-
         assertEquals(
             expected = "example",
             actual = data.id

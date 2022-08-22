@@ -20,12 +20,12 @@ import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirStu3
 import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
 import care.data4life.hl7.fhir.stu3.test.data.FhirUnsignedIntegerTestObject
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore
 import org.junit.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 class UnsignedIntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 

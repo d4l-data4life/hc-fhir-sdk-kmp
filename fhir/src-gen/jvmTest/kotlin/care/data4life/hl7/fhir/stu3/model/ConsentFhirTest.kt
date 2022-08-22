@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.ConsentExceptType
 import care.data4life.hl7.fhir.stu3.codesystem.ConsentState
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ConsentTest.java
@@ -61,7 +61,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent01Step01(data: Consent) {
-
         assertEquals(
             expected = "2015-11-18",
             actual = data.dateTime?.value.toString()
@@ -155,7 +154,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent02Step01(data: Consent) {
-
         assertEquals(
             expected = "RelatedPerson/peter",
             actual = data.consentingParty?.get(0)?.reference
@@ -260,7 +258,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent03Step01(data: Consent) {
-
         assertEquals(
             expected = "2015-11-18",
             actual = data.dateTime?.value.toString()
@@ -367,7 +364,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent04Step01(data: Consent) {
-
         assertEquals(
             expected = "2015-11-18",
             actual = data.dateTime?.value.toString()
@@ -460,7 +456,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent05Step01(data: Consent) {
-
         assertEquals(
             expected = "Practitioner/13",
             actual = data.actor?.get(0)?.reference?.reference
@@ -637,7 +632,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent06Step01(data: Consent) {
-
         assertEquals(
             expected = "2015-11-18",
             actual = data.dateTime?.value.toString()
@@ -768,7 +762,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent07Step01(data: Consent) {
-
         assertEquals(
             expected = "2015-11-18",
             actual = data.dateTime?.value.toString()
@@ -911,7 +904,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent08Step01(data: Consent) {
-
         assertEquals(
             expected = "2015-11-18",
             actual = data.dateTime?.value.toString()
@@ -1042,7 +1034,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent09Step01(data: Consent) {
-
         assertEquals(
             expected = "2016-06-16",
             actual = data.dateTime?.value.toString()
@@ -1644,7 +1635,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent10Step01(data: Consent) {
-
         assertEquals(
             expected = "2016-05-11",
             actual = data.dateTime?.value.toString()

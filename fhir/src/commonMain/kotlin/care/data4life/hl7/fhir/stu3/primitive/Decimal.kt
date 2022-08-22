@@ -18,6 +18,7 @@ package care.data4life.hl7.fhir.stu3.primitive
 
 import care.data4life.hl7.fhir.stu3.model.Extension
 import care.data4life.hl7.fhir.stu3.model.FhirElement
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -25,7 +26,6 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.descriptors.buildClassSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
-import kotlin.jvm.JvmStatic
 
 interface FhirDecimal : FhirElement {
     val value: kotlin.Double

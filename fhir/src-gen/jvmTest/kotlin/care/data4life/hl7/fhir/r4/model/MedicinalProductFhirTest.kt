@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MedicinalProductTest.java
@@ -54,7 +54,6 @@ class MedicinalProductFhirTest {
     }
 
     private fun assertMedicinalProduct01Step01(data: MedicinalProduct) {
-
         assertEquals(
             expected = "DocumentReference/example",
             actual = data.attachedDocument?.get(0)?.reference

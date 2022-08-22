@@ -17,11 +17,11 @@
 package care.data4life.hl7.fhir.r4.primitive
 
 import care.data4life.hl7.fhir.r4.model.Extension
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class BooleanTest(
@@ -29,7 +29,7 @@ class BooleanTest(
     private var id: String?,
     private var extension: List<Extension>?,
 
-    private var shouldFail: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean
 ) {
 
     @Test
@@ -55,7 +55,7 @@ class BooleanTest(
             return arrayListOf(
                 // just value
                 arrayOf(true, null, null, false),
-                arrayOf(false, null, null, false),
+                arrayOf(false, null, null, false)
             )
         }
     }

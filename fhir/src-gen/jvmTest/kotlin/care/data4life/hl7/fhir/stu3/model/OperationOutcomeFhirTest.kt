@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.IssueSeverity
 import care.data4life.hl7.fhir.stu3.codesystem.IssueType
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * OperationOutcomeTest.java
@@ -58,7 +58,6 @@ class OperationOutcomeFhirTest {
     }
 
     private fun assertOperationOutcome01Step01(data: OperationOutcome) {
-
         assertEquals(
             expected = "validationfail",
             actual = data.id
@@ -118,7 +117,6 @@ class OperationOutcomeFhirTest {
     }
 
     private fun assertOperationOutcome02Step01(data: OperationOutcome) {
-
         assertEquals(
             expected = "break-the-glass",
             actual = data.id
@@ -184,7 +182,6 @@ class OperationOutcomeFhirTest {
     }
 
     private fun assertOperationOutcome03Step01(data: OperationOutcome) {
-
         assertEquals(
             expected = "searchfail",
             actual = data.id
@@ -238,7 +235,6 @@ class OperationOutcomeFhirTest {
     }
 
     private fun assertOperationOutcome04Step01(data: OperationOutcome) {
-
         assertEquals(
             expected = "exception",
             actual = data.id
@@ -286,7 +282,6 @@ class OperationOutcomeFhirTest {
     }
 
     private fun assertOperationOutcome05Step01(data: OperationOutcome) {
-
         assertEquals(
             expected = "101",
             actual = data.id
@@ -352,7 +347,6 @@ class OperationOutcomeFhirTest {
     }
 
     private fun assertOperationOutcome06Step01(data: OperationOutcome) {
-
         assertEquals(
             expected = "allok",
             actual = data.id

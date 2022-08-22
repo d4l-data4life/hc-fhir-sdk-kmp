@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.r4.codesystem.SlicingRules
 import care.data4life.hl7.fhir.r4.codesystem.StructureDefinitionKind
 import care.data4life.hl7.fhir.r4.codesystem.TypeDerivationRule
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * StructureDefinitionTest.java
@@ -63,7 +63,6 @@ class StructureDefinitionFhirTest {
     }
 
     private fun assertStructureDefinition01Step01(data: StructureDefinition) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.abstrakt?.value

@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.DiagnosticReportStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DiagnosticReportTest.java
@@ -60,7 +60,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport01Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "394914008",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -215,7 +214,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport02Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "394914008",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -388,7 +386,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport03Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "47527-7",
             actual = data.code?.coding?.get(0)?.code
@@ -477,7 +474,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport04Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "PAT",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -632,7 +628,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport05Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "ServiceRequest/example-pgx",
             actual = data.basedOn?.get(0)?.reference
@@ -786,7 +781,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport06Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "38269-7",
             actual = data.code?.coding?.get(0)?.code

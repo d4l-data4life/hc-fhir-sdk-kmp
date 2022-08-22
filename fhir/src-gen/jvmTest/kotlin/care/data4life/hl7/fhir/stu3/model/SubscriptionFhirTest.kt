@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.SubscriptionChannelType
 import care.data4life.hl7.fhir.stu3.codesystem.SubscriptionStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SubscriptionTest.java
@@ -62,7 +62,6 @@ class SubscriptionFhirTest {
     }
 
     private fun assertSubscription01Step01(data: Subscription) {
-
         assertEquals(
             expected = "https://biliwatch.com/customers/mount-auburn-miu/on-result",
             actual = data.channel?.endpoint
@@ -174,7 +173,6 @@ class SubscriptionFhirTest {
     }
 
     private fun assertSubscription02Step01(data: Subscription) {
-
         assertEquals(
             expected = "https://biliwatch.com/customers/mount-auburn-miu/on-result",
             actual = data.channel?.endpoint

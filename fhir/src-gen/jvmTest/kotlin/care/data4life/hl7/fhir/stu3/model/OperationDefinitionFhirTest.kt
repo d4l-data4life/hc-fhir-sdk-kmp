@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.OperationParameterUse
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * OperationDefinitionTest.java
@@ -62,7 +62,6 @@ class OperationDefinitionFhirTest {
     }
 
     private fun assertOperationDefinition01Step01(data: OperationDefinition) {
-
         assertEquals(
             expected = "OperationDefinition/Questionnaire-populate",
             actual = data.base?.reference

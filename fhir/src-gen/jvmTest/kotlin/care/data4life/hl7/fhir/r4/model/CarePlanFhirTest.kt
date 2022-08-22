@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.r4.codesystem.RequestIntent
 import care.data4life.hl7.fhir.r4.codesystem.RequestStatus
 import care.data4life.hl7.fhir.r4.codesystem.ResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CarePlanTest.java
@@ -63,7 +63,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan01Step01(data: CarePlan) {
-
         assertEquals(
             expected = "359615001",
             actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
@@ -249,7 +248,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan02Step01(data: CarePlan) {
-
         assertEquals(
             expected = "367336001",
             actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
@@ -432,7 +430,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan03Step01(data: CarePlan) {
-
         assertEquals(
             expected = "obesity-narrative",
             actual = data.id
@@ -504,7 +501,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan04Step01(data: CarePlan) {
-
         assertEquals(
             expected = "3141-9",
             actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
@@ -792,7 +788,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan05Step01(data: CarePlan) {
-
         assertEquals(
             expected = "284093001",
             actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
@@ -1017,7 +1012,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan06Step01(data: CarePlan) {
-
         assertEquals(
             expected = "nursecon",
             actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
@@ -1243,7 +1237,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan07Step01(data: CarePlan) {
-
         assertEquals(
             expected = "Eve will review photos of high and low density foods and share with her parents",
             actual = data.activity?.get(0)?.detail?.description
@@ -1794,7 +1787,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan07Step02(data: CarePlan) {
-
         assertEquals(
             expected = "p2",
             actual = data.contained?.get(1)?.id
@@ -1944,7 +1936,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan08Step01(data: CarePlan) {
-
         assertEquals(
             expected = "172960003",
             actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
@@ -2130,7 +2121,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan09Step01(data: CarePlan) {
-
         assertEquals(
             expected = "64915003",
             actual = data.activity?.get(0)?.detail?.code?.coding?.get(0)?.code
@@ -2316,7 +2306,6 @@ class CarePlanFhirTest {
     }
 
     private fun assertCarePlan10Step01(data: CarePlan) {
-
         assertEquals(
             expected = "Prenatal vitamin MedicationRequest",
             actual = data.activity?.get(0)?.reference?.display

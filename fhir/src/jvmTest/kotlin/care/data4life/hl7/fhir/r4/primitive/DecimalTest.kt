@@ -17,11 +17,11 @@
 package care.data4life.hl7.fhir.r4.primitive
 
 import care.data4life.hl7.fhir.r4.model.Extension
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class DecimalTest(
@@ -29,7 +29,7 @@ class DecimalTest(
     private var extension: List<Extension>?,
     private var id: String?,
 
-    private var shouldFail: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean
 ) {
 
     @Test
@@ -65,7 +65,7 @@ class DecimalTest(
 
                 // negative
                 arrayOf("-1.0", null, null, false),
-                arrayOf("-123.456", null, null, false),
+                arrayOf("-123.456", null, null, false)
                 // arrayOf("-456", null, null, false), //FIXME not supported by Double
                 // arrayOf("-7.0100100", null, null, false), //FIXME not supported by Double
             )
