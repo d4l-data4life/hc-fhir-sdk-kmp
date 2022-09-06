@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.codesystem.AdministrativeGender
 import care.data4life.hl7.fhir.r4.primitive.Bool
 import care.data4life.hl7.fhir.r4.primitive.Date
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirRelatedPerson

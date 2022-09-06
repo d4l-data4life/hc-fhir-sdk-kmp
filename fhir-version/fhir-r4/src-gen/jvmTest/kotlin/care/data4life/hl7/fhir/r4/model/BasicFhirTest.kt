@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * BasicTest.java
@@ -58,7 +58,6 @@ class BasicFhirTest {
     }
 
     private fun assertBasic01Step01(data: Basic) {
-
         assertEquals(
             expected = "UMLCLASSMODEL",
             actual = data.code?.coding?.get(0)?.code
@@ -219,7 +218,6 @@ class BasicFhirTest {
     }
 
     private fun assertBasic02Step01(data: Basic) {
-
         assertEquals(
             expected = "Example Narrative Tester",
             actual = data.code?.text
@@ -275,7 +273,6 @@ class BasicFhirTest {
     }
 
     private fun assertBasic03Step01(data: Basic) {
-
         assertEquals(
             expected = "Practitioner/example",
             actual = data.author?.reference

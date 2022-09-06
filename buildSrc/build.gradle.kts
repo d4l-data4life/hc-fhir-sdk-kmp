@@ -34,14 +34,14 @@ dependencies {
     implementation(care.data4life.gradle.fhir.dependency.GradlePlugin.kotlinSerialization)
 
     // dependency-updates.gradle.kts
-    implementation("com.github.ben-manes:gradle-versions-plugin:0.39.0")
+    implementation("com.github.ben-manes:gradle-versions-plugin:0.42.0")
     // download-scripts.gradle.kts
-    implementation("de.undercouch:gradle-download-task:4.1.2")
+    implementation("de.undercouch:gradle-download-task:5.1.1")
     // publishing.gradle.kts
-    implementation("org.eclipse.jgit:org.eclipse.jgit:5.11.0.202103091610-r")
+    implementation("org.eclipse.jgit:org.eclipse.jgit:6.2.0.202206071550-r")
     // quality-spotless.gradle.kts
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:5.14.3")
-    implementation("com.pinterest:ktlint:0.42.1")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.9.0")
+    implementation("com.pinterest:ktlint:0.46.1")
     // versioning.gradle.kts
-    implementation("care.data4life.gradle.gitversion:gradle-git-version:0.12.4-d4l")
+    implementation("com.palantir.gradle.gitversion:gradle-git-version:0.15.0")
 }

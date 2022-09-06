@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ParticipantRequired
 import care.data4life.hl7.fhir.stu3.codesystem.ParticipationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * AppointmentTest.java
@@ -57,7 +57,6 @@ class AppointmentFhirTest {
     }
 
     private fun assertAppointment01Step01(data: Appointment) {
-
         assertEquals(
             expected = "follow",
             actual = data.appointmentType?.coding?.get(0)?.code
@@ -294,7 +293,6 @@ class AppointmentFhirTest {
     }
 
     private fun assertAppointment02Step01(data: Appointment) {
-
         assertEquals(
             expected = "wi",
             actual = data.appointmentType?.coding?.get(0)?.code
@@ -530,7 +528,6 @@ class AppointmentFhirTest {
     }
 
     private fun assertAppointment03Step01(data: Appointment) {
-
         assertEquals(
             expected = "wi",
             actual = data.appointmentType?.coding?.get(0)?.code

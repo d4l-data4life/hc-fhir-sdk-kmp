@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ScheduleTest.java
@@ -55,7 +55,6 @@ class ScheduleFhirTest {
     }
 
     private fun assertSchedule01Step01(data: Schedule) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -203,7 +202,6 @@ class ScheduleFhirTest {
     }
 
     private fun assertSchedule02Step01(data: Schedule) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -339,7 +337,6 @@ class ScheduleFhirTest {
     }
 
     private fun assertSchedule03Step01(data: Schedule) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value

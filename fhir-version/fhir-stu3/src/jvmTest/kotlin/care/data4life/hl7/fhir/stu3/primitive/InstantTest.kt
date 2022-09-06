@@ -21,11 +21,11 @@ import care.data4life.hl7.fhir.common.datetime.XsDateTime
 import care.data4life.hl7.fhir.common.datetime.XsTime
 import care.data4life.hl7.fhir.common.datetime.XsTimeZone
 import care.data4life.hl7.fhir.stu3.model.Extension
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class InstantTest(
@@ -33,7 +33,7 @@ class InstantTest(
     private var id: String?,
     private var extension: List<Extension>?,
 
-    private var shouldFail: kotlin.Boolean,
+    private var shouldFail: kotlin.Boolean
 ) {
 
     @Test
@@ -45,12 +45,13 @@ class InstantTest(
                         XsDate(
                             values["year"] as Int,
                             values["month"] as Int?,
-                            values["day"] as Int?,
+                            values["day"] as Int?
                         ),
                         values["time"] as XsTime?,
-                        values["timezone"] as XsTimeZone?,
+                        values["timezone"] as XsTimeZone?
                     ),
-                    id, extension
+                    id,
+                    extension
                 )
             }
             return
@@ -61,12 +62,13 @@ class InstantTest(
                 XsDate(
                     values["year"] as Int,
                     values["month"] as Int?,
-                    values["day"] as Int?,
+                    values["day"] as Int?
                 ),
                 values["time"] as XsTime?,
-                values["timezone"] as XsTimeZone?,
+                values["timezone"] as XsTimeZone?
             ),
-            id, extension
+            id,
+            extension
         )
 
         assertEquals(values["year"], result.value.date.year)
@@ -87,37 +89,53 @@ class InstantTest(
                 // valid
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 1, "day" to 31,
+                        "year" to 2021,
+                        "month" to 1,
+                        "day" to 31,
                         "time" to XsTime(21, 32, 52),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
                     ),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 1, "day" to 31,
+                        "year" to 2021,
+                        "month" to 1,
+                        "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(zeroOffsetGMT = false)
                     ),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
 
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 1, "day" to 31,
+                        "year" to 2021,
+                        "month" to 1,
+                        "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1, 0, false)
                     ),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
 
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 1, "day" to 31,
+                        "year" to 2021,
+                        "month" to 1,
+                        "day" to 31,
                         "time" to XsTime(21, 32, 52, .1234567),
                         "timezone" to XsTimeZone(1)
                     ),
-                    null, null, false
+                    null,
+                    null,
+                    false
                 ),
 
                 // fails
@@ -125,42 +143,62 @@ class InstantTest(
                 // date incomplete
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to null, "day" to 12
+                        "year" to 2021,
+                        "month" to null,
+                        "day" to 12
                     ),
-                    null, null, true
+                    null,
+                    null,
+                    true
                 ),
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 5, "day" to null
+                        "year" to 2021,
+                        "month" to 5,
+                        "day" to null
                     ),
-                    null, null, true
+                    null,
+                    null,
+                    true
                 ),
 
                 // time not set
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 5, "day" to 12
+                        "year" to 2021,
+                        "month" to 5,
+                        "day" to 12
                     ),
-                    null, null, true
+                    null,
+                    null,
+                    true
                 ),
                 // time incomplete
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 5, "day" to 12,
-                        "time" to XsTime(21, 32, null),
+                        "year" to 2021,
+                        "month" to 5,
+                        "day" to 12,
+                        "time" to XsTime(21, 32, null)
                     ),
-                    null, null, true
+                    null,
+                    null,
+                    true
                 ),
 
                 // timezone missing
                 arrayOf(
                     mapOf(
-                        "year" to 2021, "month" to 1, "day" to 31,
+                        "year" to 2021,
+                        "month" to 1,
+                        "day" to 31,
                         "time" to XsTime(21, 32, 52),
                         "timezone" to null
                     ),
-                    null, null, true
-                ),
+                    null,
+                    null,
+                    true
+                )
             )
         }
     }

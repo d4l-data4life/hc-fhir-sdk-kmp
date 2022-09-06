@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.FilterOperator
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ValueSetTest.java
@@ -59,7 +59,6 @@ class ValueSetFhirTest {
     }
 
     private fun assertValueSet01Step01(data: ValueSet) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.compose?.inactive?.value
@@ -247,7 +246,6 @@ class ValueSetFhirTest {
     }
 
     private fun assertValueSet02Step01(data: ValueSet) {
-
         assertEquals(
             expected = FilterOperator.EQUAL,
             actual = data.compose?.include?.get(0)?.filter?.get(0)?.op
@@ -629,7 +627,6 @@ class ValueSetFhirTest {
     }
 
     private fun assertValueSet03Step01(data: ValueSet) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.compose?.inactive?.value
@@ -824,7 +821,6 @@ class ValueSetFhirTest {
     }
 
     private fun assertValueSet04Step01(data: ValueSet) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/ValueSet/v2-0136",
             actual = data.compose?.include?.get(0)?.valueSet?.get(0)
@@ -968,7 +964,6 @@ class ValueSetFhirTest {
     }
 
     private fun assertValueSet05Step01(data: ValueSet) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/list-example-use-codes",
             actual = data.compose?.include?.get(0)?.system
@@ -1125,7 +1120,6 @@ class ValueSetFhirTest {
     }
 
     private fun assertValueSet06Step01(data: ValueSet) {
-
         assertEquals(
             expected = "5932-9",
             actual = data.compose?.exclude?.get(0)?.concept?.get(0)?.code

@@ -33,9 +33,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.RestfulCapabilityMode
 import care.data4life.hl7.fhir.stu3.codesystem.SearchParamType
 import care.data4life.hl7.fhir.stu3.codesystem.UnknownContentCode
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CapabilityStatementTest.java
@@ -72,7 +72,6 @@ class CapabilityStatementFhirTest {
     }
 
     private fun assertCapabilityStatement01Step01(data: CapabilityStatement) {
-
         assertEquals(
             expected = UnknownContentCode.BOTH,
             actual = data.acceptUnknown
@@ -606,7 +605,6 @@ class CapabilityStatementFhirTest {
     }
 
     private fun assertCapabilityStatement02Step01(data: CapabilityStatement) {
-
         assertEquals(
             expected = UnknownContentCode.NO,
             actual = data.acceptUnknown

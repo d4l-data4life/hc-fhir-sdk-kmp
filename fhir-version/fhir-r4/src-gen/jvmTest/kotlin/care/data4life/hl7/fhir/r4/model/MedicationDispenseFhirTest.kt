@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.MedicationDispenseStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MedicationDispenseTest.java
@@ -60,7 +60,6 @@ class MedicationDispenseFhirTest {
     }
 
     private fun assertMedicationDispense01Step01(data: MedicationDispense) {
-
         assertEquals(
             expected = "MedicationRequest/medrx0309",
             actual = data.authorizingPrescription?.get(0)?.reference

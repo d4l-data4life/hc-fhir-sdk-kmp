@@ -17,8 +17,8 @@
 package care.data4life.hl7.fhir.stu3.model
 
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
-import org.junit.Test
 import kotlin.test.assertEquals
+import org.junit.Test
 
 /**
  * ClaimResponseTest.java

@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.GoalLifecycleStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * GoalTest.java
@@ -59,7 +59,6 @@ class GoalFhirTest {
     }
 
     private fun assertGoal01Step01(data: Goal) {
-
         assertEquals(
             expected = "obesity condition",
             actual = data.addresses?.get(0)?.display
@@ -289,7 +288,6 @@ class GoalFhirTest {
     }
 
     private fun assertGoal02Step01(data: Goal) {
-
         assertEquals(
             expected = "achieved",
             actual = data.achievementStatus?.coding?.get(0)?.code

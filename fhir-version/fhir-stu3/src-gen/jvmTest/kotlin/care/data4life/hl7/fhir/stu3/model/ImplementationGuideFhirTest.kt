@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ImplementationGuideTest.java
@@ -63,7 +63,6 @@ class ImplementationGuideFhirTest {
     }
 
     private fun assertImplementationGuide01Step01(data: ImplementationGuide) {
-
         assertEquals(
             expected = "http://h7.org/fhir/fhir.css",
             actual = data.binary?.get(0)

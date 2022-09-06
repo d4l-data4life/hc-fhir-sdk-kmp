@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SubstanceSpecificationTest.java
@@ -54,7 +54,6 @@ class SubstanceSpecificationFhirTest {
     }
 
     private fun assertSubstanceSpecification01Step01(data: SubstanceSpecification) {
-
         assertEquals(
             expected = "example",
             actual = data.id
@@ -110,7 +109,6 @@ class SubstanceSpecificationFhirTest {
     }
 
     private fun assertSubstanceSpecification02Step01(data: SubstanceSpecification) {
-
         assertEquals(
             expected = "example",
             actual = data.id
@@ -166,7 +164,6 @@ class SubstanceSpecificationFhirTest {
     }
 
     private fun assertSubstanceSpecification03Step01(data: SubstanceSpecification) {
-
         assertEquals(
             expected = "example",
             actual = data.id
@@ -222,7 +219,6 @@ class SubstanceSpecificationFhirTest {
     }
 
     private fun assertSubstanceSpecification04Step01(data: SubstanceSpecification) {
-
         assertEquals(
             expected = "example",
             actual = data.id
@@ -278,7 +274,6 @@ class SubstanceSpecificationFhirTest {
     }
 
     private fun assertSubstanceSpecification05Step01(data: SubstanceSpecification) {
-
         assertEquals(
             expected = "example",
             actual = data.id
@@ -334,7 +329,6 @@ class SubstanceSpecificationFhirTest {
     }
 
     private fun assertSubstanceSpecification06Step01(data: SubstanceSpecification) {
-
         assertEquals(
             expected = "example",
             actual = data.id

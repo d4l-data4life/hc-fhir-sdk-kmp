@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.primitive.Decimal
 import care.data4life.hl7.fhir.stu3.primitive.Integer
 import care.data4life.hl7.fhir.stu3.primitive.Time
 import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirTiming

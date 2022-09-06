@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.RequestPriority
 import care.data4life.hl7.fhir.stu3.codesystem.RequestStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DeviceRequestTest.java
@@ -59,7 +59,6 @@ class DeviceRequestFhirTest {
     }
 
     private fun assertDeviceRequest01Step01(data: DeviceRequest) {
-
         assertEquals(
             expected = "2013-05-08T09:33:27+07:00",
             actual = data.authoredOn?.value.toString()
@@ -243,7 +242,6 @@ class DeviceRequestFhirTest {
     }
 
     private fun assertDeviceRequest02Step01(data: DeviceRequest) {
-
         assertEquals(
             expected = "Device/example",
             actual = data.codeReference?.reference

@@ -20,12 +20,12 @@ import care.data4life.hl7.fhir.r4.model.Extension
 import care.data4life.hl7.fhir.r4.model.FhirR4
 import care.data4life.hl7.fhir.r4.primitive.Integer
 import care.data4life.hl7.fhir.r4.test.data.FhirIntegerTestObject
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import kotlinx.serialization.modules.subclass
 import org.junit.Ignore
 import org.junit.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 class IntegerJsonParserTest : BaseFhirPrimitiveJsonParserTest() {
 

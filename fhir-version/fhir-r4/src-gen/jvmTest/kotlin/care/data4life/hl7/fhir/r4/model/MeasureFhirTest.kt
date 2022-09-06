@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.RelatedArtifactType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MeasureTest.java
@@ -60,7 +60,6 @@ class MeasureFhirTest {
     }
 
     private fun assertMeasure01Step01(data: Measure) {
-
         assertEquals(
             expected = "Main",
             actual = data.group?.get(0)?.id
@@ -187,7 +186,6 @@ class MeasureFhirTest {
     }
 
     private fun assertMeasure02Step01(data: Measure) {
-
         assertEquals(
             expected = "2014-03-08",
             actual = data.date?.value.toString()
@@ -542,7 +540,6 @@ class MeasureFhirTest {
     }
 
     private fun assertMeasure03Step01(data: Measure) {
-
         assertEquals(
             expected = "2016-01-01",
             actual = data.approvalDate?.value.toString()
@@ -1003,7 +1000,6 @@ class MeasureFhirTest {
     }
 
     private fun assertMeasure04Step01(data: Measure) {
-
         assertEquals(
             expected = "Main",
             actual = data.group?.get(0)?.id
@@ -1130,7 +1126,6 @@ class MeasureFhirTest {
     }
 
     private fun assertMeasure05Step01(data: Measure) {
-
         assertEquals(
             expected = "opportunity",
             actual = data.compositeScoring?.coding?.get(0)?.code

@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PropertyType
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CodeSystemTest.java
@@ -62,7 +62,6 @@ class CodeSystemFhirTest {
     }
 
     private fun assertCodeSystem01Step01(data: CodeSystem) {
-
         assertEquals(
             expected = "chol-mmol",
             actual = data.concept?.get(0)?.code
@@ -229,7 +228,6 @@ class CodeSystemFhirTest {
     }
 
     private fun assertCodeSystem02Step01(data: CodeSystem) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.caseSensitive?.value
@@ -554,7 +552,6 @@ class CodeSystemFhirTest {
     }
 
     private fun assertCodeSystem03Step01(data: CodeSystem) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.caseSensitive?.value
@@ -763,7 +760,6 @@ class CodeSystemFhirTest {
     }
 
     private fun assertCodeSystem04Step01(data: CodeSystem) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.caseSensitive?.value
@@ -909,7 +905,6 @@ class CodeSystemFhirTest {
     }
 
     private fun assertCodeSystem05Step01(data: CodeSystem) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.caseSensitive?.value

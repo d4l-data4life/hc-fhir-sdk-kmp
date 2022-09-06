@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.DeviceMetricColor
 import care.data4life.hl7.fhir.stu3.codesystem.DeviceMetricOperationalStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DeviceMetricTest.java
@@ -61,7 +61,6 @@ class DeviceMetricFhirTest {
     }
 
     private fun assertDeviceMetric01Step01(data: DeviceMetric) {
-
         assertEquals(
             expected = DeviceMetricCalibrationState.CALIBRATED,
             actual = data.calibration?.get(0)?.state

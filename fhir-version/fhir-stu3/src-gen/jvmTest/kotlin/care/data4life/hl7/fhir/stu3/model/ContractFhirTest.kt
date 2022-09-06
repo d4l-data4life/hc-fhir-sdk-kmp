@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.stu3.model
 import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ContractTest.java
@@ -57,7 +57,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract01Step01(data: Contract) {
-
         assertEquals(
             expected = "Canada Infoway",
             actual = data.authority?.get(0)?.display
@@ -208,7 +207,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract02Step01(data: Contract) {
-
         assertEquals(
             expected = "VA Ann Arbor Healthcare System",
             actual = data.agent?.get(0)?.actor?.display
@@ -597,7 +595,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract03Step01(data: Contract) {
-
         assertEquals(
             expected = "Canada Infoway",
             actual = data.authority?.get(0)?.display
@@ -772,7 +769,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract04Step01(data: Contract) {
-
         assertEquals(
             expected = "Patient/f001",
             actual = data.agent?.get(0)?.actor?.reference
@@ -970,7 +966,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract05Step01(data: Contract) {
-
         assertEquals(
             expected = "Canada Infoway",
             actual = data.authority?.get(0)?.display
@@ -1121,7 +1116,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract06Step01(data: Contract) {
-
         assertEquals(
             expected = "C-123",
             actual = data.id
@@ -1171,7 +1165,6 @@ class ContractFhirTest {
     }
 
     private fun assertContract07Step01(data: Contract) {
-
         assertEquals(
             expected = "Canada Infoway",
             actual = data.authority?.get(0)?.display

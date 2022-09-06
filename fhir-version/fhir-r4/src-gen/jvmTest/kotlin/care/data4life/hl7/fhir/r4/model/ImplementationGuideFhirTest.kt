@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.r4.codesystem.ResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ImplementationGuideTest.java
@@ -63,7 +63,6 @@ class ImplementationGuideFhirTest {
     }
 
     private fun assertImplementationGuide01Step01(data: ImplementationGuide) {
-
         assertEquals(
             expected = "ONC",
             actual = data.contact?.get(0)?.name

@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.r4.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.r4.codesystem.NameUse
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * OrganizationTest.java
@@ -63,7 +63,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization01Step01(data: Organization) {
-
         assertEquals(
             expected = "Ann Arbor",
             actual = data.address?.get(0)?.city
@@ -194,7 +193,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization02Step01(data: Organization) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -261,7 +259,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization03Step01(data: Organization) {
-
         assertEquals(
             expected = "1",
             actual = data.id
@@ -361,7 +358,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization04Step01(data: Organization) {
-
         assertEquals(
             expected = "Michigan State Department of Health",
             actual = data.alias?.get(0)
@@ -435,7 +431,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization05Step01(data: Organization) {
-
         assertEquals(
             expected = "1832473e-2fe0-452d-abe9-3cdb9879522f",
             actual = data.id
@@ -535,7 +530,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization06Step01(data: Organization) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -694,7 +688,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization07Step01(data: Organization) {
-
         assertEquals(
             expected = "True".toBoolean(),
             actual = data.active?.value
@@ -946,7 +939,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization08Step01(data: Organization) {
-
         assertEquals(
             expected = "2.16.840.1.113883.19.5",
             actual = data.id
@@ -1014,7 +1006,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization09Step01(data: Organization) {
-
         assertEquals(
             expected = "Den Burg",
             actual = data.address?.get(0)?.city
@@ -1260,7 +1251,6 @@ class OrganizationFhirTest {
     }
 
     private fun assertOrganization10Step01(data: Organization) {
-
         assertEquals(
             expected = "ABC Insurance",
             actual = data.alias?.get(0)

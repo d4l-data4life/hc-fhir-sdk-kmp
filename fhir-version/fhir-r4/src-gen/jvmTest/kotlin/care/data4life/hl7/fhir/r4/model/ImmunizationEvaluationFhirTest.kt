@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.MedicationAdministrationStatusCodes
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ImmunizationEvaluationTest.java
@@ -58,7 +58,6 @@ class ImmunizationEvaluationFhirTest {
     }
 
     private fun assertImmunizationEvaluation01Step01(data: ImmunizationEvaluation) {
-
         assertEquals(
             expected = "Organization/hl7",
             actual = data.authority?.reference
@@ -194,7 +193,6 @@ class ImmunizationEvaluationFhirTest {
     }
 
     private fun assertImmunizationEvaluation02Step01(data: ImmunizationEvaluation) {
-
         assertEquals(
             expected = "Organization/hl7",
             actual = data.authority?.reference

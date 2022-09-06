@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.ConsentProvisionType
 import care.data4life.hl7.fhir.r4.codesystem.ConsentState
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ConsentTest.java
@@ -61,7 +61,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent01Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -192,7 +191,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent02Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -345,7 +343,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent03Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -483,7 +480,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent04Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -613,7 +609,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent05Step01(data: Consent) {
-
         assertEquals(
             expected = "npp",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -826,7 +821,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent06Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -994,7 +988,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent07Step01(data: Consent) {
-
         assertEquals(
             expected = "INFAO",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -1168,7 +1161,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent08Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -1335,7 +1327,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent09Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -1911,7 +1902,6 @@ class ConsentFhirTest {
     }
 
     private fun assertConsent10Step01(data: Consent) {
-
         assertEquals(
             expected = "59284-0",
             actual = data.category?.get(0)?.coding?.get(0)?.code

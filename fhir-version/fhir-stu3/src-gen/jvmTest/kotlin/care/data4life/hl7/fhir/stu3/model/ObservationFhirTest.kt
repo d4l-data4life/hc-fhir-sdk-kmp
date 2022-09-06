@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ObservationRelationshipType
 import care.data4life.hl7.fhir.stu3.codesystem.ObservationStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ObservationTest.java
@@ -58,7 +58,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation01Step01(data: Observation) {
-
         assertEquals(
             expected = "55233-1",
             actual = data.code?.coding?.get(0)?.code
@@ -244,7 +243,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation02Step01(data: Observation) {
-
         assertEquals(
             expected = "71341001:272741003=7771000",
             actual = data.bodySite?.coding?.get(0)?.code
@@ -364,7 +362,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation03Step01(data: Observation) {
-
         assertEquals(
             expected = "vital-signs",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -489,7 +486,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation04Step01(data: Observation) {
-
         assertEquals(
             expected = "vital-signs",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -656,7 +652,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation05Step01(data: Observation) {
-
         assertEquals(
             expected = "55233-1",
             actual = data.code?.coding?.get(0)?.code
@@ -828,7 +823,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation06Step01(data: Observation) {
-
         assertEquals(
             expected = "vital-signs",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -947,7 +941,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation07Step01(data: Observation) {
-
         assertEquals(
             expected = "vital-signs",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -1072,7 +1065,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation08Step01(data: Observation) {
-
         assertEquals(
             expected = "vital-signs",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -1197,7 +1189,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation09Step01(data: Observation) {
-
         assertEquals(
             expected = "eye color",
             actual = data.code?.text
@@ -1257,7 +1248,6 @@ class ObservationFhirTest {
     }
 
     private fun assertObservation10Step01(data: Observation) {
-
         assertEquals(
             expected = "vital-signs",
             actual = data.category?.get(0)?.coding?.get(0)?.code

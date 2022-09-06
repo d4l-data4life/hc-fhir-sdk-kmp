@@ -19,10 +19,10 @@ package care.data4life.hl7.fhir.r4.json
 import care.data4life.hl7.fhir.parser.json.FhirJsonParser
 import care.data4life.hl7.fhir.r4.model.FhirHelper
 import care.data4life.hl7.fhir.r4.model.FhirR4
+import kotlin.reflect.KClass
 import kotlinx.serialization.PolymorphicSerializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
-import kotlin.reflect.KClass
 
 class FhirR4JsonParser(
     private val reader: Json = defaultJsonReader()

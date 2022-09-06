@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.PublicationStatus
 import care.data4life.hl7.fhir.stu3.codesystem.ResourceType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * CompartmentDefinitionTest.java
@@ -60,7 +60,6 @@ class CompartmentDefinitionFhirTest {
     }
 
     private fun assertCompartmentDefinition01Step01(data: CompartmentDefinition) {
-
         assertEquals(
             expected = CompartmentType.DEVICE,
             actual = data.code

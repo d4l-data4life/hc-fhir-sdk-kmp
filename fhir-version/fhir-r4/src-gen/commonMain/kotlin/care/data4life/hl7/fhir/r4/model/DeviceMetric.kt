@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.r4.codesystem.DeviceMetricCategory
 import care.data4life.hl7.fhir.r4.codesystem.DeviceMetricColor
 import care.data4life.hl7.fhir.r4.codesystem.DeviceMetricOperationalStatus
 import care.data4life.hl7.fhir.r4.primitive.Instant
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirDeviceMetric

@@ -16,11 +16,11 @@
 
 package care.data4life.hl7.fhir.common.datetime
 
+import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
-import kotlin.test.assertFails
 
 @RunWith(value = Parameterized::class)
 class XsDateTest(
@@ -79,7 +79,7 @@ class XsDateTest(
                 // day
                 arrayOf(2020, 1, 0, "", true),
                 arrayOf(2020, 1, -1, "", true),
-                arrayOf(2020, 1, 32, "", true),
+                arrayOf(2020, 1, 32, "", true)
             )
         }
     }

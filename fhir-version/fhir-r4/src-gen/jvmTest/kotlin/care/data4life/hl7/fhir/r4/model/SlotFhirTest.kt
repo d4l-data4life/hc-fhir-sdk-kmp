@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.SlotStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SlotTest.java
@@ -55,7 +55,6 @@ class SlotFhirTest {
     }
 
     private fun assertSlot01Step01(data: Slot) {
-
         assertEquals(
             expected = "Assessments should be performed before requesting appointments in this slot.",
             actual = data.comment
@@ -161,7 +160,6 @@ class SlotFhirTest {
     }
 
     private fun assertSlot02Step01(data: Slot) {
-
         assertEquals(
             expected = "WALKIN",
             actual = data.appointmentType?.coding?.get(0)?.code
@@ -292,7 +290,6 @@ class SlotFhirTest {
     }
 
     private fun assertSlot03Step01(data: Slot) {
-
         assertEquals(
             expected = "Dr Careful is out of the office",
             actual = data.comment
@@ -381,7 +378,6 @@ class SlotFhirTest {
     }
 
     private fun assertSlot04Step01(data: Slot) {
-
         assertEquals(
             expected = "Dr Careful is out of the office",
             actual = data.comment

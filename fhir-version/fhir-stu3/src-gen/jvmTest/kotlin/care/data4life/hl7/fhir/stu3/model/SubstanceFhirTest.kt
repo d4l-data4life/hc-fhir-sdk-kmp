@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.FHIRSubstanceStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SubstanceTest.java
@@ -55,7 +55,6 @@ class SubstanceFhirTest {
     }
 
     private fun assertSubstance01Step01(data: Substance) {
-
         assertEquals(
             expected = "chemical",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -181,7 +180,6 @@ class SubstanceFhirTest {
     }
 
     private fun assertSubstance02Step01(data: Substance) {
-
         assertEquals(
             expected = "drug",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -371,7 +369,6 @@ class SubstanceFhirTest {
     }
 
     private fun assertSubstance03Step01(data: Substance) {
-
         assertEquals(
             expected = "chemical",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -451,7 +448,6 @@ class SubstanceFhirTest {
     }
 
     private fun assertSubstance04Step01(data: Substance) {
-
         assertEquals(
             expected = "406466009",
             actual = data.code?.coding?.get(0)?.code
@@ -501,7 +497,6 @@ class SubstanceFhirTest {
     }
 
     private fun assertSubstance05Step01(data: Substance) {
-
         assertEquals(
             expected = "allergen",
             actual = data.category?.get(0)?.coding?.get(0)?.code
@@ -574,7 +569,6 @@ class SubstanceFhirTest {
     }
 
     private fun assertSubstance06Step01(data: Substance) {
-
         assertEquals(
             expected = "3092008",
             actual = data.code?.coding?.get(0)?.code

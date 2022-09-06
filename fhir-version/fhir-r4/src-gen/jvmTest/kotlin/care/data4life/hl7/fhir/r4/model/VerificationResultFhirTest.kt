@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.Status
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * VerificationResultTest.java
@@ -55,7 +55,6 @@ class VerificationResultFhirTest {
     }
 
     private fun assertVerificationResult01Step01(data: VerificationResult) {
-
         assertEquals(
             expected = "example",
             actual = data.id

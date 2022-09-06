@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.QuestionnaireResponseStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * QuestionnaireResponseTest.java
@@ -58,7 +58,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse01Step01(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "#questauth",
             actual = data.author?.reference
@@ -255,7 +254,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse02Step01(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "2008-01-17",
             actual = data.authored?.value.toString()
@@ -851,7 +849,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse02Step02(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "LA32-8",
             actual = data.item?.get(2)?.item?.get(0)?.item?.get(0)?.item?.get(4)?.answer?.get(0)?.valueCoding?.code
@@ -1452,7 +1449,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse02Step03(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "LA32-8",
             actual = data.item?.get(2)?.item?.get(2)?.item?.get(0)?.item?.get(5)?.answer?.get(0)?.valueCoding?.code
@@ -2053,7 +2049,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse02Step04(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "2.1.1",
             actual = data.item?.get(2)?.item?.get(4)?.item?.get(0)?.linkId
@@ -2654,7 +2649,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse02Step05(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "57".toDouble(),
             actual = data.item?.get(2)?.item?.get(7)?.item?.get(0)?.item?.get(3)?.answer?.get(0)?.item?.get(0)?.item?.get(0)?.answer?.get(0)?.valueDecimal?.value
@@ -3256,7 +3250,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse02Step06(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "http://loinc.org/fhir/DataElement/54138-3",
             actual = data.item?.get(2)?.item?.get(9)?.item?.get(0)?.item?.get(1)?.definition
@@ -3587,7 +3580,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse03Step01(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "Practitioner/f201",
             actual = data.author?.reference
@@ -3808,7 +3800,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse04Step01(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "http://hl7.org/fhir/Practitioner/example",
             actual = data.author?.reference
@@ -4072,7 +4063,6 @@ class QuestionnaireResponseFhirTest {
     }
 
     private fun assertQuestionnaireResponse05Step01(data: QuestionnaireResponse) {
-
         assertEquals(
             expected = "2014-12-11T04:44:16Z",
             actual = data.authored?.value.toString()

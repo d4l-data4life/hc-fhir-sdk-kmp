@@ -102,7 +102,6 @@ object XsDateTimeFormatter {
         fractionOfSecond: Double?,
         timeZone: XsTimeZone?
     ): String {
-
         var fidx = 0
         val flen = format.length
         val buffer = StringBuilder()

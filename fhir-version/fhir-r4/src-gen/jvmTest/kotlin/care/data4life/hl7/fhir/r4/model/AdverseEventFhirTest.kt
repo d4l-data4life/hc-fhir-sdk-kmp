@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.AdverseEventActuality
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * AdverseEventTest.java
@@ -59,7 +59,6 @@ class AdverseEventFhirTest {
     }
 
     private fun assertAdverseEvent01Step01(data: AdverseEvent) {
-
         assertEquals(
             expected = AdverseEventActuality.ACTUAL,
             actual = data.actuality

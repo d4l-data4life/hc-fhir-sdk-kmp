@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.FHIRDeviceStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.UDIEntryType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DeviceTest.java
@@ -64,7 +64,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice01Step01(data: Device) {
-
         assertEquals(
             expected = ContactPointSystem.URL,
             actual = data.contact?.get(0)?.system
@@ -143,7 +142,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice02Step01(data: Device) {
-
         assertEquals(
             expected = "2020-02-02",
             actual = data.expirationDate?.value.toString()
@@ -261,7 +259,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice03Step01(data: Device) {
-
         assertEquals(
             expected = "2014-02-01",
             actual = data.expirationDate?.value.toString()
@@ -362,7 +359,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice04Step01(data: Device) {
-
         assertEquals(
             expected = "2020-08-08",
             actual = data.expirationDate?.value.toString()
@@ -451,7 +447,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice05Step01(data: Device) {
-
         assertEquals(
             expected = ContactPointSystem.PHONE,
             actual = data.contact?.get(0)?.system
@@ -548,7 +543,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice06Step01(data: Device) {
-
         assertEquals(
             expected = "example-udi4",
             actual = data.id
@@ -621,7 +615,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice07Step01(data: Device) {
-
         assertEquals(
             expected = "ihe-pcd",
             actual = data.id
@@ -701,7 +694,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice08Step01(data: Device) {
-
         assertEquals(
             expected = ContactPointSystem.PHONE,
             actual = data.contact?.get(0)?.system
@@ -844,7 +836,6 @@ class DeviceFhirTest {
     }
 
     private fun assertDevice09Step01(data: Device) {
-
         assertEquals(
             expected = "2014-11-20",
             actual = data.expirationDate?.value.toString()

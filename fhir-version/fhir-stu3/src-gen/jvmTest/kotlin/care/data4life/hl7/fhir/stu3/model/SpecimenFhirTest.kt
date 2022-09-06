@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.FhirStu3Parser
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.stu3.codesystem.SpecimenStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SpecimenTest.java
@@ -57,7 +57,6 @@ class SpecimenFhirTest {
     }
 
     private fun assertSpecimen01Step01(data: Specimen) {
-
         assertEquals(
             expected = "http://lab.acme.org/specimens/2011",
             actual = data.accessionIdentifier?.system
@@ -176,7 +175,6 @@ class SpecimenFhirTest {
     }
 
     private fun assertSpecimen02Step01(data: Specimen) {
-
         assertEquals(
             expected = "http://lab.acme.org/specimens/2015",
             actual = data.accessionIdentifier?.system
@@ -322,7 +320,6 @@ class SpecimenFhirTest {
     }
 
     private fun assertSpecimen03Step01(data: Specimen) {
-
         assertEquals(
             expected = "http://acme.com/labs/accession-ids",
             actual = data.accessionIdentifier?.system
@@ -425,7 +422,6 @@ class SpecimenFhirTest {
     }
 
     private fun assertSpecimen04Step01(data: Specimen) {
-
         assertEquals(
             expected = "http://lab.acme.org/specimens/2011",
             actual = data.accessionIdentifier?.system

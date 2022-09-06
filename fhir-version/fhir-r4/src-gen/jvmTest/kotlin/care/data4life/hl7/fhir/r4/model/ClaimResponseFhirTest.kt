@@ -23,9 +23,9 @@ import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.r4.codesystem.NoteType
 import care.data4life.hl7.fhir.r4.codesystem.Use
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * ClaimResponseTest.java
@@ -60,7 +60,6 @@ class ClaimResponseFhirTest {
     }
 
     private fun assertClaimResponse01Step01(data: ClaimResponse) {
-
         assertEquals(
             expected = "USD",
             actual = data.addItem?.get(0)?.adjudication?.get(0)?.amount?.currency
@@ -479,7 +478,6 @@ class ClaimResponseFhirTest {
     }
 
     private fun assertClaimResponse02Step01(data: ClaimResponse) {
-
         assertEquals(
             expected = "USD",
             actual = data.addItem?.get(0)?.adjudication?.get(0)?.amount?.currency
@@ -1046,7 +1044,6 @@ class ClaimResponseFhirTest {
     }
 
     private fun assertClaimResponse02Step02(data: ClaimResponse) {
-
         assertEquals(
             expected = "benefit",
             actual = data.item?.get(2)?.detail?.get(1)?.adjudication?.get(1)?.category?.coding?.get(0)?.code
@@ -1277,7 +1274,6 @@ class ClaimResponseFhirTest {
     }
 
     private fun assertClaimResponse03Step01(data: ClaimResponse) {
-
         assertEquals(
             expected = "2014-08-16",
             actual = data.created?.value.toString()
@@ -1597,7 +1593,6 @@ class ClaimResponseFhirTest {
     }
 
     private fun assertClaimResponse04Step01(data: ClaimResponse) {
-
         assertEquals(
             expected = "2014-08-16",
             actual = data.created?.value.toString()
@@ -2160,7 +2155,6 @@ class ClaimResponseFhirTest {
     }
 
     private fun assertClaimResponse04Step02(data: ClaimResponse) {
-
         assertEquals(
             expected = "urn:ietf:bcp:47",
             actual = data.processNote?.get(0)?.language?.coding?.get(0)?.system
@@ -2288,7 +2282,6 @@ class ClaimResponseFhirTest {
     }
 
     private fun assertClaimResponse05Step01(data: ClaimResponse) {
-
         assertEquals(
             expected = "CommunicationRequest/fm-solicit",
             actual = data.communicationRequest?.get(0)?.reference

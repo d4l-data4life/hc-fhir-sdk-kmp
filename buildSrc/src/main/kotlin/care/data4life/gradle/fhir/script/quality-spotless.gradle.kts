@@ -52,7 +52,7 @@ plugins {
     id("com.diffplug.spotless")
 }
 
-val ktlintVersion = "0.41.0"
+val ktlintVersion = "0.46.1"
 
 spotless {
     kotlin {
@@ -62,7 +62,7 @@ spotless {
             "fhir-version/fhir-stu3/parser/",
             "fhir-version/fhir-r4/parser/",
         )
-        ktlint(ktlintVersion).userData(
+        ktlint(ktlintVersion).editorConfigOverride(
             mapOf(
                 "disabled_rules" to "no-wildcard-imports",
                 "ij_kotlin_imports_layout" to "*"

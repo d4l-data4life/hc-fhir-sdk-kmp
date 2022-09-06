@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.DiagnosticReportStatus
 import care.data4life.hl7.fhir.stu3.codesystem.IdentifierUse
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * DiagnosticReportTest.java
@@ -61,7 +61,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport01Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "#req",
             actual = data.basedOn?.get(0)?.reference
@@ -223,7 +222,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport02Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "GHP",
             actual = data.code?.coding?.get(0)?.code
@@ -455,7 +453,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport03Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "HM",
             actual = data.category?.coding?.get(0)?.code
@@ -616,7 +613,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport04Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "#req",
             actual = data.basedOn?.get(0)?.reference
@@ -795,7 +791,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport05Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "394914008",
             actual = data.category?.coding?.get(0)?.code
@@ -932,7 +927,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport06Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "394914008",
             actual = data.category?.coding?.get(0)?.code
@@ -1087,7 +1081,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport07Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "15220000",
             actual = data.category?.coding?.get(0)?.code
@@ -1260,7 +1253,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport08Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "HM",
             actual = data.category?.coding?.get(0)?.code
@@ -1547,7 +1539,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport09Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "47527-7",
             actual = data.code?.coding?.get(0)?.code
@@ -1618,7 +1609,6 @@ class DiagnosticReportFhirTest {
     }
 
     private fun assertDiagnosticReport10Step01(data: DiagnosticReport) {
-
         assertEquals(
             expected = "PAT",
             actual = data.category?.coding?.get(0)?.code

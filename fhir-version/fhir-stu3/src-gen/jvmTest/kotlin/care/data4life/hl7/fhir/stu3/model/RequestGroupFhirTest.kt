@@ -28,9 +28,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.RequestIntent
 import care.data4life.hl7.fhir.stu3.codesystem.RequestPriority
 import care.data4life.hl7.fhir.stu3.codesystem.RequestStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * RequestGroupTest.java
@@ -66,7 +66,6 @@ class RequestGroupFhirTest {
     }
 
     private fun assertRequestGroup01Step01(data: RequestGroup) {
-
         assertEquals(
             expected = "day",
             actual = data.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.action?.get(0)?.extension?.get(0)?.extension?.get(0)?.url
@@ -306,7 +305,6 @@ class RequestGroupFhirTest {
     }
 
     private fun assertRequestGroup02Step01(data: RequestGroup) {
-
         assertEquals(
             expected = "Administer medication 1",
             actual = data.action?.get(0)?.action?.get(0)?.description

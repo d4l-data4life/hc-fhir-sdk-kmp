@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.r4.FhirR4Parser
 import care.data4life.hl7.fhir.r4.codesystem.EpisodeOfCareStatus
 import care.data4life.hl7.fhir.r4.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * EpisodeOfCareTest.java
@@ -59,7 +59,6 @@ class EpisodeOfCareFhirTest {
     }
 
     private fun assertEpisodeOfCare01Step01(data: EpisodeOfCare) {
-
         assertEquals(
             expected = "example account",
             actual = data.account?.get(0)?.display

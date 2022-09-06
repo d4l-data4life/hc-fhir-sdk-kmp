@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.QualityType
 import care.data4life.hl7.fhir.stu3.codesystem.RepositoryType
 import care.data4life.hl7.fhir.stu3.primitive.Decimal
 import care.data4life.hl7.fhir.stu3.primitive.Integer
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirSequence

@@ -29,53 +29,45 @@ object Version {
     /**
      * [Kotlin](https://github.com/JetBrains/kotlin)
      */
-    const val kotlin = "1.5.21"
+    const val kotlin = "1.7.10"
 
     object GradlePlugin {
         const val kotlin = Version.kotlin
-        const val android = "7.0.2"
+        const val android = "7.2.2"
     }
 
     object Multiplatform {
 
         val kotlin = Kotlin
-        val d4l = D4L
 
         object Kotlin {
             /**
              * [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
              */
-            const val coroutines = "1.5.1-native-mt"
+            const val coroutines = "1.6.3-native-mt"
 
             /**
              * [Serialization](https://github.com/Kotlin/kotlinx.serialization)
              */
-            const val serialization = "1.2.2"
+            const val serialization = "1.3.3"
 
             /**
              * [DateTime](https://github.com/Kotlin/kotlinx-datetime)
              */
-            const val dateTime = "0.2.1"
-        }
-
-        object D4L {
-            /**
-             * [hc-util-kmp](https://github.com/d4l-data4life/hc-util-kmp)
-             */
-            const val utilSdk = "1.11.0"
+            const val dateTime = "0.4.0"
         }
 
         /**
          * [Koin](https://github.com/InsertKoinIO/koin)
          */
-        const val koin = "3.0.2"
+        const val koin = "3.1.6"
     }
 
     object MultiplatformTest {
         /**
          * [mockk](http://mockk.io)
          */
-        const val mockK = "1.10.6"
+        const val mockK = "1.12.5"
     }
 
     object Jvm {
@@ -83,13 +75,13 @@ object Version {
         /**
          * [BouncyCastle](http://www.bouncycastle.org/java.html)
          */
-        const val bouncyCastle = "1.64"
+        const val bouncyCastle = "1.71"
     }
 
     object JvmTest {
         const val jUnit = "4.13.2"
 
-        const val jsonAssert = "1.5.0"
+        const val jsonAssert = "1.5.1"
     }
 
     object Android {
@@ -99,27 +91,26 @@ object Version {
         /**
          * [Android Desugar](https://developer.android.com/studio/write/java8-support)
          */
-        const val androidDesugar = "1.0.9"
+        const val androidDesugar = "1.1.5"
 
         object AndroidX {
             /**
              * [AndroidX](https://developer.android.com/jetpack/androidx)
              */
-            const val core = "1.1.0"
-            const val ktx = "1.6.0"
-            const val appCompat = "1.3.1"
-            const val browser = "1.2.0"
+            const val ktx = "1.8.0"
+            const val appCompat = "1.5.0"
+            const val browser = "1.4.0"
 
-            const val constraintLayout = "2.0.1"
+            const val constraintLayout = "2.1.4"
 
-            const val lifecycle = "2.3.1"
-            const val navigation = "2.3.5"
+            const val lifecycle = "2.5.1"
+            const val navigation = "2.5.1"
         }
 
         /**
          * [Material Android](https://github.com/material-components/material-components-android)
          */
-        const val material = "1.4.0"
+        const val material = "1.6.1"
     }
 
     object AndroidTest {
@@ -127,13 +118,13 @@ object Version {
          * [Android Testing](https://developer.android.com/testing)
          */
         const val androidXTestCore = "1.4.0"
-        const val androidXTestJunit = "1.1.2"
+        const val androidXTestJunit = "1.1.3"
         const val androidXEspresso = "3.4.0"
         const val androidXUiAutomator = "2.2.0"
 
         /**
          * [Robolectric](https://github.com/robolectric/robolectric)
          */
-        const val robolectric = "4.6.1"
+        const val robolectric = "4.8.1"
     }
 }

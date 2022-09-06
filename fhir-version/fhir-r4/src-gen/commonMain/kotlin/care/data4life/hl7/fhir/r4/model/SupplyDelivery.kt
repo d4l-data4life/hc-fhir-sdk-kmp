@@ -18,9 +18,9 @@ package care.data4life.hl7.fhir.r4.model
 
 import care.data4life.hl7.fhir.r4.codesystem.SupplyDeliveryStatus
 import care.data4life.hl7.fhir.r4.primitive.DateTime
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirSupplyDelivery

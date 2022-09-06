@@ -25,9 +25,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.StructureMapGroupTypeMode
 import care.data4life.hl7.fhir.stu3.codesystem.StructureMapInputMode
 import care.data4life.hl7.fhir.stu3.codesystem.StructureMapTransform
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * StructureMapTest.java
@@ -60,7 +60,6 @@ class StructureMapFhirTest {
     }
 
     private fun assertStructureMap01Step01(data: StructureMap) {
-
         assertEquals(
             expected = ContactPointSystem.URL,
             actual = data.contact?.get(0)?.telecom?.get(0)?.system

@@ -19,9 +19,9 @@ package care.data4life.hl7.fhir.r4.model
 import care.data4life.hl7.fhir.r4.codesystem.DiagnosticReportStatus
 import care.data4life.hl7.fhir.r4.primitive.DateTime
 import care.data4life.hl7.fhir.r4.primitive.Instant
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirDiagnosticReport

@@ -22,9 +22,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.MedicationRequestIntent
 import care.data4life.hl7.fhir.stu3.codesystem.MedicationRequestStatus
 import care.data4life.hl7.fhir.stu3.codesystem.NarrativeStatus
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MedicationRequestTest.java
@@ -62,7 +62,6 @@ class MedicationRequestFhirTest {
     }
 
     private fun assertMedicationRequest01Step01(data: MedicationRequest) {
-
         assertEquals(
             expected = "2015-01-15",
             actual = data.authoredOn?.value.toString()
@@ -388,7 +387,6 @@ class MedicationRequestFhirTest {
     }
 
     private fun assertMedicationRequest02Step01(data: MedicationRequest) {
-
         assertEquals(
             expected = "2015-03-01",
             actual = data.authoredOn?.value.toString()

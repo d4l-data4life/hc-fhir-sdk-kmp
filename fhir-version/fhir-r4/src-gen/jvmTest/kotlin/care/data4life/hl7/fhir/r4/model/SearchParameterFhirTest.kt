@@ -26,9 +26,9 @@ import care.data4life.hl7.fhir.r4.codesystem.SearchModifierCode
 import care.data4life.hl7.fhir.r4.codesystem.SearchParamType
 import care.data4life.hl7.fhir.r4.codesystem.XPathUsageType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * SearchParameterTest.java
@@ -63,7 +63,6 @@ class SearchParameterFhirTest {
     }
 
     private fun assertSearchParameter01Step01(data: SearchParameter) {
-
         assertEquals(
             expected = ResourceType.PATIENT,
             actual = data.base?.get(0)
@@ -178,7 +177,6 @@ class SearchParameterFhirTest {
     }
 
     private fun assertSearchParameter02Step01(data: SearchParameter) {
-
         assertEquals(
             expected = ResourceType.CONDITION,
             actual = data.base?.get(0)
@@ -321,7 +319,6 @@ class SearchParameterFhirTest {
     }
 
     private fun assertSearchParameter03Step01(data: SearchParameter) {
-
         assertEquals(
             expected = ResourceType.RESOURCE,
             actual = data.base?.get(0)

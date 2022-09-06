@@ -22,14 +22,14 @@ import care.data4life.hl7.fhir.r4.model.FhirResource
 import care.data4life.hl7.fhir.r4.test.data.FhirContainedTestObject
 import care.data4life.hl7.fhir.r4.test.data.FhirResourceTestObject
 import care.data4life.hl7.fhir.r4.test.data.FhirSimpleTestObject
-import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.plus
-import kotlinx.serialization.modules.polymorphic
-import kotlinx.serialization.modules.subclass
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
+import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.modules.plus
+import kotlinx.serialization.modules.polymorphic
+import kotlinx.serialization.modules.subclass
 
 class FhirR4JsonParserTest {
 

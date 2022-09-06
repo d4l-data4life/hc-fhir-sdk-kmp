@@ -24,9 +24,9 @@ import care.data4life.hl7.fhir.r4.codesystem.RepositoryType
 import care.data4life.hl7.fhir.r4.codesystem.SequenceType
 import care.data4life.hl7.fhir.r4.codesystem.StrandType
 import care.data4life.hl7.fhir.test.util.FileHelper.loadAsString
+import kotlin.test.assertEquals
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import kotlin.test.assertEquals
 
 /**
  * MolecularSequenceTest.java
@@ -61,7 +61,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence01Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "0".toInt(),
             actual = data.coordinateSystem?.value
@@ -177,7 +176,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence02Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "0".toInt(),
             actual = data.coordinateSystem?.value
@@ -298,7 +296,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence03Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "1".toInt(),
             actual = data.coordinateSystem?.value
@@ -575,7 +572,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence04Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "1".toInt(),
             actual = data.coordinateSystem?.value
@@ -696,7 +692,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence05Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "0".toInt(),
             actual = data.coordinateSystem?.value
@@ -828,7 +823,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence06Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "0".toInt(),
             actual = data.coordinateSystem?.value
@@ -966,7 +960,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence07Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "1".toInt(),
             actual = data.coordinateSystem?.value
@@ -1189,7 +1182,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence08Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "1".toInt(),
             actual = data.coordinateSystem?.value
@@ -1360,7 +1352,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence09Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "0".toInt(),
             actual = data.coordinateSystem?.value
@@ -1459,7 +1450,6 @@ class MolecularSequenceFhirTest {
     }
 
     private fun assertMolecularSequence10Step01(data: MolecularSequence) {
-
         assertEquals(
             expected = "0".toInt(),
             actual = data.coordinateSystem?.value

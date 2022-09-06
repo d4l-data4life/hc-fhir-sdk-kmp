@@ -21,9 +21,9 @@ import care.data4life.hl7.fhir.stu3.primitive.Bool
 import care.data4life.hl7.fhir.stu3.primitive.Date
 import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import care.data4life.hl7.fhir.stu3.primitive.PositiveInteger
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirImmunization

@@ -20,9 +20,9 @@ import care.data4life.hl7.fhir.stu3.codesystem.DigitalMediaType
 import care.data4life.hl7.fhir.stu3.primitive.DateTime
 import care.data4life.hl7.fhir.stu3.primitive.PositiveInteger
 import care.data4life.hl7.fhir.stu3.primitive.UnsignedInteger
+import kotlin.jvm.JvmStatic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.jvm.JvmStatic
 
 /**
  * FhirMedia
